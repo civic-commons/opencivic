@@ -248,42 +248,49 @@ projects[wysiwyg_button_order][version] = "1.x-dev"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+projects[architecture][subdir] = contrib
 projects[architecture][download][type] = ""
 projects[architecture][download][url] = ""
 projects[architecture][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
-projects[better_text_format][download][type] = ""
-projects[better_text_format][download][url] = ""
+projects[better_text_format][subdir] = contrib
+projects[better_text_format][download][type] = "git"
+projects[better_text_format][download][url] = "sheldon@git.drupal.org:sandbox/sheldon/1812408.git"
 projects[better_text_format][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+projects[fivestar_green][subdir] = contrib
 projects[fivestar_green][download][type] = ""
 projects[fivestar_green][download][url] = ""
 projects[fivestar_green][type] = "module"
 
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
-projects[fillerwriter-geocode][download][type] = ""
-projects[fillerwriter-geocode][download][url] = ""
+; The Hackathon version of the Geocode module has been hacked to include
+; dependencies on cc_awe.module. This needs to be cleaned up.
+projects[fillerwriter-geocode][subdir] = contrib
+projects[fillerwriter-geocode][download][type] = "git"
+projects[fillerwriter-geocode][download][url] = "https://github.com/fillerwriter/geocode.git"
 projects[fillerwriter-geocode][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+projects[search_api_solr][subdir] = contrib
 projects[search_api_solr][download][type] = ""
 projects[search_api_solr][download][url] = ""
 projects[search_api_solr][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+projects[subscriptions_subscribers][subdir] = contrib
 projects[subscriptions_subscribers][download][type] = ""
 projects[subscriptions_subscribers][download][url] = ""
 projects[subscriptions_subscribers][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+projects[transclude][subdir] = contrib
 projects[transclude][download][type] = ""
 projects[transclude][download][url] = ""
 projects[transclude][type] = "module"
