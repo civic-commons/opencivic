@@ -308,7 +308,7 @@ libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEdi
 ; libraries[FirePHPCore][type] = "library"
 
 ; geoPHP download URL taken from cm.
-libraries[geophp][download][type] = "get"
+; libraries[geophp][download][type] = "get"
 ; https://github.com/phayes/geoPHP
 ; https://github.com/phayes/geoPHP/archive/master.zip
 ; https://github.com/downloads/phayes/geoPHP/geoPHP.tar.gz
