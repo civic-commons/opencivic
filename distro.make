@@ -19,5 +19,5 @@ projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portab
 
 projects[apps_catalog][type] = profile
 projects[apps_catalog][download][type] = git
-projects[apps_catalog][download][url] = http://git.drupal.org/project/apps_catalog.git
-projects[apps_catalog][download][branch] = 7.x-2.x
+projects[apps_catalog][download][url] = https://github.com/nuams/apps_catalog.git
+; projects[apps_catalog][download][branch] = 7.x-2.x
