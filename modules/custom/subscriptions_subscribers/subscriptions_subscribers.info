@@ -1,0 +1,6 @@
+name = Subscriptions subscribers
+description = "Adds a listing of current subscribers to the subscriptions_ui block"
+core = 7.x
+files[] = subscriptions_subscribers.module
+dependencies[] = subscriptions_ui
+version = "7.x-1.x-dev"
