@@ -54,8 +54,8 @@ projects[content_taxonomy][version] = "1.0-beta1"
 
 projects[context][subdir] = "contrib"
 
-projects[cnr][subdir] = "contrib"
-projects[cnr][version] = "4.22"
+projects[cer][subdir] = "contrib"
+projects[cer][version] = "1.x-dev"
 
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][version] = "1.2"
