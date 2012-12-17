@@ -3,13 +3,10 @@ core = 7.x
 
 ; Modules =====================================================================
 
-; projects[admin][subdir] = contrib
-; projects[admin][version] = 2.0-beta3
-
-projects[coder][subdir] = contrib
+projects[coder][subdir] = devel
 projects[coder][version] = 1.2
 
-projects[diff][subdir] = contrib
+projects[diff][subdir] = devel
 projects[diff][version] = 3.2
 
 projects[openidadmin][subdir] = contrib
@@ -40,7 +37,7 @@ projects[block_class][version] = "1.2"
 
 projects[ctools][subdir] = "contrib"
 
-projects[bundle_copy][subdir] = "contrib"
+projects[bundle_copy][subdir] = "devel"
 projects[bundle_copy][version] = "1.1"
 
 projects[captcha][subdir] = "contrib"
@@ -144,14 +141,15 @@ projects[media_youtube][version] = "2.0-rc1"
 projects[nice_menus][subdir] = "contrib"
 projects[nice_menus][version] = "2.1"
 
-projects[references][subdir] = "contrib"
-projects[references][version] = "2.0"
+; References has been replaced with the Entity Reference module
+; projects[references][subdir] = "contrib"
+; projects[references][version] = "2.0"
 
 projects[nodequeue][subdir] = "contrib"
 projects[nodequeue][version] = "2.0-beta1"
 
-projects[nodereference_url][subdir] = "contrib"
-projects[nodereference_url][version] = "1.12"
+; projects[nodereference_url][subdir] = "contrib"
+; projects[nodereference_url][version] = "1.12"
 
 projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
@@ -245,10 +243,30 @@ projects[wysiwyg][version] = "2.2"
 projects[wysiwyg_button_order][subdir] = "contrib"
 projects[wysiwyg_button_order][version] = "1.x-dev"
 
+; Schema.org kickstart modules ======================================================
+
+projects[devel][version] = "1.3"
+projects[devel][subdir] = "contrib"
+
+projects[entityreference][version] = "1.0"
+projects[entityreference][subdir] = "contrib"
+
+projects[rdfx][version] = "2.0-alpha4"
+projects[rdfx][subdir] = "contrib"
+
+projects[field_tools][version] = "1.0-alpha3"
+projects[field_tools][subdir] = "contrib"
+
+projects[inline_entity_form][version] = "1.0-rc1"
+projects[inline_entity_form][subdir] = "contrib"
+
+projects[schemaorg][version] = "1.0-beta3"
+projects[schemaorg][subdir] = "contrib"
+
 ; Nuams modules =====================================================================
 
 ; Architecture module.
-projects[architecture][subdir] = contrib
+projects[architecture][subdir] = devel
 
 ; Better Text Formats module.
 projects[better_text_format][subdir] = contrib
@@ -372,7 +390,7 @@ projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta8
 projects[omega][version] = "3.1"
 
-projects[cat_lover][download][type] = "get"
+projects[cat_lover][download][type] = "git"
 projects[cat_lover][download][url] = "https://github.com/NewAmsterdamIdeas/cat_lover.git"
 projects[cat_lover][type] = "theme"
 

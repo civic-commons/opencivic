@@ -3,13 +3,25 @@ core = 7.x
 description = Build a catalog of Software Applications.
 
 ; Core
-dependencies[] = book
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
 dependencies[] = contact
+dependencies[] = contextual
+dependencies[] = dashboard
 dependencies[] = dblog
 dependencies[] = field_ui
 dependencies[] = file
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
 dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
 dependencies[] = path
+dependencies[] = rdf
+dependencies[] = shortcut
 dependencies[] = taxonomy
 
 ; Contrib
@@ -21,9 +33,12 @@ dependencies[] = coder_review
 dependencies[] = context
 dependencies[] = context_ui
 dependencies[] = ctools
+dependencies[] = date
 dependencies[] = devel
 dependencies[] = diff
 dependencies[] = features
+dependencies[] = schemaorg
 dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_ui
+
