@@ -256,8 +256,8 @@ projects[architecture][type] = "module"
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
 projects[better_text_format][subdir] = contrib
-projects[better_text_format][download][type] = ""
-projects[better_text_format][download][url] = ""
+projects[better_text_format][download][type] = "get"
+projects[better_text_format][download][url] = "http://drupalcode.org/sandbox/sheldon/1812408.git/snapshot/HEAD.tar.gz"
 projects[better_text_format][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
