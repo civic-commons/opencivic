@@ -121,7 +121,8 @@ dependencies[] = strongarm
 dependencies[] = stylizer
 dependencies[] = styles
 dependencies[] = styles_ui
-dependencies[] = syntaxhighlighter
+; Removing for now, see Ticket #2.
+;dependencies[] = syntaxhighlighter
 dependencies[] = subscriptions
 dependencies[] = subscriptions_content
 dependencies[] = subscriptions_mail
