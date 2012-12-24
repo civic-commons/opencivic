@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Install, update and uninstall functions for the standard installation profile.
+ * Install, update and uninstall functions for the Apps Catalog installation profile.
  */
 
 /**
@@ -435,4 +435,12 @@
     ->execute();
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
+  apps_catalog_set_google_fonts();
+}
+
+function apps_catalog_set_google_fonts() {
+  variable_set('google_fonts_enabled_fonts', array(
+    'Oswald' => array('family' => 'Oswald'),
+    'PT_Sans' => array('family' => 'PT_Sans'),
+  ));
 }

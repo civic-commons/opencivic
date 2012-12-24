@@ -3,10 +3,7 @@ core = 7.x
 
 ; Modules =====================================================================
 
-projects[coder][subdir] = devel
-projects[coder][version] = 1.2
-
-projects[diff][subdir] = devel
+projects[diff][subdir] = contrib
 projects[diff][version] = 3.2
 
 projects[openidadmin][subdir] = contrib
@@ -36,9 +33,6 @@ projects[block_class][subdir] = "contrib"
 projects[block_class][version] = "1.2"
 
 projects[ctools][subdir] = "contrib"
-
-projects[bundle_copy][subdir] = "devel"
-projects[bundle_copy][version] = "1.1"
 
 projects[captcha][subdir] = "contrib"
 projects[captcha][version] = "1.0-beta2"
@@ -245,9 +239,6 @@ projects[wysiwyg_button_order][version] = "1.x-dev"
 
 ; Schema.org kickstart modules ======================================================
 
-projects[devel][version] = "1.3"
-projects[devel][subdir] = "contrib"
-
 projects[entityreference][version] = "1.0"
 projects[entityreference][subdir] = "contrib"
 
@@ -265,20 +256,11 @@ projects[schemaorg][subdir] = "contrib"
 
 ; Nuams modules =====================================================================
 
-; Architecture module.
-projects[architecture][subdir] = devel
-
-; Better Text Formats module.
-projects[better_text_format][subdir] = contrib
-projects[better_text_format][download][type] = "get"
-projects[better_text_format][download][url] = "http://drupalcode.org/sandbox/sheldon/1812408.git/snapshot/HEAD.tar.gz"
-projects[better_text_format][type] = "module"
-
-; Entity Fields Builder module
-projects[efb][subdir] = devel
-projects[efb][download][type] = "get"
-projects[efb][download][url] = "http://drupalcode.org/sandbox/sheldon/1862210.git/snapshot/HEAD.tar.gz"
-projects[efb][type] = "module"
+; Label Help module.
+projects[label_help][subdir] = contrib
+projects[label_help][download][type] = "get"
+projects[label_help][download][url] = "http://drupalcode.org/sandbox/sheldon/1812408.git/snapshot/HEAD.tar.gz"
+projects[label_help][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
@@ -297,12 +279,6 @@ projects[fillerwriter-geocode][type] = "module"
 ; Search API Solr module.
 projects[search_api_solr][subdir] = contrib
 
-; Schema.org cache module
-projects[schemaorg_cache][subdir] = contrib
-projects[schemaorg_cache][download][type] = "get"
-projects[schemaorg_cache][download][url] = "http://drupalcode.org/sandbox/sheldon/1867720.git/snapshot/HEAD.tar.gz"
-projects[schemaorg_cache][type] = "module"
-
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
 ; projects[subscriptions_subscribers][subdir] = contrib
@@ -315,6 +291,34 @@ projects[transclude][subdir] = contrib
 projects[transclude][download][type] = "get"
 projects[transclude][download][url] = "http://drupalcode.org/sandbox/sheldon/1827730.git/snapshot/HEAD.tar.gz"
 projects[transclude][type] = "module"
+
+; Development modules ===========================================================
+
+projects[coder][subdir] = devel
+projects[coder][version] = 1.2
+
+projects[bundle_copy][subdir] = "devel"
+projects[bundle_copy][version] = "1.1"
+
+projects[uuid_features][subdir] = "devel"
+
+projects[devel][version] = "1.3"
+projects[devel][subdir] = "devel"
+
+; Architecture module.
+projects[architecture][subdir] = devel
+
+; Entity Fields Builder module
+projects[efb][subdir] = devel
+projects[efb][download][type] = "get"
+projects[efb][download][url] = "http://drupalcode.org/sandbox/sheldon/1862210.git/snapshot/HEAD.tar.gz"
+projects[efb][type] = "module"
+
+; Schema.org cache module
+projects[schemaorg_cache][subdir] = devel
+projects[schemaorg_cache][download][type] = "get"
+projects[schemaorg_cache][download][url] = "http://drupalcode.org/sandbox/sheldon/1867720.git/snapshot/HEAD.tar.gz"
+projects[schemaorg_cache][type] = "module"
 
 ; Libraries =====================================================================
 
