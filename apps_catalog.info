@@ -28,6 +28,7 @@ dependencies[] = taxonomy
 dependencies[] = addanother
 dependencies[] = addressfield
 dependencies[] = addtoany
+dependencies[] = admin_menu
 dependencies[] = auto_nodetitle
 dependencies[] = autocomplete_deluxe
 dependencies[] = openid

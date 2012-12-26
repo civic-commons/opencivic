@@ -68,13 +68,13 @@
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-  // Enable the Rubik theme
-  theme_enable(array('bartik'));
-  variable_set('theme_default', 'bartik');
+  // Enable the Cat Lover theme
+  theme_enable(array('cat_lover'));
+  variable_set('theme_default', 'cat_lover');
 
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'bartik');
-  $admin_theme = 'seven';
+  $default_theme = variable_get('theme_default', 'cat_lover');
+  $admin_theme = 'cat_lover_admin';
   $blocks = array(
     array(
       'module' => 'system',
@@ -431,9 +431,9 @@
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'seven')
+    ->condition('name', 'cat_lover_admin')
     ->execute();
-  variable_set('admin_theme', 'seven');
+  variable_set('admin_theme', 'cat_lover_admin');
   variable_set('node_admin_theme', '1');
   apps_catalog_set_google_fonts();
 }
