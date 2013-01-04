@@ -114,6 +114,8 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[jump_menu][subdir] = "contrib"
 projects[jump_menu][version] = "1.4"
 
+projects[label_help][subdir] = contrib
+
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "1.0"
 
@@ -255,12 +257,6 @@ projects[schemaorg][version] = "1.0-beta3"
 projects[schemaorg][subdir] = "contrib"
 
 ; Nuams modules =====================================================================
-
-; Label Help module.
-projects[label_help][subdir] = contrib
-projects[label_help][download][type] = "get"
-projects[label_help][download][url] = "http://drupalcode.org/sandbox/sheldon/1812408.git/snapshot/HEAD.tar.gz"
-projects[label_help][type] = "module"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
