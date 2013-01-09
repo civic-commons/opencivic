@@ -1,0 +1,8 @@
+name = Address Field Extras
+description = Adds additional format handler and field formatters to the Address Field module.
+core = 7.x
+version = 7.x-1.0-beta
+package = Fields
+files[] = addressfield_extras.module
+dependencies[] = ctools
+dependencies[] = addressfield

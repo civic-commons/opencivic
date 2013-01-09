@@ -1,0 +1,151 @@
+<?php
+
+//We have plugin here.
+function addressfield_extras_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'addressfield') {
+    return $plugin;
+  }
+}
+
+function addressfield_extras_field_formatter_info() {
+  return array(
+    'addressfield_city_only' => array(
+      'label' => t('City only'),
+      'description' => t('Output just the city, state and country part of an address field as a single line of comma-separated text.'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_country_only' => array(
+      'label' => t('Country only'),
+      'description' => t('Output just the country part of an address field as a single line.'),
+      'field types' => array('addressfield'),
+    ),
+  );
+}
+
+function addressfield_extras_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  module_load_include('inc', 'addressfield_extras', 'addressfield_extras');
+  if ($display['type'] == 'addressfield_city_only') {
+    $e = array();
+    foreach($items as $delta => $item) {
+      $c = isset($item['sub_administrative_area']) ? $item['sub_administrative_area'] : NULL;
+      $item['sub_administrative_area'] = (!empty($c) && empty($item['locality'])) ? t('@county County', array('@county' => $c)) : NULL;
+      $r = isset($item['administrative_area']) ? $item['administrative_area'] : NULL;
+      $c = isset($item['country']) ? $item['country'] : NULL;
+      $item['administrative_area'] = !in_array($c, array('US', 'CA')) ? _addressfield_extras_region($r, $c) : $r;
+      $s = array($item['locality'], $item['sub_administrative_area'], $item['administrative_area'], $item['country']);
+      $a = array_filter($s);
+      $e[$delta]['#markup'] = implode(', ', $a);
+    }
+    return $e;
+  }
+  else if ($display['type'] == 'addressfield_country_only') {
+    $available_countries = _addressfield_country_options_list();
+    $e = array();
+    foreach($items as $delta => $item) {
+      $c = isset($item['country']) ? $item['country'] : NULL;
+      $s = array($item['country']);
+      $a = array_filter($s);
+      $code = implode(', ', $a);
+      $country = isset($available_countries[$code]) ? $available_countries[$code] : $code;
+      $e[$delta]['#markup'] = $country;
+    }
+    return $e;
+  }
+}
+
+
+//Error fix. See http://drupal.org/node/1175838 for details.
+function addressfield_extras_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  foreach($entities as $id => $entity) {
+    if(empty($items[$id])) {
+      $items[$id][] = array();
+    }
+  }
+}
+
+function addressfield_extras_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $disp = $instance['display'][$view_mode];
+  if($disp['type'] == 'using_sharing') {
+    $opts = array(
+      'organization' => t('By organization'),
+      'city' => t('By organizations in the same city')
+    );
+    return t('How to count: "!by".', array('!by' => $opts[$disp['settings']['count_by']]));
+  }
+}
+
+function addressfield_extras_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $r = array();
+  $disp = $instance['display'][$view_mode];
+  if($disp['type'] == 'using_sharing') {
+    $sets = $disp['settings'];
+    $class = drupal_html_class($field['field_name'] . '-count-by');
+    $r['count_by'] = array(
+      '#title' => t('How To Count'),
+      '#type' => 'select',
+      '#multiple' => FALSE,
+      '#default_value' => $sets['count_by'],
+      '#attributes' => array('class' => array($class))
+    );
+    $r['count_by']['#options'] = array(
+      'organization' => t('By organization'),
+      'city' => t('By organizations in the same city')
+    );
+    $r['filter_by'] = array(
+      '#title' => t('Filter'),
+      '#type' => 'select',
+      '#description' => t('Count only by organizations of selected types.'),
+      '#multiple' => TRUE,
+      '#default_value' => $sets['filter_by'],
+      '#states' => array('invisible' => array('.' . $class => array('value' => 'organization')))
+    );
+    $r['appearance'] = array(
+      '#title' => t('Appearance'),
+      '#type' => 'select',
+      '#multiple' => FALSE,
+      '#default_value' => $sets['appearance']
+    );
+    $r['appearance']['#options'] = array(
+      '' => t('Default'),
+      'full' => t('Full')
+    );
+    $types = taxonomy_get_tree('13');//13 - "Organization Type" vid.
+    $opts = array();
+    foreach($types as $type) {
+      $opts[$type->tid] = $type->name;
+    }
+    $r['filter_by']['#options'] = $opts;
+  }
+  return $r;
+}
+
+//Region name.
+//$fip - our special region code.
+//$iso - country code (ISO standard).
+function _addressfield_extras_region($fip, $iso) {
+  return _addressfield_extras_unquote(db_select('regions')
+    ->fields('regions', array('name'))
+    ->condition('fip', $fip, '=')
+    ->condition('iso', $iso, '=')
+    ->execute()
+    ->fetchField(0));
+}
+
+//No double quotes!
+function _addressfield_extras_unquote($string) {
+  return trim($string, '"');
+}
+
+//Is not options list separator (double dash).
+function _addressfield_extras_is_not_separator($string) {
+  return $string != '--';
+}
+
+//Keyed array of regions in a country.
+function _addressfield_extras_regions($country) {
+  return array_map('_addressfield_extras_unquote', db_select('regions')
+    ->fields('regions', array('fip', 'name'))
+    ->condition('iso', $country, '=')
+    ->execute()
+    ->fetchAllKeyed(0));
+}

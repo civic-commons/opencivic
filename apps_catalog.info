@@ -147,6 +147,7 @@ dependencies[] = wysiwyg_button_order
 ; Custom
 dependencies[] = fivestar_green
 dependencies[] = subscriptions_subscribers
+dependencies[] = addressfield_extras
 
 ; Devel
 dependencies[] = devel
@@ -160,6 +161,11 @@ dependencies[] = taxonomy_csv
 dependencies[] = taxonomy_manager
 ; dependencies[] = field_tools
 
+; Devel
+dependencies[] = appcat_misc
+dependencies[] = appcat_misc_taxonomies
+dependencies[] = appcat_application_content
+dependencies[] = appcat_organization_content
 
 ; Included in distro but not enabled at installation
 ; dependencies[] = admin_menu
