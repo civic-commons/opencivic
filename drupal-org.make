@@ -312,8 +312,8 @@ projects[efb][type] = "module"
 
 ; Schema.org cache module
 projects[schemaorg_cache][subdir] = devel
-projects[schemaorg_cache][download][type] = "get"
-projects[schemaorg_cache][download][url] = "http://drupalcode.org/sandbox/sheldon/1867720.git/snapshot/HEAD.tar.gz"
+projects[schemaorg_cache][download][type] = "git"
+projects[schemaorg_cache][download][url] = "http://git.drupal.org/sandbox/sheldon/1867720.git"
 projects[schemaorg_cache][type] = "module"
 
 ; Libraries =====================================================================
