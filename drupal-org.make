@@ -296,7 +296,7 @@ projects[coder][version] = 1.2
 projects[bundle_copy][subdir] = "devel"
 projects[bundle_copy][version] = "1.1"
 
-projects[uuid_features][version] = "1.0-alpha-dev"
+projects[uuid_features][version] = "1.x-dev"
 projects[uuid_features][subdir] = "devel"
 
 projects[uuid][version] = "1.0-alpha3"
