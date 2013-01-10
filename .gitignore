@@ -1,4 +1,6 @@
 libraries
 modules/contrib
 modules/devel
-themes
+themes/tao
+themes/rubik
+themes/omega
