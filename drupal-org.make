@@ -129,7 +129,7 @@ projects[mail_edit][subdir] = "contrib"
 projects[mail_edit][version] = "1.0"
 
 projects[maxlength][subdir] = "contrib"
-projects[maxlength][version] = "3.0-dev"
+projects[maxlength][version] = "3.x-dev"
 
 projects[media_youtube][subdir] = "contrib"
 projects[media_youtube][version] = "2.0-rc1"
@@ -151,7 +151,7 @@ projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
-projects[openlayers][version] = "2.0-beta1-dev"
+projects[openlayers][version] = "2.x-dev"
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
@@ -296,10 +296,10 @@ projects[coder][version] = 1.2
 projects[bundle_copy][subdir] = "devel"
 projects[bundle_copy][version] = "1.1"
 
-projects[uuid_features][version] = "7.x-1.0-alpha-dev"
+projects[uuid_features][version] = "1.0-alpha-dev"
 projects[uuid_features][subdir] = "devel"
 
-projects[uuid][version] = "7.x-1.0-alpha3"
+projects[uuid][version] = "1.0-alpha3"
 projects[uuid][subdir] = "devel"
 
 projects[devel][version] = "1.3"
