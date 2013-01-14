@@ -479,6 +479,7 @@ function apps_catalog_additional_setup() {
       'appcat_misc_taxonomy_terms',
       'appcat_application_content',
       'appcat_organization_content',
+      'appcat_misc_default_content',
     )
   );
   # YES!!!
