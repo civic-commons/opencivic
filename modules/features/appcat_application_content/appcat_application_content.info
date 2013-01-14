@@ -5,7 +5,6 @@ package = AppCat application
 php = 5.2.4
 version = 7.x-1.0
 project = appcat_application_content
-dependencies[] = appcat_misc_taxonomies
 dependencies[] = autocomplete_deluxe
 dependencies[] = ctools
 dependencies[] = entityreference

@@ -92,6 +92,7 @@ dependencies[] = maxlength
 dependencies[] = media
 dependencies[] = media_internet
 dependencies[] = media_youtube
+dependencies[] = node_export
 dependencies[] = nodequeue
 dependencies[] = omega_tools
 dependencies[] = openlayers

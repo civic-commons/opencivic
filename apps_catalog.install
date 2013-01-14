@@ -452,7 +452,7 @@ function apps_catalog_install_tasks() {
   // Kick off the tasks.
   $tasks = array();
   $tasks['apps_catalog_additional_setup'] = array(
-    'display_name' => 'Cleanup',
+    'display_name' => 'Define content types',
   );
 /*
   $tasks['devel_generate_content_form'] = array(
@@ -474,12 +474,11 @@ function apps_catalog_install_tasks() {
 function apps_catalog_additional_setup() {
   module_enable(
     array(
-//      'appcat_misc',
       'appcat_misc_taxonomy_app_terms',
-//      'appcat_misc_taxonomy_civic_terms',
-//      'appcat_misc_taxonomy_terms',
-//      'appcat_application_content',
-//      'appcat_organization_content',
+      'appcat_misc_taxonomy_civic_terms',
+      'appcat_misc_taxonomy_terms',
+      'appcat_application_content',
+      'appcat_organization_content',
     )
   );
   # YES!!!

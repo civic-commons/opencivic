@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AppCat misc default content feature.
+ */
+
+include_once 'appcat_misc_default_content.features.inc';

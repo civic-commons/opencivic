@@ -308,6 +308,9 @@ projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefin
 projects[devel][version] = "1.3"
 projects[devel][subdir] = "devel"
 
+projects[node_export][version] = "3.0"
+projects[node_export][subdir] = "devel"
+
 ; Architecture module.
 projects[architecture][subdir] = devel
 
