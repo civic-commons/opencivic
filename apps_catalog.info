@@ -161,14 +161,17 @@ dependencies[] = taxonomy_csv
 dependencies[] = taxonomy_manager
 ; dependencies[] = field_tools
 
-; Devel
+; Features
 dependencies[] = appcat_misc
-dependencies[] = appcat_misc_taxonomies
-dependencies[] = appcat_application_content
-dependencies[] = appcat_organization_content
+;; dependencies[] = appcat_misc_taxonomies
+
+; dependencies[] = appcat_misc_taxonomy_app_terms
+; dependencies[] = appcat_misc_taxonomy_civic_terms
+; dependencies[] = appcat_misc_taxonomy_terms
+; dependencies[] = appcat_application_content
+; dependencies[] = appcat_organization_content
 
 ; Included in distro but not enabled at installation
-; dependencies[] = admin_menu
 ; dependencies[] = inline_entity_form
 ; dependencies[] = insert_block
 ; dependencies[] = nice_menus

@@ -74,7 +74,7 @@
 
   // Enable some standard blocks.
   $default_theme = variable_get('theme_default', 'cat_lover');
-  $admin_theme = 'cat_lover_admin';
+  $admin_theme = 'seven';
   $blocks = array(
     array(
       'module' => 'system',
@@ -433,7 +433,7 @@
     ->condition('type', 'theme')
     ->condition('name', 'cat_lover_admin')
     ->execute();
-  variable_set('admin_theme', 'cat_lover_admin');
+  variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
   apps_catalog_set_google_fonts();
 }
@@ -443,4 +443,45 @@ function apps_catalog_set_google_fonts() {
     'Oswald' => array('family' => 'Oswald'),
     'PT_Sans' => array('family' => 'PT_Sans'),
   ));
+}
+
+/**
+ * Implements hook_install_tasks()
+ */
+function apps_catalog_install_tasks() {
+  // Kick off the tasks.
+  $tasks = array();
+  $tasks['apps_catalog_additional_setup'] = array(
+    'display_name' => 'Cleanup',
+  );
+/*
+  $tasks['devel_generate_content_form'] = array(
+    'display_name' => 'Create dummy content',
+    'type' => 'form',
+  );
+*/
+/*
+  $tasks['cache_clear_all'] = array(
+    'display_name' => 'Clear all caches',
+  );
+*/
+  return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks()
+ */
+function apps_catalog_additional_setup() {
+  module_enable(
+    array(
+//      'appcat_misc',
+      'appcat_misc_taxonomy_app_terms',
+//      'appcat_misc_taxonomy_civic_terms',
+//      'appcat_misc_taxonomy_terms',
+//      'appcat_application_content',
+//      'appcat_organization_content',
+    )
+  );
+  # YES!!!
+  module_disable(array('overlay'));
 }

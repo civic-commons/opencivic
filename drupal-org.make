@@ -301,6 +301,9 @@ projects[uuid_features][subdir] = "devel"
 
 projects[uuid][version] = "1.0-alpha3"
 projects[uuid][subdir] = "devel"
+; Patch UUID module to eliminate 'replacements' error
+; http://drupal.org/node/1428952
+projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
 
 projects[devel][version] = "1.3"
 projects[devel][subdir] = "devel"
