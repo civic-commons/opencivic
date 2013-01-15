@@ -89,6 +89,9 @@ projects[fivestar][version] = "2.0-alpha2"
 projects[flag][subdir] = "contrib"
 projects[flag][version] = "2.0"
 
+projects[geocoder][subdir] = contrib
+projects[geocoder][version] = "1.2"
+
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "1.1"
 
@@ -264,13 +267,6 @@ projects[schemaorg][subdir] = "contrib"
 ; projects[fivestar_green][download][type] = ""
 ; projects[fivestar_green][download][url] = ""
 ; projects[fivestar_green][type] = "module"
-
-; The Hackathon version of the Geocode module has been hacked to include
-; dependencies on cc_awe.module. This needs to be cleaned up.
-projects[fillerwriter-geocode][subdir] = contrib
-projects[fillerwriter-geocode][download][type] = "git"
-projects[fillerwriter-geocode][download][url] = "https://github.com/fillerwriter/geocode.git"
-projects[fillerwriter-geocode][type] = "module"
 
 ; Search API Solr module.
 projects[search_api_solr][subdir] = contrib

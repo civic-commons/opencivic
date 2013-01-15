@@ -519,16 +519,27 @@ function appcat_organization_content_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'geocode',
+        'module' => 'geocoder',
         'settings' => array(
-          'geocode_field' => array(
-            'field_address' => 'field_address',
+          'delta_handling' => 'default',
+          'geocoder_field' => 'body',
+          'geocoder_handler' => 'google',
+          'handler_settings' => array(
+            'google' => array(
+              'all_results' => 0,
+              'geometry_type' => 'point',
+              'reject_results' => array(
+                'APPROXIMATE' => 0,
+                'GEOMETRIC_CENTER' => 0,
+                'RANGE_INTERPOLATED' => 0,
+                'ROOFTOP' => 0,
+              ),
+            ),
           ),
-          'geocode_handler' => 'google',
           'label_help_description' => '',
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
-        'type' => 'geocode',
+        'type' => 'geocoder',
         'weight' => '7',
       ),
     ),
