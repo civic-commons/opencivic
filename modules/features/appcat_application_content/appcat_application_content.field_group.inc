@@ -24,8 +24,8 @@ function appcat_application_content_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'body',
-      1 => 'field_image',
-      2 => 'field_feature_list',
+      1 => 'field_feature_list',
+      2 => 'field_image',
     ),
     'format_type' => 'div',
     'format_settings' => array(
