@@ -258,6 +258,7 @@ projects[inline_entity_form][subdir] = "contrib"
 
 projects[schemaorg][version] = "1.0-beta3"
 projects[schemaorg][subdir] = "contrib"
+projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_integration-1185978-2.patch
 
 ; Nuams modules =====================================================================
 
