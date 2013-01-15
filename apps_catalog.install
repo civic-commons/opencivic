@@ -472,6 +472,7 @@ function apps_catalog_install_tasks() {
  * Implements hook_install_tasks()
  */
 function apps_catalog_additional_setup() {
+/*
   module_enable(
     array(
       'appcat_misc_taxonomy_app_terms',
@@ -482,6 +483,7 @@ function apps_catalog_additional_setup() {
       'appcat_misc_default_content',
     )
   );
+*/
   # YES!!!
   module_disable(array('overlay'));
 }
