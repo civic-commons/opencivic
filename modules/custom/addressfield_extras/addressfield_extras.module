@@ -16,6 +16,169 @@ function addressfield_extras_ctools_plugin_directory($module, $plugin) {
 }
 
 /**
+ * Implements hook_menu().
+ */
+function addressfield_extras_menu() {
+  $items = array();
+  $items['addressfield_extras_import'] = array(
+    'title' => t('Addressfield Extras Import'),
+    'page callback' => array('addressfield_extras_start_batch'),
+    'access callback' => TRUE,
+    'type'            => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function addressfield_extras_cron() {
+  if (!variable_get('addressfield_extras_finished', FALSE)) {
+    global $base_root;
+    $options = array(
+      'headers' => array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'),
+      'method'  => 'POST',
+      'data'    => 'addressfield_extras_cron_key=' . rawurlencode(trim(variable_get('cron_key', 'drupal'))),
+      'timeout' => 5,
+    );
+    drupal_http_request($base_root . '/?q=addressfield_extras_import', $options);
+
+  }
+}
+
+/**
+ * Callback for batch update page.
+ */
+function addressfield_extras_start_batch() {
+  if (isset($_POST['addressfield_extras_cron_key']) && $_POST['addressfield_extras_cron_key'] == variable_get('cron_key', 'drupal')) {
+    drupal_form_submit('addressfield_extras_start_batch_form', $form_state);
+  }
+  else {
+    drupal_access_denied();
+  }
+}
+
+/**
+ * Batch import form.
+ */
+function addressfield_extras_start_batch_form($form_state) {
+  $form = array();
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Start batch processing')
+  );
+
+  return $form;
+}
+
+/**
+ * Form submit, starts batch process.
+ */
+function addressfield_extras_start_batch_form_submit($form, &$form_state) {
+  $batch = array(
+    'operations' => array(
+      array('addressfield_extras_batch_process_file', array())
+    ),
+    'finished' => 'addressfield_extras_batch_finished',
+    'title' => t('Processing'),
+    // We use a single multi-pass operation, so the default
+    // 'Remaining x of y operations' message will be confusing here.
+    'progress_message' => '',
+    'error_message' => t('An error was encountered processing the file.'),
+  );
+  batch_set($batch);
+}
+
+/**
+ * Imports csv file.
+ */
+function addressfield_extras_batch_process_file(&$context) {
+  if (!isset($context['sandbox']['offset'])) {
+    $context['sandbox']['offset'] = 0;
+    $context['sandbox']['records'] = 0;
+  }
+  $previous_line = variable_get('addressfield_extras_batch_line', FALSE);
+  if ($previous_line) {
+    $context['sandbox']['offset'] = $previous_line;
+  }
+
+  $filename = drupal_get_path('module', 'addressfield_extras') . '/regions.csv';
+
+  $fp = fopen($filename, 'r');
+
+  if ( $fp === FALSE ) {
+    // Failed to open file
+    watchdog('addressfield_extras', 'Failed to open ' . $filename);
+    $context['finished'] = TRUE;
+    return;
+  }
+
+  $ret = fseek($fp, $context['sandbox']['offset']);
+
+  if ( $ret != 0 ) {
+    // Failed to seek
+    watchdog('addressfield_extras', 'Failed to seek to ' . $context['sandbox']['offset']);
+    $context['finished'] = TRUE;
+    return;
+  }
+
+  $limit = 5;  // Maximum number of rows to process at a time
+  $done = FALSE;
+
+  for ( $i = 0; $i < $limit; $i++ ) {
+    $line = fgetcsv($fp);
+    if ( $line === FALSE ) {
+      $done = TRUE;
+      // No more records to process
+      break;
+    }
+    else {
+      $context['sandbox']['records']++;
+      $context['sandbox']['offset'] = ftell($fp);
+      $record = $context['sandbox']['records'];
+      // Do something with the data
+      $save = array(
+        'iso' => $line[0],
+        'fip' => $line[1],
+        'name' => $line[2],
+      );
+      watchdog('rtester', "Line $record:<pre>" . print_r($line, TRUE) . '</pre>');
+      drupal_write_record('addressfield_extras_region', $save);
+
+      variable_set('addressfield_extras_batch_line', ftell($fp));
+    }
+  }
+
+  $eof = feof($fp); 
+
+  if ( $eof )  {
+    $context['success'] = TRUE;
+    variable_del('addressfield_extras_batch_line');
+    variable_set('addressfield_extras_finished', TRUE);
+  }
+  $context['message'] = "Processed " . $context['sandbox']['records'] . " records";
+
+  $context['finished'] = ( $eof || $done ) ? 1 : 0;
+}
+
+/**
+ * Success message for batch process.
+ */
+function addressfield_extras_batch_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t('The file has been processed.'));
+  }
+  else {
+    drupal_set_message(t('An error occurred and processing did not complete.'), 'error');
+    $message = format_plural(count($results), '1 item successfully processed:', '@count items successfully processed:');
+    $message .= theme('item_list', array('items' => $results));
+    drupal_set_message($message);
+  }
+}
+
+/**
  * Implements hook_field_formatter_info().
  */
 function addressfield_extras_field_formatter_info() {

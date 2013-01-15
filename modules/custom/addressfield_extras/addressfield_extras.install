@@ -32,15 +32,3 @@ function addressfield_extras_schema() {
   );
   return $schema;
 }
-
-/**
- * Import regions data from the CSV file.
- */
-function addressfield_extras_install() {
-  $path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'addressfield_extras');
-  $path .= '/regions.csv';
-  $sql = "LOAD DATA INFILE '$path' REPLACE INTO TABLE addressfield_extras_region " .
-    "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' LINES TERMINATED BY '\n' " .
-    "(iso, fip, name)";
-  db_query($sql);
-}
