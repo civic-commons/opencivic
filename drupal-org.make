@@ -24,7 +24,7 @@ projects[addtoany][version] = "3.1"
 projects[admin_menu][subdir] = "contrib"
 
 projects[auto_entitylabel][subdir] = "contrib"
-projects[auto_entitylabel][version] = "1.1"
+projects[auto_entitylabel][version] = "1.x-dev"
 
 projects[auto_nodetitle][subdir] = "contrib"
 projects[auto_nodetitle][version] = "1.0"
