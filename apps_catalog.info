@@ -29,7 +29,8 @@ dependencies[] = addanother
 dependencies[] = addressfield
 dependencies[] = addtoany
 dependencies[] = admin_menu
-dependencies[] = auto_nodetitle
+; dependencies[] = auto_nodetitle
+dependencies[] = auto_entitylabel
 dependencies[] = autocomplete_deluxe
 dependencies[] = openid
 dependencies[] = openidadmin
@@ -101,6 +102,7 @@ dependencies[] = openlayers_views
 dependencies[] = page_manager
 dependencies[] = pathauto
 dependencies[] = prepopulate
+dependencies[] = prepopulate_create_node_links
 dependencies[] = rdfx
 dependencies[] = recaptcha
 dependencies[] = redirect
@@ -163,7 +165,7 @@ dependencies[] = taxonomy_manager
 ; dependencies[] = field_tools
 
 ; Features
-dependencies[] = appcat_misc
+; dependencies[] = appcat_misc
 ;; dependencies[] = appcat_misc_taxonomies
 
 ; dependencies[] = appcat_misc_taxonomy_app_terms

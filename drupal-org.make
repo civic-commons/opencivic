@@ -23,6 +23,9 @@ projects[addtoany][version] = "3.1"
 
 projects[admin_menu][subdir] = "contrib"
 
+projects[auto_entitylabel][subdir] = "contrib"
+projects[auto_entitylabel][version] = "1.1"
+
 projects[auto_nodetitle][subdir] = "contrib"
 projects[auto_nodetitle][version] = "1.0"
 
@@ -164,6 +167,11 @@ projects[pathauto][version] = "1.2"
 
 projects[prepopulate][subdir] = "contrib"
 projects[prepopulate][version] = "2.x-dev"
+
+projects[prepopulate_create_node_links][subdir] = contrib
+projects[prepopulate_create_node_links][download][type] = "git"
+projects[prepopulate_create_node_links][download][url] = "http://git.drupal.org/sandbox/hazah/1488826.git"
+projects[prepopulate_create_node_links][type] = "module"
 
 projects[recaptcha][subdir] = "contrib"
 projects[recaptcha][version] = "1.8"
