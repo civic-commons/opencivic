@@ -12,7 +12,7 @@ function appcat_misc_taxonomy_civic_terms_taxonomy_default_vocabularies() {
     'civic_category' => array(
       'name' => 'Civic category',
       'machine_name' => 'civic_category',
-      'description' => '',
+      'description' => 'A small number of high-level terms (4-7) describing the public service provided by the software.',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
@@ -35,7 +35,7 @@ function appcat_misc_taxonomy_civic_terms_taxonomy_default_vocabularies() {
     'civic_subcategory' => array(
       'name' => 'Civic subcategory',
       'machine_name' => 'civic_subcategory',
-      'description' => '',
+      'description' => 'A longer list of terms describing the public service provided by the software.',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',

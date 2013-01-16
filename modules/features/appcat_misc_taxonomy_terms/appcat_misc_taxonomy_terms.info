@@ -2,6 +2,7 @@ name = AppCat misc taxonomy terms
 description = Various taxonomy terms for the Apps Catalog distro
 core = 7.x
 package = AppCat
+php = 5.2.4
 version = 7.x-1.0
 project = appcat_misc_taxonomy_terms
 dependencies[] = taxonomy

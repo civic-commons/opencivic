@@ -12,7 +12,7 @@ function appcat_misc_taxonomy_app_terms_taxonomy_default_vocabularies() {
     'application_category' => array(
       'name' => 'Application category',
       'machine_name' => 'application_category',
-      'description' => '',
+      'description' => 'A small number of high-level terms (4-7) describing the technical function of the software.',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
@@ -35,7 +35,7 @@ function appcat_misc_taxonomy_app_terms_taxonomy_default_vocabularies() {
     'application_subcategory' => array(
       'name' => 'Application subcategory',
       'machine_name' => 'application_subcategory',
-      'description' => '',
+      'description' => 'A longer list of terms describing the technical function of the software.',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',

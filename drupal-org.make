@@ -69,6 +69,9 @@ projects[email][version] = "1.2"
 projects[entity][subdir] = "contrib"
 projects[entity][version] = "1.0-rc3"
 
+projects[entityreference_prepopulate][subdir] = "contrib"
+projects[entityreference_prepopulate][version] = "1.1"
+
 projects[features_extra][subdir] = "contrib"
 projects[features_extra][version] = "1.0-alpha1"
 
