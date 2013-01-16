@@ -627,95 +627,6 @@ function appcat_application_content_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-application-field_deployment'.
-  $fields['node-application-field_deployment'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_deployment',
-      'foreign keys' => array(
-        'node' => array(
-          'columns' => array(
-            'target_id' => 'nid',
-          ),
-          'table' => 'node',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'type' => 'none',
-          ),
-          'target_bundles' => array(
-            'deployment' => 'deployment',
-          ),
-        ),
-        'target_type' => 'node',
-      ),
-      'translatable' => '0',
-      'type' => 'entityreference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'application',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Add information about a place where this App was deployed.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '21',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_deployment',
-      'label' => 'Deployment',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'entityreference',
-        'settings' => array(
-          'label_help_description' => '',
-          'match_operator' => 'CONTAINS',
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-          'path' => '',
-          'references_dialog_add' => 1,
-          'references_dialog_edit' => 1,
-          'references_dialog_search' => 1,
-          'references_dialog_search_view' => '',
-          'size' => '60',
-        ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '16',
-      ),
-    ),
-  );
-
   // Exported field: 'node-application-field_description'.
   $fields['node-application-field_description'] = array(
     'field_config' => array(
@@ -1831,7 +1742,6 @@ function appcat_application_content_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A short description, e.g., "A web-based visualization tool."');
-  t('Add information about a place where this App was deployed.');
   t('An embedded video object.');
   t('App Description');
   t('Application Homepage');
@@ -1842,7 +1752,6 @@ function appcat_application_content_field_default_fields() {
   t('Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).');
   t('Creator');
   t('Demo url');
-  t('Deployment');
   t('Enter the URL of the application homepage where people can go to find more information');
   t('Features or modules provided by this application (and possibly required by other applications).');
   t('Host');

@@ -27,7 +27,7 @@ function appcat_deployment_node_field_group_info() {
       1 => 'field_url',
       2 => 'field_location',
       3 => 'field_add_deployment_for',
-      4 => 'field_contributor',
+      4 => 'field_member',
       5 => 'title',
     ),
     'format_type' => 'htabs',

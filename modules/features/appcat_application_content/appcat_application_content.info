@@ -35,7 +35,6 @@ features[field][] = node-application-field_civic_category
 features[field][] = node-application-field_civic_sub_cate
 features[field][] = node-application-field_contributor
 features[field][] = node-application-field_creator
-features[field][] = node-application-field_deployment
 features[field][] = node-application-field_description
 features[field][] = node-application-field_download_url
 features[field][] = node-application-field_feature_list

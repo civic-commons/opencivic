@@ -709,7 +709,7 @@ function appcat_organization_content_field_default_fields() {
   $fields['node-organization-field_member'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_member',
@@ -740,7 +740,7 @@ function appcat_organization_content_field_default_fields() {
             'type' => 'none',
           ),
           'target_bundles' => array(
-            'person' => 'person',
+            'organization' => 'organization',
           ),
         ),
         'target_type' => 'node',
