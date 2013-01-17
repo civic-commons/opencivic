@@ -179,4 +179,3 @@ dependencies[] = taxonomy_manager
 ; dependencies[] = insert_block
 ; dependencies[] = nice_menus
 ; dependencies[] = ole
-
