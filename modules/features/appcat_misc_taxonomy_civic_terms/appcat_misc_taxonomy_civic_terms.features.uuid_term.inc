@@ -265,6 +265,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '45d91cf3-3e47-4034-b5f3-06a42fa0c977',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Budget & Finance',
@@ -465,6 +467,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '8f6dc846-f4d5-b4e4-79a1-6053a34afaac',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Online Chat',
@@ -489,6 +493,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '9333a979-dcb9-ed04-dd48-145b04fc9e93',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'eClinics',
@@ -609,6 +615,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => 'c214b9dd-1ad2-be94-c9bd-142ccf84e8b5',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Live Co-Creation',
@@ -633,6 +641,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => 'c974fd94-0ab0-1424-0d23-9ef2fc6484f9',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Augmented Reality',
@@ -657,6 +667,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => 'e1c64e63-1f7a-7bd4-b56f-928e66b711a8',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'ePanels',
@@ -737,6 +749,8 @@ function appcat_misc_taxonomy_civic_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => 'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb',
     'vocabulary_machine_name' => 'civic_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Direct Democracy',

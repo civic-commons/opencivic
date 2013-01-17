@@ -65,6 +65,8 @@ function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '34cf95ee-3329-ef34-113f-10f7c556ddcb',
     'vocabulary_machine_name' => 'application_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Security and Confidentiality',
@@ -81,6 +83,8 @@ function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '3ef61d92-9025-59e4-71e8-14a426324365',
     'vocabulary_machine_name' => 'application_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Permits & Inspections',
@@ -185,6 +189,48 @@ function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '774a8201-1536-b444-4118-09363f0cd12d',
     'vocabulary_machine_name' => 'application_category',
+    'field_icon' => array(
+      'und' => array(
+        0 => array(
+          'fid' => '86f45981-ac61-9f14-ed85-e0618f39005b',
+          'alt' => NULL,
+          'title' => NULL,
+          'width' => '100',
+          'height' => '100',
+          'uid' => '1',
+          'filename' => 'crowdsourcing.png',
+          'uri' => 'public://crowdsourcing.png',
+          'filemime' => 'image/png',
+          'filesize' => '4740',
+          'status' => '1',
+          'timestamp' => '1358378808',
+          'type' => 'image',
+          'uuid' => '86f45981-ac61-9f14-ed85-e0618f39005b',
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+    'field_small_icon' => array(
+      'und' => array(
+        0 => array(
+          'fid' => '1bbd5718-b658-f564-29ac-fee9fdfe2549',
+          'alt' => NULL,
+          'title' => NULL,
+          'width' => '24',
+          'height' => '24',
+          'uid' => '1',
+          'filename' => 'crowdsourcing_0.png',
+          'uri' => 'public://crowdsourcing_0.png',
+          'filemime' => 'image/png',
+          'filesize' => '1981',
+          'status' => '1',
+          'timestamp' => '1358378835',
+          'type' => 'image',
+          'uuid' => '1bbd5718-b658-f564-29ac-fee9fdfe2549',
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Emergency Management',
@@ -233,6 +279,8 @@ function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => '91dc0575-1800-4f14-419a-69f1cca0a5ee',
     'vocabulary_machine_name' => 'application_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Social Media',
@@ -257,6 +305,8 @@ function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
     'weight' => '0',
     'uuid' => 'b49b12cc-efea-7614-91e5-632a860a549c',
     'vocabulary_machine_name' => 'application_category',
+    'field_icon' => array(),
+    'field_small_icon' => array(),
   );
   $terms[] = array(
     'name' => 'Mapping',
