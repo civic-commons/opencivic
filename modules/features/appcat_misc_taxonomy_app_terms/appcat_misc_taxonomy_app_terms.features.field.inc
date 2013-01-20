@@ -73,7 +73,7 @@ function appcat_misc_taxonomy_app_terms_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'media',
+        'module' => 'image',
         'settings' => array(
           'allowed_schemes' => array(
             'module' => 0,
@@ -88,9 +88,10 @@ function appcat_misc_taxonomy_app_terms_field_default_fields() {
           ),
           'label_help_description' => '',
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'media_generic',
+        'type' => 'image_image',
         'weight' => '2',
       ),
     ),
@@ -159,7 +160,7 @@ function appcat_misc_taxonomy_app_terms_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'media',
+        'module' => 'image',
         'settings' => array(
           'allowed_schemes' => array(
             'module' => 0,
@@ -174,9 +175,10 @@ function appcat_misc_taxonomy_app_terms_field_default_fields() {
           ),
           'label_help_description' => '',
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'media_generic',
+        'type' => 'image_image',
         'weight' => '3',
       ),
     ),
