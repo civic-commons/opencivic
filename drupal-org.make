@@ -306,12 +306,16 @@ projects[bundle_copy][version] = "1.1"
 
 projects[uuid_features][version] = "1.x-dev"
 projects[uuid_features][subdir] = "devel"
+; Patch UUID Features module to support exporting taxonomy file fields
+; http://drupal.org/node/1893914
+projects[uuid_features][patch][1893914] = http://drupal.org/files/taxonomy_field_fields-1893914-1.patch
 
-projects[uuid][version] = "1.0-alpha3"
+projects[uuid][version] = "1.x-dev"
 projects[uuid][subdir] = "devel"
 ; Patch UUID module to eliminate 'replacements' error
+; Patch should not bee needed in the 1.x-dev release
 ; http://drupal.org/node/1428952
-projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
+; projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
 
 projects[devel][version] = "1.3"
 projects[devel][subdir] = "devel"

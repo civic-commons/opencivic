@@ -5,6 +5,7 @@ package = AppCat
 php = 5.2.4
 version = 7.x-1.0-beta1
 project = appcat_misc_taxonomy_civic_terms
+dependencies[] = image
 dependencies[] = media
 dependencies[] = taxonomy
 dependencies[] = uuid

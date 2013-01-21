@@ -24,11 +24,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1358344846\',
-      \'changed\' => \'1358344846\',
+      \'changed\' => \'1358575072\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'15f6028e-611a-20e4-7557-d0065c21f663\',
-      \'revision_timestamp\' => \'1358344846\',
+      \'revision_timestamp\' => \'1358575072\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -240,7 +240,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'215\',
         \'source\' => \'node/7\',
-        \'alias\' => \'content/advomatic\',
+        \'alias\' => \'org/advomatic\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -259,7 +259,7 @@ function appcat_misc_default_content_node_export_features_default() {
       ),
     ),
   (object) array(
-      \'vid\' => \'10\',
+      \'vid\' => \'13\',
       \'uid\' => \'1\',
       \'title\' => \'Drupal\',
       \'log\' => \'\',
@@ -267,16 +267,16 @@ function appcat_misc_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'94f1c22a-f629-9524-5df5-b581df4a6436\',
+      \'vuuid\' => \'07228757-0575-4214-a59a-8ead0aeefa92\',
       \'nid\' => \'1\',
       \'type\' => \'application\',
       \'language\' => \'und\',
       \'created\' => \'1358140439\',
-      \'changed\' => \'1358345324\',
+      \'changed\' => \'1358577130\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1a4710f7-22ff-a854-3d8f-987e5eb075de\',
-      \'revision_timestamp\' => \'1358345324\',
+      \'revision_timestamp\' => \'1358577130\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -289,8 +289,24 @@ function appcat_misc_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_aggregate_rating\' => array(),
-      \'field_application_category\' => array(),
+      \'field_aggregate_rating\' => array(
+        \'und\' => array(
+          array(
+            \'rating\' => \'60\',
+            \'target\' => NULL,
+          ),
+        ),
+      ),
+      \'field_application_category\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'22\',
+          ),
+          array(
+            \'tid\' => \'28\',
+          ),
+        ),
+      ),
       \'field_application_sub_cate\' => array(
         \'und\' => array(
           array(
@@ -720,12 +736,32 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'208\',
         \'source\' => \'node/1\',
-        \'alias\' => \'content/drupal\',
+        \'alias\' => \'app/drupal\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
       \'node_export_dependency\' => array(
+        array(
+          \'type\' => \'taxonomy_term\',
+          \'id\' => \'22\',
+          \'delta\' => 0,
+          \'property\' => \'tid\',
+          \'module\' => \'taxonomy\',
+          \'field_name\' => \'field_application_category\',
+          \'langcode\' => \'und\',
+          \'uuid\' => FALSE,
+        ),
+        array(
+          \'type\' => \'taxonomy_term\',
+          \'id\' => \'28\',
+          \'delta\' => 1,
+          \'property\' => \'tid\',
+          \'module\' => \'taxonomy\',
+          \'field_name\' => \'field_application_category\',
+          \'langcode\' => \'und\',
+          \'uuid\' => \'91dc0575-1800-4f14-419a-69f1cca0a5ee\',
+        ),
         array(
           \'type\' => \'taxonomy_term\',
           \'id\' => \'27\',
@@ -862,11 +898,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1358343020\',
-      \'changed\' => \'1358343020\',
+      \'changed\' => \'1358575090\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'23e544af-659d-9924-79e8-50ef7d5b5551\',
-      \'revision_timestamp\' => \'1358343020\',
+      \'revision_timestamp\' => \'1358575090\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1098,7 +1134,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'212\',
         \'source\' => \'node/4\',
-        \'alias\' => \'content/new-york-state-senate\',
+        \'alias\' => \'org/new-york-state-senate\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -1150,11 +1186,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'page\',
       \'language\' => \'und\',
       \'created\' => \'1358140692\',
-      \'changed\' => \'1358140692\',
+      \'changed\' => \'1358575143\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'3cd9325e-7d04-dd14-3128-9fda2ffad50d\',
-      \'revision_timestamp\' => \'1358140692\',
+      \'revision_timestamp\' => \'1358575143\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1233,7 +1269,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'209\',
         \'source\' => \'node/2\',
-        \'alias\' => \'content/welcome-apps-catalog\',
+        \'alias\' => \'page/welcome-apps-catalog\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -1253,11 +1289,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1358345187\',
-      \'changed\' => \'1358345187\',
+      \'changed\' => \'1358575055\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'d9a92578-91ef-6cf4-3d5c-fc8f0e2d0cb3\',
-      \'revision_timestamp\' => \'1358345187\',
+      \'revision_timestamp\' => \'1358575055\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1477,7 +1513,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'216\',
         \'source\' => \'node/8\',
-        \'alias\' => \'content/new-amsterdam-ideas\',
+        \'alias\' => \'org/new-amsterdam-ideas\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -1509,11 +1545,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1358217709\',
-      \'changed\' => \'1358217709\',
+      \'changed\' => \'1358575117\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'e1224f5d-f371-a814-b55a-0e77f1f7aabb\',
-      \'revision_timestamp\' => \'1358217709\',
+      \'revision_timestamp\' => \'1358575117\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1739,7 +1775,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'211\',
         \'source\' => \'node/3\',
-        \'alias\' => \'content/drupal-association\',
+        \'alias\' => \'org/drupal-association\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -1821,11 +1857,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1358346259\',
-      \'changed\' => \'1358346259\',
+      \'changed\' => \'1358575009\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'f6c42cc3-7967-cef4-a95e-98b07a690db9\',
-      \'revision_timestamp\' => \'1358346259\',
+      \'revision_timestamp\' => \'1358575009\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1985,7 +2021,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'path\' => array(
         \'pid\' => \'217\',
         \'source\' => \'node/9\',
-        \'alias\' => \'content/deployment-drupal\',
+        \'alias\' => \'deploy/deploy-drupal\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
