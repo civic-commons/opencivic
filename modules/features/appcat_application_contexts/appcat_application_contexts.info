@@ -1,0 +1,14 @@
+name = AppCat application contexts
+description = Contexts related to the Application content type
+core = 7.x
+package = AppCat application
+version = 7.x-1.0-beta1
+project = appcat_application_contexts
+dependencies[] = appcat_application_content
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = views
+features[context][] = application_node
+features[context][] = application_view_listing
+features[ctools][] = context:context:3
+features[features_api][] = api:1
