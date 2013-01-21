@@ -308,7 +308,7 @@ projects[uuid_features][version] = "1.x-dev"
 projects[uuid_features][subdir] = "devel"
 ; Patch UUID Features module to support exporting taxonomy file fields
 ; http://drupal.org/node/1893914
-projects[uuid_features][patch][1893914] = http://drupal.org/files/taxonomy_field_fields-1893914-2.patch
+projects[uuid_features][patch][1893914] = http://drupal.org/files/taxonomy_field_fields-1893914-3.patch
 
 projects[uuid][version] = "1.x-dev"
 projects[uuid][subdir] = "devel"
