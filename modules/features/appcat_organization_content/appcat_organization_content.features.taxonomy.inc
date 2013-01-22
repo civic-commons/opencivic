@@ -12,7 +12,7 @@ function appcat_organization_content_taxonomy_default_vocabularies() {
     'tags' => array(
       'name' => 'Tags',
       'machine_name' => 'tags',
-      'description' => 'Use tags to group articles on similar topics into categories.',
+      'description' => 'User-added keywords. Use tags to group articles on similar topics into categories.',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
