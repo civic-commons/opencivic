@@ -194,12 +194,7 @@ projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
-projects[openlayers][version] = "2.x-dev"
-projects[openlayers][download][type] = "git"
-projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
-projects[openlayers][download][revision] = 0fd9604a75c559fe14fe7d726211b5910f663746
-projects[openlayers][download][branch] = 7.x-2.x
-projects[openlayers][type] = "module"
+projects[openlayers][version] = "2.0-beta3"
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
@@ -209,10 +204,17 @@ projects[pathauto][version] = "1.2"
 
 projects[prepopulate][subdir] = "contrib"
 projects[prepopulate][version] = "2.x-dev"
+projects[prepopulate][download][type] = "git"
+projects[prepopulate][download][url] = "http://git.drupal.org/project/prepopulate.git"
+projects[prepopulate][download][revision] = 8789036e8abd0d9e9f183031575f35eef05b0c72
+projects[prepopulate][download][branch] = 7.x-2.x
+projects[prepopulate][type] = "module"
 
 projects[prepopulate_create_node_links][subdir] = contrib
 projects[prepopulate_create_node_links][download][type] = "git"
 projects[prepopulate_create_node_links][download][url] = "http://git.drupal.org/sandbox/hazah/1488826.git"
+projects[prepopulate_create_node_links][download][revision] = 4dc5dd7a6b90c6423428336a15b5f0592aa45ad0
+projects[prepopulate_create_node_links][download][branch] = 7.x-1.x
 projects[prepopulate_create_node_links][type] = "module"
 
 projects[recaptcha][subdir] = "contrib"
@@ -273,6 +275,10 @@ projects[views_field_view][version] = "1.0"
 
 projects[views_php][subdir] = "contrib"
 projects[views_php][version] = "1.x-dev"
+projects[views_php][download][url] = "http://git.drupal.org/project/views_php.git"
+projects[views_php][download][revision] = 2b5ed52228394ee3c8e8c86be283da957cdfa6f6
+projects[views_php][download][branch] = 7.x-1.x
+projects[views_php][type] = "module"
 
 projects[views_random_seed][subdir] = "contrib"
 projects[views_random_seed][version] = "1.2"
@@ -291,6 +297,10 @@ projects[wysiwyg][version] = "2.2"
 
 projects[wysiwyg_button_order][subdir] = "contrib"
 projects[wysiwyg_button_order][version] = "1.x-dev"
+projects[wysiwyg_button_order][download][url] = "http://git.drupal.org/project/wysiwyg_button_order.git"
+projects[wysiwyg_button_order][download][revision] = 4e5eec69b454f8ea4cd879fea1fb73b47936de3e
+projects[wysiwyg_button_order][download][branch] = 7.x-1.x
+projects[wysiwyg_button_order][type] = "module"
 
 ; Schema.org kickstart modules ======================================================
 
@@ -345,14 +355,22 @@ projects[bundle_copy][version] = "1.1"
 
 projects[uuid_features][version] = "1.x-dev"
 projects[uuid_features][subdir] = "devel"
+projects[uuid_features][download][url] = "http://git.drupal.org/project/uuid_features.git"
+projects[uuid_features][download][revision] = 924559bcf71e39c15374fb2b9623df16075f3ccf
+projects[uuid_features][download][branch] = 7.x-1.x
+projects[uuid_features][type] = "module"
 ; Patch UUID Features module to support exporting taxonomy file fields
 ; http://drupal.org/node/1893914
 projects[uuid_features][patch][1893914] = http://drupal.org/files/taxonomy_field_fields-1893914-4.patch
 
 projects[uuid][version] = "1.x-dev"
 projects[uuid][subdir] = "devel"
+projects[uuid][download][url] = "http://git.drupal.org/project/uuid.git"
+projects[uuid][download][revision] = 8b6d70f1764a83896e799712111d6b46cf482737
+projects[uuid][download][branch] = 7.x-1.x
+projects[uuid][type] = "module"
 ; Patch UUID module to eliminate 'replacements' error
-; Patch should not bee needed in the 1.x-dev release
+; Patch should not be needed now that we're using the 1.x-dev release
 ; http://drupal.org/node/1428952
 ; projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
 
