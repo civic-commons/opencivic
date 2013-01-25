@@ -9,6 +9,7 @@ dependencies[] = appcat_application_content
 dependencies[] = appcat_application_contexts
 dependencies[] = appcat_application_views
 dependencies[] = appcat_deployment_node
+dependencies[] = appcat_deployment_views
 dependencies[] = appcat_misc_default_content
 dependencies[] = appcat_misc_taxonomy_app_terms
 dependencies[] = appcat_misc_taxonomy_civic_terms
