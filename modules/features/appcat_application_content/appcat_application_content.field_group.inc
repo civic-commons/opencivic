@@ -21,13 +21,11 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Basic info',
-    'weight' => '0',
+    'weight' => '3',
     'children' => array(
-      0 => 'body',
-      1 => 'field_feature_list',
-      2 => 'field_image',
+      0 => 'field_image',
     ),
-    'format_type' => 'div',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
@@ -235,7 +233,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Photos and videos',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'group_screenshots',
       1 => 'group_tutorials',
