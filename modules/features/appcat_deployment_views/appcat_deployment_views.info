@@ -1,0 +1,11 @@
+name = AppCat deployment views
+description = Defines views for the Deployment content type
+core = 7.x
+package = AppCat deployment
+version = 7.x-1.0-beta1
+project = appcat_deployment_views
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = replated_deployments
