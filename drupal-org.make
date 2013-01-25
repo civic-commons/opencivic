@@ -143,6 +143,10 @@ projects[maxlength][version] = "3.x-dev"
 projects[media_youtube][subdir] = "contrib"
 projects[media_youtube][version] = "2.0-rc1"
 
+projects[menu_block][subdir] = "contrib"
+projects[menu_block][version] = "2.x"
+projects[menu_block][patch][1204064] = http://drupal.org/files/menu_block_1204064_menu_tree_add_active_path.patch
+
 projects[nice_menus][subdir] = "contrib"
 projects[nice_menus][version] = "2.1"
 
