@@ -93,6 +93,7 @@ dependencies[] = maxlength
 dependencies[] = media
 dependencies[] = media_internet
 dependencies[] = media_youtube
+dependencies[] = menu_block
 dependencies[] = node_export
 dependencies[] = nodequeue
 dependencies[] = omega_tools

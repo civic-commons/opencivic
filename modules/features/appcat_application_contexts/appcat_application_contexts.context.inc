@@ -35,6 +35,36 @@ function appcat_application_contexts_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
+        'views-related_applications-block' => array(
+          'module' => 'views',
+          'delta' => 'related_applications-block',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'views-replated_deployments-block' => array(
+          'module' => 'views',
+          'delta' => 'replated_deployments-block',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+        'subscriptions_ui-0' => array(
+          'module' => 'subscriptions_ui',
+          'delta' => '0',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'menu_block-appcat_blocks-1' => array(
+          'module' => 'menu_block',
+          'delta' => 'appcat_blocks-1',
+          'region' => 'sidebar_second',
+          'weight' => '-6',
+        ),
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
+        ),
       ),
     ),
   );
