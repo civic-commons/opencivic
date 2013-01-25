@@ -68,6 +68,11 @@ projects[context][subdir] = "contrib"
 
 projects[cer][subdir] = "contrib"
 projects[cer][version] = "1.x-dev"
+projects[cer][download][type] = "git"
+projects[cer][download][url] = "http://git.drupal.org/project/cer.git"
+projects[cer][download][revision] = 98a59bb024ad955cb02667b5009cc564dbb25416
+projects[cer][download][branch] = 7.x-1.x
+projects[cer][type] = "module"
 
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][version] = "1.2"
@@ -131,6 +136,11 @@ projects[imagecache_actions][version] = "1.0"
 
 projects[insert_block][subdir] = "contrib"
 projects[insert_block][version] = "1.x-dev"
+projects[insert_block][download][type] = "git"
+projects[insert_block][download][url] = "http://git.drupal.org/project/insert_block.git"
+projects[insert_block][download][revision] = be4314aef56af4b6bdf78d2f18e005c959d8cdd9
+projects[insert_block][download][branch] = 7.x-1.x
+projects[insert_block][type] = "module"
 
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
@@ -154,6 +164,11 @@ projects[mail_edit][version] = "1.0"
 
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][version] = "3.x-dev"
+projects[maxlength][download][type] = "git"
+projects[maxlength][download][url] = "http://git.drupal.org/project/maxlength.git"
+projects[maxlength][download][revision] = 0fd9604a75c559fe14fe7d726211b5910f663746
+projects[maxlength][download][branch] = 7.x-3.x
+projects[maxlength][type] = "module"
 
 projects[media_youtube][subdir] = "contrib"
 projects[media_youtube][version] = "2.0-rc1"
@@ -180,6 +195,11 @@ projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][version] = "2.x-dev"
+projects[openlayers][download][type] = "git"
+projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
+projects[openlayers][download][revision] = 0fd9604a75c559fe14fe7d726211b5910f663746
+projects[openlayers][download][branch] = 7.x-2.x
+projects[openlayers][type] = "module"
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
