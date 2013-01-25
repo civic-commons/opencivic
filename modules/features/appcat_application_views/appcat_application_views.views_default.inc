@@ -82,7 +82,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_creator']['field'] = 'field_creator';
   $handler->display->display_options['fields']['field_creator']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_creator']['settings'] = array(
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Host */
   $handler->display->display_options['fields']['field_download_url']['id'] = 'field_download_url';
