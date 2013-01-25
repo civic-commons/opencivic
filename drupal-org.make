@@ -25,6 +25,11 @@ projects[admin_menu][subdir] = "contrib"
 
 projects[auto_entitylabel][subdir] = "contrib"
 projects[auto_entitylabel][version] = "1.x-dev"
+projects[auto_entitylabel][download][type] = "git"
+projects[auto_entitylabel][download][url] = "http://git.drupal.org/project/auto_entitylabel.git"
+projects[auto_entitylabel][download][revision] = 9a8762080f106248a4dd6fc498035877f9d917e3
+projects[auto_entitylabel][download][branch] = 7.x-1.x
+projects[auto_entitylabel][type] = "module"
 
 projects[auto_nodetitle][subdir] = "contrib"
 projects[auto_nodetitle][version] = "1.0"
@@ -42,9 +47,19 @@ projects[captcha][version] = "1.0-beta2"
 
 projects[cck_phone][subdir] = "contrib"
 projects[cck_phone][version] = "1.x-dev"
+projects[cck_phone][download][type] = "git"
+projects[cck_phone][download][url] = "http://git.drupal.org/project/cck_phone.git"
+projects[cck_phone][download][revision] = 61ccc9fb055f2eefa29e8d654ec2794ecb32b119
+projects[cck_phone][download][branch] = 7.x-1.x
+projects[cck_phone][type] = "module"
 
 projects[conditional_fields][subdir] = "contrib"
 projects[conditional_fields][version] = "3.x-dev"
+projects[conditional_fields][download][type] = "git"
+projects[conditional_fields][download][url] = "http://git.drupal.org/project/conditional_fields.git"
+projects[conditional_fields][download][revision] = cd29b003a592d375f3fdb4c46f5639d0f26ed0be
+projects[conditional_fields][download][branch] = 7.x-3.x
+projects[conditional_fields][type] = "module"
 
 projects[content_taxonomy][subdir] = "contrib"
 projects[content_taxonomy][version] = "1.0-beta1"
