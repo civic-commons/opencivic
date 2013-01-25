@@ -2155,3 +2155,9 @@ div.field-item.even p strong {
     font-family: PT Sans;
     font-size: 18px;
     text-align: left; }
+
+.node-type-application .field-name-field-image {
+  float: left;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 20px; }
