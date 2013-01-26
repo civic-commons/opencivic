@@ -1447,7 +1447,7 @@ function appcat_application_content_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'screenshot',
           ),
           'type' => 'image',
           'weight' => '15',

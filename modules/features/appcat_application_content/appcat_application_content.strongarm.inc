@@ -93,7 +93,14 @@ function appcat_application_content_strongarm() {
           'weight' => '25',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '100',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__application'] = $strongarm;

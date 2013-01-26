@@ -27,6 +27,7 @@ features[features_api][] = api:1
 features[filter][] = filtered_html
 features[filter][] = full_html
 features[filter][] = plain_text
+features[image][] = screenshot
 features[variable][] = locale_custom_disabled_strings_en
 features[variable][] = locale_custom_strings_en
 features[variable][] = subscriptions_avoid_empty_subscribe_links
