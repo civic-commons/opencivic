@@ -153,17 +153,17 @@ dependencies[] = appcat_blocks
 
 ; Devel
 dependencies[] = schemaorg
-dependencies[] = coder
-dependencies[] = coder_review
-dependencies[] = devel
-dependencies[] = diff
-dependencies[] = bundle_copy
-dependencies[] = efb
-dependencies[] = efb_schemaorg
-dependencies[] = schemaorg_ui
-dependencies[] = schemaorg_cache
-dependencies[] = taxonomy_csv
-dependencies[] = taxonomy_manager
+; dependencies[] = coder
+; dependencies[] = coder_review
+; dependencies[] = devel
+; dependencies[] = diff
+; dependencies[] = bundle_copy
+; dependencies[] = efb
+; dependencies[] = efb_schemaorg
+; dependencies[] = schemaorg_ui
+; dependencies[] = schemaorg_cache
+; dependencies[] = taxonomy_csv
+; dependencies[] = taxonomy_manager
 ; dependencies[] = field_tools
 
 ; Features
