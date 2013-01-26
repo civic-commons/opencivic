@@ -61,6 +61,7 @@ features[field_group][] = group_media|node|application|form
 features[field_group][] = group_misc|node|application|form
 features[field_group][] = group_screenshots|node|application|default
 features[field_group][] = group_tutorials|node|application|default
+features[image][] = app_detail_logo
 features[node][] = application
 features[rdf_mappings][] = node-application
 features[schemaorg][] = node-application

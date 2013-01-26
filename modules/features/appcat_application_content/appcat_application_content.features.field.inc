@@ -50,7 +50,7 @@ function appcat_application_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -117,7 +117,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -195,7 +195,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -270,7 +270,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '11',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -345,7 +345,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '17',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -420,7 +420,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -502,7 +502,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -591,7 +591,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -666,7 +666,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -738,7 +738,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '12',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -823,7 +823,7 @@ function appcat_application_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -892,9 +892,13 @@ function appcat_application_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '3',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'app_detail_logo',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -973,7 +977,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1063,7 +1067,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1141,7 +1145,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '20',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1223,7 +1227,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1296,7 +1300,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1375,7 +1379,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1535,7 +1539,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '20',
+          'weight' => '21',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1604,7 +1608,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',

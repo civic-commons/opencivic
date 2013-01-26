@@ -21,10 +21,8 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Basic info',
-    'weight' => '3',
-    'children' => array(
-      0 => 'field_image',
-    ),
+    'weight' => '4',
+    'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
       'formatter' => 'collapsible',
@@ -233,7 +231,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Photos and videos',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'group_screenshots',
       1 => 'group_tutorials',
