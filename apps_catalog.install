@@ -452,19 +452,16 @@ function apps_catalog_install_tasks() {
   // Kick off the tasks.
   $tasks = array();
   $tasks['apps_catalog_additional_setup'] = array(
-    'display_name' => 'Define content types',
+    'display_name' => 'Additional setup',
   );
-/*
-  $tasks['devel_generate_content_form'] = array(
-    'display_name' => 'Create dummy content',
-    'type' => 'form',
-  );
-*/
 /*
   $tasks['cache_clear_all'] = array(
     'display_name' => 'Clear all caches',
   );
 */
+  $tasks['apps_catalog_aliases'] = array(
+    'display_name' => 'Set path aliases',
+  );
   return $tasks;
 }
 
@@ -472,18 +469,54 @@ function apps_catalog_install_tasks() {
  * Implements hook_install_tasks()
  */
 function apps_catalog_additional_setup() {
-/*
   module_enable(
     array(
-      'appcat_misc_taxonomy_app_terms',
-      'appcat_misc_taxonomy_civic_terms',
-      'appcat_misc_taxonomy_terms',
-      'appcat_application_content',
-      'appcat_organization_content',
-      'appcat_misc_default_content',
+      'path',
+      'pathauto',
+//      'appcat_misc_pathauto',
     )
   );
+  // Update path aliases for nodes.
+/*
+  // Update path aliases for taxonomy terms.
+  $tids = db_select('taxonomy_term_data', 'td')
+    ->fields('td')
+    ->execute()
+    ->fetchCol();
+  pathauto_taxonomy_term_update_alias_multiple($tids, 'bulkupdate');
 */
-  # YES!!!
-  module_disable(array('overlay'));
+//  # Disable that stupid overlay module!
+//  module_disable(array('overlay'));
+}
+
+function apps_catalog_aliases() {
+  variable_set('pathauto_blog_pattern', 'blogs/[user:name]');
+  variable_set('pathauto_forum_pattern', '[term:vocabulary]/[term:name]');
+  variable_set('pathauto_node_application_pattern', 'app/[node:title]');
+  variable_set('pathauto_node_article_pattern', 'article/[node:title]');
+  variable_set('pathauto_node_deployment_pattern', 'deploy/[node:title]');
+  variable_set('pathauto_node_organization_pattern', 'org/[node:title]');
+  variable_set('pathauto_node_page_pattern', 'page/[node:title]');
+  variable_set('pathauto_node_pattern', 'content/[node:title]');
+  variable_set('pathauto_node_webform_pattern', 'form/[node:title]');
+  variable_set('pathauto_punctuation_hyphen', 1);
+  variable_set('pathauto_taxonomy_term_application_category_pattern', 'appcat/[term:name]');
+  variable_set('pathauto_taxonomy_term_application_subcategory_pattern', 'appsubcat/[term:name]');
+  variable_set('pathauto_taxonomy_term_civic_category_pattern', 'civic/[term:name]');
+  variable_set('pathauto_taxonomy_term_civic_subcategory_pattern', 'civicsub/[term:name]');
+  variable_set('pathauto_taxonomy_term_license_pattern', 'license/[term:name]');
+  variable_set('pathauto_taxonomy_term_organization_type_pattern', 'orgype/[term:name]');
+  variable_set('pathauto_taxonomy_term_pattern', '[term:vocabulary]/[term:name]');
+  variable_set('pathauto_taxonomy_term_requirements_pattern', 'req/[term:name]');
+  variable_set('pathauto_taxonomy_term_service_pattern', 'service/[term:name]');
+  variable_set('pathauto_taxonomy_term_software_type_pattern', 'apptype/[term:name]');
+  variable_set('pathauto_taxonomy_term_tags_pattern', 'tag/[term:name]');
+  variable_set('pathauto_user_pattern', 'users/[user:name]');
+  db_delete('url_alias')
+    ->execute();
+  $nids = db_select('node', 'n')
+    ->fields('n')
+    ->execute()
+    ->fetchCol();
+  pathauto_node_update_alias_multiple($nids, 'bulkupdate');
 }

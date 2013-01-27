@@ -1,11 +1,3 @@
-NOTE: Currently the distro does not complete all configuration tasks when the installation profile runs.
-To complete all installation tasks, log in as the site administrator after finishing the installation,
-go to the Administer Features page and enable the "AppCat misc" feature.
-
-Enabling the "AppCat misc" feature creates content type definitions, adds Views and Contexts, and creates
-some default content.
-
-
 Apps Catalog 2.x for Drupal 7.x
 ----------------------------
 Get started building with Drupal fast.
