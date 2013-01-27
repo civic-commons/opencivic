@@ -476,7 +476,6 @@ function apps_catalog_additional_setup() {
 //      'appcat_misc_pathauto',
     )
   );
-  // Update path aliases for nodes.
 /*
   // Update path aliases for taxonomy terms.
   $tids = db_select('taxonomy_term_data', 'td')
@@ -512,6 +511,8 @@ function apps_catalog_aliases() {
   variable_set('pathauto_taxonomy_term_software_type_pattern', 'apptype/[term:name]');
   variable_set('pathauto_taxonomy_term_tags_pattern', 'tag/[term:name]');
   variable_set('pathauto_user_pattern', 'users/[user:name]');
+
+  // Update path aliases for nodes.
   db_delete('url_alias')
     ->execute();
   $nids = db_select('node', 'n')
@@ -519,4 +520,14 @@ function apps_catalog_aliases() {
     ->execute()
     ->fetchCol();
   pathauto_node_update_alias_multiple($nids, 'bulkupdate');
+  // Resave deployment nodes to get the correct auto node titles.
+  $nids = db_select('node', 'n')
+    ->fields('n')
+    ->condition('type', 'deployment','=')
+    ->execute()
+    ->fetchCol();
+  $nodes = node_load_multiple($nids);
+  foreach ($nodes as $node) {
+    node_save($node);
+  }
 }
