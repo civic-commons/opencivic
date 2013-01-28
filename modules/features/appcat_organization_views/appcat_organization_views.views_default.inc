@@ -281,8 +281,8 @@ function appcat_organization_views_views_default_views() {
 
   $view = new view();
   $view->name = 'organization_related_deployments';
-  $view->description = 'Defines the "Related deployments" block for Application detail pages';
-  $view->tag = 'Application';
+  $view->description = 'Defines the "Related deployments" block for Organization detail pages';
+  $view->tag = 'Organization';
   $view->base_table = 'node';
   $view->human_name = 'Organization related deployments';
   $view->core = 7;
