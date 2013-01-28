@@ -12,10 +12,10 @@ function appcat_deployment_views_views_default_views() {
 
   $view = new view();
   $view->name = 'replated_deployments';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Defines the "Related deployments" block for Application detail pages';
+  $view->tag = 'Application';
   $view->base_table = 'node';
-  $view->human_name = 'Related deployments';
+  $view->human_name = 'Application related deployments';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -92,6 +92,7 @@ function appcat_deployment_views_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Application related deployments';
   $export['replated_deployments'] = $view;
 
   return $export;

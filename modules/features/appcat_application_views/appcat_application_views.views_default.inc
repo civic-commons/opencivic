@@ -12,8 +12,8 @@ function appcat_application_views_views_default_views() {
 
   $view = new view();
   $view->name = 'application_at_a_glance';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Defines the "At a Glance" block for Application detail pages';
+  $view->tag = 'Application';
   $view->base_table = 'node';
   $view->human_name = 'Application At a Glance';
   $view->core = 7;
@@ -179,13 +179,13 @@ function appcat_application_views_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'At a Glance';
+  $handler->display->display_options['block_description'] = 'Application At a Glance';
   $export['application_at_a_glance'] = $view;
 
   $view = new view();
   $view->name = 'application_categories';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Defines icon views for the Application content type';
+  $view->tag = 'Application';
   $view->base_table = 'taxonomy_term_data';
   $view->human_name = 'Application categories';
   $view->core = 7;
@@ -257,6 +257,7 @@ function appcat_application_views_views_default_views() {
   $handler = $view->new_display('block', 'Application categories', 'block');
   $handler->display->display_options['display_description'] = 'Small icons and names of application categories';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Application/Application categories';
 
   /* Display: Civic categories */
   $handler = $view->new_display('block', 'Civic categories', 'block_1');
@@ -289,6 +290,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'civic_category' => 'civic_category',
   );
+  $handler->display->display_options['block_description'] = 'Application/Civic categories';
 
   /* Display: Application categories icons */
   $handler = $view->new_display('block', 'Application categories icons', 'block_2');
@@ -325,6 +327,7 @@ function appcat_application_views_views_default_views() {
     'image_style' => '',
     'image_link' => 'content',
   );
+  $handler->display->display_options['block_description'] = 'Application/Application categories icons';
 
   /* Display: Civic categories icons */
   $handler = $view->new_display('block', 'Civic categories icons', 'block_3');
@@ -387,14 +390,15 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'civic_category' => 'civic_category',
   );
+  $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
   $export['application_categories'] = $view;
 
   $view = new view();
   $view->name = 'related_applications';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Defines the "Related applications" block on Application detail pages';
+  $view->tag = 'Application';
   $view->base_table = 'node';
-  $view->human_name = 'Related applications';
+  $view->human_name = 'Application related applications';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -464,7 +468,7 @@ function appcat_application_views_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Related applications';
+  $handler->display->display_options['block_description'] = 'Application related applications';
   $handler->display->display_options['block_caching'] = '8';
   $export['related_applications'] = $view;
 

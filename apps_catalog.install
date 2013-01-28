@@ -478,8 +478,6 @@ function apps_catalog_additional_setup() {
     ->fetchCol();
   pathauto_taxonomy_term_update_alias_multiple($tids, 'bulkupdate');
 */
-//  # Disable that stupid overlay module!
-//  module_disable(array('overlay'));
 }
 
 function apps_catalog_aliases() {
