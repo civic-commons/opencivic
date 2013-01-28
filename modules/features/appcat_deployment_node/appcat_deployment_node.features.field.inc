@@ -50,7 +50,7 @@ function appcat_deployment_node_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -141,12 +141,9 @@ function appcat_deployment_node_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => '0',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -216,12 +213,12 @@ function appcat_deployment_node_field_default_fields() {
           'module' => 'addressfield',
           'settings' => array(
             'format_handlers' => array(
-              0 => 'address',
+              'address' => 'address',
             ),
-            'use_widget_handlers' => 1,
+            'use_widget_handlers' => 0,
           ),
           'type' => 'addressfield_default',
-          'weight' => '3',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -303,12 +300,9 @@ function appcat_deployment_node_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 5,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -389,7 +383,7 @@ function appcat_deployment_node_field_default_fields() {
       'description' => 'Enter a URL where people can go to find more information',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
