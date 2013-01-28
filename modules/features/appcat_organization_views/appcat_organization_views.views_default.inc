@@ -12,8 +12,8 @@ function appcat_organization_views_views_default_views() {
 
   $view = new view();
   $view->name = 'organization_at_a_glance';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Defines the At a Glance block for Organizations.';
+  $view->tag = 'Organization';
   $view->base_table = 'node';
   $view->human_name = 'Organization At a Glance';
   $view->core = 7;
