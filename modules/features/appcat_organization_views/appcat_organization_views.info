@@ -1,0 +1,13 @@
+name = AppCat organization views
+description = Views related to the Organization content type
+core = 7.x
+package = AppCat organization
+version = 7.x-1.0-beta1
+project = appcat_organization_views
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = organization_at_a_glance
+features[views_view][] = organization_categories
+features[views_view][] = organization_related_deployments
