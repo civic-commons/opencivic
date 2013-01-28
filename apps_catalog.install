@@ -481,6 +481,7 @@ function apps_catalog_additional_setup() {
 }
 
 function apps_catalog_aliases() {
+  // Define URL alias patterns.
   variable_set('pathauto_blog_pattern', 'blogs/[user:name]');
   variable_set('pathauto_forum_pattern', '[term:vocabulary]/[term:name]');
   variable_set('pathauto_node_application_pattern', 'app/[node:title]');
@@ -504,7 +505,101 @@ function apps_catalog_aliases() {
   variable_set('pathauto_taxonomy_term_tags_pattern', 'tag/[term:name]');
   variable_set('pathauto_user_pattern', 'users/[user:name]');
 
-  // Define correspondint entity references
+  // Set node export configuration.
+  variable_set('node_export_code', 'all');
+  variable_set('node_export_dsv_delimiter', ',');
+  variable_set('node_export_dsv_enclosure', '"');
+  variable_set('node_export_dsv_escape_eol', 1);
+  variable_set('node_export_dsv_seperator', '\\r\\n');
+  variable_set('node_export_existing', 'revision');
+  variable_set('node_export_filename', 'node-export[node_export_filename:nid-list]([node_export_filename:node-count]-nodes).[node_export_filename:timestamp].[node_export_filename:format]');
+  variable_set('node_export_file_assets_path', '');
+  variable_set('node_export_file_list', '10');
+  variable_set('node_export_file_mode', 'inline');
+  variable_set('node_export_file_supported_fields', 'file, image');
+  variable_set('node_export_file_types', array(
+    'application' => 'application',
+    'deployment' => 'deployment',
+    'organization' => 'organization',
+    'article' => 0,
+    'page' => 0,
+    'webform' => 0,
+  ));
+  variable_set('node_export_format', array(
+    'drupal' => 'drupal',
+    'json' => 0,
+    'serialize' => 0,
+    'xml' => 0,
+    'dsv' => 0,
+  ));
+  variable_set('node_export_reset_author_application', 1);
+  variable_set('node_export_reset_author_article', 1);
+  variable_set('node_export_reset_author_deployment', 1);
+  variable_set('node_export_reset_author_organization', 1);
+  variable_set('node_export_reset_author_page', 1);
+  variable_set('node_export_reset_author_webform', 1);
+  variable_set('node_export_reset_book_mlid_application', 0);
+  variable_set('node_export_reset_book_mlid_article', 0);
+  variable_set('node_export_reset_book_mlid_deployment', 0);
+  variable_set('node_export_reset_book_mlid_organization', 0);
+  variable_set('node_export_reset_book_mlid_page', 0);
+  variable_set('node_export_reset_book_mlid_webform', 0);
+  variable_set('node_export_reset_changed_application', 0);
+  variable_set('node_export_reset_changed_article', 0);
+  variable_set('node_export_reset_changed_deployment', 0);
+  variable_set('node_export_reset_changed_organization', 0);
+  variable_set('node_export_reset_changed_page', 0);
+  variable_set('node_export_reset_changed_webform', 0);
+  variable_set('node_export_reset_created_application', 0);
+  variable_set('node_export_reset_created_article', 0);
+  variable_set('node_export_reset_created_deployment', 0);
+  variable_set('node_export_reset_created_organization', 0);
+  variable_set('node_export_reset_created_page', 0);
+  variable_set('node_export_reset_created_webform', 0);
+  variable_set('node_export_reset_last_comment_timestamp_application', 0);
+  variable_set('node_export_reset_last_comment_timestamp_article', 0);
+  variable_set('node_export_reset_last_comment_timestamp_deployment', 0);
+  variable_set('node_export_reset_last_comment_timestamp_organization', 0);
+  variable_set('node_export_reset_last_comment_timestamp_page', 0);
+  variable_set('node_export_reset_last_comment_timestamp_webform', 0);
+  variable_set('node_export_reset_menu_application', 0);
+  variable_set('node_export_reset_menu_article', 0);
+  variable_set('node_export_reset_menu_deployment', 0);
+  variable_set('node_export_reset_menu_organization', 0);
+  variable_set('node_export_reset_menu_page', 0);
+  variable_set('node_export_reset_menu_webform', 0);
+  variable_set('node_export_reset_path_application', 0);
+  variable_set('node_export_reset_path_article', 0);
+  variable_set('node_export_reset_path_deployment', 0);
+  variable_set('node_export_reset_path_organization', 0);
+  variable_set('node_export_reset_path_page', 0);
+  variable_set('node_export_reset_path_webform', 0);
+  variable_set('node_export_reset_promote_application', 0);
+  variable_set('node_export_reset_promote_article', 0);
+  variable_set('node_export_reset_promote_deployment', 0);
+  variable_set('node_export_reset_promote_organization', 0);
+  variable_set('node_export_reset_promote_page', 0);
+  variable_set('node_export_reset_promote_webform', 0);
+  variable_set('node_export_reset_revision_timestamp_application', 0);
+  variable_set('node_export_reset_revision_timestamp_article', 0);
+  variable_set('node_export_reset_revision_timestamp_deployment', 0);
+  variable_set('node_export_reset_revision_timestamp_organization', 0);
+  variable_set('node_export_reset_revision_timestamp_page', 0);
+  variable_set('node_export_reset_revision_timestamp_webform', 0);
+  variable_set('node_export_reset_status_application', 0);
+  variable_set('node_export_reset_status_article', 0);
+  variable_set('node_export_reset_status_deployment', 0);
+  variable_set('node_export_reset_status_organization', 0);
+  variable_set('node_export_reset_status_page', 0);
+  variable_set('node_export_reset_status_webform', 0);
+  variable_set('node_export_reset_sticky_application', 0);
+  variable_set('node_export_reset_sticky_article', 0);
+  variable_set('node_export_reset_sticky_deployment', 0);
+  variable_set('node_export_reset_sticky_organization', 0);
+  variable_set('node_export_reset_sticky_page', 0);
+  variable_set('node_export_reset_sticky_webform', 0);
+
+  // Define correspondint entity references.
   $records = array(
     array(
       'entity_types_content_fields' => 'node*application*field_related_applications*node*application*field_related_applications',
