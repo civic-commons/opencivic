@@ -2172,3 +2172,33 @@ div.field-item.even p strong {
   font-size: 9pt;
   text-transform: uppercase;
   white-space: nowrap; }
+
+/* Call to action button */
+.button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6280cb), color-stop(1, #102047));
+  background: -moz-linear-gradient(center top, #6280cb 5%, #102047 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6280cb', endColorstr='#102047');
+  background-color: #6280cb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #142859;
+  display: inline-block;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 11px 28px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #101f42; }
+  .button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #102047), color-stop(1, #6280cb));
+    background: -moz-linear-gradient(center top, #102047 5%, #6280cb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#102047', endColorstr='#6280cb');
+    background-color: #102047; }
+  .button:active {
+    position: relative;
+    top: 1px; }
