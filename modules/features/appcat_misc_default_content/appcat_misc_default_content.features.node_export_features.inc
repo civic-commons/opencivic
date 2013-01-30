@@ -253,6 +253,223 @@ function appcat_misc_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
+      \'vid\' => \'10\',
+      \'uid\' => \'1\',
+      \'title\' => \'City of San Francisco\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'39f4771f-5098-4016-b4a1-53c5e65f1410\',
+      \'nid\' => \'10\',
+      \'type\' => \'organization\',
+      \'language\' => \'und\',
+      \'created\' => \'1359523978\',
+      \'changed\' => \'1359523978\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'1781739f-0c84-4f2b-aef9-93b7f2965182\',
+      \'revision_timestamp\' => \'1359523978\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(),
+      \'field_abbreviation\' => array(),
+      \'field_additional_type\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'191\',
+          ),
+        ),
+      ),
+      \'field_address\' => array(
+        \'und\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'CA\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'San Francisco\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'\',
+            \'thoroughfare\' => \'\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => NULL,
+            \'name_line\' => NULL,
+            \'first_name\' => NULL,
+            \'last_name\' => NULL,
+            \'data\' => NULL,
+          ),
+        ),
+      ),
+      \'field_civic_category\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'135\',
+          ),
+        ),
+      ),
+      \'field_civic_sub_cate\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'98\',
+          ),
+        ),
+      ),
+      \'field_coordinates\' => array(),
+      \'field_keywords\' => array(),
+      \'field_logo\' => array(),
+      \'field_member\' => array(),
+      \'field_related_applications\' => array(),
+      \'field_services\' => array(),
+      \'field_telephone\' => array(),
+      \'field_url\' => array(
+        \'und\' => array(
+          array(
+            \'url\' => \'http://www.sfgov.org/\',
+            \'title\' => NULL,
+            \'attributes\' => array(),
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'schema:Organization\',
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            1 => \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(
+            \'schema:additionalType\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:address\',
+          ),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_civic_category\' => array(
+          \'predicates\' => array(),
+          \'type\' => \'rel\',
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+          \'type\' => \'rel\',
+        ),
+        \'field_civic_sub_cate\' => array(
+          \'predicates\' => array(),
+          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+          \'type\' => \'rel\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1359523978\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'a:1:{s:7:"contact";i:1;}\',
+      \'subscriptions_notify\' => TRUE,
+      \'path\' => array(
+        \'pid\' => \'10\',
+        \'source\' => \'node/10\',
+        \'alias\' => \'org/city-san-francisco\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
       \'vid\' => \'2\',
       \'uid\' => \'0\',
       \'title\' => \'Drupal\',
@@ -1107,6 +1324,188 @@ function appcat_misc_default_content_node_export_features_default() {
         \'pid\' => \'4\',
         \'source\' => \'node/4\',
         \'alias\' => \'page/welcome-apps-catalog\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'11\',
+      \'uid\' => \'1\',
+      \'title\' => \'Deployment of WordPress\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'0f843623-028b-40bf-9f69-d2c93ba10d01\',
+      \'nid\' => \'11\',
+      \'type\' => \'deployment\',
+      \'language\' => \'und\',
+      \'created\' => \'1359524173\',
+      \'changed\' => \'1359524173\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'565dceb0-846a-496d-bbb6-d4de80a75f3a\',
+      \'revision_timestamp\' => \'1359524173\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-122.4194155 37.7749295)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'37.7749\',
+            \'lon\' => \'-122.419\',
+            \'left\' => \'-122.419\',
+            \'top\' => \'37.7749\',
+            \'right\' => \'-122.419\',
+            \'bottom\' => \'37.7749\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
+          ),
+        ),
+      ),
+      \'field_member\' => array(),
+      \'field_url\' => array(
+        \'und\' => array(
+          array(
+            \'url\' => \'http://innovatesf.com/\',
+            \'title\' => NULL,
+            \'attributes\' => array(),
+          ),
+        ),
+      ),
+      \'field_add_deployment_for\' => array(
+        \'und\' => array(
+          array(
+            \'target_id\' => \'5\',
+          ),
+        ),
+      ),
+      \'field_location\' => array(
+        \'und\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'CA\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'San Francisco\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'\',
+            \'thoroughfare\' => \'\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => NULL,
+            \'name_line\' => NULL,
+            \'first_name\' => NULL,
+            \'last_name\' => NULL,
+            \'data\' => NULL,
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'schema:UserInteraction\',
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            2 => \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'field_location\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_add_deployment_for\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_contributor\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:performer\',
+          ),
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(),
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1359524173\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'a:1:{s:7:"contact";i:1;}\',
+      \'subscriptions_notify\' => TRUE,
+      \'path\' => array(
+        \'pid\' => \'11\',
+        \'source\' => \'node/11\',
+        \'alias\' => \'deploy/deployment-wordpress\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
@@ -2165,11 +2564,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359318269\',
+      \'changed\' => \'1359441384\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'f6c42cc3-7967-cef4-a95e-98b07a690db9\',
-      \'revision_timestamp\' => \'1359318269\',
+      \'revision_timestamp\' => \'1359441384\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2179,6 +2578,23 @@ function appcat_misc_default_content_node_export_features_default() {
             \'format\' => \'filtered_html\',
             \'safe_value\' => " <p>The New York State Senate was one of the first large government organizations in the United States to use Drupal to build its website. The site was built originally by Advomatic and is now maintained directly by the senate and hosted by Acquia. Several members of the team which built and maintained the website at the New York State Senate have subsequently created their own company, New Amsterdam Ideas.</p>\\n ",
             \'safe_summary\' => \'  \',
+          ),
+        ),
+      ),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-73.7591612 42.6528936)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'42.6529\',
+            \'lon\' => \'-73.7592\',
+            \'left\' => \'-73.7592\',
+            \'top\' => \'42.6529\',
+            \'right\' => \'-73.7592\',
+            \'bottom\' => \'42.6529\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
           ),
         ),
       ),
@@ -2219,8 +2635,8 @@ function appcat_misc_default_content_node_export_features_default() {
             \'sub_administrative_area\' => NULL,
             \'locality\' => \'Albany\',
             \'dependent_locality\' => NULL,
-            \'postal_code\' => \'\',
-            \'thoroughfare\' => \'\',
+            \'postal_code\' => \'12247\',
+            \'thoroughfare\' => \'188 State Street\',
             \'premise\' => \'\',
             \'sub_premise\' => NULL,
             \'organisation_name\' => NULL,
@@ -2315,6 +2731,9 @@ function appcat_misc_default_content_node_export_features_default() {
           \'predicates\' => array(
             \'schema:performer\',
           ),
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
