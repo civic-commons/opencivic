@@ -127,6 +127,9 @@ function appcat_deployment_node_rdf_default_mappings() {
         0 => 'schema:performer',
       ),
     ),
+    'field_coordinates' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;

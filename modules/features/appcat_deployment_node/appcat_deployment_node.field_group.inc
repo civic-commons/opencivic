@@ -24,10 +24,10 @@ function appcat_deployment_node_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'body',
-      1 => 'field_url',
-      2 => 'field_location',
+      1 => 'field_member',
+      2 => 'field_url',
       3 => 'field_add_deployment_for',
-      4 => 'field_member',
+      4 => 'field_location',
       5 => 'title',
     ),
     'format_type' => 'htabs',

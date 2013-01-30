@@ -64,8 +64,18 @@ function appcat_deployment_context_context_default_contexts() {
   $context->name = 'deployment_view_listing';
   $context->description = 'Deployments listing page';
   $context->tag = 'Deployment';
-  $context->conditions = array();
-  $context->reactions = array();
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'deployments' => 'deployments',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'listings',
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
