@@ -76,8 +76,18 @@ function appcat_organization_contexts_context_default_contexts() {
   $context->name = 'organization_view_listing';
   $context->description = 'Organizations listing page';
   $context->tag = 'Organization';
-  $context->conditions = array();
-  $context->reactions = array();
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'orgs' => 'orgs',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'listings',
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
