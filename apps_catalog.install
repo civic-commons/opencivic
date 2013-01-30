@@ -468,6 +468,7 @@ function apps_catalog_additional_setup() {
     array(
       'path',
       'pathauto',
+      'olfp',
     )
   );
 /*
