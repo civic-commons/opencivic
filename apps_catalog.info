@@ -93,6 +93,7 @@ dependencies[] = media_youtube
 dependencies[] = menu_block
 dependencies[] = node_export
 dependencies[] = nodequeue
+dependencies[] = olfp
 dependencies[] = omega_tools
 dependencies[] = openlayers
 dependencies[] = openlayers_ui
