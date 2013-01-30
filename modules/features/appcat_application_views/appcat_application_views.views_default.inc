@@ -54,6 +54,13 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['view']['view'] = 'application_categories';
   $handler->display->display_options['fields']['view']['display'] = 'block';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
+  /* Field: Content: Application subcategory */
+  $handler->display->display_options['fields']['field_application_sub_cate']['id'] = 'field_application_sub_cate';
+  $handler->display->display_options['fields']['field_application_sub_cate']['table'] = 'field_data_field_application_sub_cate';
+  $handler->display->display_options['fields']['field_application_sub_cate']['field'] = 'field_application_sub_cate';
+  $handler->display->display_options['fields']['field_application_sub_cate']['label'] = 'Application subcategories';
+  $handler->display->display_options['fields']['field_application_sub_cate']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_application_sub_cate']['delta_offset'] = '0';
   /* Field: Global: View */
   $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
   $handler->display->display_options['fields']['view_1']['table'] = 'views';
@@ -62,13 +69,6 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['view_1']['view'] = 'application_categories';
   $handler->display->display_options['fields']['view_1']['display'] = 'block_1';
   $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
-  /* Field: Content: Application subcategory */
-  $handler->display->display_options['fields']['field_application_sub_cate']['id'] = 'field_application_sub_cate';
-  $handler->display->display_options['fields']['field_application_sub_cate']['table'] = 'field_data_field_application_sub_cate';
-  $handler->display->display_options['fields']['field_application_sub_cate']['field'] = 'field_application_sub_cate';
-  $handler->display->display_options['fields']['field_application_sub_cate']['label'] = 'Application subcategories';
-  $handler->display->display_options['fields']['field_application_sub_cate']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_application_sub_cate']['delta_offset'] = '0';
   /* Field: Content: Civic subcategory */
   $handler->display->display_options['fields']['field_civic_sub_cate']['id'] = 'field_civic_sub_cate';
   $handler->display->display_options['fields']['field_civic_sub_cate']['table'] = 'field_data_field_civic_sub_cate';
