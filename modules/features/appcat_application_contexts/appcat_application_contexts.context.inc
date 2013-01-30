@@ -89,7 +89,21 @@ function appcat_application_contexts_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-deployments_map-block' => array(
+          'module' => 'views',
+          'delta' => 'deployments_map-block',
+          'region' => 'content',
+          'weight' => '10',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'listings',
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
