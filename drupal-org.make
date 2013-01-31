@@ -362,14 +362,14 @@ projects[bundle_copy][subdir] = "devel"
 projects[bundle_copy][version] = "1.1"
 
 projects[uuid_features][version] = "1.x-dev"
-projects[uuid_features][subdir] = "devel"
+projects[uuid_features][subdir] = "contrib"
 projects[uuid_features][download][url] = "http://git.drupal.org/project/uuid_features.git"
-projects[uuid_features][download][revision] = 924559bcf71e39c15374fb2b9623df16075f3ccf
+projects[uuid_features][download][revision] = 1a2d661601d591682befada4c374466c14403dc0
 projects[uuid_features][download][branch] = 7.x-1.x
 projects[uuid_features][type] = "module"
 ; Patch UUID Features module to support exporting taxonomy file fields
 ; http://drupal.org/node/1893914
-projects[uuid_features][patch][1893914] = http://drupal.org/files/taxonomy_field_fields-1893914-4.patch
+projects[uuid_features][patch][1893914] = http://drupal.org/files/uuid-features-taxonomy_field_fields-1893914-18.patch
 
 projects[uuid][version] = "1.x-dev"
 projects[uuid][subdir] = "devel"
