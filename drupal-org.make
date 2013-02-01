@@ -362,7 +362,7 @@ projects[bundle_copy][subdir] = "devel"
 projects[bundle_copy][version] = "1.1"
 
 projects[uuid_features][version] = "1.x-dev"
-projects[uuid_features][subdir] = "contrib"
+projects[uuid_features][subdir] = "devel"
 projects[uuid_features][download][url] = "http://git.drupal.org/project/uuid_features.git"
 projects[uuid_features][download][revision] = e10c7cfad8f9a161097ff0d5f3154443efb1791a
 projects[uuid_features][download][branch] = 7.x-1.x

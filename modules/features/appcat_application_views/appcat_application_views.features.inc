@@ -22,5 +22,5 @@ function appcat_application_views_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function appcat_application_views_views_api() {
-  return array("version" => "3.0");
+  return array("api" => "3.0");
 }
