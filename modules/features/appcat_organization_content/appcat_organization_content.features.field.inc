@@ -516,7 +516,7 @@ function appcat_organization_content_field_default_fields() {
         'module' => 'geocoder',
         'settings' => array(
           'delta_handling' => 'default',
-          'geocoder_field' => 'body',
+          'geocoder_field' => 'field_address',
           'geocoder_handler' => 'google',
           'handler_settings' => array(
             'google' => array(

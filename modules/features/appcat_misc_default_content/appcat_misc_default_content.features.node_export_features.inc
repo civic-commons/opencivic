@@ -24,12 +24,12 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359318206\',
+      \'changed\' => \'1359743146\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'15f6028e-611a-20e4-7557-d0065c21f663\',
-      \'revision_timestamp\' => \'1359318206\',
-      \'revision_uid\' => \'0\',
+      \'revision_timestamp\' => \'1359743146\',
+      \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
           array(
@@ -71,7 +71,23 @@ function appcat_misc_default_content_node_export_features_default() {
       ),
       \'field_civic_category\' => array(),
       \'field_civic_sub_cate\' => array(),
-      \'field_coordinates\' => array(),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-73.9872299 40.7443986)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'40.7444\',
+            \'lon\' => \'-73.9872\',
+            \'left\' => \'-73.9872\',
+            \'top\' => \'40.7444\',
+            \'right\' => \'-73.9872\',
+            \'bottom\' => \'40.7444\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
+          ),
+        ),
+      ),
       \'field_keywords\' => array(),
       \'field_logo\' => array(
         \'und\' => array(
@@ -266,11 +282,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359523978\',
-      \'changed\' => \'1359523978\',
+      \'changed\' => \'1359742920\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1781739f-0c84-4f2b-aef9-93b7f2965182\',
-      \'revision_timestamp\' => \'1359523978\',
+      \'revision_timestamp\' => \'1359742920\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_abbreviation\' => array(),
@@ -315,7 +331,23 @@ function appcat_misc_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_coordinates\' => array(),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-122.4194155 37.7749295)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'37.7749\',
+            \'lon\' => \'-122.419\',
+            \'left\' => \'-122.419\',
+            \'top\' => \'37.7749\',
+            \'right\' => \'-122.419\',
+            \'bottom\' => \'37.7749\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
+          ),
+        ),
+      ),
       \'field_keywords\' => array(),
       \'field_logo\' => array(),
       \'field_member\' => array(),
@@ -984,12 +1016,12 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359318206\',
+      \'changed\' => \'1359743117\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'23e544af-659d-9924-79e8-50ef7d5b5551\',
-      \'revision_timestamp\' => \'1359318206\',
-      \'revision_uid\' => \'0\',
+      \'revision_timestamp\' => \'1359743117\',
+      \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
           array(
@@ -1051,7 +1083,23 @@ function appcat_misc_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_coordinates\' => array(),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-73.7562317 42.6525793)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'42.6526\',
+            \'lon\' => \'-73.7562\',
+            \'left\' => \'-73.7562\',
+            \'top\' => \'42.6526\',
+            \'right\' => \'-73.7562\',
+            \'bottom\' => \'42.6526\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
+          ),
+        ),
+      ),
       \'field_keywords\' => array(),
       \'field_logo\' => array(
         \'und\' => array(
@@ -2028,11 +2076,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359334859\',
+      \'changed\' => \'1359705196\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'d9a92578-91ef-6cf4-3d5c-fc8f0e2d0cb3\',
-      \'revision_timestamp\' => \'1359334859\',
+      \'revision_timestamp\' => \'1359705196\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2101,7 +2149,23 @@ function appcat_misc_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_coordinates\' => array(),
+      \'field_coordinates\' => array(
+        \'und\' => array(
+          array(
+            \'wkt\' => \'POINT (-74.0020149 40.7190807)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'40.7191\',
+            \'lon\' => \'-74.002\',
+            \'left\' => \'-74.002\',
+            \'top\' => \'40.7191\',
+            \'right\' => \'-74.002\',
+            \'bottom\' => \'40.7191\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
+          ),
+        ),
+      ),
       \'field_keywords\' => array(),
       \'field_logo\' => array(
         \'und\' => array(
@@ -2314,12 +2378,12 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359318206\',
+      \'changed\' => \'1359743096\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'e1224f5d-f371-a814-b55a-0e77f1f7aabb\',
-      \'revision_timestamp\' => \'1359318206\',
-      \'revision_uid\' => \'0\',
+      \'revision_timestamp\' => \'1359743096\',
+      \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
           array(
@@ -2378,14 +2442,24 @@ function appcat_misc_default_content_node_export_features_default() {
         ),
       ),
       \'field_civic_sub_cate\' => array(),
-      \'field_coordinates\' => array(),
-      \'field_keywords\' => array(
+      \'field_coordinates\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'207\',
+            \'wkt\' => \'POINT (-122.674996 45.502468)\',
+            \'geo_type\' => \'point\',
+            \'lat\' => \'45.5025\',
+            \'lon\' => \'-122.675\',
+            \'left\' => \'-122.675\',
+            \'top\' => \'45.5025\',
+            \'right\' => \'-122.675\',
+            \'bottom\' => \'45.5025\',
+            \'srid\' => NULL,
+            \'accuracy\' => NULL,
+            \'source\' => NULL,
           ),
         ),
       ),
+      \'field_keywords\' => array(),
       \'field_logo\' => array(),
       \'field_member\' => array(),
       \'field_related_applications\' => array(

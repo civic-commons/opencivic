@@ -22,7 +22,7 @@ function appcat_application_contexts_context_default_contexts() {
         'application' => 'application',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
   );

@@ -14,4 +14,5 @@ dependencies[] = views
 features[context][] = application_node
 features[context][] = application_view_listing
 features[ctools][] = context:context:3
+features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1

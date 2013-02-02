@@ -22,7 +22,7 @@ function appcat_deployment_context_context_default_contexts() {
         'deployment' => 'deployment',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
   );

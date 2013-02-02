@@ -22,13 +22,19 @@ function appcat_organization_contexts_context_default_contexts() {
         'organization' => 'organization',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-organization_map-block' => array(
+          'module' => 'views',
+          'delta' => 'organization_map-block',
+          'region' => 'content',
+          'weight' => '10',
+        ),
         'views-organization_at_a_glance-block' => array(
           'module' => 'views',
           'delta' => 'organization_at_a_glance-block',
