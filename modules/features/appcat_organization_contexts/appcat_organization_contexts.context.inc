@@ -90,6 +90,16 @@ function appcat_organization_contexts_context_default_contexts() {
     ),
   );
   $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-organizations_map-block' => array(
+          'module' => 'views',
+          'delta' => 'organizations_map-block',
+          'region' => 'content',
+          'weight' => '10',
+        ),
+      ),
+    ),
     'delta' => array(
       'delta_template' => 'listings',
     ),

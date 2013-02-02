@@ -24,19 +24,19 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359318206\',
-      \'changed\' => \'1359743146\',
+      \'changed\' => \'1359783533\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'15f6028e-611a-20e4-7557-d0065c21f663\',
-      \'revision_timestamp\' => \'1359743146\',
+      \'revision_timestamp\' => \'1359783533\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
           array(
-            \'value\' => \'<p>&nbsp;</p><div>Advomatic builds Drupal-based websites for clients including nonprofit organizations and advocacy groups. It is<span style="line-height: 1.538em;">&nbsp;a leader in the development of high-performance websites on the Drupal platform and has become known for doing large-scale platform migrations and systems integration projects with Drupal.&nbsp;</span><span style="line-height: 1.538em;">Advomatic has been in operation since 2004, and is headquartered in New York City with additional staff working remotely across the United States.</span></div>\',
+            \'value\' => \'<p><span style="line-height: 1.538em;">Advomatic builds Drupal-based websites for clients including nonprofit organizations and advocacy groups. It is</span><span style="line-height: 1.538em;">&nbsp;a leader in the development of high-performance websites on the Drupal platform and has become known for doing large-scale platform migrations and systems integration projects with Drupal.&nbsp;</span><span style="line-height: 1.538em;">Advomatic has been in operation since 2004, and is headquartered in New York City with additional staff working remotely across the United States.</span></p>\',
             \'summary\' => \'\',
             \'format\' => \'filtered_html\',
-            \'safe_value\' => " <p> Advomatic builds Drupal-based websites for clients including nonprofit organizations and advocacy groups. It is a leader in the development of high-performance websites on the Drupal platform and has become known for doing large-scale platform migrations and systems integration projects with Drupal. Advomatic has been in operation since 2004, and is headquartered in New York City with additional staff working remotely across the United States.</p>\\n ",
+            \'safe_value\' => " <p>Advomatic builds Drupal-based websites for clients including nonprofit organizations and advocacy groups. It is a leader in the development of high-performance websites on the Drupal platform and has become known for doing large-scale platform migrations and systems integration projects with Drupal. Advomatic has been in operation since 2004, and is headquartered in New York City with additional staff working remotely across the United States.</p>\\n ",
             \'safe_summary\' => \'  \',
           ),
         ),
@@ -120,7 +120,15 @@ function appcat_misc_default_content_node_export_features_default() {
         ),
       ),
       \'field_services\' => array(),
-      \'field_telephone\' => array(),
+      \'field_telephone\' => array(
+        \'und\' => array(
+          array(
+            \'number\' => \'2128124180\',
+            \'country_codes\' => \'us\',
+            \'extension\' => NULL,
+          ),
+        ),
+      ),
       \'field_url\' => array(
         \'und\' => array(
           array(
@@ -282,11 +290,11 @@ function appcat_misc_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1359523978\',
-      \'changed\' => \'1359742920\',
+      \'changed\' => \'1359783663\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1781739f-0c84-4f2b-aef9-93b7f2965182\',
-      \'revision_timestamp\' => \'1359742920\',
+      \'revision_timestamp\' => \'1359783663\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_abbreviation\' => array(),
@@ -353,7 +361,15 @@ function appcat_misc_default_content_node_export_features_default() {
       \'field_member\' => array(),
       \'field_related_applications\' => array(),
       \'field_services\' => array(),
-      \'field_telephone\' => array(),
+      \'field_telephone\' => array(
+        \'und\' => array(
+          array(
+            \'number\' => \'4157012311\',
+            \'country_codes\' => \'us\',
+            \'extension\' => NULL,
+          ),
+        ),
+      ),
       \'field_url\' => array(
         \'und\' => array(
           array(

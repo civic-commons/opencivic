@@ -273,6 +273,180 @@ function appcat_organization_views_views_default_views() {
   $export['organization_categories'] = $view;
 
   $view = new view();
+  $view->name = 'organization_list';
+  $view->description = 'The Organizations listing page';
+  $view->tag = 'Organizaion';
+  $view->base_table = 'node';
+  $view->human_name = 'Organizations list';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Organizations';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'Description';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = 'The organizations listed here include vendors, developers and organizations that have used applications. Use the form below to select organizations with the experience and interests that you\'re seeking.';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Date added';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
+  $handler->display->display_options['fields']['view_1']['table'] = 'views';
+  $handler->display->display_options['fields']['view_1']['field'] = 'view';
+  $handler->display->display_options['fields']['view_1']['label'] = 'Civic Function';
+  $handler->display->display_options['fields']['view_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_1']['view'] = 'application_categories';
+  $handler->display->display_options['fields']['view_1']['display'] = 'block_3';
+  $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Address */
+  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
+  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_address']['type'] = 'addressfield_city_only';
+  $handler->display->display_options['fields']['field_address']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
+  );
+  /* Field: Content: Telephone */
+  $handler->display->display_options['fields']['field_telephone']['id'] = 'field_telephone';
+  $handler->display->display_options['fields']['field_telephone']['table'] = 'field_data_field_telephone';
+  $handler->display->display_options['fields']['field_telephone']['field'] = 'field_telephone';
+  $handler->display->display_options['fields']['field_telephone']['click_sort_column'] = 'number';
+  /* Field: Content: Website */
+  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
+  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_url']['type'] = 'link_url';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Related applications (field_related_applications) */
+  $handler->display->display_options['filters']['field_related_applications_target_id']['id'] = 'field_related_applications_target_id';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['table'] = 'field_data_field_related_applications';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['field'] = 'field_related_applications_target_id';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_related_applications_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['operator_id'] = 'field_related_applications_target_id_op';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['label'] = 'App experience';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['operator'] = 'field_related_applications_target_id_op';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['identifier'] = 'app';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Content: Civic category (field_civic_category) */
+  $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Civic Focus';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['identifier'] = 'civic';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
+  /* Filter criterion: Content: Civic subcategory (field_civic_sub_cate) */
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['id'] = 'field_civic_sub_cate_tid';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['table'] = 'field_data_field_civic_sub_cate';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['field'] = 'field_civic_sub_cate_tid';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator_id'] = 'field_civic_sub_cate_tid_op';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['label'] = 'Additional focus';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator'] = 'field_civic_sub_cate_tid_op';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['identifier'] = 'additional';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['vocabulary'] = 'civic_subcategory';
+  /* Filter criterion: Content: Services (field_services) */
+  $handler->display->display_options['filters']['field_services_tid']['id'] = 'field_services_tid';
+  $handler->display->display_options['filters']['field_services_tid']['table'] = 'field_data_field_services';
+  $handler->display->display_options['filters']['field_services_tid']['field'] = 'field_services_tid';
+  $handler->display->display_options['filters']['field_services_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_services_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_services_tid']['expose']['operator_id'] = 'field_services_tid_op';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['label'] = 'Services';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['operator'] = 'field_services_tid_op';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['identifier'] = 'services';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_services_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_services_tid']['vocabulary'] = 'service';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'organization' => 'organization',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+
+  /* Display: Organizations list */
+  $handler = $view->new_display('page', 'Organizations list', 'page');
+  $handler->display->display_options['display_description'] = 'Organizations listing page.';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'orgs';
+  $export['organization_list'] = $view;
+
+  $view = new view();
   $view->name = 'organization_map';
   $view->description = 'Creates a map for the Organization detail page';
   $view->tag = 'Organization';
@@ -473,6 +647,181 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Organization related deployments';
   $export['organization_related_deployments'] = $view;
+
+  $view = new view();
+  $view->name = 'organizations_map';
+  $view->description = 'Creates a map showing organizations';
+  $view->tag = 'Organization';
+  $view->base_table = 'node';
+  $view->human_name = 'Organizations map';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'openlayers_map';
+  $handler->display->display_options['style_options']['map'] = 'organizations';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_add_deployment_for_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Coordinates */
+  $handler->display->display_options['fields']['field_coordinates']['id'] = 'field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['table'] = 'field_data_field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['field'] = 'field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['label'] = '';
+  $handler->display->display_options['fields']['field_coordinates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_coordinates']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_coordinates']['settings'] = array(
+    'data' => 'full',
+  );
+  /* Field: Content: Address */
+  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
+  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['label'] = '';
+  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_address']['type'] = 'addressfield_city_only';
+  $handler->display->display_options['fields']['field_address']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
+  );
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'organization' => 'organization',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Civic category (field_civic_category) */
+  $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['identifier'] = 'civic';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
+  /* Filter criterion: Content: Services (field_services) */
+  $handler->display->display_options['filters']['field_services_tid']['id'] = 'field_services_tid';
+  $handler->display->display_options['filters']['field_services_tid']['table'] = 'field_data_field_services';
+  $handler->display->display_options['filters']['field_services_tid']['field'] = 'field_services_tid';
+  $handler->display->display_options['filters']['field_services_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_services_tid']['expose']['operator_id'] = 'field_services_tid_op';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['label'] = 'Services';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['operator'] = 'field_services_tid_op';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['identifier'] = 'services';
+  $handler->display->display_options['filters']['field_services_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_services_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_services_tid']['vocabulary'] = 'service';
+  /* Filter criterion: Content: Civic subcategory (field_civic_sub_cate) */
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['id'] = 'field_civic_sub_cate_tid';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['table'] = 'field_data_field_civic_sub_cate';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['field'] = 'field_civic_sub_cate_tid';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator_id'] = 'field_civic_sub_cate_tid_op';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['label'] = 'Civic subcategory';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator'] = 'field_civic_sub_cate_tid_op';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['identifier'] = 'additional';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['vocabulary'] = 'civic_subcategory';
+  /* Filter criterion: Content: Related applications (field_related_applications) */
+  $handler->display->display_options['filters']['field_related_applications_target_id']['id'] = 'field_related_applications_target_id';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['table'] = 'field_data_field_related_applications';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['field'] = 'field_related_applications_target_id';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['operator_id'] = 'field_related_applications_target_id_op';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['label'] = 'Related apps';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['operator'] = 'field_related_applications_target_id_op';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['identifier'] = 'app';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+
+  /* Display: Organizations map */
+  $handler = $view->new_display('block', 'Organizations map', 'block');
+  $handler->display->display_options['display_description'] = 'Defines the map of Organizations';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Organizations/Map on orgs listing page';
+
+  /* Display: Organizations Data Overlay */
+  $handler = $view->new_display('openlayers', 'Organizations Data Overlay', 'openlayers_orgs');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'title',
+    'other_lon' => 'title',
+    'wkt' => 'field_coordinates',
+    'other_top' => 'title',
+    'other_right' => 'title',
+    'other_bottom' => 'title',
+    'other_left' => 'title',
+    'name_field' => 'title',
+    'description_field' => 'field_address',
+    'view_mode' => 'full',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $export['organizations_map'] = $view;
 
   return $export;
 }
