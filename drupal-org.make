@@ -312,8 +312,12 @@ projects[wysiwyg_button_order][type] = "module"
 
 ; Schema.org kickstart modules ======================================================
 
-projects[entityreference][version] = "1.0"
+projects[entityreference][version] = "1.x-dev"
 projects[entityreference][subdir] = "contrib"
+projects[entityreference][download][url] = "http://git.drupal.org/project/entityreference.git"
+projects[entityreference][download][revision] = 06089a92ee8b269f153064ad3090ce6b464f38aa
+projects[entityreference][download][branch] = 7.x-1.x
+projects[entityreference][type] = "module"
 
 projects[rdfx][version] = "2.0-alpha4"
 projects[rdfx][subdir] = "contrib"
