@@ -642,4 +642,5 @@ function apps_catalog_aliases() {
   foreach ($nodes as $node) {
     node_save($node);
   }
+  cache_clear_all();
 }

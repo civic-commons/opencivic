@@ -75,6 +75,7 @@ function appcat_misc_deltas_delta_default_templates() {
         'omega-forms.css' => 'omega-forms.css',
         'omega-visuals.css' => 'omega-visuals.css',
         'global.css' => 'global.css',
+        'other-styles.css' => 'other-styles.css',
       ),
       'alpha_exclude' => array(
         'modules/comment/comment.css' => 0,
