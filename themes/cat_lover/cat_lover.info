@@ -67,7 +67,9 @@ zones[bottom_footer] = Bottom Footer
 css[global.css][name] = Your custom global styles
 css[global.css][description] = This file holds all the globally active custom CSS of your theme.
 css[global.css][options][weight] = 13]
-
+css[other-styles.css][name] = Additional CSS styles
+css[other-styles.css][description] = This file holds additional CSS that has not yet been added to global CSS.
+css[other-styles.css][options][weight] = 14]
 
 ; SCRIPTS
 
@@ -126,6 +128,7 @@ settings[alpha_css][omega-menu.css] = 'omega-menu.css'
 settings[alpha_css][omega-forms.css] = 'omega-forms.css'
 settings[alpha_css][omega-visuals.css] = 'omega-visuals.css'
 settings[alpha_css][global.css] = 'global.css'
+settings[alpha_css][other-styles.css] = 'other-styles.css'
 settings[alpha_exclude][modules/comment/comment.css] = '0'
 settings[alpha_exclude][sites/all/modules/contrib/date/date_api/date.css] = '0'
 settings[alpha_exclude][sites/all/modules/contrib/date/date_popup/themes/datepicker.1.7.css] = '0'
