@@ -15,8 +15,10 @@ projects[views_bulk_operations][version] = "3.0"
 projects[addanother][subdir] = "contrib"
 projects[addanother][version] = "2.1"
 
+; Patched to support devel_generate integration
 projects[addressfield][subdir] = "contrib"
 projects[addressfield][version] = "1.0-beta3"
+projects[addressfield][patch][1156776] = http://drupal.org/files/addressfield_devel_generate-1156776-2.patch
 
 projects[addtoany][subdir] = "contrib"
 projects[addtoany][version] = "3.1"
@@ -312,6 +314,7 @@ projects[wysiwyg_button_order][type] = "module"
 
 ; Schema.org kickstart modules ======================================================
 
+; This dev release fixes a bug with devel_generate integration
 projects[entityreference][version] = "1.x-dev"
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][download][url] = "http://git.drupal.org/project/entityreference.git"
