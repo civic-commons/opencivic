@@ -60,3 +60,12 @@ body.front .view .views-field-field-add-deployment-for a {
   font-weight: bold;
   text-decoration: none;
 }
+body.front h2.node-title a {
+  text-decoration: none;
+}
+
+.view-homepage-latest.view-display-id-block_2 .field-type-image {
+  width: 220px;
+  margin: 0 10px 10px 0;
+  float: left;
+}

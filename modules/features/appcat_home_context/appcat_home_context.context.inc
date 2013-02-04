@@ -26,11 +26,11 @@ function appcat_home_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'node-recent' => array(
-          'module' => 'node',
-          'delta' => 'recent',
+        'views-homepage_latest-block_2' => array(
+          'module' => 'views',
+          'delta' => 'homepage_latest-block_2',
           'region' => 'content_doormat',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-homepage_latest-block' => array(
           'module' => 'views',
