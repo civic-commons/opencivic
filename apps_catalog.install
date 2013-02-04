@@ -599,6 +599,7 @@ function apps_catalog_aliases() {
   variable_set('node_export_reset_sticky_organization', 0);
   variable_set('node_export_reset_sticky_page', 0);
   variable_set('node_export_reset_sticky_webform', 0);
+  variable_set('site_frontpage', 'places');
 
   // Define correspondint entity references.
   $records = array(
