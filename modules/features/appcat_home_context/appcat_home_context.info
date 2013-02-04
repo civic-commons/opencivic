@@ -9,5 +9,3 @@ dependencies[] = context
 features[context][] = homepage
 features[ctools][] = context:context:3
 features[features_api][] = api:1
-features_exclude[dependencies][block] = block
-features_exclude[dependencies][views] = views
