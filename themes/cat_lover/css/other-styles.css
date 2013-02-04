@@ -30,3 +30,33 @@
   *padding-top: 2px;
   *padding-bottom: 0px;
 }
+
+body.front .button {
+  min-width: 200px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+  float: none;
+}
+
+a.button {
+  color: #fff;
+  text-decoration: none;
+}
+
+.region-content-main-left .view,
+.region-content-main-middle .view,
+.region-content-main-right .view {
+  padding: 0;
+}
+
+body.front .block .views-field-field-image {
+  width: 55px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+body.front .view .views-field-field-add-deployment-for a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}

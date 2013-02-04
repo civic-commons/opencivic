@@ -397,7 +397,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'application_list';
   $view->description = 'The Applications listing page';
-  $view->tag = 'default';
+  $view->tag = 'Applicaton';
   $view->base_table = 'node';
   $view->human_name = 'application_list';
   $view->core = 7;

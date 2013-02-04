@@ -5,6 +5,7 @@ package = AppCat application
 php = 5.2.4
 version = 7.x-1.0-beta1
 project = appcat_application_views
+dependencies[] = ctools
 dependencies[] = openlayers
 dependencies[] = openlayers_views
 dependencies[] = views
