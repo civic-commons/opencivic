@@ -344,8 +344,8 @@ projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_in
 ; projects[fivestar_green][download][url] = ""
 ; projects[fivestar_green][type] = "module"
 
-; Search API Solr module.
-projects[search_api_solr][subdir] = contrib
+; Search API DB module.
+projects[search_api_db][subdir] = contrib
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
@@ -461,12 +461,6 @@ libraries[cycle][directory_name] = "jquery.cycle"
 ; libraries[shadowbox][download][url] = ""
 ; libraries[shadowbox][directory_name] = "shadowbox"
 ; libraries[shadowbox][type] = "library"
-
-; SolrPhpClient download URL taken from OpenAcademy.
-libraries[SolrPhpClient][download][type] = get
-libraries[SolrPhpClient][download][url] = http://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.zip
-; libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
-; libraries[SolrPhpClient][type] = "library"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
