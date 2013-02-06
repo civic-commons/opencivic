@@ -243,10 +243,7 @@ projects[rules][subdir] = "contrib"
 projects[rules][version] = "2.2"
 
 projects[search_api][subdir] = "contrib"
-projects[search_api][version] = "1.2"
-
-projects[search_api_autocomplete][subdir] = "contrib"
-projects[search_api_autocomplete][version] = "1.0-beta2"
+projects[search_api][version] = "1.4"
 
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
