@@ -113,7 +113,6 @@ dependencies[] = rules_admin
 dependencies[] = schemaorg
 dependencies[] = schemaorg_ui
 dependencies[] = search_api
-dependencies[] = search_api_autocomplete
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_db
@@ -174,6 +173,7 @@ dependencies[] = appcat_misc
 ; dependencies[] = appcat_misc_taxonomy_terms
 ; dependencies[] = appcat_application_content
 ; dependencies[] = appcat_organization_content
+dependencies[] = appcat_search_db
 
 ; Included in distro but not enabled at installation
 ; dependencies[] = inline_entity_form
