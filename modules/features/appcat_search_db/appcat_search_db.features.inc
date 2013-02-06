@@ -56,7 +56,7 @@ function appcat_search_db_default_search_api_index() {
         "field_software_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_add_deployment_for" : { "type" : "integer", "entity_type" : "node" },
         "search_api_language" : { "type" : "string" },
-        "body:value" : { "type" : "text" }
+        "search_api_viewed" : { "type" : "text" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -65,22 +65,19 @@ function appcat_search_db_default_search_api_index() {
           "settings" : { "default" : "1", "bundles" : [] }
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_viewed_entity" : { "status" : 1, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
       },
       "processors" : {
-        "search_api_case_ignore" : {
-          "status" : 0,
-          "weight" : "0",
-          "settings" : { "fields" : { "body:value" : true } }
-        },
+        "search_api_case_ignore" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_html_filter" : {
           "status" : 0,
           "weight" : "10",
           "settings" : {
-            "fields" : { "body:value" : true },
+            "fields" : [],
             "title" : 0,
             "alt" : 1,
             "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
@@ -89,17 +86,13 @@ function appcat_search_db_default_search_api_index() {
         "search_api_tokenizer" : {
           "status" : 0,
           "weight" : "20",
-          "settings" : {
-            "fields" : { "body:value" : true },
-            "spaces" : "[^[:alnum:]]",
-            "ignorable" : "[\\u0027]"
-          }
+          "settings" : { "fields" : [], "spaces" : "[^[:alnum:]]", "ignorable" : "[\\u0027]" }
         },
         "search_api_stopwords" : {
           "status" : 0,
           "weight" : "30",
           "settings" : {
-            "fields" : { "body:value" : true },
+            "fields" : [],
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
           }
@@ -150,11 +143,6 @@ function appcat_search_db_default_search_api_server() {
           "search_api_language" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_search_api_language",
             "type" : "string",
-            "boost" : "1.0"
-          },
-          "body:value" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_body_value",
-            "type" : "text",
             "boost" : "1.0"
           },
           "field_additional_type" : {
@@ -230,6 +218,11 @@ function appcat_search_db_default_search_api_server() {
           "field_add_deployment_for" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_field_add_deployment_for",
             "type" : "integer",
+            "boost" : "1.0"
+          },
+          "search_api_viewed" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_search_api_viewed",
+            "type" : "text",
             "boost" : "1.0"
           }
         }
