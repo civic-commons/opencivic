@@ -40,7 +40,6 @@ function appcat_search_db_default_search_api_index() {
         "title" : { "type" : "string" },
         "status" : { "type" : "boolean" },
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "field_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_additional_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_civic_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_civic_sub_cate" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -138,14 +137,24 @@ function appcat_search_db_default_search_api_server() {
             "type" : "string",
             "boost" : "1.0"
           },
+          "status" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_status",
+            "type" : "boolean",
+            "boost" : "1.0"
+          },
           "author" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_author",
             "type" : "integer",
             "boost" : "1.0"
           },
-          "field_tags" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_field_tags",
-            "type" : "list\\u003Cinteger\\u003E",
+          "search_api_language" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "body:value" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_body_value",
+            "type" : "text",
             "boost" : "1.0"
           },
           "field_additional_type" : {
@@ -221,21 +230,6 @@ function appcat_search_db_default_search_api_server() {
           "field_add_deployment_for" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_field_add_deployment_for",
             "type" : "integer",
-            "boost" : "1.0"
-          },
-          "search_api_language" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_search_api_language",
-            "type" : "string",
-            "boost" : "1.0"
-          },
-          "body:value" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_body_value",
-            "type" : "text",
-            "boost" : "1.0"
-          },
-          "status" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_status",
-            "type" : "boolean",
             "boost" : "1.0"
           }
         }
