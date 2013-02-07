@@ -144,9 +144,9 @@ function addressfield_extras_batch_process_file(&$context) {
         'fip' => $line[1],
         'name' => $line[2],
       );
-      watchdog('rtester', "Line $record:<pre>" . print_r($line, TRUE) . '</pre>');
+      // Uncomment the following line if you need to debug what is happening..
+      // watchdog('rtester', "Line $record:<pre>" . print_r($line, TRUE) . '</pre>');
       drupal_write_record('addressfield_extras_region', $save);
-
       variable_set('addressfield_extras_batch_line', ftell($fp));
     }
   }
