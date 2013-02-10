@@ -20,5 +20,5 @@ projects[drupal][patch][1887924] = http://drupal.org/files/max_execution_error-1
 
 projects[apps_catalog][type] = profile
 projects[apps_catalog][download][type] = git
-projects[apps_catalog][download][url] = http://git.drupal.org/project/apps_catalog.git
-projects[apps_catalog][download][branch] = 7.x-1.x
+projects[apps_catalog][download][url] = https://github.com/nuams/apps_catalog.git
+; projects[apps_catalog][download][branch] = 7.x-2.x
