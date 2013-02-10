@@ -201,13 +201,16 @@ projects[openlayers][version] = "2.0-beta3"
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
 
+; Ideally this should be pulling from an official release or from a specific git commit,
+; but that isn't currently feasible due to a library in a git repo that Drupal.org hasn't
+; whitelisted. See http://drupal.org/node/1913594
 projects[olfp][subdir] = "contrib"
 projects[olfp][version] = "2.x-dev"
-projects[olfp][download][type] = "git"
-projects[olfp][download][url] = "http://git.drupal.org/project/olfp.git"
-projects[olfp][download][revision] = 659e7bb3b21751534efc1ba7c201c0b81d9d1e10
-projects[olfp][download][branch] = 7.x-2.x
-projects[olfp][type] = "module"
+; projects[olfp][download][type] = "git"
+; projects[olfp][download][url] = "http://git.drupal.org/project/olfp.git"
+; projects[olfp][download][revision] = 659e7bb3b21751534efc1ba7c201c0b81d9d1e10
+; projects[olfp][download][branch] = 7.x-2.x
+; projects[olfp][type] = "module"
 
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
