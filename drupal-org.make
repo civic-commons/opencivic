@@ -353,8 +353,8 @@ projects[search_api_db][subdir] = contrib
 
 ; Transclude module.
 projects[transclude][subdir] = contrib
-projects[transclude][download][type] = "get"
-projects[transclude][download][url] = "http://drupalcode.org/sandbox/sheldon/1827730.git/snapshot/HEAD.tar.gz"
+projects[transclude][download][type] = "git"
+projects[transclude][download][url] = "http://git.drupal.org/sandbox/sheldon/1827730.git"
 projects[transclude][type] = "module"
 
 ; Development modules ===========================================================
