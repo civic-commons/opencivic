@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="lang" content="en" />
+        <meta name="author" content="Jorix" />
+        <meta name="description" content="Usage example of FeaturePopups control for OpenLayers that wraps the management of popups and SelectFeature control" />
+        <meta name="keywords" content="OpenLayers, SelectFearure, popup, BBOX, cluster, clustering, strategy, template, safe selection, keep selection, FeaturePopups" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="../github-pages/forkme_banner.css" type="text/css">
+
+        <title>Example of FeaturePopups for OpenLayers</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <style>
+            .olControlFeaturePopups_list{font-size: 80%;}
+            .olControlFeaturePopups_list ul{margin-bottom: 0}
+        </style>
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/patches_OL-popup-autosize.js"></script>
+        <script src="../lib/FeaturePopups.js"></script>
+
+    </head>
+    <body>
+        <h1 id="title">Example of FeaturePopups for OpenLayers</h1>
+        <a id="forkme_banner" href="https://github.com/jorix/OL-FeaturePopups">View on GitHub</a>
+        <div id="tags">popups, vector layers, templates</div>
+        <p id="shortdesc">
+            Demonstrates how to use the &quot;FeaturePopups&quot; control to 
+            display popups on multiple vector layers using templates.
+        </p>
+        <div id="map" style="width: 600px; height: 500px;" class="smallmap"></div>
+        <div id="docs">
+            <p> 
+                This control wraps the management of popups and SelectFeature control.
+            </p>
+            <h2>Try:</h2>
+            <ul>
+                <li>Move the cursor over a feature.</li>
+                <li>Select a clustered feature (circles), popup is shown as a list.
+                    <ul>
+                        <li>Do zoom-in, selection is kept: this is the <b>safe selection</b>.</li>
+                        <li>Click a link, shows a single popup: due to <code>${showPopup()}</code> in &quot;item&quot; template.</li>
+                    </ul>
+                </li>
+                <li>Select any feature in Africa and do zoom-in: selection is kept even though the strategy BBOX has been used, this is also the <b>safe selection</b> but requires "fid"</li>
+                <li>Hide the layer &quot;POI's&quot; and re-display: the popup disappears and reappears.</li>
+                <li>Select some features from different layers using selection box (press CTRL key and drag)</li>
+                <li>Now hide one layer and re-display: the popup list is updated.</li>
+                <li>Select only one single feature using a selection box, is shown a single pupup not a list.</li>
+                <li>Use a external div instead of a popups to display lists of features, see: 
+                    <a href="feature-popups-external.html">feature-popups-external.html</a> 
+                </li>
+            </ul>
+            <h2>Features:</h2>
+            <ul>
+                <li>The contents of the popup are built using templates.
+                    <ul>
+                        <li>Templates as strings or functions</li>
+                        <li>Allows internationalization of labels in templates.</li>
+                    </ul>
+                </li>
+                <li>Show popups by selection or hover from multiple vector layers.</li>
+                <li>Multiple selection using box and show the list of features selected into an popup</li>
+                <li>Proper popups on clustered features (OpenLayers.Strategy.Cluster)</li>
+                <li>Safe selection: Features remain selected even after zooming or moving the map (using Cluster and BBOX strategies)</li>
+                <li>See more: <a href="https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/README.md">Description of the project</a></li>
+            </ul>
+            <p>
+                View the <a href="feature-popups.js" target="_blank">feature-popups.js</a> 
+                source to see how this is done. 
+                (see also <a href="feature-popups-common.js" target="_blank">feature-popups-common.js</a>)
+            </p>
+        </div>
+        <script src="feature-popups-common.js"></script>
+        <script src="feature-popups.js"></script>
+    </body>
+</html>

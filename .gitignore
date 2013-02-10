@@ -1,4 +1,6 @@
-libraries
+libraries/ckeditor
+libraries/ole
+libraries/jquery.cycle
 modules/contrib
 modules/devel
 themes/tao

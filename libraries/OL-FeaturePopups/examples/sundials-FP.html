@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="../github-pages/forkme_banner.css" type="text/css">
+    
+    <title>OpenLayers KML Layer Example (simplified by using "FeaturePopups")</title>
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        #map {
+            width: 100%;
+            height: 80%;
+            border: 1px solid black;
+        }
+        .olPopup p { margin:0px; font-size: .9em;}
+        .olPopup h2 { font-size:1.2em; }
+    </style>
+    <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+    <script src="../lib/patches_OL-popup-autosize.js"></script>
+    <script src="../lib/FeaturePopups.js"></script>
+    <script type="text/javascript">
+        var lon = 5;
+        var lat = 40;
+        var zoom = 5;
+        var map, select;
+
+        function init(){
+            map = new OpenLayers.Map('map');
+
+            var wms = new OpenLayers.Layer.WMS(
+                "OpenLayers WMS",
+                "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                {layers: 'basic'}
+            );
+
+            var sundials = new OpenLayers.Layer.Vector("KML", {
+                projection: map.displayProjection,
+                strategies: [new OpenLayers.Strategy.Fixed()],
+                protocol: new OpenLayers.Protocol.HTTP({
+                    url: "kml/sundials.kml",
+                    format: new OpenLayers.Format.KML({
+                        extractStyles: true,
+                        extractAttributes: true
+                    })
+                })
+            });
+            
+            map.addLayers([wms, sundials]);
+            
+            select = new OpenLayers.Control.FeaturePopups({
+                selectionBox: true,
+                layers: [[
+                    sundials , {templates: {
+                        hover: "${.name}",
+                        single: "<h2>${.name}</h2>${.description}",
+                        item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
+                    }}
+                ]]
+            });
+
+            map.addControl(select);
+
+            map.zoomToExtent(new OpenLayers.Bounds(68.774414,11.381836,123.662109,34.628906));
+        }
+    </script>
+  </head>
+  <body onload="init()">
+      <h1 id="title">KML Layer Example (OpenLayers example simplified by using "FeaturePopups")</h1>
+      <a id="forkme_banner" href="https://github.com/jorix/OL-FeaturePopups">View on GitHub</a>
+
+      <div id="tags">
+          kml, popup, feature
+      </div>
+
+      <p id="shortdesc">
+          Demonstrates loading and displaying a KML file on top of a basemap.
+    </p>
+
+    <div id="map" class="smallmap"></div>
+
+    <div id="docs"></div>
+  </body>
+</html>
