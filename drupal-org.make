@@ -395,14 +395,20 @@ projects[architecture][subdir] = devel
 
 ; Entity Fields Builder module
 projects[efb][subdir] = devel
-projects[efb][download][type] = "get"
-projects[efb][download][url] = "http://drupalcode.org/sandbox/sheldon/1862210.git/snapshot/HEAD.tar.gz"
+projects[efb][version] = "1.x"
+projects[efb][download][type] = "git"
+projects[efb][download][url] = "http://git.drupal.org/project/efb.git"
+projects[efb][download][revision] = 0e70d160245d9720ba4af34e66674acd03ada1a0
+projects[efb][download][branch] = 7.x-1.x
 projects[efb][type] = "module"
 
 ; Schema.org cache module
 projects[schemaorg_cache][subdir] = devel
+projects[schemaorg_cache][version] = "1.x"
 projects[schemaorg_cache][download][type] = "git"
-projects[schemaorg_cache][download][url] = "http://git.drupal.org/sandbox/sheldon/1867720.git"
+projects[schemaorg_cache][download][url] = "http://git.drupal.org/project/schemaorg_cache.git"
+projects[schemaorg_cache][download][revision] = 167f480946b579d91ba9467ccdfa68c5fe0c935e
+projects[schemaorg_cache][download][branch] = 7.x-1.x
 projects[schemaorg_cache][type] = "module"
 
 ; Libraries =====================================================================
