@@ -243,10 +243,7 @@ projects[rules][subdir] = "contrib"
 projects[rules][version] = "2.2"
 
 projects[search_api][subdir] = "contrib"
-projects[search_api][version] = "1.2"
-
-projects[search_api_autocomplete][subdir] = "contrib"
-projects[search_api_autocomplete][version] = "1.0-beta2"
+projects[search_api][version] = "1.4"
 
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
@@ -344,8 +341,8 @@ projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_in
 ; projects[fivestar_green][download][url] = ""
 ; projects[fivestar_green][type] = "module"
 
-; Search API Solr module.
-projects[search_api_solr][subdir] = contrib
+; Search API DB module.
+projects[search_api_db][subdir] = contrib
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
@@ -398,14 +395,20 @@ projects[architecture][subdir] = devel
 
 ; Entity Fields Builder module
 projects[efb][subdir] = devel
-projects[efb][download][type] = "get"
-projects[efb][download][url] = "http://drupalcode.org/sandbox/sheldon/1862210.git/snapshot/HEAD.tar.gz"
+projects[efb][version] = "1.x"
+projects[efb][download][type] = "git"
+projects[efb][download][url] = "http://git.drupal.org/project/efb.git"
+projects[efb][download][revision] = 0e70d160245d9720ba4af34e66674acd03ada1a0
+projects[efb][download][branch] = 7.x-1.x
 projects[efb][type] = "module"
 
 ; Schema.org cache module
 projects[schemaorg_cache][subdir] = devel
+projects[schemaorg_cache][version] = "1.x"
 projects[schemaorg_cache][download][type] = "git"
-projects[schemaorg_cache][download][url] = "http://git.drupal.org/sandbox/sheldon/1867720.git"
+projects[schemaorg_cache][download][url] = "http://git.drupal.org/project/schemaorg_cache.git"
+projects[schemaorg_cache][download][revision] = 167f480946b579d91ba9467ccdfa68c5fe0c935e
+projects[schemaorg_cache][download][branch] = 7.x-1.x
 projects[schemaorg_cache][type] = "module"
 
 ; Libraries =====================================================================
@@ -461,12 +464,6 @@ libraries[cycle][directory_name] = "jquery.cycle"
 ; libraries[shadowbox][download][url] = ""
 ; libraries[shadowbox][directory_name] = "shadowbox"
 ; libraries[shadowbox][type] = "library"
-
-; SolrPhpClient download URL taken from OpenAcademy.
-libraries[SolrPhpClient][download][type] = get
-libraries[SolrPhpClient][download][url] = http://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.zip
-; libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
-; libraries[SolrPhpClient][type] = "library"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.

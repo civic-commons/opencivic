@@ -469,6 +469,8 @@ function apps_catalog_additional_setup() {
       'path',
       'pathauto',
       'olfp',
+      // Needs to run after the fields are installed. See: http://drupal.org/node/1347438#comment-7038870
+      'appcat_search_db',
     )
   );
 /*
