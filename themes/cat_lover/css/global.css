@@ -2209,8 +2209,15 @@ div.field-item.even p strong {
   margin-top: 0;
   position: relative; }
 
+.views-field-field-license a:first-child,
+.views-field-field-requirements a:first-child,
 .views-field-field-software-type a:first-child {
   margin-left: 0; }
 
+.views-field-field-license a,
+.views-field-field-requirements a,
 .views-field-field-software-type a {
   margin-left: 10px; }
+
+#block-user-login {
+  float: none; }
