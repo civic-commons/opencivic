@@ -48,13 +48,6 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['fields']['view_1']['view'] = 'organization_categories';
   $handler->display->display_options['fields']['view_1']['display'] = 'block_1';
   $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
-  /* Field: Content: Civic subcategory */
-  $handler->display->display_options['fields']['field_civic_sub_cate']['id'] = 'field_civic_sub_cate';
-  $handler->display->display_options['fields']['field_civic_sub_cate']['table'] = 'field_data_field_civic_sub_cate';
-  $handler->display->display_options['fields']['field_civic_sub_cate']['field'] = 'field_civic_sub_cate';
-  $handler->display->display_options['fields']['field_civic_sub_cate']['label'] = 'Civic subcategories';
-  $handler->display->display_options['fields']['field_civic_sub_cate']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_civic_sub_cate']['delta_offset'] = '0';
   /* Field: Content: Related applications */
   $handler->display->display_options['fields']['field_related_applications']['id'] = 'field_related_applications';
   $handler->display->display_options['fields']['field_related_applications']['table'] = 'field_data_field_related_applications';
@@ -389,23 +382,6 @@ function appcat_organization_views_views_default_views() {
   );
   $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
-  /* Filter criterion: Content: Civic subcategory (field_civic_sub_cate) */
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['id'] = 'field_civic_sub_cate_tid';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['table'] = 'field_data_field_civic_sub_cate';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['field'] = 'field_civic_sub_cate_tid';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator_id'] = 'field_civic_sub_cate_tid_op';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['label'] = 'Additional focus';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator'] = 'field_civic_sub_cate_tid_op';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['identifier'] = 'additional';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['vocabulary'] = 'civic_subcategory';
   /* Filter criterion: Content: Services (field_services) */
   $handler->display->display_options['filters']['field_services_tid']['id'] = 'field_services_tid';
   $handler->display->display_options['filters']['field_services_tid']['table'] = 'field_data_field_services';
@@ -734,6 +710,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
   $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
   $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
   $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Category';
@@ -750,6 +727,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['filters']['field_services_tid']['id'] = 'field_services_tid';
   $handler->display->display_options['filters']['field_services_tid']['table'] = 'field_data_field_services';
   $handler->display->display_options['filters']['field_services_tid']['field'] = 'field_services_tid';
+  $handler->display->display_options['filters']['field_services_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_services_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_services_tid']['expose']['operator_id'] = 'field_services_tid_op';
   $handler->display->display_options['filters']['field_services_tid']['expose']['label'] = 'Services';
@@ -762,26 +740,11 @@ function appcat_organization_views_views_default_views() {
   );
   $handler->display->display_options['filters']['field_services_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_services_tid']['vocabulary'] = 'service';
-  /* Filter criterion: Content: Civic subcategory (field_civic_sub_cate) */
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['id'] = 'field_civic_sub_cate_tid';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['table'] = 'field_data_field_civic_sub_cate';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['field'] = 'field_civic_sub_cate_tid';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator_id'] = 'field_civic_sub_cate_tid_op';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['label'] = 'Civic subcategory';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['operator'] = 'field_civic_sub_cate_tid_op';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['identifier'] = 'additional';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_civic_sub_cate_tid']['vocabulary'] = 'civic_subcategory';
   /* Filter criterion: Content: Related applications (field_related_applications) */
   $handler->display->display_options['filters']['field_related_applications_target_id']['id'] = 'field_related_applications_target_id';
   $handler->display->display_options['filters']['field_related_applications_target_id']['table'] = 'field_data_field_related_applications';
   $handler->display->display_options['filters']['field_related_applications_target_id']['field'] = 'field_related_applications_target_id';
+  $handler->display->display_options['filters']['field_related_applications_target_id']['group'] = 1;
   $handler->display->display_options['filters']['field_related_applications_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['operator_id'] = 'field_related_applications_target_id_op';
   $handler->display->display_options['filters']['field_related_applications_target_id']['expose']['label'] = 'Related apps';
