@@ -189,7 +189,7 @@ function appcat_application_content_field_default_fields() {
       'bundle' => 'application',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Type of software application, e.g. "Game, Multimedia".',
+      'description' => 'Type of software application, e.g. "Game, Multimedia."',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -206,7 +206,7 @@ function appcat_application_content_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_application_category',
-      'label' => 'Application category',
+      'label' => 'Application function',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -264,7 +264,7 @@ function appcat_application_content_field_default_fields() {
       'bundle' => 'application',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'What civic purpose does this application serve, e.g., education, elections?',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -281,7 +281,7 @@ function appcat_application_content_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_civic_category',
-      'label' => 'Civic category',
+      'label' => 'Civic sector',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -1595,8 +1595,8 @@ function appcat_application_content_field_default_fields() {
   t('An embedded video object.');
   t('App Description');
   t('Application Homepage');
-  t('Application category');
-  t('Civic category');
+  t('Application function');
+  t('Civic sector');
   t('Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).');
   t('Creator');
   t('Demo url');
@@ -1620,9 +1620,10 @@ function appcat_application_content_field_default_fields() {
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
   t('The keywords/tags used to describe this content. Separate tags with a comma.');
-  t('Type of software application, e.g. "Game, Multimedia".');
+  t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');
+  t('What civic purpose does this application serve, e.g., education, elections?');
   t('What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).');
   t('What does the application do? What should people know about the application?');
   t('Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.');

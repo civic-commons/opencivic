@@ -354,7 +354,7 @@ function appcat_organization_content_field_default_fields() {
       'bundle' => 'organization',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'What civic purpose does this organization serve, e.g., education, elections?',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -371,7 +371,7 @@ function appcat_organization_content_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_civic_category',
-      'label' => 'Civic category',
+      'label' => 'Civic sector',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -1270,7 +1270,7 @@ function appcat_organization_content_field_default_fields() {
   t('A member of this organization.');
   t('Abbreviation');
   t('Address');
-  t('Civic category');
+  t('Civic sector');
   t('Coordinates');
   t('Description');
   t('Enter the URL of the homepage where people can go to find more information.');
@@ -1284,6 +1284,7 @@ function appcat_organization_content_field_default_fields() {
   t('Telephone');
   t('URL of an image for the logo of the item.');
   t('Website');
+  t('What civic purpose does this organization serve, e.g., education, elections?');
   t('e.g., DPW or DoITT');
 
   return $fields;
