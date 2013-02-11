@@ -489,6 +489,7 @@ function apps_catalog_aliases() {
   variable_set('pathauto_forum_pattern', '[term:vocabulary]/[term:name]');
   variable_set('pathauto_node_application_pattern', 'app/[node:title]');
   variable_set('pathauto_node_article_pattern', 'article/[node:title]');
+  variable_set('pathauto_node_blog_pattern', 'blog/[node:title]');
   variable_set('pathauto_node_deployment_pattern', 'deploy/[node:title]');
   variable_set('pathauto_node_organization_pattern', 'org/[node:title]');
   variable_set('pathauto_node_page_pattern', 'page/[node:title]');
@@ -496,9 +497,7 @@ function apps_catalog_aliases() {
   variable_set('pathauto_node_webform_pattern', 'form/[node:title]');
   variable_set('pathauto_punctuation_hyphen', 1);
   variable_set('pathauto_taxonomy_term_application_category_pattern', 'appcat/[term:name]');
-  variable_set('pathauto_taxonomy_term_application_subcategory_pattern', 'appsubcat/[term:name]');
   variable_set('pathauto_taxonomy_term_civic_category_pattern', 'civic/[term:name]');
-  variable_set('pathauto_taxonomy_term_civic_subcategory_pattern', 'civicsub/[term:name]');
   variable_set('pathauto_taxonomy_term_license_pattern', 'license/[term:name]');
   variable_set('pathauto_taxonomy_term_organization_type_pattern', 'orgype/[term:name]');
   variable_set('pathauto_taxonomy_term_pattern', '[term:vocabulary]/[term:name]');
@@ -522,6 +521,7 @@ function apps_catalog_aliases() {
   variable_set('node_export_file_supported_fields', 'file, image');
   variable_set('node_export_file_types', array(
     'application' => 'application',
+    'blog' => 'blog',
     'deployment' => 'deployment',
     'organization' => 'organization',
     'article' => 0,
@@ -537,66 +537,77 @@ function apps_catalog_aliases() {
   ));
   variable_set('node_export_reset_author_application', 1);
   variable_set('node_export_reset_author_article', 1);
+  variable_set('node_export_reset_author_blog', 1);
   variable_set('node_export_reset_author_deployment', 1);
   variable_set('node_export_reset_author_organization', 1);
   variable_set('node_export_reset_author_page', 1);
   variable_set('node_export_reset_author_webform', 1);
   variable_set('node_export_reset_book_mlid_application', 0);
   variable_set('node_export_reset_book_mlid_article', 0);
+  variable_set('node_export_reset_book_mlid_blog', 0);
   variable_set('node_export_reset_book_mlid_deployment', 0);
   variable_set('node_export_reset_book_mlid_organization', 0);
   variable_set('node_export_reset_book_mlid_page', 0);
   variable_set('node_export_reset_book_mlid_webform', 0);
   variable_set('node_export_reset_changed_application', 0);
   variable_set('node_export_reset_changed_article', 0);
+  variable_set('node_export_reset_changed_blog', 0);
   variable_set('node_export_reset_changed_deployment', 0);
   variable_set('node_export_reset_changed_organization', 0);
   variable_set('node_export_reset_changed_page', 0);
   variable_set('node_export_reset_changed_webform', 0);
   variable_set('node_export_reset_created_application', 0);
   variable_set('node_export_reset_created_article', 0);
+  variable_set('node_export_reset_created_blog', 0);
   variable_set('node_export_reset_created_deployment', 0);
   variable_set('node_export_reset_created_organization', 0);
   variable_set('node_export_reset_created_page', 0);
   variable_set('node_export_reset_created_webform', 0);
   variable_set('node_export_reset_last_comment_timestamp_application', 0);
   variable_set('node_export_reset_last_comment_timestamp_article', 0);
+  variable_set('node_export_reset_last_comment_timestamp_blog', 0);
   variable_set('node_export_reset_last_comment_timestamp_deployment', 0);
   variable_set('node_export_reset_last_comment_timestamp_organization', 0);
   variable_set('node_export_reset_last_comment_timestamp_page', 0);
   variable_set('node_export_reset_last_comment_timestamp_webform', 0);
   variable_set('node_export_reset_menu_application', 0);
   variable_set('node_export_reset_menu_article', 0);
+  variable_set('node_export_reset_menu_blog', 0);
   variable_set('node_export_reset_menu_deployment', 0);
   variable_set('node_export_reset_menu_organization', 0);
   variable_set('node_export_reset_menu_page', 0);
   variable_set('node_export_reset_menu_webform', 0);
   variable_set('node_export_reset_path_application', 0);
   variable_set('node_export_reset_path_article', 0);
+  variable_set('node_export_reset_path_blog', 0);
   variable_set('node_export_reset_path_deployment', 0);
   variable_set('node_export_reset_path_organization', 0);
   variable_set('node_export_reset_path_page', 0);
   variable_set('node_export_reset_path_webform', 0);
   variable_set('node_export_reset_promote_application', 0);
   variable_set('node_export_reset_promote_article', 0);
+  variable_set('node_export_reset_promote_blog', 0);
   variable_set('node_export_reset_promote_deployment', 0);
   variable_set('node_export_reset_promote_organization', 0);
   variable_set('node_export_reset_promote_page', 0);
   variable_set('node_export_reset_promote_webform', 0);
   variable_set('node_export_reset_revision_timestamp_application', 0);
   variable_set('node_export_reset_revision_timestamp_article', 0);
+  variable_set('node_export_reset_revision_timestamp_blog', 0);
   variable_set('node_export_reset_revision_timestamp_deployment', 0);
   variable_set('node_export_reset_revision_timestamp_organization', 0);
   variable_set('node_export_reset_revision_timestamp_page', 0);
   variable_set('node_export_reset_revision_timestamp_webform', 0);
   variable_set('node_export_reset_status_application', 0);
   variable_set('node_export_reset_status_article', 0);
+  variable_set('node_export_reset_status_blog', 0);
   variable_set('node_export_reset_status_deployment', 0);
   variable_set('node_export_reset_status_organization', 0);
   variable_set('node_export_reset_status_page', 0);
   variable_set('node_export_reset_status_webform', 0);
   variable_set('node_export_reset_sticky_application', 0);
   variable_set('node_export_reset_sticky_article', 0);
+  variable_set('node_export_reset_sticky_blog', 0);
   variable_set('node_export_reset_sticky_deployment', 0);
   variable_set('node_export_reset_sticky_organization', 0);
   variable_set('node_export_reset_sticky_page', 0);
