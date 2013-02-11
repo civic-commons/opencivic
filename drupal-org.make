@@ -391,7 +391,7 @@ projects[devel][subdir] = "devel"
 
 projects[node_export][version] = "3.0"
 projects[node_export][subdir] = "devel"
-projects[node_export][patch][1896384] = http://drupal.org/files/correct_entitity_references-1896384-1.patch
+projects[node_export][patch][1896384] = http://drupal.org/files/correct_entity_reference_2.diff
 
 ; Architecture module.
 projects[architecture][subdir] = devel
