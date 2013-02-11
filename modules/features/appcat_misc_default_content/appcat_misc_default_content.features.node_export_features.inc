@@ -173,6 +173,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'186\',
+            \'uuid\' => \'b14b498d-7185-a9e4-d5e0-eb88d3a0b76d\',
           ),
         ),
       ),
@@ -367,6 +368,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'191\',
+            \'uuid\' => \'c4f32642-b538-6134-55b9-71c15944cec3\',
           ),
         ),
       ),
@@ -394,6 +396,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'135\',
+            \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
@@ -515,7 +518,7 @@ function appcat_misc_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'4\',
+      \'vid\' => \'12\',
       \'uid\' => \'0\',
       \'title\' => \'Drupal\',
       \'log\' => \'\',
@@ -523,17 +526,17 @@ function appcat_misc_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'c9e77875-3613-482c-a7ce-cb735b940dde\',
+      \'vuuid\' => \'a18b0b99-9d22-48e2-bce1-b605e23d6b0c\',
       \'nid\' => \'4\',
       \'type\' => \'application\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360539496\',
+      \'changed\' => \'1360558188\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1a4710f7-22ff-a854-3d8f-987e5eb075de\',
-      \'revision_timestamp\' => \'1360539496\',
-      \'revision_uid\' => \'0\',
+      \'revision_timestamp\' => \'1360558188\',
+      \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
           array(
@@ -557,6 +560,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'28\',
+            \'uuid\' => \'91dc0575-1800-4f14-419a-69f1cca0a5ee\',
           ),
         ),
       ),
@@ -564,9 +568,11 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'76\',
+            \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
           array(
             \'tid\' => \'135\',
+            \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
@@ -673,6 +679,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'168\',
+            \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
           ),
         ),
       ),
@@ -696,15 +703,19 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'161\',
+            \'uuid\' => \'52a8c3a5-443b-3a84-f970-9c936222b636\',
           ),
           array(
             \'tid\' => \'162\',
+            \'uuid\' => \'5330ac54-d7c9-8944-69cc-4b08757afe7e\',
           ),
           array(
             \'tid\' => \'187\',
+            \'uuid\' => \'b4bdca4d-bbdd-eb34-8127-aecd910e789d\',
           ),
           array(
             \'tid\' => \'190\',
+            \'uuid\' => \'c425e455-708c-4084-456f-308ece4f3ee9\',
           ),
         ),
       ),
@@ -713,6 +724,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'178\',
+            \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
           ),
         ),
       ),
@@ -720,10 +732,8 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'url\' => \'http://drupal.org/\',
-            \'title\' => \'App Homepage\',
-            \'attributes\' => array(
-              \'rel\' => \'nofollow\',
-            ),
+            \'title\' => NULL,
+            \'attributes\' => array(),
           ),
         ),
       ),
@@ -853,6 +863,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'166\',
+            \'uuid\' => \'60ee3e65-7fc0-7524-cd44-e2d579c637c8\',
           ),
         ),
       ),
@@ -880,6 +891,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'135\',
+            \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
@@ -1335,6 +1347,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'76\',
+            \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
         ),
       ),
@@ -1415,6 +1428,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'168\',
+            \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
           ),
         ),
       ),
@@ -1430,9 +1444,11 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'162\',
+            \'uuid\' => \'5330ac54-d7c9-8944-69cc-4b08757afe7e\',
           ),
           array(
             \'tid\' => \'187\',
+            \'uuid\' => \'b4bdca4d-bbdd-eb34-8127-aecd910e789d\',
           ),
         ),
       ),
@@ -1498,6 +1514,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'178\',
+            \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
           ),
         ),
       ),
@@ -1636,6 +1653,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'186\',
+            \'uuid\' => \'b14b498d-7185-a9e4-d5e0-eb88d3a0b76d\',
           ),
         ),
       ),
@@ -1663,6 +1681,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'135\',
+            \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
@@ -1718,18 +1737,23 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'180\',
+            \'uuid\' => \'9de5aac9-621a-88f4-e15d-b586cc1591ca\',
           ),
           array(
             \'tid\' => \'145\',
+            \'uuid\' => \'1abe8b55-02a9-5864-6935-5fc4544b3bd0\',
           ),
           array(
             \'tid\' => \'184\',
+            \'uuid\' => \'ab022797-7c91-7cc4-c551-ef927b9bb285\',
           ),
           array(
             \'tid\' => \'183\',
+            \'uuid\' => \'aafdb1b0-b017-6154-3dfa-fb4c9de0ffce\',
           ),
           array(
             \'tid\' => \'174\',
+            \'uuid\' => \'86a0de58-8613-4a54-d597-bf9e6f6f54b3\',
           ),
         ),
       ),
@@ -1864,6 +1888,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'165\',
+            \'uuid\' => \'5bdb8fa8-4f14-acb4-d9e3-363648a7ba83\',
           ),
         ),
       ),
@@ -1891,9 +1916,11 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'76\',
+            \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
           array(
             \'tid\' => \'135\',
+            \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
@@ -1928,6 +1955,7 @@ function appcat_misc_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'183\',
+            \'uuid\' => \'aafdb1b0-b017-6154-3dfa-fb4c9de0ffce\',
           ),
         ),
       ),

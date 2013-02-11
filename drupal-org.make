@@ -395,7 +395,7 @@ projects[node_export][download][type] = "git"
 projects[node_export][download][url] = "http://git.drupal.org/project/node_export.git"
 projects[node_export][download][revision] = ebef56784374f977f3cfdb87f4a5ba42182b3477
 projects[node_export][download][branch] = 7.x-3.x
-projects[node_export][patch][1896384] = http://drupal.org/files/correct_entitity_references-1896384-1.patch
+projects[node_export][patch][1896384] = http://drupal.org/files/correct_entitity_references-1896384-4.patch
 projects[node_export][type] = "module"
 
 ; Architecture module.
