@@ -46,13 +46,11 @@ function appcat_search_db_default_search_api_index() {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "field_additional_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_civic_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_civic_sub_cate" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_keywords" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_member" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_related_applications" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_services" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_application_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_application_sub_cate" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_contributor" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_creator" : { "type" : "integer", "entity_type" : "node" },
         "field_license" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -154,11 +152,6 @@ function appcat_search_db_default_search_api_server() {
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
-          "field_civic_sub_cate" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_field_civic_sub_cate",
-            "type" : "list\\u003Cinteger\\u003E",
-            "boost" : "1.0"
-          },
           "field_keywords" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_field_keywords",
             "type" : "list\\u003Cinteger\\u003E",
@@ -181,11 +174,6 @@ function appcat_search_db_default_search_api_server() {
           },
           "field_application_category" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_field_application_categor",
-            "type" : "list\\u003Cinteger\\u003E",
-            "boost" : "1.0"
-          },
-          "field_application_sub_cate" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_field_application_sub_cat",
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
