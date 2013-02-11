@@ -22,7 +22,7 @@ function appcat_search_db_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function appcat_search_db_views_api() {
-  return array("version" => "3.0");
+  return array("api" => "3.0");
 }
 
 /**
@@ -66,46 +66,46 @@ function appcat_search_db_default_search_api_index() {
         "search_api_alter_bundle_filter" : {
           "status" : 0,
           "weight" : "-10",
-          "settings" : { "default" : "1", "bundles" : [] }
+          "settings" : { "default" : "1", "bundles" : [  ] }
         },
-        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [  ] } },
         "search_api_alter_add_viewed_entity" : { "status" : 1, "weight" : "0", "settings" : { "mode" : "full" } },
-        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [  ] }
       },
       "processors" : {
-        "search_api_case_ignore" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_case_ignore" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [  ] } },
         "search_api_html_filter" : {
           "status" : 0,
           "weight" : "10",
           "settings" : {
-            "fields" : [],
+            "fields" : [  ],
             "title" : 0,
             "alt" : 1,
-            "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
+            "tags" : "h1 = 5\\u000D\\u000Ah2 = 3\\u000D\\u000Ah3 = 2\\u000D\\u000Astrong = 2\\u000D\\u000Ab = 2\\u000D\\u000Aem = 1.5\\u000D\\u000Au = 1.5"
           }
         },
         "search_api_tokenizer" : {
           "status" : 0,
           "weight" : "20",
-          "settings" : { "fields" : [], "spaces" : "[^[:alnum:]]", "ignorable" : "[\\u0027]" }
+          "settings" : { "fields" : [  ], "spaces" : "[^[:alnum:]]", "ignorable" : "[\\u0027]" }
         },
         "search_api_stopwords" : {
           "status" : 0,
           "weight" : "30",
           "settings" : {
-            "fields" : [],
+            "fields" : [  ],
             "file" : "",
-            "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
+            "stopwords" : "but\\u000D\\u000Adid\\u000D\\u000Athe this that those\\u000D\\u000Aetc"
           }
         }
       }
     },
     "enabled" : "1",
     "read_only" : "0",
-    "rdf_mapping" : []
+    "rdf_mapping" : [  ]
   }');
   return $items;
 }
@@ -142,11 +142,6 @@ function appcat_search_db_default_search_api_server() {
           "author" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_author",
             "type" : "integer",
-            "boost" : "1.0"
-          },
-          "search_api_language" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_search_api_language",
-            "type" : "string",
             "boost" : "1.0"
           },
           "field_additional_type" : {
@@ -224,6 +219,11 @@ function appcat_search_db_default_search_api_server() {
             "type" : "integer",
             "boost" : "1.0"
           },
+          "search_api_language" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
           "search_api_viewed" : {
             "table" : "search_api_db_apps_cat_db_nodes_index_search_api_viewed",
             "type" : "text",
@@ -233,7 +233,7 @@ function appcat_search_db_default_search_api_server() {
       }
     },
     "enabled" : "1",
-    "rdf_mapping" : []
+    "rdf_mapping" : [  ]
   }');
   return $items;
 }

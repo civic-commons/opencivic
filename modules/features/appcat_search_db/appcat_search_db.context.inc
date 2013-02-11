@@ -32,12 +32,6 @@ function appcat_search_db_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'facetapi-H65Q2aZGSwg0NjuAs0L4Lat4SpOTTWTt' => array(
-          'module' => 'facetapi',
-          'delta' => 'H65Q2aZGSwg0NjuAs0L4Lat4SpOTTWTt',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
         'facetapi-xnST5yTdCMHMVNc6VGXQ6HEzlmu5DHOQ' => array(
           'module' => 'facetapi',
           'delta' => 'xnST5yTdCMHMVNc6VGXQ6HEzlmu5DHOQ',
@@ -49,36 +43,6 @@ function appcat_search_db_context_default_contexts() {
           'delta' => 'Vn8grOhiXtX9JCJ1vhG3JbaHJ1avhwkV',
           'region' => 'sidebar_second',
           'weight' => '-7',
-        ),
-        'facetapi-PIpm1F2SslOJoWG1ygdwJq69x5l0Sto8' => array(
-          'module' => 'facetapi',
-          'delta' => 'PIpm1F2SslOJoWG1ygdwJq69x5l0Sto8',
-          'region' => 'sidebar_second',
-          'weight' => '-6',
-        ),
-        'facetapi-kvkqXO0AYWXN4IfCM0gcypUURoVeDdwa' => array(
-          'module' => 'facetapi',
-          'delta' => 'kvkqXO0AYWXN4IfCM0gcypUURoVeDdwa',
-          'region' => 'sidebar_second',
-          'weight' => '-5',
-        ),
-        'facetapi-zJ8Cbklh6Lz1M1mblPUBuhgT05r4yNPr' => array(
-          'module' => 'facetapi',
-          'delta' => 'zJ8Cbklh6Lz1M1mblPUBuhgT05r4yNPr',
-          'region' => 'sidebar_second',
-          'weight' => '-4',
-        ),
-        'facetapi-EVy8XrZmImxuPtoV31YhMUT8AqEmKQEV' => array(
-          'module' => 'facetapi',
-          'delta' => 'EVy8XrZmImxuPtoV31YhMUT8AqEmKQEV',
-          'region' => 'sidebar_second',
-          'weight' => '-3',
-        ),
-        'facetapi-SmJF4TwRocwMk72yqCn6yn05Jat7TLSF' => array(
-          'module' => 'facetapi',
-          'delta' => 'SmJF4TwRocwMk72yqCn6yn05Jat7TLSF',
-          'region' => 'sidebar_second',
-          'weight' => '-2',
         ),
         'facetapi-AiS11Yq1KpRaXszcfPq4beqTqRwtn1VO' => array(
           'module' => 'facetapi',
@@ -98,12 +62,6 @@ function appcat_search_db_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '3',
         ),
-        'facetapi-rF6mBsrpInxZ0mPtD8e0ZC0NAQjqhdBR' => array(
-          'module' => 'facetapi',
-          'delta' => 'rF6mBsrpInxZ0mPtD8e0ZC0NAQjqhdBR',
-          'region' => 'sidebar_second',
-          'weight' => '4',
-        ),
         'facetapi-Uky1JHXkhxZfH60IAVDpR3ECxq9kEgi2' => array(
           'module' => 'facetapi',
           'delta' => 'Uky1JHXkhxZfH60IAVDpR3ECxq9kEgi2',
@@ -122,12 +80,6 @@ function appcat_search_db_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '7',
         ),
-        'facetapi-1rFtXLDZT0NAJ0rgPwpxEAl07GBjLOFs' => array(
-          'module' => 'facetapi',
-          'delta' => '1rFtXLDZT0NAJ0rgPwpxEAl07GBjLOFs',
-          'region' => 'sidebar_second',
-          'weight' => '8',
-        ),
       ),
     ),
   );
@@ -143,7 +95,7 @@ function appcat_search_db_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'search_sitewide';
-  $context->description = 'This is a sitewide context that gives';
+  $context->description = 'This is a sitewide context that defines the search block.';
   $context->tag = 'Sitewide';
   $context->conditions = array(
     'sitewide' => array(
@@ -169,7 +121,7 @@ function appcat_search_db_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Sitewide');
-  t('This is a sitewide context that gives');
+  t('This is a sitewide context that defines the search block.');
   $export['search_sitewide'] = $context;
 
   return $export;
