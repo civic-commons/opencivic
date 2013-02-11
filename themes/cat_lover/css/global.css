@@ -2209,3 +2209,9 @@ div.field-item.even p strong {
   margin-right: 0;
   margin-top: 0;
   position: relative; }
+
+.views-field-field-software-type a:first-child {
+  margin-left: 0; }
+
+.views-field-field-software-type a {
+  margin-left: 10px; }
