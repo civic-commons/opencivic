@@ -21,7 +21,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Basic info',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -231,20 +231,15 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Photos and videos',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'group_screenshots',
       1 => 'group_tutorials',
     ),
-    'format_type' => 'div',
+    'format_type' => 'hidden',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
         'classes' => '',
       ),
     ),
@@ -321,7 +316,7 @@ function appcat_application_content_field_group_info() {
     'children' => array(
       0 => 'field_screenshot',
     ),
-    'format_type' => 'div',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
@@ -348,10 +343,8 @@ function appcat_application_content_field_group_info() {
   $field_group->data = array(
     'label' => 'Tutorials',
     'weight' => '27',
-    'children' => array(
-      0 => 'field_video',
-    ),
-    'format_type' => 'div',
+    'children' => array(),
+    'format_type' => 'hidden',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(

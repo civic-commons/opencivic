@@ -117,7 +117,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -195,7 +195,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '11',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -270,7 +270,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -352,7 +352,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -441,7 +441,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -516,7 +516,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -917,7 +917,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -995,7 +995,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '20',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1077,7 +1077,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1298,12 +1298,8 @@ function appcat_application_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => 'screenshot',
-          ),
-          'type' => 'image',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '15',
         ),
         'teaser' => array(
@@ -1389,7 +1385,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '21',
+          'weight' => '20',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1458,7 +1454,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1544,7 +1540,7 @@ function appcat_application_content_field_default_fields() {
           'module' => 'styles',
           'settings' => array(),
           'type' => 'styles_file_thumbnail',
-          'weight' => '8',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
