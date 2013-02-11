@@ -389,81 +389,6 @@ function appcat_organization_content_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-organization-field_civic_sub_cate'.
-  $fields['node-organization-field_civic_sub_cate'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_civic_sub_cate',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'civic_subcategory',
-            'parent' => '0',
-            'depth' => '',
-          ),
-        ),
-        'options_list_callback' => 'content_taxonomy_allowed_values',
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'organization',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '8',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_civic_sub_cate',
-      'label' => 'Civic subcategory',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'label_help_description' => '',
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        ),
-        'type' => 'options_buttons',
-        'weight' => '15',
-      ),
-    ),
-  );
-
   // Exported field: 'node-organization-field_coordinates'.
   $fields['node-organization-field_coordinates'] = array(
     'field_config' => array(
@@ -1346,7 +1271,6 @@ function appcat_organization_content_field_default_fields() {
   t('Abbreviation');
   t('Address');
   t('Civic category');
-  t('Civic subcategory');
   t('Coordinates');
   t('Description');
   t('Enter the URL of the homepage where people can go to find more information.');

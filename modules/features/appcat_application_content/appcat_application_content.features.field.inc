@@ -224,81 +224,6 @@ function appcat_application_content_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-application-field_application_sub_cate'.
-  $fields['node-application-field_application_sub_cate'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_application_sub_cate',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'application_subcategory',
-            'parent' => '0',
-            'depth' => '',
-          ),
-        ),
-        'options_list_callback' => 'content_taxonomy_allowed_values',
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'application',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Subcategory of the application, e.g. "Arcade Game".',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '12',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_application_sub_cate',
-      'label' => 'Application subcategory',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'label_help_description' => '',
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        ),
-        'type' => 'options_buttons',
-        'weight' => '20',
-      ),
-    ),
-  );
-
   // Exported field: 'node-application-field_civic_category'.
   $fields['node-application-field_civic_category'] = array(
     'field_config' => array(
@@ -370,81 +295,6 @@ function appcat_application_content_field_default_fields() {
         ),
         'type' => 'options_buttons',
         'weight' => '13',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-application-field_civic_sub_cate'.
-  $fields['node-application-field_civic_sub_cate'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_civic_sub_cate',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'civic_subcategory',
-            'parent' => '0',
-            'depth' => '',
-          ),
-        ),
-        'options_list_callback' => 'content_taxonomy_allowed_values',
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'application',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'What civic purpose does this application serve, e.g., education, elections?',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '17',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_civic_sub_cate',
-      'label' => 'Civic subcategory',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'label_help_description' => '',
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        ),
-        'type' => 'options_buttons',
-        'weight' => '14',
       ),
     ),
   );
@@ -1746,9 +1596,7 @@ function appcat_application_content_field_default_fields() {
   t('App Description');
   t('Application Homepage');
   t('Application category');
-  t('Application subcategory');
   t('Civic category');
-  t('Civic subcategory');
   t('Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).');
   t('Creator');
   t('Demo url');
@@ -1768,7 +1616,6 @@ function appcat_application_content_field_default_fields() {
   t('Screenshots');
   t('Short description');
   t('Software type');
-  t('Subcategory of the application, e.g. "Arcade Game".');
   t('Supporting vendors');
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
@@ -1776,7 +1623,6 @@ function appcat_application_content_field_default_fields() {
   t('Type of software application, e.g. "Game, Multimedia".');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');
-  t('What civic purpose does this application serve, e.g., education, elections?');
   t('What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).');
   t('What does the application do? What should people know about the application?');
   t('Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.');
