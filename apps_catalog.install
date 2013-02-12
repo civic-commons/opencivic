@@ -515,7 +515,7 @@ function apps_catalog_aliases() {
   variable_set('node_export_dsv_seperator', '\\r\\n');
   variable_set('node_export_existing', 'revision');
   variable_set('node_export_filename', 'node-export[node_export_filename:nid-list]([node_export_filename:node-count]-nodes).[node_export_filename:timestamp].[node_export_filename:format]');
-  variable_set('node_export_file_assets_path', '');
+  variable_set('node_export_file_assets_path', 'profiles/apps_catalog/node_export_assets');
   variable_set('node_export_file_list', '10');
   variable_set('node_export_file_mode', 'inline');
   variable_set('node_export_file_supported_fields', 'file, image');
@@ -524,6 +524,7 @@ function apps_catalog_aliases() {
     'blog' => 'blog',
     'deployment' => 'deployment',
     'organization' => 'organization',
+    'sponsor' => 'sponsor',
     'article' => 0,
     'page' => 0,
     'webform' => 0,
