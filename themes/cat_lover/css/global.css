@@ -2179,6 +2179,10 @@ div.field-item.even p strong {
   text-transform: uppercase;
   white-space: nowrap; }
 
+.view-application-at-a-glance .views-field {
+  border-bottom: solid 1px #dddddd;
+  padding-top: 5px; }
+
 /* Call to action button */
 .button {
   -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
