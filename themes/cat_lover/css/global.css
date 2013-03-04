@@ -2179,7 +2179,15 @@ div.field-item.even p strong {
   text-transform: uppercase;
   white-space: nowrap; }
 
-.view-application-at-a-glance .views-field {
+.view-application-at-a-glance .views-field-view-1,
+.view-application-at-a-glance .views-field-field-creator,
+.view-application-at-a-glance .views-field-field-install-url,
+.view-application-at-a-glance .views-field-field-download-url,
+.view-application-at-a-glance .views-field-field-license,
+.view-application-at-a-glance .views-field-field-release-notes,
+.view-application-at-a-glance .views-field-field-requirements,
+.view-application-at-a-glance .views-field-field-software-type,
+.view-application-at-a-glance .views-field-field-url {
   border-bottom: solid 1px #dddddd;
   padding-top: 5px; }
 
