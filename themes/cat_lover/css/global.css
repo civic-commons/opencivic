@@ -2171,6 +2171,14 @@ div.field-item.even p strong {
   text-transform: uppercase;
   white-space: nowrap; }
 
+.view-application-categories a:hover {
+  text-decoration: none;
+  color: #7793ec;
+  font-family: PT Sans;
+  font-size: 9pt;
+  text-transform: uppercase;
+  white-space: nowrap; }
+
 /* Call to action button */
 .button {
   -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
