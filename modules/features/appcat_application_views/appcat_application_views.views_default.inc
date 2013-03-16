@@ -194,7 +194,7 @@ function appcat_application_views_views_default_views() {
     'field_small_icon' => 'field_small_icon',
     'name' => 'name',
   );
-  /* Relationship: Taxonomy term: Content using Application category */
+  /* Relationship: Taxonomy term: Content using Application function */
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['id'] = 'reverse_field_application_category_node';
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['field'] = 'reverse_field_application_category_node';
@@ -253,7 +253,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['display_description'] = 'Small icons and names of civic categories';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic category */
+  /* Relationship: Taxonomy term: Content using Civic sector */
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['id'] = 'reverse_field_civic_category_node';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['field'] = 'reverse_field_civic_category_node';
@@ -334,7 +334,7 @@ function appcat_application_views_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic category */
+  /* Relationship: Taxonomy term: Content using Civic sector */
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['id'] = 'reverse_field_civic_category_node';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['field'] = 'reverse_field_civic_category_node';

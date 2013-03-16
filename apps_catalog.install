@@ -436,7 +436,7 @@
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
   apps_catalog_set_google_fonts();
-  variable_set('site_frontpage', 'ocset');
+  variable_set('site_frontpage', 'ocsetup');
 }
 
 function apps_catalog_set_google_fonts() {

@@ -122,7 +122,7 @@ function appcat_organization_views_views_default_views() {
     'field_small_icon' => 'field_small_icon',
     'name' => 'name',
   );
-  /* Relationship: Taxonomy term: Content using Application category */
+  /* Relationship: Taxonomy term: Content using Application function */
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['id'] = 'reverse_field_application_category_node';
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_application_category_node']['field'] = 'reverse_field_application_category_node';
@@ -175,7 +175,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['display_description'] = 'Small icons and names of civic categories';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic category */
+  /* Relationship: Taxonomy term: Content using Civic sector */
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['id'] = 'reverse_field_civic_category_node';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['field'] = 'reverse_field_civic_category_node';
@@ -219,7 +219,7 @@ function appcat_organization_views_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic category */
+  /* Relationship: Taxonomy term: Content using Civic sector */
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['id'] = 'reverse_field_civic_category_node';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_civic_category_node']['field'] = 'reverse_field_civic_category_node';
@@ -365,7 +365,7 @@ function appcat_organization_views_views_default_views() {
     1 => 0,
     3 => 0,
   );
-  /* Filter criterion: Content: Civic category (field_civic_category) */
+  /* Filter criterion: Content: Civic sector (field_civic_category) */
   $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
   $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
   $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
@@ -706,7 +706,7 @@ function appcat_organization_views_views_default_views() {
     'organization' => 'organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Civic category (field_civic_category) */
+  /* Filter criterion: Content: Civic sector (field_civic_category) */
   $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
   $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
   $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';

@@ -110,8 +110,8 @@ function appcat_deployment_views_openlayers_maps() {
       'organization_map_openlayers_org' => 0,
       'organizations_map_openlayers_orgs' => 0,
     ),
-    'projection' => '900913',
-    'displayProjection' => '4326',
+    'projection' => 'EPSG:900913',
+    'displayProjection' => 'EPSG:4326',
     'styles' => array(
       'default' => 'default',
       'select' => 'default_select',

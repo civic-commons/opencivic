@@ -99,6 +99,33 @@ function ocsetup_form_submit($form, &$form_state) {
         ocsetup_aliases();
         break;
 
+      case 'appcat_default_content':
+        module_enable(
+          array(
+            'appcat_misc_default_content',
+          )
+        );
+        // Update path aliases for nodes.
+        db_delete('url_alias')
+          ->execute();
+        $nids = db_select('node', 'n')
+          ->fields('n')
+          ->execute()
+          ->fetchCol();
+        pathauto_node_update_alias_multiple($nids, 'bulkupdate');
+        // Resave deployment nodes to get the correct auto node titles.
+        $nids = db_select('node', 'n')
+          ->fields('n')
+          ->condition('type', 'deployment','=')
+          ->execute()
+          ->fetchCol();
+        $nodes = node_load_multiple($nids);
+        foreach ($nodes as $node) {
+          node_save($node);
+        }
+        cache_clear_all();
+        break;
+
       case 'occomm':
         module_enable(
           array(
@@ -299,31 +326,13 @@ function ocsetup_aliases() {
     db_insert('cer')->fields($fields)->execute();
   }
 
-  // Update path aliases for nodes.
-  db_delete('url_alias')
-    ->execute();
-  $nids = db_select('node', 'n')
-    ->fields('n')
-    ->execute()
-    ->fetchCol();
-  pathauto_node_update_alias_multiple($nids, 'bulkupdate');
-  // Resave deployment nodes to get the correct auto node titles.
-  $nids = db_select('node', 'n')
-    ->fields('n')
-    ->condition('type', 'deployment','=')
-    ->execute()
-    ->fetchCol();
-  $nodes = node_load_multiple($nids);
-  foreach ($nodes as $node) {
-    node_save($node);
-  }
-  cache_clear_all();
 }
 
 function ocsetup_options() {
   return array(
     'ocmisc' => 'miscellaneous functionality that applies universally',
     'appcat' => 'Applications Catalog',
+    'appcat_default_content' => 'Applications Catalog default content',
     'occomm' => 'Community',
     'ochack' => 'Hackathon',
     'ocapi' => 'Interoperability (not yet available)',

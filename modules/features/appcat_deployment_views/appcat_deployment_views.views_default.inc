@@ -181,7 +181,7 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Application category (field_application_category) */
+  /* Filter criterion: Content: Application function (field_application_category) */
   $handler->display->display_options['filters']['field_application_category_tid']['id'] = 'field_application_category_tid';
   $handler->display->display_options['filters']['field_application_category_tid']['table'] = 'field_data_field_application_category';
   $handler->display->display_options['filters']['field_application_category_tid']['field'] = 'field_application_category_tid';
@@ -200,7 +200,7 @@ function appcat_deployment_views_views_default_views() {
   );
   $handler->display->display_options['filters']['field_application_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_application_category_tid']['vocabulary'] = 'application_category';
-  /* Filter criterion: Content: Civic category (field_civic_category) */
+  /* Filter criterion: Content: Civic sector (field_civic_category) */
   $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
   $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
   $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
