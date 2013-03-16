@@ -81,3 +81,7 @@ body.front h2.node-title a {
   padding-right: 30px;
   padding-bottom: 20px;
 }
+
+body.front #region-content form {
+  text-align: left;
+}

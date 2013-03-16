@@ -1,0 +1,335 @@
+<?php
+/**
+ * @file
+ * This is the file description for ocsetup module.
+ *
+ * In this more verbose, multi-line description, you can specify what this
+ * file does exactly. Make sure to wrap your documentation in column 78 so
+ * that the file can be displayed nicely in default-sized consoles.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function ocsetup_menu() {
+  $items = array();
+  $items['ocsetup'] = array(
+    'title' => 'Set Up Open Civic',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ocsetup_form'),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+function ocsetup_form() {
+  if (!user_access('administer site configuration')) {
+    drupal_goto('user');
+  }
+  else {
+    // Set the title
+    drupal_set_title(t('Prepare Site'));
+
+    $form = array();
+
+    $form['openingtext'] = array(
+      '#markup' => '<h2>' . t('Please choose the components that you want to include in your Open Civic website.') . '</h2>',
+    );
+
+    $form['actions'] = array(
+     '#prefix' => '<div class="form-actions">',
+     '#suffix' => '</div>',
+    );
+    $form['actions']['components'] = array(
+     '#prefix' => '<div class="form-actions">',
+     '#suffix' => '</div>',
+    );
+    $options = variable_get('ocset_options', ocsetup_options());
+    $form['actions']['components'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Options'),
+      '#description' => t('The description appears usually below the checkboxes.'),
+      '#options' => $options,
+      '#default_value' => array('ocmisc'),
+    );
+
+    $form['actions']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Prepare your site',
+    );
+
+    return $form;
+  }
+}
+
+function ocsetup_form_submit($form, &$form_state) {
+  $options = variable_get('ocset_options', ocsetup_options());
+  $components = array_filter($form_state['values']['components']);
+  foreach ($components as $component) {
+    drupal_set_message($component);
+    switch ($component) {
+      case 'ocmisc':
+        module_enable(
+          array(
+            //'path',
+            //'pathauto',
+            'appcat_misc_taxonomy_app_terms',
+            'appcat_misc_taxonomy_civic_terms',
+            'appcat_misc_taxonomy_terms',
+            'appcat_misc_deltas',
+          )
+        );
+        break;
+
+      case 'appcat':
+        module_enable(
+          array(
+            'appcat_application_content',
+            'appcat_application_contexts',
+            'appcat_application_views',
+            'appcat_organization_content',
+            'appcat_organization_contexts',
+            'appcat_organization_views',
+            'appcat_deployment_context',
+            'appcat_deployment_node',
+            'appcat_deployment_views',
+          )
+        );
+        ocsetup_aliases();
+        break;
+
+      case 'occomm':
+        module_enable(
+          array(
+
+            'appcat_blog_node',
+
+            'appcat_home_context',
+            'appcat_home_views',
+            'appcat_misc_default_content',
+
+
+            //'appcat_search_db',
+          )
+        );
+        break;
+
+      case 'ochack':
+        break;
+
+      case 'ocapi':
+        break;
+
+      case 'ocodata':
+        break;
+
+      case 'occon':
+        break;
+
+      case 'ocdemo':
+        break;
+
+      case 'ocinvest':
+      module_enable(
+        array(
+          'path',
+          'pathauto',
+        )
+      );
+        break;
+    }
+    unset($options[$component]);
+  }
+  $options = variable_set('ocset_options', $options);
+}
+
+function ocsetup_aliases() {
+  // Define URL alias patterns.
+  variable_set('pathauto_blog_pattern', 'blogs/[user:name]');
+  variable_set('pathauto_forum_pattern', '[term:vocabulary]/[term:name]');
+  variable_set('pathauto_node_application_pattern', 'app/[node:title]');
+  variable_set('pathauto_node_article_pattern', 'article/[node:title]');
+  variable_set('pathauto_node_blog_pattern', 'blog/[node:title]');
+  variable_set('pathauto_node_deployment_pattern', 'deploy/[node:title]');
+  variable_set('pathauto_node_organization_pattern', 'org/[node:title]');
+  variable_set('pathauto_node_page_pattern', 'page/[node:title]');
+  variable_set('pathauto_node_pattern', 'content/[node:title]');
+  variable_set('pathauto_node_webform_pattern', 'form/[node:title]');
+  variable_set('pathauto_punctuation_hyphen', 1);
+  variable_set('pathauto_taxonomy_term_application_category_pattern', 'appcat/[term:name]');
+  variable_set('pathauto_taxonomy_term_civic_category_pattern', 'civic/[term:name]');
+  variable_set('pathauto_taxonomy_term_license_pattern', 'license/[term:name]');
+  variable_set('pathauto_taxonomy_term_organization_type_pattern', 'orgype/[term:name]');
+  variable_set('pathauto_taxonomy_term_pattern', '[term:vocabulary]/[term:name]');
+  variable_set('pathauto_taxonomy_term_requirements_pattern', 'req/[term:name]');
+  variable_set('pathauto_taxonomy_term_service_pattern', 'service/[term:name]');
+  variable_set('pathauto_taxonomy_term_software_type_pattern', 'apptype/[term:name]');
+  variable_set('pathauto_taxonomy_term_tags_pattern', 'tag/[term:name]');
+  variable_set('pathauto_user_pattern', 'users/[user:name]');
+
+  // Set node export configuration.
+  variable_set('node_export_code', 'all');
+  variable_set('node_export_dsv_delimiter', ',');
+  variable_set('node_export_dsv_enclosure', '"');
+  variable_set('node_export_dsv_escape_eol', 1);
+  variable_set('node_export_dsv_seperator', '\\r\\n');
+  variable_set('node_export_existing', 'revision');
+  variable_set('node_export_filename', 'node-export[node_export_filename:nid-list]([node_export_filename:node-count]-nodes).[node_export_filename:timestamp].[node_export_filename:format]');
+  variable_set('node_export_file_assets_path', 'profiles/apps_catalog/node_export_assets');
+  variable_set('node_export_file_list', '10');
+  variable_set('node_export_file_mode', 'inline');
+  variable_set('node_export_file_supported_fields', 'file, image');
+  variable_set('node_export_file_types', array(
+    'application' => 'application',
+    'blog' => 'blog',
+    'deployment' => 'deployment',
+    'organization' => 'organization',
+    'sponsor' => 'sponsor',
+    'article' => 0,
+    'page' => 0,
+    'webform' => 0,
+  ));
+  variable_set('node_export_format', array(
+    'drupal' => 'drupal',
+    'json' => 0,
+    'serialize' => 0,
+    'xml' => 0,
+    'dsv' => 0,
+  ));
+  variable_set('node_export_reset_author_application', 1);
+  variable_set('node_export_reset_author_article', 1);
+  variable_set('node_export_reset_author_blog', 1);
+  variable_set('node_export_reset_author_deployment', 1);
+  variable_set('node_export_reset_author_organization', 1);
+  variable_set('node_export_reset_author_page', 1);
+  variable_set('node_export_reset_author_webform', 1);
+  variable_set('node_export_reset_book_mlid_application', 0);
+  variable_set('node_export_reset_book_mlid_article', 0);
+  variable_set('node_export_reset_book_mlid_blog', 0);
+  variable_set('node_export_reset_book_mlid_deployment', 0);
+  variable_set('node_export_reset_book_mlid_organization', 0);
+  variable_set('node_export_reset_book_mlid_page', 0);
+  variable_set('node_export_reset_book_mlid_webform', 0);
+  variable_set('node_export_reset_changed_application', 0);
+  variable_set('node_export_reset_changed_article', 0);
+  variable_set('node_export_reset_changed_blog', 0);
+  variable_set('node_export_reset_changed_deployment', 0);
+  variable_set('node_export_reset_changed_organization', 0);
+  variable_set('node_export_reset_changed_page', 0);
+  variable_set('node_export_reset_changed_webform', 0);
+  variable_set('node_export_reset_created_application', 0);
+  variable_set('node_export_reset_created_article', 0);
+  variable_set('node_export_reset_created_blog', 0);
+  variable_set('node_export_reset_created_deployment', 0);
+  variable_set('node_export_reset_created_organization', 0);
+  variable_set('node_export_reset_created_page', 0);
+  variable_set('node_export_reset_created_webform', 0);
+  variable_set('node_export_reset_last_comment_timestamp_application', 0);
+  variable_set('node_export_reset_last_comment_timestamp_article', 0);
+  variable_set('node_export_reset_last_comment_timestamp_blog', 0);
+  variable_set('node_export_reset_last_comment_timestamp_deployment', 0);
+  variable_set('node_export_reset_last_comment_timestamp_organization', 0);
+  variable_set('node_export_reset_last_comment_timestamp_page', 0);
+  variable_set('node_export_reset_last_comment_timestamp_webform', 0);
+  variable_set('node_export_reset_menu_application', 0);
+  variable_set('node_export_reset_menu_article', 0);
+  variable_set('node_export_reset_menu_blog', 0);
+  variable_set('node_export_reset_menu_deployment', 0);
+  variable_set('node_export_reset_menu_organization', 0);
+  variable_set('node_export_reset_menu_page', 0);
+  variable_set('node_export_reset_menu_webform', 0);
+  variable_set('node_export_reset_path_application', 0);
+  variable_set('node_export_reset_path_article', 0);
+  variable_set('node_export_reset_path_blog', 0);
+  variable_set('node_export_reset_path_deployment', 0);
+  variable_set('node_export_reset_path_organization', 0);
+  variable_set('node_export_reset_path_page', 0);
+  variable_set('node_export_reset_path_webform', 0);
+  variable_set('node_export_reset_promote_application', 0);
+  variable_set('node_export_reset_promote_article', 0);
+  variable_set('node_export_reset_promote_blog', 0);
+  variable_set('node_export_reset_promote_deployment', 0);
+  variable_set('node_export_reset_promote_organization', 0);
+  variable_set('node_export_reset_promote_page', 0);
+  variable_set('node_export_reset_promote_webform', 0);
+  variable_set('node_export_reset_revision_timestamp_application', 0);
+  variable_set('node_export_reset_revision_timestamp_article', 0);
+  variable_set('node_export_reset_revision_timestamp_blog', 0);
+  variable_set('node_export_reset_revision_timestamp_deployment', 0);
+  variable_set('node_export_reset_revision_timestamp_organization', 0);
+  variable_set('node_export_reset_revision_timestamp_page', 0);
+  variable_set('node_export_reset_revision_timestamp_webform', 0);
+  variable_set('node_export_reset_status_application', 0);
+  variable_set('node_export_reset_status_article', 0);
+  variable_set('node_export_reset_status_blog', 0);
+  variable_set('node_export_reset_status_deployment', 0);
+  variable_set('node_export_reset_status_organization', 0);
+  variable_set('node_export_reset_status_page', 0);
+  variable_set('node_export_reset_status_webform', 0);
+  variable_set('node_export_reset_sticky_application', 0);
+  variable_set('node_export_reset_sticky_article', 0);
+  variable_set('node_export_reset_sticky_blog', 0);
+  variable_set('node_export_reset_sticky_deployment', 0);
+  variable_set('node_export_reset_sticky_organization', 0);
+  variable_set('node_export_reset_sticky_page', 0);
+  variable_set('node_export_reset_sticky_webform', 0);
+
+  // Define correspondint entity references.
+  $records = array(
+    array(
+      'entity_types_content_fields' => 'node*application*field_related_applications*node*application*field_related_applications',
+      'enabled' => 1,
+    ),
+
+    array(
+      'entity_types_content_fields' => 'node*organization*field_member*node*organization*field_member',
+      'enabled' => 0,
+    ),
+    array(
+      'entity_types_content_fields' => 'node*organization*field_related_applications*node*application*field_contributor',
+      'enabled' => 1,
+    ),
+    array(
+      'entity_types_content_fields' => 'node*organization*field_related_applications*node*application*field_creator',
+      'enabled' => 0,
+    ),
+  );
+  foreach($records as $fields) {
+    db_insert('cer')->fields($fields)->execute();
+  }
+
+  // Update path aliases for nodes.
+  db_delete('url_alias')
+    ->execute();
+  $nids = db_select('node', 'n')
+    ->fields('n')
+    ->execute()
+    ->fetchCol();
+  pathauto_node_update_alias_multiple($nids, 'bulkupdate');
+  // Resave deployment nodes to get the correct auto node titles.
+  $nids = db_select('node', 'n')
+    ->fields('n')
+    ->condition('type', 'deployment','=')
+    ->execute()
+    ->fetchCol();
+  $nodes = node_load_multiple($nids);
+  foreach ($nodes as $node) {
+    node_save($node);
+  }
+  cache_clear_all();
+}
+
+function ocsetup_options() {
+  return array(
+    'ocmisc' => 'miscellaneous functionality that applies universally',
+    'appcat' => 'Applications Catalog',
+    'occomm' => 'Community',
+    'ochack' => 'Hackathon',
+    'ocapi' => 'Interoperability (not yet available)',
+    'ocodata' => 'Open Data (not yet available)',
+    'occon' => 'Apps Contest (not yet available)',
+    'ocdemo' => 'Civic Sandboxes (not yet available)',
+    'ocinvest' => 'Investment Network (not yet available)',
+  );
+}

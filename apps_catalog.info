@@ -19,7 +19,7 @@ dependencies[] = menu
 dependencies[] = number
 dependencies[] = options
 ; dependencies[] = overlay
-; dependencies[] = path
+dependencies[] = path
 dependencies[] = rdf
 dependencies[] = shortcut
 dependencies[] = taxonomy
@@ -98,9 +98,10 @@ dependencies[] = openlayers
 dependencies[] = openlayers_ui
 dependencies[] = openlayers_views
 dependencies[] = page_manager
-; dependencies[] = pathauto
+dependencies[] = pathauto
 dependencies[] = prepopulate
 dependencies[] = prepopulate_create_node_links
+dependencies[] = proj4js
 dependencies[] = rdfx
 dependencies[] = recaptcha
 dependencies[] = redirect
@@ -148,6 +149,7 @@ dependencies[] = fivestar_green
 dependencies[] = subscriptions_subscribers
 dependencies[] = addressfield_extras
 dependencies[] = appcat_blocks
+dependencies[] = ocsetup
 
 ; Devel
 dependencies[] = schemaorg
@@ -165,7 +167,7 @@ dependencies[] = schemaorg
 ; dependencies[] = field_tools
 
 ; Features
-dependencies[] = appcat_misc
+;; dependencies[] = appcat_misc
 ;; dependencies[] = appcat_misc_taxonomies
 
 ; dependencies[] = appcat_misc_taxonomy_app_terms
