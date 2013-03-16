@@ -196,7 +196,12 @@ projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
-projects[openlayers][version] = "2.0-beta3"
+projects[openlayers][version] = "2.x-dev"
+projects[openlayers][download][type] = "git"
+projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
+projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
+projects[openlayers][download][branch] = 7.x-2.x
+projects[openlayers][type] = "module"
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
@@ -204,8 +209,8 @@ projects[ole][version] = "1.0-beta3"
 ; Ideally this should be pulling from an official release or from a specific git commit,
 ; but that isn't currently feasible due to a library in a git repo that Drupal.org hasn't
 ; whitelisted. See http://drupal.org/node/1913594
-projects[olfp][subdir] = "contrib"
-projects[olfp][version] = "2.x-dev"
+; projects[olfp][subdir] = "contrib"
+; projects[olfp][version] = "2.x-dev"
 ; projects[olfp][download][type] = "git"
 ; projects[olfp][download][url] = "http://git.drupal.org/project/olfp.git"
 ; projects[olfp][download][revision] = 659e7bb3b21751534efc1ba7c201c0b81d9d1e10
@@ -229,6 +234,9 @@ projects[prepopulate_create_node_links][download][url] = "http://git.drupal.org/
 projects[prepopulate_create_node_links][download][revision] = 4dc5dd7a6b90c6423428336a15b5f0592aa45ad0
 projects[prepopulate_create_node_links][download][branch] = 7.x-1.x
 projects[prepopulate_create_node_links][type] = "module"
+
+projects[proj4js][subdir] = "contrib"
+projects[proj4js][version] = "1.2"
 
 projects[recaptcha][subdir] = "contrib"
 projects[recaptcha][version] = "1.8"
