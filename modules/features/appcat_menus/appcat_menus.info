@@ -1,0 +1,12 @@
+name = AppCat menus
+description = Menu items specific to the Application Catalog
+core = 7.x
+package = AppCat
+version = 7.x-1.0-alpha1
+project = appcat_menus
+dependencies[] = appcat_misc_menus
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:1
+features[menu_links][] = main-menu:apps
+features[menu_links][] = main-menu:orgs

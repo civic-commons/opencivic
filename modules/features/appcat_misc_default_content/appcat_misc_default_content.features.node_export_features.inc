@@ -113,6 +113,109 @@ function appcat_misc_default_content_node_export_features_default() {
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
     ),
+  (object) array(
+      \'vid\' => \'48\',
+      \'uid\' => \'1\',
+      \'title\' => \'About\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'9632ef27-899c-4b34-88c7-f8cf42f12621\',
+      \'nid\' => \'23\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1363508952\',
+      \'changed\' => \'1363508952\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'a0f22e30-ec23-4534-aff2-00584ee6ae35\',
+      \'revision_timestamp\' => \'1363508952\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'<p>&nbsp;</p><p>Describe your website here.</p>\',
+            \'summary\' => \'\',
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => " <p> Describe your website here.</p>\\n ",
+            \'safe_summary\' => \'  \',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1363508952\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'a:1:{s:7:"contact";i:1;}\',
+      \'subscriptions_notify\' => TRUE,
+      \'path\' => array(
+        \'pid\' => \'103\',
+        \'source\' => \'node/23\',
+        \'alias\' => \'page/about\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+    ),
 )',
 );
   return $node_export;

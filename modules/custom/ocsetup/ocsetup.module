@@ -67,7 +67,6 @@ function ocsetup_form_submit($form, &$form_state) {
   $options = variable_get('ocset_options', ocsetup_options());
   $components = array_filter($form_state['values']['components']);
   foreach ($components as $component) {
-    drupal_set_message($component);
     switch ($component) {
       case 'ocmisc':
         features_install_modules(
@@ -78,6 +77,7 @@ function ocsetup_form_submit($form, &$form_state) {
             'appcat_misc_deltas',
             'appcat_misc',
             'appcat_misc_default_content',
+            'appcat_misc_menus',
           )
         );
         drupal_flush_all_caches();
@@ -95,6 +95,7 @@ function ocsetup_form_submit($form, &$form_state) {
             'appcat_deployment_node',
             'appcat_deployment_context',
             'appcat_deployment_views',
+            'appcat_menus',
           )
         );
         ocsetup_aliases();
@@ -138,6 +139,16 @@ function ocsetup_form_submit($form, &$form_state) {
             //'appcat_search_db',
           )
         );
+        drupal_flush_all_caches();
+        appcat_sponsor_node_populate_nodequeue();
+        break;
+
+      case 'occomm_default_content':
+        features_install_modules(
+          array(
+            'appcat_blog_default_content',
+          )
+        );
         break;
 
       case 'ochack':
@@ -156,6 +167,19 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ocinvest':
+        break;
+
+      case 'ocdevel':
+        features_install_modules(
+          array(
+            'appcat_devel',
+          )
+        );
+        break;
+
+      case 'ocfinish':
+        variable_set('site_frontpage', 'places');
+        drupal_flush_all_caches();
         break;
     }
     unset($options[$component]);
@@ -322,15 +346,21 @@ function ocsetup_aliases() {
 
 function ocsetup_options() {
   return array(
-    'ocmisc' => 'miscellaneous functionality that applies universally',
+    'ocmisc' => 'Miscellaneous startup stuff',
     'appcat' => 'Applications Catalog',
     'appcat_default_content' => 'Applications Catalog default content',
     'occomm' => 'Community',
+    'occomm_default_content' => 'Community default content',
     'ochack' => 'Hackathon',
+    'ochack_default_content' => 'Hackathon default content',
+    'ocdevel' => 'Development features',
+/*
     'ocapi' => 'Interoperability (not yet available)',
     'ocodata' => 'Open Data (not yet available)',
     'occon' => 'Apps Contest (not yet available)',
     'ocdemo' => 'Civic Sandboxes (not yet available)',
     'ocinvest' => 'Investment Network (not yet available)',
+*/
+    'ocfinish' => 'Finish',
   );
 }
