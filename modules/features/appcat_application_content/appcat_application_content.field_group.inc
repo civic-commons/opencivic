@@ -52,11 +52,11 @@ function appcat_application_content_field_group_info() {
     'weight' => '32',
     'children' => array(
       0 => 'body',
-      1 => 'field_description',
-      2 => 'field_image',
-      3 => 'field_url',
-      4 => 'field_creator',
-      5 => 'field_keywords',
+      1 => 'field_creator',
+      2 => 'field_description',
+      3 => 'field_image',
+      4 => 'field_keywords',
+      5 => 'field_url',
       6 => 'title',
     ),
     'format_type' => 'tab',
@@ -85,9 +85,8 @@ function appcat_application_content_field_group_info() {
     'weight' => '36',
     'children' => array(
       0 => 'field_application_category',
-      1 => 'field_application_sub_cate',
-      2 => 'field_license',
-      3 => 'field_software_type',
+      1 => 'field_license',
+      2 => 'field_software_type',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -114,11 +113,9 @@ function appcat_application_content_field_group_info() {
     'label' => 'Deployment & support',
     'weight' => '35',
     'children' => array(
-      0 => 'field_contributor',
-      1 => 'field_civic_sub_cate',
-      2 => 'field_civic_category',
-      3 => 'field_related_applications',
-      4 => 'field_deployment',
+      0 => 'field_civic_category',
+      1 => 'field_contributor',
+      2 => 'field_related_applications',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -203,12 +200,12 @@ function appcat_application_content_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'group_basic',
-      1 => 'group_features',
-      2 => 'group_media',
-      3 => 'group_categories',
+      1 => 'group_categories',
+      2 => 'group_deployment',
+      3 => 'group_features',
       4 => 'group_host',
-      5 => 'group_misc',
-      6 => 'group_deployment',
+      5 => 'group_media',
+      6 => 'group_misc',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -256,20 +253,21 @@ function appcat_application_content_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
-    'label' => 'Screenshots & vidoes',
+    'label' => 'Screenshots & videos',
     'weight' => '34',
     'children' => array(
-      0 => 'field_video',
-      1 => 'field_screenshot',
+      0 => 'field_screenshot',
+      1 => 'field_video',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Screenshots & videos',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_media|node|application|form'] = $field_group;
