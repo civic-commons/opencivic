@@ -112,3 +112,171 @@ function appcat_application_content_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_rdf_default_mappings().
+ */
+function appcat_application_content_rdf_default_mappings() {
+  $schemaorg = array();
+
+  // Exported RDF mapping: application
+  $schemaorg['node']['application'] = array(
+    'rdftype' => array(
+      0 => 'schema:SoftwareApplication',
+      1 => 'sioc:Item',
+      2 => 'foaf:Document',
+    ),
+    'title' => array(
+      'predicates' => array(
+        0 => 'schema:name',
+      ),
+    ),
+    'created' => array(
+      'predicates' => array(
+        0 => 'dc:date',
+        1 => 'dc:created',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'changed' => array(
+      'predicates' => array(
+        0 => 'dc:modified',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'body' => array(
+      'predicates' => array(
+        0 => 'schema:text',
+        1 => 'content:encoded',
+      ),
+    ),
+    'uid' => array(
+      'predicates' => array(
+        0 => 'sioc:has_creator',
+      ),
+      'type' => 'rel',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'schema:name',
+      ),
+    ),
+    'comment_count' => array(
+      'predicates' => array(
+        0 => 'sioc:num_replies',
+      ),
+      'datatype' => 'xsd:integer',
+    ),
+    'last_activity' => array(
+      'predicates' => array(
+        0 => 'sioc:last_activity_date',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'url' => array(
+      'predicates' => array(
+        0 => 'schema:url',
+      ),
+      'type' => 'rel',
+    ),
+    'field_aggregate_rating' => array(
+      'predicates' => array(
+        0 => 'schema:aggregateRating',
+      ),
+    ),
+    'field_application_category' => array(
+      'predicates' => array(
+        0 => 'schema:applicationSubCategory',
+      ),
+    ),
+    'field_civic_category' => array(
+      'predicates' => array(
+        0 => 'schema:genre',
+      ),
+    ),
+    'field_contributor' => array(
+      'predicates' => array(
+        0 => 'schema:provider',
+      ),
+    ),
+    'field_creator' => array(
+      'predicates' => array(
+        0 => 'schema:creator',
+      ),
+    ),
+    'field_description' => array(
+      'predicates' => array(
+        0 => 'schema:summary',
+        1 => 'schema:description',
+      ),
+    ),
+    'field_download_url' => array(
+      'predicates' => array(
+        0 => 'schema:downloadUrl',
+      ),
+    ),
+    'field_feature_list' => array(
+      'predicates' => array(
+        0 => 'schema:featureList',
+      ),
+    ),
+    'field_image' => array(
+      'predicates' => array(
+        0 => 'schema:image',
+      ),
+    ),
+    'field_install_url' => array(
+      'predicates' => array(
+        0 => 'schema:installUrl',
+      ),
+    ),
+    'field_keywords' => array(
+      'predicates' => array(
+        0 => 'schema:keywords',
+      ),
+    ),
+    'field_license' => array(
+      'predicates' => array(
+        0 => 'schema:publishingPrinciples',
+      ),
+    ),
+    'field_related_applications' => array(
+      'predicates' => array(),
+    ),
+    'field_release_notes' => array(
+      'predicates' => array(
+        0 => 'schema:releaseNotes',
+      ),
+    ),
+    'field_requirements' => array(
+      'predicates' => array(
+        0 => 'schema:requirements',
+      ),
+    ),
+    'field_screenshot' => array(
+      'predicates' => array(
+        0 => 'schema:screenshot',
+      ),
+    ),
+    'field_software_type' => array(
+      'predicates' => array(
+        0 => 'schema:applicationCategory',
+      ),
+    ),
+    'field_url' => array(
+      'predicates' => array(
+        0 => 'schema:url',
+      ),
+    ),
+    'field_video' => array(
+      'predicates' => array(
+        0 => 'schema:video',
+      ),
+    ),
+  );
+
+  return $schemaorg;
+}
