@@ -1,9 +1,0 @@
-'appcat_devel',
-'appcat_misc',
-'appcat_problem_',
-'appcat_project',
-'appcat_search_db',
-
-
-
-'appcat_sponsor_node',

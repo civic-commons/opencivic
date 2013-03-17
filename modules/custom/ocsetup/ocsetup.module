@@ -70,20 +70,21 @@ function ocsetup_form_submit($form, &$form_state) {
     drupal_set_message($component);
     switch ($component) {
       case 'ocmisc':
-        module_enable(
+        features_install_modules(
           array(
-            //'path',
-            //'pathauto',
             'appcat_misc_taxonomy_app_terms',
             'appcat_misc_taxonomy_civic_terms',
             'appcat_misc_taxonomy_terms',
             'appcat_misc_deltas',
+            'appcat_misc',
+            'appcat_misc_default_content',
           )
         );
+        drupal_flush_all_caches();
         break;
 
       case 'appcat':
-        module_enable(
+        features_install_modules(
           array(
             'appcat_application_content',
             'appcat_application_contexts',
@@ -91,8 +92,8 @@ function ocsetup_form_submit($form, &$form_state) {
             'appcat_organization_content',
             'appcat_organization_contexts',
             'appcat_organization_views',
-            'appcat_deployment_context',
             'appcat_deployment_node',
+            'appcat_deployment_context',
             'appcat_deployment_views',
           )
         );
@@ -100,11 +101,12 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'appcat_default_content':
-        module_enable(
+        features_install_modules(
           array(
-            'appcat_misc_default_content',
+            'appcat_default_content',
           )
         );
+        drupal_flush_all_caches();
         // Update path aliases for nodes.
         db_delete('url_alias')
           ->execute();
@@ -127,16 +129,12 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'occomm':
-        module_enable(
+        features_install_modules(
           array(
-
             'appcat_blog_node',
-
+            'appcat_sponsor_node',
             'appcat_home_context',
             'appcat_home_views',
-            'appcat_misc_default_content',
-
-
             //'appcat_search_db',
           )
         );
@@ -158,12 +156,6 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ocinvest':
-      module_enable(
-        array(
-          'path',
-          'pathauto',
-        )
-      );
         break;
     }
     unset($options[$component]);

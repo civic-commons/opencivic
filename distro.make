@@ -16,7 +16,12 @@ projects[drupal][version] = "7.21"
 ; Use vocabulary machine name for permissions
 ; http://drupal.org/node/995156
 projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
+; Maximum execution time error in installation profile
+; http://drupal.org/node/1887924
 projects[drupal][patch][1887924] = http://drupal.org/files/max_execution_error-1887924-1.patch
+; Remove file_attach_load() from file_field_update()
+; http://drupal.org/node/995156
+projects[drupal][patch][985642] = http://drupal.org/files/field-attach-load-entity-original-985642-58.patch
 
 projects[apps_catalog][type] = profile
 projects[apps_catalog][download][type] = git

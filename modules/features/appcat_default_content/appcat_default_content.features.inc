@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * appcat_misc_default_content.features.inc
+ * appcat_default_content.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function appcat_misc_default_content_ctools_plugin_api() {
+function appcat_default_content_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
