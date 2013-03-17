@@ -7,7 +7,7 @@
 include_once 'appcat_sponsor_node.features.inc';
 
 function appcat_sponsor_node_populate_nodequeue() {
-  $queue = nodequeue_load('sponsors');
+  $queue = nodequeue_load_queue_by_name('sponsors');
   $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
   $limit = $queue->size ? $queue->size : 10;
   foreach ($subqueues as $subqueue) {
