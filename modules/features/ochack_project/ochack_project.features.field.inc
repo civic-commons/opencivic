@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * appcat_project.features.field.inc
+ * ochack_project.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function appcat_project_field_default_fields() {
+function ochack_project_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-project-body'.

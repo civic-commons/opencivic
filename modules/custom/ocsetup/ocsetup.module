@@ -109,6 +109,7 @@ function ocsetup_form_submit($form, &$form_state) {
           )
         );
         ocsetup_aliases();
+        drupal_flush_all_caches();
         break;
 
       case 'appcat_default_content':
@@ -163,6 +164,13 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ochack':
+        features_install_modules(
+          array(
+            'ochack_problem',
+            'ochack_project',
+          )
+        );
+        drupal_flush_all_caches();
         break;
 
       case 'ochack_default_content':

@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * appcat_problem.features.field.inc
+ * ochack_problem.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function appcat_problem_field_default_fields() {
+function ochack_problem_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-problem_definition-body'.
-  $fields['node-problem_definition-body'] = array(
+  // Exported field: 'node-problem-body'.
+  $fields['node-problem-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -40,10 +40,10 @@ function appcat_problem_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Why does this issue matter? Why does it warrant attention? Describe the specific challenge. What is needed to address this problem? Describe the specific requirements and resources. Finally, how can you ensure that a hacked solution would deliver impact? What actions would be taken and resources made available to help a solution be implemented?',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -64,17 +64,23 @@ function appcat_problem_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'body',
-      'label' => 'Body',
-      'required' => FALSE,
+      'label' => 'Full description',
+      'required' => 0,
       'settings' => array(
-        'display_summary' => TRUE,
-        'text_processing' => 1,
+        'display_summary' => 0,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 20,
+          'label_help_description' => '',
+          'maxlength_js' => '',
+          'maxlength_js_enforce' => 0,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'maxlength_js_truncate_html' => 0,
+          'rows' => '5',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
@@ -83,83 +89,8 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_additional_type'.
-  $fields['node-problem_definition-field_additional_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_additional_type',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'organization_type',
-            'parent' => '0',
-            'depth' => '',
-          ),
-        ),
-        'options_list_callback' => 'content_taxonomy_allowed_values',
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'problem_definition',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '14',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_additional_type',
-      'label' => 'Additional type',
-      'required' => 1,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'label_help_description' => 'What type of organization is it?',
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        ),
-        'type' => 'options_select',
-        'weight' => '5',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-problem_definition-field_address'.
-  $fields['node-problem_definition-field_address'] = array(
+  // Exported field: 'node-problem-field_address'.
+  $fields['node-problem-field_address'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -175,10 +106,10 @@ function appcat_problem_field_default_fields() {
       'type' => 'addressfield',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => array(
         0 => array(
-          'element_key' => 'node|problem_definition|field_address|und|0',
+          'element_key' => 'node|problem|field_address|und|0',
           'thoroughfare' => '',
           'premise' => '',
           'locality' => '',
@@ -238,8 +169,8 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_aggregate_rating'.
-  $fields['node-problem_definition-field_aggregate_rating'] = array(
+  // Exported field: 'node-problem-field_aggregate_rating'.
+  $fields['node-problem-field_aggregate_rating'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -257,10 +188,10 @@ function appcat_problem_field_default_fields() {
       'type' => 'fivestar',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -277,7 +208,7 @@ function appcat_problem_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_aggregate_rating',
-      'label' => 'Aggregate rating',
+      'label' => 'Rating',
       'required' => 0,
       'settings' => array(
         'allow_clear' => 0,
@@ -293,65 +224,59 @@ function appcat_problem_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'exposed',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_contributor'.
-  $fields['node-problem_definition-field_contributor'] = array(
+  // Exported field: 'node-problem-field_civic_category'.
+  $fields['node-problem-field_civic_category'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_contributor',
+      'field_name' => 'field_civic_category',
       'foreign keys' => array(
-        'node' => array(
+        'tid' => array(
           'columns' => array(
-            'target_id' => 'nid',
+            'tid' => 'tid',
           ),
-          'table' => 'node',
+          'table' => 'taxonomy_term_data',
         ),
       ),
       'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
+        'tid' => array(
+          0 => 'tid',
         ),
       ),
       'locked' => '0',
-      'module' => 'entityreference',
+      'module' => 'taxonomy',
       'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'type' => 'none',
-          ),
-          'target_bundles' => array(
-            'organization' => 'organization',
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'civic_category',
+            'parent' => '0',
+            'depth' => '',
           ),
         ),
-        'target_type' => 'node',
+        'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
       'translatable' => '0',
-      'type' => 'entityreference',
+      'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '9',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 17,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -361,86 +286,54 @@ function appcat_problem_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_contributor',
-      'label' => 'Contributor',
+      'field_name' => 'field_civic_category',
+      'label' => 'Civic sector',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference',
+        'module' => 'options',
         'settings' => array(
           'label_help_description' => '',
-          'match_operator' => 'CONTAINS',
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-          'path' => '',
-          'references_dialog_add' => 1,
-          'references_dialog_edit' => 1,
-          'references_dialog_search' => 1,
-          'references_dialog_search_view' => '',
-          'size' => '60',
         ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '7',
+        'type' => 'options_buttons',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_creator'.
-  $fields['node-problem_definition-field_creator'] = array(
+  // Exported field: 'node-problem-field_coordinates'.
+  $fields['node-problem-field_coordinates'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_creator',
-      'foreign keys' => array(
-        'node' => array(
-          'columns' => array(
-            'target_id' => 'nid',
-          ),
-          'table' => 'node',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
+      'field_name' => 'field_coordinates',
+      'foreign keys' => array(),
+      'indexes' => array(),
       'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'type' => 'none',
-          ),
-          'target_bundles' => array(
-            'organization' => 'organization',
-          ),
-        ),
-        'target_type' => 'node',
-      ),
+      'module' => 'geofield',
+      'settings' => array(),
       'translatable' => '0',
-      'type' => 'entityreference',
+      'type' => 'geofield',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
-      'default_value' => NULL,
+      'bundle' => 'problem',
       'deleted' => '0',
-      'description' => 'The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '10',
+          'module' => 'geofield',
+          'settings' => array(
+            'data' => 'full',
+          ),
+          'type' => 'geofield_wkt',
+          'weight' => 18,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -450,34 +343,47 @@ function appcat_problem_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_creator',
-      'label' => 'Creator',
+      'field_name' => 'field_coordinates',
+      'label' => 'Coordinates',
       'required' => 0,
       'settings' => array(
+        'local_solr' => array(
+          'enabled' => FALSE,
+          'lat_field' => 'lat',
+          'lng_field' => 'lng',
+        ),
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference',
+        'module' => 'geocoder',
         'settings' => array(
+          'delta_handling' => 'default',
+          'geocoder_field' => 'field_address',
+          'geocoder_handler' => 'google',
+          'handler_settings' => array(
+            'google' => array(
+              'all_results' => 0,
+              'geometry_type' => 'point',
+              'reject_results' => array(
+                'APPROXIMATE' => 0,
+                'GEOMETRIC_CENTER' => 0,
+                'RANGE_INTERPOLATED' => 0,
+                'ROOFTOP' => 0,
+              ),
+            ),
+          ),
           'label_help_description' => '',
-          'match_operator' => 'CONTAINS',
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-          'path' => '',
-          'references_dialog_add' => 1,
-          'references_dialog_edit' => 1,
-          'references_dialog_search' => 1,
-          'references_dialog_search_view' => '',
-          'size' => '60',
         ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '8',
+        'type' => 'geocoder',
+        'weight' => '6',
       ),
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_description'.
-  $fields['node-problem_definition-field_description'] = array(
+  // Exported field: 'node-problem-field_description'.
+  $fields['node-problem-field_description'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -506,7 +412,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'A short description, e.g., "A web-based visualization tool."',
@@ -547,8 +453,83 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_image'.
-  $fields['node-problem_definition-field_image'] = array(
+  // Exported field: 'node-problem-field_file_attachments'.
+  $fields['node-problem-field_file_attachments'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_file_attachments',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'problem',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 19,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_file_attachments',
+      'label' => 'File attachments',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => 'problem/files',
+        'file_extensions' => 'txt sql lyr shp csv xls pdf html gis doc',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'label_help_description' => 'Attach databases, spreadsheets and other files to provide further information about this problem.',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '38',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-problem-field_image'.
+  $fields['node-problem-field_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -578,7 +559,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'deleted' => '0',
       'description' => 'Upload an image to go with this article.',
       'display' => array(
@@ -630,8 +611,8 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_keywords'.
-  $fields['node-problem_definition-field_keywords'] = array(
+  // Exported field: 'node-problem-field_keywords'.
+  $fields['node-problem-field_keywords'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -666,7 +647,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -686,7 +667,7 @@ function appcat_problem_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_keywords',
-      'label' => 'Keywords',
+      'label' => 'Tags',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -707,8 +688,8 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_telephone'.
-  $fields['node-problem_definition-field_telephone'] = array(
+  // Exported field: 'node-problem-field_telephone'.
+  $fields['node-problem-field_telephone'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -726,7 +707,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'phone_number',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1007,8 +988,8 @@ function appcat_problem_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_url'.
-  $fields['node-problem_definition-field_url'] = array(
+  // Exported field: 'node-problem-field_url'.
+  $fields['node-problem-field_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -1038,7 +1019,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'link_field',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter the URL of the homepage where people can go to find more information.',
@@ -1088,13 +1069,13 @@ function appcat_problem_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'link_field',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
 
-  // Exported field: 'node-problem_definition-field_video'.
-  $fields['node-problem_definition-field_video'] = array(
+  // Exported field: 'node-problem-field_video'.
+  $fields['node-problem-field_video'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -1125,7 +1106,7 @@ function appcat_problem_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'problem_definition',
+      'bundle' => 'problem',
       'deleted' => '0',
       'description' => 'An embedded video object.',
       'display' => array(
@@ -1182,24 +1163,22 @@ function appcat_problem_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A short description, e.g., "A web-based visualization tool."');
-  t('Additional type');
   t('Address');
-  t('Aggregate rating');
   t('An embedded video object.');
-  t('Body');
-  t('Contributor');
-  t('Creator');
+  t('Civic sector');
+  t('Coordinates');
   t('Description');
   t('Enter the URL of the homepage where people can go to find more information.');
+  t('File attachments');
+  t('Full description');
   t('Image');
-  t('Keywords');
   t('Phone');
-  t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
+  t('Rating');
+  t('Tags');
   t('Upload an image to go with this article.');
   t('Url');
   t('Video');
-  t('What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).');
-  t('Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.');
+  t('Why does this issue matter? Why does it warrant attention? Describe the specific challenge. What is needed to address this problem? Describe the specific requirements and resources. Finally, how can you ensure that a hacked solution would deliver impact? What actions would be taken and resources made available to help a solution be implemented?');
 
   return $fields;
 }

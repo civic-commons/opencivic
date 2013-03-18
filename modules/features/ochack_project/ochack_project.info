@@ -1,6 +1,6 @@
-name = AppCat project
+name = Hackathon project
 core = 7.x
-package = AppCat project
+package = Hackathon project
 dependencies[] = appcat_organization_content
 dependencies[] = autocomplete_deluxe
 dependencies[] = ctools

@@ -17,6 +17,8 @@ function appcat_misc_features_export_alter(&$export, $module_name) {
   $content_definition_modules = array(
     'appcat_application_content',
     'appcat_organization_content',
+    'ochack_problem',
+    'ochack_project',
   );
   if (in_array($module_name, $content_definition_modules) && isset($export['features']['taxonomy']) && isset($export['features']['uuid_term'])) {
     unset($export['features']['taxonomy']);

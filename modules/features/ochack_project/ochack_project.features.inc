@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * appcat_problem.features.inc
+ * ochack_project.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function appcat_problem_ctools_plugin_api() {
+function ochack_project_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -19,19 +19,12 @@ function appcat_problem_ctools_plugin_api() {
 }
 
 /**
- * Implements hook_views_api().
- */
-function appcat_problem_views_api() {
-  return array("api" => "3.0");
-}
-
-/**
  * Implements hook_node_info().
  */
-function appcat_problem_node_info() {
+function ochack_project_node_info() {
   $items = array(
-    'problem_definition' => array(
-      'name' => t('Problem definition'),
+    'project' => array(
+      'name' => t('Project'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -45,11 +38,11 @@ function appcat_problem_node_info() {
 /**
  * Implements hook_rdf_default_mappings().
  */
-function appcat_problem_rdf_default_mappings() {
+function ochack_project_rdf_default_mappings() {
   $schemaorg = array();
 
-  // Exported RDF mapping: problem_definition
-  $schemaorg['node']['problem_definition'] = array(
+  // Exported RDF mapping: project
+  $schemaorg['node']['project'] = array(
     'rdftype' => array(
       0 => 'schema:CreativeWork',
       1 => 'sioc:Item',
@@ -104,19 +97,14 @@ function appcat_problem_rdf_default_mappings() {
       'datatype' => 'xsd:dateTime',
       'callback' => 'date_iso8601',
     ),
-    'field_additional_type' => array(
-      'predicates' => array(
-        0 => 'schema:additionalType',
-      ),
+    'field_description' => array(
+      'predicates' => array(),
     ),
     'url' => array(
       'predicates' => array(
         0 => 'schema:url',
       ),
       'type' => 'rel',
-    ),
-    'field_description' => array(
-      'predicates' => array(),
     ),
     'field_image' => array(
       'predicates' => array(
@@ -128,35 +116,29 @@ function appcat_problem_rdf_default_mappings() {
         0 => 'schema:url',
       ),
     ),
-    'field_aggregate_rating' => array(
-      'predicates' => array(
-        0 => 'schema:aggregateRating',
-      ),
-    ),
     'field_contributor' => array(
       'predicates' => array(
         0 => 'schema:contributor',
-      ),
-    ),
-    'field_creator' => array(
-      'predicates' => array(
-        0 => 'schema:creator',
       ),
     ),
     'field_keywords' => array(
       'predicates' => array(
         0 => 'schema:keywords',
       ),
+      'type' => 'rel',
     ),
     'field_video' => array(
       'predicates' => array(
         0 => 'schema:video',
       ),
     ),
-    'field_address' => array(
+    'field_additional_support_needed' => array(
       'predicates' => array(),
     ),
-    'field_telephone' => array(
+    'field_download_url' => array(
+      'predicates' => array(),
+    ),
+    'field_install_url' => array(
       'predicates' => array(),
     ),
   );

@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * appcat_problem.views_default.inc
+ * ochack_problem.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function appcat_problem_views_default_views() {
+function ochack_problem_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'problem_definitions_list';
+  $view->name = 'problems_list';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Problem definitions list';
+  $view->human_name = 'Problem statements list';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -74,14 +74,14 @@ function appcat_problem_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'problem_definition' => 'problem_definition',
+    'problem' => 'problem',
   );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'problems';
-  $export['problem_definitions_list'] = $view;
+  $export['problems_list'] = $view;
 
   return $export;
 }
