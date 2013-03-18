@@ -23,7 +23,7 @@ projects[drupal][patch][1887924] = http://drupal.org/files/max_execution_error-1
 ; http://drupal.org/node/995156
 projects[drupal][patch][985642] = http://drupal.org/files/field-attach-load-entity-original-985642-58.patch
 
-projects[apps_catalog][type] = profile
-projects[apps_catalog][download][type] = git
-projects[apps_catalog][download][url] = https://github.com/nuams/apps_catalog.git
-; projects[apps_catalog][download][branch] = 7.x-2.x
+projects[opencivic][type] = profile
+projects[opencivic][download][type] = git
+projects[opencivic][download][url] = https://github.com/nuams/opencivic.git
+; projects[opencivic][download][branch] = 7.x-2.x

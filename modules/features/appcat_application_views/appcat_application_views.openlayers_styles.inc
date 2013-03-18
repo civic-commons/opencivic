@@ -17,7 +17,7 @@ function appcat_application_views_openlayers_styles() {
   $openlayers_styles->title = 'Deployment marker';
   $openlayers_styles->description = 'Markers to show where apps have been deployed';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'profiles/apps_catalog/themes/cat_lover/images/deploymentmarker.png',
+    'externalGraphic' => 'profiles/opencivic/themes/cat_lover/images/deploymentmarker.png',
     'pointRadius' => 10,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',

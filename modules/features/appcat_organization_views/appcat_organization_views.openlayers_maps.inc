@@ -19,8 +19,8 @@ function appcat_organization_views_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => '280px',
     'height' => '280px',
-    'image_path' => 'profiles/apps_catalog/modules/contrib/openlayers/themes/default_dark/img/',
-    'css_path' => 'profiles/apps_catalog/modules/contrib/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/opencivic/modules/contrib/openlayers/themes/default_dark/img/',
+    'css_path' => 'profiles/opencivic/modules/contrib/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -124,8 +124,8 @@ function appcat_organization_views_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'profiles/apps_catalog/modules/contrib/openlayers/themes/default_dark/img/',
-    'css_path' => 'profiles/apps_catalog/modules/contrib/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/opencivic/modules/contrib/openlayers/themes/default_dark/img/',
+    'css_path' => 'profiles/opencivic/modules/contrib/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(

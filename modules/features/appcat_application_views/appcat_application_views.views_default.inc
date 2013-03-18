@@ -128,7 +128,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_aggregate_rating']['click_sort_column'] = 'rating';
   $handler->display->display_options['fields']['field_aggregate_rating']['settings'] = array(
     'widget' => array(
-      'fivestar_widget' => 'profiles/apps_catalog/modules/custom/fivestar_green/greenstar/greenstar.css',
+      'fivestar_widget' => 'profiles/opencivic/modules/custom/fivestar_green/greenstar/greenstar.css',
     ),
     'expose' => 1,
     'style' => 'average',

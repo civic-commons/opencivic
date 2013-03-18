@@ -17,7 +17,7 @@ function appcat_organization_views_openlayers_styles() {
   $openlayers_styles->title = 'Organization marker';
   $openlayers_styles->description = 'Markers to show where organizations have been deployed';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'profiles/apps_catalog/themes/cat_lover/images/group.png',
+    'externalGraphic' => 'profiles/opencivic/themes/cat_lover/images/group.png',
     'pointRadius' => 16,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',

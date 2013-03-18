@@ -28,7 +28,7 @@ Getting started
 ---------------
 Apps Catalog for 7.x requies several patches to be applied to Drupal core. It
 provides a `distro.make` file for building a full Drupal distro including core
-patches as well as a copy of the `apps_catalog` install profile.
+patches as well as a copy of the `opencivic` install profile.
 
 1. Grab the `distro.make` file from Apps Catalog and run:
 
@@ -36,7 +36,7 @@ patches as well as a copy of the `apps_catalog` install profile.
 
    or use its url on Drupal.org directly:
 
-        $ drush make "http://drupalcode.org/project/apps_catalog.git/blob_plain/refs/heads/7.x-2.x:/distro.make" [directory]
+        $ drush make "http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/distro.make" [directory]
 
 2. Choose the "Apps Catalog" install profile when installing Drupal
 
@@ -59,7 +59,7 @@ extends Apps Catalog:
   Apps Catalog distro makefile and then add your new install profile to it:
 
         ; Include Apps Catalog distro makefile via URL
-        includes[] = http://drupalcode.org/project/apps_catalog.git/blob_plain/refs/heads/7.x-2.x:/distro.make
+        includes[] = http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/distro.make
 
         ; Add myprofile to the full Drupal distro build
         projects[myprofile][type] = profile
@@ -71,7 +71,7 @@ extends Apps Catalog:
   or overrides:
 
         ; Include Apps Catalog install profile makefile via URL
-        includes[] = http://drupalcode.org/project/apps_catalog.git/blob_plain/refs/heads/7.x-2.x:/drupal-org.make
+        includes[] = http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/drupal-org.make
 
         projects[feeds][version] = 2.0-alpha1
         projects[job_scheduler][version] = 2.0-alpha1
@@ -79,7 +79,7 @@ extends Apps Catalog:
 
   For more information about using makefiles see the [drush make README][1].
 
-4. Copy the contents of `apps_catalog.info` into `myprofile.info` and then adjust
+4. Copy the contents of `opencivic.info` into `myprofile.info` and then adjust
   its contents to reflect the metadata, modules and theme you want to enable.
   For example:
 

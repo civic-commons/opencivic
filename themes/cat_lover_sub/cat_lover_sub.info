@@ -65,12 +65,12 @@ zones[bottom_footer] = Bottom Footer
 
 ; OPTIONAL STYLESHEETS
 
-css[profiles/apps_catalog/themes/cat_lover/css/global.css][name] = 'Your custom global styles'
-css[profiles/apps_catalog/themes/cat_lover/css/global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
-css[profiles/apps_catalog/themes/cat_lover/css/global.css][options][weight] = '10'
-css[profiles/apps_catalog/themes/cat_lover/css/other-styles.css][name] = Additional CSS styles
-css[profiles/apps_catalog/themes/cat_lover/css/other-styles.css][description] = This file holds additional CSS that has not yet been added to global CSS.
-css[profiles/apps_catalog/themes/cat_lover/css/other-styles.css][options][weight] = 14]
+css[profiles/opencivic/themes/cat_lover/css/global.css][name] = 'Your custom global styles'
+css[profiles/opencivic/themes/cat_lover/css/global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
+css[profiles/opencivic/themes/cat_lover/css/global.css][options][weight] = '10'
+css[profiles/opencivic/themes/cat_lover/css/other-styles.css][name] = Additional CSS styles
+css[profiles/opencivic/themes/cat_lover/css/other-styles.css][description] = This file holds additional CSS that has not yet been added to global CSS.
+css[profiles/opencivic/themes/cat_lover/css/other-styles.css][options][weight] = 14]
 
 
 ; THEME SETTINGS (DEFAULTS)
