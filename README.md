@@ -1,4 +1,4 @@
-OpenCivic 2.x for Drupal 7.x
+OpenCivic for Drupal 7.x
 ----------------------------
 Get started building with Drupal fast.
 
