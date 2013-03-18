@@ -15,7 +15,7 @@ function appcat_home_views_openlayers_maps() {
   $openlayers_maps->api_version = 1;
   $openlayers_maps->name = 'homepage';
   $openlayers_maps->title = 'homepage';
-  $openlayers_maps->description = 'The map for the Apps Catalog home page';
+  $openlayers_maps->description = 'The map for the OpenCivic home page';
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',

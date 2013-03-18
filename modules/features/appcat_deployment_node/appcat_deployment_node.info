@@ -1,5 +1,5 @@
 name = AppCat deployment node
-description = Defines the Deployment content type for the Apps Catalog distro.
+description = Defines the Deployment content type for the OpenCivic distro.
 core = 7.x
 package = AppCat deployment
 php = 5.2.4

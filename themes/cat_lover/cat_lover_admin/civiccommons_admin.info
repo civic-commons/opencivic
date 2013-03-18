@@ -1,5 +1,5 @@
 name = Cat Lover Admin
-description = Admin theme of the Apps Catalog distro
+description = Admin theme of the OpenCivic distro
 core = 7.x
 engine = phptemplate
 base theme = seven

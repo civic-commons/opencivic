@@ -13,7 +13,7 @@ function appcat_misc_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'36\',
       \'uid\' => \'1\',
-      \'title\' => \'Welcome to the Apps Catalog\',
+      \'title\' => \'Welcome to OpenCivic\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',

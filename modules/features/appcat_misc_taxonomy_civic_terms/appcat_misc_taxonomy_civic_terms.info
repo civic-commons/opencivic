@@ -1,5 +1,5 @@
 name = AppCat misc taxonomy civic terms
-description = Civic category and subcategory terms for the Apps Catalog distro
+description = Civic category and subcategory terms for the OpenCivic distro
 core = 7.x
 package = AppCat
 php = 5.2.4

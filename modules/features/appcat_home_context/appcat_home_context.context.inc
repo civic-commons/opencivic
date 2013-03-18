@@ -14,7 +14,7 @@ function appcat_home_context_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'homepage';
-  $context->description = 'Home page of the Applications Catalog website';
+  $context->description = 'Home page of the OpenCivic website';
   $context->tag = 'AppCat homepage';
   $context->conditions = array(
     'path' => array(
@@ -58,7 +58,7 @@ function appcat_home_context_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('AppCat homepage');
-  t('Home page of the Applications Catalog website');
+  t('Home page of the OpenCivic website');
   $export['homepage'] = $context;
 
   return $export;

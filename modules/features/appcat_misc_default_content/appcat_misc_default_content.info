@@ -1,5 +1,5 @@
 name = AppCat misc default content
-description = Default content for the Apps Catalog
+description = Default content for the Applications Catalog
 core = 7.x
 package = AppCat
 php = 5.2.4

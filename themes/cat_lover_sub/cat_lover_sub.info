@@ -1,5 +1,5 @@
 name = 'Cat Lover sub-theme'
-description = 'An Apps Catalog distro Cat Lover sub-theme.'
+description = 'An OpenCivic distro Cat Lover sub-theme.'
 core = '7.x'
 engine = 'phptemplate'
 screenshot = 'screenshot.png'

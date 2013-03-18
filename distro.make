@@ -1,9 +1,9 @@
-; This file describes the core project requirements for Apps Catalog 7.x. Several
+; This file describes the core project requirements for OpenCivic 7.x. Several
 ; patches against Drupal core and their associated issue numbers have been
 ; included here for reference.
 ;
 ; Use this file to build a full distro including Drupal core (with patches) and
-; the Apps Catalog install profile using the following command:
+; the OpenCivic install profile using the following command:
 ;
 ;     $ drush make distro.make [directory]
 
@@ -25,5 +25,5 @@ projects[drupal][patch][985642] = http://drupal.org/files/field-attach-load-enti
 
 projects[opencivic][type] = profile
 projects[opencivic][download][type] = git
-projects[opencivic][download][url] = https://github.com/nuams/opencivic.git
+projects[opencivic][download][url] = https://github.com/civic-commons/opencivic.git
 ; projects[opencivic][download][branch] = 7.x-2.x

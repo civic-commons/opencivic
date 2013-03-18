@@ -1,11 +1,11 @@
-Apps Catalog 2.x for Drupal 7.x
+OpenCivic 2.x for Drupal 7.x
 ----------------------------
 Get started building with Drupal fast.
 
-Apps Catalog is a basic distribution meant to capture elements that are generally
+OpenCivic is a basic distribution meant to capture elements that are generally
 useful and make building Drupal sites and Drupal distributions easier.
 
-Apps Catalog helps site builders
+OpenCivic helps site builders
 
 - use install profiles and drush make for defining projects
 - manage the dev > staging > live workflow problem using Features and
@@ -17,7 +17,7 @@ Apps Catalog helps site builders
 Requirements
 ------------
 In addition to the standard Drupal requirements you will need the following to
-make use of Apps Catalog:
+make use of OpenCivic:
 
 - drush 3.1 - http://drupal.org/project/drush
 - drush make 2.0 beta 9 - http://drupal.org/project/drush_make
@@ -26,11 +26,11 @@ make use of Apps Catalog:
 
 Getting started
 ---------------
-Apps Catalog for 7.x requies several patches to be applied to Drupal core. It
+OpenCivic for 7.x requies several patches to be applied to Drupal core. It
 provides a `distro.make` file for building a full Drupal distro including core
 patches as well as a copy of the `opencivic` install profile.
 
-1. Grab the `distro.make` file from Apps Catalog and run:
+1. Grab the `distro.make` file from OpenCivic and run:
 
         $ drush make distro.make [directory]
 
@@ -38,14 +38,14 @@ patches as well as a copy of the `opencivic` install profile.
 
         $ drush make "http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/distro.make" [directory]
 
-2. Choose the "Apps Catalog" install profile when installing Drupal
+2. Choose the "OpenCivic" install profile when installing Drupal
 
 
-Extending Apps Catalog
+Extending OpenCivic
 -------------------
-Site builders can use Apps Catalog as a starting point for their own install
+Site builders can use OpenCivic as a starting point for their own install
 profiles. Basic steps for creating a new install profile called `myprofile` that
-extends Apps Catalog:
+extends OpenCivic:
 
 1. Create the following directory and files:
 
@@ -56,9 +56,9 @@ extends Apps Catalog:
         profiles/myprofile/myprofile.install
 
 2. Enter an include statement into `distro.make` to include the contents of the
-  Apps Catalog distro makefile and then add your new install profile to it:
+  OpenCivic distro makefile and then add your new install profile to it:
 
-        ; Include Apps Catalog distro makefile via URL
+        ; Include OpenCivic distro makefile via URL
         includes[] = http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/distro.make
 
         ; Add myprofile to the full Drupal distro build
@@ -67,10 +67,10 @@ extends Apps Catalog:
         projects[myprofile][download][url] = git://github.com/myname/myprofile.git
 
 3. Enter an include statement into `myprofile.make` to include the contents of
-  the Apps Catalog install profile makefile and then add any additional projects
+  the OpenCivic install profile makefile and then add any additional projects
   or overrides:
 
-        ; Include Apps Catalog install profile makefile via URL
+        ; Include OpenCivic install profile makefile via URL
         includes[] = http://drupalcode.org/project/opencivic.git/blob_plain/refs/heads/7.x-2.x:/drupal-org.make
 
         projects[feeds][version] = 2.0-alpha1

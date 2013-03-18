@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Enables modules and site configuration for installing the Apps Catalog.
+ * Enables modules and site configuration for installing OpenCivic.
  */
 
 /**

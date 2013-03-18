@@ -1,5 +1,5 @@
 name = AppCat default content
-description = Default content for the Apps Catalog
+description = Default content for the OpenCivic
 core = 7.x
 package = AppCat
 version = 7.x-1.0-alpha1

@@ -1,5 +1,5 @@
 name = AppCat application content
-description = Defines the Application content type for the Applications Catalog distro
+description = Defines the Application content type for the OpenCivic distro
 core = 7.x
 package = AppCat application
 php = 5.2.4

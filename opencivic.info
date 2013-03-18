@@ -1,4 +1,4 @@
-name = Apps Catalog
+name = OpenCivic
 core = 7.x
 description = Build a catalog of Software Applications.
 
