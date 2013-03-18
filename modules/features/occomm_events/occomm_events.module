@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OCComm Events feature.
+ */
+
+include_once 'occomm_events.features.inc';
