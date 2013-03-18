@@ -107,7 +107,7 @@ function appcat_blog_node_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => 0,
+        'default_image' => FALSE,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
