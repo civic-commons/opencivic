@@ -39,8 +39,14 @@ projects[auto_nodetitle][version] = "1.0"
 projects[autocomplete_deluxe][subdir] = "contrib"
 projects[autocomplete_deluxe][version] = "2.0-beta2"
 
+projects[better_exposed_filters][subdir] = "contrib"
+projects[better_exposed_filters][version] = "3.0-beta3"
+
 projects[block_class][subdir] = "contrib"
 projects[block_class][version] = "1.2"
+
+projects[calendar][subdir] = "contrib"
+projects[calendar][version] = "3.4"
 
 projects[ctools][subdir] = "contrib"
 
@@ -75,6 +81,9 @@ projects[cer][download][url] = "http://git.drupal.org/project/cer.git"
 projects[cer][download][revision] = 98a59bb024ad955cb02667b5009cc564dbb25416
 projects[cer][download][branch] = 7.x-1.x
 projects[cer][type] = "module"
+
+projects[date_ical][subdir] = "contrib"
+projects[date_ical][version] = "1.1"
 
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][version] = "1.2"
