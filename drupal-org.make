@@ -25,6 +25,9 @@ projects[addtoany][version] = "3.1"
 
 projects[admin_menu][subdir] = "contrib"
 
+projects[module_filter][subdir] = "contrib"
+projects[module_filter][version] = "7.x-1.7"
+
 projects[auto_entitylabel][subdir] = "contrib"
 projects[auto_entitylabel][version] = "1.x-dev"
 projects[auto_entitylabel][download][type] = "git"

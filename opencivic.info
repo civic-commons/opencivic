@@ -91,6 +91,7 @@ dependencies[] = media
 dependencies[] = media_internet
 dependencies[] = media_youtube
 dependencies[] = menu_block
+dependencies[] = module_filter
 dependencies[] = node_export
 dependencies[] = nodequeue
 dependencies[] = omega_tools
