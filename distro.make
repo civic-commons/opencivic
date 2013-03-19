@@ -25,5 +25,5 @@ projects[drupal][patch][985642] = http://drupal.org/files/field-attach-load-enti
 
 projects[opencivic][type] = profile
 projects[opencivic][download][type] = git
-projects[opencivic][download][url] = https://github.com/civic-commons/opencivic.git
-; projects[opencivic][download][branch] = 7.x-2.x
+projects[opencivic][download][url] = http://git.drupal.org/project/opencivic.git
+projects[opencivic][download][branch] = 7.x-1.x
