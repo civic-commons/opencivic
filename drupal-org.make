@@ -131,6 +131,7 @@ projects[geocoder][version] = "1.2"
 
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "1.1"
+projects[geofield][patch][1942826] = http://drupal.org/files/1942826-5-openlayers_projections_1.1.patch
 
 projects[geophp][subdir] = "contrib"
 projects[geophp][version] = "1.6"
