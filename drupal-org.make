@@ -131,6 +131,7 @@ projects[geocoder][version] = "1.2"
 
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "1.1"
+projects[geofield][patch][1942826] = http://drupal.org/files/1942826-3-openlayers_better_handling_projections.patch
 
 projects[geophp][subdir] = "contrib"
 projects[geophp][version] = "1.6"
