@@ -216,6 +216,7 @@ projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.
 projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
 projects[openlayers][download][branch] = 7.x-2.x
 projects[openlayers][type] = "module"
+projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
