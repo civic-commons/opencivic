@@ -146,6 +146,9 @@ projects[google_fonts][subdir] = "contrib"
 
 projects[google_analytics][subdir] = "contrib"
 
+projects[i18n][subdir] = "contrib"
+projects[i18n][version] = "1.8"
+
 projects[imagecache_actions][subdir] = "contrib"
 projects[imagecache_actions][version] = "1.0"
 
@@ -163,7 +166,13 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[jump_menu][subdir] = "contrib"
 projects[jump_menu][version] = "1.4"
 
+projects[l10n_update][subdir] = "contrib"
+projects[l10n_update][version] = "1.0-beta3"
+
 projects[label_help][subdir] = contrib
+
+projects[languageicons][subdir] = "contrib"
+projects[languageicons][version] = "1.0"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.1"
