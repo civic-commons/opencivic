@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Multilingual UI_contexts feature.
+ */
+
+include_once 'multilingual_ui_contexts.features.inc';

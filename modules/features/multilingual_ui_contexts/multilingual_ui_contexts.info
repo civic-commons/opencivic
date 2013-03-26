@@ -1,0 +1,13 @@
+name = Multilingual UI_contexts
+description = Contexts related to multilingual support
+core = 7.x
+package = Multilingual
+version = 7.x-1.0-beta1
+project = multilingual_ui_contexts
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = locale
+features[context][] = sitewide_multilingual
+features[ctools][] = context:context:3
+features[features_api][] = api:1
+project path = profiles/opencivic/modules/features
