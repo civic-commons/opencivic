@@ -362,8 +362,37 @@ aside .content {
   display: none; }
 
 #region-top-menu {
+  margin-top: 10px;
+  vertical-align: top;
   margin-right: 0;
-  float: right; }
+  float: right;
+
+  #block-locale-language {
+    margin-top: 3px;
+    float: right;
+    clear: none;
+
+    .language-switcher-locale-url {
+      list-style-type: none;
+      
+      li {
+        display: inline;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  #block-nice-menus-1 {
+    float: right;
+    clear: none;
+    display: inline;
+    margin-top: 0px;
+  }
+
+  #block-nice-menus-2 {
+    display: block;
+  }
+}
 
  
 .block-nice-menus{
@@ -436,7 +465,7 @@ ul.nice-menu {
   
 .block-nice-menus:first-child ul.nice-menu {
   border: 0;
-  margin-top: 24px;
+  // margin-top: 24px;
   font-family: Arial, Helvetica, sans-serif;
   li {
     border-right: 0;

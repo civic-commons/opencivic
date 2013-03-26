@@ -342,8 +342,26 @@ aside .content {
   display: none; }
 
 #region-top-menu {
+  margin-top: 10px;
+  vertical-align: top;
   margin-right: 0;
   float: right; }
+  #region-top-menu #block-locale-language {
+    margin-top: 3px;
+    float: right;
+    clear: none; }
+    #region-top-menu #block-locale-language .language-switcher-locale-url {
+      list-style-type: none; }
+      #region-top-menu #block-locale-language .language-switcher-locale-url li {
+        display: inline;
+        padding-right: 10px; }
+  #region-top-menu #block-nice-menus-1 {
+    float: right;
+    clear: none;
+    display: inline;
+    margin-top: 0px; }
+  #region-top-menu #block-nice-menus-2 {
+    display: block; }
 
 .block-nice-menus {
   margin-bottom: 10px; }
@@ -403,7 +421,6 @@ ul.nice-menu:hover a.active {
 
 .block-nice-menus:first-child ul.nice-menu {
   border: 0;
-  margin-top: 24px;
   font-family: Arial, Helvetica, sans-serif; }
   .block-nice-menus:first-child ul.nice-menu li {
     border-right: 0;
@@ -2189,7 +2206,7 @@ div.field-item.even p strong {
 .view-application-at-a-glance .views-field-field-requirements,
 .view-application-at-a-glance .views-field-field-software-type,
 .view-application-at-a-glance .views-field-field-url {
-  border-bottom: solid 1px #dddddd;
+  border-bottom: solid 1px #DDDDDD;
   padding-top: 5px;
   padding-bottom: 5px; }
 
