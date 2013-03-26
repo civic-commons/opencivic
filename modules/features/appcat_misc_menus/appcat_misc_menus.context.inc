@@ -36,7 +36,7 @@ function appcat_misc_menus_context_default_contexts() {
           'module' => 'nice_menus',
           'delta' => '2',
           'region' => 'top_menu',
-          'weight' => '-9',
+          'weight' => '27',
         ),
       ),
     ),

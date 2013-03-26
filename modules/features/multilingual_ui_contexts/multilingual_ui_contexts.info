@@ -2,6 +2,7 @@ name = Multilingual UI_contexts
 description = Contexts related to multilingual support
 core = 7.x
 package = Multilingual
+php = 5.2.4
 version = 7.x-1.0-beta1
 project = multilingual_ui_contexts
 dependencies[] = context
