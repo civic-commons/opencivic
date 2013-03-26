@@ -30,7 +30,7 @@ function multilingual_ui_contexts_context_default_contexts() {
           'module' => 'locale',
           'delta' => 'language',
           'region' => 'top_menu',
-          'weight' => '-10',
+          'weight' => '22',
         ),
       ),
     ),
