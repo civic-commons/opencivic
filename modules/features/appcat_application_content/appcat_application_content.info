@@ -74,6 +74,7 @@ features[variable][] = comment_form_location_application
 features[variable][] = comment_preview_application
 features[variable][] = comment_subject_field_application
 features[variable][] = field_bundle_settings_node__application
+features[variable][] = language_content_type_application
 features[variable][] = menu_options_application
 features[variable][] = menu_parent_application
 features[variable][] = node_options_application
