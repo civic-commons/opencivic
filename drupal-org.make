@@ -307,6 +307,9 @@ projects[taxonomy_manager][version] = "1.0-rc1"
 projects[token][subdir] = "contrib"
 projects[token][version] = "1.4"
 
+projects[variable][subdir] = "contrib"
+projects[variable][version] = "2.2"
+
 projects[viewfield][subdir] = "contrib"
 projects[viewfield][version] = "2.0"
 
