@@ -48,6 +48,7 @@ features[field][] = node-application-field_screenshot
 features[field][] = node-application-field_software_type
 features[field][] = node-application-field_url
 features[field][] = node-application-field_video
+features[field][] = node-application-title_field
 features[field_group][] = group_basic|node|application|default
 features[field_group][] = group_basic|node|application|form
 features[field_group][] = group_categories|node|application|form

@@ -373,13 +373,12 @@ function appcat_application_content_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '1',
+      'translatable' => '0',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
       'bundle' => 'application',
       'default_value' => NULL,
-      'default_value_function' => '',
       'deleted' => '0',
       'description' => 'Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.',
       'display' => array(
@@ -407,14 +406,6 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Supporting vendors',
       'required' => 0,
       'settings' => array(
-        'behaviors' => array(
-          'node_links' => array(
-            'status' => 0,
-          ),
-          'prepopulate' => array(
-            'status' => 0,
-          ),
-        ),
         'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -1091,7 +1082,7 @@ function appcat_application_content_field_default_fields() {
         'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -1187,7 +1178,6 @@ function appcat_application_content_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'application',
       'default_value' => NULL,
-      'default_value_function' => '',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1215,14 +1205,6 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Related applications',
       'required' => 0,
       'settings' => array(
-        'behaviors' => array(
-          'node_links' => array(
-            'status' => 0,
-          ),
-          'prepopulate' => array(
-            'status' => 0,
-          ),
-        ),
         'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -1533,7 +1515,7 @@ function appcat_application_content_field_default_fields() {
         'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -1771,6 +1753,85 @@ function appcat_application_content_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-application-title_field'.
+  $fields['node-application-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'application',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 21,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('A short description, e.g., "A web-based visualization tool."');
@@ -1802,6 +1863,7 @@ function appcat_application_content_field_default_fields() {
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
   t('The keywords/tags used to describe this content. Separate tags with a comma.');
+  t('Title');
   t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');
