@@ -113,6 +113,9 @@ function appcat_deployment_node_strongarm() {
         'redirect' => array(
           'weight' => '2',
         ),
+        'language' => array(
+          'weight' => '5',
+        ),
       ),
       'display' => array(
         'subscriptions_ui' => array(
@@ -125,6 +128,13 @@ function appcat_deployment_node_strongarm() {
     ),
   );
   $export['field_bundle_settings_node__deployment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_deployment';
+  $strongarm->value = '4';
+  $export['language_content_type_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
