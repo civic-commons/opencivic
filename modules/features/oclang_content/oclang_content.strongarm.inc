@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * multilingual_content.strongarm.inc
+ * oclang_content.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function multilingual_content_strongarm() {
+function oclang_content_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
@@ -23,6 +23,9 @@ function multilingual_content_strongarm() {
   $strongarm->name = 'entity_translation_entity_types';
   $strongarm->value = array(
     'node' => 'node',
+    'taxonomy_term' => 'taxonomy_term',
+    'comment' => 0,
+    'user' => 0,
   );
   $export['entity_translation_entity_types'] = $strongarm;
 
@@ -50,25 +53,6 @@ function multilingual_content_strongarm() {
         'language' => 'locale_language_from_interface',
       ),
       'file' => 'includes/locale.inc',
-    ),
-    'locale-url' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_url',
-        'switcher' => 'locale_language_switcher_url',
-        'url_rewrite' => 'locale_language_url_rewrite_url',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-    'locale-user' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_user',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-    'language-default' => array(
-      'callbacks' => array(
-        'language' => 'language_from_default',
-      ),
     ),
   );
   $export['language_negotiation_language_content'] = $strongarm;

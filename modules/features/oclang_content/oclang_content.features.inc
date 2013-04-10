@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * multilingual_content.features.inc
+ * oclang_content.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function multilingual_content_ctools_plugin_api() {
+function oclang_content_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
