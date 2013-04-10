@@ -110,6 +110,9 @@ function appcat_blog_node_rdf_default_mappings() {
         0 => 'schema:keywords',
       ),
     ),
+    'title_field' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
