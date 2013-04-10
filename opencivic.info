@@ -130,6 +130,7 @@ dependencies[] = subscriptions
 dependencies[] = subscriptions_content
 dependencies[] = subscriptions_mail
 dependencies[] = subscriptions_ui
+dependencies[] = title
 dependencies[] = token
 dependencies[] = transclude
 dependencies[] = views

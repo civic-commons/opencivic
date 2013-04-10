@@ -1,4 +1,4 @@
-name = Multilingual UI_contexts
+name = Multilingual UI contexts
 description = Contexts related to multilingual support
 core = 7.x
 package = Multilingual

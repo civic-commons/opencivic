@@ -302,6 +302,9 @@ projects[taxonomy_csv][version] = "5.10"
 projects[taxonomy_manager][subdir] = "contrib"
 projects[taxonomy_manager][version] = "1.0-rc1"
 
+projects[title][subdir] = "contrib"
+projects[title][version] = "1.0-alpha7"
+
 projects[token][subdir] = "contrib"
 projects[token][version] = "1.4"
 

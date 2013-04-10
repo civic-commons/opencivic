@@ -57,7 +57,6 @@ function appcat_application_content_field_group_info() {
       3 => 'field_image',
       4 => 'field_keywords',
       5 => 'field_url',
-      6 => 'title',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
