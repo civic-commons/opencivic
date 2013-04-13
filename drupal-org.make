@@ -286,6 +286,12 @@ projects[search_api][version] = "1.4"
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
 
+projects[services][subdir] = "contrib"
+projects[services][version] = "3.3"
+
+projects[services_views][subdir] = "contrib"
+projects[services_views][version] = "1.0-beta2"
+
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
 
