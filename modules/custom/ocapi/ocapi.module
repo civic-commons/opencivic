@@ -1,0 +1,169 @@
+<?php
+/**
+ * @file
+ * Main module file for the OpenCivic API module.
+ * 
+ * This module is aimed at providing a public
+ * documenation page(s) for the implemented
+ * OpenCivic API.
+ *
+ * Also a set of tests specific to configured API.
+ */
+
+/**
+ * Current API
+ */
+define('OCAPI_CURRENT_API', 'oc_api_v1');
+
+/**
+ * Implements hook_help().
+ */
+function ocapi_help($path, $arg) {
+  switch ($path) {
+    // Main module help for the OpenCivic API module
+    case 'admin/help#ocapi':
+      return '<p>' . t('The OpenCivic API module provides more in-depth API documentation.') . '</p>';
+  
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ocapi_menu() {
+  $path = variable_get('ocapi_doc_page_path', 'api');
+  $items[$path] = array(
+    'title' => variable_get('ocapi_doc_page_title', 'OpenCivic API'), 
+    'page callback' => 'ocapi_documentation_page', 
+    'access arguments' => array('access content'), 
+    'file' =>  'includes/ocapi.page.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/services/ocapi'] = array(
+    'title' => 'OpenCivic API', 
+    'description' => 'Configure the OpenCivic API settings.',
+    'page callback' => 'drupal_get_form', 
+    'page arguments' => array('ocapi_admin_settings'), 
+    'access arguments' => array('administer site configuration'), 
+    'file' =>  'includes/ocapi.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['api/test'] = array(
+    'title' => 'Test the OpenCivic API',
+    'page callback' => 'drupal_get_form', 
+    'page arguments' => array('ocapi_test'),
+    'description' => 'Test the OpenCivic API.',
+    'access arguments' => array('administer site configuration'), 
+    'file' =>  'includes/ocapi.test.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+ 
+/**
+ * Implements hook_block_info().
+ */
+function ocapi_block_info() {
+  $blocks = array();
+
+  // A Block to show an API call for
+  // base objects
+  $blocks['ocapi'] = array(
+    'info' => t('OpenCivic API Block'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ocapi_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'ocapi':
+      $block['subject'] = '';
+      $block['content'] = ocapi_block_output();
+      break;
+      
+  }
+  return $block;
+}
+
+/**
+ * Block callback for OpenCivic API block.
+ *
+ * TODO: Make theme function.
+ */
+function ocapi_block_output() {
+  $output = '';
+  
+  // Make sure the API is available
+  if (!module_exists('ocapi_service')) {
+    return $output;
+  }
+  
+  $path = current_path();
+  $link_options = array(
+    'attributes' => array(
+      'class' => array(
+        'api-button',
+        'add-button',
+      ),
+    ),
+  );
+  $link_title = t('API Object');
+  
+  // Try node first
+  $node = menu_get_object();
+  if (!empty($node)) {
+    $base_url = ocapi_get_current_base_url();
+    $link = l($link_title, $base_url . '/node/' . $node->nid . '.json', $link_options);
+  }
+  
+  // Then try taxonomy term.  Views are overriding the
+  // term pages, so we will check the path.
+  $term = menu_get_object('taxonomy_term', 2);
+  if (strpos($path, 'taxonomy/term/') === 0) {
+    $term = taxonomy_term_load(str_replace('taxonomy/term/', '', $path));
+  }
+  if (!empty($term)) {
+    $base_url = ocapi_get_current_base_url();
+    $link = l($link_title, $base_url . '/taxonomy_term/' . $term->tid . '.json', $link_options);
+  }
+  
+  if (isset($link)) {
+    $output .= $link;
+    $output .= '<p>';
+    $output .= '
+      ' . t('Click the API link to view the endpoint for this object.  Look at the <a href="@url">API documentation page</a> for more details.', array(
+        '@url' => url(variable_get('ocapi_doc_page_path', 'api')),
+      )) . '
+    ';
+    if ($example = variable_get('ocapi_doc_page_examples_path', 'api/examples')) {
+      $output .= '
+        ' . t('Or checkout the <a href="@url">examples page</a>.', array(
+          '@url' => url($example),
+        )) . '
+      ';
+    }
+    $output .= '</p>';
+  }
+  return $output;
+}
+
+/**
+ * Current current base URL for API
+ */
+function ocapi_get_current_base_url() {
+  // This does not take into account aliases on methods.
+  $endpoint = services_endpoint_load(ocapi_CURRENT_API);
+  return url($endpoint->path, array('absolute' => TRUE));
+}
