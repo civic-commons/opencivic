@@ -1,4 +1,4 @@
-api = 2
+xapi = 2
 core = 7.x
 
 ; Modules =====================================================================
@@ -380,7 +380,10 @@ projects[inline_entity_form][subdir] = "contrib"
 
 projects[schemaorg][version] = "1.0-beta3"
 projects[schemaorg][subdir] = "contrib"
+; Support Schema.org cache integration
 projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_integration-1185978-2.patch
+; Fix bug affected features exports
+projects[schemaorg][patch][1853590] = http://drupal.org/files/exportfix-1853590-1.patch
 
 ; Nuams modules =====================================================================
 
