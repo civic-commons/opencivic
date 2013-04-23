@@ -2293,11 +2293,6 @@ body .openlayers-map .olControlPermalink a {
 /* line 1378, ../sass/_module.scss */
 body .openlayers-map .olFramedCloudPopupContent {
   border-radius: 5px;
-  color: #EEEEEE;
-}
-/* line 1381, ../sass/_module.scss */
-body .openlayers-map .olFramedCloudPopupContent a {
-  color: #EEEEEE;
 }
 /* line 1385, ../sass/_module.scss */
 body .openlayers-map img.olImageLoadError {
