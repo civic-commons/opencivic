@@ -167,6 +167,32 @@ function appcat_application_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application At a Glance';
+  $translatables['application_at_a_glance'] = array(
+    t('Master'),
+    t('At a Glance'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('<div class="edit-content-button"><a href="/node/[nid]/edit">+ edit details</a></div>'),
+    t('Application Categories'),
+    t('Civic Categories'),
+    t('Creator'),
+    t('Host website'),
+    t('Demo Website'),
+    t('License'),
+    t('Release Notes'),
+    t('Requirements'),
+    t('Software type'),
+    t('Tags'),
+    t('Url'),
+    t('Rating'),
+    t('All'),
+    t('Block'),
+    t('Application At a Glance'),
+  );
   $export['application_at_a_glance'] = $view;
 
   $view = new view();
@@ -378,6 +404,32 @@ function appcat_application_views_views_default_views() {
     'civic_category' => 'civic_category',
   );
   $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
+  $translatables['application_categories'] = array(
+    t('Master'),
+    t('Application categories'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('field_application_category'),
+    t('All'),
+    t('Small icons and names of application categories'),
+    t('Application/Application categories'),
+    t('Civic categories'),
+    t('Small icons and names of civic categories'),
+    t('field_civic_category'),
+    t('Application/Civic categories'),
+    t('Application categories icons'),
+    t('Small icons of application categories'),
+    t('.'),
+    t(','),
+    t('Application/Application categories icons'),
+    t('Civic categories icons'),
+    t('Small icons of civic categories'),
+    t('Application/Civic categories icons'),
+  );
   $export['application_categories'] = $view;
 
   $view = new view();
@@ -486,6 +538,48 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['display_description'] = 'Applications listing page.';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'apps';
+
+  /* Display: Applications feed */
+  $handler = $view->new_display('feed', 'Applications feed', 'feed_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'apps/feed';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+  $translatables['application_list'] = array(
+    t('Master'),
+    t('Applications'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Description'),
+    t('We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.'),
+    t('Nid'),
+    t('Date added'),
+    t('App type'),
+    t('Civic Function'),
+    t('Title'),
+    t('Rating'),
+    t('Applications list'),
+    t('Applications listing page.'),
+    t('Applications feed'),
+  );
   $export['application_list'] = $view;
 
   $view = new view();
@@ -603,6 +697,22 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['deployments_map'] = array(
+    t('Master'),
+    t('Application Deployments'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Content entity referenced from field_add_deployment_for'),
+    t('Nid'),
+    t('Deployments map'),
+    t('Defines the map of places where Applications have been deployed.'),
+    t('Deployments/Map on apps listing page'),
+    t('Deployments Data Overlay'),
+  );
   $export['deployments_map'] = $view;
 
   $view = new view();
@@ -682,6 +792,19 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application related applications';
   $handler->display->display_options['block_caching'] = '8';
+  $translatables['related_applications'] = array(
+    t('Master'),
+    t('Related applications'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('All'),
+    t('Block'),
+    t('Application related applications'),
+  );
   $export['related_applications'] = $view;
 
   return $export;
