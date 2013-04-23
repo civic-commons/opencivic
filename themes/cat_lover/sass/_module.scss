@@ -1816,23 +1816,11 @@ div.field-item.even p strong {
   white-space: nowrap;
 }
 
-.view-application-at-a-glance .views-field-view,
-.view-application-at-a-glance .views-field-view-1,
-.view-application-at-a-glance .views-field-field-creator,
-.view-application-at-a-glance .views-field-field-install-url,
-.view-application-at-a-glance .views-field-field-download-url,
-.view-application-at-a-glance .views-field-field-license,
-.view-application-at-a-glance .views-field-field-release-notes,
-.view-application-at-a-glance .views-field-field-requirements,
-.view-application-at-a-glance .views-field-field-software-type,
-.view-application-at-a-glance .views-field-field-url{
+.view-application-at-a-glance > .view-content > .views-row > .views-field {
   border-bottom: solid 1px #DDDDDD;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
-
-
 
 .view-application-categories .views-row {
   color: #666666;

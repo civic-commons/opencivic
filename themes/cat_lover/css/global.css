@@ -2812,23 +2812,14 @@ div.field-item.even p strong {
   white-space: nowrap;
 }
 
-/* line 1828, ../sass/_module.scss */
-.view-application-at-a-glance .views-field-view,
-.view-application-at-a-glance .views-field-view-1,
-.view-application-at-a-glance .views-field-field-creator,
-.view-application-at-a-glance .views-field-field-install-url,
-.view-application-at-a-glance .views-field-field-download-url,
-.view-application-at-a-glance .views-field-field-license,
-.view-application-at-a-glance .views-field-field-release-notes,
-.view-application-at-a-glance .views-field-field-requirements,
-.view-application-at-a-glance .views-field-field-software-type,
-.view-application-at-a-glance .views-field-field-url {
+/* line 1819, ../sass/_module.scss */
+.view-application-at-a-glance > .view-content > .views-row > .views-field {
   border-bottom: solid 1px #DDDDDD;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-/* line 1837, ../sass/_module.scss */
+/* line 1825, ../sass/_module.scss */
 .view-application-categories .views-row {
   color: #666666;
   margin-bottom: 12px;
@@ -2838,33 +2829,33 @@ div.field-item.even p strong {
   position: relative;
 }
 
-/* line 1847, ../sass/_module.scss */
+/* line 1835, ../sass/_module.scss */
 .views-field-field-license a:first-child,
 .views-field-field-requirements a:first-child,
 .views-field-field-software-type a:first-child {
   margin-left: 0;
 }
 
-/* line 1853, ../sass/_module.scss */
+/* line 1841, ../sass/_module.scss */
 .views-field-field-license a,
 .views-field-field-requirements a,
 .views-field-field-software-type a {
   margin-left: 10px;
 }
 
-/* line 1857, ../sass/_module.scss */
+/* line 1845, ../sass/_module.scss */
 #block-user-login {
   float: none;
 }
 
-/* line 1864, ../sass/_module.scss */
+/* line 1852, ../sass/_module.scss */
 .region-content-main-left .view,
 .region-content-main-middle .view,
 .region-content-main-right .view {
   padding: 0;
 }
 
-/* line 1868, ../sass/_module.scss */
+/* line 1856, ../sass/_module.scss */
 #page-title {
   font-size: 40px;
   margin-bottom: 10px;
@@ -2873,11 +2864,11 @@ div.field-item.even p strong {
 /*
 Frontpage specific.
 */
-/* line 1877, ../sass/_module.scss */
+/* line 1865, ../sass/_module.scss */
 .front #block-system-main {
   margin: 0;
 }
-/* line 1881, ../sass/_module.scss */
+/* line 1869, ../sass/_module.scss */
 .front #page-title {
   font-size: 53px;
   margin: 0;
@@ -2894,14 +2885,14 @@ Frontpage specific.
 /* Views styling
 ============================================================================ */
 /* activity feed */
-/* line 1910, ../sass/_module.scss */
+/* line 1898, ../sass/_module.scss */
 .view-interactions .interaction {
   text-transform: lowercase;
   padding: 1px 3px;
   background: #ffffcc;
   color: black;
 }
-/* line 1915, ../sass/_module.scss */
+/* line 1903, ../sass/_module.scss */
 .view-interactions .interaction .Deployed {
   background: #D0E664;
 }
@@ -2909,13 +2900,13 @@ Frontpage specific.
 /**
  * General views (generic views) styling
  */
-/* line 1925, ../sass/_module.scss */
+/* line 1913, ../sass/_module.scss */
 .view .views-field-picture {
   float: left;
   margin: 0 10px 5px 0;
 }
 
-/* line 1930, ../sass/_module.scss */
+/* line 1918, ../sass/_module.scss */
 .view.view-user-views .views-field-name a,
 .view .views-field-title a {
   font-size: 16px;
@@ -2923,25 +2914,25 @@ Frontpage specific.
   text-decoration: none;
 }
 
-/* line 1935, ../sass/_module.scss */
+/* line 1923, ../sass/_module.scss */
 .view.view-user-views .views-field-created {
   font-size: 12px;
 }
 
-/* line 1938, ../sass/_module.scss */
+/* line 1926, ../sass/_module.scss */
 .view-featured-sites .view-footer p {
   margin-bottom: 0;
   text-align: right;
 }
 
-/* line 1944, ../sass/_module.scss */
+/* line 1932, ../sass/_module.scss */
 .view-at-a-glance-project .views-label {
   font-size: 14px;
   font-weight: bold;
   line-height: 25px;
 }
 
-/* line 1955, ../sass/_module.scss */
+/* line 1943, ../sass/_module.scss */
 .view-at-a-glance-project .views-field-field-members,
 .view-at-a-glance-project .views-field-field-sanitation-category,
 .view-at-a-glance-project .views-field-field-application-softfunction,
@@ -2951,25 +2942,25 @@ Frontpage specific.
 }
 
 /* List: By Place */
-/* line 1965, ../sass/_module.scss */
+/* line 1953, ../sass/_module.scss */
 .places-list-container {
   margin-bottom: 20px;
 }
-/* line 1967, ../sass/_module.scss */
+/* line 1955, ../sass/_module.scss */
 .places-list-container .view-content {
   margin-bottom: 10px;
 }
-/* line 1970, ../sass/_module.scss */
+/* line 1958, ../sass/_module.scss */
 .places-list-container .views-field-field-organization-address {
   font-weight: bold;
 }
-/* line 1973, ../sass/_module.scss */
+/* line 1961, ../sass/_module.scss */
 .places-list-container td {
   border-bottom: 1px dashed #eeeeee;
   padding: 5px 0;
   clear: both;
 }
-/* line 1977, ../sass/_module.scss */
+/* line 1965, ../sass/_module.scss */
 .places-list-container td > div {
   /*float: left;
   width: 48%;
@@ -2977,30 +2968,30 @@ Frontpage specific.
   */
 }
 
-/* line 1986, ../sass/_module.scss */
+/* line 1974, ../sass/_module.scss */
 .front .places-list-container .views-field-field-organization-address {
   float: left;
   width: 230px;
 }
 
-/* line 1990, ../sass/_module.scss */
+/* line 1978, ../sass/_module.scss */
 .front .using-sharing {
   float: right;
   width: 260px;
 }
 
-/* line 1994, ../sass/_module.scss */
+/* line 1982, ../sass/_module.scss */
 .places-list-container td div {
   display: inline;
 }
 
-/* line 1997, ../sass/_module.scss */
+/* line 1985, ../sass/_module.scss */
 .views-field-field-organization-address a {
   font-size: 16px;
   text-decoration: none;
 }
 
-/* line 2002, ../sass/_module.scss */
+/* line 1990, ../sass/_module.scss */
 .view-at-a-glance .cc-org-apps,
 .cc-org-apps {
   /*  width: 100px;*/
@@ -3008,23 +2999,23 @@ Frontpage specific.
   width: 50%;
 }
 
-/* line 2007, ../sass/_module.scss */
+/* line 1995, ../sass/_module.scss */
 .view-at-a-glance .cc-org-details-title {
   font-weight: bold;
   font-size: 14px;
 }
 
-/* line 2011, ../sass/_module.scss */
+/* line 1999, ../sass/_module.scss */
 .page-places .cc-org-apps {
   width: inherit;
 }
 
-/* line 2014, ../sass/_module.scss */
+/* line 2002, ../sass/_module.scss */
 .cc-org-apps > div {
   /*margin-right: 0.3em;*/
 }
 
-/* line 2018, ../sass/_module.scss */
+/* line 2006, ../sass/_module.scss */
 .cc-org-prefix-using,
 .cc-org-prefix-sharing {
   /*  padding-left: 4px; */
@@ -3035,7 +3026,7 @@ Frontpage specific.
   float: left;
 }
 
-/* line 2027, ../sass/_module.scss */
+/* line 2015, ../sass/_module.scss */
 .view-at-a-glance .views-field-field-organization-address-2 .field-content, .page-places .views-field-field-organization-interactions .field-content,
 .page-places .views-field-field-organization-address-2 .field-content, .page-places .views-field-field-organization-interactions .field-content {
   width: 440px;
@@ -3052,37 +3043,37 @@ Frontpage specific.
   padding: 0px 0px 0px 20px;
 }
 
-/* line 2041, ../sass/_module.scss */
+/* line 2029, ../sass/_module.scss */
 .page-places .views-field-field-organization-address-2 .field-content {
   padding: 0px 0px 0px 18px;
 }
 
-/* line 2045, ../sass/_module.scss */
+/* line 2033, ../sass/_module.scss */
 .view-at-a-glance .views-field-field-organization-interactions .field-content,
 .page-places .views-field-field-organization-interactions .field-content {
   background: #f8f8f8 url("../images/civic-18.png") 1px 1px no-repeat;
 }
 
-/* line 2049, ../sass/_module.scss */
+/* line 2037, ../sass/_module.scss */
 .view-at-a-glance .company .views-field-field-organization-interactions .field-content,
 .page-places .company .views-field-field-organization-interactions .field-content {
   background: #f8f8f8 url("../images/bldg-grey.gif") 1px 1px no-repeat;
 }
 
-/* line 2053, ../sass/_module.scss */
+/* line 2041, ../sass/_module.scss */
 .view-at-a-glance .view-id-places .views-row,
 .page-places .view-id-places .views-row {
   border-bottom: none;
 }
 
-/* line 2057, ../sass/_module.scss */
+/* line 2045, ../sass/_module.scss */
 .view-at-a-glance .cc-org-prefix-sharing:after,
 .view-at-a-glance .cc-org-prefix-using:after {
   content: ": ";
   padding-right: 10px;
 }
 
-/* line 2061, ../sass/_module.scss */
+/* line 2049, ../sass/_module.scss */
 .page-places .cc-org-prefix-using {
   background: url("../images/hammer-wrench-active-18.png") 3.4em 2px no-repeat;
   padding-right: 2.4em;
@@ -3091,7 +3082,7 @@ Frontpage specific.
 }
 
 /* .view-at-a-glance .cc-org-prefix-sharing, */
-/* line 2068, ../sass/_module.scss */
+/* line 2056, ../sass/_module.scss */
 .page-places .cc-org-prefix-sharing {
   background: url("../images/gov-gov-gray-18.png") 4.3em 2px no-repeat;
   padding-right: 2.0em;
@@ -3099,7 +3090,7 @@ Frontpage specific.
   padding-left: 4px;
 }
 
-/* line 2075, ../sass/_module.scss */
+/* line 2063, ../sass/_module.scss */
 .view-at-a-glance .cc-org-count,
 .page-places .cc-org-count {
   font-size: 12px;
@@ -3107,7 +3098,7 @@ Frontpage specific.
   float: left;
 }
 
-/* line 2083, ../sass/_module.scss */
+/* line 2071, ../sass/_module.scss */
 .view-at-a-glance .cc-using,
 .view-at-a-glance .cc-sharing,
 .page-places .cc-using,
@@ -3115,60 +3106,60 @@ Frontpage specific.
   height: 20px;
 }
 
-/* line 2087, ../sass/_module.scss */
+/* line 2075, ../sass/_module.scss */
 .view-at-a-glance .cc-org-postfix,
 .cc-org-postfix {
   display: none;
   font-size: 0px;
 }
 
-/* line 2092, ../sass/_module.scss */
+/* line 2080, ../sass/_module.scss */
 .view-at-a-glance .view-id-places .cc-org-apps,
 .page-places .view-id-places .cc-org-apps {
   margin-right: 0px;
 }
 
-/* line 2095, ../sass/_module.scss */
+/* line 2083, ../sass/_module.scss */
 .view-at-a-glance .field-content {
   margin-bottom: 20px;
 }
 
 /* List: By Function */
-/* line 2100, ../sass/_module.scss */
+/* line 2088, ../sass/_module.scss */
 .functions-list-container {
   margin: 10px 0;
   /*width: 940px;
   clear: both;*/
 }
 
-/* line 2105, ../sass/_module.scss */
+/* line 2093, ../sass/_module.scss */
 .browse-by-grid {
   padding-top: 10px;
   font-size: 12px;
   color: #666;
   padding-left: 24px;
 }
-/* line 2110, ../sass/_module.scss */
+/* line 2098, ../sass/_module.scss */
 .browse-by-grid a {
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
 }
-/* line 2115, ../sass/_module.scss */
+/* line 2103, ../sass/_module.scss */
 .browse-by-grid td {
   background: white !important;
   padding: 0 10px 20px 0;
 }
 
 /* Views Rows */
-/* line 2121, ../sass/_module.scss */
+/* line 2109, ../sass/_module.scss */
 .views-row {
   margin: 0 0 20px;
   color: #666;
   position: relative;
 }
 
-/* line 2126, ../sass/_module.scss */
+/* line 2114, ../sass/_module.scss */
 .views-row .views-field-field-problem-name .field-content {
   white-space: pre;
   /* CSS2 */
@@ -3188,17 +3179,17 @@ Frontpage specific.
   /* IE */
 }
 
-/* line 2144, ../sass/_module.scss */
+/* line 2132, ../sass/_module.scss */
 .view-at-a-glance-problem .views-row .views-field-field-problem-url-1 {
   margin-top: 0!important;
 }
 
-/* line 2147, ../sass/_module.scss */
+/* line 2135, ../sass/_module.scss */
 .view-at-a-glance-problem .views-row .views-field {
   margin: 8px 0 0 0;
 }
 
-/* line 2150, ../sass/_module.scss */
+/* line 2138, ../sass/_module.scss */
 .views-row .views-field-edit-node {
   background-color: #EEEEEE;
   border: 1px solid #f2f2f2;
@@ -3207,13 +3198,13 @@ Frontpage specific.
   padding: 0 3px 3px;
 }
 
-/* line 2157, ../sass/_module.scss */
+/* line 2145, ../sass/_module.scss */
 .views-row .views-field-edit-node a {
   color: #605859;
   text-decoration: none;
 }
 
-/* line 2161, ../sass/_module.scss */
+/* line 2149, ../sass/_module.scss */
 .views-row:before, .views-row:after {
   content: "\0020";
   display: block;
@@ -3221,50 +3212,50 @@ Frontpage specific.
   visibility: hidden;
 }
 
-/* line 2167, ../sass/_module.scss */
+/* line 2155, ../sass/_module.scss */
 .views-row:after {
   clear: both;
 }
 
-/* line 2170, ../sass/_module.scss */
+/* line 2158, ../sass/_module.scss */
 .views-row {
   zoom: 1;
 }
 
 /* List: Apps */
-/* line 2174, ../sass/_module.scss */
+/* line 2162, ../sass/_module.scss */
 .apps-list {
   margin: 20px 0;
 }
 
-/* line 2177, ../sass/_module.scss */
+/* line 2165, ../sass/_module.scss */
 .views-field-field-application-logo {
   float: left;
   width: 60px;
   margin-right: -60px;
 }
 
-/* line 2184, ../sass/_module.scss */
+/* line 2172, ../sass/_module.scss */
 .apps-list .views-field-field-application-sdesc, .apps-list .views-field-field-interaction-organization {
   margin-left: 70px;
 }
-/* line 2187, ../sass/_module.scss */
+/* line 2175, ../sass/_module.scss */
 .apps-list .views-field-title {
   padding-top: 5px;
 }
-/* line 2189, ../sass/_module.scss */
+/* line 2177, ../sass/_module.scss */
 .apps-list .views-field-title a {
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 2195, ../sass/_module.scss */
+/* line 2183, ../sass/_module.scss */
 .apps-list .views-field-field-application-sdesc {
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-/* line 2202, ../sass/_module.scss */
+/* line 2190, ../sass/_module.scss */
 .meta {
   color: #666;
   font-size: 12px;
@@ -3278,20 +3269,20 @@ Frontpage specific.
   height: 24px;
 }
 
-/* line 2216, ../sass/_module.scss */
+/* line 2204, ../sass/_module.scss */
 .apps-list .meta a {
   text-decoration: none;
 }
-/* line 2219, ../sass/_module.scss */
+/* line 2207, ../sass/_module.scss */
 .apps-list .meta .civic-function, .apps-list .meta .places-used, .apps-list .meta .date-updated {
   margin: 0 5px;
 }
-/* line 2222, ../sass/_module.scss */
+/* line 2210, ../sass/_module.scss */
 .apps-list .meta span.civic-function {
   float: right;
 }
 
-/* line 2227, ../sass/_module.scss */
+/* line 2215, ../sass/_module.scss */
 .apps-list span.places-used {
   font-weight: bold;
   float: left;
@@ -3300,52 +3291,52 @@ Frontpage specific.
   width: 100px;
 }
 
-/* line 2234, ../sass/_module.scss */
+/* line 2222, ../sass/_module.scss */
 .apps-list span.date-updated {
   float: left;
 }
 
 /* List: Recent Activity */
-/* line 2240, ../sass/_module.scss */
+/* line 2228, ../sass/_module.scss */
 .view-interactions .views-row {
   margin-bottom: 12px;
 }
-/* line 2243, ../sass/_module.scss */
+/* line 2231, ../sass/_module.scss */
 .view-interactions a {
   text-decoration: none;
 }
-/* line 2246, ../sass/_module.scss */
+/* line 2234, ../sass/_module.scss */
 .view-interactions .org-name {
   font-weight: bold;
   /*font-size: 16px;
   font-weight: bold;
   text-decoration: none;*/
 }
-/* line 2251, ../sass/_module.scss */
+/* line 2239, ../sass/_module.scss */
 .view-interactions .org-name a {
   font-weight: bold;
   /*font-size: 16px;
   font-weight: bold;
   text-decoration: none;*/
 }
-/* line 2258, ../sass/_module.scss */
+/* line 2246, ../sass/_module.scss */
 .view-interactions .app-name {
   font-weight: bold;
 }
-/* line 2260, ../sass/_module.scss */
+/* line 2248, ../sass/_module.scss */
 .view-interactions .app-name a {
   font-weight: bold;
 }
 
 /* List: Related Apps */
-/* line 2267, ../sass/_module.scss */
+/* line 2255, ../sass/_module.scss */
 .view-related-apps-block view-empty {
   display: none;
 }
 
 /* Blog
 ============================================================================ */
-/* line 2276, ../sass/_module.scss */
+/* line 2264, ../sass/_module.scss */
 #block-views-blog-block .field-type-image {
   float: left;
   margin: 0 10px 10px 0;

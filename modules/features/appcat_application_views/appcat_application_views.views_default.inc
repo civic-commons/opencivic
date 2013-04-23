@@ -40,13 +40,20 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['footer']['area']['content'] = '<div class="edit-content-button"><a href="/node/[nid]/edit">+ edit details</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Rating */
+  $handler->display->display_options['fields']['field_aggregate_rating']['id'] = 'field_aggregate_rating';
+  $handler->display->display_options['fields']['field_aggregate_rating']['table'] = 'field_data_field_aggregate_rating';
+  $handler->display->display_options['fields']['field_aggregate_rating']['field'] = 'field_aggregate_rating';
+  $handler->display->display_options['fields']['field_aggregate_rating']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aggregate_rating']['click_sort_column'] = 'rating';
+  $handler->display->display_options['fields']['field_aggregate_rating']['settings'] = array(
+    'widget' => array(
+      'fivestar_widget' => 'profiles/opencivic/modules/custom/fivestar_green/greenstar/greenstar.css',
+    ),
+    'expose' => 1,
+    'style' => 'average',
+    'text' => 'average',
+  );
   /* Field: Global: View */
   $handler->display->display_options['fields']['view']['id'] = 'view';
   $handler->display->display_options['fields']['view']['table'] = 'views';
@@ -120,20 +127,13 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
-  /* Field: Content: Rating */
-  $handler->display->display_options['fields']['field_aggregate_rating']['id'] = 'field_aggregate_rating';
-  $handler->display->display_options['fields']['field_aggregate_rating']['table'] = 'field_data_field_aggregate_rating';
-  $handler->display->display_options['fields']['field_aggregate_rating']['field'] = 'field_aggregate_rating';
-  $handler->display->display_options['fields']['field_aggregate_rating']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_aggregate_rating']['click_sort_column'] = 'rating';
-  $handler->display->display_options['fields']['field_aggregate_rating']['settings'] = array(
-    'widget' => array(
-      'fivestar_widget' => 'profiles/opencivic/modules/custom/fivestar_green/greenstar/greenstar.css',
-    ),
-    'expose' => 1,
-    'style' => 'average',
-    'text' => 'average',
-  );
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -177,6 +177,7 @@ function appcat_application_views_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('<div class="edit-content-button"><a href="/node/[nid]/edit">+ edit details</a></div>'),
+    t('Rating'),
     t('Application Categories'),
     t('Civic Categories'),
     t('Creator'),
@@ -188,7 +189,6 @@ function appcat_application_views_views_default_views() {
     t('Software type'),
     t('Tags'),
     t('Url'),
-    t('Rating'),
     t('All'),
     t('Block'),
     t('Application At a Glance'),
