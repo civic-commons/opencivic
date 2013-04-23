@@ -2293,6 +2293,11 @@ body .openlayers-map .olControlPermalink a {
 /* line 1378, ../sass/_module.scss */
 body .openlayers-map .olFramedCloudPopupContent {
   border-radius: 5px;
+  color: #EEEEEE;
+}
+/* line 1381, ../sass/_module.scss */
+body .openlayers-map .olFramedCloudPopupContent a {
+  color: #EEEEEE;
 }
 /* line 1385, ../sass/_module.scss */
 body .openlayers-map img.olImageLoadError {
@@ -3336,6 +3341,15 @@ Frontpage specific.
 /* line 2267, ../sass/_module.scss */
 .view-related-apps-block view-empty {
   display: none;
+}
+
+/* Blog
+============================================================================ */
+/* line 2276, ../sass/_module.scss */
+#block-views-blog-block .field-type-image {
+  float: left;
+  margin: 0 10px 10px 0;
+  width: 220px;
 }
 
 /* line 5, ../sass/_review.scss */

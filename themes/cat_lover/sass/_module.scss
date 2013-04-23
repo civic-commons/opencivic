@@ -2265,4 +2265,19 @@ Frontpage specific.
 
 /* List: Related Apps */
 .view-related-apps-block view-empty {
-  display: none; }
+  display: none;
+}
+
+
+
+/* Blog
+============================================================================ */
+
+#block-views-blog-block .field-type-image {
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 220px;
+}
+
+
+
