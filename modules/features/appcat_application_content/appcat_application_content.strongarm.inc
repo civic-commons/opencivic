@@ -92,6 +92,9 @@ function appcat_application_content_strongarm() {
         'redirect' => array(
           'weight' => '25',
         ),
+        'language' => array(
+          'weight' => '5',
+        ),
       ),
       'display' => array(
         'subscriptions_ui' => array(
@@ -104,6 +107,13 @@ function appcat_application_content_strongarm() {
     ),
   );
   $export['field_bundle_settings_node__application'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_application';
+  $strongarm->value = 4;
+  $export['language_content_type_application'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

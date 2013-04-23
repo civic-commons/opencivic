@@ -334,12 +334,12 @@ function appcat_organization_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Telephone */
+  /* Field: Content: Phone */
   $handler->display->display_options['fields']['field_telephone']['id'] = 'field_telephone';
   $handler->display->display_options['fields']['field_telephone']['table'] = 'field_data_field_telephone';
   $handler->display->display_options['fields']['field_telephone']['field'] = 'field_telephone';
   $handler->display->display_options['fields']['field_telephone']['click_sort_column'] = 'number';
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -582,7 +582,7 @@ function appcat_organization_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';

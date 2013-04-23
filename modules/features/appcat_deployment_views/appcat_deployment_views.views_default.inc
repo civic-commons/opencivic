@@ -150,7 +150,7 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['field_add_deployment_for']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -329,7 +329,7 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['field_add_deployment_for']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -422,7 +422,7 @@ function appcat_deployment_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';

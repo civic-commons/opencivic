@@ -35,8 +35,10 @@ function appcat_deployment_node_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -51,6 +53,12 @@ function appcat_deployment_node_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '0',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -68,6 +76,7 @@ function appcat_deployment_node_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
+        'entity_translation_sync' => FALSE,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -84,7 +93,7 @@ function appcat_deployment_node_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '5',
+        'weight' => '-1',
       ),
     ),
   );
@@ -113,6 +122,7 @@ function appcat_deployment_node_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -129,7 +139,7 @@ function appcat_deployment_node_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
@@ -144,6 +154,12 @@ function appcat_deployment_node_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '5',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -171,6 +187,7 @@ function appcat_deployment_node_field_default_fields() {
             'status' => 1,
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -181,7 +198,7 @@ function appcat_deployment_node_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '-4',
       ),
     ),
   );
@@ -198,7 +215,9 @@ function appcat_deployment_node_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'geofield',
-      'settings' => array(),
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
       'translatable' => '0',
       'type' => 'geofield',
     ),
@@ -213,6 +232,12 @@ function appcat_deployment_node_field_default_fields() {
           'type' => 'hidden',
           'weight' => '6',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -225,6 +250,7 @@ function appcat_deployment_node_field_default_fields() {
       'label' => 'Coordinates',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'local_solr' => array(
           'enabled' => FALSE,
           'lat_field' => 'lat',
@@ -272,13 +298,23 @@ function appcat_deployment_node_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'addressfield',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'addressfield',
     ),
     'field_instance' => array(
       'bundle' => 'deployment',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'element_key' => 'node|deployment|field_location|und|0',
+          'thoroughfare' => '',
+          'premise' => '',
+          'locality' => '',
+          'country' => 'AF',
+        ),
+      ),
       'deleted' => '0',
       'description' => 'The location where the deployment occurred.',
       'display' => array(
@@ -294,6 +330,12 @@ function appcat_deployment_node_field_default_fields() {
           'type' => 'addressfield_default',
           'weight' => '1',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -304,20 +346,29 @@ function appcat_deployment_node_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_location',
       'label' => 'Location',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'addressfield',
         'settings' => array(
           'available_countries' => array(),
           'format_handlers' => array(
-            0 => 'address',
+            'address' => 'address',
+            'address-hide-country' => 0,
+            'organisation' => 0,
+            'name-full' => 0,
+            'name-oneline' => 0,
+            'world' => 0,
           ),
+          'label_help_description' => '',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'addressfield_standard',
-        'weight' => '3',
+        'weight' => '-3',
       ),
     ),
   );
@@ -346,6 +397,7 @@ function appcat_deployment_node_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -362,7 +414,7 @@ function appcat_deployment_node_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
@@ -377,6 +429,12 @@ function appcat_deployment_node_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '3',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -398,6 +456,7 @@ function appcat_deployment_node_field_default_fields() {
             'status' => 0,
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -415,7 +474,7 @@ function appcat_deployment_node_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '6',
+        'weight' => '0',
       ),
     ),
   );
@@ -442,6 +501,7 @@ function appcat_deployment_node_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -462,6 +522,12 @@ function appcat_deployment_node_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '2',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -486,6 +552,7 @@ function appcat_deployment_node_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'value',
         'title_maxlength' => '128',
         'title_value' => 'App Homepage',
@@ -501,7 +568,86 @@ function appcat_deployment_node_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'link_field',
-        'weight' => '4',
+        'weight' => '-2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-deployment-title_field'.
+  $fields['node-deployment-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'deployment',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 7,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
       ),
     ),
   );
@@ -515,6 +661,7 @@ function appcat_deployment_node_field_default_fields() {
   t('Enter a URL where people can go to find more information');
   t('Location');
   t('The location where the deployment occurred.');
+  t('Title');
   t('Website');
   t('What happened? Optionally, tell the story of how this application was used and your experience with it.');
   t('Who installed, configured and maintains this deployment of this application?');

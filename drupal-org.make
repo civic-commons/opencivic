@@ -1,4 +1,4 @@
-api = 2
+xapi = 2
 core = 7.x
 
 ; Modules =====================================================================
@@ -24,6 +24,9 @@ projects[addtoany][subdir] = "contrib"
 projects[addtoany][version] = "3.1"
 
 projects[admin_menu][subdir] = "contrib"
+
+projects[module_filter][subdir] = "contrib"
+projects[module_filter][version] = "1.7"
 
 projects[auto_entitylabel][subdir] = "contrib"
 projects[auto_entitylabel][version] = "1.x-dev"
@@ -143,6 +146,9 @@ projects[google_fonts][subdir] = "contrib"
 
 projects[google_analytics][subdir] = "contrib"
 
+projects[i18n][subdir] = "contrib"
+projects[i18n][version] = "1.8"
+
 projects[imagecache_actions][subdir] = "contrib"
 projects[imagecache_actions][version] = "1.0"
 
@@ -160,7 +166,13 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[jump_menu][subdir] = "contrib"
 projects[jump_menu][version] = "1.4"
 
+projects[l10n_update][subdir] = "contrib"
+projects[l10n_update][version] = "1.0-beta3"
+
 projects[label_help][subdir] = contrib
+
+projects[languageicons][subdir] = "contrib"
+projects[languageicons][version] = "1.0"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.1"
@@ -216,6 +228,7 @@ projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.
 projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
 projects[openlayers][download][branch] = 7.x-2.x
 projects[openlayers][type] = "module"
+projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
@@ -273,6 +286,12 @@ projects[search_api][version] = "1.4"
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
 
+projects[services][subdir] = "contrib"
+projects[services][version] = "3.3"
+
+projects[services_views][subdir] = "contrib"
+projects[services_views][version] = "1.0-beta2"
+
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
 
@@ -291,8 +310,14 @@ projects[taxonomy_csv][version] = "5.10"
 projects[taxonomy_manager][subdir] = "contrib"
 projects[taxonomy_manager][version] = "1.0-rc1"
 
+projects[title][subdir] = "contrib"
+projects[title][version] = "1.0-alpha7"
+
 projects[token][subdir] = "contrib"
 projects[token][version] = "1.4"
+
+projects[variable][subdir] = "contrib"
+projects[variable][version] = "2.2"
 
 projects[viewfield][subdir] = "contrib"
 projects[viewfield][version] = "2.0"
@@ -355,7 +380,10 @@ projects[inline_entity_form][subdir] = "contrib"
 
 projects[schemaorg][version] = "1.0-beta3"
 projects[schemaorg][subdir] = "contrib"
+; Support Schema.org cache integration
 projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_integration-1185978-2.patch
+; Fix bug affected features exports
+projects[schemaorg][patch][1853590] = http://drupal.org/files/exportfix-1853590-1.patch
 
 ; Nuams modules =====================================================================
 

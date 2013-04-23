@@ -4,3 +4,5 @@ modules/devel
 themes/tao
 themes/rubik
 themes/omega
+.DS_Store
+*.scssc

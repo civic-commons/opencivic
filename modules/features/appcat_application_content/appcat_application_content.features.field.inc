@@ -35,8 +35,10 @@ function appcat_application_content_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -51,6 +53,12 @@ function appcat_application_content_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '1',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -68,6 +76,7 @@ function appcat_application_content_field_default_fields() {
       'required' => 1,
       'settings' => array(
         'display_summary' => 0,
+        'entity_translation_sync' => FALSE,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -103,6 +112,7 @@ function appcat_application_content_field_default_fields() {
       'module' => 'fivestar',
       'settings' => array(
         'axis' => 'vote',
+        'entity_translation_sync' => FALSE,
       ),
       'translatable' => '0',
       'type' => 'fivestar',
@@ -119,6 +129,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '8',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -132,6 +148,7 @@ function appcat_application_content_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'allow_clear' => 0,
+        'entity_translation_sync' => FALSE,
         'stars' => '5',
         'target' => 'none',
         'user_register_form' => FALSE,
@@ -180,6 +197,7 @@ function appcat_application_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
       'translatable' => '0',
@@ -197,6 +215,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '12',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -209,6 +233,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Application function',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -255,9 +280,10 @@ function appcat_application_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -272,6 +298,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '17',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -284,6 +316,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Civic sector',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -323,6 +356,7 @@ function appcat_application_content_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -354,6 +388,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '9',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -366,6 +406,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Supporting vendors',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -412,6 +453,7 @@ function appcat_application_content_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -443,6 +485,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '10',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -455,6 +503,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Creator',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -501,9 +550,10 @@ function appcat_application_content_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'max_length' => '255',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'text',
     ),
     'field_instance' => array(
@@ -518,6 +568,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '6',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -530,6 +586,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Short description',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -570,6 +627,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -589,6 +647,12 @@ function appcat_application_content_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '13',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -613,6 +677,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'required',
         'title_maxlength' => '128',
         'title_value' => 'Host name',
@@ -657,9 +722,10 @@ function appcat_application_content_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'max_length' => '255',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'text',
     ),
     'field_instance' => array(
@@ -675,6 +741,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -687,6 +759,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Key features',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -730,6 +803,9 @@ function appcat_application_content_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => FALSE,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -750,6 +826,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'image',
           'weight' => '0',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -764,6 +846,7 @@ function appcat_application_content_field_default_fields() {
       'settings' => array(
         'alt_field' => 1,
         'default_image' => 0,
+        'entity_translation_sync' => FALSE,
         'file_directory' => 'content/applications/logos',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -809,6 +892,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -828,6 +912,12 @@ function appcat_application_content_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '14',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -852,6 +942,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => '128',
         'title_value' => '',
@@ -902,9 +993,10 @@ function appcat_application_content_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -919,6 +1011,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '11',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -931,6 +1029,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Tags',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -980,9 +1079,10 @@ function appcat_application_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -997,6 +1097,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '19',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1009,6 +1115,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'License',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1048,6 +1155,7 @@ function appcat_application_content_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -1064,7 +1172,7 @@ function appcat_application_content_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
@@ -1079,6 +1187,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '18',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1091,6 +1205,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Related applications',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1136,8 +1251,10 @@ function appcat_application_content_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_long',
     ),
     'field_instance' => array(
@@ -1152,6 +1269,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '15',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1164,6 +1287,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Release Notes',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -1214,9 +1338,10 @@ function appcat_application_content_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -1231,6 +1356,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '16',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1243,6 +1374,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Requirements',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1286,6 +1418,9 @@ function appcat_application_content_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1302,6 +1437,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '15',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1316,6 +1457,7 @@ function appcat_application_content_field_default_fields() {
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
+        'entity_translation_sync' => FALSE,
         'file_directory' => 'content/applications/images',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -1370,9 +1512,10 @@ function appcat_application_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -1387,6 +1530,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '20',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1399,6 +1548,7 @@ function appcat_application_content_field_default_fields() {
       'label' => 'Software type',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1436,6 +1586,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -1455,6 +1606,12 @@ function appcat_application_content_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '7',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1479,6 +1636,7 @@ function appcat_application_content_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'value',
         'title_maxlength' => '128',
         'title_value' => 'App Homepage',
@@ -1525,6 +1683,9 @@ function appcat_application_content_field_default_fields() {
       'settings' => array(
         'display_default' => 0,
         'display_field' => 0,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1542,6 +1703,12 @@ function appcat_application_content_field_default_fields() {
           'type' => 'styles_file_thumbnail',
           'weight' => '3',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1555,6 +1722,7 @@ function appcat_application_content_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
+        'entity_translation_sync' => FALSE,
         'file_directory' => 'application',
         'file_extensions' => 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp mp3 mov m4v mp4 mpeg avi ogg wmv ico',
         'max_filesize' => '',
@@ -1581,6 +1749,85 @@ function appcat_application_content_field_default_fields() {
         ),
         'type' => 'media_generic',
         'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-application-title_field'.
+  $fields['node-application-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'application',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 21,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
       ),
     ),
   );
@@ -1616,6 +1863,7 @@ function appcat_application_content_field_default_fields() {
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
   t('The keywords/tags used to describe this content. Separate tags with a comma.');
+  t('Title');
   t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');
