@@ -144,6 +144,7 @@ function ocsetup_form_submit($form, &$form_state) {
         features_install_modules(
           array(
             'appcat_blog_node',
+            'appcat_blog_views',
             'appcat_sponsor_node',
             'appcat_home_context',
             'appcat_home_views',

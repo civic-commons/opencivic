@@ -1,0 +1,13 @@
+name = AppCat blog views
+description = Views related to the Blog content type.
+core = 7.x
+package = AppCat blog
+php = 5.2.4
+version = 7.x-1.0-alpha5
+project = appcat_blog_views
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = blog
+features_exclude[dependencies][ctools] = ctools
+project path = profiles/opencivic/modules/features
