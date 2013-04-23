@@ -78,7 +78,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_download_url']['label'] = 'Host website';
   $handler->display->display_options['fields']['field_download_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_download_url']['click_sort_column'] = 'url';
-  /* Field: Content: Demo url */
+  /* Field: Content: Demo URL */
   $handler->display->display_options['fields']['field_install_url']['id'] = 'field_install_url';
   $handler->display->display_options['fields']['field_install_url']['table'] = 'field_data_field_install_url';
   $handler->display->display_options['fields']['field_install_url']['field'] = 'field_install_url';
@@ -114,7 +114,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_keywords']['delta_offset'] = '0';
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -638,7 +638,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Short description */
+  /* Field: Content: Description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
