@@ -25,7 +25,6 @@ function ocapi_documentation_page() {
     // Call _services_build_resources() directly instead of
     // services_get_resources to bypass caching.
     $resources = _services_build_resources();
-    
     // Go through available endpoints.
     $endpoints = services_endpoint_load_all();
     foreach ($endpoints as $ep_id => $ep) {
@@ -40,17 +39,12 @@ function ocapi_documentation_page() {
       // Go through resources and add details
       $config_types = array('actions', 'relationships', 'operations');
       foreach ($ep->resources as $entity => $config) {
-        foreach ($config as $config_type => $config_set) {
-          if (is_array($config_set) && in_array($config_type, $config_types)) {
-            foreach ($config_set as $k => $v) {
-            
-              // These don't match up one to one, so there
-              // is some custom logic.
-              if ($config_type == 'operations') {
-                $api[$ep_id]->resources[$entity][$config_type][$k] += 
-                  $resources[$entity]['operations'][$k];
-              }
-              else {
+        // Views service doesn't return an endpoint consistently, which causes
+        // a fatal error below unless we excludes.
+        if ($entity != 'views') {
+          foreach ($config as $config_type => $config_set) {
+            if (is_array($config_set) && in_array($config_type, $config_types)) {
+              foreach ($config_set as $k => $v) {
                 $api[$ep_id]->resources[$entity][$config_type][$k] += 
                   $resources[$entity][$config_type][$k];
               }
@@ -59,7 +53,6 @@ function ocapi_documentation_page() {
         }
       }
     }
-    
     // Allow for alter
     drupal_alter('ocapi', $api);
     
@@ -551,10 +544,6 @@ function ocapi_display_documentation_resources($resource, $resource_id) {
       foreach ($type as $a => $action) {
         if (!in_array($a, array('name', 'description'))) {
 
-if (!isset($action['name']) || !isset($action['description']) || !isset($action['method'])) {
-  dsm(array($t => $type));
-  dsm(array($a => $action));
-}
           $output .= '
             <h5>' . $action['name'] . '</h5>
             <p>' . $action['description'] . '</p>
@@ -572,7 +561,7 @@ if (!isset($action['name']) || !isset($action['description']) || !isset($action[
                 $arg['type'], 
                 (isset($arg['description'])) ? $arg['description'] : '', 
                 (!empty($arg['optional'])) ? t('no') : t('yes'),
-                (is_array($arg['source'])) ? implode(', ', array_flip($arg['source'])) : 
+                (isset($arg['source']) && is_array($arg['source'])) ? implode(', ', array_flip($arg['source'])) : 
                   t('post body'),
               );
             }
