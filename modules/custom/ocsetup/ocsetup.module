@@ -178,6 +178,13 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ocapi':
+        features_install_modules(
+          array(
+            'ocapi',
+            'ocapi_services',
+          )
+        );
+        drupal_flush_all_caches();
         break;
 
       case 'ocodata':
@@ -376,14 +383,14 @@ function ocsetup_options() {
     'occomm_default_content' => 'Community default content',
     'ochack' => 'Hackathon',
     'ochack_default_content' => 'Hackathon default content',
+    'ocapi' => 'API for Interoperability',
     'ocdevel' => 'Development features',
 /*
-    'ocapi' => 'Interoperability (not yet available)',
     'ocodata' => 'Open Data (not yet available)',
     'occon' => 'Apps Contest (not yet available)',
     'ocdemo' => 'Civic Sandboxes (not yet available)',
     'ocinvest' => 'Investment Network (not yet available)',
-*/
+// */
     'ocfinish' => 'Finish',
   );
 }
