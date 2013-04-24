@@ -38,6 +38,12 @@ function appcat_misc_menus_context_default_contexts() {
           'region' => 'top_menu',
           'weight' => '27',
         ),
+        'menu-menu-footer-menu' => array(
+          'module' => 'menu',
+          'delta' => 'menu-footer-menu',
+          'region' => 'footer_first',
+          'weight' => '-10',
+        ),
       ),
     ),
   );
