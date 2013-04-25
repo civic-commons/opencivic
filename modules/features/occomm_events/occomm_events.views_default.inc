@@ -162,6 +162,7 @@ function occomm_events_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_start_date.field_start_date_value' => 'field_data_field_start_date.field_start_date_value',
@@ -439,6 +440,25 @@ function occomm_events_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
+  );
+  $translatables['event_calendar'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Event type'),
+    t('Month'),
+    t('All'),
+    t('Week'),
+    t('Day'),
+    t('Year'),
+    t('Block'),
+    t('iCal'),
+    t('Upcoming'),
+    t('Upcoming events block'),
   );
   $export['event_calendar'] = $view;
 
