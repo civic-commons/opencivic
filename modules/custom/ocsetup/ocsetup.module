@@ -44,7 +44,7 @@ function ocsetup_form() {
     $form = array();
 
     $form['openingtext'] = array(
-      '#markup' => '<h2>' . t('Please choose the components that you want to include in your Open Civic website.') . '</h2>',
+      '#markup' => '<h2>' . t('Please choose the components that you want to include in your OpenCivic website.') . '</h2>',
     );
 
     $form['actions'] = array(
