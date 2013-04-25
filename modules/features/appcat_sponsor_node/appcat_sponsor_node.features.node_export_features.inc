@@ -11,7 +11,7 @@ function appcat_sponsor_node_node_export_features_default() {
   $node_export = array(
   'code_string' => 'array(
   (object) array(
-      \'vid\' => \'23\',
+      \'vid\' => \'143\',
       \'uid\' => \'1\',
       \'title\' => \'World Bank\',
       \'log\' => \'\',
@@ -19,16 +19,16 @@ function appcat_sponsor_node_node_export_features_default() {
       \'comment\' => \'2\',
       \'promote\' => \'1\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'28d87f34-20ce-41fa-bb40-074fcb2755ce\',
+      \'vuuid\' => \'e3bb20b5-5907-4997-b154-90f4fcb73532\',
       \'nid\' => \'12\',
       \'type\' => \'sponsor\',
       \'language\' => \'und\',
-      \'created\' => \'1363554744\',
-      \'changed\' => \'1363554744\',
+      \'created\' => \'1363698957\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'9277d104-aac5-48e5-8368-07057a2070bd\',
-      \'revision_timestamp\' => \'1363554744\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_logo\' => array(
@@ -45,7 +45,7 @@ function appcat_sponsor_node_node_export_features_default() {
             \'filemime\' => \'image/gif\',
             \'filesize\' => \'1316\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363554744\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'248eb8bd-23fa-45bb-b452-f37dc50a97ce\',
             \'rdf_mapping\' => array(),
@@ -62,6 +62,32 @@ function appcat_sponsor_node_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'World Bank\',
+            \'format\' => NULL,
+            \'safe_value\' => \'World Bank\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'World Bank\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'12\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366895115\',
+              \'changed\' => \'1366895115\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -90,8 +116,7 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'schema:summary\',
-            \'schema:description\',
+            \'schema:image\',
             \'content:encoded\',
           ),
         ),
@@ -135,9 +160,14 @@ function appcat_sponsor_node_node_export_features_default() {
             \'schema:url\',
           ),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1363554744\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -146,7 +176,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'170\',
+        \'pid\' => \'337\',
         \'source\' => \'node/12\',
         \'alias\' => \'content/world-bank\',
         \'language\' => \'und\',
@@ -155,7 +185,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'24\',
+      \'vid\' => \'144\',
       \'uid\' => \'1\',
       \'title\' => \'Civic Commons\',
       \'log\' => \'\',
@@ -163,16 +193,16 @@ function appcat_sponsor_node_node_export_features_default() {
       \'comment\' => \'2\',
       \'promote\' => \'1\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'2014b51f-7e56-449e-b340-43434fce881e\',
+      \'vuuid\' => \'32fc8a43-05e4-4b6e-be17-d9890de39354\',
       \'nid\' => \'13\',
       \'type\' => \'sponsor\',
       \'language\' => \'und\',
-      \'created\' => \'1363554744\',
-      \'changed\' => \'1363554744\',
+      \'created\' => \'1363698957\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'99eb98c2-d050-4eaa-b3b6-b330b6db1b5c\',
-      \'revision_timestamp\' => \'1363554744\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_logo\' => array(
@@ -189,7 +219,7 @@ function appcat_sponsor_node_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'22112\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363554744\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'0cb7f088-2b36-485d-a028-0cca88d37c86\',
             \'rdf_mapping\' => array(),
@@ -198,6 +228,32 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
       ),
       \'field_url\' => array(),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Civic Commons\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Civic Commons\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Civic Commons\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'13\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366895115\',
+              \'changed\' => \'1366895115\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -226,8 +282,7 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'schema:summary\',
-            \'schema:description\',
+            \'schema:image\',
             \'content:encoded\',
           ),
         ),
@@ -271,9 +326,14 @@ function appcat_sponsor_node_node_export_features_default() {
             \'schema:url\',
           ),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1363554744\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -282,7 +342,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'171\',
+        \'pid\' => \'338\',
         \'source\' => \'node/13\',
         \'alias\' => \'content/civic-commons\',
         \'language\' => \'und\',
@@ -291,7 +351,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'25\',
+      \'vid\' => \'145\',
       \'uid\' => \'1\',
       \'title\' => \'Water and Sanitation Program\',
       \'log\' => \'\',
@@ -299,16 +359,16 @@ function appcat_sponsor_node_node_export_features_default() {
       \'comment\' => \'2\',
       \'promote\' => \'1\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'5c3231e1-51e1-49a8-8223-0dda16c55627\',
+      \'vuuid\' => \'f79a78d5-75c6-47c0-8381-465ea11dd467\',
       \'nid\' => \'14\',
       \'type\' => \'sponsor\',
       \'language\' => \'und\',
-      \'created\' => \'1363554744\',
-      \'changed\' => \'1363554744\',
+      \'created\' => \'1363698957\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'a824a779-7500-43eb-99dd-0719efe6596b\',
-      \'revision_timestamp\' => \'1363554744\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_logo\' => array(
@@ -325,7 +385,7 @@ function appcat_sponsor_node_node_export_features_default() {
             \'filemime\' => \'image/jpeg\',
             \'filesize\' => \'4332\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363554744\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'712d906f-e9ab-4db5-889f-4f801910cfe7\',
             \'rdf_mapping\' => array(),
@@ -342,6 +402,32 @@ function appcat_sponsor_node_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Water and Sanitation Program\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Water and Sanitation Program\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Water and Sanitation Program\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'14\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366895115\',
+              \'changed\' => \'1366895115\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -370,8 +456,7 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'schema:summary\',
-            \'schema:description\',
+            \'schema:image\',
             \'content:encoded\',
           ),
         ),
@@ -415,9 +500,14 @@ function appcat_sponsor_node_node_export_features_default() {
             \'schema:url\',
           ),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1363554744\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -426,7 +516,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'172\',
+        \'pid\' => \'339\',
         \'source\' => \'node/14\',
         \'alias\' => \'content/water-and-sanitation-program\',
         \'language\' => \'und\',
@@ -435,7 +525,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'26\',
+      \'vid\' => \'146\',
       \'uid\' => \'1\',
       \'title\' => \'UNICEF\',
       \'log\' => \'\',
@@ -443,16 +533,16 @@ function appcat_sponsor_node_node_export_features_default() {
       \'comment\' => \'2\',
       \'promote\' => \'1\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'067d1a85-b555-4560-bb70-119b539cc417\',
+      \'vuuid\' => \'72c1d1b3-b6d1-48c8-9c44-e64aa0bc14a1\',
       \'nid\' => \'15\',
       \'type\' => \'sponsor\',
       \'language\' => \'und\',
-      \'created\' => \'1363554744\',
-      \'changed\' => \'1363554744\',
+      \'created\' => \'1363698957\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'c2774736-1a1b-4017-8e21-8dddc945b527\',
-      \'revision_timestamp\' => \'1363554744\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_logo\' => array(
@@ -469,7 +559,7 @@ function appcat_sponsor_node_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'29323\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363554744\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'41722f02-a93f-41d6-8751-3144bf853409\',
             \'rdf_mapping\' => array(),
@@ -486,6 +576,32 @@ function appcat_sponsor_node_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'UNICEF\',
+            \'format\' => NULL,
+            \'safe_value\' => \'UNICEF\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'UNICEF\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'15\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366895115\',
+              \'changed\' => \'1366895115\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -514,8 +630,7 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'schema:summary\',
-            \'schema:description\',
+            \'schema:image\',
             \'content:encoded\',
           ),
         ),
@@ -559,9 +674,14 @@ function appcat_sponsor_node_node_export_features_default() {
             \'schema:url\',
           ),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1363554744\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -570,7 +690,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'173\',
+        \'pid\' => \'340\',
         \'source\' => \'node/15\',
         \'alias\' => \'content/unicef\',
         \'language\' => \'und\',
@@ -579,7 +699,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'27\',
+      \'vid\' => \'147\',
       \'uid\' => \'1\',
       \'title\' => \'Bill & Melinda Gates Foundation\',
       \'log\' => \'\',
@@ -587,16 +707,16 @@ function appcat_sponsor_node_node_export_features_default() {
       \'comment\' => \'2\',
       \'promote\' => \'1\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'1c476402-0506-473e-9079-521625733a0f\',
+      \'vuuid\' => \'a1a370a0-3eeb-4dcc-bcc3-adce740510a6\',
       \'nid\' => \'16\',
       \'type\' => \'sponsor\',
       \'language\' => \'und\',
-      \'created\' => \'1363554744\',
-      \'changed\' => \'1363554744\',
+      \'created\' => \'1363698957\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'ef19933b-12c9-4799-b3ac-89bcfc5a8540\',
-      \'revision_timestamp\' => \'1363554744\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_logo\' => array(
@@ -613,7 +733,7 @@ function appcat_sponsor_node_node_export_features_default() {
             \'filemime\' => \'image/jpeg\',
             \'filesize\' => \'9228\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363554744\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'283b1218-1e2c-493e-92de-36ac6ad52827\',
             \'rdf_mapping\' => array(),
@@ -630,6 +750,32 @@ function appcat_sponsor_node_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Bill & Melinda Gates Foundation\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Bill &amp; Melinda Gates Foundation\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Bill & Melinda Gates Foundation\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'16\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366895115\',
+              \'changed\' => \'1366895115\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -658,8 +804,7 @@ function appcat_sponsor_node_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'schema:summary\',
-            \'schema:description\',
+            \'schema:image\',
             \'content:encoded\',
           ),
         ),
@@ -703,9 +848,14 @@ function appcat_sponsor_node_node_export_features_default() {
             \'schema:url\',
           ),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1363554744\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -714,7 +864,7 @@ function appcat_sponsor_node_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'174\',
+        \'pid\' => \'341\',
         \'source\' => \'node/16\',
         \'alias\' => \'content/bill-melinda-gates-foundation\',
         \'language\' => \'und\',
