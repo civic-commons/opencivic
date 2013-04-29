@@ -13,7 +13,7 @@ function appcat_sponsor_node_node_export_features_default() {
   (object) array(
       \'vid\' => \'143\',
       \'uid\' => \'1\',
-      \'title\' => \'World Bank\',
+      \'title_field\' => \'World Bank\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'2\',
@@ -701,7 +701,7 @@ function appcat_sponsor_node_node_export_features_default() {
   (object) array(
       \'vid\' => \'147\',
       \'uid\' => \'1\',
-      \'title\' => \'Bill & Melinda Gates Foundation\',
+      \'title_field\' => \'Bill & Melinda Gates Foundation\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'2\',

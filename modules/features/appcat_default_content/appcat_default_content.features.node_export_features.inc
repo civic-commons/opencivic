@@ -13,7 +13,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'32\',
       \'uid\' => \'1\',
-      \'title\' => \'Advomatic\',
+      \'title_field\' => \'Advomatic\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -219,7 +219,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'33\',
       \'uid\' => \'1\',
-      \'title\' => \'City of San Francisco\',
+      \'title_field\' => \'City of San Francisco\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -699,7 +699,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'35\',
       \'uid\' => \'1\',
-      \'title\' => \'New York State Senate\',
+      \'title_field\' => \'New York State Senate\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -906,7 +906,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'37\',
       \'uid\' => \'1\',
-      \'title\' => \'Deployment of WordPress\',
+      \'title_field\' => \'Deployment of WordPress\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -1104,7 +1104,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'38\',
       \'uid\' => \'1\',
-      \'title\' => \'WordPress\',
+      \'title_field\' => \'WordPress\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -1403,7 +1403,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'39\',
       \'uid\' => \'1\',
-      \'title\' => \'New Amsterdam Ideas\',
+      \'title_field\' => \'New Amsterdam Ideas\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -1639,7 +1639,7 @@ function appcat_default_content_node_export_features_default() {
   (object) array(
       \'vid\' => \'40\',
       \'uid\' => \'1\',
-      \'title\' => \'Drupal Association\',
+      \'title_field\' => \'Drupal Association\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
