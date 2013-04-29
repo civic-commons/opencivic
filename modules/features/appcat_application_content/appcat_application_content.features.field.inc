@@ -778,6 +778,91 @@ function appcat_application_content_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-application-field_file_attachments'.
+  $fields['node-application-field_file_attachments'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_file_attachments',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'application',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 22,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_file_attachments',
+      'label' => 'File attachments',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'entity_translation_sync' => FALSE,
+        'file_directory' => '',
+        'file_extensions' => 'txt odt ppt key doc docx csv tsv',
+        'max_filesize' => '10Mb',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'label_help_description' => '',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '13',
+      ),
+    ),
+  );
+
   // Exported field: 'node-application-field_image'.
   $fields['node-application-field_image'] = array(
     'field_config' => array(
@@ -1433,8 +1518,11 @@ function appcat_application_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
+          'module' => 'file_entity',
+          'settings' => array(
+            'file_view_mode' => 'default',
+          ),
+          'type' => 'file_rendered',
           'weight' => '15',
         ),
         'ical' => array(
@@ -1793,7 +1881,7 @@ function appcat_application_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 21,
+          'weight' => '21',
         ),
         'ical' => array(
           'label' => 'above',
@@ -1827,7 +1915,7 @@ function appcat_application_content_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => '-5',
+        'weight' => '0',
       ),
     ),
   );
@@ -1845,6 +1933,7 @@ function appcat_application_content_field_default_fields() {
   t('Demo url');
   t('Enter the URL of the application homepage where people can go to find more information');
   t('Features or modules provided by this application (and possibly required by other applications).');
+  t('File attachments');
   t('Host');
   t('If the software can be downloaded, URL to download it.');
   t('Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?');

@@ -208,10 +208,7 @@ function appcat_application_content_rdf_default_mappings() {
       ),
     ),
     'field_description' => array(
-      'predicates' => array(
-        0 => 'schema:summary',
-        1 => 'schema:description',
-      ),
+      'predicates' => array(),
     ),
     'field_download_url' => array(
       'predicates' => array(
@@ -275,6 +272,13 @@ function appcat_application_content_rdf_default_mappings() {
       'predicates' => array(
         0 => 'schema:video',
       ),
+    ),
+    'title_field' => array(
+      'predicates' => array(),
+    ),
+    'field_file_attachments' => array(
+      'predicates' => array(),
+      'type' => 'rel',
     ),
   );
 

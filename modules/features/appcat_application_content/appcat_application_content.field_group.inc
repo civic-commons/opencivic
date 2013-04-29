@@ -81,7 +81,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
     'label' => 'Categories',
-    'weight' => '36',
+    'weight' => '37',
     'children' => array(
       0 => 'field_application_category',
       1 => 'field_license',
@@ -168,7 +168,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
     'label' => 'Code repo & demos',
-    'weight' => '37',
+    'weight' => '38',
     'children' => array(
       0 => 'field_download_url',
       1 => 'field_install_url',
@@ -196,7 +196,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Main',
-    'weight' => '0',
+    'weight' => '1',
     'children' => array(
       0 => 'group_basic',
       1 => 'group_categories',
@@ -229,8 +229,7 @@ function appcat_application_content_field_group_info() {
     'label' => 'Photos and videos',
     'weight' => '4',
     'children' => array(
-      0 => 'group_screenshots',
-      1 => 'group_tutorials',
+      0 => 'group_tutorials',
     ),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -257,6 +256,7 @@ function appcat_application_content_field_group_info() {
     'children' => array(
       0 => 'field_screenshot',
       1 => 'field_video',
+      2 => 'field_file_attachments',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -282,7 +282,7 @@ function appcat_application_content_field_group_info() {
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
     'label' => 'Misc',
-    'weight' => '38',
+    'weight' => '39',
     'children' => array(
       0 => 'field_aggregate_rating',
     ),
@@ -306,14 +306,14 @@ function appcat_application_content_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'application';
   $field_group->mode = 'default';
-  $field_group->parent_name = 'group_media';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Screenshots',
     'weight' => '25',
     'children' => array(
       0 => 'field_screenshot',
     ),
-    'format_type' => 'hidden',
+    'format_type' => 'div',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
