@@ -26,7 +26,7 @@ projects[addtoany][version] = "3.1"
 projects[admin_menu][subdir] = "contrib"
 
 projects[module_filter][subdir] = "contrib"
-projects[module_filter][version] = "7.x-1.7"
+projects[module_filter][version] = "1.7"
 
 projects[auto_entitylabel][subdir] = "contrib"
 projects[auto_entitylabel][version] = "1.x-dev"
@@ -134,6 +134,7 @@ projects[geocoder][version] = "1.2"
 
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "1.1"
+projects[geofield][patch][1942826] = http://drupal.org/files/1942826-5-openlayers_projections_1.1.patch
 
 projects[geophp][subdir] = "contrib"
 projects[geophp][version] = "1.6"
@@ -227,6 +228,7 @@ projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.
 projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
 projects[openlayers][download][branch] = 7.x-2.x
 projects[openlayers][type] = "module"
+projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
@@ -283,6 +285,12 @@ projects[search_api][version] = "1.4"
 
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
+
+projects[services][subdir] = "contrib"
+projects[services][version] = "3.3"
+
+projects[services_views][subdir] = "contrib"
+projects[services_views][version] = "1.0-beta2"
 
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
@@ -372,7 +380,10 @@ projects[inline_entity_form][subdir] = "contrib"
 
 projects[schemaorg][version] = "1.0-beta3"
 projects[schemaorg][subdir] = "contrib"
+; Support Schema.org cache integration
 projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_integration-1185978-2.patch
+; Fix bug affected features exports
+projects[schemaorg][patch][1853590] = http://drupal.org/files/exportfix-1853590-1.patch
 
 ; Nuams modules =====================================================================
 

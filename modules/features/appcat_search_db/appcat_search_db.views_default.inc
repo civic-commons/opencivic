@@ -63,7 +63,6 @@ function appcat_search_db_views_default_views() {
     1 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['search_api_views_fulltext']['mode'] = 'filter';
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
     'search_api_viewed' => 'search_api_viewed',
   );

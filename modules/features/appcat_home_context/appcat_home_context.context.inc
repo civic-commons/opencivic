@@ -26,23 +26,23 @@ function appcat_home_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-homepage_latest-block_2' => array(
+        'views-blog-block' => array(
           'module' => 'views',
-          'delta' => 'homepage_latest-block_2',
+          'delta' => 'blog-block',
           'region' => 'content_doormat',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
-        'views-homepage_latest-block' => array(
+        'views-application_list-block_1' => array(
           'module' => 'views',
-          'delta' => 'homepage_latest-block',
+          'delta' => 'application_list-block_1',
           'region' => 'content_main_left',
-          'weight' => '-7',
+          'weight' => '-6',
         ),
-        'views-homepage_latest-block_1' => array(
+        'views-deployments_list-block_1' => array(
           'module' => 'views',
-          'delta' => 'homepage_latest-block_1',
+          'delta' => 'deployments_list-block_1',
           'region' => 'content_main_middle',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'block-1' => array(
           'module' => 'block',

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OCAPI Services feature.
+ */
+
+include_once 'ocapi_services.features.inc';

@@ -1,0 +1,12 @@
+name = OCAPI Services
+description = Defines the services endpoints for the Open Civic API.
+core = 7.x
+package = API
+version = 7.x-1.0-alpha3
+project = ocapi_services
+dependencies[] = ctools
+dependencies[] = ocapi
+dependencies[] = services
+features[ctools][] = services:services:3
+features[features_api][] = api:1
+features[services_endpoint][] = oc_api_v1

@@ -24,12 +24,30 @@ function appcat_misc_menus_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-50',
   );
-  // Exported menu link: menu-top-menu:node/23
-  $menu_links['menu-top-menu:node/23'] = array(
-    'menu_name' => 'menu-top-menu',
-    'link_path' => 'node/23',
-    'router_path' => 'node/%',
-    'link_title' => 'About',
+  // Exported menu link: menu-footer-menu:<front>
+  $menu_links['menu-footer-menu:<front>'] = array(
+    'menu_name' => 'menu-footer-menu',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Home',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+  );
+  // Exported menu link: menu-footer-menu:blog
+  $menu_links['menu-footer-menu:blog'] = array(
+    'menu_name' => 'menu-footer-menu',
+    'link_path' => 'blog',
+    'router_path' => 'blog',
+    'link_title' => 'Blog',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -40,7 +58,25 @@ function appcat_misc_menus_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-49',
+  );
+  // Exported menu link: menu-footer-menu:contact
+  $menu_links['menu-footer-menu:contact'] = array(
+    'menu_name' => 'menu-footer-menu',
+    'link_path' => 'contact',
+    'router_path' => 'contact',
+    'link_title' => 'Contact',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-45',
   );
   // Exported menu link: menu-top-menu:user
   $menu_links['menu-top-menu:user'] = array(
@@ -62,8 +98,9 @@ function appcat_misc_menus_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('About');
   t('Account');
+  t('Blog');
+  t('Contact');
   t('Home');
 
 

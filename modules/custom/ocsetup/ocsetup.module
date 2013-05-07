@@ -44,7 +44,7 @@ function ocsetup_form() {
     $form = array();
 
     $form['openingtext'] = array(
-      '#markup' => '<h2>' . t('Please choose the components that you want to include in your Open Civic website.') . '</h2>',
+      '#markup' => '<h2>' . t('Please choose the components that you want to include in your OpenCivic website.') . '</h2>',
     );
 
     $form['actions'] = array(
@@ -144,11 +144,12 @@ function ocsetup_form_submit($form, &$form_state) {
         features_install_modules(
           array(
             'appcat_blog_node',
+            'appcat_blog_views',
             'appcat_sponsor_node',
             'appcat_home_context',
             'appcat_home_views',
             'occomm_events',
-            //'appcat_search_db',
+            'appcat_search_db',
           )
         );
         drupal_flush_all_caches();
@@ -189,6 +190,13 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ocapi':
+        features_install_modules(
+          array(
+            'ocapi',
+            'ocapi_services',
+          )
+        );
+        drupal_flush_all_caches();
         break;
 
       case 'ocodata':
@@ -388,14 +396,14 @@ function ocsetup_options() {
     'ochack' => 'Hackathon',
     'ochack_default_content' => 'Hackathon default content',
     'oclang' => 'Multilingual support',
+    'ocapi' => 'API for Interoperability',
     'ocdevel' => 'Development features',
 /*
-    'ocapi' => 'Interoperability (not yet available)',
     'ocodata' => 'Open Data (not yet available)',
     'occon' => 'Apps Contest (not yet available)',
     'ocdemo' => 'Civic Sandboxes (not yet available)',
     'ocinvest' => 'Investment Network (not yet available)',
-*/
+// */
     'ocfinish' => 'Finish',
   );
 }
