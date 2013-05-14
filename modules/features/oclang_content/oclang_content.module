@@ -10,4 +10,4 @@ include_once 'oclang_content.features.inc';
  * Code for the Multilingual content feature.
  */
 
-include_once 'multilingual_content.features.inc';
+include_once 'oclang_content.features.inc';
