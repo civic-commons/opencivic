@@ -172,7 +172,11 @@ projects[jump_menu][version] = "1.4"
 projects[l10n_update][subdir] = "contrib"
 projects[l10n_update][version] = "1.0-beta3"
 
+projects[l10n_client][subdir] = "contrib"
+projects[l10n_client][version] = "1.2"
+
 projects[label_help][subdir] = contrib
+projects[label_help][version] = "1.0"
 
 projects[languageicons][subdir] = "contrib"
 projects[languageicons][version] = "1.0"
