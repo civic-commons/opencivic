@@ -7,7 +7,7 @@
 /**
  * Implements hook_context_default_contexts().
  */
-function multilingual_ui_contexts_context_default_contexts() {
+function oclang_ui_contexts_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();
