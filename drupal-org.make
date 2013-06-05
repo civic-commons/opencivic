@@ -535,7 +535,8 @@ libraries[cycle][directory_name] = "jquery.cycle"
 
 projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta8
-projects[omega][version] = "3.1"
+projects[omega][version] = 3.1
+projects[adaptivetheme][version] = 3.1
 
 ; projects[cat_lover][download][type] = "git"
 ; projects[cat_lover][download][url] = "https://github.com/NewAmsterdamIdeas/cat_lover.git"

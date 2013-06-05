@@ -1,0 +1,198 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the default font size on small devices */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000316}}
+html {
+  font-size: 112.5%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000319}}
+#menu-bar {
+  height: auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000328}}
+#block-block-4,
+.front #block-block-5,
+.front #block-twitter-block-default,
+.front #block-views-hashtags-block,
+#block-ndch-stats-ndch-stats,
+#block-views-homepage-latest-block-2 {
+  clear: left;
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  *behavior: url("../scripts/boxsizing.htc");
+  _display: inline;
+  _overflow: hidden;
+  _overflow-y: visible; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000332}}
+#block-block-2 {
+  *position: relative;
+  *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/Scout\.app\/Contents\/Resources\/vendor\/gems\/gems\/zen-grids-1\.2\/stylesheets\/zen\/_grids\.scss}line{font-family:\0000352}}
+  #block-block-2:before, #block-block-2:after {
+    content: "";
+    display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/Scout\.app\/Contents\/Resources\/vendor\/gems\/gems\/zen-grids-1\.2\/stylesheets\/zen\/_grids\.scss}line{font-family:\0000356}}
+  #block-block-2:after {
+    clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000334}}
+  #block-block-2 .option1 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("../scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000337}}
+  #block-block-2 .option2 {
+    clear: left;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("../scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000341}}
+  #block-block-2 .option3 {
+    clear: left;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("../scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000345}}
+  #block-block-2 .option4 {
+    clear: left;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("../scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000350}}
+#block-block-7 {
+  text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000352}}
+  #block-block-7 h2 {
+    font-size: 2em;
+    float: none;
+    margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000357}}
+  #block-block-7 h3 {
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000360}}
+  #block-block-7 .view-content .views-field-field-logo {
+    width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000364}}
+.view-home-page-map {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  *behavior: url("../scripts/boxsizing.htc");
+  _display: inline;
+  _overflow: hidden;
+  _overflow-y: visible; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000366}}
+  .view-home-page-map .view-footer {
+    display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000370}}
+#block-views-exp-sols-search-page {
+  background: transparent url(images/somewhere-near-you.png) no-repeat 0 0;
+  margin: 0 auto;
+  padding: 80px 0 0;
+  position: inherit;
+  width: 98%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000378}}
+#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets {
+  font-size: 12px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000380}}
+  #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets label {
+    width: 60px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000383}}
+  #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets .views-exposed-widget {
+    width: 90%;
+    padding: 4px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000386}}
+    #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets .views-exposed-widget .views-widget {
+      float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000390}}
+  #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets .form-submit {
+    margin-left: 70px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000397}}
+#block-views-sponsors-block-block-1 .view-content .views-field-field-logo,
+#block-views-sponsors-block-block-3 .view-content .views-field-field-logo,
+#block-views-sponsors-block-block-5 .view-content .views-field-field-logo {
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\00003102}}
+#block-views-sponsors-block-block-4 .view-content div {
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\00003105}}
+#block-views-sponsors-block-block-4 .views-field-title {
+  border: none; }

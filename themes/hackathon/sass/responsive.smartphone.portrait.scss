@@ -1,0 +1,108 @@
+
+// _base.scss imports _custom.scss and other partials.
+@import "base";
+
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+
+/* Increase the default font size on small devices */
+html {
+  font-size: 112.5%; 
+}
+#menu-bar {
+  height:auto;
+}
+
+#block-block-4,
+.front #block-block-5,
+.front #block-twitter-block-default,
+.front #block-views-hashtags-block,
+#block-ndch-stats-ndch-stats,
+#block-views-homepage-latest-block-2 {
+  @include zen-clear();
+  @include zen-grid-item(12, 1);
+}
+#block-block-2 {
+  @include zen-grid-container;
+  .option1{
+    @include zen-grid-item(12, 1);
+  }
+  .option2{
+    @include zen-clear();
+    @include zen-grid-item(12, 1);
+  }
+  .option3{
+    @include zen-clear(); 
+    @include zen-grid-item(12, 1);
+  }
+  .option4{
+    @include zen-clear();
+    @include zen-grid-item(12, 1);
+  }
+}
+#block-block-7 {
+  text-align: center;
+  h2 {
+    font-size:2em;
+    float:none;
+    margin:0;
+  }
+  h3 {
+    width:100%;
+  }
+  .view-content .views-field-field-logo {
+    width:100%;
+  }
+}
+.view-home-page-map {
+  @include zen-grid-item(12, 1);
+  .view-footer {
+    display: none;
+  }
+}
+#block-views-exp-sols-search-page {
+  background: transparent url(images/somewhere-near-you.png) no-repeat 0 0;
+  margin: 0 auto;
+  padding: 80px 0 0;
+  position: inherit;
+  width: 98%;
+}
+
+#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets {
+  font-size: 12px;
+  label {
+    width:60px;
+  }
+  .views-exposed-widget {
+    width:90%;
+    padding:4px;
+    .views-widget {
+      float: left;
+    }
+  }
+  .form-submit {
+    margin-left:70px;
+  }
+}
+#block-views-sponsors-block-block-1,
+#block-views-sponsors-block-block-3,
+#block-views-sponsors-block-block-5 {
+  .view-content .views-field-field-logo {
+    width:100%;
+  }
+}
+#block-views-sponsors-block-block-4 {
+  .view-content div {
+    display:block;
+  }
+  .views-field-title {
+    border:none;
+  }
+}

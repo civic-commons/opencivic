@@ -1,0 +1,106 @@
+
+// _base.scss imports _custom.scss and other partials.
+@import "base";
+
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+
+/* Increase the body font size on small devices */
+html {
+  font-size: 81.3%; 
+}
+#menu-bar {
+  height:auto;
+}
+.view-home-page-map {
+  @include zen-grid-item(12, 1);
+  .view-footer {
+    background: #fff url(images/get-involved.png) no-repeat right top;
+    height:47px;
+    line-height: 47px;
+    padding-right:140px;
+    text-align: center;
+    font-weight: bold;
+    span {
+      color:$red;
+    }
+  }
+}
+#block-block-4 { //info
+  @include zen-clear();
+  @include zen-grid-item(6, 1);
+}
+#block-ndch-stats-ndch-stats { //stats
+  @include zen-grid-item(6, 7);
+  clear:none;
+}
+#block-views-homepage-latest-block-2 {
+  @include zen-clear();
+  @include zen-grid-item(6, 1);
+}
+.front #block-block-5,
+.front #block-twitter-block-default,
+.front #block-views-hashtags-block {
+  @include zen-grid-item(6,7);
+  clear:none;
+}
+
+/*
+ * home page options
+ * 
+*/
+#block-block-2 {
+  @include zen-grid-container;
+  text-align: center;
+  .option1{
+    @include zen-grid-item(6, 1);
+    background:url("images/plan.png") no-repeat scroll 50% 0 transparent;
+    padding:70px 10px 0;
+  }
+  .option2{
+    @include zen-grid-item(6, 7);
+    background:url("images/support.png") no-repeat scroll 50% 8px transparent;
+    padding:70px 10px 0;
+  }
+  .option3{
+    @include zen-clear(); 
+    @include zen-grid-item(6, 1);
+    background:url("images/contribute.png") no-repeat scroll 50% 0 transparent;
+    padding:70px 10px 0;
+  }
+  .option4{
+    @include zen-grid-item(6, 7);
+    background:url("images/participate.png") no-repeat scroll 50% 0 transparent;
+    padding:70px 10px 0;
+  }
+}
+
+#block-block-7 {
+  .view-content .views-field-field-logo {
+    width:50%;
+  }
+  h2 {
+    width:47%;
+    text-align: right;
+  }
+  h3 {
+    width:50%;
+  }
+}
+
+#block-views-exp-sols-search-page {
+  position: inherit;
+  background: transparent url(images/somewhere-near-you.png) no-repeat 0 0;
+  padding:0 0 0 55%;
+  height:80px;
+  .form-text {
+    width:auto;
+  }
+}
