@@ -35,7 +35,7 @@
    * "Float Region blocks" is an extension for floating blocks in regions, see
    * your themes appearance settings, under the Extensions tab.
    */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/hackathon\/sass\/responsive\.custom\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.custom\.scss}line{font-family:\0000349}}
   .region[class*="float-blocks"] .block {
     float: none;
     width: 100%; } }

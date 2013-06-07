@@ -13,7 +13,7 @@ function ocmisc_cat_man_do_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_hackathon_settings';
+  $strongarm->name = 'theme_cat_man_do_settings';
   $strongarm->value = array(
     'toggle_logo' => 1,
     'toggle_name' => 0,
@@ -156,7 +156,7 @@ function ocmisc_cat_man_do_settings_strongarm() {
     'at_core' => '7.x-3.x',
     'nice_menus_custom_css' => '',
   );
-  $export['theme_hackathon_settings'] = $strongarm;
+  $export['theme_cat_man_do_settings'] = $strongarm;
 
   return $export;
 }

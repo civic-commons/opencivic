@@ -14,10 +14,10 @@
  * powerful way to easily modify the output of any template variable.
  * 
  * Preprocess and Process Functions SEE: http://drupal.org/node/254940#variables-processor
- * 1. Rename each function and instance of "hackathon" to match
+ * 1. Rename each function and instance of "cat_man_do" to match
  *    your subthemes name, e.g. if your theme name is "footheme" then the function
  *    name will be "footheme_preprocess_hook". Tip - you can search/replace
- *    on "hackathon".
+ *    on "cat_man_do".
  * 2. Uncomment the required function to use.
  */
 
@@ -26,7 +26,7 @@
  * Preprocess variables for the html template.
  */
 /* -- Delete this line to enable.
-function hackathon_preprocess_html(&$vars) {
+function cat_man_do_preprocess_html(&$vars) {
   global $theme_key;
 
   // Two examples of adding custom classes to the body.
@@ -45,7 +45,7 @@ function hackathon_preprocess_html(&$vars) {
  * Process variables for the html template.
  */
 /* -- Delete this line if you want to use this function
-function hackathon_process_html(&$vars) {
+function cat_man_do_process_html(&$vars) {
 }
 // */
 
@@ -54,9 +54,9 @@ function hackathon_process_html(&$vars) {
  * Override or insert variables for the page templates.
  */
 /* -- Delete this line if you want to use these functions
-function hackathon_preprocess_page(&$vars) {
+function cat_man_do_preprocess_page(&$vars) {
 }
-function hackathon_process_page(&$vars) {
+function cat_man_do_process_page(&$vars) {
 }
 // */
 
@@ -65,9 +65,9 @@ function hackathon_process_page(&$vars) {
  * Override or insert variables into the node templates.
  */
 /* -- Delete this line if you want to use these functions
-function hackathon_preprocess_node(&$vars) {
+function cat_man_do_preprocess_node(&$vars) {
 }
-function hackathon_process_node(&$vars) {
+function cat_man_do_process_node(&$vars) {
 }
 // */
 
@@ -76,9 +76,9 @@ function hackathon_process_node(&$vars) {
  * Override or insert variables into the comment templates.
  */
 /* -- Delete this line if you want to use these functions
-function hackathon_preprocess_comment(&$vars) {
+function cat_man_do_preprocess_comment(&$vars) {
 }
-function hackathon_process_comment(&$vars) {
+function cat_man_do_process_comment(&$vars) {
 }
 // */
 
@@ -87,8 +87,8 @@ function hackathon_process_comment(&$vars) {
  * Override or insert variables into the block templates.
  */
 /* -- Delete this line if you want to use these functions
-function hackathon_preprocess_block(&$vars) {
+function cat_man_do_preprocess_block(&$vars) {
 }
-function hackathon_process_block(&$vars) {
+function cat_man_do_process_block(&$vars) {
 }
 // */
