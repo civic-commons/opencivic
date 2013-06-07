@@ -4,5 +4,6 @@ modules/devel
 themes/tao
 themes/rubik
 themes/omega
+themes/adaptivetheme
 .DS_Store
 *.scssc
