@@ -110,7 +110,7 @@ function appcat_search_db_context_default_contexts() {
         'views--exp-search-page' => array(
           'module' => 'views',
           'delta' => '-exp-search-page',
-          'region' => 'search_bar',
+          'region' => 'header',
           'weight' => '-10',
         ),
       ),

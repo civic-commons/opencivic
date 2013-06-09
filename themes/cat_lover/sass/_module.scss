@@ -12,7 +12,7 @@
 
 /* hide login bar links */
 #region-content-top .rpx-links,
-#region-search-bar .rpx-links {
+#region-header .rpx-links {
   display: none; }
 
 /* make linkedin link big on user login */
@@ -864,13 +864,13 @@ body.page-user #breadcrumb {
   }
 }
 
-#region-search-bar {
+#region-header {
   position: relative; }
 
 
 
-#region-search-bar {
-  .region-search-bar-inner {
+#region-header {
+  .region-header-inner {
     /*  margin-bottom: 3px;  */
     background: url("../images/search-bg.png") center top no-repeat;
     height: 57px;
@@ -1049,7 +1049,7 @@ body.context-wiki #region-content {
 /**
  * Search bar region
  */
-#region-search-bar {
+#region-header {
   .section-nav .menu {
     float: left;
     border-right: 1px solid gainsboro;
@@ -1588,7 +1588,7 @@ h2.architecture-bundle {
   margin: 0 25px; }
 
 /* Solr search bar */
-#region-search-bar .form-submit {
+#region-header .form-submit {
   background: url("../images/search_gray_btn.png") no-repeat scroll 0 0 transparent;
   border: medium none;
   color: transparent;
@@ -1598,7 +1598,7 @@ h2.architecture-bundle {
   text-shadow: none;
   border-radius: 0; }
 
-#region-search-bar input#edit-term {
+#region-header input#edit-term {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;

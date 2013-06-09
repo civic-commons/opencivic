@@ -110,13 +110,6 @@ var {
  * Wraps the sidebars the content column
  */
 /*
- * Main content column wrapper
- */
-#content-column {
-  background: transparent url(images/cityscape.png) no-repeat 50% 95%;
-}
-
-/*
  * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
  */
 #main-content {
@@ -138,6 +131,14 @@ body.sidebar-second #main-content {
 
 .page-event #main-content {
   background: none;
+}
+
+/**
+ * Recent Stories on Homepage Block
+  */
+.views-field-field-story-image {
+  float: left;
+  margin-right: 40px;
 }
 
 /*
@@ -203,7 +204,8 @@ body.sidebar-second #main-content {
  * Wraps all the branding elements, logo, name and slogan
  */
 #branding {
-  margin: 0;
+  margin: 0 20px 0 0;
+  float: left;
 }
 
 /*
@@ -1483,11 +1485,6 @@ legend {
 /*
  * Buttons used by contrib modules like Media
  */
-a.button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-}
 
 /*
  * Password confirmation
@@ -1557,11 +1554,10 @@ th {
   margin: 0;
   padding: 2px 7px;
 }
-
-tbody tr {
-  border-top: 1px solid #ffd400;
+#footer table,
+#footer tbody tr {
+  border: none;
 }
-
 tr {
   /* Table row striping */
 }
@@ -2186,44 +2182,190 @@ div.messages ul {
   border: 1px solid #ecf4fb;
 }
 
-/* Sign up 
+.region-header {
+}
 
 
-#webform-client-form-19 {
-  .form-item {
-    margin:4px 0;
-    padding:3px;
-    background:rgba(236, 244, 251, 0.3);
-  }
-  label {
-    display: inline-block;
-    width:48%;
-    vertical-align: top;
-    padding: 0 8px;
-    margin:0;
-  }
-  .form-checkboxes {
-    label {
-      border:none;
-      width:auto;
-    }
-    display:inline-block;
-    .form-item {
-      background:transparent !important;
-    }
-  }
-  .form-text {
-    width:48%;
-  }
-  fieldset {
-    .form-item {
-      background: transparent;
-    }
-  }
-  #webform-component-other-value {
-    .form-text {
-      float:right;
-    }
-  }
+
+
+
+
+
+
+
+
+.table-action-button a {
+  text-transform: lowercase;
+  display: block;
+  float: left;
+  text-decoration: none;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  margin: 0 0.5em 0.5em 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: #ddd url(../images/button.png) repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+  background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+  border: 1px solid;
+  border-color: #ddd #bbb #999;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 4px 10px 3px;
+  text-shadow: #fff 0 1px 1px;
+  width: auto;
+
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px;
+}
+
+body.front .button {
+  min-width: 200px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+  float: none;
+}
+
+.table-action-button a {
+  text-transform: lowercase;
+  display: block;
+  float: left;
+  text-decoration: none;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  margin: 0 0.5em 0.5em 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: #dddddd url(../images/button.png) repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd));
+  background: -moz-linear-gradient(top center, white 0%, #dddddd 100%);
+  border: 1px solid;
+  border-color: #ddd #bbb #999;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 4px 10px 3px;
+  text-shadow: #fff 0 1px 1px;
+  width: auto;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px;
+}
+
+a.button {
+  color: #fff;
+  text-decoration: none;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+.region-three-33-first .view,
+.region-three-33-second .view,
+.region-three-33-third .view {
+  padding: 0;
+}
+
+body.front .block .views-field-field-image {
+  width: 55px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+body.front .view .views-field-field-add-deployment-for a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+body.front h2.node-title a {
+  text-decoration: none;
+}
+
+.view-homepage-latest.view-display-id-block_2 .field-type-image {
+  width: 220px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+.region-footer {
+  text-align: center;
+}
+.region-footer .view-content .cols-4 tr td .views-field-field-logo {
+}
+.region-footer .view-content .cols-4 tr td.col-1,
+.region-footer .view-content .cols-4 tr td.col-2,
+.region-footer .view-content .cols-4 tr td.col-3 {
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+body.front #region-content form {
+  text-align: left;
+}
+.view-homepage-latest .views-row {
+  clear: both;
+}
+
+
+
+
+
+
+/* Call to action button */
+.button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6280cb), color-stop(1, #102047));
+  background: -moz-linear-gradient(center top, #6280cb 5%, #102047 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6280cb', endColorstr='#102047');
+  background-color: #6280cb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #142859;
+  display: inline-block;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 11px 28px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #101f42;
+}
+.button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #102047), color-stop(1, #6280cb));
+  background: -moz-linear-gradient(center top, #102047 5%, #6280cb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#102047', endColorstr='#6280cb');
+  background-color: #102047;
+}
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+body.front .button {
+  min-width: 200px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+  float: none;
+}
+
+/*
+a, a:link, a:active, a:visited {
+color: #374884;
 }
 */

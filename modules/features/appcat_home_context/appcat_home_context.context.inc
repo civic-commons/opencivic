@@ -29,7 +29,7 @@ function appcat_home_context_context_default_contexts() {
         'views-homepage_latest-block_2' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block_2',
-          'region' => 'three_33_top',
+          'region' => 'three_three_33_bottom',
           'weight' => '-9',
         ),
         'views-homepage_latest-block' => array(

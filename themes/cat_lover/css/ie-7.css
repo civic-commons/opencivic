@@ -72,7 +72,7 @@ a#fdbk_tab {
 /* <= Using and sharing  fix finish */
 
 /* Search field fix start => */
-#region-search-bar .form-item, #region-search-bar .form-item-custom-search-blocks-form-1 {
+#region-header .form-item, #region-header .form-item-custom-search-blocks-form-1 {
     width: 623px !important;
 }
 .block-custom-search-blocks-1 .content {
@@ -144,7 +144,7 @@ body, .block-inner, .region {
 	cursor:default;
 }
 
-#region-search-bar .form-submit {
+#region-header .form-submit {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -202,7 +202,7 @@ body, .block-inner, .region {
     text-indent: none !important;
 }
 
-#region-search-bar input#edit-term{
+#region-header input#edit-term{
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
