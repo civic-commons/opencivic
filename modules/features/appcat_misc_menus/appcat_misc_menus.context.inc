@@ -26,17 +26,11 @@ function appcat_misc_menus_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'nice_menus-1' => array(
-          'module' => 'nice_menus',
+        'menu_block-1' => array(
+          'module' => 'menu_block',
           'delta' => '1',
           'region' => 'menu_bar',
           'weight' => '-10',
-        ),
-        'nice_menus-2' => array(
-          'module' => 'nice_menus',
-          'delta' => '2',
-          'region' => 'menu_bar',
-          'weight' => '27',
         ),
       ),
     ),

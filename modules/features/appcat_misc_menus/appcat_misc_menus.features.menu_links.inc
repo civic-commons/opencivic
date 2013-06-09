@@ -18,29 +18,11 @@ function appcat_misc_menus_menu_default_menu_links() {
     'link_title' => 'Home',
     'options' => array(),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-  );
-  // Exported menu link: menu-menu-bar:node/23
-  $menu_links['menu-menu-bar:node/23'] = array(
-    'menu_name' => 'menu-menu-bar',
-    'link_path' => 'node/23',
-    'router_path' => 'node/%',
-    'link_title' => 'About',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
   );
   // Exported menu link: menu-menu-bar:user
   $menu_links['menu-menu-bar:user'] = array(
@@ -54,15 +36,14 @@ function appcat_misc_menus_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('About');
   t('Account');
   t('Home');
 
