@@ -28,7 +28,6 @@ regions[content_region_spacer] = Region Spacer
 regions[content_leftcolumn_lower] = Left Column Content, 2nd stack 
 regions[content_rightcolumn_lower] = Right Column Content, 2nd stack
 
-regions[three_33_bottom] = Content Doormat
 
 regions[header] = Search Bar
 regions[content_bottom] = Content Bottom 1
@@ -41,6 +40,7 @@ regions[footer_second] = Footer Second
 regions[three_33_first] = Content Main Left
 regions[three_33_second] = Content Main Middle
 regions[three_33_third] = Content Main Right
+regions[three_33_bottom] = Content Doormat
 
 regions[content_top_full] = Content Top Full
 

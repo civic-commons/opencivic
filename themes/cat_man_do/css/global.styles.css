@@ -2364,8 +2364,6 @@ body.front .button {
   float: none;
 }
 
-/*
-a, a:link, a:active, a:visited {
-color: #374884;
+.at-panel.three-3x33 {
+  margin-top: 20px;
 }
-*/
