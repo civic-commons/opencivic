@@ -29,7 +29,7 @@ function multilingual_ui_contexts_context_default_contexts() {
         'locale-language' => array(
           'module' => 'locale',
           'delta' => 'language',
-          'region' => 'top_menu',
+          'region' => 'menu_bar',
           'weight' => '22',
         ),
       ),

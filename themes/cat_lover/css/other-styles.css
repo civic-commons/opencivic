@@ -43,9 +43,9 @@ a.button {
   text-decoration: none;
 }
 
-.region-content-main-left .view,
-.region-content-main-middle .view,
-.region-content-main-right .view {
+.region-three-33-first .view,
+.region-three-33-second .view,
+.region-three-33-third .view {
   padding: 0;
 }
 
@@ -70,14 +70,14 @@ body.front h2.node-title a {
   float: left;
 }
 
-.region-bottom-footer-logo {
+.region-footer {
   text-align: center;
 }
-.region-bottom-footer-logo .view-content .cols-4 tr td .views-field-field-logo {
+.region-footer .view-content .cols-4 tr td .views-field-field-logo {
 }
-.region-bottom-footer-logo .view-content .cols-4 tr td.col-1,
-.region-bottom-footer-logo .view-content .cols-4 tr td.col-2,
-.region-bottom-footer-logo .view-content .cols-4 tr td.col-3 {
+.region-footer .view-content .cols-4 tr td.col-1,
+.region-footer .view-content .cols-4 tr td.col-2,
+.region-footer .view-content .cols-4 tr td.col-3 {
   padding-right: 30px;
   padding-bottom: 20px;
 }

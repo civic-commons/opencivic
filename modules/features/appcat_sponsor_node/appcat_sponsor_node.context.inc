@@ -29,7 +29,7 @@ function appcat_sponsor_node_context_default_contexts() {
         'views-sponsors_block-block' => array(
           'module' => 'views',
           'delta' => 'sponsors_block-block',
-          'region' => 'bottom_footer_logo',
+          'region' => 'footer',
           'weight' => '-9',
         ),
       ),

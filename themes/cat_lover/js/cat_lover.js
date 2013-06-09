@@ -14,7 +14,7 @@
       evenizeRowHeights(".view-places .views-row .field-content");
       evenizeRowHeights(".meta");
       // Make front page columns same height
-      evenizeRowHeights(".region-content-main-left .view, .region-content-main-middle .view, .region-content-main-right .view");
+      evenizeRowHeights(".region-three-33-first .view, .region-three-33-second .view, .region-three-33-third .view");
     }
   };
 

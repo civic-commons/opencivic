@@ -94,9 +94,28 @@
 
 ;----------// Gpanel Regions
 
-  ; If you are using Gpanels copy and paste the region definitions here. You
-  ; will find them in each layout PHP file in adaptivetheme/layouts/gpanels
+  ; This theme uses Gpanels from Adaptivetheme core. You can add more Gpanel
+  ; regions - see the "gpanels" directory in AT Core:
+  ;
+  ; adaptivetheme > at_core > layouts > gpanels
+  ;
+  ; Note that this Sky already uses the three-3x33 and four-4x25 Gpanels.
+  ;
+  ; To set the responsive layout options for Gpanels see your themes settings on the
+  ; Appearance settings page for Pixture Reloaded.
 
+  ; 3x33 Gpanel
+  regions[three_33_top]    = AT Three column 3x33 - top
+  regions[three_33_first]  = AT Three column 3x33 - left
+  regions[three_33_second] = AT Three column 3x33 - center
+  regions[three_33_third]  = AT Three column 3x33 - right
+  regions[three_33_bottom] = AT Three column 3x33 - bottom
+
+  ; 4x25 Gpanel
+  regions[four_first]  = AT Four column 4x25 - 1
+  regions[four_second] = AT Four column 4x25 - 2
+  regions[four_third]  = AT Four column 4x25 - 3
+  regions[four_fourth] = AT Four column 4x25 - 4
 
 ;----------// Custom Layout Plugins
 

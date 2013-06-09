@@ -29,13 +29,13 @@ function appcat_misc_menus_context_default_contexts() {
         'nice_menus-1' => array(
           'module' => 'nice_menus',
           'delta' => '1',
-          'region' => 'top_menu',
+          'region' => 'menu_bar',
           'weight' => '-10',
         ),
         'nice_menus-2' => array(
           'module' => 'nice_menus',
           'delta' => '2',
-          'region' => 'top_menu',
+          'region' => 'menu_bar',
           'weight' => '27',
         ),
       ),
