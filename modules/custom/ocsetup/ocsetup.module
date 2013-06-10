@@ -88,6 +88,7 @@ function ocsetup_form_submit($form, &$form_state) {
             'appcat_misc',
             'appcat_misc_default_content',
             'appcat_misc_menus',
+            'ocmisc_cat_man_do_settings',
           )
         );
         drupal_flush_all_caches();

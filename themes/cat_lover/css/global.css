@@ -3407,3 +3407,6 @@ body.page-preview #region-content {
   margin: 5px 4px 0 55px;
   width: 760px;
 }
+#region-footer table {
+  border: none;
+}
