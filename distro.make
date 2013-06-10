@@ -22,5 +22,5 @@ projects[drupal][patch][1887924] = http://drupal.org/files/max_execution_error-1
 
 projects[opencivic][type] = profile
 projects[opencivic][download][type] = git
-projects[opencivic][download][url] = http://git.drupal.org/project/opencivic.git
-projects[opencivic][download][branch] = 7.x-1.x
+projects[opencivic][download][url] = https://github.com/civic-commons/opencivic.git
+projects[opencivic][download][branch] = multilingual-merge
