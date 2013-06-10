@@ -13,3 +13,24 @@ function oclang_content_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_default_tmgmt_translator().
+ */
+function oclang_content_default_tmgmt_translator() {
+  $items = array();
+  $items['microsoft'] = entity_import('tmgmt_translator', '{
+    "name" : "microsoft",
+    "label" : "Microsoft translator (auto created)",
+    "description" : "Microsoft Translator service.",
+    "weight" : "-30",
+    "plugin" : "microsoft",
+    "settings" : {
+      "clientid" : "europe_commons",
+      "clientsecret" : "pzu2x8i2xFnJ+0tPlHUeC66KCOG9D4R0WN2XD7IJNkg",
+      "api" : ""
+    },
+    "rdf_mapping" : []
+  }');
+  return $items;
+}

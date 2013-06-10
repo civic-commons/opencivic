@@ -48,7 +48,7 @@ function appcat_sponsor_node_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -99,6 +99,21 @@ function appcat_sponsor_node_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['block_description'] = 'Sponsors logo gallery';
+  $translatables['sponsors_block'] = array(
+    t('Defaults'),
+    t('Supported by'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('queue'),
+    t('[title]'),
+    t('Page'),
+    t('Block'),
+    t('Sponsors logo gallery'),
+  );
   $export['sponsors_block'] = $view;
 
   return $export;

@@ -142,9 +142,8 @@ function appcat_sponsor_node_rdf_default_mappings() {
     ),
     'body' => array(
       'predicates' => array(
-        0 => 'schema:summary',
-        1 => 'schema:description',
-        2 => 'content:encoded',
+        0 => 'schema:image',
+        1 => 'content:encoded',
       ),
     ),
     'uid' => array(
@@ -185,6 +184,11 @@ function appcat_sponsor_node_rdf_default_mappings() {
     'field_url' => array(
       'predicates' => array(
         0 => 'schema:url',
+      ),
+    ),
+    'title_field' => array(
+      'predicates' => array(
+        0 => 'schema:name',
       ),
     ),
   );

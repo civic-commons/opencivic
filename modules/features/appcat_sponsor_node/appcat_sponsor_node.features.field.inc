@@ -35,8 +35,10 @@ function appcat_sponsor_node_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -51,6 +53,12 @@ function appcat_sponsor_node_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '0',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -68,6 +76,7 @@ function appcat_sponsor_node_field_default_fields() {
       'required' => FALSE,
       'settings' => array(
         'display_summary' => TRUE,
+        'entity_translation_sync' => FALSE,
         'text_processing' => 1,
         'user_register_form' => FALSE,
       ),
@@ -108,6 +117,9 @@ function appcat_sponsor_node_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -128,6 +140,12 @@ function appcat_sponsor_node_field_default_fields() {
           'type' => 'image',
           'weight' => '0',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -142,6 +160,7 @@ function appcat_sponsor_node_field_default_fields() {
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
+        'entity_translation_sync' => FALSE,
         'file_directory' => 'content/organizations/logos',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -187,6 +206,7 @@ function appcat_sponsor_node_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -207,6 +227,12 @@ function appcat_sponsor_node_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '5',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -231,6 +257,7 @@ function appcat_sponsor_node_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'value',
         'title_maxlength' => '128',
         'title_value' => 'Homepage',
@@ -251,11 +278,91 @@ function appcat_sponsor_node_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-sponsor-title_field'.
+  $fields['node-sponsor-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'sponsor',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 6,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
   t('Enter the URL of the homepage where people can go to find more information.');
   t('Logo');
+  t('Title');
   t('URL of an image for the logo of the sponsor.');
   t('Url');
 

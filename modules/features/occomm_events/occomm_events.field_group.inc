@@ -26,7 +26,7 @@ function occomm_events_field_group_info() {
       0 => 'body',
       1 => 'field_event_type',
       2 => 'field_start_date',
-      3 => 'title',
+      3 => 'title_field',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -53,10 +53,10 @@ function occomm_events_field_group_info() {
     'label' => 'Location',
     'weight' => '53',
     'children' => array(
-      0 => 'field_telephone',
-      1 => 'field_url',
-      2 => 'field_location',
-      3 => 'field_coordinates',
+      0 => 'field_coordinates',
+      1 => 'field_location',
+      2 => 'field_telephone',
+      3 => 'field_url',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

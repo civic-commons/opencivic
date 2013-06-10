@@ -35,8 +35,10 @@ function occomm_events_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -74,6 +76,7 @@ function occomm_events_field_default_fields() {
       'required' => FALSE,
       'settings' => array(
         'display_summary' => TRUE,
+        'entity_translation_sync' => FALSE,
         'text_processing' => 1,
         'user_register_form' => FALSE,
       ),
@@ -84,7 +87,7 @@ function occomm_events_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '-4',
       ),
     ),
   );
@@ -101,7 +104,9 @@ function occomm_events_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'geofield',
-      'settings' => array(),
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
       'translatable' => '0',
       'type' => 'geofield',
     ),
@@ -137,6 +142,7 @@ function occomm_events_field_default_fields() {
       'label' => 'Coordinates',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'local_solr' => array(
           'enabled' => FALSE,
           'lat_field' => 'lat',
@@ -203,9 +209,10 @@ function occomm_events_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -239,6 +246,7 @@ function occomm_events_field_default_fields() {
       'label' => 'Event type',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -249,7 +257,7 @@ function occomm_events_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '-2',
       ),
     ),
   );
@@ -266,8 +274,10 @@ function occomm_events_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'addressfield',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'addressfield',
     ),
     'field_instance' => array(
@@ -306,6 +316,7 @@ function occomm_events_field_default_fields() {
       'label' => 'Location',
       'required' => FALSE,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -337,6 +348,7 @@ function occomm_events_field_default_fields() {
       'settings' => array(
         'cache_count' => '4',
         'cache_enabled' => 0,
+        'entity_translation_sync' => FALSE,
         'granularity' => array(
           'day' => 'day',
           'hour' => 'hour',
@@ -394,6 +406,7 @@ function occomm_events_field_default_fields() {
         'default_value2' => 'blank',
         'default_value_code' => '',
         'default_value_code2' => '',
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -412,7 +425,7 @@ function occomm_events_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '-3',
       ),
     ),
   );
@@ -430,6 +443,7 @@ function occomm_events_field_default_fields() {
       'locked' => '0',
       'module' => 'cck_phone',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'size' => '15',
       ),
       'translatable' => '0',
@@ -707,6 +721,7 @@ function occomm_events_field_default_fields() {
         'enable_country_level_validation' => 1,
         'enable_default_country' => 1,
         'enable_extension' => 0,
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -745,6 +760,7 @@ function occomm_events_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -795,6 +811,7 @@ function occomm_events_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'value',
         'title_maxlength' => '128',
         'title_value' => 'Homepage',
@@ -815,6 +832,85 @@ function occomm_events_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-event-title_field'.
+  $fields['node-event-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 10,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
@@ -826,6 +922,7 @@ function occomm_events_field_default_fields() {
   t('Phone');
   t('The location where the deployment occurred.');
   t('The start date and time of the event.');
+  t('Title');
   t('Url');
 
   return $fields;

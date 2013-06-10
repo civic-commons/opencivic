@@ -45,6 +45,8 @@ function appcat_misc_menus_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Account');
+  t('Blog');
+  t('Contact');
   t('Home');
 
 

@@ -35,8 +35,10 @@ function appcat_organization_content_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -51,6 +53,12 @@ function appcat_organization_content_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '1',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -68,6 +76,7 @@ function appcat_organization_content_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
+        'entity_translation_sync' => FALSE,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -113,6 +122,7 @@ function appcat_organization_content_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'max_length' => '40',
       ),
       'translatable' => '0',
@@ -131,6 +141,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -143,6 +159,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Abbreviation',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -192,9 +209,10 @@ function appcat_organization_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -209,6 +227,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '14',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -221,6 +245,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Organization type',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -248,8 +273,10 @@ function appcat_organization_content_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'addressfield',
-      'settings' => array(),
-      'translatable' => '0',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => '1',
       'type' => 'addressfield',
     ),
     'field_instance' => array(
@@ -278,6 +305,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'addressfield_default',
           'weight' => '3',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -290,6 +323,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Address',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -345,9 +379,10 @@ function appcat_organization_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -362,6 +397,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '13',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -374,6 +415,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Civic sector',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -401,7 +443,9 @@ function appcat_organization_content_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'geofield',
-      'settings' => array(),
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
       'translatable' => '0',
       'type' => 'geofield',
     ),
@@ -417,6 +461,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '9',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -429,6 +479,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Coordinates',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'local_solr' => array(
           'enabled' => FALSE,
           'lat_field' => 'lat',
@@ -494,9 +545,10 @@ function appcat_organization_content_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -511,6 +563,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '11',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -523,6 +581,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Tags',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -566,6 +625,9 @@ function appcat_organization_content_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'entity_translation_sync' => array(
+          0 => 'fid',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -586,6 +648,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'image',
           'weight' => '0',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -600,6 +668,7 @@ function appcat_organization_content_field_default_fields() {
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
+        'entity_translation_sync' => FALSE,
         'file_directory' => 'content/organizations/logos',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -647,6 +716,7 @@ function appcat_organization_content_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -663,7 +733,7 @@ function appcat_organization_content_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
@@ -681,6 +751,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '6',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -693,6 +769,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Members',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -739,6 +816,7 @@ function appcat_organization_content_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -755,7 +833,7 @@ function appcat_organization_content_field_default_fields() {
         ),
         'target_type' => 'node',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'entityreference',
     ),
     'field_instance' => array(
@@ -770,6 +848,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '10',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -782,6 +866,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Related applications',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -835,9 +920,10 @@ function appcat_organization_content_field_default_fields() {
             'depth' => '',
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'options_list_callback' => 'content_taxonomy_allowed_values',
       ),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
@@ -852,6 +938,12 @@ function appcat_organization_content_field_default_fields() {
           'type' => 'hidden',
           'weight' => '7',
         ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -864,6 +956,7 @@ function appcat_organization_content_field_default_fields() {
       'label' => 'Services',
       'required' => 0,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -892,6 +985,7 @@ function appcat_organization_content_field_default_fields() {
       'locked' => '0',
       'module' => 'cck_phone',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'size' => '15',
       ),
       'translatable' => '0',
@@ -908,6 +1002,12 @@ function appcat_organization_content_field_default_fields() {
           'settings' => array(),
           'type' => 'global_phone_number',
           'weight' => '4',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1163,6 +1263,7 @@ function appcat_organization_content_field_default_fields() {
         'enable_country_level_validation' => 1,
         'enable_default_country' => 1,
         'enable_extension' => 0,
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1201,6 +1302,7 @@ function appcat_organization_content_field_default_fields() {
           'url_cutoff' => 80,
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'optional',
         'title_maxlength' => 128,
         'title_value' => '',
@@ -1221,6 +1323,12 @@ function appcat_organization_content_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '5',
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1245,6 +1353,7 @@ function appcat_organization_content_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'entity_translation_sync' => FALSE,
         'title' => 'value',
         'title_maxlength' => '128',
         'title_value' => 'Homepage',
@@ -1261,6 +1370,85 @@ function appcat_organization_content_field_default_fields() {
         ),
         'type' => 'link_field',
         'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-organization-title_field'.
+  $fields['node-organization-title_field'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'title_field',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'max_length' => 255,
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'organization',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 15,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'title_field',
+      'label' => 'Title',
+      'required' => TRUE,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'hide_label' => array(
+          'entity' => FALSE,
+          'page' => FALSE,
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => '-5',
       ),
     ),
   );
@@ -1282,6 +1470,7 @@ function appcat_organization_content_field_default_fields() {
   t('Services');
   t('Tags');
   t('Telephone');
+  t('Title');
   t('URL of an image for the logo of the item.');
   t('Website');
   t('What civic purpose does this organization serve, e.g., education, elections?');

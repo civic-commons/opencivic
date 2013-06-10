@@ -103,6 +103,9 @@ projects[email][version] = "1.2"
 projects[entity][subdir] = "contrib"
 projects[entity][version] = "1.0-rc3"
 
+projects[entity_translation][subdir] = "contrib"
+projects[entity_translation][version] = "1.0-beta2"
+
 projects[entityreference_prepopulate][subdir] = "contrib"
 projects[entityreference_prepopulate][version] = "1.1"
 
@@ -169,7 +172,11 @@ projects[jump_menu][version] = "1.4"
 projects[l10n_update][subdir] = "contrib"
 projects[l10n_update][version] = "1.0-beta3"
 
+projects[l10n_client][subdir] = "contrib"
+projects[l10n_client][version] = "1.2"
+
 projects[label_help][subdir] = contrib
+projects[label_help][version] = "1.0"
 
 projects[languageicons][subdir] = "contrib"
 projects[languageicons][version] = "1.0"
@@ -316,6 +323,15 @@ projects[title][version] = "1.0-alpha7"
 projects[token][subdir] = "contrib"
 projects[token][version] = "1.4"
 
+projects[tmgmt][subdir] = "contrib"
+projects[tmgmt][version] = "1.0-alpha3"
+
+projects[tmgmt_microsoft][subdir] = "contrib"
+projects[tmgmt_microsoft][version] = "1.0-alpha2"
+
+projects[transliteration][subdir] = "contrib"
+projects[transliteration][version] = "3.1"
+
 projects[variable][subdir] = "contrib"
 projects[variable][version] = "2.2"
 
@@ -323,6 +339,7 @@ projects[viewfield][subdir] = "contrib"
 projects[viewfield][version] = "2.0"
 
 projects[views][subdir] = "contrib"
+projects[views][version] = "3.7"
 
 projects[views_data_export][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta6"

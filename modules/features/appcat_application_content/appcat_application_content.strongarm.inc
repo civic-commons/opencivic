@@ -80,6 +80,9 @@ function appcat_application_content_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'ical' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -87,13 +90,13 @@ function appcat_application_content_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '26',
+          'weight' => '5',
         ),
         'redirect' => array(
-          'weight' => '25',
+          'weight' => '4',
         ),
         'language' => array(
-          'weight' => '5',
+          'weight' => '2',
         ),
       ),
       'display' => array(

@@ -70,8 +70,6 @@ function appcat_organization_content_rdf_default_mappings() {
     ),
     'body' => array(
       'predicates' => array(
-        0 => 'schema:summary',
-        1 => 'schema:description',
         2 => 'content:encoded',
       ),
     ),
@@ -152,6 +150,9 @@ function appcat_organization_content_rdf_default_mappings() {
       'predicates' => array(
         0 => 'schema:url',
       ),
+    ),
+    'title_field' => array(
+      'predicates' => array(),
     ),
   );
 

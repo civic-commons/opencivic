@@ -1,17 +1,9 @@
 OpenCivic for Drupal 7.x
-----------------------------
-Get started building with Drupal fast.
+========================
 
-OpenCivic is a basic distribution meant to capture elements that are generally
-useful and make building Drupal sites and Drupal distributions easier.
-
-OpenCivic helps site builders
-
-- use install profiles and drush make for defining projects
-- manage the dev > staging > live workflow problem using Features and
-  exportables
-- keep track of important upstream patches that are critical to Drupal
-  distributions
+Introduction
+------------
+The OpenCivic distro of Drupal is designed to support communities of software developers in creating, cataloguing and sharing software applications. It is based on Code for America's [Civic Commons project](http://commons.codeforamerica.org/), which was created as a platform for sharing information specifically about "civic software" used by governments and nonprofit organizations to provide public services. The main goal of this distro therefore is to help build websites that enable people to share information about software applications — what they do, who created them and uses them, where they have been deployed, and how well the software works.
 
 
 Requirements

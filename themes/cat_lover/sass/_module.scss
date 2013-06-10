@@ -310,31 +310,55 @@
 
 
 #block-menu-menu-footer-menu {
+  .block-title {
+    display: none;
+  }
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 626px;
+  float: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  // This would need changing if menu grows
+  width: 38%;
+  text-align: center;
   ul {
-    &.menu, &.links.menu {
-      display: inline;
-      padding-left: 0;
+    list-style-type: none;
+    li {
+      float: left;
+      list-style: none;
+
+      a {
+       text-decoration: none;
+     }
     }
-    &.menu {
-      border: medium none;
-      list-style: none outside none;
-      text-align: left;
-    }
+    // &.menu, &.links.menu {
+    //   display: inline;
+    //   padding-left: 0;
+    // }
+    // &.menu {
+    //   border: medium none;
+    //   list-style: none outside none;
+    //   text-align: left;
+    // }
   }
-  .menu {
-    margin: 0;
-  }
-  ul {
-    &.menu a, &.links.menu a {
-      text-decoration: none;
-    }
-  }
+  // .menu {
+  //   margin: 0;
+  // }
+  // ul {
+  //   &.menu a, &.links.menu a {
+  //     text-decoration: none;
+  //   }
+  // }
 }
 
+#block-menu-menu-footer-menu .block-inner,
+#block-menu-menu-footer-menu .block-inner .content{
+  // display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
@@ -1279,7 +1303,8 @@ footer#section-footer a:hover {
 
 #zone-footer-wrapper {
   background-color: #44484F;
-  padding: 20px 0 0 0; }
+  // padding: 20px 0 0 0;
+}
 
 #zone-bottom-footer-wrapper {
   background-color: #ffffff; }
@@ -1816,23 +1841,11 @@ div.field-item.even p strong {
   white-space: nowrap;
 }
 
-.view-application-at-a-glance .views-field-view,
-.view-application-at-a-glance .views-field-view-1,
-.view-application-at-a-glance .views-field-field-creator,
-.view-application-at-a-glance .views-field-field-install-url,
-.view-application-at-a-glance .views-field-field-download-url,
-.view-application-at-a-glance .views-field-field-license,
-.view-application-at-a-glance .views-field-field-release-notes,
-.view-application-at-a-glance .views-field-field-requirements,
-.view-application-at-a-glance .views-field-field-software-type,
-.view-application-at-a-glance .views-field-field-url{
+.view-application-at-a-glance > .view-content > .views-row > .views-field {
   border-bottom: solid 1px #DDDDDD;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
-
-
 
 .view-application-categories .views-row {
   color: #666666;
@@ -2265,4 +2278,19 @@ Frontpage specific.
 
 /* List: Related Apps */
 .view-related-apps-block view-empty {
-  display: none; }
+  display: none;
+}
+
+
+
+/* Blog
+============================================================================ */
+
+#block-views-blog-block .field-type-image {
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 220px;
+}
+
+
+

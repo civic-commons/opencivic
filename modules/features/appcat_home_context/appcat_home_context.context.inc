@@ -26,19 +26,19 @@ function appcat_home_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-homepage_latest-block_2' => array(
+        'views-blog-block' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block_2',
           'region' => 'three_three_33_bottom',
           'weight' => '-9',
         ),
-        'views-homepage_latest-block' => array(
+        'views-application_list-block_1' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block',
           'region' => 'three_33_first',
           'weight' => '-7',
         ),
-        'views-homepage_latest-block_1' => array(
+        'views-deployments_list-block_1' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block_1',
           'region' => 'three_33_second',

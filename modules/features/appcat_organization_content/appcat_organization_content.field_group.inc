@@ -33,7 +33,6 @@ function appcat_organization_content_field_group_info() {
       7 => 'field_member',
       8 => 'field_telephone',
       9 => 'field_url',
-      10 => 'title',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

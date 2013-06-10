@@ -11,7 +11,7 @@ function appcat_default_content_node_export_features_default() {
   $node_export = array(
   'code_string' => 'array(
   (object) array(
-      \'vid\' => \'32\',
+      \'vid\' => \'125\',
       \'uid\' => \'1\',
       \'title\' => \'Advomatic\',
       \'log\' => \'\',
@@ -19,16 +19,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'7d2f716b-44a0-4198-9548-003d1b6dca34\',
-      \'nid\' => \'2\',
+      \'vuuid\' => \'e0c9b725-aded-44a2-b776-d1d18f3861a5\',
+      \'nid\' => \'3\',
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'15f6028e-611a-20e4-7557-d0065c21f663\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -45,7 +45,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_additional_type\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'186\',
+            \'tid\' => \'117\',
             \'uuid\' => \'b14b498d-7185-a9e4-d5e0-eb88d3a0b76d\',
           ),
         ),
@@ -103,7 +103,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'5780\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'a546848a-7862-c8d4-51da-01288228e3b3\',
             \'rdf_mapping\' => array(),
@@ -115,7 +115,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_related_applications\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'4\',
+            \'target_id\' => \'5\',
           ),
         ),
       ),
@@ -138,6 +138,32 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Advomatic\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Advomatic\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Advomatic\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'3\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366892652\',
+              \'changed\' => \'1366892652\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -146,7 +172,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -166,7 +192,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'content:encoded\',
+            2 => \'content:encoded\',
           ),
         ),
         \'uid\' => array(
@@ -177,7 +203,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -193,23 +219,76 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
         \'field_civic_category\' => array(
           \'predicates\' => array(),
-          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'2\',
-        \'source\' => \'node/2\',
+        \'pid\' => \'169\',
+        \'source\' => \'node/3\',
         \'alias\' => \'org/advomatic\',
         \'language\' => \'und\',
       ),
@@ -217,7 +296,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'33\',
+      \'vid\' => \'126\',
       \'uid\' => \'1\',
       \'title\' => \'City of San Francisco\',
       \'log\' => \'\',
@@ -225,23 +304,23 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'3d9b3f5a-97aa-4a37-9324-da6f8ab74955\',
-      \'nid\' => \'3\',
+      \'vuuid\' => \'ef3bf184-f7b9-407d-a81e-8502df5617b1\',
+      \'nid\' => \'4\',
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1781739f-0c84-4f2b-aef9-93b7f2965182\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_abbreviation\' => array(),
       \'field_additional_type\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'191\',
+            \'tid\' => \'122\',
             \'uuid\' => \'c4f32642-b538-6134-55b9-71c15944cec3\',
           ),
         ),
@@ -269,7 +348,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_civic_category\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'135\',
+            \'tid\' => \'68\',
             \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
@@ -314,6 +393,32 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'City of San Francisco\',
+            \'format\' => NULL,
+            \'safe_value\' => \'City of San Francisco\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'City of San Francisco\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'4\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366892652\',
+              \'changed\' => \'1366892652\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -322,7 +427,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -342,7 +447,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'content:encoded\',
+            2 => \'content:encoded\',
           ),
         ),
         \'uid\' => array(
@@ -353,7 +458,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -369,23 +474,76 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
         \'field_civic_category\' => array(
           \'predicates\' => array(),
-          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'3\',
-        \'source\' => \'node/3\',
+        \'pid\' => \'170\',
+        \'source\' => \'node/4\',
         \'alias\' => \'org/city-san-francisco\',
         \'language\' => \'und\',
       ),
@@ -393,7 +551,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'34\',
+      \'vid\' => \'154\',
       \'uid\' => \'1\',
       \'title\' => \'Drupal\',
       \'log\' => \'\',
@@ -401,24 +559,24 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'580b93cd-321c-4077-9742-91bd4eeddac8\',
-      \'nid\' => \'4\',
+      \'vuuid\' => \'6269452f-3d4a-425c-b0d5-3c18710f4660\',
+      \'nid\' => \'5\',
       \'type\' => \'application\',
-      \'language\' => \'und\',
+      \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1366721906\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1a4710f7-22ff-a854-3d8f-987e5eb075de\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1366721906\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'value\' => "<p><span style=\\"font-family: \'PT Sans\', \'Lucida Grande\', \'Lucida Sans Unicode\', sans-serif; line-height: 18px;\\">Drupal is a powerful content management system (CMS). CMSs enable easy management of workflow in a collaborative environment to power any type of website, from government sites to social networking sites. Although Drupal offers a sophisticated programming interface for developers, no programming skills are required for basic website installation and administration. Video: http://dai.ly/gabKRV For a full list of governments using drupal see: http://groups.drupal.org/node/24119#USA http://groups.drupal.org/government-sites#USA</span></p>",
+            \'value\' => \'<p>A content management system that powers various types of websites</p>\',
             \'summary\' => \'\',
             \'format\' => \'filtered_html\',
-            \'safe_value\' => " <p>Drupal is a powerful content management system (CMS). CMSs enable easy management of workflow in a collaborative environment to power any type of website, from government sites to social networking sites. Although Drupal offers a sophisticated programming interface for developers, no programming skills are required for basic website installation and administration. Video: <a href=\\"http://dai.ly/gabKRV\\">http://dai.ly/gabKRV</a> For a full list of governments using drupal see: <a href=\\"http://groups.drupal.org/node/24119#USA\\">http://groups.drupal.org/node/24119#USA</a> <a href=\\"http://groups.drupal.org/government-sites#USA\\">http://groups.drupal.org/government-sites#USA</a></p>\\n ",
+            \'safe_value\' => " <p>A content management system that powers various types of websites</p>\\n ",
             \'safe_summary\' => \'  \',
           ),
         ),
@@ -434,36 +592,24 @@ function appcat_default_content_node_export_features_default() {
       \'field_application_category\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'28\',
+            \'tid\' => \'14\',
             \'uuid\' => \'91dc0575-1800-4f14-419a-69f1cca0a5ee\',
           ),
         ),
       ),
       \'field_civic_category\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'76\',
+            \'tid\' => \'35\',
             \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
           array(
-            \'tid\' => \'135\',
+            \'tid\' => \'68\',
             \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
       ),
-      \'field_contributor\' => array(
-        \'und\' => array(
-          array(
-            \'target_id\' => \'2\',
-          ),
-          array(
-            \'target_id\' => \'9\',
-          ),
-          array(
-            \'target_id\' => \'10\',
-          ),
-        ),
-      ),
+      \'field_contributor\' => array(),
       \'field_creator\' => array(
         \'und\' => array(
           array(
@@ -472,7 +618,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_description\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => \'A content management system that powers various types of websites\',
             \'format\' => NULL,
@@ -490,7 +636,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_feature_list\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => \'Excellent documentation and community with a highly active forum\',
             \'format\' => NULL,
@@ -522,8 +668,8 @@ function appcat_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'fid\' => NULL,
-            \'alt\' => NULL,
-            \'title\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
             \'width\' => \'1180\',
             \'height\' => \'1350\',
             \'uid\' => \'1\',
@@ -532,7 +678,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'25329\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'815cbf18-f5e7-c5b4-7122-2c09d5a091c8\',
             \'rdf_mapping\' => array(),
@@ -551,22 +697,22 @@ function appcat_default_content_node_export_features_default() {
       ),
       \'field_keywords\' => array(),
       \'field_license\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'168\',
+            \'tid\' => \'99\',
             \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
           ),
         ),
       ),
       \'field_related_applications\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'target_id\' => \'8\',
           ),
         ),
       ),
       \'field_release_notes\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => \'<p>The latest release version is Drupal 7.18.</p>\',
             \'format\' => \'filtered_html\',
@@ -575,30 +721,51 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_requirements\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'161\',
+            \'tid\' => \'92\',
             \'uuid\' => \'52a8c3a5-443b-3a84-f970-9c936222b636\',
           ),
           array(
-            \'tid\' => \'162\',
+            \'tid\' => \'93\',
             \'uuid\' => \'5330ac54-d7c9-8944-69cc-4b08757afe7e\',
           ),
           array(
-            \'tid\' => \'187\',
+            \'tid\' => \'118\',
             \'uuid\' => \'b4bdca4d-bbdd-eb34-8127-aecd910e789d\',
           ),
           array(
-            \'tid\' => \'190\',
+            \'tid\' => \'121\',
             \'uuid\' => \'c425e455-708c-4084-456f-308ece4f3ee9\',
           ),
         ),
       ),
-      \'field_screenshot\' => array(),
-      \'field_software_type\' => array(
+      \'field_screenshot\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'178\',
+            \'fid\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
+            \'width\' => \'257\',
+            \'height\' => \'132\',
+            \'uid\' => \'1\',
+            \'filename\' => \'Screen Shot 2013-04-23 at 13.58.13.png\',
+            \'uri\' => \'public://content/applications/images/Screen Shot 2013-04-23 at 13.58.13.png\',
+            \'filemime\' => \'image/png\',
+            \'filesize\' => \'13065\',
+            \'status\' => \'1\',
+            \'timestamp\' => \'1366721906\',
+            \'type\' => \'image\',
+            \'uuid\' => \'8745bf8d-4965-42fd-aaf1-94319f67a871\',
+            \'rdf_mapping\' => array(),
+            \'node_export_file_data\' => \'iVBORw0KGgoAAAANSUhEUgAAAQEAAACECAIAAAAfhAl1AAAKtWlDQ1BJQ0MgUHJvZmlsZQAASA2tlndUE9kex38z6Y0WupTQO9IJIL0GEJAOohKSQGghBoKIXVlcwbWgIgLqiq6KKLgqRdaCWLCi2PuCLCrqc7FgQ+VNwiO757y3/717ztz5zO9+72/u3Pubc74A9HquWJyHqgDki4oksaEBrOSUVBbpEaCgCyrABDqXVyj2j4mJhH9sH24DIhu8YSfL9Y+y/z2gyhcU8gCQGGw4g1/Iy8f4CHaV8cSSIgAcG4ubzisSyzgNY3UJtkCMxTLOmuAyGWdMcI1cEx8biGn2A5DpXK4kC4DWgcVZxbwsLA/tLsYOIn62CIBOxtiHJ+TyMQ7D2DY/v0DGmA4sM/6WJ+tvzOVmKHJyuVkKnvgWbCb24qDsQnEed7784f/Z5edJsf2SNwOspxfmxkXI7tielfC4wXGTLBRwZGcmj4uLAmInObuIEz/JQmlYwiRLcxP8Jzm3IEKhF2VERU/GeYWB2N5P5CwVxidNMl8QFDzJkoJYhb6wOE4RLxUGRk1qcrjhsvOWr40rweg/LMgLVbxXXBSjWKcoL0rxLZmSEIVGUPjX9xYJ42XnJ89ZJIlXaDKzQziTcaEkTBEX58lrWq6XSGMV+yAQJSj2kM8NUuwtxEAkBIMLsMGxSFAiqw8ILBDPl2RnCYtY/ljlC2xZHBHP3pbl5ODoDLL/SKYBeHdV/n8g2rISZclDUNyMld1bAJT+VywNO8/9wwBaDn/FTKlYaZsBHH3Dk0qKJ+biZTcCUEEZ1EEHDMAELMEOnMANvMAPW2M4REM8pMBs4IEQ8kEC82AhLINyqIR1sAlqYTvshL1wAA5BOxyDU3AOLsE1uAUPoB+G4CWMwAcYQxCEhDAQJqKDGCJmiA3ihLARHyQYiURikRQkHclCRIgUWYisQCqRKqQW2YE0Ir8iR5FTyAWkD7mHDCDDyFvkC4pD6ag6qo+ao1NRNuqPRqDx6Cw0C52LlqJl6Bq0Bm1A96Nt6Cn0EnoL7UdfoqM4wNFwmjgjnB2OjQvEReNScZk4CW4xrgJXjWvANeM6cT24G7h+3CvcZzwRz8Sz8HZ4L3wYPgHPw8/FL8avxtfi9+Lb8GfwN/AD+BH8dwKDoEewIXgSOIRkQhZhHqGcUE3YTWglnCXcIgwRPhCJRE2iBdGdGEZMIeYQFxBXE7cSW4hdxD7iIHGURCLpkGxI3qRoEpdURConbSHtJ50kXScNkT6RaWRDshM5hJxKFpGXk6vJ+8gnyNfJz8hjFBWKGcWTEk3hU+ZT1lJ2UTopVylDlDGqKtWC6k2Np+ZQl1FrqM3Us9SH1Hc0Gs2Y5kGbQcumLaXV0A7SztMGaJ/panRreiA9jS6lr6HvoXfR79HfMRgMc4YfI5VRxFjDaGScZjxmfFJiKtkrcZT4SkuU6pTalK4rvVamKJsp+yvPVi5VrlY+rHxV+ZUKRcVcJVCFq7JYpU7lqModlVFVpqqjarRqvupq1X2qF1Sfq5HUzNWC1fhqZWo71U6rDTJxTBNmIJPHXMHcxTzLHFInqluoc9Rz1CvVD6j3qo9oqGm4aCRqlGjUaRzX6NfEaZprcjTzNNdqHtK8rflFS1/LX0ugtUqrWeu61kftKdp+2gLtCu0W7VvaX3RYOsE6uTrrddp1Hunida11Z+jO092me1b31RT1KV5TeFMqphyacl8P1bPWi9VboLdT77LeqL6Bfqi+WH+L/mn9VwaaBn4GOQYbDU4YDBsyDX0Msw03Gp40fMHSYPmz8lg1rDOsESM9ozAjqdEOo16jMWML4wTj5cYtxo9MqCZsk0yTjSbdJiOmhqbTTReaNpneN6OYsc2EZpvNesw+mluYJ5mvNG83f26hbcGxKLVosnhoybD0tZxr2WB504poxbbKtdpqdc0atXa1FlrXWV+1QW3cbLJtttr02RJsPWxFtg22d+zodv52xXZNdgP2mvaR9svt2+1fTzWdmjp1/dSeqd8dXB3yHHY5PHBUcwx3XO7Y6fjWydqJ51TndNOZ4RzivMS5w/mNi42LwGWby11Xput015Wu3a7f3NzdJG7NbsPupu7p7vXud9jq7Bj2avZ5D4JHgMcSj2Menz3dPIs8D3n+6WXnleu1z+v5NItpgmm7pg16G3tzvXd49/uwfNJ9fvbp9zXy5fo2+D7xM/Hj++32e+Zv5Z/jv9//dYBDgCSgNeBjoGfgosCuIFxQaFBFUG+wWnBCcG3w4xDjkKyQppCRUNfQBaFdYYSwiLD1YXc4+hwep5EzEu4evij8TAQ9Ii6iNuJJpHWkJLJzOjo9fPqG6Q+jzKJEUe3REM2J3hD9KMYiZm7MbzOIM2Jm1M14GusYuzC2J44ZNyduX9yH+ID4tfEPEiwTpAndicqJaYmNiR+TgpKqkvqTpyYvSr6UopuSndKRSkpNTN2dOjozeOammUNprmnlabdnWcwqmXVhtu7svNnH5yjP4c45nE5IT0rfl/6VG81t4I5mcDLqM0Z4gbzNvJd8P/5G/rDAW1AleJbpnVmV+TzLO2tD1rDQV1gtfJUdmF2b/SYnLGd7zsfc6Nw9ueN5SXkt+eT89PyjIjVRruhMgUFBSUGf2EZcLu6f6zl309wRSYRkdyFSOKuwo0gdMyyXpZbSH6QDxT7FdcWf5iXOO1yiWiIquTzfev6q+c9KQ0p/WYBfwFvQvdBo4bKFA4v8F+1YjCzOWNy9xGRJ2ZKhpaFL9y6jLstddmW5w/Kq5e9XJK3oLNMvW1o2+EPoD03lSuWS8jsrvVZu/xH/Y/aPvaucV21Z9b2CX3Gx0qGyuvLrat7qiz85/lTz0/iazDW9a93WbltHXCdad3u97/q9VapVpVWDG6ZvaNvI2lix8f2mOZsuVLtUb99M3Szd3F8TWdOxxXTLui1fa4W1t+oC6lrq9epX1X/cyt96fZvftubt+tsrt3/5OfvnuztCd7Q1mDdU7yTuLN75dFfirp5f2L807tbdXbn72x7Rnv69sXvPNLo3Nu7T27e2CW2SNg3vT9t/7UDQgY5mu+YdLZotlQfhoPTgi1/Tf719KOJQ92H24eYjZkfqW5mtFW1I2/y2kXZhe39HSkff0fCj3Z1ena2/2f+255jRsbrjGsfXnqCeKDsxfrL05GiXuOvVqaxTg91zuh+cTj5988yMM71nI86ePxdy7nSPf8/J897nj13wvHD0Ivti+yW3S22XXS+3XnG90trr1tt21f1qxzWPa5190/pOXPe9fupG0I1zNzk3L92KutV3O+H23Ttpd/rv8u8+v5d378394vtjD5Y+JDyseKTyqPqx3uOG361+b+l36z8+EDRw+UnckweDvMGXfxT+8XWo7CnjafUzw2eNz52eHxsOGb72YuaLoZfil2Ovyv+l+q/615avj/zp9+flkeSRoTeSN+NvV7/Tebfnvcv77tGY0ccf8j+Mfaz4pPNp72f2554vSV+ejc37Svpa883qW+f3iO8Px/PHx8VcCVfuBXBYj2ZmArzdA8BIAWBeA6AqTfhcuQKZ8OYYyzy63Kf/N094YbneDWBnF0Ay9hC5FDCrAIDZD1DrAswAAWYrAHV2VlxYRNYKM52d5IDQdTFr0jU+/nYcgJQO8K13fHysZnz8WzXmx98DnIya8NcytfkVgDDM39gUHGv9IJ/+9+7f0RXwjKJxzzIAACgPSURBVHgB7X0LeBRFtn9nMskQMglJyIsQQkgIMRDeEiAK4iOLwL34frDCiqiXBV/s3r+yun57wXVBr6vrXfG1iOIVFx+LIt8VRFbBRUAQDQnBAIEYXnmThCTkOZn5/071dE9PT3dPTxICYbq+Tk911alTp351Tp2q6u50wOinvuGMYCDgxwiYuQA/br3RdAMBjjMZIBgI+DkChg34uQIYzefMAQHGZMjQA79GwPADft39RuOBgGEDhhr4OwLGvpC/a4DRfjNnbI4aWuDfCJiNFbF/K4DRes6YCxlK4O8IGGtif9cAo/3GesDQAX9HAPfI/B0Co/1+joAxF/JzBTCaT2tiwxEYeuDXCBh+wK+732g8EDDuDxhq4O8IGHMhf9cAo/3GXMjQAX9HwNgb9XcNMNpv3CMzdMDfETDWxP6uAUb7jWfmDB3wdwSMNbG/a4DRfmNv1NABf0dA73pg7+8n6ofqhxP1IP7xRH3ZuVZ2btNf1qC8KAg8MGXgg1MTPatGVy5eVzguKez1ecPFXCSOHxx+86pcax/zugdG8jRibq+LXJD1AAACEPwZkdK61s8PVn2eX1V2zjCGS1VDNJ4aC+COVjYtWvfTb3IGH61oQj8+MIWs5Zr0qPh+wc72aBS/VFssytUTe6MJEZYHpyTiWL+v/K2dZxpbO8Tqjcglg4CGFgc0ttp/PNnY0NKBUQwRXuZZo6KtFjMGOHapUfySaaKKICbIrudQKe5b8pys+PfuzxwW21dPjQZNDyOg1peiGCDg44j8X37VsLhQjG7/OlorpouUvSvS02tioPba3CsWv3+4qLJZDXQj/dJCQPZ0PbssP9eGeRHWe06vLqO5tBrgRRq9a2IvbHzJDutjfu2eK259Ld+YFPkC28WhFQd+VP8//zzZ0NqBFD7y+cFqXia4AiT23nBB1sRe4YAZPH/b0IfWH/FKaRD0EAIaWixkFVUx1x3AOSOCZOWICDRCWm/67eqaePHfj+SebJC1eGxS2LDYkKlpEePYBpEsl79E1tikcM+yisRG4oVHQEOLNbIuvFwXvoauPjcKeDynggdONeD46IfKsYPCnp6VPKCfRbEhD1w94OH1cvtRpFRMjA8Pxr41z7yosgnT0/L6S27vFQgM6BcsIgA5MYfu9rVQWmwIqkiL7csD1dBqK6poRl36Z5uqah6g0L+K3dF7E+EHLmDIPdVw7zs/bfj1SEx+PKsZlxQOPZYq7qo5wzzJ/uerUzKlmZnZ/84r44bFObtcLAL1WvNt6eaCs3wKuKEKMVeMgGbNrlLxUjEC3X31l+mKWdnP71dMFxOtlkD4wJkj+yvWDrKGFtu/iuo2HzwLfMRSnYhA9YED6lKEFwwxLmwuqEZF+o2hE2L09iJd/f4AnID2FwzOt9n/tOXEc7ekKiJ1zbBIuAsxS1Fppg6LPFbVwtNAvVbekorhXywijWAsfHrWkAERlrd3lbF0ldHNm8wo6+ncxIq023vn+NgFVw1QU0qeCXJnjYzGAR3969enck85d9zFKrxGoP2PXjdIDQexOIaJYXFJ91+VAJA/2l+pZQkqUBESGliINfXmSE88M7ezqA4jtCJKU9IiFNOlifAV/CU6/h8LM712vLRsT8Yh5zv3Zjx2/SBtA5CKBB1dNSf90esSYdvSdO04bGzt/OH6cYA8MIO18zMAoDZn/8w1sYGchj3tQw0d7VJi7hZhfiLjg44UaRBRDBjdkZUWF/LK3cP0qBfY8DwVuSFRJJBW7RlXLa6EFcSDknlOz9SYSNPvujJuFTUt0FMGWQpoAAIUWlpcZxwwoixmaDKezkt1Lsr0SiD0Ukr4AVIJHYcaSHrKBmi4+/hwrJhFJgq1wE5wT/73NybrMQBWXoubO4FIqRhREEax+NDYvq/cpcs+1TimxREHNFMChVwk5IJG//DvWRcA/P2M5BmZ/VVq8SzBp8glUSneW8lMLvXTbkLX8Mk9rTrlHRAR7JJBpZanZgyGlqhkeiSLDfHIcSaIBNoRfcXx3Ngrd6Xptk81pnB0fVfcnOKCwkM2TJl8AEG1Hg5mMBSTIg/+qiU8KS+vFDwvpMuDqQKkrzhqwWaIIpO0GDw+5MUhY+tDsaxaosBQLR8K4KXVbKhTLi4ru/LmlK4bAF8TxvgF2QNk/PnLqUMjsBumLJDvqSSzBY8IuEBQ48G03UUmLXLZxLvjPjFw0hGOVTVjw9GT0NonkMYk3wO//z00JkRBBXmGGmw1srxKIik7Y0SUuCuvVg5yYm8XW8BjB1mxbsa8XI0S6bCBLYdqpPvFSMSK+ckbkzRKIQtDDBDGnBNVYO2rLRVkuGN8zDt76A6vl4DGStrrhbh3Znf1eaGuQ+QrB+ypf/xj1bfHzomAo9enDO13o6COXhl6JQBn0KgFadYj0waqkSEdG2Kv7DgjKvTaPUR79dB+902O19BR5D639aSU7Z3jYhTsXKDAntvaPeWwHCGBfoHJ/MnxGq7jjnEx//ixStwtlTZKygdxjSwZZS+97Pr9gS7vHxMDXThjqFu1o/SLn6izpUUqGtr/kVuNY0yi9eFpCZSnzdArgTt/WdeKzG8cHqWhmiu/OOkpKljtOl6P43fTB80YoTy3geK++k2pqJ0ocvu4GJkM4uWWQ2eBCYhFqfgsYPL8l6e2/lT77GzlvQRIfsf4WBiPk5U6YjLOYtWXTaQn7g90C1gwgCUfH+e1So3hgdOND6w7+oX7iKhG3PX0q4cq3ITm2YoGoFbLc1tPQX3VcuHTxKyrU/upWRpcIvhIrUUsxUcACECTJYqXNw6PFOP+HOmhfSEvDhVugD/Uu2LVN6XHqpudZCK9UqS8oc0rNz18VGURKp0yVHmlvvNY3ReFNV6rQIvUbh2OSQwVi48ZFKooCQaF5748JZKpRQCa2rwfqwJ6GdIb8mqcL5v0ru4LMQB17RuoTSylHBQ7G4lY6sGt+7oRoadGdZ5qsqDrqb1jE61qFJjJqLN1YXW+1b4h1/kIvozVmMQwkcPQGOVN4S9+qq2obxfJNCIbcqtk/MXLtJgQoaCYJou4BBYoL7eUS8APCMMqjSsqYcOBqs6MOirc9LLSLO56ndydjLaAGtp1VvFtsWtlL2WD+8EiB+wmSbPE+FYdroZn0thm3ynZQhA5IOJ2o0CaIY1LO+hyjNMmsbS9vsdpVNBTCkOOIhne1/bKYdfxBq80nszVxdIjs2ppXhJ2e9uzTu54VbN+USvqbY0tHbQ77BGw53tceFLQI5MSjle16q/oeHULts6U+IhQKLcXqfprUeLfC9J67v6AYk8DIexqezci5Q7yhq9GKY0sb1y1pXU6Aa9MBALM17GdJVy5fukpOm0htXNdnLzFtPkgV5vAG/tLP7+H9oVGD1Re2AEgcfu828FS2zCxWi5gq+PDg3xqCMZ7RXo14RWJjcSuINBD9wfUntpFT1c22rzuQHslUIQAEwBsLHpmQe28MlSbhWO3kS+LOYRi0MNcLBgXFqT21HTx2VZtIeE98s6cF1lpR4bG9FEkoJkQa4lac1BKWwxFtr0rsav/X4h3lV7P0zOUt6JJpZiz5c9q2Elp9MfPq/wzL2iPVyap0cpKQzqhOTuADQyN7uOVP0+gtkOPoUHkAIgUYQGkIo12xBpsUhwLeLZ8WcUqpATaVfTq3As4KxBhxURIzePn6x7JRG76I+LbZ55Fpmcob+3zlKHqSqNn6F08dYBnjZ4pqOW2MdGe6UiR6r1aK2A/cCOKxWWJv5oYJ0sxLqUI4B0aXUFaRhr3Whi+XkMndhU3SDlIOUvjUhr98fxS1ZfKoRYQTI3VvZNUlSb/TJOzlPpSEX4Gyq3GXExfmjNIbSK0+2cXLPmlqhOeZ/5tsEYr+IqmD4+8fayypQFhNhVihOrNEQW+XCMX1g9gqHvx1iFqTgC3vfBYi1TXuz2OJ3MUeeKRssVTlEfrX2REqA3PmKLo8QOoEWZ/62jlx4GQC1iWz0y6KlX5UQvUIhV7d3GD2rYBgAW84KbYRiSiLU/coPDfpNXo/TO9y/9rkWaC+JMHzKevSgmDHqgNdSjwST4eKFAoK+eFa51kHiW/PFKHgdAjmRKQPjox9H/3Ve0qrseL/0jJHhKGOdJVKcqqCYJP8s66JPEmOMwgOyX8ve8r8840UX0sQF/B/1dZMTBCIU3+S/K0O1wVcdyXh+t+lRUrp2PXMIP356dDsA0HzvKt4MmAP2rRaIuTm9h9qs0hV6FY9WWT2NX/L7To6ngp9MAF3aw28EtR25B3tvhsi054dZJJ+fNxTIcwcqvtzEIRn7gBDz9rPf8s8sTwDF30SRI89jMmcQgKYoeK56MmibSW178tl9UCFf/FFRFqZoNRBhaCQ/RRWCeoEYsViRFZXWI6H0GuNoGMvjdedvX9AT3q7okL7out21epf3jRT+lZ13v7KkffMsQz3deUTw5UV9a3uSRxUNDDBIPCqATnMz9ei/zv3oomjwehm9rsb3xbvmyml9dovBqYp7RoDt8iV7s8iDSyPGh7ZQKeF2KW7vXcfa07Vt3y+GcnnO5eVq9aLTIyXy7zy5ppDtOpwPScTvgPm+v2VzsCOPEAPzFXGsGWDg5piv741sLaTw96zA9ZY3eXNHa6FVhOiC5CDoMUSXmecC2luRzjqsspAYBu/kVnPL6xRDZ96uY6PNi9sasChueRrJXAKy4oEMFTysu3nESEw7gvHLhAsHsEJL2xs8wjWTWBuLAAM3vj2zLwpyuc2EEi8lGOQyu2Hq7TElolDwVVcoxkQqCr94n1o4hpMYbST7EOpiWubw7WV3pPqZ747MQLNw3WuPMlFiENZIGP4BH/P249XdnQ7hKZEdg7KIilxIjdYcc65719Ffdcqfryl0gsRvacaPzL9rKmdoerFj6P4QRPzV+9tL0MMawNxIJeI1jD7ClpvGWU66UcWRGv2HolkDHsdZcK/wa029uAFeG2I+fQGT08/EsbgqoXf/zzwuxYjS1L0PN6L57/+UPRX3aUNbVB15lhIIN+6a+6vOnEiSb+WlpRaUVzS03p29vOOOpjrlbfYhKLQMM2HqzZVMAP8EzfnHZAc1T8WSJiMQFDIEtwOF7cXobHKOZeie8gKTxtKrLlI8Ac9LJE41KGQFfXxDJ2/CUmoNj4L65uQW9hZ0a8CeAczRTLaCZ2uqCM6992V35X0njPldGKy0dR9VEKw//f91f9397TW5YqD7pmU0BQYIOMPy5T0xw3THJ6ALOpwUz/PE412B2ONpvjoeTAh/5d+WbCjOfrqDgsj9jAFsgMNubX7Pm5Aa3Qdgjrvq+C49WoHYyRyxNokGlkqTasV2UE3Ph6oR6BRwo7GxrE0HXMGTQIvGap1XKw1LXF7pWJHoKU/pbJQ8JGDQhJie7DD6i8AeSdboTd7ilpoBodjubasi1LlW8vMBtQUA+odauNOQ0mByhgBuyOtEsuu4MDma1DmHW5cuSxGc/XhkQOYAZAM0hkkxnQD51jw4Jy0vtNTrZK53gV9W0Yd9b9cFbaF2hvqJLfELsMrBSfvMAzVwCEarx8g14buHwREFpGRsB0l9dMXDocmNVseVJ5hNZpAwJ3+mXKy9chTdaKz1h5tk9UApsTuVSfzMDDu2AHFkp82eurFlidzevqPbLO1nuJlaPJBhOJj5A94O02mATdP+6u4PIOPnCEGJABKs92sSESWzLQmsTdDJra7T/X4HFrH1gbpDwC/D95NdCATvFugCbc5An4vUl7d9qAV5SrDny7u2noTdnxIiV2Wp1WybsR6DgEY45A8CsirRHpJAK636nHAHO5HlArSdOYKWDGTk7AYZfsfrYcfSB4QqhwTL/3b98Ud/MqpfTrJ+Z+4/Y/IJgAgjDucjJXcPl2iqRHpL1zIeJdf6e+k8Z3SRWjsZVmKgEYdwE+ogFwBnACDjc/gJdZ/vD5p49N7ldZeerTpfddm/rVjrL1U+O971HqbaxlXCbnzg0COOjetHMKZHcEmExMPigDryZ6eRt0agjo/QYHnLCfHBj+YQBsJQAzkPgBjsNz2OExkX2sYUkpw/9zw6ePcMf/9PERruXkkuue/eSTj0wB4/+SW3/43f9+cM0xBnfzx/ctfucQ+YqiD//62Ktfv//4XLgR6+2r86rBtu1fLy3jvcrMhzaUKf9PbthgB7NDp0h+0gU93MyeflZCzRYvWjqpuxD4dQD8gAOzIDYRcrcBRidaxcBf/XXSP9/6sc7W8vP2T+9YXvbjia0PZoQ31Z8sOOf8PGb1wf3n2km72xtL3/rN0tPZT58o3fCn+reuenw7UvtPuuNY/ffnK9/lVj/32RGVaZW9A2bAVgW8R4LHkgksCG/8dhaBnntWorMS9lw5TH8wvaCZBgJbfLLVMbtUOQUMCTWbyT9s/+oxz/ci8U/WnVvrLY2jnluz9JYrwOaex+c+Naui8Z3gEVlJ+7/c9tnPFXhfwcFMxbMSXiQaF2l65twK4rdKWRpSSWQjdAUBv/cDpPOuwZXFYATkCTiP9QADWpyvV3/86Hc3zMpk/xtoXF/pK/gWp1625TvHbLpxaHH+DxXnrKfx6AN9r3sxr2PqjKwM0VQ8e5I8EvwAE4lcgJMhoq64ZykjxRcEjPWAdJ1DfoAcAJbINOriV5z5EKgYsOvrGmy2trrq4r/dO+u/uSnLbk9tbqdZCs78YbM7Dm4/Wmdr3vPqsv+E5rPOCOpjzX8HqeDWsPPv75seSzYfy1vPcfc/eOPw8Ba6Ua92ex0C0EqMiUSbohTv4enyZV8d/ADrd78/s2k2oCC/4Dy73ANLwfdgOO6ZX/x7v75XDUy4a1v047mVL41mXkD68uUVM24fsenZgX2nPlsx9pFRjKGz9JF5sZNCg6+bf3DBD3+8ypo5dcU0000JE0Jv/Dj5nmG/v2pZXgsXRP+TxS2QVPyBZBKMOksQleLG0XUEAmavKXJD3d8u+EkFzjS5YBOPDjzH02G32Rwdtsby49tWDPcZEltbYwtntbreGM579eFfc4/teSilrq7NGhEiPKzb0djYarXiFTNEOqT0Yo05TxVa41MCAs0mM1ZuePAoMMCE/8FI/w0EHoGWBDgZoWsIGPeJpfhJh1XeH3RKw8zBVtl/EG09V9CKl3gCIyKk/1kxkBkABEBEXGZI5aE4Rn8mhFQ2WVxexLj2CQHjeSF3uHjtYjsw3TjCjn50TZlNVcvdJZBfsRGfTXrYoE9S8aM/eQGnfcjLGNe+IHBB3h/wRYBLlBYKxj+k1j3ywTMIEyCfGELLhTe+mRkIOk/aL8R9YmgQeyLQ5f8v5MmyF6cIIy0GW3okIYAm3xc1kAD4l7AQxukOxIjoC3hzuKhS9vLKOzU69fI2K4qPFaZzv4VpG12yOUfOkwV2WzsdHe0Om43O4r1bFsGMne3e0K6NDwEVsKkMtJwdJj5iCgwKMJtxNpn5A5urjJS3AVYBX9KHugxSTQSM9YAAD6092RQbZwy95AQCrHGDSek7eBvooEiHDdtHeKEelkD7SLSbRH90/8qnQIpMYzn7JQMwsT0fsgQYQGAgbIBFgtgmEAnjpKUCbBrEhGVrAp8qNojlCBj7QqSJ9NQoKTGi0DXEMeWAEWAe4giw4w9DNf9gKc3Oof2mgEA3G6CyPtqAMLqLNkAqTgZgZg4Bc1S8gAnbgDwsArskqxHu57AL1pnGXEiu075eG35AQAzaBbUnVacY7MHkMNkxEw/EMEEPEkEDHXh80wQbIANwOEz0cDUC/EAXbAAMnNpPkyLnjIi3BFSNFAQyTDoowtsOWSsvuGECPA5dOPv9vhCptnMIh16xByRIK2nEhRFwgdDvAM4MZaehntwBjg7OxMzARGlkAAIH3zqCdB8qzH7ozhfzA4Il8AbAfAJvAYyUSeZSfkozQlcRMPaFZAhi6hFI7xLz4yyvY2xS4rDb2APVsAp6t4Y9X0020EkD4KvlbYCmOZhkMV2nwR4HeQA2NYJzgK/mE9lECEWY4ZCEhg3Ieq9Tl37vBxhq5AFI3XEykYqTTsInYLDnHIH8FKkDEyWWiVkQvdvFAkU6BbukELkBMgKqlHSddwjMAGAGzlUBy2Vi8QaAawkLI9olBIw1MZv5iKpMqkWTbrpTjOUAAnwCRaCgUHuYB+0Z8TZA5y77AdJm0n46Uy2k93QTgJwAmQQdvIsgAqJBIEohzhKMUxcQMNbETvCgU+QK2Gs0GPJpcYz1L+2RsjS4BVJ4YTMUxoDAfIEAvq8Ogddm0nZem52qT5e8W6CzYABEQwVI+YmCKnUyEOo3fjuLgHGPjCEHveJdAa9pUG423kOv2S/mPIwAi2Sm/ex2GllAt+ghU29PSyALII3nzxCTlF+oUIx0tuONciIC8AMCrGKav0agYjS3ASBQblJw8gZssCeI+GUAnvFEjhMhijjjrkR96ElgZ/izXnAm4gd6TzpPNoCDKFiEfp1OwOg1fUDroDL8gAASlIzGdcEMoG1QcVgBqR/WxU7bYFoIhaclAemlEFwxIcW3X9J78GBsKEaqDw4skX6clwKBb8wNak0EzHRHyAhOBCRmAG1jQzwZAY32tCRmMTpDPcljUAY7U6yzgdd1XrnBg13izKzBdUk5PI2Q09n6jHJyBIy9UXdEoGHMGyBVOtl3aiRSmWegX177XRnufHy9YprtYiYqujNdyBHTfeVv0KsjYOY3xtUJ/DCHKZxoCfx4TzA4h3ynPvI/3eQHPFAWKhENkdf+Lnsdj4qMBM6YC6kpgZslMCK2VJCTO5VVntyFa+ecR+RgjP0iFBcmYsyFNHGV6p/gGTQLdFOmtN5uYmmwUUOgM88Ltba01dTWNzU2I6LG10j3joDDYQmx9LWGREWGW/q4/gmF14Iu/JtbnWtor2X8k0Afwj77gerK2sqKWueuiH8i212tDgiANuOoq66PjYuMjlX+6JOsNjf8DXchQ0d2qQ9hH+4P4BO7J0+Un29sllVkXHYRAQwoFRU1jeebkwbH420BNW4G/mrIeE3XRth5J5JcqrejorzGMACvcHeaANgCYY1eMPDvNLZ8QTWEVUcdWX0t+OpudWc+ki7jY1xqIACEgbMigYG/Iiy+JioiTI9G6jlqaxuIzggXFIGAAOCs2B0G/t0DvBLCet8faGhQ+UhE94hmcHEiwHBWGGsM/LtLRTwR1rsv1N6m9t/Bu0s2gw8hAJwVLIClGwB1CwKeCOP+gD7Oxl16fTh1lQo4K/aIgX9XkRXKeyCMNwMJc6+HwOCi/c64Jm31rOiLVn0PVqzYFz1Yf3dWpdhrUfGxq+9Nu0X2r7m7qVrUuPa2hGRNbjKE9a4HFHlmZmWsmx0rZtmazn+76+iSb/B5ru4PQ1PjJ6SETPy8eq+E98J7sxcNrJ27orCAJWZmjVg3u9+al3a/UiMh6n1R9JGuEJWe+vW8xLrCwmnvV/IFFt4zaVGG7fln9q/vjjv4Xe9fxV5LSImdkBZ5JPiCfPgCNY5JqY3bUFqiBaEbwnr3hVQYYmvVvm1D7pK3817eVHy4LWRazthPZkWoEHcpua3DznV0nJfzCOAsgaFuiW7Nc8vpJReK+0KKstccOb7xjD0iI33FIMqPSkldlGEp3n64WwyA1djV/uV7rUImvQ3TEXtrd1ipjDEuG1o7uA6Hh564EcoQ9uE+sRsb14X9ZFH9Dny9urhu7b7K1U9NmjB56Jxt+/cMS113a2T+oZbssf0LNu97ujnpH7eFrX5p/5s1XHJm2gd39Hvjhf1rGy2v/b/xfQ+eCZmYnB7M2RrOvvhqwfpGLmpQwtp5qUl96d5FWVHJondPlLiq84h1OESIS93W7SEv/MfInCT65kXdmdLn1xRtaUPVqevuiNyzu2HylHi44oLtee9ziSuv7c9xtgPbD87/ijxYcvqg13+ZMiDQJQ+VujVyf17zpAnR+PReWWHRPe+X1nBByxaMvTmF+Nsaale/m/9mOck2/6ZRD0+IBKwni2vDE4PXr6Im4zNOLz8yalpcEBa3OzblLtnXbffal31YdMNv02felfbUn0tempvINZT+9it0Buwh4a27U1MIQ1vBniNzP68m2e7Jms+V8E5j/l1XPjyoYf6fjxRw6IWx4YUV4VlJSdzZhf9VsBekrqDcv1vjFPooM3PIX25NiqFHn1rXvPQd88YOriPoobvG5YwMQ+KODXlLcp1tz7h+xHdueKKUQpcpKgOEfyD2fH5rZHZSwLqXdv25xvraI6OyAW9baxUXxLl9RM7VErVYd6wHXI97tb6/9xy+QzfQyln79rEGh2aP7ff99yX/PGWzBuETphbAgGDta+kTaIlmpYKCg8ZMSY46cfqjPZW2sP5LHxgSxXEJA8K46tKX38v9qLB5QFri7UhSDQ4uuN8TswavmDVkxfTBfxgFl8AvHk3LHsnKSTLv2Jz35KaT3MCElY+mgg1JFRiaMyW2cGfx7mpb5rWjV14bvmN78YEG85ipSRNJuOjV81Iiz5x88u3C4xanPHxbpk2IOLizaFtx64CMtNevhwWZQrmmjZvylm86bQuLvHkieb+J12QumRBZdbD4yfeO1MdERgQHsyZDmPHT4lrWvJ27sZibNnvkHBdiCg2DI/M8FOj4pJryV3PPcxEJO5ZmjQm2ffRuUQnSrdEfLkhL4Wpffzt3Te75zMkjPiGBuTCLxRpKIwuCpY/FHAabpBAUbMmcnBRSXPrR1lKFCYpLWlf/KvVR0OLZSTFN5cvfzFu3/eRBskQYoB0dlDPStHlbSXGbZdr1iUJnmrM98FTsMqWKOIvZbI2LzY5u3Li9aGcNt2zR2Ow4++ZNeS/vPRfmkpYJoHSSwduZ50aV2DrTSmrwQd5Q50d5OW7HB/uWFNDgnDmACIR0UlM+HmThyr7Pm/EZ3YE+Gx25KK3/9OCf1+87MnsfF2UNSuOqbs1IoJKqAf/jxDJufCKfbw7G+Mt8gTX2hjiuKvenJbvBua4mrN+b18YviDr+BaPb8cF3kCq5MnzjbVGb3979VDE3P3HQmBRyoJmj4mM47vuCWnxk8ni5LX1gaBrHMcdq3/jmrmWnUL523fKsK1LDua9KH38byxBTchR3rC3xijh8Vqz+9rH9uY7qxz88hYwtr3Lf/S6VKmTCNBZVHWvnThdU/VtKwvQxlvX7BDCYSG4nH+9Frt9w9OZRY9PDzGW5B1cwX8RaYV/3RgG5oOL8jPQp2RMHZX5ViBmIW0XCW0FBZq6x6EjOu6ywO4XsSuzfAqU+IpMKC83o17riK+pQCmaY3PmXn9m/tg0gD1wyzKKK516rYpf9Wakixvbckyvyt6AKa+yLA01VuYef2kd9zcVHLklhVWuc3BHWe39Ag6E0a3IKDXz8B0mhjsdL3GYnPCU/QPBx6Gx9ldM5trbg073kQ6JCE9bel5aE2VGH3ezFsQVC5+5+5lAJY5c8dsTG2yJEzmdOOTlXNJAYgtI5pbJSj9nLWGdZaORlwUZ+dMLM0RP4ywZxBWI/y0wBRUCC7xAwxz06J8nCYaESyDVSiiUGX6gsb4QBsOBSODQsIi1lJfqfD5ozUEEUgdj7b/1LX9e+mRO2eauwFcBPuJ0F7fvOtGenyFZNyOMdJhGZA7mSwlonueaP2L80RZH3UfufPihZvSD5zruz7mw69/IbB9aSOAFcR/N+NvW3kK6JM3VPPPE+F+fZZUoV8WzbaUSiYJIWdHUln6l0liGs2RtK5RXSXIubiDtGhXBN1XBPLARwMsfEKDMioX2uDmgn7WEB0yXu/KGaoOd/nZbUWrnkmcIdXPR3z6Z7XTzFcVwJY8DUmsVYvVExMEbSfCuzdMEyPaRiJZwnqANn/2jVTn5A5RMz6cfRJtpuIPXWtOvTc5ICN763e9mR9tf+cE0W0djqUFuMFfQwg8zh/bF4oBDMIVKVm5ezQRgd+fTuO59vZlNgEW1+ZHP2i2lMDKbIpHxIMAeS6WP6MxS9IJk3B9GArRIU+le5j0qKT+Q8fWpGdup/zUx4+Ob4tW9rOBY5nryqeHRZ0PPzvCkDa3U4zeuEUU6lHWrJeG5UafrpmajGgDMlDY+YkR4xJ3vIluWjUwK5HZuOui+qxJLmjFERc64fsXJKPzHJ1spl3pCxcJAlMyXhrowg7kztFs4E14zBNSTKumxBSh/OPB52pRmcA7SUpqb2xwYuKWvowkFBUfHRz0zvz7XVCZYppZPHC/Ir6zjTnXNHzIm3ZMaHL8yKSnaSBN0+Z/DEYNMt09PHBHIFBbWR9IExWLL5lmvSs+CyLJYorn3jgXNccPSqRSNeW3Al2zV2ULfUVO6s5mLGDn8hy5pstdySFT8nXl3hQO8Jvmzgcoqk+lNQXNPCme/55RAIPCM77eoIrupQGcyStGVg3CMpES8sysqJhs1y7ltqigwV+1exjyxP3ZY6f1DQ3vyzpcRbO8jx5JS7TLEid841jSc6uJSpwx5JD19405hFaWbvtuCOMEYMHwF2FwCeKGf26ByW2FJXu+aTwleKxfmPa7AvOHDmyI3R2TNHZ3PtBcXnM1OEIQuKZLMuWjhpETg0nV3+3gn8fra3dsyU+JW/jW+prj3ZFDJm5rhHDu9qg8JJxi1BCrfERvpkPF9p6+LVhz789YhFC7OJc1vDmr8dgmXyI7pQFr9OCesbBZkbKx/+IHTV3UlLH4aOoGD1rn1OpxaTkvzmH5KRVlVY9Nt9rTXxpYsnpN08L+vmjuYjFe3pA5Nfv6byrq35r1sz56X3G8e1bNtzNmdyP+Z87I+/lrt68cic2eNzZhPXA5tq15erDlqd7REX2lx56e82hz03M+nNPyShurqTJ3+zgVqxvaD63pT4+xeM5urOfn+m34RwWwWJQ/rKewd2JTsp969SH+1PHJp459jEJWDQcX7dNv6WhaSDMEPDvFEIYYPd8ESyYpcleFeGxj9+fPqNuxPvnzcWrqC42pYSLtSh8itDOOC+TzQclovHjz8cdl10MmbKjLc01jSXuHyrZd3ySdznu+ceME2M4vZK1cJqyQxuL6jBrgKLNLqw86ny5CiLlbMX1AgqrrcwiYo5fgGzDf7W2+vP7f44OCShrbXAJUzQxHhTUXkr9Av0pRQxJQfb+QbOuenKpRPMLz/33dpGZ61MGK60hug1wrjxV3jmdgr/oMwoE9fWLhEYvsAih9qzMp0pSn0UZbUkBHttoxOl5KgQqxueVLFClylVJJcxOGhilLmivLlEnqFwLUNY9/NCCqx8TbIXlDsXqWLJoEAuBJ9tb2veK7PExlb4bgrAyGUzfJIPZ7aP4QO9QOouKi0SgrDpVlPT7K6+7aLYBcyAceN247wEW1NrC3YhA7mqg4WiAYCzXmG66JiFNmBPosBdXMppaxVldhF2LqbURzWNXiycVeUcJkpq5PqAXAWUlCqSi9yGvtA90rkjjLnIRQztaz84xJWqzgouomTSqgsOl7zcfHKHpz5JiVi85kjJ8g0NGbEhVrP9RGH5m8WXetM8WuCPCbABd6PoURDsWwqqe7TCzlVWU8+2+fQUbv80t/xTPYRaNBexR7TEuozy3BDmd9Euo9b1/qa49U/vb84l2AIZwj25HrgE0bgkRZJ10SUpY+8Wyh1hzY3q3t1QQ3oDAV0IGHMhXTD1JJH7INWTNftLXTKEDT/gLx1vtFMNAfrmkFqekW4g4A8IGH7AH3rZaKMWAoYNaKFj5PkDAoYN+EMvG23UQsCwAS10jDx/QOD/A8vTPzRSs1jBAAAAAElFTkSuQmCC\',
+          ),
+        ),
+      ),
+      \'field_software_type\' => array(
+        \'en\' => array(
+          array(
+            \'tid\' => \'109\',
             \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
           ),
         ),
@@ -615,14 +782,42 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_video\' => array(),
+      \'title_field\' => array(
+        \'en\' => array(
+          array(
+            \'value\' => \'Drupal\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Drupal\',
+          ),
+        ),
+      ),
+      \'field_file_attachments\' => array(),
+      \'title_original\' => \'Drupal\',
+      \'translations\' => (object) array(
+          \'original\' => \'en\',
+          \'data\' => array(
+            \'en\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'5\',
+              \'language\' => \'en\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1360539496\',
+              \'changed\' => \'1366721906\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
+          \'schema:SoftwareApplication\',
           \'sioc:Item\',
           \'foaf:Document\',
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -642,6 +837,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
+            \'schema:text\',
             \'content:encoded\',
           ),
         ),
@@ -653,7 +849,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -669,35 +865,131 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
-        \'field_civic_category\' => array(
-          \'predicates\' => array(),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
           \'type\' => \'rel\',
         ),
+        \'field_aggregate_rating\' => array(
+          \'predicates\' => array(
+            \'schema:aggregateRating\',
+          ),
+        ),
         \'field_application_category\' => array(
+          \'predicates\' => array(
+            \'schema:applicationSubCategory\',
+          ),
+        ),
+        \'field_civic_category\' => array(
+          \'predicates\' => array(
+            \'schema:genre\',
+          ),
+        ),
+        \'field_contributor\' => array(
+          \'predicates\' => array(
+            \'schema:provider\',
+          ),
+        ),
+        \'field_creator\' => array(
+          \'predicates\' => array(
+            \'schema:creator\',
+          ),
+        ),
+        \'field_description\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_download_url\' => array(
+          \'predicates\' => array(
+            \'schema:downloadUrl\',
+          ),
+        ),
+        \'field_feature_list\' => array(
+          \'predicates\' => array(
+            \'schema:featureList\',
+          ),
+        ),
+        \'field_image\' => array(
+          \'predicates\' => array(
+            \'schema:image\',
+          ),
+        ),
+        \'field_install_url\' => array(
+          \'predicates\' => array(
+            \'schema:installUrl\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(
+            \'schema:keywords\',
+          ),
+        ),
+        \'field_license\' => array(
+          \'predicates\' => array(
+            \'schema:publishingPrinciples\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_release_notes\' => array(
+          \'predicates\' => array(
+            \'schema:releaseNotes\',
+          ),
+        ),
+        \'field_requirements\' => array(
+          \'predicates\' => array(
+            \'schema:requirements\',
+          ),
+        ),
+        \'field_screenshot\' => array(
+          \'predicates\' => array(
+            \'schema:screenshot\',
+          ),
+        ),
+        \'field_software_type\' => array(
+          \'predicates\' => array(
+            \'schema:applicationCategory\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'field_video\' => array(
+          \'predicates\' => array(
+            \'schema:video\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_file_attachments\' => array(
           \'predicates\' => array(),
           \'type\' => \'rel\',
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'4\',
-        \'source\' => \'node/4\',
+        \'pid\' => \'171\',
+        \'source\' => \'node/5\',
         \'alias\' => \'app/drupal\',
-        \'language\' => \'und\',
+        \'language\' => \'en\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'35\',
+      \'vid\' => \'128\',
       \'uid\' => \'1\',
       \'title\' => \'New York State Senate\',
       \'log\' => \'\',
@@ -705,16 +997,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'55ad39a8-5dd3-4566-b610-f45d383c238f\',
-      \'nid\' => \'5\',
+      \'vuuid\' => \'4a929b43-6adf-4ae3-aa08-dbf614dda8ee\',
+      \'nid\' => \'6\',
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'23e544af-659d-9924-79e8-50ef7d5b5551\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -739,7 +1031,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_additional_type\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'166\',
+            \'tid\' => \'97\',
             \'uuid\' => \'60ee3e65-7fc0-7524-cd44-e2d579c637c8\',
           ),
         ),
@@ -767,7 +1059,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_civic_category\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'135\',
+            \'tid\' => \'68\',
             \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
@@ -804,7 +1096,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'15222\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'8d7c9a29-4ee8-df44-155b-d66cd6a49644\',
             \'rdf_mapping\' => array(),
@@ -825,6 +1117,32 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'New York State Senate\',
+            \'format\' => NULL,
+            \'safe_value\' => \'New York State Senate\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'New York State Senate\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'6\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366892652\',
+              \'changed\' => \'1366892652\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -833,7 +1151,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -853,7 +1171,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'content:encoded\',
+            2 => \'content:encoded\',
           ),
         ),
         \'uid\' => array(
@@ -864,7 +1182,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -880,23 +1198,76 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
         \'field_civic_category\' => array(
           \'predicates\' => array(),
-          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'5\',
-        \'source\' => \'node/5\',
+        \'pid\' => \'172\',
+        \'source\' => \'node/6\',
         \'alias\' => \'org/new-york-state-senate\',
         \'language\' => \'und\',
       ),
@@ -904,7 +1275,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'37\',
+      \'vid\' => \'129\',
       \'uid\' => \'1\',
       \'title\' => \'Deployment of WordPress\',
       \'log\' => \'\',
@@ -912,16 +1283,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'a41d1e85-7b9a-4c76-9912-e09da7309c2b\',
+      \'vuuid\' => \'70bd4d28-b143-42a2-a705-cbf2d12eb90d\',
       \'nid\' => \'7\',
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1362457223\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'565dceb0-846a-496d-bbb6-d4de80a75f3a\',
-      \'revision_timestamp\' => \'1362457223\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -981,7 +1352,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_member\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'5\',
+            \'target_id\' => \'6\',
           ),
         ),
       ),
@@ -994,6 +1365,46 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'en\' => array(
+          array(
+            \'value\' => \'Deployment of WordPress\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of WordPress\',
+          ),
+        ),
+        \'es\' => array(
+          array(
+            \'value\' => \'Deployment of WordPress\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of WordPress\',
+          ),
+        ),
+        \'und\' => array(
+          array(
+            \'value\' => \'Deployment of WordPress\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of WordPress\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Deployment of WordPress\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'7\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1365599434\',
+              \'changed\' => \'1365599434\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:UserInteraction\',
@@ -1082,18 +1493,23 @@ function appcat_default_content_node_export_features_default() {
         \'field_coordinates\' => array(
           \'predicates\' => array(),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1362457223\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'7\',
+        \'pid\' => \'173\',
         \'source\' => \'node/7\',
         \'alias\' => \'deploy/deployment-wordpress\',
         \'language\' => \'und\',
@@ -1102,7 +1518,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'38\',
+      \'vid\' => \'165\',
       \'uid\' => \'1\',
       \'title\' => \'WordPress\',
       \'log\' => \'\',
@@ -1110,19 +1526,19 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'3e2cfe58-241b-443f-bc98-1aa54a989ad1\',
+      \'vuuid\' => \'2a43a4f9-2d39-4b1e-a763-13419e843bde\',
       \'nid\' => \'8\',
       \'type\' => \'application\',
-      \'language\' => \'und\',
+      \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1367947322\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'923bc61f-1e16-4f0f-ab2e-92580af6c24a\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1367947322\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => "<p><span style=\\"font-family: \'PT Sans\', \'Lucida Grande\', \'Lucida Sans Unicode\', sans-serif; line-height: 18px;\\">WordPress is the largest self-hosted blogging tool in the world, used on millions of sites and seen by tens of millions of people every day. It is mature and stable. By focusing on user experience and web standards, WordPress has created a tool different from anything else out there. WordPress was born out of a desire for an elegant, well-architectured personal publishing system built on PHP and MySQL and licensed under the GPLv2 (or later). It started as just a blogging system, but has evolved to be used as full content management system and so much more through the thousands of plugins, widgets, and themes that are available. Everything you see, from the documentation to the code itself, was created by and for the community, which means there are hundreds of people all over the world working on it. (More than most commercial platforms.) There is also a service called WordPress.com which lets you get started with a new and free WordPress-based blog in seconds, but varies in several ways and is less flexible than the open-source WordPress codebase you can download and install yourself.</span></p>",
             \'summary\' => \'\',
@@ -1135,9 +1551,9 @@ function appcat_default_content_node_export_features_default() {
       \'field_aggregate_rating\' => array(),
       \'field_application_category\' => array(),
       \'field_civic_category\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'76\',
+            \'tid\' => \'35\',
             \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
         ),
@@ -1145,7 +1561,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_contributor\' => array(),
       \'field_creator\' => array(),
       \'field_description\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => \'Open source blogging tool and publishing platform.\',
             \'format\' => NULL,
@@ -1163,7 +1579,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_feature_list\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
             \'value\' => \'easy to use web template system\',
             \'format\' => NULL,
@@ -1195,8 +1611,8 @@ function appcat_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'fid\' => NULL,
-            \'alt\' => NULL,
-            \'title\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
             \'width\' => \'500\',
             \'height\' => \'500\',
             \'uid\' => \'1\',
@@ -1205,7 +1621,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'18399\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'40077f52-b7f8-4ec0-ac40-8c691fe02000\',
             \'rdf_mapping\' => array(),
@@ -1216,29 +1632,29 @@ function appcat_default_content_node_export_features_default() {
       \'field_install_url\' => array(),
       \'field_keywords\' => array(),
       \'field_license\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'168\',
+            \'tid\' => \'99\',
             \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
           ),
         ),
       ),
       \'field_related_applications\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'target_id\' => \'4\',
+            \'target_id\' => \'5\',
           ),
         ),
       ),
       \'field_release_notes\' => array(),
       \'field_requirements\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'162\',
+            \'tid\' => \'93\',
             \'uuid\' => \'5330ac54-d7c9-8944-69cc-4b08757afe7e\',
           ),
           array(
-            \'tid\' => \'187\',
+            \'tid\' => \'118\',
             \'uuid\' => \'b4bdca4d-bbdd-eb34-8127-aecd910e789d\',
           ),
         ),
@@ -1247,8 +1663,8 @@ function appcat_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'fid\' => NULL,
-            \'alt\' => NULL,
-            \'title\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
             \'width\' => \'995\',
             \'height\' => \'670\',
             \'uid\' => \'1\',
@@ -1257,7 +1673,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'79224\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'f87147a2-b4f9-40ab-a6b7-492397bdd4f3\',
             \'rdf_mapping\' => array(),
@@ -1265,8 +1681,8 @@ function appcat_default_content_node_export_features_default() {
           ),
           array(
             \'fid\' => NULL,
-            \'alt\' => NULL,
-            \'title\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
             \'width\' => \'520\',
             \'height\' => \'469\',
             \'uid\' => \'1\',
@@ -1275,7 +1691,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/gif\',
             \'filesize\' => \'28427\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'b624416e-416b-4629-a242-f702f7a3df3f\',
             \'rdf_mapping\' => array(),
@@ -1283,8 +1699,8 @@ function appcat_default_content_node_export_features_default() {
           ),
           array(
             \'fid\' => NULL,
-            \'alt\' => NULL,
-            \'title\' => NULL,
+            \'alt\' => \'\',
+            \'title\' => \'\',
             \'width\' => \'830\',
             \'height\' => \'706\',
             \'uid\' => \'1\',
@@ -1293,7 +1709,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'75874\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'ee1ca3e4-fd6c-40be-8efc-83e569f14330\',
             \'rdf_mapping\' => array(),
@@ -1302,9 +1718,9 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_software_type\' => array(
-        \'und\' => array(
+        \'en\' => array(
           array(
-            \'tid\' => \'178\',
+            \'tid\' => \'109\',
             \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
           ),
         ),
@@ -1319,14 +1735,42 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_video\' => array(),
+      \'title_field\' => array(
+        \'en\' => array(
+          array(
+            \'value\' => \'WordPress\',
+            \'format\' => NULL,
+            \'safe_value\' => \'WordPress\',
+          ),
+        ),
+      ),
+      \'field_file_attachments\' => array(),
+      \'title_original\' => \'WordPress\',
+      \'translations\' => (object) array(
+          \'original\' => \'en\',
+          \'data\' => array(
+            \'en\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'8\',
+              \'language\' => \'en\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1360539496\',
+              \'changed\' => \'1367947322\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
+          \'schema:SoftwareApplication\',
           \'sioc:Item\',
           \'foaf:Document\',
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -1346,6 +1790,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
+            \'schema:text\',
             \'content:encoded\',
           ),
         ),
@@ -1357,7 +1802,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -1373,35 +1818,131 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
-        \'field_civic_category\' => array(
-          \'predicates\' => array(),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
           \'type\' => \'rel\',
         ),
+        \'field_aggregate_rating\' => array(
+          \'predicates\' => array(
+            \'schema:aggregateRating\',
+          ),
+        ),
         \'field_application_category\' => array(
+          \'predicates\' => array(
+            \'schema:applicationSubCategory\',
+          ),
+        ),
+        \'field_civic_category\' => array(
+          \'predicates\' => array(
+            \'schema:genre\',
+          ),
+        ),
+        \'field_contributor\' => array(
+          \'predicates\' => array(
+            \'schema:provider\',
+          ),
+        ),
+        \'field_creator\' => array(
+          \'predicates\' => array(
+            \'schema:creator\',
+          ),
+        ),
+        \'field_description\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_download_url\' => array(
+          \'predicates\' => array(
+            \'schema:downloadUrl\',
+          ),
+        ),
+        \'field_feature_list\' => array(
+          \'predicates\' => array(
+            \'schema:featureList\',
+          ),
+        ),
+        \'field_image\' => array(
+          \'predicates\' => array(
+            \'schema:image\',
+          ),
+        ),
+        \'field_install_url\' => array(
+          \'predicates\' => array(
+            \'schema:installUrl\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(
+            \'schema:keywords\',
+          ),
+        ),
+        \'field_license\' => array(
+          \'predicates\' => array(
+            \'schema:publishingPrinciples\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_release_notes\' => array(
+          \'predicates\' => array(
+            \'schema:releaseNotes\',
+          ),
+        ),
+        \'field_requirements\' => array(
+          \'predicates\' => array(
+            \'schema:requirements\',
+          ),
+        ),
+        \'field_screenshot\' => array(
+          \'predicates\' => array(
+            \'schema:screenshot\',
+          ),
+        ),
+        \'field_software_type\' => array(
+          \'predicates\' => array(
+            \'schema:applicationCategory\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'field_video\' => array(
+          \'predicates\' => array(
+            \'schema:video\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_file_attachments\' => array(
           \'predicates\' => array(),
           \'type\' => \'rel\',
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'8\',
+        \'pid\' => \'174\',
         \'source\' => \'node/8\',
         \'alias\' => \'app/wordpress\',
-        \'language\' => \'und\',
+        \'language\' => \'en\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'39\',
+      \'vid\' => \'131\',
       \'uid\' => \'1\',
       \'title\' => \'New Amsterdam Ideas\',
       \'log\' => \'\',
@@ -1409,16 +1950,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'feaee7db-39c8-46f0-a125-63459cfb45e4\',
+      \'vuuid\' => \'51165736-d6c1-43bb-bba5-cf3edf4e2d6b\',
       \'nid\' => \'9\',
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'d9a92578-91ef-6cf4-3d5c-fc8f0e2d0cb3\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1443,7 +1984,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_additional_type\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'186\',
+            \'tid\' => \'117\',
             \'uuid\' => \'b14b498d-7185-a9e4-d5e0-eb88d3a0b76d\',
           ),
         ),
@@ -1471,7 +2012,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_civic_category\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'135\',
+            \'tid\' => \'68\',
             \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
@@ -1508,7 +2049,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'4432\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1360657057\',
+            \'timestamp\' => \'1363698957\',
             \'type\' => \'image\',
             \'uuid\' => \'6d9d7eb9-dcca-8ca4-2d54-7331a7dd7326\',
             \'rdf_mapping\' => array(),
@@ -1520,30 +2061,30 @@ function appcat_default_content_node_export_features_default() {
       \'field_related_applications\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'4\',
+            \'target_id\' => \'5\',
           ),
         ),
       ),
       \'field_services\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'180\',
+            \'tid\' => \'111\',
             \'uuid\' => \'9de5aac9-621a-88f4-e15d-b586cc1591ca\',
           ),
           array(
-            \'tid\' => \'145\',
+            \'tid\' => \'76\',
             \'uuid\' => \'1abe8b55-02a9-5864-6935-5fc4544b3bd0\',
           ),
           array(
-            \'tid\' => \'184\',
+            \'tid\' => \'115\',
             \'uuid\' => \'ab022797-7c91-7cc4-c551-ef927b9bb285\',
           ),
           array(
-            \'tid\' => \'183\',
+            \'tid\' => \'114\',
             \'uuid\' => \'aafdb1b0-b017-6154-3dfa-fb4c9de0ffce\',
           ),
           array(
-            \'tid\' => \'174\',
+            \'tid\' => \'105\',
             \'uuid\' => \'86a0de58-8613-4a54-d597-bf9e6f6f54b3\',
           ),
         ),
@@ -1558,6 +2099,32 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'New Amsterdam Ideas\',
+            \'format\' => NULL,
+            \'safe_value\' => \'New Amsterdam Ideas\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'New Amsterdam Ideas\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'9\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366892652\',
+              \'changed\' => \'1366892652\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -1566,7 +2133,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -1586,7 +2153,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'content:encoded\',
+            2 => \'content:encoded\',
           ),
         ),
         \'uid\' => array(
@@ -1597,7 +2164,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -1613,22 +2180,75 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
         \'field_civic_category\' => array(
           \'predicates\' => array(),
-          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'9\',
+        \'pid\' => \'175\',
         \'source\' => \'node/9\',
         \'alias\' => \'org/new-amsterdam-ideas\',
         \'language\' => \'und\',
@@ -1637,7 +2257,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'40\',
+      \'vid\' => \'132\',
       \'uid\' => \'1\',
       \'title\' => \'Drupal Association\',
       \'log\' => \'\',
@@ -1645,16 +2265,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'92bc4805-7da8-419a-8a75-df8ecdeacff1\',
+      \'vuuid\' => \'7a2d546e-cd2f-4fcd-8d9a-67da5b6901f7\',
       \'nid\' => \'10\',
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'e1224f5d-f371-a814-b55a-0e77f1f7aabb\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1679,7 +2299,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_additional_type\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'165\',
+            \'tid\' => \'96\',
             \'uuid\' => \'5bdb8fa8-4f14-acb4-d9e3-363648a7ba83\',
           ),
         ),
@@ -1707,11 +2327,11 @@ function appcat_default_content_node_export_features_default() {
       \'field_civic_category\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'76\',
+            \'tid\' => \'35\',
             \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
           ),
           array(
-            \'tid\' => \'135\',
+            \'tid\' => \'68\',
             \'uuid\' => \'f6e42a9f-f4a0-c054-cdd4-c1ca7990ebfb\',
           ),
         ),
@@ -1739,14 +2359,14 @@ function appcat_default_content_node_export_features_default() {
       \'field_related_applications\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'4\',
+            \'target_id\' => \'5\',
           ),
         ),
       ),
       \'field_services\' => array(
         \'und\' => array(
           array(
-            \'tid\' => \'183\',
+            \'tid\' => \'114\',
             \'uuid\' => \'aafdb1b0-b017-6154-3dfa-fb4c9de0ffce\',
           ),
         ),
@@ -1761,6 +2381,32 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Drupal Association\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Drupal Association\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Drupal Association\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'10\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1366892652\',
+              \'changed\' => \'1366892652\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -1769,7 +2415,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'title\' => array(
           \'predicates\' => array(
-            \'dc:title\',
+            \'schema:name\',
           ),
         ),
         \'created\' => array(
@@ -1789,7 +2435,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'body\' => array(
           \'predicates\' => array(
-            \'content:encoded\',
+            2 => \'content:encoded\',
           ),
         ),
         \'uid\' => array(
@@ -1800,7 +2446,7 @@ function appcat_default_content_node_export_features_default() {
         ),
         \'name\' => array(
           \'predicates\' => array(
-            \'foaf:name\',
+            \'schema:name\',
           ),
         ),
         \'comment_count\' => array(
@@ -1816,22 +2462,75 @@ function appcat_default_content_node_export_features_default() {
           \'datatype\' => \'xsd:dateTime\',
           \'callback\' => \'date_iso8601\',
         ),
+        \'url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'field_abbreviation\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_additional_type\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_address\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
         \'field_civic_category\' => array(
           \'predicates\' => array(),
-          \'type\' => \'rel\',
+        ),
+        \'field_coordinates\' => array(
+          \'predicates\' => array(
+            \'schema:location\',
+          ),
+        ),
+        \'field_keywords\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_logo\' => array(
+          \'predicates\' => array(
+            \'schema:logo\',
+          ),
+        ),
+        \'field_member\' => array(
+          \'predicates\' => array(
+            \'schema:member\',
+          ),
+        ),
+        \'field_related_applications\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_services\' => array(
+          \'predicates\' => array(),
+        ),
+        \'field_telephone\' => array(
+          \'predicates\' => array(
+            \'schema:telephone\',
+          ),
+        ),
+        \'field_url\' => array(
+          \'predicates\' => array(
+            \'schema:url\',
+          ),
+        ),
+        \'title_field\' => array(
+          \'predicates\' => array(),
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'10\',
+        \'pid\' => \'176\',
         \'source\' => \'node/10\',
         \'alias\' => \'org/drupal-association\',
         \'language\' => \'und\',
@@ -1840,7 +2539,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'41\',
+      \'vid\' => \'133\',
       \'uid\' => \'1\',
       \'title\' => \'Deployment of Drupal\',
       \'log\' => \'\',
@@ -1848,16 +2547,16 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'e1a19d01-2f5e-4c86-8415-0ecd3a1c7cd4\',
+      \'vuuid\' => \'c2422987-3f6a-4fe7-8f12-a3c32b38bd8c\',
       \'nid\' => \'11\',
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1360657057\',
+      \'changed\' => \'1363698957\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'f6c42cc3-7967-cef4-a95e-98b07a690db9\',
-      \'revision_timestamp\' => \'1360657057\',
+      \'revision_timestamp\' => \'1363698957\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1873,7 +2572,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_add_deployment_for\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'4\',
+            \'target_id\' => \'5\',
           ),
         ),
       ),
@@ -1917,10 +2616,10 @@ function appcat_default_content_node_export_features_default() {
       \'field_member\' => array(
         \'und\' => array(
           array(
-            \'target_id\' => \'5\',
+            \'target_id\' => \'6\',
           ),
           array(
-            \'target_id\' => \'2\',
+            \'target_id\' => \'3\',
           ),
           array(
             \'target_id\' => \'9\',
@@ -1936,6 +2635,46 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'title_field\' => array(
+        \'en\' => array(
+          array(
+            \'value\' => \'Deployment of Drupal\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of Drupal\',
+          ),
+        ),
+        \'es\' => array(
+          array(
+            \'value\' => \'Deployment of Drupal\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of Drupal\',
+          ),
+        ),
+        \'und\' => array(
+          array(
+            \'value\' => \'Deployment of Drupal\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Deployment of Drupal\',
+          ),
+        ),
+      ),
+      \'title_original\' => \'Deployment of Drupal\',
+      \'translations\' => (object) array(
+          \'original\' => \'und\',
+          \'data\' => array(
+            \'und\' => array(
+              \'entity_type\' => \'node\',
+              \'entity_id\' => \'11\',
+              \'language\' => \'und\',
+              \'source\' => \'\',
+              \'uid\' => \'1\',
+              \'status\' => \'1\',
+              \'translate\' => \'0\',
+              \'created\' => \'1365599434\',
+              \'changed\' => \'1365599434\',
+            ),
+          ),
+        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:UserInteraction\',
@@ -2024,18 +2763,23 @@ function appcat_default_content_node_export_features_default() {
         \'field_coordinates\' => array(
           \'predicates\' => array(),
         ),
+        \'title_field\' => array(
+          \'predicates\' => array(
+            \'schema:name\',
+          ),
+        ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360539496\',
+      \'last_comment_timestamp\' => \'1360657057\',
       \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'0\',
+      \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'11\',
+        \'pid\' => \'177\',
         \'source\' => \'node/11\',
         \'alias\' => \'deploy/deployment-drupal\',
         \'language\' => \'und\',
