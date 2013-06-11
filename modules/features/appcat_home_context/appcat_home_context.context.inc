@@ -26,19 +26,13 @@ function appcat_home_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-blog-block' => array(
-          'module' => 'views',
-          'delta' => 'homepage_latest-block_2',
-          'region' => 'three_three_33_bottom',
-          'weight' => '-9',
-        ),
-        'views-application_list-block_1' => array(
+        'views-homepage_latest-block' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block',
           'region' => 'three_33_first',
           'weight' => '-7',
         ),
-        'views-deployments_list-block_1' => array(
+        'views-homepage_latest-block_1' => array(
           'module' => 'views',
           'delta' => 'homepage_latest-block_1',
           'region' => 'three_33_second',
@@ -49,6 +43,12 @@ function appcat_home_context_context_default_contexts() {
           'delta' => '1',
           'region' => 'three_33_third',
           'weight' => '-8',
+        ),
+        'views-homepage_latest-block_2' => array(
+          'module' => 'views',
+          'delta' => 'homepage_latest-block_2',
+          'region' => 'three_33_bottom',
+          'weight' => '-10',
         ),
       ),
     ),
