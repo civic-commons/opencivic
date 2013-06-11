@@ -11,7 +11,7 @@ function appcat_default_content_node_export_features_default() {
   $node_export = array(
   'code_string' => 'array(
   (object) array(
-      \'vid\' => \'125\',
+      \'vid\' => \'3\',
       \'uid\' => \'1\',
       \'title\' => \'Advomatic\',
       \'log\' => \'\',
@@ -24,11 +24,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'15f6028e-611a-20e4-7557-d0065c21f663\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -103,7 +103,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'5780\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'a546848a-7862-c8d4-51da-01288228e3b3\',
             \'rdf_mapping\' => array(),
@@ -148,22 +148,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'Advomatic\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'3\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1366892652\',
-              \'changed\' => \'1366892652\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -278,7 +262,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -287,7 +271,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'169\',
+        \'pid\' => \'161\',
         \'source\' => \'node/3\',
         \'alias\' => \'org/advomatic\',
         \'language\' => \'und\',
@@ -296,7 +280,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'126\',
+      \'vid\' => \'4\',
       \'uid\' => \'1\',
       \'title\' => \'City of San Francisco\',
       \'log\' => \'\',
@@ -309,11 +293,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1781739f-0c84-4f2b-aef9-93b7f2965182\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(),
       \'field_abbreviation\' => array(),
@@ -403,22 +387,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'City of San Francisco\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'4\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1366892652\',
-              \'changed\' => \'1366892652\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -533,7 +501,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -542,7 +510,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'170\',
+        \'pid\' => \'162\',
         \'source\' => \'node/4\',
         \'alias\' => \'org/city-san-francisco\',
         \'language\' => \'und\',
@@ -551,7 +519,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'154\',
+      \'vid\' => \'19\',
       \'uid\' => \'1\',
       \'title\' => \'Drupal\',
       \'log\' => \'\',
@@ -559,24 +527,24 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'6269452f-3d4a-425c-b0d5-3c18710f4660\',
+      \'vuuid\' => \'9a26b307-a3f5-4bac-a700-cb6eef83b223\',
       \'nid\' => \'5\',
       \'type\' => \'application\',
       \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1366721906\',
+      \'changed\' => \'1370927311\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'1a4710f7-22ff-a854-3d8f-987e5eb075de\',
-      \'revision_timestamp\' => \'1366721906\',
+      \'revision_timestamp\' => \'1370927311\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
-            \'value\' => \'<p>A content management system that powers various types of websites</p>\',
+            \'value\' => "<p><span style=\\"font-family: \'PT Sans\', \'Lucida Grande\', \'Lucida Sans Unicode\', sans-serif; line-height: 18px;\\">Drupal is a powerful content management system (CMS). CMSs enable easy management of workflow in a collaborative environment to power any type of website, from government sites to social networking sites. Although Drupal offers a sophisticated programming interface for developers, no programming skills are required for basic website installation and administration. Video: http://dai.ly/gabKRV For a full list of governments using drupal see: http://groups.drupal.org/node/24119#USA http://groups.drupal.org/government-sites#USA</span></p>",
             \'summary\' => \'\',
             \'format\' => \'filtered_html\',
-            \'safe_value\' => " <p>A content management system that powers various types of websites</p>\\n ",
+            \'safe_value\' => " <p>Drupal is a powerful content management system (CMS). CMSs enable easy management of workflow in a collaborative environment to power any type of website, from government sites to social networking sites. Although Drupal offers a sophisticated programming interface for developers, no programming skills are required for basic website installation and administration. Video: <a href=\\"http://dai.ly/gabKRV\\">http://dai.ly/gabKRV</a> For a full list of governments using drupal see: <a href=\\"http://groups.drupal.org/node/24119#USA\\">http://groups.drupal.org/node/24119#USA</a> <a href=\\"http://groups.drupal.org/government-sites#USA\\">http://groups.drupal.org/government-sites#USA</a></p>\\n ",
             \'safe_summary\' => \'  \',
           ),
         ),
@@ -598,7 +566,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_civic_category\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'35\',
             \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
@@ -609,7 +577,19 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_contributor\' => array(),
+      \'field_contributor\' => array(
+        \'und\' => array(
+          array(
+            \'target_id\' => \'9\',
+          ),
+          array(
+            \'target_id\' => \'10\',
+          ),
+          array(
+            \'target_id\' => \'3\',
+          ),
+        ),
+      ),
       \'field_creator\' => array(
         \'und\' => array(
           array(
@@ -618,7 +598,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_description\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'A content management system that powers various types of websites\',
             \'format\' => NULL,
@@ -636,7 +616,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_feature_list\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'Excellent documentation and community with a highly active forum\',
             \'format\' => NULL,
@@ -664,6 +644,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'field_file_attachments\' => array(),
       \'field_image\' => array(
         \'und\' => array(
           array(
@@ -678,7 +659,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'25329\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'815cbf18-f5e7-c5b4-7122-2c09d5a091c8\',
             \'rdf_mapping\' => array(),
@@ -697,7 +678,7 @@ function appcat_default_content_node_export_features_default() {
       ),
       \'field_keywords\' => array(),
       \'field_license\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'99\',
             \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
@@ -705,14 +686,14 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_related_applications\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'target_id\' => \'8\',
           ),
         ),
       ),
       \'field_release_notes\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'<p>The latest release version is Drupal 7.18.</p>\',
             \'format\' => \'filtered_html\',
@@ -721,7 +702,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_requirements\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'92\',
             \'uuid\' => \'52a8c3a5-443b-3a84-f970-9c936222b636\',
@@ -754,7 +735,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'13065\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1366721906\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'8745bf8d-4965-42fd-aaf1-94319f67a871\',
             \'rdf_mapping\' => array(),
@@ -763,7 +744,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_software_type\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'109\',
             \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
@@ -774,16 +755,14 @@ function appcat_default_content_node_export_features_default() {
         \'und\' => array(
           array(
             \'url\' => \'http://drupal.org/\',
-            \'title\' => \'App Homepage\',
-            \'attributes\' => array(
-              \'rel\' => \'nofollow\',
-            ),
+            \'title\' => NULL,
+            \'attributes\' => array(),
           ),
         ),
       ),
       \'field_video\' => array(),
       \'title_field\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'Drupal\',
             \'format\' => NULL,
@@ -791,24 +770,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_file_attachments\' => array(),
       \'title_original\' => \'Drupal\',
-      \'translations\' => (object) array(
-          \'original\' => \'en\',
-          \'data\' => array(
-            \'en\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'5\',
-              \'language\' => \'en\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1360539496\',
-              \'changed\' => \'1366721906\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:SoftwareApplication\',
@@ -971,7 +933,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1366721906\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -980,7 +942,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'171\',
+        \'pid\' => \'163\',
         \'source\' => \'node/5\',
         \'alias\' => \'app/drupal\',
         \'language\' => \'en\',
@@ -989,7 +951,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'128\',
+      \'vid\' => \'6\',
       \'uid\' => \'1\',
       \'title\' => \'New York State Senate\',
       \'log\' => \'\',
@@ -1002,11 +964,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'23e544af-659d-9924-79e8-50ef7d5b5551\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1096,7 +1058,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'15222\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'8d7c9a29-4ee8-df44-155b-d66cd6a49644\',
             \'rdf_mapping\' => array(),
@@ -1127,22 +1089,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'New York State Senate\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'6\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1366892652\',
-              \'changed\' => \'1366892652\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -1257,7 +1203,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -1266,7 +1212,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'172\',
+        \'pid\' => \'164\',
         \'source\' => \'node/6\',
         \'alias\' => \'org/new-york-state-senate\',
         \'language\' => \'und\',
@@ -1275,9 +1221,9 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'129\',
+      \'vid\' => \'7\',
       \'uid\' => \'1\',
-      \'title\' => \'Deployment of WordPress\',
+      \'title\' => \'Deployment of \',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
@@ -1288,11 +1234,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'565dceb0-846a-496d-bbb6-d4de80a75f3a\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1366,45 +1312,15 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_field\' => array(
-        \'en\' => array(
-          array(
-            \'value\' => \'Deployment of WordPress\',
-            \'format\' => NULL,
-            \'safe_value\' => \'Deployment of WordPress\',
-          ),
-        ),
-        \'es\' => array(
-          array(
-            \'value\' => \'Deployment of WordPress\',
-            \'format\' => NULL,
-            \'safe_value\' => \'Deployment of WordPress\',
-          ),
-        ),
         \'und\' => array(
           array(
-            \'value\' => \'Deployment of WordPress\',
+            \'value\' => \'Deployment of \',
             \'format\' => NULL,
-            \'safe_value\' => \'Deployment of WordPress\',
+            \'safe_value\' => \'Deployment of \',
           ),
         ),
       ),
-      \'title_original\' => \'Deployment of WordPress\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'7\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1365599434\',
-              \'changed\' => \'1365599434\',
-            ),
-          ),
-        ),
+      \'title_original\' => \'Deployment of \',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:UserInteraction\',
@@ -1500,7 +1416,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1362457223\',
+      \'last_comment_timestamp\' => \'1370913388\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -1509,16 +1425,16 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'173\',
+        \'pid\' => \'165\',
         \'source\' => \'node/7\',
-        \'alias\' => \'deploy/deployment-wordpress\',
+        \'alias\' => \'deploy/deployment\',
         \'language\' => \'und\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'165\',
+      \'vid\' => \'20\',
       \'uid\' => \'1\',
       \'title\' => \'WordPress\',
       \'log\' => \'\',
@@ -1526,19 +1442,19 @@ function appcat_default_content_node_export_features_default() {
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'2a43a4f9-2d39-4b1e-a763-13419e843bde\',
+      \'vuuid\' => \'c0c9cb27-77ec-4d3b-b33a-a368c429e863\',
       \'nid\' => \'8\',
       \'type\' => \'application\',
       \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1367947322\',
+      \'changed\' => \'1370927525\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'923bc61f-1e16-4f0f-ab2e-92580af6c24a\',
-      \'revision_timestamp\' => \'1367947322\',
+      \'revision_timestamp\' => \'1370927525\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => "<p><span style=\\"font-family: \'PT Sans\', \'Lucida Grande\', \'Lucida Sans Unicode\', sans-serif; line-height: 18px;\\">WordPress is the largest self-hosted blogging tool in the world, used on millions of sites and seen by tens of millions of people every day. It is mature and stable. By focusing on user experience and web standards, WordPress has created a tool different from anything else out there. WordPress was born out of a desire for an elegant, well-architectured personal publishing system built on PHP and MySQL and licensed under the GPLv2 (or later). It started as just a blogging system, but has evolved to be used as full content management system and so much more through the thousands of plugins, widgets, and themes that are available. Everything you see, from the documentation to the code itself, was created by and for the community, which means there are hundreds of people all over the world working on it. (More than most commercial platforms.) There is also a service called WordPress.com which lets you get started with a new and free WordPress-based blog in seconds, but varies in several ways and is less flexible than the open-source WordPress codebase you can download and install yourself.</span></p>",
             \'summary\' => \'\',
@@ -1551,7 +1467,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_aggregate_rating\' => array(),
       \'field_application_category\' => array(),
       \'field_civic_category\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'35\',
             \'uuid\' => \'45d91cf3-3e47-4034-b5f3-06a42fa0c977\',
@@ -1561,7 +1477,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_contributor\' => array(),
       \'field_creator\' => array(),
       \'field_description\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'Open source blogging tool and publishing platform.\',
             \'format\' => NULL,
@@ -1579,7 +1495,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_feature_list\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'easy to use web template system\',
             \'format\' => NULL,
@@ -1607,6 +1523,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
+      \'field_file_attachments\' => array(),
       \'field_image\' => array(
         \'und\' => array(
           array(
@@ -1621,7 +1538,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'18399\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'40077f52-b7f8-4ec0-ac40-8c691fe02000\',
             \'rdf_mapping\' => array(),
@@ -1632,7 +1549,7 @@ function appcat_default_content_node_export_features_default() {
       \'field_install_url\' => array(),
       \'field_keywords\' => array(),
       \'field_license\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'99\',
             \'uuid\' => \'75ad63b9-cc0b-06a4-41a6-83de605c3c20\',
@@ -1640,7 +1557,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_related_applications\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'target_id\' => \'5\',
           ),
@@ -1648,7 +1565,7 @@ function appcat_default_content_node_export_features_default() {
       ),
       \'field_release_notes\' => array(),
       \'field_requirements\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'93\',
             \'uuid\' => \'5330ac54-d7c9-8944-69cc-4b08757afe7e\',
@@ -1673,7 +1590,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'79224\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'f87147a2-b4f9-40ab-a6b7-492397bdd4f3\',
             \'rdf_mapping\' => array(),
@@ -1691,7 +1608,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/gif\',
             \'filesize\' => \'28427\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'b624416e-416b-4629-a242-f702f7a3df3f\',
             \'rdf_mapping\' => array(),
@@ -1709,7 +1626,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'75874\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'ee1ca3e4-fd6c-40be-8efc-83e569f14330\',
             \'rdf_mapping\' => array(),
@@ -1718,7 +1635,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_software_type\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'tid\' => \'109\',
             \'uuid\' => \'92d46be9-09bd-65f4-b1a4-310551bf066e\',
@@ -1736,7 +1653,7 @@ function appcat_default_content_node_export_features_default() {
       ),
       \'field_video\' => array(),
       \'title_field\' => array(
-        \'en\' => array(
+        \'und\' => array(
           array(
             \'value\' => \'WordPress\',
             \'format\' => NULL,
@@ -1744,24 +1661,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_file_attachments\' => array(),
       \'title_original\' => \'WordPress\',
-      \'translations\' => (object) array(
-          \'original\' => \'en\',
-          \'data\' => array(
-            \'en\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'8\',
-              \'language\' => \'en\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1360539496\',
-              \'changed\' => \'1367947322\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:SoftwareApplication\',
@@ -1924,7 +1824,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1367947322\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -1933,7 +1833,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'174\',
+        \'pid\' => \'166\',
         \'source\' => \'node/8\',
         \'alias\' => \'app/wordpress\',
         \'language\' => \'en\',
@@ -1942,7 +1842,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'131\',
+      \'vid\' => \'9\',
       \'uid\' => \'1\',
       \'title\' => \'New Amsterdam Ideas\',
       \'log\' => \'\',
@@ -1955,11 +1855,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'d9a92578-91ef-6cf4-3d5c-fc8f0e2d0cb3\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2049,7 +1949,7 @@ function appcat_default_content_node_export_features_default() {
             \'filemime\' => \'image/png\',
             \'filesize\' => \'4432\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1363698957\',
+            \'timestamp\' => \'1370913388\',
             \'type\' => \'image\',
             \'uuid\' => \'6d9d7eb9-dcca-8ca4-2d54-7331a7dd7326\',
             \'rdf_mapping\' => array(),
@@ -2109,22 +2009,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'New Amsterdam Ideas\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'9\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1366892652\',
-              \'changed\' => \'1366892652\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -2239,7 +2123,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -2248,7 +2132,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'175\',
+        \'pid\' => \'167\',
         \'source\' => \'node/9\',
         \'alias\' => \'org/new-amsterdam-ideas\',
         \'language\' => \'und\',
@@ -2257,7 +2141,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'132\',
+      \'vid\' => \'10\',
       \'uid\' => \'1\',
       \'title\' => \'Drupal Association\',
       \'log\' => \'\',
@@ -2270,11 +2154,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'organization\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370913388\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'e1224f5d-f371-a814-b55a-0e77f1f7aabb\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370913388\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2391,22 +2275,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'Drupal Association\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'10\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1366892652\',
-              \'changed\' => \'1366892652\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:Organization\',
@@ -2521,7 +2389,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1363698957\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -2530,7 +2398,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'176\',
+        \'pid\' => \'168\',
         \'source\' => \'node/10\',
         \'alias\' => \'org/drupal-association\',
         \'language\' => \'und\',
@@ -2539,7 +2407,7 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'133\',
+      \'vid\' => \'11\',
       \'uid\' => \'1\',
       \'title\' => \'Deployment of Drupal\',
       \'log\' => \'\',
@@ -2552,11 +2420,11 @@ function appcat_default_content_node_export_features_default() {
       \'type\' => \'deployment\',
       \'language\' => \'und\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1363698957\',
+      \'changed\' => \'1370930106\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'f6c42cc3-7967-cef4-a95e-98b07a690db9\',
-      \'revision_timestamp\' => \'1363698957\',
+      \'revision_timestamp\' => \'1370930106\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2636,20 +2504,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_field\' => array(
-        \'en\' => array(
-          array(
-            \'value\' => \'Deployment of Drupal\',
-            \'format\' => NULL,
-            \'safe_value\' => \'Deployment of Drupal\',
-          ),
-        ),
-        \'es\' => array(
-          array(
-            \'value\' => \'Deployment of Drupal\',
-            \'format\' => NULL,
-            \'safe_value\' => \'Deployment of Drupal\',
-          ),
-        ),
         \'und\' => array(
           array(
             \'value\' => \'Deployment of Drupal\',
@@ -2659,22 +2513,6 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'title_original\' => \'Deployment of Drupal\',
-      \'translations\' => (object) array(
-          \'original\' => \'und\',
-          \'data\' => array(
-            \'und\' => array(
-              \'entity_type\' => \'node\',
-              \'entity_id\' => \'11\',
-              \'language\' => \'und\',
-              \'source\' => \'\',
-              \'uid\' => \'1\',
-              \'status\' => \'1\',
-              \'translate\' => \'0\',
-              \'created\' => \'1365599434\',
-              \'changed\' => \'1365599434\',
-            ),
-          ),
-        ),
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'schema:UserInteraction\',
@@ -2770,7 +2608,7 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1360657057\',
+      \'last_comment_timestamp\' => \'1370913388\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -2779,7 +2617,7 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'177\',
+        \'pid\' => \'169\',
         \'source\' => \'node/11\',
         \'alias\' => \'deploy/deployment-drupal\',
         \'language\' => \'und\',

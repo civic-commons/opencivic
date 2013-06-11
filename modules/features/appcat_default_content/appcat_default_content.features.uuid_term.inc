@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * appcat_misc_taxonomy_app_terms.features.uuid_term.inc
+ * appcat_default_content.features.uuid_term.inc
  */
 
 /**
  * Implements hook_uuid_features_default_terms().
  */
-function appcat_misc_taxonomy_app_terms_uuid_features_default_terms() {
+function appcat_default_content_uuid_features_default_terms() {
   $terms = array();
 
   $terms[] = array(

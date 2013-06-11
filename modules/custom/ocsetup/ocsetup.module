@@ -390,13 +390,13 @@ function ocsetup_aliases() {
 function ocsetup_options() {
   return array(
     'ocmisc' => 'Miscellaneous startup stuff',
+    'oclang' => 'Multilingual support',
     'appcat' => 'Applications Catalog',
     'appcat_default_content' => 'Applications Catalog default content',
     'occomm' => 'Community',
     'occomm_default_content' => 'Community default content',
     'ochack' => 'Hackathon',
     'ochack_default_content' => 'Hackathon default content',
-    'oclang' => 'Multilingual support',
     'ocapi' => 'API for Interoperability',
     'ocdevel' => 'Development features',
 /*

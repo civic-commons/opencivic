@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * appcat_misc_taxonomy_app_terms.features.taxonomy.inc
+ * appcat_default_content.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function appcat_misc_taxonomy_app_terms_taxonomy_default_vocabularies() {
+function appcat_default_content_taxonomy_default_vocabularies() {
   return array(
     'application_category' => array(
       'name' => 'Application function',
