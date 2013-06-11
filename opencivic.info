@@ -184,7 +184,6 @@ dependencies[] = schemaorg
 ; Included in distro but not enabled at installation
 ; dependencies[] = inline_entity_form
 ; dependencies[] = insert_block
-; dependencies[] = nice_menus
 ; dependencies[] = appcat_search_db
 ; dependencies[] = ole
 

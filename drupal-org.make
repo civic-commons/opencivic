@@ -212,9 +212,6 @@ projects[menu_block][download][revision] = 32ab1cf08b729c93302455d67dd05f64ad2fc
 projects[menu_block][download][branch] = 7.x-2.x
 projects[menu_block][type] = "module"
 
-projects[nice_menus][subdir] = "contrib"
-projects[nice_menus][version] = "2.1"
-
 ; References has been replaced with the Entity Reference module
 ; projects[references][subdir] = "contrib"
 ; projects[references][version] = "2.0"
