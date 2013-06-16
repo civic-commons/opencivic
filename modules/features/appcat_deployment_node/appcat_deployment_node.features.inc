@@ -166,7 +166,7 @@ function appcat_deployment_node_rdf_default_mappings() {
     'field_related_applications' => array(
       'predicates' => array(),
     ),
-    'field_add_deployment_for' => array(
+    'field_deployment_of' => array(
       'predicates' => array(),
     ),
     'field_contributor' => array(

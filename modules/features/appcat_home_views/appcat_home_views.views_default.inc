@@ -35,11 +35,11 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   /* Relationship: App deployed */
-  $handler->display->display_options['relationships']['field_add_deployment_for_target_id']['id'] = 'field_add_deployment_for_target_id';
-  $handler->display->display_options['relationships']['field_add_deployment_for_target_id']['table'] = 'field_data_field_add_deployment_for';
-  $handler->display->display_options['relationships']['field_add_deployment_for_target_id']['field'] = 'field_add_deployment_for_target_id';
-  $handler->display->display_options['relationships']['field_add_deployment_for_target_id']['ui_name'] = 'App deployed';
-  $handler->display->display_options['relationships']['field_add_deployment_for_target_id']['label'] = 'App deployed';
+  $handler->display->display_options['relationships']['field_deployment_of_target_id']['id'] = 'field_deployment_of_target_id';
+  $handler->display->display_options['relationships']['field_deployment_of_target_id']['table'] = 'field_data_field_deployment_of';
+  $handler->display->display_options['relationships']['field_deployment_of_target_id']['field'] = 'field_deployment_of_target_id';
+  $handler->display->display_options['relationships']['field_deployment_of_target_id']['ui_name'] = 'App deployed';
+  $handler->display->display_options['relationships']['field_deployment_of_target_id']['label'] = 'App deployed';
   /* Relationship: Developer */
   $handler->display->display_options['relationships']['field_member_target_id']['id'] = 'field_member_target_id';
   $handler->display->display_options['relationships']['field_member_target_id']['table'] = 'field_data_field_member';
@@ -54,14 +54,14 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
-  /* Field: Content: Add Deployment for */
-  $handler->display->display_options['fields']['field_add_deployment_for']['id'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['table'] = 'field_data_field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['field'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['label'] = 'Application';
-  $handler->display->display_options['fields']['field_add_deployment_for']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_add_deployment_for']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_add_deployment_for']['settings'] = array(
+  /* Field: Content: Add deployment of */
+  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application';
+  $handler->display->display_options['fields']['field_deployment_of']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_deployment_of']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
   /* Field: Content: Url */
@@ -168,12 +168,12 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
-  /* Field: Content: Add Deployment for */
-  $handler->display->display_options['fields']['field_add_deployment_for']['id'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['table'] = 'field_data_field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['field'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['label'] = 'Application';
-  $handler->display->display_options['fields']['field_add_deployment_for']['settings'] = array(
+  /* Field: Content: Add deployment of */
+  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application';
+  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
   /* Field: Content: Url */
@@ -313,15 +313,15 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Add Deployment for */
-  $handler->display->display_options['fields']['field_add_deployment_for']['id'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['table'] = 'field_data_field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['field'] = 'field_add_deployment_for';
-  $handler->display->display_options['fields']['field_add_deployment_for']['label'] = '';
-  $handler->display->display_options['fields']['field_add_deployment_for']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_add_deployment_for']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_add_deployment_for']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_add_deployment_for']['settings'] = array(
+  /* Field: Content: Add deployment of */
+  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
+  $handler->display->display_options['fields']['field_deployment_of']['label'] = '';
+  $handler->display->display_options['fields']['field_deployment_of']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_deployment_of']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_deployment_of']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 0,
   );
   /* Field: Content: Location */

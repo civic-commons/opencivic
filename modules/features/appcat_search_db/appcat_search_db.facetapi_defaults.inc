@@ -47,10 +47,10 @@ function appcat_search_db_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@apps_cat_db_nodes_index:block:field_add_deployment_for';
+  $facet->name = 'search_api@apps_cat_db_nodes_index:block:field_deployment_of';
   $facet->searcher = 'search_api@apps_cat_db_nodes_index';
   $facet->realm = 'block';
-  $facet->facet = 'field_add_deployment_for';
+  $facet->facet = 'field_deployment_of';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -76,7 +76,7 @@ function appcat_search_db_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@apps_cat_db_nodes_index:block:field_add_deployment_for'] = $facet;
+  $export['search_api@apps_cat_db_nodes_index:block:field_deployment_of'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

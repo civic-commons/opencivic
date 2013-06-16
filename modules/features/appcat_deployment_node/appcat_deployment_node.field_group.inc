@@ -24,7 +24,7 @@ function appcat_deployment_node_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'body',
-      1 => 'field_add_deployment_for',
+      1 => 'field_deployment_of',
       2 => 'field_location',
       3 => 'field_member',
       4 => 'field_url',
