@@ -2036,6 +2036,7 @@ div.messages ul {
   margin-top: 5px;
 }
 
+#views-exposed-form-application-list-page .views-exposed-form,
 #views-exposed-form-organization-list-page .views-exposed-form,
 #views-exposed-form-events-list-page .views-exposed-form {
   background: #eee;
@@ -2048,14 +2049,17 @@ div.messages ul {
   display: inline-block;
   font-size: .94em;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widgets,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widgets,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets {
   margin-bottom: 0;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget {
   padding: 4px 1em;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget label,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget label,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget label {
   color: #666;
@@ -2064,14 +2068,17 @@ div.messages ul {
   margin: 3px 5px;
   text-shadow: 1px 1px 1px #fff;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .views-widget,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .views-widget,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .views-widget {
   float: left;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-item select,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-item select,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-item select {
   border: 1px solid #ccc;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-submit,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-submit,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 2px;
@@ -2089,6 +2096,7 @@ div.messages ul {
   border: 1px solid #ccc;
   letter-spacing: 0;
 }
+#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-submit:hover,
 #views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-submit:hover,
 #views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-submit:hover {
   background: #164e83;

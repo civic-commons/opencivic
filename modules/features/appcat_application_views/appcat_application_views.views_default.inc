@@ -154,6 +154,31 @@ function appcat_application_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application At a Glance';
+  $translatables['application_at_a_glance'] = array(
+    t('Master'),
+    t('At a Glance'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Application function'),
+    t('Civic sector'),
+    t('Creator'),
+    t('Host website'),
+    t('Demo Website'),
+    t('License'),
+    t('Release Notes'),
+    t('Requirements'),
+    t('Software type'),
+    t('Tags'),
+    t('Url'),
+    t('Rating'),
+    t('All'),
+    t('Block'),
+    t('Application At a Glance'),
+  );
   $export['application_at_a_glance'] = $view;
 
   $view = new view();
@@ -365,6 +390,32 @@ function appcat_application_views_views_default_views() {
     'civic_category' => 'civic_category',
   );
   $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
+  $translatables['application_categories'] = array(
+    t('Master'),
+    t('Application categories'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('field_application_category'),
+    t('All'),
+    t('Small icons and names of application categories'),
+    t('Application/Application categories'),
+    t('Civic categories'),
+    t('Small icons and names of civic categories'),
+    t('field_civic_category'),
+    t('Application/Civic categories'),
+    t('Application categories icons'),
+    t('Small icons of application categories'),
+    t('.'),
+    t(','),
+    t('Application/Application categories icons'),
+    t('Civic categories icons'),
+    t('Small icons of civic categories'),
+    t('Application/Civic categories icons'),
+  );
   $export['application_categories'] = $view;
 
   $view = new view();
@@ -417,17 +468,23 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Application function */
+  $handler->display->display_options['fields']['field_application_category']['id'] = 'field_application_category';
+  $handler->display->display_options['fields']['field_application_category']['table'] = 'field_data_field_application_category';
+  $handler->display->display_options['fields']['field_application_category']['field'] = 'field_application_category';
+  $handler->display->display_options['fields']['field_application_category']['label'] = 'App function';
+  $handler->display->display_options['fields']['field_application_category']['delta_offset'] = '0';
+  /* Field: Content: Civic sector */
+  $handler->display->display_options['fields']['field_civic_category']['id'] = 'field_civic_category';
+  $handler->display->display_options['fields']['field_civic_category']['table'] = 'field_data_field_civic_category';
+  $handler->display->display_options['fields']['field_civic_category']['field'] = 'field_civic_category';
+  $handler->display->display_options['fields']['field_civic_category']['delta_offset'] = '0';
   /* Field: Content: Software type */
   $handler->display->display_options['fields']['field_software_type']['id'] = 'field_software_type';
   $handler->display->display_options['fields']['field_software_type']['table'] = 'field_data_field_software_type';
   $handler->display->display_options['fields']['field_software_type']['field'] = 'field_software_type';
   $handler->display->display_options['fields']['field_software_type']['label'] = 'App type';
   $handler->display->display_options['fields']['field_software_type']['delta_offset'] = '0';
-  /* Field: Content: Civic sector */
-  $handler->display->display_options['fields']['field_civic_category']['id'] = 'field_civic_category';
-  $handler->display->display_options['fields']['field_civic_category']['table'] = 'field_data_field_civic_category';
-  $handler->display->display_options['fields']['field_civic_category']['field'] = 'field_civic_category';
-  $handler->display->display_options['fields']['field_civic_category']['delta_offset'] = '0';
   /* Field: Content: Rating */
   $handler->display->display_options['fields']['field_aggregate_rating']['id'] = 'field_aggregate_rating';
   $handler->display->display_options['fields']['field_aggregate_rating']['table'] = 'field_data_field_aggregate_rating';
@@ -462,6 +519,40 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'application' => 'application',
   );
+  /* Filter criterion: Content: Application function (field_application_category) */
+  $handler->display->display_options['filters']['field_application_category_tid']['id'] = 'field_application_category_tid';
+  $handler->display->display_options['filters']['field_application_category_tid']['table'] = 'field_data_field_application_category';
+  $handler->display->display_options['filters']['field_application_category_tid']['field'] = 'field_application_category_tid';
+  $handler->display->display_options['filters']['field_application_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_application_category_tid']['expose']['operator_id'] = 'field_application_category_tid_op';
+  $handler->display->display_options['filters']['field_application_category_tid']['expose']['label'] = 'App function';
+  $handler->display->display_options['filters']['field_application_category_tid']['expose']['operator'] = 'field_application_category_tid_op';
+  $handler->display->display_options['filters']['field_application_category_tid']['expose']['identifier'] = 'field_application_category_tid';
+  $handler->display->display_options['filters']['field_application_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_application_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_application_category_tid']['vocabulary'] = 'application_category';
+  $handler->display->display_options['filters']['field_application_category_tid']['hierarchy'] = 1;
+  /* Filter criterion: Content: Civic sector (field_civic_category) */
+  $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Civic sector';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['identifier'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['hierarchy'] = 1;
 
   /* Display: Applications list */
   $handler = $view->new_display('page', 'Applications list', 'page');
@@ -483,6 +574,23 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['path'] = 'apps/feed';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -532,7 +640,55 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['label'] = '';
   $handler->display->display_options['fields']['field_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Latest apps';
+  $translatables['application_list'] = array(
+    t('Master'),
+    t('Applications'),
+    t('See all'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Description'),
+    t('We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.'),
+    t('Nid'),
+    t('Date added'),
+    t('Title'),
+    t('App function'),
+    t('Civic sector'),
+    t('App type'),
+    t('Rating'),
+    t('Applications list'),
+    t('Applications listing page.'),
+    t('more'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Applications feed'),
+    t('Latest apps'),
+  );
   $export['application_list'] = $view;
 
   $view = new view();
@@ -557,7 +713,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'application_deployments';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['id'] = 'field_deployment_of_target_id';
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['table'] = 'field_data_field_deployment_of';
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['field'] = 'field_deployment_of_target_id';
@@ -650,6 +806,22 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['deployments_map'] = array(
+    t('Master'),
+    t('Application Deployments'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('field_deployment_of_target_id'),
+    t('Nid'),
+    t('Deployments map'),
+    t('Defines the map of places where Applications have been deployed.'),
+    t('Deployments/Map on apps listing page'),
+    t('Deployments Data Overlay'),
+  );
   $export['deployments_map'] = $view;
 
   $view = new view();
@@ -729,6 +901,19 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application related applications';
   $handler->display->display_options['block_caching'] = '8';
+  $translatables['related_applications'] = array(
+    t('Master'),
+    t('Related applications'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('All'),
+    t('Block'),
+    t('Application related applications'),
+  );
   $export['related_applications'] = $view;
 
   return $export;

@@ -92,6 +92,23 @@ function appcat_organization_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Organization At a Glance';
+  $translatables['organization_at_a_glance'] = array(
+    t('Master'),
+    t('At a Glance'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Civic sector'),
+    t('Apps expertise'),
+    t('Organization type'),
+    t('Tags'),
+    t('All'),
+    t('Block'),
+    t('Organization At a Glance'),
+  );
   $export['organization_at_a_glance'] = $view;
 
   $view = new view();
@@ -260,6 +277,27 @@ function appcat_organization_views_views_default_views() {
     'civic_category' => 'civic_category',
   );
   $handler->display->display_options['block_description'] = 'Organization/Civic categories icons';
+  $translatables['organization_categories'] = array(
+    t('Master'),
+    t('Application categories'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('field_application_category'),
+    t('All'),
+    t('Civic categories'),
+    t('Small icons and names of civic categories'),
+    t('field_civic_category'),
+    t('Organization/Civic categories'),
+    t('Civic categories icons'),
+    t('Small icons of civic categories'),
+    t('.'),
+    t(','),
+    t('Organization/Civic categories icons'),
+  );
   $export['organization_categories'] = $view;
 
   $view = new view();
@@ -344,6 +382,24 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Organization type (field_additional_type) */
+  $handler->display->display_options['filters']['field_additional_type_tid']['id'] = 'field_additional_type_tid';
+  $handler->display->display_options['filters']['field_additional_type_tid']['table'] = 'field_data_field_additional_type';
+  $handler->display->display_options['filters']['field_additional_type_tid']['field'] = 'field_additional_type_tid';
+  $handler->display->display_options['filters']['field_additional_type_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_additional_type_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_additional_type_tid']['expose']['operator_id'] = 'field_additional_type_tid_op';
+  $handler->display->display_options['filters']['field_additional_type_tid']['expose']['label'] = 'Org type';
+  $handler->display->display_options['filters']['field_additional_type_tid']['expose']['operator'] = 'field_additional_type_tid_op';
+  $handler->display->display_options['filters']['field_additional_type_tid']['expose']['identifier'] = 'field_additional_type_tid';
+  $handler->display->display_options['filters']['field_additional_type_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_additional_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_additional_type_tid']['vocabulary'] = 'organization_type';
+  $handler->display->display_options['filters']['field_additional_type_tid']['hierarchy'] = 1;
   /* Filter criterion: Content: Related applications (field_related_applications) */
   $handler->display->display_options['filters']['field_related_applications_target_id']['id'] = 'field_related_applications_target_id';
   $handler->display->display_options['filters']['field_related_applications_target_id']['table'] = 'field_data_field_related_applications';
@@ -359,23 +415,6 @@ function appcat_organization_views_views_default_views() {
     1 => 0,
     3 => 0,
   );
-  /* Filter criterion: Content: Civic sector (field_civic_category) */
-  $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
-  $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
-  $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
-  $handler->display->display_options['filters']['field_civic_category_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
-  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Civic Focus';
-  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator'] = 'field_civic_category_tid_op';
-  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['identifier'] = 'civic';
-  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
   /* Filter criterion: Content: Services (field_services) */
   $handler->display->display_options['filters']['field_services_tid']['id'] = 'field_services_tid';
   $handler->display->display_options['filters']['field_services_tid']['table'] = 'field_data_field_services';
@@ -393,6 +432,23 @@ function appcat_organization_views_views_default_views() {
   );
   $handler->display->display_options['filters']['field_services_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_services_tid']['vocabulary'] = 'service';
+  /* Filter criterion: Content: Civic sector (field_civic_category) */
+  $handler->display->display_options['filters']['field_civic_category_tid']['id'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['table'] = 'field_data_field_civic_category';
+  $handler->display->display_options['filters']['field_civic_category_tid']['field'] = 'field_civic_category_tid';
+  $handler->display->display_options['filters']['field_civic_category_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_civic_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator_id'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['label'] = 'Civic Focus';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['operator'] = 'field_civic_category_tid_op';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['identifier'] = 'civic';
+  $handler->display->display_options['filters']['field_civic_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_civic_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_civic_category_tid']['vocabulary'] = 'civic_category';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -414,6 +470,38 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['display_description'] = 'Organizations listing page.';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'orgs';
+  $translatables['organization_list'] = array(
+    t('Master'),
+    t('Organizations'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Description'),
+    t('The organizations listed here include vendors, developers and organizations that have used applications. Use the form below to select organizations with the experience and interests that you\'re seeking.'),
+    t('Organization'),
+    t('Nid'),
+    t('Date added'),
+    t('Civic sector'),
+    t('Address'),
+    t('Phone'),
+    t('Url'),
+    t('Org type'),
+    t('App experience'),
+    t('Services'),
+    t('Civic Focus'),
+    t('Organizations list'),
+    t('Organizations listing page.'),
+  );
   $export['organization_list'] = $view;
 
   $view = new view();
@@ -531,6 +619,22 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['organization_map'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('All'),
+    t('Organization map'),
+    t('Defines the map that appears on the Organization detail page'),
+    t('Organization/Map on detail page'),
+    t('Organization Data Overlay'),
+    t('Map of a single organization'),
+  );
   $export['organization_map'] = $view;
 
   $view = new view();
@@ -588,7 +692,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Members (field_member) */
+  /* Contextual filter: Content: Developers (field_member) */
   $handler->display->display_options['arguments']['field_member_target_id']['id'] = 'field_member_target_id';
   $handler->display->display_options['arguments']['field_member_target_id']['table'] = 'field_data_field_member';
   $handler->display->display_options['arguments']['field_member_target_id']['field'] = 'field_member_target_id';
@@ -616,6 +720,26 @@ function appcat_organization_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Organization related deployments';
+  $translatables['organization_related_deployments'] = array(
+    t('Master'),
+    t('Related deployments'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+    t('Block'),
+    t('Organization related deployments'),
+  );
   $export['organization_related_deployments'] = $view;
 
   $view = new view();
@@ -778,6 +902,23 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['organizations_map'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('Category'),
+    t('Services'),
+    t('Related apps'),
+    t('Organizations map'),
+    t('Defines the map of Organizations'),
+    t('Organizations/Map on orgs listing page'),
+    t('Organizations Data Overlay'),
+  );
   $export['organizations_map'] = $view;
 
   return $export;
