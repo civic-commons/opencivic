@@ -68,12 +68,12 @@
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-  // Enable the Cat Lover theme
-  theme_enable(array('cat_lover'));
-  variable_set('theme_default', 'cat_lover');
+  // Enable the Cat Man Do theme
+  theme_enable(array('cat_man_do'));
+  variable_set('theme_default', 'cat_man_do');
 
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'cat_lover');
+  $default_theme = variable_get('theme_default', 'cat_man_do');
   $admin_theme = 'seven';
   $blocks = array(
     array(
@@ -431,7 +431,7 @@
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'cat_lover_admin')
+    ->condition('name', 'cat_man_do_admin')
     ->execute();
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
