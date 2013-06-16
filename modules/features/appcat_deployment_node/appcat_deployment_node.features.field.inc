@@ -98,14 +98,14 @@ function appcat_deployment_node_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-deployment-field_add_deployment_for'.
-  $fields['node-deployment-field_add_deployment_for'] = array(
+  // Exported field: 'node-deployment-field_deployment_of'.
+  $fields['node-deployment-field_deployment_of'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_add_deployment_for',
+      'field_name' => 'field_deployment_of',
       'foreign keys' => array(
         'node' => array(
           'columns' => array(
@@ -169,8 +169,8 @@ function appcat_deployment_node_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_add_deployment_for',
-      'label' => 'Add Deployment for',
+      'field_name' => 'field_deployment_of',
+      'label' => 'Add deployment of',
       'required' => 0,
       'settings' => array(
         'behaviors' => array(
@@ -654,7 +654,7 @@ function appcat_deployment_node_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Add Deployment for');
+  t('Add deployment of');
   t('Coordinates');
   t('Details');
   t('Developers');

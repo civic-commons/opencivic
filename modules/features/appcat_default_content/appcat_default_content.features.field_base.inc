@@ -40,13 +40,13 @@ function appcat_default_content_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_add_deployment_for'
-  $field_bases['field_add_deployment_for'] = array(
+  // Exported field_base: 'field_deployment_of'
+  $field_bases['field_deployment_of'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_add_deployment_for',
+    'field_name' => 'field_deployment_of',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(

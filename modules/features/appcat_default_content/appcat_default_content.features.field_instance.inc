@@ -1229,8 +1229,8 @@ function appcat_default_content_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_add_deployment_for'
-  $field_instances['node-deployment-field_add_deployment_for'] = array(
+  // Exported field_instance: 'node-deployment-field_deployment_of'
+  $field_instances['node-deployment-field_deployment_of'] = array(
     'bundle' => 'deployment',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
@@ -1257,8 +1257,8 @@ function appcat_default_content_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_add_deployment_for',
-    'label' => 'Add Deployment for',
+    'field_name' => 'field_deployment_of',
+    'label' => 'Add deployment of',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -2601,7 +2601,7 @@ function appcat_default_content_field_default_field_instances() {
   t('A member of this organization.');
   t('A short description, e.g., "A web-based visualization tool."');
   t('Abbreviation');
-  t('Add Deployment for');
+  t('Add deployment of');
   t('Address');
   t('An embedded video object.');
   t('App Description');

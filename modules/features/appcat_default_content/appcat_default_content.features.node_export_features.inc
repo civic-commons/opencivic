@@ -1251,7 +1251,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_add_deployment_for\' => array(
+      \'field_deployment_of\' => array(
         \'und\' => array(
           array(
             \'target_id\' => \'8\',
@@ -1395,7 +1395,7 @@ function appcat_default_content_node_export_features_default() {
         \'field_related_applications\' => array(
           \'predicates\' => array(),
         ),
-        \'field_add_deployment_for\' => array(
+        \'field_deployment_of\' => array(
           \'predicates\' => array(),
         ),
         \'field_contributor\' => array(
@@ -2437,7 +2437,7 @@ function appcat_default_content_node_export_features_default() {
           ),
         ),
       ),
-      \'field_add_deployment_for\' => array(
+      \'field_deployment_of\' => array(
         \'und\' => array(
           array(
             \'target_id\' => \'5\',
@@ -2587,7 +2587,7 @@ function appcat_default_content_node_export_features_default() {
         \'field_related_applications\' => array(
           \'predicates\' => array(),
         ),
-        \'field_add_deployment_for\' => array(
+        \'field_deployment_of\' => array(
           \'predicates\' => array(),
         ),
         \'field_contributor\' => array(

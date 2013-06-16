@@ -56,7 +56,7 @@ function appcat_search_db_default_search_api_index() {
         "field_license" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_requirements" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_software_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_add_deployment_for" : { "type" : "integer", "entity_type" : "node" },
+        "field_deployment_of" : { "type" : "integer", "entity_type" : "node" },
         "search_api_language" : { "type" : "string" },
         "search_api_viewed" : { "type" : "text" }
       },
@@ -202,8 +202,8 @@ function appcat_search_db_default_search_api_server() {
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
-          "field_add_deployment_for" : {
-            "table" : "search_api_db_apps_cat_db_nodes_index_field_add_deployment_for",
+          "field_deployment_of" : {
+            "table" : "search_api_db_apps_cat_db_nodes_index_field_deployment_of",
             "type" : "integer",
             "boost" : "1.0"
           },
