@@ -150,10 +150,63 @@ function appcat_application_views_views_default_views() {
     'application' => 'application',
   );
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Application At a Glance */
+  $handler = $view->new_display('block', 'Application At a Glance', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application At a Glance';
+
+  /* Display: Application Key Features */
+  $handler = $view->new_display('block', 'Application Key Features', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Key Features';
+  $handler->display->display_options['display_description'] = 'Displays the key features for an application';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Key features */
+  $handler->display->display_options['fields']['field_feature_list']['id'] = 'field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['table'] = 'field_data_field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['field'] = 'field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['label'] = '';
+  $handler->display->display_options['fields']['field_feature_list']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_feature_list']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_feature_list']['multi_type'] = 'ul';
+  $handler->display->display_options['block_description'] = 'Application Key Features';
+
+  /* Display: Application Media */
+  $handler = $view->new_display('block', 'Application Media', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Media';
+  $handler->display->display_options['display_description'] = 'Displays the screenshots and video for an application';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Video */
+  $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
+  $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
+  $handler->display->display_options['fields']['field_video']['field'] = 'field_video';
+  $handler->display->display_options['fields']['field_video']['label'] = '';
+  $handler->display->display_options['fields']['field_video']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_video']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_video']['settings'] = array(
+    'file_view_mode' => 'default',
+  );
+  $handler->display->display_options['fields']['field_video']['delta_offset'] = '0';
+  /* Field: Content: Screenshots */
+  $handler->display->display_options['fields']['field_screenshot']['id'] = 'field_screenshot';
+  $handler->display->display_options['fields']['field_screenshot']['table'] = 'field_data_field_screenshot';
+  $handler->display->display_options['fields']['field_screenshot']['field'] = 'field_screenshot';
+  $handler->display->display_options['fields']['field_screenshot']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_screenshot']['type'] = 'colorbox';
+  $handler->display->display_options['fields']['field_screenshot']['settings'] = array(
+    'colorbox_node_style' => 'medium',
+    'colorbox_image_style' => 'screenshot',
+    'colorbox_gallery' => 'page',
+    'colorbox_gallery_custom' => '',
+    'colorbox_caption' => 'auto',
+    'colorbox_caption_custom' => '',
+  );
+  $handler->display->display_options['fields']['field_screenshot']['delta_offset'] = '0';
+  $handler->display->display_options['block_description'] = 'Application Media';
   $translatables['application_at_a_glance'] = array(
     t('Master'),
     t('At a Glance'),
@@ -176,8 +229,13 @@ function appcat_application_views_views_default_views() {
     t('Url'),
     t('Rating'),
     t('All'),
-    t('Block'),
     t('Application At a Glance'),
+    t('Application Key Features'),
+    t('Key Features'),
+    t('Displays the key features for an application'),
+    t('Application Media'),
+    t('Media'),
+    t('Displays the screenshots and video for an application'),
   );
   $export['application_at_a_glance'] = $view;
 
@@ -713,7 +771,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'application_deployments';
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['id'] = 'field_deployment_of_target_id';
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['table'] = 'field_data_field_deployment_of';
   $handler->display->display_options['relationships']['field_deployment_of_target_id']['field'] = 'field_deployment_of_target_id';
@@ -815,7 +873,7 @@ function appcat_application_views_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('field_deployment_of_target_id'),
+    t('Content entity referenced from field_deployment_of'),
     t('Nid'),
     t('Deployments map'),
     t('Defines the map of places where Applications have been deployed.'),

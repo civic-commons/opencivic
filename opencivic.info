@@ -41,6 +41,7 @@ dependencies[] = captcha
 dependencies[] = image_captcha
 dependencies[] = cck_phone
 dependencies[] = cer
+dependencies[] = colorbox
 dependencies[] = conditional_fields
 dependencies[] = content_taxonomy
 dependencies[] = content_taxonomy_autocomplete

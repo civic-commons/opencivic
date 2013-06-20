@@ -85,6 +85,13 @@ projects[cer][download][revision] = 98a59bb024ad955cb02667b5009cc564dbb25416
 projects[cer][download][branch] = 7.x-1.x
 projects[cer][type] = "module"
 
+projects[colorbox][version] = "2.x"
+projects[colorbox][subdir] = "contrib"
+projects[colorbox][download][type] = "git"
+projects[colorbox][download][url] = "http://git.drupal.org/project/colorbox.git"
+projects[colorbox][download][branch] = 7.x-2.x
+projects[colorbox][type] = "module"
+
 projects[date_ical][subdir] = "contrib"
 projects[date_ical][version] = "1.1"
 
@@ -488,6 +495,11 @@ projects[schemaorg_cache][type] = "module"
 libraries[ole][download][type]        = file
 libraries[ole][download][url]         = https://github.com/downloads/geops/ole/ole-1.0-beta3.tar.gz
 libraries[ole][download][subtree]     = client
+
+libraries[colorbox][download][type]        = get
+libraries[colorbox][download][url]         = https://github.com/jackmoore/colorbox/archive/1.x.zip
+libraries[ckeditor][directory_name] = "colorbox"
+libraries[colorbox][type] = "library"
 
 ; ckeditor download url taken from OpenPublic.
 libraries[ckeditor][download][type] = get

@@ -65,6 +65,18 @@ function appcat_application_contexts_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-5',
         ),
+        'views-application_at_a_glance-block_1' => array(
+          'module' => 'views',
+          'delta' => 'application_at_a_glance-block_1',
+          'region' => 'content_aside',
+          'weight' => '-10',
+        ),
+        'views-application_at_a_glance-block_2' => array(
+          'module' => 'views',
+          'delta' => 'application_at_a_glance-block_2',
+          'region' => 'content_aside',
+          'weight' => '-9',
+        ),
       ),
     ),
   );
