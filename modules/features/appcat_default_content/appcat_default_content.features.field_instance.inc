@@ -434,9 +434,8 @@ function appcat_default_content_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'ical' => array(
@@ -902,13 +901,10 @@ function appcat_default_content_field_default_field_instances() {
     'description' => 'Screenshot images of the app.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'file_entity',
-        'settings' => array(
-          'file_view_mode' => 'default',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 15,
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'ical' => array(
         'label' => 'above',
@@ -1068,10 +1064,9 @@ function appcat_default_content_field_default_field_instances() {
     'description' => 'An embedded video object.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'styles',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'styles_file_thumbnail',
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'ical' => array(
@@ -1229,67 +1224,6 @@ function appcat_default_content_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_deployment_of'
-  $field_instances['node-deployment-field_deployment_of'] = array(
-    'bundle' => 'deployment',
-    'default_value' => NULL,
-    'default_value_function' => 'entityreference_prepopulate_field_default_value',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_deployment_of',
-    'label' => 'Add deployment of',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'node_links' => array(
-          'content_types' => array(
-            'application' => 'application',
-          ),
-          'status' => 1,
-        ),
-        'prepopulate' => array(
-          'action' => 'none',
-          'fallback' => 'none',
-          'skip_perm' => 0,
-          'status' => 1,
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_select',
-      'weight' => -4,
-    ),
-  );
-
   // Exported field_instance: 'node-deployment-field_coordinates'
   $field_instances['node-deployment-field_coordinates'] = array(
     'bundle' => 'deployment',
@@ -1352,6 +1286,67 @@ function appcat_default_content_field_default_field_instances() {
       ),
       'type' => 'geocoder',
       'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-deployment-field_deployment_of'
+  $field_instances['node-deployment-field_deployment_of'] = array(
+    'bundle' => 'deployment',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_deployment_of',
+    'label' => 'Add deployment of',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'node_links' => array(
+          'content_types' => array(
+            'application' => 'application',
+          ),
+          'status' => 1,
+        ),
+        'prepopulate' => array(
+          'action' => 'none',
+          'fallback' => 'none',
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_select',
+      'weight' => -4,
     ),
   );
 
