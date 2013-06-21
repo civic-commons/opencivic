@@ -169,6 +169,27 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_feature_list']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_feature_list']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_feature_list']['multi_type'] = 'ul';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
+  );
+  /* Filter criterion: Content: Key features (field_feature_list) */
+  $handler->display->display_options['filters']['field_feature_list_value']['id'] = 'field_feature_list_value';
+  $handler->display->display_options['filters']['field_feature_list_value']['table'] = 'field_data_field_feature_list';
+  $handler->display->display_options['filters']['field_feature_list_value']['field'] = 'field_feature_list_value';
+  $handler->display->display_options['filters']['field_feature_list_value']['operator'] = 'not empty';
   $handler->display->display_options['block_description'] = 'Application Key Features';
 
   /* Display: Application Media */
@@ -186,7 +207,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_video']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_video']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_video']['settings'] = array(
-    'file_view_mode' => 'default',
+    'file_view_mode' => 'media_large',
   );
   $handler->display->display_options['fields']['field_video']['delta_offset'] = '0';
   /* Field: Content: Screenshots */
@@ -206,6 +227,39 @@ function appcat_application_views_views_default_views() {
     'colorbox_caption_custom' => '',
   );
   $handler->display->display_options['fields']['field_screenshot']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Screenshots (field_screenshot:alt) */
+  $handler->display->display_options['filters']['field_screenshot_alt']['id'] = 'field_screenshot_alt';
+  $handler->display->display_options['filters']['field_screenshot_alt']['table'] = 'field_data_field_screenshot';
+  $handler->display->display_options['filters']['field_screenshot_alt']['field'] = 'field_screenshot_alt';
+  $handler->display->display_options['filters']['field_screenshot_alt']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_screenshot_alt']['group'] = 2;
+  /* Filter criterion: Content: Video (field_video:display) */
+  $handler->display->display_options['filters']['field_video_display']['id'] = 'field_video_display';
+  $handler->display->display_options['filters']['field_video_display']['table'] = 'field_data_field_video';
+  $handler->display->display_options['filters']['field_video_display']['field'] = 'field_video_display';
+  $handler->display->display_options['filters']['field_video_display']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_video_display']['group'] = 2;
   $handler->display->display_options['block_description'] = 'Application Media';
   $translatables['application_at_a_glance'] = array(
     t('Master'),

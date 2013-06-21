@@ -68,14 +68,14 @@ function appcat_application_contexts_context_default_contexts() {
         'views-application_at_a_glance-block_1' => array(
           'module' => 'views',
           'delta' => 'application_at_a_glance-block_1',
-          'region' => 'content_aside',
-          'weight' => '-10',
+          'region' => 'content',
+          'weight' => '9',
         ),
         'views-application_at_a_glance-block_2' => array(
           'module' => 'views',
           'delta' => 'application_at_a_glance-block_2',
-          'region' => 'content_aside',
-          'weight' => '-9',
+          'region' => 'content',
+          'weight' => '10',
         ),
       ),
     ),

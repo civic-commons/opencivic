@@ -1478,7 +1478,27 @@ legend {
   top: -10px;
   left: 10px;
 }
-
+fieldset legend {
+  background: #fff;
+  padding: 0;
+  color: #000;
+  text-transform: none;
+  letter-spacing: 0;
+  text-shadow: none;
+  top: 0;
+  left: 0;
+}
+#subscriptions-ui-node-form fieldset {
+  border: none;
+}
+#subscriptions-ui-node-form fieldset table,
+#subscriptions-ui-node-form fieldset table tr,
+#subscriptions-ui-node-form fieldset table th,
+#subscriptions-ui-node-form fieldset table thead th,
+#subscriptions-ui-node-form fieldset table thead tr {
+  background-color: #fff;
+  border: 0px solid #fff;
+}
 /*
  * Tips for Drupal's input formats
  */
@@ -2371,7 +2391,11 @@ body.front .button {
   text-align: center;
   float: none;
 }
-
 .at-panel.three-3x33 {
   margin-top: 20px;
+}
+body.node-type-application .field-name-field-image {
+  width: 145px;
+  margin: 0 10px 10px 0;
+  float: left;
 }

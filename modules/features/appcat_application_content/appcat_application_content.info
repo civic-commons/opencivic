@@ -40,6 +40,7 @@ features[field_group][] = group_features|node|application|form
 features[field_group][] = group_host|node|application|form
 features[field_group][] = group_main|node|application|form
 features[field_group][] = group_media|node|application|default
+features[field_group][] = group_media|node|application|form
 features[field_group][] = group_misc|node|application|form
 features[field_group][] = group_tutorials|node|application|default
 features[image][] = app_detail_logo
