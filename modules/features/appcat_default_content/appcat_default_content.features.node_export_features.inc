@@ -1329,24 +1329,24 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'7\',
+      \'vid\' => \'20\',
       \'uid\' => \'1\',
-      \'title\' => \'Deployment of WordPress\',
+      \'title\' => \'WordPress deployed by New York State Senate\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'70bd4d28-b143-42a2-a705-cbf2d12eb90d\',
+      \'vuuid\' => \'55ab55f2-170b-4215-828e-660e93c659fe\',
       \'nid\' => \'7\',
       \'type\' => \'deployment\',
-      \'language\' => \'und\',
+      \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1371802738\',
+      \'changed\' => \'1372055803\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'565dceb0-846a-496d-bbb6-d4de80a75f3a\',
-      \'revision_timestamp\' => \'1371802738\',
+      \'revision_timestamp\' => \'1372055803\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -1360,6 +1360,11 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_deployment_of\' => array(
+        \'en\' => array(
+          array(
+            \'target_id\' => \'8\',
+          ),
+        ),
         \'und\' => array(
           array(
             \'target_id\' => \'8\',
@@ -1384,6 +1389,24 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_location\' => array(
+        \'en\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'NY\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'New York\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'\',
+            \'thoroughfare\' => \'484 W. 43rd Street\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => NULL,
+            \'name_line\' => NULL,
+            \'first_name\' => NULL,
+            \'last_name\' => NULL,
+            \'data\' => NULL,
+          ),
+        ),
         \'und\' => array(
           array(
             \'country\' => \'US\',
@@ -1404,6 +1427,11 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_member\' => array(
+        \'en\' => array(
+          array(
+            \'target_id\' => \'6\',
+          ),
+        ),
         \'und\' => array(
           array(
             \'target_id\' => \'6\',
@@ -1422,33 +1450,33 @@ function appcat_default_content_node_export_features_default() {
       \'title_field\' => array(
         \'en\' => array(
           array(
-            \'value\' => \'Deployment of WordPress\',
+            \'value\' => \'WordPress deployed by New York State Senate\',
             \'format\' => NULL,
-            \'safe_value\' => \'Deployment of WordPress\',
+            \'safe_value\' => \'WordPress deployed by New York State Senate\',
           ),
         ),
         \'und\' => array(
           array(
-            \'value\' => \'Deployment of WordPress\',
+            \'value\' => \' deployed by \',
             \'format\' => NULL,
-            \'safe_value\' => \'Deployment of WordPress\',
+            \'safe_value\' => \' deployed by \',
           ),
         ),
       ),
-      \'title_original\' => \'Deployment of WordPress\',
+      \'title_original\' => \'WordPress deployed by New York State Senate\',
       \'translations\' => (object) array(
-          \'original\' => \'und\',
+          \'original\' => \'en\',
           \'data\' => array(
-            \'und\' => array(
+            \'en\' => array(
               \'entity_type\' => \'node\',
               \'entity_id\' => \'7\',
-              \'language\' => \'und\',
+              \'language\' => \'en\',
               \'source\' => \'\',
               \'uid\' => \'1\',
               \'status\' => \'1\',
               \'translate\' => \'0\',
-              \'created\' => \'1371444790\',
-              \'changed\' => \'1371802195\',
+              \'created\' => \'1360539496\',
+              \'changed\' => \'1372055803\',
             ),
           ),
         ),
@@ -1556,10 +1584,10 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'165\',
+        \'pid\' => \'181\',
         \'source\' => \'node/7\',
         \'alias\' => \'deploy/deployment-wordpress\',
-        \'language\' => \'und\',
+        \'language\' => \'en\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
@@ -2593,24 +2621,24 @@ function appcat_default_content_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'11\',
+      \'vid\' => \'22\',
       \'uid\' => \'1\',
-      \'title\' => \'Deployment of Drupal\',
+      \'title\' => \'Drupal deployed by New York State Senate, Advomatic, New Amsterdam Ideas\',
       \'log\' => \'\',
       \'status\' => \'1\',
       \'comment\' => \'1\',
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
-      \'vuuid\' => \'c2422987-3f6a-4fe7-8f12-a3c32b38bd8c\',
+      \'vuuid\' => \'66526e58-ea3a-4e8b-902b-f65bf911c7a1\',
       \'nid\' => \'11\',
       \'type\' => \'deployment\',
-      \'language\' => \'und\',
+      \'language\' => \'en\',
       \'created\' => \'1360539496\',
-      \'changed\' => \'1371802738\',
+      \'changed\' => \'1372055905\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'f6c42cc3-7967-cef4-a95e-98b07a690db9\',
-      \'revision_timestamp\' => \'1371802738\',
+      \'revision_timestamp\' => \'1372055905\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -2624,6 +2652,11 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_deployment_of\' => array(
+        \'en\' => array(
+          array(
+            \'target_id\' => \'5\',
+          ),
+        ),
         \'und\' => array(
           array(
             \'target_id\' => \'5\',
@@ -2648,6 +2681,24 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_location\' => array(
+        \'en\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'NY\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'Albany\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'12247\',
+            \'thoroughfare\' => \'188 State Street\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => NULL,
+            \'name_line\' => NULL,
+            \'first_name\' => NULL,
+            \'last_name\' => NULL,
+            \'data\' => NULL,
+          ),
+        ),
         \'und\' => array(
           array(
             \'country\' => \'US\',
@@ -2668,6 +2719,17 @@ function appcat_default_content_node_export_features_default() {
         ),
       ),
       \'field_member\' => array(
+        \'en\' => array(
+          array(
+            \'target_id\' => \'6\',
+          ),
+          array(
+            \'target_id\' => \'3\',
+          ),
+          array(
+            \'target_id\' => \'9\',
+          ),
+        ),
         \'und\' => array(
           array(
             \'target_id\' => \'6\',
@@ -2692,33 +2754,33 @@ function appcat_default_content_node_export_features_default() {
       \'title_field\' => array(
         \'en\' => array(
           array(
-            \'value\' => \'Deployment of Drupal\',
+            \'value\' => \'Drupal deployed by New York State Senate, Advomatic, New Amsterdam Ideas\',
             \'format\' => NULL,
-            \'safe_value\' => \'Deployment of Drupal\',
+            \'safe_value\' => \'Drupal deployed by New York State Senate, Advomatic, New Amsterdam Ideas\',
           ),
         ),
         \'und\' => array(
           array(
-            \'value\' => \'Deployment of Drupal\',
+            \'value\' => \' deployed by \',
             \'format\' => NULL,
-            \'safe_value\' => \'Deployment of Drupal\',
+            \'safe_value\' => \' deployed by \',
           ),
         ),
       ),
-      \'title_original\' => \'Deployment of Drupal\',
+      \'title_original\' => \'Drupal deployed by New York State Senate, Advomatic, New Amsterdam Ideas\',
       \'translations\' => (object) array(
-          \'original\' => \'und\',
+          \'original\' => \'en\',
           \'data\' => array(
-            \'und\' => array(
+            \'en\' => array(
               \'entity_type\' => \'node\',
               \'entity_id\' => \'11\',
-              \'language\' => \'und\',
+              \'language\' => \'en\',
               \'source\' => \'\',
               \'uid\' => \'1\',
               \'status\' => \'1\',
               \'translate\' => \'0\',
-              \'created\' => \'1371444790\',
-              \'changed\' => \'1371802195\',
+              \'created\' => \'1360539496\',
+              \'changed\' => \'1372055905\',
             ),
           ),
         ),
@@ -2826,10 +2888,10 @@ function appcat_default_content_node_export_features_default() {
       \'data\' => \'a:1:{s:7:"contact";i:1;}\',
       \'subscriptions_notify\' => TRUE,
       \'path\' => array(
-        \'pid\' => \'169\',
+        \'pid\' => \'183\',
         \'source\' => \'node/11\',
         \'alias\' => \'deploy/deployment-drupal\',
-        \'language\' => \'und\',
+        \'language\' => \'en\',
       ),
       \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
