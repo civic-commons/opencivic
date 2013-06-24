@@ -21,7 +21,7 @@ function appcat_deployment_node_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_node_deployment';
-  $strongarm->value = 'Deployment of [node:field_deployment_of]';
+  $strongarm->value = '[node:field_deployment_of] deployed by [node:field_member]';
   $export['auto_entitylabel_pattern_node_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
