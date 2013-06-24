@@ -1448,7 +1448,7 @@ function appcat_default_content_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_member',
-    'label' => 'Developers',
+    'label' => 'Organizations Involved',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -2609,7 +2609,6 @@ function appcat_default_content_field_default_field_instances() {
   t('Demo url');
   t('Description');
   t('Details');
-  t('Developers');
   t('Enter a URL where people can go to find more information');
   t('Enter the URL of the application homepage where people can go to find more information');
   t('Enter the URL of the homepage where people can go to find more information.');
@@ -2624,6 +2623,7 @@ function appcat_default_content_field_default_field_instances() {
   t('Logo');
   t('Members');
   t('Organization type');
+  t('Organizations Involved');
   t('Physical address of the item.');
   t('Rating');
   t('Related applications');
