@@ -62,7 +62,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_install_url']['id'] = 'field_install_url';
   $handler->display->display_options['fields']['field_install_url']['table'] = 'field_data_field_install_url';
   $handler->display->display_options['fields']['field_install_url']['field'] = 'field_install_url';
-  $handler->display->display_options['fields']['field_install_url']['label'] = 'Demo Website';
+  $handler->display->display_options['fields']['field_install_url']['label'] = 'Demo website';
   $handler->display->display_options['fields']['field_install_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_install_url']['click_sort_column'] = 'url';
   /* Field: Content: License */
@@ -75,6 +75,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_release_notes']['id'] = 'field_release_notes';
   $handler->display->display_options['fields']['field_release_notes']['table'] = 'field_data_field_release_notes';
   $handler->display->display_options['fields']['field_release_notes']['field'] = 'field_release_notes';
+  $handler->display->display_options['fields']['field_release_notes']['label'] = 'Release notes';
   $handler->display->display_options['fields']['field_release_notes']['element_label_colon'] = FALSE;
   /* Field: Content: Requirements */
   $handler->display->display_options['fields']['field_requirements']['id'] = 'field_requirements';

@@ -50,6 +50,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['fields']['field_related_applications']['table'] = 'field_data_field_related_applications';
   $handler->display->display_options['fields']['field_related_applications']['field'] = 'field_related_applications';
   $handler->display->display_options['fields']['field_related_applications']['label'] = 'Apps expertise';
+  $handler->display->display_options['fields']['field_related_applications']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_related_applications']['settings'] = array(
     'link' => 1,
   );
@@ -58,6 +59,7 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['fields']['field_additional_type']['id'] = 'field_additional_type';
   $handler->display->display_options['fields']['field_additional_type']['table'] = 'field_data_field_additional_type';
   $handler->display->display_options['fields']['field_additional_type']['field'] = 'field_additional_type';
+  $handler->display->display_options['fields']['field_additional_type']['element_label_colon'] = FALSE;
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_keywords']['id'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['table'] = 'field_data_field_keywords';

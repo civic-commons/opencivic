@@ -44,15 +44,17 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
   $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
   $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application Used';
+  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application used';
+  $handler->display->display_options['fields']['field_deployment_of']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Members */
+  /* Field: Content: Developers */
   $handler->display->display_options['fields']['field_member']['id'] = 'field_member';
   $handler->display->display_options['fields']['field_member']['table'] = 'field_data_field_member';
   $handler->display->display_options['fields']['field_member']['field'] = 'field_member';
   $handler->display->display_options['fields']['field_member']['label'] = 'Developers';
+  $handler->display->display_options['fields']['field_member']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_member']['settings'] = array(
     'link' => 1,
   );
