@@ -22,7 +22,7 @@ function appcat_application_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'At a Glance';
+  $handler->display->display_options['title'] = 'At a glance';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -58,7 +58,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_download_url']['label'] = 'Host website';
   $handler->display->display_options['fields']['field_download_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_download_url']['click_sort_column'] = 'url';
-  /* Field: Content: Demo URL */
+  /* Field: Content: Demo url */
   $handler->display->display_options['fields']['field_install_url']['id'] = 'field_install_url';
   $handler->display->display_options['fields']['field_install_url']['table'] = 'field_data_field_install_url';
   $handler->display->display_options['fields']['field_install_url']['field'] = 'field_install_url';
@@ -158,7 +158,7 @@ function appcat_application_views_views_default_views() {
   /* Display: Application Key Features */
   $handler = $view->new_display('block', 'Application Key Features', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Key Features';
+  $handler->display->display_options['title'] = 'Key features';
   $handler->display->display_options['display_description'] = 'Displays the key features for an application';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Key features */
@@ -263,7 +263,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['block_description'] = 'Application Media';
   $translatables['application_at_a_glance'] = array(
     t('Master'),
-    t('At a Glance'),
+    t('At a glance'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -285,7 +285,7 @@ function appcat_application_views_views_default_views() {
     t('All'),
     t('Application At a Glance'),
     t('Application Key Features'),
-    t('Key Features'),
+    t('Key features'),
     t('Displays the key features for an application'),
     t('Application Media'),
     t('Media'),
@@ -746,7 +746,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Description */
+  /* Field: Content: Short description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
@@ -969,7 +969,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Description */
+  /* Field: Content: Short description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
