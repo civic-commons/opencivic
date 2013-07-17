@@ -10,6 +10,8 @@
 api = 2
 core = 7.x
 
+includes[] = drupal-org-core.make
+
 projects[opencivic][type] = profile
 projects[opencivic][download][type] = git
 projects[opencivic][download][url] = http://git.drupal.org/project/opencivic.git
