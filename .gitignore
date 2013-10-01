@@ -1,6 +1,7 @@
 libraries
 modules/contrib
 modules/devel
+modules/panopoly
 themes/tao
 themes/rubik
 themes/omega
