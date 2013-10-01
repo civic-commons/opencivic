@@ -64,7 +64,7 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -113,6 +113,7 @@ function appcat_home_views_views_default_views() {
 
   /* Display: Home page map */
   $handler = $view->new_display('page', 'Home page map', 'page');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['display_description'] = 'The map on the home page';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -176,7 +177,7 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -224,6 +225,15 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['field_coordinates']['settings'] = array(
     'data' => 'full',
   );
+
+  /* Display: Home page map pane */
+  $handler = $view->new_display('panel_pane', 'Home page map pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_map';
+  $handler->display->display_options['style_options']['map'] = 'homepage';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['home_page_map'] = $view;
 
   $view = new view();
@@ -267,7 +277,7 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Description */
+  /* Field: Content: Short description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
@@ -338,7 +348,7 @@ function appcat_home_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
