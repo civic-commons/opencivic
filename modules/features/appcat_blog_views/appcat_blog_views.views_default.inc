@@ -87,28 +87,9 @@ function appcat_blog_views_views_default_views() {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['block_description'] = 'Blog/From the blog';
-  $translatables['blog'] = array(
-    t('Master'),
-    t('Blog'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Page'),
-    t('Block'),
-    t('From the blog'),
-    t('Read more...'),
-    t('Blog/From the blog'),
-  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $export['blog'] = $view;
 
   return $export;

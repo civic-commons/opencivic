@@ -58,7 +58,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_download_url']['label'] = 'Host website';
   $handler->display->display_options['fields']['field_download_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_download_url']['click_sort_column'] = 'url';
-  /* Field: Content: Demo URL */
+  /* Field: Content: Demo url */
   $handler->display->display_options['fields']['field_install_url']['id'] = 'field_install_url';
   $handler->display->display_options['fields']['field_install_url']['table'] = 'field_data_field_install_url';
   $handler->display->display_options['fields']['field_install_url']['field'] = 'field_install_url';
@@ -95,7 +95,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_keywords']['delta_offset'] = '0';
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -150,6 +150,10 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'application' => 'application',
   );
+  /* Filter criterion: Content: Key features (field_feature_list) */
+  $handler->display->display_options['filters']['field_feature_list_value']['id'] = 'field_feature_list_value';
+  $handler->display->display_options['filters']['field_feature_list_value']['table'] = 'field_data_field_feature_list';
+  $handler->display->display_options['filters']['field_feature_list_value']['field'] = 'field_feature_list_value';
 
   /* Display: Application At a Glance */
   $handler = $view->new_display('block', 'Application At a Glance', 'block');
@@ -262,36 +266,43 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['filters']['field_video_display']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_video_display']['group'] = 2;
   $handler->display->display_options['block_description'] = 'Application Media';
-  $translatables['application_at_a_glance'] = array(
-    t('Master'),
-    t('At a Glance'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Application function'),
-    t('Civic sector'),
-    t('Creator'),
-    t('Host website'),
-    t('Demo Website'),
-    t('License'),
-    t('Release Notes'),
-    t('Requirements'),
-    t('Software type'),
-    t('Tags'),
-    t('Url'),
-    t('Rating'),
-    t('All'),
-    t('Application At a Glance'),
-    t('Application Key Features'),
-    t('Key Features'),
-    t('Displays the key features for an application'),
-    t('Application Media'),
-    t('Media'),
-    t('Displays the screenshots and video for an application'),
+
+  /* Display: Application At a Glance pane */
+  $handler = $view->new_display('panel_pane', 'Application At a Glance pane', 'panel_pane_1');
+
+  /* Display: Application Key Features pane */
+  $handler = $view->new_display('panel_pane', 'Application Key Features pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Key features */
+  $handler->display->display_options['fields']['field_feature_list']['id'] = 'field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['table'] = 'field_data_field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['field'] = 'field_feature_list';
+  $handler->display->display_options['fields']['field_feature_list']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_feature_list']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
   );
+  /* Filter criterion: Content: Key features (field_feature_list) */
+  $handler->display->display_options['filters']['field_feature_list_value']['id'] = 'field_feature_list_value';
+  $handler->display->display_options['filters']['field_feature_list_value']['table'] = 'field_data_field_feature_list';
+  $handler->display->display_options['filters']['field_feature_list_value']['field'] = 'field_feature_list_value';
+  $handler->display->display_options['filters']['field_feature_list_value']['operator'] = 'not empty';
+
+  /* Display: Application Media pane */
+  $handler = $view->new_display('panel_pane', 'Application Media pane', 'panel_pane_3');
   $export['application_at_a_glance'] = $view;
 
   $view = new view();
@@ -503,32 +514,6 @@ function appcat_application_views_views_default_views() {
     'civic_category' => 'civic_category',
   );
   $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
-  $translatables['application_categories'] = array(
-    t('Master'),
-    t('Application categories'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('field_application_category'),
-    t('All'),
-    t('Small icons and names of application categories'),
-    t('Application/Application categories'),
-    t('Civic categories'),
-    t('Small icons and names of civic categories'),
-    t('field_civic_category'),
-    t('Application/Civic categories'),
-    t('Application categories icons'),
-    t('Small icons of application categories'),
-    t('.'),
-    t(','),
-    t('Application/Application categories icons'),
-    t('Civic categories icons'),
-    t('Small icons of civic categories'),
-    t('Application/Civic categories icons'),
-  );
   $export['application_categories'] = $view;
 
   $view = new view();
@@ -669,6 +654,7 @@ function appcat_application_views_views_default_views() {
 
   /* Display: Applications list */
   $handler = $view->new_display('page', 'Applications list', 'page');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['display_description'] = 'Applications listing page.';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -747,7 +733,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Description */
+  /* Field: Content: Short description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
@@ -771,36 +757,60 @@ function appcat_application_views_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Latest apps';
-  $translatables['application_list'] = array(
-    t('Master'),
-    t('Applications'),
-    t('See all'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Description'),
-    t('We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.'),
-    t('Nid'),
-    t('Date added'),
-    t('Title'),
-    t('App function'),
-    t('Civic sector'),
-    t('App type'),
-    t('Rating'),
-    t('Applications list'),
-    t('Applications listing page.'),
-    t('more'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Applications feed'),
-    t('Latest apps'),
+
+  /* Display: Applications list pane */
+  $handler = $view->new_display('panel_pane', 'Applications list pane', 'panel_pane_1');
+
+  /* Display: Latest apps pane */
+  $handler = $view->new_display('panel_pane', 'Latest apps pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'small_square_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Short description */
+  $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
+  $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
+  $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
+  $handler->display->display_options['fields']['field_description']['label'] = '';
+  $handler->display->display_options['fields']['field_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'application' => 'application',
   );
   $export['application_list'] = $view;
 
@@ -919,22 +929,9 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $translatables['deployments_map'] = array(
-    t('Master'),
-    t('Application Deployments'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Content entity referenced from field_deployment_of'),
-    t('Nid'),
-    t('Deployments map'),
-    t('Defines the map of places where Applications have been deployed.'),
-    t('Deployments/Map on apps listing page'),
-    t('Deployments Data Overlay'),
-  );
+
+  /* Display: Deployments map pane */
+  $handler = $view->new_display('panel_pane', 'Deployments map pane', 'panel_pane_1');
   $export['deployments_map'] = $view;
 
   $view = new view();
@@ -970,7 +967,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Description */
+  /* Field: Content: Short description */
   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description']['field'] = 'field_description';
@@ -1014,19 +1011,6 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Application related applications';
   $handler->display->display_options['block_caching'] = '8';
-  $translatables['related_applications'] = array(
-    t('Master'),
-    t('Related applications'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('All'),
-    t('Block'),
-    t('Application related applications'),
-  );
   $export['related_applications'] = $view;
 
   return $export;
