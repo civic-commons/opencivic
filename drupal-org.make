@@ -583,7 +583,7 @@ libraries[ole][download][subtree]     = client
 
 libraries[colorbox][download][type]        = get
 libraries[colorbox][download][url]         = https://github.com/jackmoore/colorbox/archive/1.x.zip
-libraries[ckeditor][directory_name] = "colorbox"
+libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
 ; ckeditor download url taken from OpenPublic.
