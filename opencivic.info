@@ -27,6 +27,7 @@ dependencies[] = taxonomy
 ; Contrib
 dependencies[] = addanother
 dependencies[] = addressfield
+dependencies[] = addressfield_tokens
 dependencies[] = addtoany
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
@@ -42,6 +43,7 @@ dependencies[] = image_captcha
 dependencies[] = cck_phone
 dependencies[] = cer
 dependencies[] = colorbox
+dependencies[] = compact_forms
 dependencies[] = conditional_fields
 dependencies[] = content_taxonomy
 dependencies[] = content_taxonomy_autocomplete
@@ -64,6 +66,7 @@ dependencies[] = email
 dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = entityreference
+dependencies[] = extlink
 dependencies[] = facetapi
 dependencies[] = features
 dependencies[] = fe_block
@@ -122,6 +125,7 @@ dependencies[] = search_api
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_db
+dependencies[] = service_links
 dependencies[] = stringoverrides
 dependencies[] = strongarm
 dependencies[] = stylizer
@@ -149,6 +153,13 @@ dependencies[] = votingapi
 dependencies[] = webform
 dependencies[] = wysiwyg
 dependencies[] = wysiwyg_button_order
+; For single sign-on
+dependencies[] = oauth
+dependencies[] = oauth2
+dependencies[] = connector
+dependencies[] = oauthconnector
+dependencies[] = http_client
+dependencies[] = http_client_oauth
 
 ; Custom
 dependencies[] = fivestar_green

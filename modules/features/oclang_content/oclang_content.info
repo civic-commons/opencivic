@@ -19,6 +19,7 @@ dependencies[] = tmgmt_node
 dependencies[] = tmgmt_node_ui
 dependencies[] = tmgmt_ui
 dependencies[] = translation
+dependencies[] = translation_helpers
 dependencies[] = transliteration
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1

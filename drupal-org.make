@@ -73,6 +73,9 @@ projects[addressfield][subdir] = "contrib"
 projects[addressfield][version] = "1.0-beta3"
 projects[addressfield][patch][1156776] = http://drupal.org/files/addressfield_devel_generate-1156776-2.patch
 
+projects[addressfield_tokens][subdir] = "contrib"
+projects[addressfield_tokens][version] = 1.3
+
 projects[addtoany][subdir] = "contrib"
 projects[addtoany][version] = "3.1"
 
@@ -104,6 +107,9 @@ projects[block_class][version] = "1.2"
 projects[calendar][subdir] = "contrib"
 projects[calendar][version] = "3.4"
 
+projects[compact_forms][subdir] = "contrib"
+projects[compact_forms][version] = 1.0
+
 projects[ctools][subdir] = "contrib"
 
 projects[captcha][subdir] = "contrib"
@@ -124,6 +130,9 @@ projects[conditional_fields][download][url] = "http://git.drupal.org/project/con
 projects[conditional_fields][download][revision] = cd29b003a592d375f3fdb4c46f5639d0f26ed0be
 projects[conditional_fields][download][branch] = 7.x-3.x
 projects[conditional_fields][type] = "module"
+
+projects[connector][version] = 1.0-beta2
+projects[connector][subdir] = contrib
 
 projects[content_taxonomy][subdir] = "contrib"
 projects[content_taxonomy][version] = "1.0-beta1"
@@ -169,6 +178,9 @@ projects[entity_translation][version] = "1.0-beta2"
 projects[entityreference_prepopulate][subdir] = "contrib"
 projects[entityreference_prepopulate][version] = "1.1"
 
+projects[extlink][subdir] = "contrib"
+projects[extlink][version] = 1.13
+
 projects[features_extra][subdir] = "contrib"
 projects[features_extra][version] = "1.0-alpha1"
 
@@ -208,6 +220,9 @@ projects[globalredirect][version] = "1.5"
 projects[google_fonts][subdir] = "contrib"
 
 projects[google_analytics][subdir] = "contrib"
+
+projects[http_client][version] = 2.4
+projects[http_client][subdir] = contrib
 
 projects[i18n][subdir] = "contrib"
 projects[i18n][version] = "1.8"
@@ -281,6 +296,12 @@ projects[nodequeue][version] = "2.0-beta1"
 
 ; projects[nodereference_url][subdir] = "contrib"
 ; projects[nodereference_url][version] = "1.12"
+
+projects[oauth][version] = 3.1
+projects[oauth][subdir] = contrib
+
+projects[oauthconnector][version] = 1.0-beta2
+projects[oauthconnector][subdir] = contrib
 
 projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
@@ -356,6 +377,9 @@ projects[services][version] = "3.3"
 projects[services_views][subdir] = "contrib"
 projects[services_views][version] = "1.0-beta2"
 
+projects[service_links][subdir] = "contrib"
+projects[service_links][version] = 2.2
+
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
 
@@ -386,8 +410,14 @@ projects[tmgmt][version] = "1.0-alpha3"
 projects[tmgmt_microsoft][subdir] = "contrib"
 projects[tmgmt_microsoft][version] = "1.0-alpha2"
 
+projects[translation_helpers][subdir] = "contrib"
+projects[translation_helpers][version] = 1.0
+
 projects[transliteration][subdir] = "contrib"
 projects[transliteration][version] = "3.1"
+
+projects[twitter][subdir] = "contrib"
+projects[twitter][version] = 5.8
 
 projects[variable][subdir] = "contrib"
 projects[variable][version] = "2.2"
