@@ -307,13 +307,15 @@ projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
-projects[openlayers][version] = "2.x-dev"
-projects[openlayers][download][type] = "git"
-projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
-projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
-projects[openlayers][download][branch] = 7.x-2.x
-projects[openlayers][type] = "module"
-projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
+projects[openlayers][version] = 2.0-beta7
+
+;projects[openlayers][version] = "2.x-dev"
+;projects[openlayers][download][type] = "git"
+;projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
+;projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
+;projects[openlayers][download][branch] = 7.x-2.x
+;projects[openlayers][type] = "module"
+;projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
 
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
