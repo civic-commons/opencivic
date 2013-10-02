@@ -8,6 +8,7 @@ project = appcat_deployment_views
 dependencies[] = features
 dependencies[] = openlayers_views
 dependencies[] = panelizer
+dependencies[] = views
 dependencies[] = views_content
 features[ctools][] = openlayers:openlayers_maps:1
 features[ctools][] = panelizer:panelizer:1

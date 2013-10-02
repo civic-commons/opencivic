@@ -8,6 +8,7 @@ project = appcat_application_views
 dependencies[] = openlayers_views
 dependencies[] = panelizer
 dependencies[] = strongarm
+dependencies[] = views
 dependencies[] = views_content
 features[ctools][] = openlayers:openlayers_maps:1
 features[ctools][] = openlayers:openlayers_styles:1
