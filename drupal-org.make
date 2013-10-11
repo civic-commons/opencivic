@@ -349,6 +349,9 @@ projects[ole][version] = "1.0-beta3"
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
 
+projects[potx][subdir] = "contrib"
+projects[potx][version] = 1.0
+
 projects[prepopulate][subdir] = "contrib"
 projects[prepopulate][version] = "2.x-dev"
 projects[prepopulate][download][type] = "git"
@@ -435,6 +438,9 @@ projects[transliteration][version] = "3.1"
 
 projects[twitter][subdir] = "contrib"
 projects[twitter][version] = 5.8
+
+projects[twitterfield][subdir] = "contrib"
+projects[twitterfield][version] = 1.0-rc1
 
 projects[variable][subdir] = "contrib"
 projects[variable][version] = "2.2"

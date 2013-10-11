@@ -14,6 +14,7 @@ dependencies[] = l10n_update
 dependencies[] = l10n_client
 dependencies[] = languageicons
 dependencies[] = locale
+dependencies[] = potx
 features[features_api][] = api:1
 features[language][] = en
 features[user_permission][] = administer languages
