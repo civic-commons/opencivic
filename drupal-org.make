@@ -56,6 +56,12 @@ projects[panopoly_news][subdir] = panopoly
 projects[panopoly_faq][version] = 2.x-dev
 projects[panopoly_faq][subdir] = panopoly
 
+
+; General modules
+
+projects[admin_views][subdir] = contrib
+projects[admin_views][version] = 1.2
+
 projects[diff][subdir] = contrib
 projects[diff][version] = 3.2
 

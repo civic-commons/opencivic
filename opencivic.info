@@ -209,6 +209,9 @@ dependencies[] = date_popup_authored
 ;dependencies[] = devel
 dependencies[] = uuid
 
+; Other modules
+dependencies[] = admin_views
+
 ; Features
 ;; dependencies[] = appcat_misc
 ;; dependencies[] = appcat_misc_taxonomies
