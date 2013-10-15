@@ -306,6 +306,14 @@ projects[nodequeue][version] = "2.0-beta1"
 projects[oauth][version] = 3.1
 projects[oauth][subdir] = contrib
 
+projects[oauth2][version] = 1.x-dev
+projects[oauth2][subdir] = contrib
+projects[oauth2][download][type] = "git"
+projects[oauth2][download][url] = "http://git.drupal.org/project/oauth2.git"
+projects[oauth2][download][revision] = c9723e67ebe906b8eca2d7d6c2dd3bbe97093b1f
+projects[oauth2][download][branch] = 7.x-1.x
+projects[oauth2][type] = "module"
+
 projects[oauthconnector][version] = 1.0-beta2
 projects[oauthconnector][subdir] = contrib
 
@@ -314,6 +322,7 @@ projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][version] = 2.0-beta7
+projects[openlayers][patch][2112007] = http://drupal.org/files/remove_anonymous_functions-2112007-1.patch
 
 ;projects[openlayers][version] = "2.x-dev"
 ;projects[openlayers][download][type] = "git"
@@ -591,6 +600,9 @@ libraries[colorbox][download][type]        = get
 libraries[colorbox][download][url]         = https://github.com/jackmoore/colorbox/archive/1.x.zip
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
+
+libraries[oauth2][download][type] = file
+libraries[oauth2][download][url] = https://oauth2-php.googlecode.com/files/oauth2-php-23.tar.gz
 
 ; ckeditor download url taken from OpenPublic.
 ;libraries[ckeditor][download][type] = get

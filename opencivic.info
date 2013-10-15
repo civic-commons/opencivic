@@ -154,7 +154,7 @@ dependencies[] = webform
 dependencies[] = wysiwyg
 dependencies[] = wysiwyg_button_order
 ; For single sign-on
-dependencies[] = oauth
+dependencies[] = oauth_common
 dependencies[] = oauth2
 dependencies[] = connector
 dependencies[] = oauthconnector
