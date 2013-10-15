@@ -18,13 +18,13 @@ make use of OpenCivic:
 
 Getting started
 ---------------
-OpenCivic for 7.x requies several patches to be applied to Drupal core. It
-provides a `distro.make` file for building a full Drupal distro including core
+OpenCivic for 7.x requires several patches to be applied to Drupal core. It
+provides a `build-distro.make` file for building a full Drupal distro including core
 patches as well as a copy of the `opencivic` install profile.
 
 1. Grab the `distro.make` file from OpenCivic and run:
 
-        $ drush make distro.make [directory]
+        $ drush make build-distro.make [directory]
 
    or use its url on Drupal.org directly:
 
