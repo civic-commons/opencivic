@@ -322,7 +322,7 @@ projects[omega_tools][version] = "3.0-rc4"
 
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][version] = 2.0-beta7
-projects[openlayers][patch][2112007] = http://drupal.org/files/remove_anonymous_functions-2112007-1.patch
+projects[openlayers][patch][2112007] = http://drupal.org/files/remove_anonymous_functions-2112007-2.patch
 
 ;projects[openlayers][version] = "2.x-dev"
 ;projects[openlayers][download][type] = "git"
