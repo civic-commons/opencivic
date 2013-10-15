@@ -94,6 +94,23 @@ function appcat_organization_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Organization At a Glance';
+  $translatables['organization_at_a_glance'] = array(
+    t('Master'),
+    t('At a Glance'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Civic sector'),
+    t('Apps expertise'),
+    t('Organization type'),
+    t('Tags'),
+    t('All'),
+    t('Block'),
+    t('Organization At a Glance'),
+  );
   $export['organization_at_a_glance'] = $view;
 
   $view = new view();
@@ -262,6 +279,27 @@ function appcat_organization_views_views_default_views() {
     'civic_category' => 'civic_category',
   );
   $handler->display->display_options['block_description'] = 'Organization/Civic categories icons';
+  $translatables['organization_categories'] = array(
+    t('Master'),
+    t('Application categories'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('field_application_category'),
+    t('All'),
+    t('Civic categories'),
+    t('Small icons and names of civic categories'),
+    t('field_civic_category'),
+    t('Organization/Civic categories'),
+    t('Civic categories icons'),
+    t('Small icons of civic categories'),
+    t('.'),
+    t(','),
+    t('Organization/Civic categories icons'),
+  );
   $export['organization_categories'] = $view;
 
   $view = new view();
@@ -437,6 +475,39 @@ function appcat_organization_views_views_default_views() {
 
   /* Display: Organizations list pane */
   $handler = $view->new_display('panel_pane', 'Organizations list pane', 'panel_pane_1');
+  $translatables['organization_list'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Description'),
+    t('The organizations listed here include vendors, developers and organizations that have used applications. Use the form below to select organizations with the experience and interests that you\'re seeking.'),
+    t('Organization'),
+    t('Nid'),
+    t('Date added'),
+    t('Civic sector'),
+    t('Address'),
+    t('Phone'),
+    t('Website'),
+    t('Org type'),
+    t('App experience'),
+    t('Services'),
+    t('Civic Focus'),
+    t('Organizations list'),
+    t('Organizations listing page.'),
+    t('Organizations list pane'),
+    t('View panes'),
+  );
   $export['organization_list'] = $view;
 
   $view = new view();
@@ -558,6 +629,55 @@ function appcat_organization_views_views_default_views() {
 
   /* Display: Organization map pane */
   $handler = $view->new_display('panel_pane', 'Organization map pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'leaflet';
+  $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
+  $handler->display->display_options['style_options']['name_field'] = 'title';
+  $handler->display->display_options['style_options']['description_field'] = 'title';
+  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
+  $handler->display->display_options['style_options']['height'] = '500';
+  $handler->display->display_options['style_options']['icon'] = array(
+    'iconUrl' => '',
+    'shadowUrl' => '',
+    'iconSize' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'iconAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'shadowAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'popupAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['organization_map'] = array(
+    t('Master'),
+    t('Organizations'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('All'),
+    t('Organization map'),
+    t('Defines the map that appears on the Organization detail page'),
+    t('Organization/Map on detail page'),
+    t('Organization Data Overlay'),
+    t('Map of a single organization'),
+    t('Organization map pane'),
+    t('View panes'),
+  );
   $export['organization_map'] = $view;
 
   $view = new view();
@@ -643,6 +763,26 @@ function appcat_organization_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Organization related deployments';
+  $translatables['organization_related_deployments'] = array(
+    t('Master'),
+    t('Related deployments'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+    t('Block'),
+    t('Organization related deployments'),
+  );
   $export['organization_related_deployments'] = $view;
 
   $view = new view();
@@ -808,7 +948,83 @@ function appcat_organization_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'leaflet';
+  $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
+  $handler->display->display_options['style_options']['name_field'] = 'title';
+  $handler->display->display_options['style_options']['description_field'] = 'title';
+  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
+  $handler->display->display_options['style_options']['height'] = '500';
+  $handler->display->display_options['style_options']['icon'] = array(
+    'iconUrl' => '',
+    'shadowUrl' => '',
+    'iconSize' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'iconAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'shadowAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'popupAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'organization' => 'organization',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['pane_title'] = 'Organizations map pane';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 'path_override';
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 'fields_override';
+  $translatables['organizations_map'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('Category'),
+    t('Services'),
+    t('Related apps'),
+    t('Organizations map'),
+    t('Defines the map of Organizations'),
+    t('Organizations/Map on orgs listing page'),
+    t('Organizations Data Overlay'),
+    t('Content pane'),
+    t('Organizations map pane'),
+    t('View panes'),
+  );
   $export['organizations_map'] = $view;
 
   return $export;

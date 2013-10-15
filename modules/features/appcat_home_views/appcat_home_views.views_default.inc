@@ -90,6 +90,14 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = '<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Coordinates */
+  $handler->display->display_options['fields']['field_coordinates']['id'] = 'field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['table'] = 'field_data_field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['field'] = 'field_coordinates';
+  $handler->display->display_options['fields']['field_coordinates']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_coordinates']['settings'] = array(
+    'data' => 'full',
+  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -229,11 +237,67 @@ function appcat_home_views_views_default_views() {
   /* Display: Home page map pane */
   $handler = $view->new_display('panel_pane', 'Home page map pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'homepage';
+  $handler->display->display_options['style_plugin'] = 'leaflet';
+  $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
+  $handler->display->display_options['style_options']['name_field'] = 'field_deployment_of';
+  $handler->display->display_options['style_options']['description_field'] = 'field_deployment_of';
+  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
+  $handler->display->display_options['style_options']['height'] = '500';
+  $handler->display->display_options['style_options']['icon'] = array(
+    'iconUrl' => '',
+    'shadowUrl' => '',
+    'iconSize' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'iconAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'shadowAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'popupAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+  );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['home_page_map'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('App deployed'),
+    t('Developer'),
+    t('Date added'),
+    t('Application'),
+    t('Website'),
+    t('Location'),
+    t('<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>'),
+    t('Coordinates'),
+    t('Home page map'),
+    t('The map on the home page'),
+    t('Homepage Data Overlay'),
+    t('Description'),
+    t('Deployments show where applications have been installed and used. Visit a deployment\'s detail page to learn more about the organizations that deployed the app and their experience using it. Use the form below to filter the list of deployments by category and location.'),
+    t('Nid'),
+    t('Home page map pane'),
+    t('View panes'),
+  );
   $export['home_page_map'] = $view;
 
   $view = new view();
@@ -404,6 +468,24 @@ function appcat_home_views_views_default_views() {
     'blog' => 'blog',
   );
   $handler->display->display_options['block_description'] = 'Homepage/From the blog';
+  $translatables['homepage_latest'] = array(
+    t('Master'),
+    t('Latest Apps'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('The Latest Apps block for the home page'),
+    t('Homepage/Latest Apps'),
+    t('Recent Deployments'),
+    t('The Recent Deployments block for the homepage'),
+    t('Homepage/Recent deployments'),
+    t('From the blog'),
+    t('Blog teasers for the home page'),
+    t('Homepage/From the blog'),
+  );
   $export['homepage_latest'] = $view;
 
   return $export;

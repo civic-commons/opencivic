@@ -62,6 +62,9 @@ projects[panopoly_faq][subdir] = panopoly
 projects[admin_views][subdir] = contrib
 projects[admin_views][version] = 1.2
 
+
+; OpenCivic modules
+
 projects[diff][subdir] = contrib
 projects[diff][version] = 3.2
 
@@ -261,6 +264,11 @@ projects[label_help][version] = "1.0"
 
 projects[languageicons][subdir] = "contrib"
 projects[languageicons][version] = "1.0"
+
+; Getting dev version until a new release after 1.0-beta3 is made, to get
+; around https://drupal.org/node/1954942
+projects[leaflet][subdir] = "contrib"
+projects[leaflet][version] = 1.x-dev
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.1"
@@ -634,6 +642,11 @@ libraries[oauth2-php][download][url] = https://oauth2-php.googlecode.com/files/o
 ; libraries[geophp][directory_name] = "geophp"
 
 ;libraries[geoPHP][type] = "library"
+
+libraries[leaflet][download][type] = "file"
+libraries[leaflet][download][url] = "http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.6.4.zip"
+libraries[leaflet][destination] = "libraries"
+libraries[leaflet][directory_name] = "leaflet"
 
 ; JQuery Cycle Plugin download URL taken from cm.
 libraries[cycle][download][type] = "get"
