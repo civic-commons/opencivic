@@ -601,8 +601,8 @@ libraries[colorbox][download][url]         = https://github.com/jackmoore/colorb
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
-libraries[oauth2][download][type] = file
-libraries[oauth2][download][url] = https://oauth2-php.googlecode.com/files/oauth2-php-23.tar.gz
+libraries[oauth2-php][download][type] = file
+libraries[oauth2-php][download][url] = https://oauth2-php.googlecode.com/files/oauth2-php-23.tar.gz
 
 ; ckeditor download url taken from OpenPublic.
 ;libraries[ckeditor][download][type] = get
