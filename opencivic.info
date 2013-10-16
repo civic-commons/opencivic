@@ -80,6 +80,7 @@ dependencies[] = fivestar_green
 dependencies[] = flag
 dependencies[] = google_fonts
 dependencies[] = globalredirect
+dependencies[] = honeypot
 dependencies[] = imagecache_actions
 dependencies[] = imagecache_canvasactions
 ; dependencies[] = logintoboggan

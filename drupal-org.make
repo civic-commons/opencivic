@@ -233,6 +233,9 @@ projects[google_analytics][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = contrib
 
+projects[honeypot][version] = 1.15
+projects[honeypot][subdir] = contrib
+
 projects[i18n][subdir] = "contrib"
 projects[i18n][version] = "1.8"
 
