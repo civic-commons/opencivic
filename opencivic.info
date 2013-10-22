@@ -91,6 +91,7 @@ dependencies[] = geophp
 dependencies[] = googleanalytics
 ; dependencies[] = job_scheduler
 dependencies[] = leaflet
+dependencies[] = leaflet_more_maps
 dependencies[] = leaflet_views
 dependencies[] = link
 ; dependencies[] = jump_menu

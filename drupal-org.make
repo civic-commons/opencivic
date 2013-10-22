@@ -5,48 +5,38 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.0-rc4
+projects[panopoly_core][version] = 1.0-rc5
 projects[panopoly_core][subdir] = panopoly
-projects[panopoly_core][patch][1962642] = http://drupal.org/files/1962642-defaultconfig.undefinedindex-2.patch
 
-projects[apps_compatible][subdir] = contrib
-projects[apps_compatible][version] = 1.0-alpha3
-projects[better_exposed_filters][subdir] = contrib
-projects[better_exposed_filters][version] = 3.0-beta3
-projects[debut_location][subdir] = contrib
-projects[debut_location][version] = 1.0-alpha2
-
-
-projects[panopoly_images][version] = 1.0-rc4
+projects[panopoly_images][version] = 1.0-rc5
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.0-rc4
+projects[panopoly_theme][version] = 1.0-rc5
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.0-rc4
+projects[panopoly_magic][version] = 1.0-rc5
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.0-rc4
+projects[panopoly_widgets][version] = 1.0-rc5
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.0-rc4
+projects[panopoly_admin][version] = 1.0-rc5
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.0-rc4
+projects[panopoly_users][version] = 1.0-rc5
 projects[panopoly_users][subdir] = panopoly
-
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.0-rc4
+projects[panopoly_pages][version] = 1.0-rc5
 projects[panopoly_pages][subdir] = panopoly
 
-projects[panopoly_wysiwyg][version] = 1.0-rc4
+projects[panopoly_wysiwyg][version] = 1.0-rc5
 projects[panopoly_wysiwyg][subdir] = panopoly
 
-projects[panopoly_search][version] = 1.0-rc4
+projects[panopoly_search][version] = 1.0-rc5
 projects[panopoly_search][subdir] = panopoly
-projects[panopoly_search][patch][1976178] = http://drupal.org/files/1976178-disable-solr-on-pantheon-1.patch
+
 
 
 ; Panopoly apps
@@ -65,6 +55,15 @@ projects[admin_views][version] = 1.2
 
 
 ; OpenCivic modules
+
+projects[apps_compatible][subdir] = contrib
+projects[apps_compatible][version] = 1.0-alpha3
+
+projects[better_exposed_filters][subdir] = contrib
+projects[better_exposed_filters][version] = 3.0-beta3
+
+projects[debut_location][subdir] = contrib
+projects[debut_location][version] = 1.0-alpha2
 
 projects[diff][subdir] = contrib
 projects[diff][version] = 3.2
@@ -273,6 +272,9 @@ projects[languageicons][version] = "1.0"
 ; around https://drupal.org/node/1954942
 projects[leaflet][subdir] = "contrib"
 projects[leaflet][version] = 1.x-dev
+
+projects[leaflet_more_maps][subdir] = "contrib"
+projects[leaflet_more_maps][version] = 1.7
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.1"
