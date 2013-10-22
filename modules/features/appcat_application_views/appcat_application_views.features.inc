@@ -9,6 +9,10 @@
  */
 function appcat_application_views_ctools_plugin_api() {
   list($module, $api) = func_get_args();
+  if ($module == "facetapi" && $api == "facetapi_defaults") {
+    return array("version" => "1");
+  }
+  list($module, $api) = func_get_args();
   if ($module == "openlayers" && $api == "openlayers_maps") {
     return array("version" => "1");
   }

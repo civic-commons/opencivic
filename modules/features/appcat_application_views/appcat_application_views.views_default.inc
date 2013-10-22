@@ -95,7 +95,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_keywords']['delta_offset'] = '0';
-  /* Field: Content: Website */
+  /* Field: Content: Url */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -322,7 +322,7 @@ function appcat_application_views_views_default_views() {
     t('Requirements'),
     t('Software type'),
     t('Tags'),
-    t('Website'),
+    t('Url'),
     t('Rating'),
     t('All'),
     t('Application At a Glance'),
