@@ -7,6 +7,7 @@ core = 7.x
 
 projects[panopoly_core][version] = 1.0-rc4
 projects[panopoly_core][subdir] = panopoly
+projects[panopoly_core][patch][1962642] = http://drupal.org/files/1962642-defaultconfig.undefinedindex-2.patch
 
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha3
