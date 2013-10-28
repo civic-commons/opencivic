@@ -212,7 +212,7 @@ projects[fivestar][subdir] = "contrib"
 projects[fivestar][version] = "2.0-alpha2"
 
 projects[flag][subdir] = "contrib"
-projects[flag][version] = "2.0"
+projects[flag][version] = "2.1"
 
 projects[geocoder][subdir] = contrib
 projects[geocoder][version] = "1.2"
