@@ -41,26 +41,17 @@ projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly apps
 
-projects[panopoly_news][version] = 1.0-rc2
-projects[panopoly_news][subdir] = panopoly
+;projects[panopoly_news][version] = 1.0-rc2
+;projects[panopoly_news][subdir] = panopoly
 
 projects[panopoly_faq][version] = 2.x-dev
 projects[panopoly_faq][subdir] = panopoly
-
-
-; General modules
-
-projects[admin_views][subdir] = contrib
-projects[admin_views][version] = 1.2
 
 
 ; OpenCivic modules
 
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha3
-
-projects[better_exposed_filters][subdir] = contrib
-projects[better_exposed_filters][version] = 3.0-beta3
 
 projects[debut_location][subdir] = contrib
 projects[debut_location][version] = 1.0-alpha2
@@ -71,8 +62,8 @@ projects[diff][version] = 3.2
 projects[openidadmin][subdir] = contrib
 projects[openidadmin][version] = 1.0
 
-projects[views_bulk_operations][subdir] = "contrib"
-projects[views_bulk_operations][version] = "3.0"
+;projects[views_bulk_operations][subdir] = "contrib"
+;projects[views_bulk_operations][version] = "3.0"
 
 projects[addanother][subdir] = "contrib"
 projects[addanother][version] = "2.1"
@@ -119,8 +110,6 @@ projects[calendar][version] = "3.4"
 projects[compact_forms][subdir] = "contrib"
 projects[compact_forms][version] = 1.0
 
-projects[ctools][subdir] = "contrib"
-
 projects[captcha][subdir] = "contrib"
 projects[captcha][version] = "1.0-beta2"
 
@@ -166,9 +155,6 @@ projects[colorbox][type] = "module"
 projects[date_ical][subdir] = "contrib"
 projects[date_ical][version] = "1.1"
 
-projects[facetapi][subdir] = "contrib"
-projects[facetapi][version] = "1.2"
-
 projects[date][subdir] = "contrib"
 projects[date][version] = "2.6"
 
@@ -177,9 +163,6 @@ projects[delta][version] = "3.0-beta11"
 
 projects[email][subdir] = "contrib"
 projects[email][version] = "1.2"
-
-projects[entity][subdir] = "contrib"
-projects[entity][version] = "1.0-rc3"
 
 projects[entity_translation][subdir] = "contrib"
 projects[entity_translation][version] = "1.0-beta2"
@@ -200,9 +183,6 @@ projects[feeds][version] = "2.0-alpha6"
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
-
-projects[media][subdir] = "contrib"
-projects[media][version] = "1.2"
 
 projects[styles][subdir] = "contrib"
 projects[styles][version] = "2.0-alpha8"
@@ -276,9 +256,6 @@ projects[leaflet][version] = 1.x-dev
 projects[leaflet_more_maps][subdir] = "contrib"
 projects[leaflet_more_maps][version] = 1.7
 
-projects[libraries][subdir] = "contrib"
-projects[libraries][version] = "2.1"
-
 projects[link][subdir] = "contrib"
 projects[link][version] = "1.0"
 
@@ -295,9 +272,6 @@ projects[maxlength][download][url] = "http://git.drupal.org/project/maxlength.gi
 projects[maxlength][download][revision] = 0fd9604a75c559fe14fe7d726211b5910f663746
 projects[maxlength][download][branch] = 7.x-3.x
 projects[maxlength][type] = "module"
-
-projects[media_youtube][subdir] = "contrib"
-projects[media_youtube][version] = "2.0-rc1"
 
 projects[menu_block][subdir] = "contrib"
 projects[menu_block][version] = "2.x-dev"
@@ -360,9 +334,6 @@ projects[ole][version] = "1.0-beta3"
 ; projects[olfp][download][branch] = 7.x-2.x
 ; projects[olfp][type] = "module"
 
-projects[pathauto][subdir] = "contrib"
-projects[pathauto][version] = "1.2"
-
 projects[potx][subdir] = "contrib"
 projects[potx][version] = 1.0
 
@@ -399,9 +370,6 @@ projects[rpx][version] = "2.2"
 projects[rules][subdir] = "contrib"
 projects[rules][version] = "2.2"
 
-projects[search_api][subdir] = "contrib"
-projects[search_api][version] = "1.4"
-
 projects[search_api_spellcheck][subdir] = "contrib"
 projects[search_api_spellcheck][version] = "1.0"
 
@@ -417,9 +385,6 @@ projects[service_links][version] = 2.2
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
 
-projects[strongarm][subdir] = "contrib"
-projects[strongarm][version] = "2.0"
-
 projects[subscriptions][subdir] = "contrib"
 projects[subscriptions][version] = "1.1"
 
@@ -434,9 +399,6 @@ projects[taxonomy_manager][version] = "1.0-rc1"
 
 projects[title][subdir] = "contrib"
 projects[title][version] = "1.0-alpha7"
-
-projects[token][subdir] = "contrib"
-projects[token][version] = "1.4"
 
 projects[tmgmt][subdir] = "contrib"
 projects[tmgmt][version] = "1.0-alpha3"
@@ -461,9 +423,6 @@ projects[variable][version] = "2.2"
 
 projects[viewfield][subdir] = "contrib"
 projects[viewfield][version] = "2.0"
-
-projects[views][subdir] = "contrib"
-projects[views][version] = "3.7"
 
 projects[views_data_export][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta6"
@@ -490,15 +449,6 @@ projects[votingapi][version] = "2.8"
 projects[webform][subdir] = "contrib"
 projects[webform][version] = "3.18"
 
-projects[wysiwyg][subdir] = "contrib"
-projects[wysiwyg][version] = "2.2"
-
-projects[wysiwyg_button_order][subdir] = "contrib"
-projects[wysiwyg_button_order][version] = "1.x-dev"
-projects[wysiwyg_button_order][download][url] = "http://git.drupal.org/project/wysiwyg_button_order.git"
-projects[wysiwyg_button_order][download][revision] = 4e5eec69b454f8ea4cd879fea1fb73b47936de3e
-projects[wysiwyg_button_order][download][branch] = 7.x-1.x
-projects[wysiwyg_button_order][type] = "module"
 
 ; Schema.org kickstart modules ======================================================
 
@@ -526,6 +476,7 @@ projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_in
 ; Fix bug affected features exports
 projects[schemaorg][patch][1853590] = http://drupal.org/files/exportfix-1853590-1.patch
 
+
 ; Nuams modules =====================================================================
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
@@ -550,6 +501,7 @@ projects[transclude][subdir] = contrib
 projects[transclude][download][type] = "git"
 projects[transclude][download][url] = "http://git.drupal.org/sandbox/sheldon/1827730.git"
 projects[transclude][type] = "module"
+
 
 ; Development modules ===========================================================
 
@@ -576,9 +528,6 @@ projects[uuid][type] = "module"
 ; Patch should not be needed now that we're using the 1.x-dev release
 ; http://drupal.org/node/1428952
 ; projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
-
-projects[devel][version] = "1.3"
-projects[devel][subdir] = "devel"
 
 projects[node_export][version] = "3.x"
 projects[node_export][subdir] = "devel"
@@ -623,12 +572,6 @@ libraries[colorbox][type] = "library"
 
 libraries[oauth2-php][download][type] = file
 libraries[oauth2-php][download][url] = https://oauth2-php.googlecode.com/files/oauth2-php-23.tar.gz
-
-; ckeditor download url taken from OpenPublic.
-;libraries[ckeditor][download][type] = get
-;libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.5/ckeditor_3.5.tar.gz
-; libraries[ckeditor][directory_name] = "ckeditor"
-; libraries[ckeditor][type] = "library"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
