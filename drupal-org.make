@@ -7,6 +7,7 @@ core = 7.x
 
 projects[panopoly_core][version] = 1.0-rc5
 projects[panopoly_core][subdir] = panopoly
+projects[panopoly_core][patch][1962642] = https://drupal.org/files/1962642-defaultconfig.undefinedindex-2.patch
 
 projects[panopoly_images][version] = 1.0-rc5
 projects[panopoly_images][subdir] = panopoly
