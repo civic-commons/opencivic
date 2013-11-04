@@ -52,7 +52,6 @@ dependencies[] = context_layouts
 dependencies[] = context_ui
 dependencies[] = ctools_access_ruleset
 dependencies[] = ctools_custom_content
-dependencies[] = date
 dependencies[] = date_all_day
 dependencies[] = date_api
 dependencies[] = date_popup
@@ -63,15 +62,10 @@ dependencies[] = delta
 dependencies[] = delta_ui
 dependencies[] = email
 dependencies[] = entity_token
-dependencies[] = entityreference
 dependencies[] = extlink
-dependencies[] = facetapi
-dependencies[] = features
 dependencies[] = fe_block
 dependencies[] = fe_nodequeue
 ; dependencies[] = feeds
-dependencies[] = field_group
-dependencies[] = file_entity
 dependencies[] = file_styles
 dependencies[] = fivestar
 dependencies[] = fivestar_green
@@ -91,7 +85,6 @@ dependencies[] = googleanalytics
 dependencies[] = leaflet
 dependencies[] = leaflet_more_maps
 dependencies[] = leaflet_views
-dependencies[] = link
 ; dependencies[] = jump_menu
 dependencies[] = mail_edit
 dependencies[] = maxlength
@@ -103,7 +96,6 @@ dependencies[] = openlayers
 dependencies[] = openlayers_ui
 dependencies[] = openlayers_views
 dependencies[] = page_manager
-dependencies[] = pathauto
 dependencies[] = prepopulate
 dependencies[] = prepopulate_create_node_links
 dependencies[] = proj4js
@@ -118,11 +110,11 @@ dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = schemaorg
 dependencies[] = schemaorg_ui
+dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_db
 dependencies[] = service_links
 dependencies[] = stringoverrides
-dependencies[] = strongarm
 dependencies[] = stylizer
 dependencies[] = styles
 dependencies[] = styles_ui
@@ -143,13 +135,14 @@ dependencies[] = views_slideshow
 dependencies[] = views_ui
 dependencies[] = votingapi
 dependencies[] = webform
+
 ; For single sign-on
-dependencies[] = oauth_common
-dependencies[] = oauth2
-dependencies[] = connector
-dependencies[] = oauthconnector
-dependencies[] = http_client
-dependencies[] = http_client_oauth
+;dependencies[] = oauth_common
+;dependencies[] = oauth2
+;dependencies[] = connector
+;dependencies[] = oauthconnector
+;dependencies[] = http_client
+;dependencies[] = http_client_oauth
 
 ; Custom
 dependencies[] = fivestar_green
@@ -196,11 +189,7 @@ dependencies[] = module_filter
 dependencies[] = date_popup_authored
 
 ; Panopoly Recommended - Other
-;dependencies[] = devel
 dependencies[] = uuid
-
-; Other modules
-dependencies[] = admin_views
 
 ; Features
 ;; dependencies[] = appcat_misc
