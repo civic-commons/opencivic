@@ -10,6 +10,7 @@ dependencies[] = entity
 dependencies[] = entity_translation
 dependencies[] = features
 dependencies[] = i18n
+dependencies[] = i18n_block
 dependencies[] = strongarm
 dependencies[] = title
 dependencies[] = tmgmt
