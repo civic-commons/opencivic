@@ -530,8 +530,31 @@ function appcat_organization_views_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'organization_map';
+  $handler->display->display_options['style_plugin'] = 'leaflet';
+  $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
+  $handler->display->display_options['style_options']['name_field'] = 'title';
+  $handler->display->display_options['style_options']['description_field'] = 'title';
+  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
+  $handler->display->display_options['style_options']['icon'] = array(
+    'iconUrl' => '',
+    'shadowUrl' => '',
+    'iconSize' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'iconAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'shadowAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+    'popupAnchor' => array(
+      'x' => '',
+      'y' => '',
+    ),
+  );
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -597,68 +620,8 @@ function appcat_organization_views_views_default_views() {
     'organization' => 'organization',
   );
 
-  /* Display: Organization map */
-  $handler = $view->new_display('block', 'Organization map', 'block');
-  $handler->display->display_options['display_description'] = 'Defines the map that appears on the Organization detail page';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Organization/Map on detail page';
-
-  /* Display: Organization Data Overlay */
-  $handler = $view->new_display('openlayers', 'Organization Data Overlay', 'openlayers_org');
-  $handler->display->display_options['display_description'] = 'Map of a single organization';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'title',
-    'other_lon' => 'title',
-    'wkt' => 'field_coordinates',
-    'other_top' => 'title',
-    'other_right' => 'title',
-    'other_bottom' => 'title',
-    'other_left' => 'title',
-    'name_field' => 'title',
-    'description_field' => 'field_location',
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-
   /* Display: Organization map pane */
   $handler = $view->new_display('panel_pane', 'Organization map pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'leaflet';
-  $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
-  $handler->display->display_options['style_options']['name_field'] = 'title';
-  $handler->display->display_options['style_options']['description_field'] = 'title';
-  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
-  $handler->display->display_options['style_options']['height'] = '500';
-  $handler->display->display_options['style_options']['icon'] = array(
-    'iconUrl' => '',
-    'shadowUrl' => '',
-    'iconSize' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'iconAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'shadowAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'popupAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $translatables['organization_map'] = array(
     t('Master'),
     t('Organizations'),
@@ -670,11 +633,6 @@ function appcat_organization_views_views_default_views() {
     t('Desc'),
     t('Nid'),
     t('All'),
-    t('Organization map'),
-    t('Defines the map that appears on the Organization detail page'),
-    t('Organization/Map on detail page'),
-    t('Organization Data Overlay'),
-    t('Map of a single organization'),
     t('Organization map pane'),
     t('View panes'),
   );
@@ -917,35 +875,6 @@ function appcat_organization_views_views_default_views() {
     3 => 0,
   );
 
-  /* Display: Organizations map */
-  $handler = $view->new_display('block', 'Organizations map', 'block');
-  $handler->display->display_options['display_description'] = 'Defines the map of Organizations';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Organizations/Map on orgs listing page';
-
-  /* Display: Organizations Data Overlay */
-  $handler = $view->new_display('openlayers', 'Organizations Data Overlay', 'openlayers_orgs');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'title',
-    'other_lon' => 'title',
-    'wkt' => 'field_coordinates',
-    'other_top' => 'title',
-    'other_right' => 'title',
-    'other_bottom' => 'title',
-    'other_left' => 'title',
-    'name_field' => 'title',
-    'description_field' => 'field_address',
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -1017,10 +946,6 @@ function appcat_organization_views_views_default_views() {
     t('Category'),
     t('Services'),
     t('Related apps'),
-    t('Organizations map'),
-    t('Defines the map of Organizations'),
-    t('Organizations/Map on orgs listing page'),
-    t('Organizations Data Overlay'),
     t('Content pane'),
     t('Organizations map pane'),
     t('View panes'),

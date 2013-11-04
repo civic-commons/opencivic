@@ -119,121 +119,6 @@ function appcat_home_views_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 
-  /* Display: Home page map */
-  $handler = $view->new_display('page', 'Home page map', 'page');
-  $handler->display->display_options['enabled'] = FALSE;
-  $handler->display->display_options['display_description'] = 'The map on the home page';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'homepage';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'places';
-
-  /* Display: Homepage Data Overlay */
-  $handler = $view->new_display('openlayers', 'Homepage Data Overlay', 'homepage');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'field_location',
-    'other_lon' => 'nid',
-    'wkt' => 'field_coordinates',
-    'other_top' => 'nid',
-    'other_right' => 'nid',
-    'other_bottom' => 'nid',
-    'other_left' => 'nid',
-    'name_field' => 'title',
-    'description_field' => 'field_location',
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Description';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = 'Deployments show where applications have been installed and used. Visit a deployment\'s detail page to learn more about the organizations that deployed the app and their experience using it. Use the form below to filter the list of deployments by category and location.';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Date added';
-  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
-  /* Field: Content: Add deployment of */
-  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application';
-  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
-    'link' => 1,
-  );
-  /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_url']['type'] = 'link_url';
-  /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location_1']['id'] = 'field_location_1';
-  $handler->display->display_options['fields']['field_location_1']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location_1']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location_1']['label'] = '';
-  $handler->display->display_options['fields']['field_location_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_location_1']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location_1']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location_1']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Coordinates */
-  $handler->display->display_options['fields']['field_coordinates']['id'] = 'field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['table'] = 'field_data_field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['field'] = 'field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['label'] = '';
-  $handler->display->display_options['fields']['field_coordinates']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_coordinates']['click_sort_column'] = 'wkt';
-  $handler->display->display_options['fields']['field_coordinates']['settings'] = array(
-    'data' => 'full',
-  );
-
   /* Display: Home page map pane */
   $handler = $view->new_display('panel_pane', 'Home page map pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -241,7 +126,7 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['style_options']['data_source'] = 'field_coordinates';
   $handler->display->display_options['style_options']['name_field'] = 'field_deployment_of';
   $handler->display->display_options['style_options']['description_field'] = 'field_deployment_of';
-  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
+  $handler->display->display_options['style_options']['map'] = 'google-roadmap';
   $handler->display->display_options['style_options']['height'] = '500';
   $handler->display->display_options['style_options']['icon'] = array(
     'iconUrl' => '',
@@ -289,12 +174,6 @@ function appcat_home_views_views_default_views() {
     t('Location'),
     t('<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>'),
     t('Coordinates'),
-    t('Home page map'),
-    t('The map on the home page'),
-    t('Homepage Data Overlay'),
-    t('Description'),
-    t('Deployments show where applications have been installed and used. Visit a deployment\'s detail page to learn more about the organizations that deployed the app and their experience using it. Use the form below to filter the list of deployments by category and location.'),
-    t('Nid'),
     t('Home page map pane'),
     t('View panes'),
   );

@@ -49,7 +49,7 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Members */
+  /* Field: Content: Organizations Involved */
   $handler->display->display_options['fields']['field_member']['id'] = 'field_member';
   $handler->display->display_options['fields']['field_member']['table'] = 'field_data_field_member';
   $handler->display->display_options['fields']['field_member']['field'] = 'field_member';
@@ -87,6 +87,22 @@ function appcat_deployment_views_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Deployment At a Glance';
+  $translatables['deployment_at_a_glance'] = array(
+    t('Master'),
+    t('At a Glance'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('<div class="edit-content-button"><a href="/node/[nid]/edit">+ edit details</a></div>'),
+    t('Application used'),
+    t('Developers'),
+    t('All'),
+    t('Block'),
+    t('Deployment At a Glance'),
+  );
   $export['deployment_at_a_glance'] = $view;
 
   $view = new view();
@@ -154,7 +170,7 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -259,129 +275,6 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'deployments';
 
-  /* Display: Deployments map attachment */
-  $handler = $view->new_display('attachment', 'Deployments map attachment', 'attachment_deployments');
-  $handler->display->display_options['display_description'] = 'The map attachment on the deployments listing page';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'deployments';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  $handler->display->display_options['displays'] = array(
-    'page' => 'page',
-    'default' => 0,
-    'block_deployments' => 0,
-  );
-  $handler->display->display_options['attachment_position'] = 'after';
-
-  /* Display: OpenLayers Data Overlay */
-  $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_deployments');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'field_location',
-    'other_lon' => 'nid',
-    'wkt' => 'field_coordinates',
-    'other_top' => 'nid',
-    'other_right' => 'nid',
-    'other_bottom' => 'nid',
-    'other_left' => 'nid',
-    'name_field' => 'title',
-    'description_field' => 'field_location',
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Description';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = 'Deployments show where applications have been installed and used. Visit a deployment\'s detail page to learn more about the organizations that deployed the app and their experience using it. Use the form below to filter the list of deployments by category and location.';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Date added';
-  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
-  /* Field: Content: Add deployment of */
-  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application';
-  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
-    'link' => 1,
-  );
-  /* Field: Content: Url */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_url']['type'] = 'link_url';
-  /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location_1']['id'] = 'field_location_1';
-  $handler->display->display_options['fields']['field_location_1']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location_1']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location_1']['label'] = '';
-  $handler->display->display_options['fields']['field_location_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_location_1']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location_1']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location_1']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Coordinates */
-  $handler->display->display_options['fields']['field_coordinates']['id'] = 'field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['table'] = 'field_data_field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['field'] = 'field_coordinates';
-  $handler->display->display_options['fields']['field_coordinates']['label'] = '';
-  $handler->display->display_options['fields']['field_coordinates']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_coordinates']['click_sort_column'] = 'wkt';
-  $handler->display->display_options['fields']['field_coordinates']['settings'] = array(
-    'data' => 'full',
-  );
-
   /* Display: Deployments feed */
   $handler = $view->new_display('feed', 'Deployments feed', 'feed_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -446,7 +339,7 @@ function appcat_deployment_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -491,7 +384,7 @@ function appcat_deployment_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -516,6 +409,43 @@ function appcat_deployment_views_views_default_views() {
     'deployment' => 'deployment',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  $translatables['deployments_list'] = array(
+    t('Master'),
+    t('Deployments'),
+    t('See all'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Description'),
+    t('Deployments show where applications have been installed and used. Visit a deployment\'s detail page to learn more about the organizations that deployed the app and their experience using it. Use the form below to filter the list of deployments by category and location.'),
+    t('App deployed'),
+    t('Developer'),
+    t('Date added'),
+    t('Application'),
+    t('Website'),
+    t('Location'),
+    t('<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>'),
+    t('App type'),
+    t('Civic Focus'),
+    t('Country'),
+    t('Deployments list'),
+    t('Deployments listing page.'),
+    t('more'),
+    t('Deployments feed'),
+    t('Recent deployments'),
+    t('Deployment/Recent deployments'),
+    t('Recent deployments pane'),
+    t('View panes'),
+  );
   $export['deployments_list'] = $view;
 
   $view = new view();
@@ -568,7 +498,7 @@ function appcat_deployment_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -630,7 +560,7 @@ function appcat_deployment_views_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -644,6 +574,31 @@ function appcat_deployment_views_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['pane_title'] = 'App deployments (wide)';
+  $translatables['replated_deployments'] = array(
+    t('Master'),
+    t('Where it is used'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('No current uses recorded.'),
+    t('All'),
+    t('Block'),
+    t('Application related deployments'),
+    t('Application related deployments pane'),
+    t('View panes'),
+    t('A list of deployments for an app, formatted for content column.'),
+    t('App deployments (wide)'),
+  );
   $export['replated_deployments'] = $view;
 
   return $export;

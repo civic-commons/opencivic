@@ -95,7 +95,7 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_keywords']['delta_offset'] = '0';
-  /* Field: Content: Url */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -322,7 +322,7 @@ function appcat_application_views_views_default_views() {
     t('Requirements'),
     t('Software type'),
     t('Tags'),
-    t('Url'),
+    t('Website'),
     t('Rating'),
     t('All'),
     t('Application At a Glance'),
@@ -996,35 +996,6 @@ function appcat_application_views_views_default_views() {
     'deployment' => 'deployment',
   );
 
-  /* Display: Deployments map */
-  $handler = $view->new_display('block', 'Deployments map', 'block');
-  $handler->display->display_options['display_description'] = 'Defines the map of places where Applications have been deployed.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Deployments/Map on apps listing page';
-
-  /* Display: Deployments Data Overlay */
-  $handler = $view->new_display('openlayers', 'Deployments Data Overlay', 'openlayers_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'title',
-    'other_lon' => 'title',
-    'wkt' => 'field_coordinates',
-    'other_top' => 'title',
-    'other_right' => 'title',
-    'other_bottom' => 'title',
-    'other_left' => 'title',
-    'name_field' => 'title',
-    'description_field' => 'field_location',
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-
   /* Display: Deployments map pane */
   $handler = $view->new_display('panel_pane', 'Deployments map pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -1067,10 +1038,6 @@ function appcat_application_views_views_default_views() {
     t('Desc'),
     t('Content entity referenced from field_deployment_of'),
     t('Nid'),
-    t('Deployments map'),
-    t('Defines the map of places where Applications have been deployed.'),
-    t('Deployments/Map on apps listing page'),
-    t('Deployments Data Overlay'),
     t('Deployments map pane'),
     t('View panes'),
   );
