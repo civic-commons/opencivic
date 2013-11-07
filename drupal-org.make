@@ -54,17 +54,11 @@ projects[panopoly_faq][subdir] = panopoly
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha3
 
-projects[debut_location][subdir] = contrib
-projects[debut_location][version] = 1.0-alpha2
-
 projects[diff][subdir] = contrib
 projects[diff][version] = 3.2
 
 projects[openidadmin][subdir] = contrib
 projects[openidadmin][version] = 1.0
-
-;projects[views_bulk_operations][subdir] = "contrib"
-;projects[views_bulk_operations][version] = "3.0"
 
 projects[addanother][subdir] = "contrib"
 projects[addanother][version] = "2.1"
@@ -309,18 +303,6 @@ projects[oauthconnector][subdir] = contrib
 projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
-projects[openlayers][subdir] = "contrib"
-projects[openlayers][version] = 2.0-beta7
-projects[openlayers][patch][2112007] = http://drupal.org/files/remove_anonymous_functions-2112007-2.patch
-
-;projects[openlayers][version] = "2.x-dev"
-;projects[openlayers][download][type] = "git"
-;projects[openlayers][download][url] = "http://git.drupal.org/project/openlayers.git"
-;projects[openlayers][download][revision] = a6bd2cd9d994ede2537798f16df5e7f81b69ebdf
-;projects[openlayers][download][branch] = 7.x-2.x
-;projects[openlayers][type] = "module"
-;projects[openlayers][patch][1951336] = http://drupal.org/files/1951336-1-markers_disappear.patch
-
 projects[ole][subdir]  = "contrib"
 projects[ole][version] = "1.0-beta3"
 
@@ -352,9 +334,6 @@ projects[prepopulate_create_node_links][download][url] = "http://git.drupal.org/
 projects[prepopulate_create_node_links][download][revision] = 4dc5dd7a6b90c6423428336a15b5f0592aa45ad0
 projects[prepopulate_create_node_links][download][branch] = 7.x-1.x
 projects[prepopulate_create_node_links][type] = "module"
-
-projects[proj4js][subdir] = "contrib"
-projects[proj4js][version] = "1.2"
 
 projects[recaptcha][subdir] = "contrib"
 projects[recaptcha][version] = "1.8"
