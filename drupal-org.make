@@ -498,17 +498,6 @@ projects[uuid_features][download][revision] = dba29f80e743e5e22ddf035b894a9c1542
 projects[uuid_features][download][branch] = 7.x-1.x
 projects[uuid_features][type] = "module"
 
-projects[uuid][version] = "1.x-dev"
-projects[uuid][subdir] = "devel"
-projects[uuid][download][url] = "http://git.drupal.org/project/uuid.git"
-projects[uuid][download][revision] = 8b6d70f1764a83896e799712111d6b46cf482737
-projects[uuid][download][branch] = 7.x-1.x
-projects[uuid][type] = "module"
-; Patch UUID module to eliminate 'replacements' error
-; Patch should not be needed now that we're using the 1.x-dev release
-; http://drupal.org/node/1428952
-; projects[uuid][patch][1428952] = http://drupal.org/files/uuid.token_.inc-undefined-replacements.patch
-
 projects[node_export][version] = "3.x"
 projects[node_export][subdir] = "devel"
 projects[node_export][download][type] = "git"
