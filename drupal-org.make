@@ -190,7 +190,8 @@ projects[geophp][version] = 1.7
 projects[globalredirect][subdir] = "contrib"
 projects[globalredirect][version] = "1.5"
 
-projects[google_fonts][subdir] = "contrib"
+projects[fontyourface][version] = 2.8
+projects[fontyourface][subdir] = "contrib"
 
 projects[google_analytics][version] = 1.4
 projects[google_analytics][subdir] = "contrib"
