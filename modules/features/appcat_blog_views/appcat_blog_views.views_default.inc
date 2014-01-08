@@ -13,7 +13,7 @@ function appcat_blog_views_views_default_views() {
   $view = new view();
   $view->name = 'blog';
   $view->description = 'Recent blog posts.';
-  $view->tag = 'default';
+  $view->tag = 'opencivic, Blog';
   $view->base_table = 'node';
   $view->human_name = 'blog';
   $view->core = 7;
@@ -90,6 +90,30 @@ function appcat_blog_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $translatables['blog'] = array(
+    t('Master'),
+    t('Blog'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Page'),
+    t('Block'),
+    t('From the blog'),
+    t('Read more...'),
+    t('Blog/From the blog'),
+    t('Content pane'),
+    t('View panes'),
+  );
   $export['blog'] = $view;
 
   return $export;

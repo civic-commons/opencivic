@@ -13,7 +13,7 @@ function appcat_deployment_views_views_default_views() {
   $view = new view();
   $view->name = 'deployment_at_a_glance';
   $view->description = 'Defines the At a Glance block for Deployments.';
-  $view->tag = 'Deployment';
+  $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
   $view->human_name = 'Deployment At a Glance';
   $view->core = 7;
@@ -108,7 +108,7 @@ function appcat_deployment_views_views_default_views() {
   $view = new view();
   $view->name = 'deployments_list';
   $view->description = 'The Deployments listing page';
-  $view->tag = 'Deployment';
+  $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
   $view->human_name = 'Deployments list';
   $view->core = 7;
@@ -451,7 +451,7 @@ function appcat_deployment_views_views_default_views() {
   $view = new view();
   $view->name = 'replated_deployments';
   $view->description = 'Defines the "Related deployments" block for Application detail pages';
-  $view->tag = 'Application';
+  $view->tag = 'opencivic, Application';
   $view->base_table = 'node';
   $view->human_name = 'Application related deployments';
   $view->core = 7;

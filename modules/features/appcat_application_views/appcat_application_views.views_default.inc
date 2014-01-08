@@ -13,7 +13,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'application_at_a_glance';
   $view->description = 'Defines the "At a Glance" block for Application detail pages';
-  $view->tag = 'Application';
+  $view->tag = 'opencivic,Application';
   $view->base_table = 'node';
   $view->human_name = 'Application At a Glance';
   $view->core = 7;
@@ -343,7 +343,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'application_categories';
   $view->description = 'Defines icon views for the Application content type';
-  $view->tag = 'Application';
+  $view->tag = 'opencivic,Application';
   $view->base_table = 'taxonomy_term_data';
   $view->human_name = 'Application categories';
   $view->core = 7;
@@ -580,7 +580,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'application_list';
   $view->description = 'The Applications listing page';
-  $view->tag = 'Applicaton';
+  $view->tag = 'opencivic, Applicaton';
   $view->base_table = 'node';
   $view->human_name = 'application_list';
   $view->core = 7;
@@ -608,6 +608,14 @@ function appcat_application_views_views_default_views() {
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = 'We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No apps';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No apps added yet. Please add the first app!';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -884,6 +892,8 @@ function appcat_application_views_views_default_views() {
     t('Desc'),
     t('Description'),
     t('We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.'),
+    t('No apps'),
+    t('No apps added yet. Please add the first app!'),
     t('Nid'),
     t('Date added'),
     t('Title'),
@@ -912,7 +922,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'deployments_map';
   $view->description = 'Creates a map showing app deployments';
-  $view->tag = 'Deployment';
+  $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
   $view->human_name = 'Deployments map';
   $view->core = 7;
@@ -1046,7 +1056,7 @@ function appcat_application_views_views_default_views() {
   $view = new view();
   $view->name = 'related_applications';
   $view->description = 'Defines the "Related applications" block on Application detail pages';
-  $view->tag = 'Application';
+  $view->tag = 'opencivic,Application';
   $view->base_table = 'node';
   $view->human_name = 'Application related applications';
   $view->core = 7;

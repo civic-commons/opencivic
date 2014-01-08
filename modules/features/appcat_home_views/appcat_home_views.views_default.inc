@@ -13,7 +13,7 @@ function appcat_home_views_views_default_views() {
   $view = new view();
   $view->name = 'home_page_map';
   $view->description = 'The map of deployments and organizations for the home page';
-  $view->tag = 'Homepage';
+  $view->tag = 'opencivic, Homepage';
   $view->base_table = 'node';
   $view->human_name = 'Home page map';
   $view->core = 7;
@@ -182,7 +182,7 @@ function appcat_home_views_views_default_views() {
   $view = new view();
   $view->name = 'homepage_latest';
   $view->description = 'Latest Apps and Recent Deployment blocks for the home page';
-  $view->tag = 'Homepage';
+  $view->tag = 'opencivic, Homepage';
   $view->base_table = 'node';
   $view->human_name = 'Homepage Latest';
   $view->core = 7;
@@ -250,6 +250,15 @@ function appcat_home_views_views_default_views() {
   $handler = $view->new_display('block', 'Latest Apps', 'block');
   $handler->display->display_options['display_description'] = 'The Latest Apps block for the home page';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No apps';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Please add the first application.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['block_description'] = 'Homepage/Latest Apps';
 
   /* Display: Recent Deployments */
@@ -258,6 +267,15 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['title'] = 'Recent Deployments';
   $handler->display->display_options['display_description'] = 'The Recent Deployments block for the homepage';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No deployments';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No deployments added yet.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -330,6 +348,15 @@ function appcat_home_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No blogs';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No blog posts yet.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -357,12 +384,18 @@ function appcat_home_views_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('The Latest Apps block for the home page'),
+    t('No apps'),
+    t('Please add the first application.'),
     t('Homepage/Latest Apps'),
     t('Recent Deployments'),
     t('The Recent Deployments block for the homepage'),
+    t('No deployments'),
+    t('No deployments added yet.'),
     t('Homepage/Recent deployments'),
     t('From the blog'),
     t('Blog teasers for the home page'),
+    t('No blogs'),
+    t('No blog posts yet.'),
     t('Homepage/From the blog'),
   );
   $export['homepage_latest'] = $view;
