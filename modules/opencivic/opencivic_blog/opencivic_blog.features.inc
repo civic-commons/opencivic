@@ -107,7 +107,7 @@ function opencivic_blog_rdf_default_mappings() {
         0 => 'schema:image',
       ),
     ),
-    'field_keywords' => array(
+    'field_oc_blog_keywords' => array(
       'predicates' => array(
         0 => 'schema:keywords',
       ),

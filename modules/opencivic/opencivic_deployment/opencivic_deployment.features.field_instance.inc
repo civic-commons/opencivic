@@ -73,8 +73,8 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_coordinates'
-  $field_instances['node-deployment-field_coordinates'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_deploy_coordinates'
+  $field_instances['node-deployment-field_oc_deploy_coordinates'] = array(
     'bundle' => 'deployment',
     'deleted' => 0,
     'description' => '',
@@ -105,7 +105,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_coordinates',
+    'field_name' => 'field_oc_deploy_coordinates',
     'label' => 'Coordinates',
     'required' => 0,
     'settings' => array(
@@ -354,8 +354,8 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_url'
-  $field_instances['node-deployment-field_url'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_app_url'
+  $field_instances['node-deployment-field_oc_app_url'] = array(
     'bundle' => 'deployment',
     'default_value' => NULL,
     'deleted' => 0,
@@ -388,7 +388,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_url',
+    'field_name' => 'field_oc_app_url',
     'label' => 'Website',
     'required' => 0,
     'settings' => array(

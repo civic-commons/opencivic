@@ -10,13 +10,13 @@
 function opencivic_blog_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_keywords'
-  $field_bases['field_keywords'] = array(
+  // Exported field_base: 'field_oc_blog_keywords'
+  $field_bases['field_oc_blog_keywords'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_keywords',
+    'field_name' => 'field_oc_blog_keywords',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(

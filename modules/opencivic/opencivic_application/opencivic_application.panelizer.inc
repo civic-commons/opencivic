@@ -130,7 +130,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-4';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_feature_list';
+    $pane->subtype = 'node:field_oc_app_feature_list';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -156,7 +156,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-5';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_screenshot';
+    $pane->subtype = 'node:field_oc_app_screenshot';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -182,7 +182,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-6';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_video';
+    $pane->subtype = 'node:field_oc_app_video';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -263,7 +263,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-9';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_description';
+    $pane->subtype = 'node:field_oc_app_description';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -289,7 +289,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-10';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_url';
+    $pane->subtype = 'node:field_oc_app_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -315,7 +315,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-11';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_aggregate_rating';
+    $pane->subtype = 'node:field_oc_app_aggregate_rating';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -341,7 +341,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-12';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_contributor';
+    $pane->subtype = 'node:field_oc_app_contributor';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -367,7 +367,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-13';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_creator';
+    $pane->subtype = 'node:field_oc_app_creator';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -393,7 +393,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-14';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_keywords';
+    $pane->subtype = 'node:field_oc_app_keywords';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -419,7 +419,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-15';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_application_category';
+    $pane->subtype = 'node:field_oc_app_app_category';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -445,7 +445,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-16';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_download_url';
+    $pane->subtype = 'node:field_oc_app_download_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -471,7 +471,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-17';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_install_url';
+    $pane->subtype = 'node:field_oc_app_install_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -497,7 +497,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-18';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_release_notes';
+    $pane->subtype = 'node:field_oc_app_release_notes';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -523,7 +523,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-19';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_requirements';
+    $pane->subtype = 'node:field_oc_app_requirements';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -549,7 +549,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-20';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_civic_category';
+    $pane->subtype = 'node:field_oc_civic_category';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -575,7 +575,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-21';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_related_applications';
+    $pane->subtype = 'node:field_oc_app_related_apps';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -601,7 +601,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-22';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_license';
+    $pane->subtype = 'node:field_oc_app_license';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -679,7 +679,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-25';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_file_attachments';
+    $pane->subtype = 'node:field_oc_app_file_attachments';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

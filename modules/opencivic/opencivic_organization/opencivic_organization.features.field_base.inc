@@ -95,13 +95,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_civic_category'
-  $field_bases['field_civic_category'] = array(
+  // Exported field_base: 'field_oc_civic_category'
+  $field_bases['field_oc_civic_category'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_civic_category',
+    'field_name' => 'field_oc_civic_category',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -132,13 +132,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_coordinates'
-  $field_bases['field_coordinates'] = array(
+  // Exported field_base: 'field_oc_deploy_coordinates'
+  $field_bases['field_oc_deploy_coordinates'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_coordinates',
+    'field_name' => 'field_oc_deploy_coordinates',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -168,13 +168,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_keywords'
-  $field_bases['field_keywords'] = array(
+  // Exported field_base: 'field_oc_app_keywords'
+  $field_bases['field_oc_app_keywords'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_keywords',
+    'field_name' => 'field_oc_app_keywords',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -281,13 +281,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_related_applications'
-  $field_bases['field_related_applications'] = array(
+  // Exported field_base: 'field_oc_app_related_apps'
+  $field_bases['field_oc_app_related_apps'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_related_applications',
+    'field_name' => 'field_oc_app_related_apps',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -411,13 +411,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_url'
-  $field_bases['field_url'] = array(
+  // Exported field_base: 'field_oc_app_url'
+  $field_bases['field_oc_app_url'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_url',
+    'field_name' => 'field_oc_app_url',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
