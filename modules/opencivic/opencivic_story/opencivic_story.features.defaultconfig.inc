@@ -165,84 +165,84 @@ function opencivic_story_defaultconfig_strongarm() {
 function opencivic_story_defaultconfig_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: administer panelizer node story breadcrumbs.
+  // Exported permission: 'administer panelizer node story breadcrumbs'.
   $permissions['administer panelizer node story breadcrumbs'] = array(
     'name' => 'administer panelizer node story breadcrumbs',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story content.
+  // Exported permission: 'administer panelizer node story content'.
   $permissions['administer panelizer node story content'] = array(
     'name' => 'administer panelizer node story content',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story context.
+  // Exported permission: 'administer panelizer node story context'.
   $permissions['administer panelizer node story context'] = array(
     'name' => 'administer panelizer node story context',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story defaults.
+  // Exported permission: 'administer panelizer node story defaults'.
   $permissions['administer panelizer node story defaults'] = array(
     'name' => 'administer panelizer node story defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story layout.
+  // Exported permission: 'administer panelizer node story layout'.
   $permissions['administer panelizer node story layout'] = array(
     'name' => 'administer panelizer node story layout',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story overview.
+  // Exported permission: 'administer panelizer node story overview'.
   $permissions['administer panelizer node story overview'] = array(
     'name' => 'administer panelizer node story overview',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node story settings.
+  // Exported permission: 'administer panelizer node story settings'.
   $permissions['administer panelizer node story settings'] = array(
     'name' => 'administer panelizer node story settings',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: create story content.
+  // Exported permission: 'create story content'.
   $permissions['create story content'] = array(
     'name' => 'create story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete any story content.
+  // Exported permission: 'delete any story content'.
   $permissions['delete any story content'] = array(
     'name' => 'delete any story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete own story content.
+  // Exported permission: 'delete own story content'.
   $permissions['delete own story content'] = array(
     'name' => 'delete own story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit any story content.
+  // Exported permission: 'edit any story content'.
   $permissions['edit any story content'] = array(
     'name' => 'edit any story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit own story content.
+  // Exported permission: 'edit own story content'.
   $permissions['edit own story content'] = array(
     'name' => 'edit own story content',
     'roles' => array(),
@@ -342,6 +342,26 @@ function opencivic_story_defaultconfig_views_default_views() {
 
   /* Display: Stories list */
   $handler = $view->new_display('panel_pane', 'Stories list', 'panel_pane_1');
+  $translatables['story'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Apps'),
+    t('Orgs'),
+    t('Stories list'),
+    t('View panes'),
+  );
   $export['story'] = $view;
 
   return $export;
