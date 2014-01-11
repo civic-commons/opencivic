@@ -1,0 +1,12 @@
+name = OpenCivic Core
+description = Core features needed by other parts of OpenCivic.
+core = 7.x
+package = OpenCivic
+php = 5.2.4
+project = opencivic_core
+
+dependencies[] = appcat_search_db
+dependencies[] = appcat_sponsor_node
+dependencies[] = appcat_misc_taxonomy_app_terms
+dependencies[] = appcat_misc_taxonomy_civic_terms
+dependencies[] = appcat_misc_taxonomy_terms

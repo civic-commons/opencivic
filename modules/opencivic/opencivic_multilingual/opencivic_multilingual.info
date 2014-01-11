@@ -1,0 +1,8 @@
+name = OpenCivic Multilingual
+description = Multilingual features.
+core = 7.x
+package = OpenCivic
+php = 5.2.4
+project = opencivic_multilingual
+
+
