@@ -13,9 +13,9 @@ function opencivic_organization_default_cer() {
   $cnr_obj = new stdClass();
   $cnr_obj->disabled = FALSE; /* Edit this to true to make a default cnr_obj disabled initially */
   $cnr_obj->api_version = 1;
-  $cnr_obj->entity_types_content_fields = 'node*organization*field_member*node*organization*field_member';
+  $cnr_obj->entity_types_content_fields = 'node*organization*field_oc_org_member*node*organization*field_oc_org_member';
   $cnr_obj->enabled = 0;
-  $export['node*organization*field_member*node*organization*field_member'] = $cnr_obj;
+  $export['node*organization*field_oc_org_member*node*organization*field_oc_org_member'] = $cnr_obj;
 
   $cnr_obj = new stdClass();
   $cnr_obj->disabled = FALSE; /* Edit this to true to make a default cnr_obj disabled initially */

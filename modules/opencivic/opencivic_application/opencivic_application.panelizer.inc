@@ -653,7 +653,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-24';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:title_field';
+    $pane->subtype = 'node:field_oc_app_title';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

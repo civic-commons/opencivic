@@ -354,8 +354,8 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_app_url'
-  $field_instances['node-deployment-field_oc_app_url'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_deploy_url'
+  $field_instances['node-deployment-field_oc_deploy_url'] = array(
     'bundle' => 'deployment',
     'default_value' => NULL,
     'deleted' => 0,
@@ -388,7 +388,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_url',
+    'field_name' => 'field_oc_deploy_url',
     'label' => 'Website',
     'required' => 0,
     'settings' => array(

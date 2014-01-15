@@ -132,8 +132,8 @@ function opencivic_sponsor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sponsor-field_oc_app_url'
-  $field_instances['node-sponsor-field_oc_app_url'] = array(
+  // Exported field_instance: 'node-sponsor-field_oc_sponsor_url'
+  $field_instances['node-sponsor-field_oc_sponsor_url'] = array(
     'bundle' => 'sponsor',
     'default_value' => NULL,
     'deleted' => 0,
@@ -166,7 +166,7 @@ function opencivic_sponsor_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_url',
+    'field_name' => 'field_oc_sponsor_url',
     'label' => 'Url',
     'required' => 0,
     'settings' => array(

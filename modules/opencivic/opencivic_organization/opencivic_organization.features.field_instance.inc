@@ -73,8 +73,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_abbreviation'
-  $field_instances['node-organization-field_abbreviation'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_abbreviation'
+  $field_instances['node-organization-field_oc_org_abbreviation'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -107,7 +107,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_abbreviation',
+    'field_name' => 'field_oc_org_abbreviation',
     'label' => 'Abbreviation',
     'required' => 0,
     'settings' => array(
@@ -129,8 +129,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_additional_type'
-  $field_instances['node-organization-field_additional_type'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_additional_type'
+  $field_instances['node-organization-field_oc_org_additional_type'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -162,7 +162,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_additional_type',
+    'field_name' => 'field_oc_org_additional_type',
     'label' => 'Organization type',
     'required' => 1,
     'settings' => array(
@@ -181,12 +181,12 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_address'
-  $field_instances['node-organization-field_address'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_address'
+  $field_instances['node-organization-field_oc_org_address'] = array(
     'bundle' => 'organization',
     'default_value' => array(
       0 => array(
-        'element_key' => 'node|organization|field_address|und|0',
+        'element_key' => 'node|organization|field_oc_org_address|und|0',
         'thoroughfare' => '',
         'premise' => '',
         'locality' => '',
@@ -228,7 +228,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_address',
+    'field_name' => 'field_oc_org_address',
     'label' => 'Address',
     'required' => 0,
     'settings' => array(
@@ -308,8 +308,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_oc_deploy_coordinates'
-  $field_instances['node-organization-field_oc_deploy_coordinates'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_coordinates'
+  $field_instances['node-organization-field_oc_org_coordinates'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -341,7 +341,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_deploy_coordinates',
+    'field_name' => 'field_oc_org_coordinates',
     'label' => 'Coordinates',
     'required' => 0,
     'settings' => array(
@@ -358,7 +358,7 @@ function opencivic_organization_field_default_field_instances() {
       'module' => 'geocoder',
       'settings' => array(
         'delta_handling' => 'default',
-        'geocoder_field' => 'field_address',
+        'geocoder_field' => 'field_oc_org_address',
         'geocoder_handler' => 'google',
         'handler_settings' => array(
           'google' => array(
@@ -380,8 +380,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_email'
-  $field_instances['node-organization-field_email'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_email'
+  $field_instances['node-organization-field_oc_org_email'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -414,7 +414,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_email',
+    'field_name' => 'field_oc_org_email',
     'label' => 'Email',
     'required' => 0,
     'settings' => array(
@@ -489,8 +489,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_logo'
-  $field_instances['node-organization-field_logo'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_logo'
+  $field_instances['node-organization-field_oc_org_logo'] = array(
     'bundle' => 'organization',
     'deleted' => 0,
     'description' => 'URL of an image for the logo of the item.',
@@ -525,7 +525,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_logo',
+    'field_name' => 'field_oc_org_logo',
     'label' => 'Logo',
     'required' => 0,
     'settings' => array(
@@ -554,8 +554,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_member'
-  $field_instances['node-organization-field_member'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_member'
+  $field_instances['node-organization-field_oc_org_member'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -590,7 +590,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_member',
+    'field_name' => 'field_oc_org_member',
     'label' => 'Members',
     'required' => 0,
     'settings' => array(
@@ -675,8 +675,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_services'
-  $field_instances['node-organization-field_services'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_services'
+  $field_instances['node-organization-field_oc_org_services'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -708,7 +708,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_services',
+    'field_name' => 'field_oc_org_services',
     'label' => 'Services',
     'required' => 0,
     'settings' => array(
@@ -727,8 +727,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_telephone'
-  $field_instances['node-organization-field_telephone'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_telephone'
+  $field_instances['node-organization-field_oc_org_telephone'] = array(
     'bundle' => 'organization',
     'deleted' => 0,
     'description' => '',
@@ -760,7 +760,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_telephone',
+    'field_name' => 'field_oc_org_telephone',
     'label' => 'Telephone',
     'required' => 0,
     'settings' => array(
@@ -1022,8 +1022,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_twitter'
-  $field_instances['node-organization-field_twitter'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_twitter'
+  $field_instances['node-organization-field_oc_org_twitter'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1056,7 +1056,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_twitter',
+    'field_name' => 'field_oc_org_twitter',
     'label' => 'Twitter',
     'required' => 0,
     'settings' => array(
@@ -1083,8 +1083,8 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organization-field_oc_app_url'
-  $field_instances['node-organization-field_oc_app_url'] = array(
+  // Exported field_instance: 'node-organization-field_oc_org_url'
+  $field_instances['node-organization-field_oc_org_url'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1117,7 +1117,7 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_url',
+    'field_name' => 'field_oc_org_url',
     'label' => 'Website',
     'required' => 0,
     'settings' => array(

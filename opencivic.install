@@ -435,9 +435,14 @@ function opencivic_set_google_fonts() {
 /**
  * Implements hook_install_tasks()
  */
-function opencivic_install_tasks() {
+function opencivic_install_tasks($install_state) {
   // Kick off the tasks.
   $tasks = array();
+
+  // Add Subprofiles tasks.
+  // require_once(drupal_get_path('module', 'subprofiles') . '/subprofiles.install.inc');
+  // $tasks = $tasks + _subprofiles_install_tasks($install_state);
+
   return $tasks;
 }
 

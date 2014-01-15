@@ -101,7 +101,7 @@ function opencivic_deployment_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
-    'field_oc_app_url' => array(
+    'field_oc_deploy_url' => array(
       'predicates' => array(
         0 => 'schema:url',
       ),

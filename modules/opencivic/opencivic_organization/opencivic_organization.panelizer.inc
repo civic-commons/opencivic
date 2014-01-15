@@ -46,7 +46,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-1';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_logo';
+    $pane->subtype = 'node:field_oc_org_logo';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -101,7 +101,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-3';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_abbreviation';
+    $pane->subtype = 'node:field_oc_org_abbreviation';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -127,7 +127,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-4';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_address';
+    $pane->subtype = 'node:field_oc_org_address';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -158,7 +158,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-5';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_telephone';
+    $pane->subtype = 'node:field_oc_org_telephone';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -184,7 +184,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-6';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_app_url';
+    $pane->subtype = 'node:field_oc_org_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -210,7 +210,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-7';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_member';
+    $pane->subtype = 'node:field_oc_org_member';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -238,7 +238,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-8';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_services';
+    $pane->subtype = 'node:field_oc_org_services';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -264,7 +264,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-9';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_deploy_coordinates';
+    $pane->subtype = 'node:field_oc_org_coordinates';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -368,7 +368,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-13';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_additional_type';
+    $pane->subtype = 'node:field_oc_org_additional_type';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

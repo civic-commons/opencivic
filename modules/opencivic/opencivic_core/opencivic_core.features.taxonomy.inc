@@ -7,7 +7,7 @@
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function opencivic_organization_taxonomy_default_vocabularies() {
+function opencivic_core_taxonomy_default_vocabularies() {
   return array(
     'civic_category' => array(
       'name' => 'Civic sector',

@@ -633,7 +633,7 @@ function opencivic_application_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => 1,
+      'field_oc_app_title' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1040,7 +1040,7 @@ function opencivic_application_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => 0,
+      'field_oc_app_title' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1245,8 +1245,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-application-title_field'
-  $field_instances['node-application-title_field'] = array(
+  // Exported field_instance: 'node-application-field_oc_app_title'
+  $field_instances['node-application-field_oc_app_title'] = array(
     'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1278,7 +1278,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'title_field',
+    'field_name' => 'field_oc_app_title',
     'label' => 'Title',
     'required' => TRUE,
     'settings' => array(

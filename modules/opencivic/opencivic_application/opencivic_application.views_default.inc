@@ -344,11 +344,11 @@ function opencivic_application_views_default_views() {
 
   // Exported view: application_categories
   $view = new view();
-  $view->name = 'application_categories';
+  $view->name = 'opencivic_application_categories';
   $view->description = 'Defines icon views for the Application content type';
   $view->tag = 'opencivic,Application';
   $view->base_table = 'taxonomy_term_data';
-  $view->human_name = 'Application categories';
+  $view->human_name = 'OpenCivic Application categories';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

@@ -47,7 +47,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_app_url';
+    $pane->subtype = 'node:field_oc_deploy_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

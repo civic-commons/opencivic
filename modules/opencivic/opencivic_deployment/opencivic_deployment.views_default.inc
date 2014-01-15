@@ -174,11 +174,11 @@ function opencivic_deployment_views_default_views() {
     'link' => 1,
   );
   /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_oc_app_url']['type'] = 'link_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['id'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['table'] = 'field_data_field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['field'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['type'] = 'link_url';
   /* Field: Content: Location */
   $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
   $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
@@ -343,13 +343,13 @@ function opencivic_deployment_views_default_views() {
     ),
   );
   /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_app_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_oc_app_url']['type'] = 'link_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['id'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['table'] = 'field_data_field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['field'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['type'] = 'link_url';
   $handler->display->display_options['block_description'] = 'Deployment/Recent deployments';
 
   /* Display: Recent deployments pane */
@@ -388,13 +388,13 @@ function opencivic_deployment_views_default_views() {
     ),
   );
   /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_app_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_oc_app_url']['type'] = 'link_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['id'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['table'] = 'field_data_field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['field'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['type'] = 'link_url';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -640,12 +640,12 @@ function opencivic_deployment_views_default_views() {
     ),
   );
   /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_app_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['id'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['table'] = 'field_data_field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['field'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_url']['click_sort_column'] = 'url';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -702,12 +702,12 @@ function opencivic_deployment_views_default_views() {
     ),
   );
   /* Field: Content: Website */
-  $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
-  $handler->display->display_options['fields']['field_oc_app_url']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_app_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['id'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['table'] = 'field_data_field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['field'] = 'field_oc_deploy_url';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_url']['click_sort_column'] = 'url';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';

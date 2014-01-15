@@ -10,13 +10,13 @@
 function opencivic_organization_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_abbreviation'
-  $field_bases['field_abbreviation'] = array(
+  // Exported field_base: 'field_oc_org_abbreviation'
+  $field_bases['field_oc_org_abbreviation'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_abbreviation',
+    'field_name' => 'field_oc_org_abbreviation',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -40,13 +40,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_additional_type'
-  $field_bases['field_additional_type'] = array(
+  // Exported field_base: 'field_oc_org_additional_type'
+  $field_bases['field_oc_org_additional_type'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_additional_type',
+    'field_name' => 'field_oc_org_additional_type',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -77,13 +77,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_address'
-  $field_bases['field_address'] = array(
+  // Exported field_base: 'field_oc_org_address'
+  $field_bases['field_oc_org_address'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_address',
+    'field_name' => 'field_oc_org_address',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -95,50 +95,50 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_oc_civic_category'
-  $field_bases['field_oc_civic_category'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_civic_category',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'civic_category',
-          'parent' => 0,
-          'depth' => '',
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'options_list_callback' => NULL,
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
+  // // Exported field_base: 'field_oc_civic_category'
+  // $field_bases['field_oc_civic_category'] = array(
+  //   'active' => 1,
+  //   'cardinality' => -1,
+  //   'deleted' => 0,
+  //   'entity_types' => array(),
+  //   'field_name' => 'field_oc_civic_category',
+  //   'foreign keys' => array(
+  //     'tid' => array(
+  //       'columns' => array(
+  //         'tid' => 'tid',
+  //       ),
+  //       'table' => 'taxonomy_term_data',
+  //     ),
+  //   ),
+  //   'indexes' => array(
+  //     'tid' => array(
+  //       0 => 'tid',
+  //     ),
+  //   ),
+  //   'locked' => 0,
+  //   'module' => 'taxonomy',
+  //   'settings' => array(
+  //     'allowed_values' => array(
+  //       0 => array(
+  //         'vocabulary' => 'civic_category',
+  //         'parent' => 0,
+  //         'depth' => '',
+  //       ),
+  //     ),
+  //     'entity_translation_sync' => FALSE,
+  //     'options_list_callback' => NULL,
+  //   ),
+  //   'translatable' => 0,
+  //   'type' => 'taxonomy_term_reference',
+  // );
 
-  // Exported field_base: 'field_oc_deploy_coordinates'
-  $field_bases['field_oc_deploy_coordinates'] = array(
+  // Exported field_base: 'field_oc_org_coordinates'
+  $field_bases['field_oc_org_coordinates'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_deploy_coordinates',
+    'field_name' => 'field_oc_org_coordinates',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -150,13 +150,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'geofield',
   );
 
-  // Exported field_base: 'field_email'
-  $field_bases['field_email'] = array(
+  // Exported field_base: 'field_oc_org_email'
+  $field_bases['field_oc_org_email'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_email',
+    'field_name' => 'field_oc_org_email',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -168,49 +168,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_oc_app_keywords'
-  $field_bases['field_oc_app_keywords'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_app_keywords',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'options_list_callback' => NULL,
-    ),
-    'translatable' => 1,
-    'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_logo'
-  $field_bases['field_logo'] = array(
+  // Exported field_base: 'field_oc_org_logo'
+  $field_bases['field_oc_org_logo'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_logo',
+    'field_name' => 'field_oc_org_logo',
     'foreign keys' => array(
       'fid' => array(
         'columns' => array(
@@ -237,13 +201,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_member'
-  $field_bases['field_member'] = array(
+  // Exported field_base: 'field_oc_org_member'
+  $field_bases['field_oc_org_member'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_member',
+    'field_name' => 'field_oc_org_member',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -281,57 +245,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_oc_app_related_apps'
-  $field_bases['field_oc_app_related_apps'] = array(
+  // Exported field_base: 'field_oc_org_services'
+  $field_bases['field_oc_org_services'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_app_related_apps',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 1,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'application' => 'application',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 1,
-    'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_services'
-  $field_bases['field_services'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_services',
+    'field_name' => 'field_oc_org_services',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -362,13 +282,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_telephone'
-  $field_bases['field_telephone'] = array(
+  // Exported field_base: 'field_oc_org_telephone'
+  $field_bases['field_oc_org_telephone'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_telephone',
+    'field_name' => 'field_oc_org_telephone',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -381,13 +301,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'phone_number',
   );
 
-  // Exported field_base: 'field_twitter'
-  $field_bases['field_twitter'] = array(
+  // Exported field_base: 'field_oc_org_twitter'
+  $field_bases['field_oc_org_twitter'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_twitter',
+    'field_name' => 'field_oc_org_twitter',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -411,13 +331,13 @@ function opencivic_organization_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_oc_app_url'
-  $field_bases['field_oc_app_url'] = array(
+  // Exported field_base: 'field_oc_org_url'
+  $field_bases['field_oc_org_url'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_app_url',
+    'field_name' => 'field_oc_org_url',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
