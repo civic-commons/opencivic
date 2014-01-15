@@ -8,15 +8,14 @@
  * Implements hook_views_default_views().
  */
 function opencivic_organization_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: organization_list
   $view = new view();
   $view->name = 'organization_list';
   $view->description = 'The Organizations listing page';
-  $view->tag = 'Organizaion';
+  $view->tag = 'opencivic, Organizaion';
   $view->base_table = 'node';
-  $view->human_name = 'Organizations list';
+  $view->human_name = 'OpenCivic Organization';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -39,6 +38,13 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = 'The organizations listed here include vendors, developers and organizations that have used applications. Use the form below to select organizations with the experience and interests that you\'re seeking.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No organizations added. Please add the first!';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -76,7 +82,7 @@ function opencivic_organization_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Phone */
+  /* Field: Content: Telephone */
   $handler->display->display_options['fields']['field_oc_org_telephone']['id'] = 'field_oc_org_telephone';
   $handler->display->display_options['fields']['field_oc_org_telephone']['table'] = 'field_data_field_oc_org_telephone';
   $handler->display->display_options['fields']['field_oc_org_telephone']['field'] = 'field_oc_org_telephone';
@@ -184,49 +190,14 @@ function opencivic_organization_views_default_views() {
 
   /* Display: Organizations list pane */
   $handler = $view->new_display('panel_pane', 'Organizations list pane', 'panel_pane_1');
-  $translatables['organization_list'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Description'),
-    t('The organizations listed here include vendors, developers and organizations that have used applications. Use the form below to select organizations with the experience and interests that you\'re seeking.'),
-    t('Organization'),
-    t('Nid'),
-    t('Date added'),
-    t('Civic sector'),
-    t('Address'),
-    t('Phone'),
-    t('Website'),
-    t('Org type'),
-    t('App experience'),
-    t('Services'),
-    t('Civic Focus'),
-    t('Organizations list'),
-    t('Organizations listing page.'),
-    t('Organizations list pane'),
-    t('View panes'),
-  );
+  $export['organization_list'] = $view;
 
-  $views[$view->name] = $view;
-
-  // Exported view: organization_map
   $view = new view();
   $view->name = 'organization_map';
   $view->description = 'Creates a map for the Organization detail page';
-  $view->tag = 'Organization';
+  $view->tag = 'opencivic, Organization';
   $view->base_table = 'node';
-  $view->human_name = 'Organization map';
+  $view->human_name = 'OpenCivic Organization map';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -246,26 +217,6 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['style_options']['name_field'] = 'title';
   $handler->display->display_options['style_options']['description_field'] = 'title';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
-  $handler->display->display_options['style_options']['icon'] = array(
-    'iconUrl' => '',
-    'shadowUrl' => '',
-    'iconSize' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'iconAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'shadowAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'popupAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-  );
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -333,30 +284,14 @@ function opencivic_organization_views_default_views() {
 
   /* Display: Organization map pane */
   $handler = $view->new_display('panel_pane', 'Organization map pane', 'panel_pane_1');
-  $translatables['organization_map'] = array(
-    t('Master'),
-    t('Organizations'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Nid'),
-    t('All'),
-    t('Organization map pane'),
-    t('View panes'),
-  );
+  $export['organization_map'] = $view;
 
-  $views[$view->name] = $view;
-
-  // Exported view: organizations_map
   $view = new view();
   $view->name = 'organizations_map';
   $view->description = 'Creates a map showing organizations';
-  $view->tag = 'Organization';
+  $view->tag = 'opencivic, Organization';
   $view->base_table = 'node';
-  $view->human_name = 'Organizations map';
+  $view->human_name = 'OpenCivic Organizations map';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -370,8 +305,6 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'organizations';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -492,26 +425,6 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['style_options']['description_field'] = 'title';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
   $handler->display->display_options['style_options']['height'] = '500';
-  $handler->display->display_options['style_options']['icon'] = array(
-    'iconUrl' => '',
-    'shadowUrl' => '',
-    'iconSize' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'iconAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'shadowAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'popupAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-  );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -542,24 +455,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['allow']['title_override'] = 0;
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 'fields_override';
-  $translatables['organizations_map'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Nid'),
-    t('Category'),
-    t('Services'),
-    t('Related apps'),
-    t('Content pane'),
-    t('Organizations map pane'),
-    t('View panes'),
-  );
+  $export['organizations_map'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }

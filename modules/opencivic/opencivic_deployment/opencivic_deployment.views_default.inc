@@ -16,7 +16,7 @@ function opencivic_deployment_views_default_views() {
   $view->description = 'Defines the At a Glance block for Deployments.';
   $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
-  $view->human_name = 'Deployment At a Glance';
+  $view->human_name = 'OpenCivic Deployment At a Glance';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -102,7 +102,7 @@ function opencivic_deployment_views_default_views() {
     t('Developers'),
     t('All'),
     t('Block'),
-    t('Deployment At a Glance'),
+    t('OpenCivic Deployment At a Glance'),
   );
 
   $views[$view->name] = $view;
@@ -113,7 +113,7 @@ function opencivic_deployment_views_default_views() {
   $view->description = 'The Deployments listing page';
   $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
-  $view->human_name = 'Deployments list';
+  $view->human_name = 'OpenCivic Deployment';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -440,7 +440,7 @@ function opencivic_deployment_views_default_views() {
     t('App type'),
     t('Civic Focus'),
     t('Country'),
-    t('Deployments list'),
+    t('OpenCivic Deployment'),
     t('Deployments listing page.'),
     t('more'),
     t('Deployments feed'),
@@ -458,7 +458,7 @@ function opencivic_deployment_views_default_views() {
   $view->description = 'Creates a map showing app deployments';
   $view->tag = 'opencivic, Deployment';
   $view->base_table = 'node';
-  $view->human_name = 'Deployments map';
+  $view->human_name = 'OpenCivic Deployment map';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -594,7 +594,7 @@ function opencivic_deployment_views_default_views() {
   $view->description = 'Defines the "Related deployments" block for Application detail pages';
   $view->tag = 'opencivic,Application';
   $view->base_table = 'node';
-  $view->human_name = 'Application related deployments';
+  $view->human_name = 'OpenCivic Application related deployments';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -734,7 +734,7 @@ function opencivic_deployment_views_default_views() {
     t('No current uses recorded.'),
     t('All'),
     t('Block'),
-    t('Application related deployments'),
+    t('OpenCivic Application related deployments'),
     t('Application related deployments pane'),
     t('View panes'),
     t('A list of deployments for an app, formatted for content column.'),

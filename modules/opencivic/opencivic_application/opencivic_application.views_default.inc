@@ -326,7 +326,7 @@ function opencivic_application_views_default_views() {
     t('Website'),
     t('Rating'),
     t('All'),
-    t('Application At a Glance'),
+    t('OpenCivic Application At a Glance'),
     t('Application Key Features'),
     t('Key Features'),
     t('Displays the key features for an application'),
@@ -587,7 +587,7 @@ function opencivic_application_views_default_views() {
   $view->description = 'The Applications listing page';
   $view->tag = 'opencivic, Applicaton';
   $view->base_table = 'node';
-  $view->human_name = 'application_list';
+  $view->human_name = 'OpenCivic Application';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

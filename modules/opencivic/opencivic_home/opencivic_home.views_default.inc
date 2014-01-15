@@ -15,7 +15,7 @@ function opencivic_home_views_default_views() {
   $view->description = 'The map of deployments and organizations for the home page';
   $view->tag = 'opencivic, Homepage';
   $view->base_table = 'node';
-  $view->human_name = 'Home page map';
+  $view->human_name = 'OpenCivic Home map';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
