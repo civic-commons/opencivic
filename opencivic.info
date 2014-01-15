@@ -158,7 +158,8 @@ dependencies[] = schemaorg
 ; dependencies[] = efb_schemaorg
 ; dependencies[] = schemaorg_ui
 ; dependencies[] = schemaorg_cache
-; dependencies[] = taxonomy_csv
+; Used for importing terms
+dependencies[] = taxonomy_csv
 ; dependencies[] = taxonomy_manager
 ; dependencies[] = field_tools
 
