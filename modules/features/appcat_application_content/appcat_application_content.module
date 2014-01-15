@@ -1,8 +1,0 @@
-<?php
-/**
- * @file
- * Code for the AppCat application content feature.
- */
-
-include_once 'appcat_application_content.features.inc';
-
