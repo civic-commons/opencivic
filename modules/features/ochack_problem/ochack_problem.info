@@ -1,11 +1,11 @@
-name = Hackathon problem
+name = OpenCivic Hackathon problem
 description = Defines the Hackathon content type
 core = 7.x
-package = Hackathon problem
+package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-beta1
 project = ochack_problem
-dependencies[] = appcat_organization_content
+dependencies[] = opencivic_organization
 dependencies[] = field_group
 dependencies[] = fivestar
 dependencies[] = media

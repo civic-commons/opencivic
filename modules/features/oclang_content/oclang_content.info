@@ -1,7 +1,7 @@
-name = Multilingual content
+name = OpenCivic Multilingual content
 description = Content multilingual support.
 core = 7.x
-package = Multilingual
+package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-alpha3
 project = oclang_content

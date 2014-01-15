@@ -16,7 +16,7 @@ function opencivic_application_views_default_views() {
   $view->description = 'Defines the "At a Glance" block for Application detail pages';
   $view->tag = 'opencivic,Application';
   $view->base_table = 'node';
-  $view->human_name = 'Application At a Glance';
+  $view->human_name = 'OpenCivic Application At a Glance';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

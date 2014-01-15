@@ -1,7 +1,7 @@
 name = AppCat misc search
 description = Faceted search based on Drupal's built-in database search functionality.
 core = 7.x
-package = AppCat
+package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-alpha1
 project = appcat_search_db

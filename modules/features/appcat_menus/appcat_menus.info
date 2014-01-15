@@ -1,7 +1,7 @@
 name = AppCat menus
 description = Menu items specific to the Application Catalog
 core = 7.x
-package = AppCat
+package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-alpha5
 project = appcat_menus

@@ -1,7 +1,7 @@
-name = Hackathon project
+name = OpenCivic Hackathon project
 core = 7.x
-package = Hackathon project
-dependencies[] = appcat_organization_content
+package = OpenCivic
+dependencies[] = opencivic_organization
 dependencies[] = autocomplete_deluxe
 dependencies[] = ctools
 dependencies[] = entityreference
