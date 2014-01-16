@@ -1,2401 +1,547 @@
-/*
- * @file
- * global.styles
- *
- * Styles you add here will load for all device sizes, they are "global", as
- * opposed to "responsive" styles, which only load for a given breakpoint (media
- * query) that you set in theme settings. See the README for more details.
- *
- *
- * How to use this file:
- * --------------------
- *
- * There are many empty selectors and some basic styles to act as a guide.
- * Nothing is set in stone and you can change anything - even delete all of it
- * and start with your own clean slate.
- *
- * To FORCE PRINT all selectors you can search and replace a single { (opening
- * curly brace) and insert an empty comment. This is very useful in conjuction
- * with FireSass: https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
- *
- * See global.base also which includes normalize.css and some additional
- * helper classes and base styles.
- */
-/* =============================================================================
- *   Base
- * ========================================================================== */
-/* 
- * To preserve theme settings never apply font properties to the HTML element.
- * This is critically important if you are using the Responsive JavaScript
- * feature as this relies on being able to set a pseudo font family on the HTML
- * element. If you need to set default font properties of any kind use the BODY
- * element as these can be overridden using font theme settings.
- */
-html {
-  background: white;
-}
+@import url("font-awesome.scss");
+/* ============================================================================= Base ========================================================================== */
+html { background: white; }
 
-body {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 87.5%;
-}
+body { font-family: "Lato", sans-serif; font-size: 87.5%; }
 
-#page {
-  max-width: 960px;
-}
+.container { max-width: 960px; margin: 0 auto; }
 
-/* =============================================================================
- *   HTML Elements
- * ========================================================================== */
-#page-title {
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  font-weight: normal !important;
-  text-transform: uppercase;
-  color: #003d7d;
-}
+/* ============================================================================= HTML Elements ========================================================================== */
+#page-title { color: #2fabe7; margin: 1.5em 0 1em; text-transform: uppercase; }
 
-.front #page-title {
-  display: none;
-}
+.front #page-title { display: none; }
 
-.node-teaser h1.node-title {
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-size: 1.35em;
-  line-height: 1.2em;
-}
+.node-teaser h1.node-title { font-size: 1.35em; line-height: 1.2em; }
 
-h2 {
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  font-weight: normal !important;
-  color: #003d7d;
-  font-size: 1.7em;
-}
+h2 { color: #2fabe7; font-size: 1.7em; }
 
-h2.block-title {
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-size: 2em;
-}
+h2.block-title { font-size: 2em; font-weight: normal; margin: 1em 0 .5em; }
 
-h3 {
-  font-weight: normal;
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  color: #164e83;
-}
+h2.pane-title { font-weight: normal; margin: 1em 0 .5em; }
 
-pre,
-code,
-tt,
-samp,
-kbd,
-var {
-  font-family: Consolas, Monaco, "Courier New", Courier, monospace, sans-serif;
-}
+.pond-container h2.pane-title, .pond-container h2.block-title, .three-3x33 h2.pane-title, .three-3x33 h2.block-title { margin-top: 0; }
 
-/* =============================================================================
- *   Wrappers
- * ========================================================================== */
-/*
- * Page wrapper, includes the .container class which sets the overall page or section width
- * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
- */
-#page {
-  position: relative;
-}
+h3 { color: #043852; }
 
-/*
- * Wraps all header elements - branding and .region-header
- */
-/*
- * Wraps the sidebars the content column
- */
-/*
- * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
- */
-#main-content {
-  *position: relative;
-  *zoom: 1;
-  margin: 0;
-}
-#main-content:before, #main-content:after {
-  content: "";
-  display: table;
-}
-#main-content:after {
-  clear: both;
-}
+pre, code, tt, samp, kbd, var { font-family: Consolas, Monaco, "Courier New", Courier, monospace, sans-serif; }
 
-body.sidebar-second #main-content {
-  padding-right: 20px;
-}
+/* ============================================================================= Wrappers ========================================================================== */
+#page-wrapper { border-top: 6px solid #2fabe7; }
 
-.page-event #main-content {
-  background: none;
-}
+#page { position: relative; }
 
-/**
- * Recent Stories on Homepage Block
-  */
-.views-field-field-story-image {
-  float: left;
-  margin-right: 40px;
-}
+#header-wrapper #header { *position: relative; *zoom: 1; }
+#header-wrapper #header:before, #header-wrapper #header:after { content: ""; display: table; }
+#header-wrapper #header:after { clear: both; }
+#header-wrapper #header #branding { float: left; width: 50%; margin-left: 0%; margin-right: -50%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }
+#header-wrapper #header #branding #logo { float: left; }
+#header-wrapper #header #secondary-menu-bar { clear: none; padding-left: 0; float: right; width: 50%; margin-right: 0%; margin-left: -50%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }
+#header-wrapper #header #secondary-menu-bar .menu-wrapper { margin-left: 0; }
+#header-wrapper #header #secondary-menu-bar nav ul.menu { float: right; }
+#header-wrapper #header #secondary-menu-bar nav ul.menu li a { padding: 0 6px; font-size: 1em; }
+#header-wrapper #header .region-header { clear: right; float: right; width: 50%; margin-right: 0%; margin-left: -50%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }
+#header-wrapper #header .region-header #block-views-exp-solr-search-page { float: right; width: auto; }
 
-/*
- * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
- */
-/*
- * Footer wrapper
- */
-/*
- * Panels may need additional margin wrangling when in the $content region
- */
-/*
- * Full Width Wrappers
- * These are used in the optional page--full-width-wrappers.tpl.php template.
- * All have internal .container classes. In the full width wrapper template the
- * .container classes set the width or max-width of the contained element - you
- * can style this but never add any width/margin/padding/borders etc to .container
- */
-/*
- * Wraps #page
- */
-/*
- * Wraps the leaderboard
- */
-/*
- * Wraps the header
- */
-#header-wrapper {
-  /* Debug styles, is this working */
-  background: rgba(255, 192, 203, 0.5);
-}
+#secondary-content-wrapper { background: #2fabe7; color: #fff; }
+#secondary-content-wrapper .block-content a { color: #043852; }
+#secondary-content-wrapper .region { padding: 40px 0; }
+#secondary-content-wrapper .region-secondary-content .block { *position: relative; *zoom: 1; }
+#secondary-content-wrapper .region-secondary-content .block:before, #secondary-content-wrapper .region-secondary-content .block:after { content: ""; display: table; }
+#secondary-content-wrapper .region-secondary-content .block:after { clear: both; }
+#secondary-content-wrapper .region-secondary-content .block .highlight-text { float: left; width: 66.66667%; margin-left: 0%; margin-right: -66.66667%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; font-size: 1.15em; font-weight: normal; }
+#secondary-content-wrapper .region-secondary-content .block .highlight-button { float: left; width: 33.33333%; margin-left: 66.66667%; margin-right: -100%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; text-align: center; }
+#secondary-content-wrapper .region-secondary-content .block .highlight-button a { color: #fff; background: #6edb00; display: inline-block; font-size: 1.5em; font-weight: normal; margin-top: 10%; padding: 10px 20px; }
+#secondary-content-wrapper .region-secondary-content .block .highlight-button a:hover { background: #043852; text-decoration: none; }
 
-/*
- * Wraps the nav elements
- */
-/*
- * Wraps breadcrumb
- */
-/*
- * Wraps messages and help
- */
-/*
- * Wraps the secondary content/preface region
- */
-/*
- * Wraps the main content column
- */
-/*
- * Wraps the tertiary content/postfix region
- */
-/*
- * Footer wrapper
- */
-#footer-wrapper {
-  /* Debug styles, is this working? */
-  background: rgba(255, 192, 203, 0.5);
-}
+#main-content { *position: relative; *zoom: 1; margin: 0; }
+#main-content:before, #main-content:after { content: ""; display: table; }
+#main-content:after { clear: both; }
 
-/* =============================================================================
- *   Branding
- * ========================================================================== */
-/*
- * Wraps all the branding elements, logo, name and slogan
- */
-#branding {
-  margin: 0 20px 0 0;
-  float: left;
-}
+body.sidebar-second #main-content { padding-right: 20px; }
 
-/*
- * Logo
- */
-#logo {
-  padding: 10px 0 0;
-}
-#logo img {
-  vertical-align: bottom;
-}
+#nav-wrapper { background: #0d7db3; }
 
-/*
- * Wrapper for the site name and slogan (hgroup)
- */
-/*
- * Site name (h1)
- */
-#site-name {
-  margin: 0;
-}
-#site-name a:link, #site-name a:visited {
-  text-decoration: none;
-}
-#site-name a:hover, #site-name a:focus {
-  text-decoration: underline;
-}
+#footer-nav-wrapper { background: #043852; height: 60px; }
+#footer-nav-wrapper #block-menu-menu-footer-menu { margin: 0; }
+#footer-nav-wrapper #block-menu-menu-footer-menu h2.block-title { display: none; }
+#footer-nav-wrapper #block-menu-menu-footer-menu ul, #footer-nav-wrapper #block-menu-menu-footer-menu li { margin: 0; padding: 0; list-style-type: none; }
+#footer-nav-wrapper #block-menu-menu-footer-menu li { display: inline; }
+#footer-nav-wrapper #block-menu-menu-footer-menu li a { color: #fff; float: left; padding: 20px 15px 0; text-transform: uppercase; }
 
-/*
- * Site slogan (h2)
- */
-#site-slogan {
-  margin: 0;
-}
+/* ============================================================================= Branding ========================================================================== */
+#branding { margin: 0; }
 
-/* =============================================================================
- *   Page content header
- * ========================================================================== */
-/*
- * Main content header wraps the page title, tabs and actions links
- */
-/*
- * The main page title (h1)
- */
-#page-title {
-  margin: 0;
-  text-transform: uppercase;
-}
+#logo { display: inline-block; padding: 15px 0 0 5px; }
+#logo img { vertical-align: bottom; }
 
-/* =============================================================================
- *   Misc Global Styles
- * ========================================================================== */
-/*
- * Feed icons
- */
-/*
- * Aggregator feed source
- */
-#aggregator .feed-source .feed-icon {
-  display: inline;
-  float: none;
-  margin-right: 10px;
-}
+#name-and-slogan { display: inline-block; margin: 0 10px; }
+#name-and-slogan h2#site-slogan { color: #6e6e6e; font-style: italic; font-weight: 300 !important; font-size: 16px; margin: 0 0 10px; }
 
-.feed-details dt,
-.feed-details dd {
-  display: inline;
-  margin: 0;
-}
+/* ============================================================================= Misc Global Styles ========================================================================== */
+.feed-details dt, .feed-details dd { display: inline; margin: 0; }
 
-/*
- * Generic styles for the more link
- */
-/*
- * Generic styles for links. See the ul.links declaration in node and comment stylesheets
- */
-ul.links {
-  margin: 0;
-  padding: 0;
-}
-ul.links.inline {
-  display: block;
-}
-ul.links li {
-  display: inline;
-  list-style: none;
-  padding: 0 10px 0 0;
-}
+ul.links { margin: 0; padding: 0; }
+ul.links.inline { display: block; }
+ul.links li { display: inline; list-style: none; padding: 0 10px 0 0; }
 
-/*
- * Search results are an ordered list so reset the margin
- */
-.search-results {
-  margin: 0;
-}
+.search-results { margin: 0; }
 
-/* =============================================================================
- *   Regions
- * ========================================================================== */
-/*
- * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
- */
-/*
- * Regions have an inner div - perfect for adding margin, padding or borders
- */
-/*
- * Regions can be nested, such as when using Panels
- */
-/*
- * Header region, embedded in the #header
- */
-/*
- * Generally used to output Drupals help block, if the help module is enabled
- */
-/*
- * Secondary content
- */
-/*
- * Sits above the main content header, like a content-top region
- */
-/*
- * Sits below the main content, like a content-bottom region
- */
-/*
- * Sidebars - targets both
- */
-/*
- * First sidebar
- */
-/*
- * Second sidebar
- */
-/*
- * Tertiary content
- */
-/*
- * Footer region
- */
-/* =============================================================================
- *   Links
- * ========================================================================== */
-a {
-  text-decoration: none;
-}
-a:link, a:visited {
-  color: #f26b51;
-}
-a:hover, a:focus {
-  text-decoration: underline;
-  color: #003d7d;
-}
+/* ============================================================================= Regions ========================================================================== */
+div.region .block { margin-left: 10px; margin-right: 10px; }
 
-/* =============================================================================
- *   Primary, Secondary and Menu Bar region menus
- * ========================================================================== */
-/*
- * Use one of the following id's for granular control:
- *  - #menu-bar (menu bar region)
- *  - #primary-menu (main menu)
- *  - #secondary-menu (secondary/user menu)
- * You can target all of these with .nav or div[id$="menu-bar"]
- */
-#menu-bar {
-  height: 40px;
-  line-height: 40px;
-  background: #003d7d;
-}
-#menu-bar nav ul.menu a {
-  color: #fff;
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  font-weight: normal !important;
-  text-transform: uppercase;
-  font-size: 1.2em;
-}
-#menu-bar nav ul.menu a:hover {
-  background: #f26b51;
-  -webkit-box-shadow: #990000 0 0 10px inset;
-  -moz-box-shadow: #990000 0 0 10px inset;
-  box-shadow: #990000 0 0 10px inset;
-}
-#menu-bar #block-system-main-menu {
-  margin: 0;
-  float: left;
-}
-#menu-bar #block-menu-menu-social-links {
-  float: right;
-  margin: 0;
-}
+.cfr-pond-header { margin-bottom: 0; }
+.cfr-pond-header .panel-pane, .cfr-pond-header .block-inner, .cfr-pond-header h2.block-title { margin-bottom: 0; }
 
-.nav {
-  clear: both;
-  margin: 10px 0;
-}
-.nav ul,
-.nav ul.menu {
-  margin: 0;
-  padding: 0;
-}
-.nav li,
-.nav ul.menu li {
-  display: inline;
-  float: left;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav li a,
-.nav ul.menu li a {
-  display: block;
-  white-space: nowrap;
-  padding: 0 10px;
-}
-.nav li a:hover, .nav li a:focus,
-.nav ul.menu li a:hover,
-.nav ul.menu li a:focus {
-  text-decoration: none;
-}
-.nav .block {
-  margin-bottom: 0;
-}
+.cfr-pond-column-content-row1 h2.block-title { color: #fff; background: #6edb00; font-size: 1.5em; margin: 10px 0; padding: 5px 8px; text-align: center; }
+.cfr-pond-column-content-row1 a:link, .cfr-pond-column-content-row1 a:visited { color: #2fabe7; }
+.cfr-pond-column-content-row1 .block { margin-bottom: 0; }
 
-#block-menu-menu-social-links ul.menu .menu-item-881 a {
-  text-indent: -9999px;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  padding: 0;
-  background: transparent url(images/social.png) no-repeat -55px 50%;
-}
-#block-menu-menu-social-links ul.menu .menu-item-881 a:hover {
-  background: #f26b51 url(images/social.png) no-repeat -55px 50%;
-}
-#block-menu-menu-social-links ul.menu .menu-item-882 a {
-  text-indent: -9999px;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  padding: 0;
-  background: transparent url(images/social.png) no-repeat -5px 50%;
-}
-#block-menu-menu-social-links ul.menu .menu-item-882 a:hover {
-  background: #f26b51 url(images/social.png) no-repeat -5px 50%;
-}
-#block-menu-menu-social-links ul.menu .menu-item-883 a {
-  text-indent: -9999px;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  padding: 0;
-  background: transparent url(images/social.png) no-repeat -105px 50%;
-}
-#block-menu-menu-social-links ul.menu .menu-item-883 a:hover {
-  background: #f26b51 url(images/social.png) no-repeat -105px 50%;
-}
+.cfr-pond-column-content-row2 h2.block-title { margin-top: 0; }
 
-/* =============================================================================
- *   Superfish
- * ========================================================================== */
-ul.sf-menu {
-  margin-bottom: 0;
-}
-ul.sf-menu a {
-  border-left: 0;
-  border-top: 0;
-  padding: 0 10px;
-  text-decoration: none;
-  height: 2.5em;
-  line-height: 2.5em;
-}
-ul.sf-menu li:hover, ul.sf-menu li.sfHover {
-  outline: 0;
-}
-ul.sf-menu a:focus, ul.sf-menu a:hover, ul.sf-menu a:active {
-  outline: 0;
-}
+.cfr-pond-middle { margin-bottom: 0; }
 
-/*
- * Superfish blocks
- */
-.block-superfish ul {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.block-superfish li {
-  margin: 0 !important;
-  padding: 0 !important;
-}
+.cfr-pond-footer .view-blog .views-row { border: none; }
 
-/*
- * Vertical style
- */
-.sf-vertical {
-  width: 100%;
-}
-.sf-vertical li {
-  width: 100%;
-}
-.sf-vertical li:hover ul, .sf-vertical li.sfHover ul {
-  left: 100%;
-  top: 0;
-  margin: 0;
-  padding: 0;
-}
-.sf-vertical li a {
-  padding: 0 10px;
-}
+/* ============================================================================= Links ========================================================================== */
+a { text-decoration: none; }
+a:link, a:visited { color: #54a800; }
+a:hover, a:focus { text-decoration: underline; color: #6edb00; }
 
-/*
- * Navbar style
- */
-.sf-navbar {
-  padding-bottom: 0 !important;
-}
+/* ============================================================================= Primary, Secondary and Menu Bar region menus ========================================================================== */
+#menu-bar { background: #0d7db3; height: 50px; line-height: 50px; margin: 0; }
+#menu-bar nav#block-menu-block-1 { display: inline-block; }
+#menu-bar nav#block-menu-block-1 li.leaf a { color: #fff; border-right: 1px solid #0d7db3; font-weight: normal !important; text-transform: uppercase; font-size: 1.2em; }
+#menu-bar nav#block-menu-block-1 li.leaf a:hover { -webkit-box-shadow: #043852 0 0 12px inset; -moz-box-shadow: #043852 0 0 12px inset; box-shadow: #043852 0 0 12px inset; }
+#menu-bar nav#block-menu-block-1 li.leaf a.active { -webkit-box-shadow: #043852 0 0 12px inset; -moz-box-shadow: #043852 0 0 12px inset; box-shadow: #043852 0 0 12px inset; color: #6edb00; }
+#menu-bar #block-system-main-menu { margin: 0; float: left; }
+#menu-bar nav#block-block-3 { float: right; margin: 0 20px 0 0; max-height: 50px; }
+#menu-bar nav#block-block-3 p { margin: 0; }
+#menu-bar nav#block-block-3 p a { color: #fff; font-size: 26px; margin: 0 10px; }
+#menu-bar nav#block-block-3 p a:hover { color: #043852; }
+#menu-bar nav#block-block-3 p span.ext { display: none; }
 
-/*
- * Sensible padding for the default style
- */
-.sf-menu.sf-style-default a {
-  padding: 0 10px;
-}
+.nav { clear: both; margin: 10px 0; }
+.nav ul, .nav ul.menu { margin: 0; padding: 0; }
+.nav li, .nav ul.menu li { display: inline; float: left; list-style: none; margin: 0; padding: 0; }
+.nav li a, .nav ul.menu li a { display: block; white-space: nowrap; padding: 0 10px; }
+.nav li a:hover, .nav li a:focus, .nav ul.menu li a:hover, .nav ul.menu li a:focus { text-decoration: none; }
+.nav .block { margin-bottom: 0; }
 
-/* =============================================================================
- *   Menus, usually blocks
- * ========================================================================== */
-ul.menu {
-  padding-left: 15px;
-}
-ul.menu ul {
-  padding-left: 15px;
-}
-ul.menu li {
-  margin: 0;
-}
+#block-menu-menu-social-links ul.menu .menu-item-881 a { text-indent: -9999px; width: 40px; height: 40px; overflow: hidden; padding: 0; background: transparent url(images/social.png) no-repeat -55px 50%; }
+#block-menu-menu-social-links ul.menu .menu-item-881 a:hover { background: #ed1c24 url(images/social.png) no-repeat -55px 50%; }
+#block-menu-menu-social-links ul.menu .menu-item-882 a { text-indent: -9999px; width: 40px; height: 40px; overflow: hidden; padding: 0; background: transparent url(images/social.png) no-repeat -5px 50%; }
+#block-menu-menu-social-links ul.menu .menu-item-882 a:hover { background: #ed1c24 url(images/social.png) no-repeat -5px 50%; }
+#block-menu-menu-social-links ul.menu .menu-item-883 a { text-indent: -9999px; width: 40px; height: 40px; overflow: hidden; padding: 0; background: transparent url(images/social.png) no-repeat -105px 50%; }
+#block-menu-menu-social-links ul.menu .menu-item-883 a:hover { background: #ed1c24 url(images/social.png) no-repeat -105px 50%; }
+
+/* ============================================================================= Superfish ========================================================================== */
+ul.sf-menu { margin-bottom: 0; }
+ul.sf-menu a { border-left: 0; border-top: 0; padding: 0 10px; text-decoration: none; height: 2.5em; line-height: 2.5em; }
+ul.sf-menu li:hover, ul.sf-menu li.sfHover { outline: 0; }
+ul.sf-menu a:focus, ul.sf-menu a:hover, ul.sf-menu a:active { outline: 0; }
+
+/* Superfish blocks */
+.block-superfish ul { margin: 0 !important; padding: 0 !important; }
+.block-superfish li { margin: 0 !important; padding: 0 !important; }
+
+/* Vertical style */
+.sf-vertical { width: 100%; }
+.sf-vertical li { width: 100%; }
+.sf-vertical li:hover ul, .sf-vertical li.sfHover ul { left: 100%; top: 0; margin: 0; padding: 0; }
+.sf-vertical li a { padding: 0 10px; }
+
+/* Navbar style */
+.sf-navbar { padding-bottom: 0 !important; }
+
+/* Sensible padding for the default style */
+.sf-menu.sf-style-default a { padding: 0 10px; }
+
+/* ============================================================================= Menus, usually blocks ========================================================================== */
+ul.menu { padding-left: 15px; }
+ul.menu ul { padding-left: 15px; }
+ul.menu li { margin: 0; }
 
 /* If li.content exists it's a problem, so reset the padding */
-.block .menu li.content {
-  padding: 0;
-}
-
-/* =============================================================================
- *   Book navigation menu
- * ========================================================================== */
-.book-navigation .page-up {
-  /* Prevent text wrapping to a new line, assumes English "up" is used (two characters) */
-  min-width: 2em;
-  white-space: nowrap;
-}
-.book-navigation .menu {
-  margin-left: 0;
-}
-
-/* =============================================================================
- *   Breadcrumbs
- * ========================================================================== */
-#breadcrumb {
-  margin: 10px 0;
-  /* If the label is set to show in theme settings the label class is added */
-}
-#breadcrumb .breadcrumb-label {
-  font-size: 1em;
-  display: inline;
-  padding-right: 10px;
-}
-#breadcrumb .breadcrumb-label:after {
-  content: ":";
-}
-#breadcrumb ol {
-  margin: 0;
-  padding: 0;
-}
-#breadcrumb .with-breadcrumb-label ol {
-  display: inline;
-}
-#breadcrumb li {
-  list-style: none;
-  display: inline;
-}
-
-/* =============================================================================
- *   Pagers
- * ========================================================================== */
-ul.pager {
-  clear: both;
-  margin: 0;
-  text-align: center;
-}
-
-.item-list ul.pager li {
-  margin: 0;
-}
-
-ul.pager li {
-  background-image: none;
-  display: inline;
-  list-style-type: none;
-  padding: .5em;
-}
-ul.pager li.pager-current {
-  font-weight: 700;
-}
-
-.block ul.pager li {
-  margin: 0;
-}
-
-/*
- * Theme the various states of pager links
- */
-/* =============================================================================
- *   Skip Navigation
- * ========================================================================== */
-#skip-link {
-  left: 50%;
-  margin-left: -6.5em;
-  margin-top: 0;
-  padding: 0 0.5em;
-  position: absolute;
-  width: 12em;
-  z-index: 50;
-}
-#skip-link a {
-  background: #444;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  display: block;
-  line-height: 2;
-  padding: 0;
-  text-align: center;
-  text-decoration: none;
-}
-#skip-link a:link, #skip-link a:visited {
-  background: #444;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  display: block;
-  line-height: 2;
-  padding: 0;
-  text-align: center;
-  text-decoration: none;
-}
-#skip-link a:hover, #skip-link a:focus, #skip-link a:active {
-  outline: 0;
-}
-
-/* =============================================================================
- *   Tabs (local tasks)
- * ========================================================================== */
-#tasks {
-  margin-bottom: 15px;
-}
-
-ul.primary {
-  border-bottom-color: #ffd400;
-  margin: 20px 0;
-  padding: 0 0 0 5px;
-}
-ul.primary li {
-  display: block;
-  float: left;
-  margin: 0 1px -1px;
-}
-ul.primary li a {
-  background-color: whitesmoke;
-  border-color: #ffd400;
-  margin-right: 1px;
-  padding: 0 10px;
-  display: block;
-  float: left;
-  height: 1.5em;
-  line-height: 1.5em;
-}
-ul.primary li a:hover, ul.primary li a:focus {
-  background-color: #eeeeee;
-  border-color: #ffd400;
-}
-ul.primary li.active a,
-ul.primary li.active a:hover,
-ul.primary li.active a:focus {
-  background-color: white;
-  border-bottom-color: white;
-}
-
-ul.secondary {
-  border-bottom: 1px solid #ffd400;
-  margin: 1em 0 0;
-  padding: 0 .3em 1em;
-}
-ul.secondary li {
-  border-right: 0;
-  list-style: none;
-  padding: 0 10px 0 0;
-}
-ul.secondary li a:hover, ul.secondary li a.active {
-  border-bottom: none;
-  text-decoration: underline;
-}
-
-/* =============================================================================
- *   Action links
- * ========================================================================== */
-ul.action-links {
-  margin: 20px 0 0;
-  list-style: none;
-}
-
-/* =============================================================================
- *  Field Styling
- * ========================================================================== */
-/*
- * Wrapper for any field
- */
-/*
- * Above and inline classes are on the field wrapper
- */
-/*
- * When labels are set to inline in field display settings the clearfix class is automatically added
- */
-/*
- * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
- */
-.field-label {
-  font-size: 1em;
-  font-weight: 700;
-  font-family: inherit;
-  line-height: inherit;
-  margin-bottom: 0;
-}
-
-/*
- * Field types (Core)
- */
-/*
- * Image fields use the <figure> and <figcaption> elements from HTML5
- */
-/*
- * Taxonomy
- */
-.field-type-taxonomy-term-reference {
-  /* The same bottom margin as p, blockquote, ul, ol and dl */
-  margin-bottom: 1.5em;
-}
-.field-type-taxonomy-term-reference.field-label-inline .field-items {
-  margin: 0;
-  padding: 0;
-}
-.field-type-taxonomy-term-reference.field-label-inline .field-item {
-  display: inline;
-  list-style: none;
-  padding: 0 10px 0 0;
-}
-
-/*
- * Text
- */
-/*
- * Long text
- */
-/*
- * Text with summary
- */
-/*
- * File
- */
-/*
- * Number/Integer
- */
-/*
- * Decimal
- */
-/*
- * Number float
- */
-/*
- * List
- */
-/*
- * List boolean
- */
-/*
- * List integer
- */
-/*
- * List float
- */
-/*
- * Field types (Contrib)
- */
-/*
- * Named fields
- */
-/*
- * Underscores in field name are replaced with dashes
- */
-/*
- * Image Alignment Theme Settings - included here so you can easily override 
- */
-/*
- * Float none setting
- */
-/*
- * Float left setting
- */
-.ia-l .field-type-image figure,
-.iat-l .field-type-image figure {
-  margin: 5px 20px 15px 0;
-}
-
-/*
- * Centered setting
- */
-.ia-c .field-type-image figure,
-.iat-c .field-type-image figure {
-  margin: 5px auto 15px;
-}
-
-/*
- * Float right setting
- */
-.ia-r .field-type-image figure,
-.iat-r .field-type-image figure {
-  margin: 5px 0 15px 20px;
-}
-
-/* =============================================================================
- *   Block Styling
- * ========================================================================== */
-/*
- * Main wrapper for most blocks, block_system_main does not have it
- */
-.block {
-  margin-bottom: 20px;
-}
-
-/*
- * Inner wrapper for most blocks, good for margin, padding and borders, block_system_main does not have it
- */
-/*
- * The first block in the region
- */
-/*
- * The last block in the region
- */
-/*
- * Zebra striping for each block in the region
- */
-/*
- * Zebra striping for each block in the region
- */
-/*
- * Block title
- */
-.block-title {
-  margin: 0;
-}
-
-/*
- * Block content wrapper
- */
-/*
- * Match item list and block menu margin and padding
- */
-.block-content ul,
-.block-content ol {
-  padding: 0 0 0 15px;
-}
-.block-content li {
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Block for the latest news items in the first category
- */
-/*
- * Block for the latest news items in the first feed
- */
-/*
- * First block created with "Add block" link
- */
-#block-block-2 {
-  *position: relative;
-  *zoom: 1;
-  text-align: center;
-  padding: 20px 0;
-}
-#block-block-2:before, #block-block-2:after {
-  content: "";
-  display: table;
-}
-#block-block-2:after {
-  clear: both;
-}
-#block-block-2 .option1 {
-  float: left;
-  width: 25%;
-  margin-left: 0%;
-  margin-right: -25%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  background: url("images/plan.png") no-repeat scroll 50% 0 transparent;
-}
-#block-block-2 .option2 {
-  float: left;
-  width: 25%;
-  margin-left: 25%;
-  margin-right: -50%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  background: url("images/support.png") no-repeat scroll 50% 8px transparent;
-}
-#block-block-2 .option3 {
-  float: left;
-  width: 25%;
-  margin-left: 50%;
-  margin-right: -75%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  background: url("images/contribute.png") no-repeat scroll 50% 0 transparent;
-}
-#block-block-2 .option4 {
-  float: left;
-  width: 25%;
-  margin-left: 75%;
-  margin-right: -100%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  background: url("images/participate.png") no-repeat scroll 50% 0 transparent;
-}
-#block-block-2 .block-content a {
-  color: #003d7d;
-  display: block;
-  padding: 70px 10px 5px;
-}
-#block-block-2 .block-content a div {
-  margin: 0.5em 0.5em 0;
-  white-space: nowrap;
-  font-size: 1.7em;
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-}
-#block-block-2 .block-content a:hover,
-#block-block-2 .block-content a h2:hover {
-  color: #f26b51;
-  text-decoration: none;
-}
-
-#block-views-sponsors-block-block .view-header {
-  border-top: 2px dotted #ffd400;
-  border-bottom: 2px dotted #ffd400;
-  padding: 8px 0;
-}
-#block-views-sponsors-block-block .view-header:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-#block-views-event-sponsors-block-block {
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
-}
-
-#block-views-event-organizers-block {
-  border-top: 1px solid #ccc;
-  clear: both;
-  padding-top: 10px;
-}
-#block-views-event-organizers-block .views-row {
-  width: 45%;
-  float: left;
-  padding: 10px 5px 0 0;
-}
-#block-views-event-organizers-block .views-row .views-field-field-image {
-  float: left;
-  margin-right: 10px;
-}
-#block-views-event-organizers-block .views-row .views-field-field-email a {
-  background: transparent url(images/email_sm.png) no-repeat 0 0;
-  width: 20px;
-  height: 20px;
-  text-indent: -9999px;
-  overflow: hidden;
-  display: block;
-  margin-top: 5px;
-}
-#block-views-event-organizers-block .views-row .views-field-field-description {
-  font-size: .9em;
-  line-height: 1.1em;
-}
-
-#block-views-event-github-block {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  background: transparent url(images/octocat.png) no-repeat 0 15px;
-  padding-left: 80px;
-  height: 85px;
-  line-height: 85px;
-}
-#block-views-event-github-block h2.block-title {
-  display: none;
-}
-#block-views-event-github-block .views-field-field-github a {
-  padding: 6px 20px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #003d7d), color-stop(100%, #164e83));
-  background-image: -webkit-linear-gradient(#003d7d, #164e83);
-  background-image: -moz-linear-gradient(#003d7d, #164e83);
-  background-image: -o-linear-gradient(#003d7d, #164e83);
-  background-image: linear-gradient(#003d7d, #164e83);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #164e83;
-  color: #fff;
-}
-#block-views-event-github-block .views-field-field-github a:hover {
-  text-decoration: none;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f26b51), color-stop(100%, #cc0000));
-  background-image: -webkit-linear-gradient(#f26b51, #cc0000);
-  background-image: -moz-linear-gradient(#f26b51, #cc0000);
-  background-image: -o-linear-gradient(#f26b51, #cc0000);
-  background-image: linear-gradient(#f26b51, #cc0000);
-  border: 1px solid #c00;
-}
-
-#block-views-organizer-at-a-glance-block .views-field,
-#block-views-dataset-at-a-glance-block .views-field,
-#block-views-challenge-at-a-glance-block .views-field,
-#block-views-event-at-a-glance-block .views-field {
-  padding: 0 0 10px 40px;
-}
-#block-views-organizer-at-a-glance-block .views-field .views-label,
-#block-views-dataset-at-a-glance-block .views-field .views-label,
-#block-views-challenge-at-a-glance-block .views-field .views-label,
-#block-views-event-at-a-glance-block .views-field .views-label {
-  color: #f26b51;
-  font-weight: bold;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-image,
-#block-views-organizer-at-a-glance-block .views-field.views-field-field-description,
-#block-views-dataset-at-a-glance-block .views-field-field-image,
-#block-views-dataset-at-a-glance-block .views-field.views-field-field-description,
-#block-views-challenge-at-a-glance-block .views-field-field-image,
-#block-views-challenge-at-a-glance-block .views-field.views-field-field-description,
-#block-views-event-at-a-glance-block .views-field-field-image,
-#block-views-event-at-a-glance-block .views-field.views-field-field-description {
-  padding: 0 0 10px 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-address,
-#block-views-organizer-at-a-glance-block .views-field-field-location,
-#block-views-dataset-at-a-glance-block .views-field-field-address,
-#block-views-dataset-at-a-glance-block .views-field-field-location,
-#block-views-challenge-at-a-glance-block .views-field-field-address,
-#block-views-challenge-at-a-glance-block .views-field-field-location,
-#block-views-event-at-a-glance-block .views-field-field-address,
-#block-views-event-at-a-glance-block .views-field-field-location {
-  background: transparent url(images/event-location.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-frequency,
-#block-views-organizer-at-a-glance-block .views-field-field-start-date,
-#block-views-dataset-at-a-glance-block .views-field-field-frequency,
-#block-views-dataset-at-a-glance-block .views-field-field-start-date,
-#block-views-challenge-at-a-glance-block .views-field-field-frequency,
-#block-views-challenge-at-a-glance-block .views-field-field-start-date,
-#block-views-event-at-a-glance-block .views-field-field-frequency,
-#block-views-event-at-a-glance-block .views-field-field-start-date {
-  background: transparent url(images/clock.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-civic-category,
-#block-views-organizer-at-a-glance-block .views-field-field-event-type,
-#block-views-dataset-at-a-glance-block .views-field-field-civic-category,
-#block-views-dataset-at-a-glance-block .views-field-field-event-type,
-#block-views-challenge-at-a-glance-block .views-field-field-civic-category,
-#block-views-challenge-at-a-glance-block .views-field-field-event-type,
-#block-views-event-at-a-glance-block .views-field-field-civic-category,
-#block-views-event-at-a-glance-block .views-field-field-event-type {
-  background: transparent url(images/event-bolt.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-url,
-#block-views-dataset-at-a-glance-block .views-field-field-url,
-#block-views-challenge-at-a-glance-block .views-field-field-url,
-#block-views-event-at-a-glance-block .views-field-field-url {
-  background: transparent url(images/event-mouse.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-author,
-#block-views-organizer-at-a-glance-block .views-field-field-performer,
-#block-views-dataset-at-a-glance-block .views-field-field-author,
-#block-views-dataset-at-a-glance-block .views-field-field-performer,
-#block-views-challenge-at-a-glance-block .views-field-field-author,
-#block-views-challenge-at-a-glance-block .views-field-field-performer,
-#block-views-event-at-a-glance-block .views-field-field-author,
-#block-views-event-at-a-glance-block .views-field-field-performer {
-  background: transparent url(images/event-host.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-twitter-hashtag,
-#block-views-dataset-at-a-glance-block .views-field-field-twitter-hashtag,
-#block-views-challenge-at-a-glance-block .views-field-field-twitter-hashtag,
-#block-views-event-at-a-glance-block .views-field-field-twitter-hashtag {
-  background: transparent url(images/event-tweet.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-resource,
-#block-views-organizer-at-a-glance-block .views-field-field-file-attachments,
-#block-views-organizer-at-a-glance-block .views-field-field-url-related,
-#block-views-dataset-at-a-glance-block .views-field-field-resource,
-#block-views-dataset-at-a-glance-block .views-field-field-file-attachments,
-#block-views-dataset-at-a-glance-block .views-field-field-url-related,
-#block-views-challenge-at-a-glance-block .views-field-field-resource,
-#block-views-challenge-at-a-glance-block .views-field-field-file-attachments,
-#block-views-challenge-at-a-glance-block .views-field-field-url-related,
-#block-views-event-at-a-glance-block .views-field-field-resource,
-#block-views-event-at-a-glance-block .views-field-field-file-attachments,
-#block-views-event-at-a-glance-block .views-field-field-url-related {
-  background: transparent url(images/event-links.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-keywords,
-#block-views-dataset-at-a-glance-block .views-field-field-keywords,
-#block-views-challenge-at-a-glance-block .views-field-field-keywords,
-#block-views-event-at-a-glance-block .views-field-field-keywords {
-  background: transparent url(images/tag.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-aggregate-rating,
-#block-views-dataset-at-a-glance-block .views-field-field-aggregate-rating,
-#block-views-challenge-at-a-glance-block .views-field-field-aggregate-rating,
-#block-views-event-at-a-glance-block .views-field-field-aggregate-rating {
-  background: transparent url(images/rating.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-telephone,
-#block-views-dataset-at-a-glance-block .views-field-field-telephone,
-#block-views-challenge-at-a-glance-block .views-field-field-telephone,
-#block-views-event-at-a-glance-block .views-field-field-telephone {
-  background: transparent url(images/phone.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-email,
-#block-views-organizer-at-a-glance-block .views-field-field-email-1,
-#block-views-dataset-at-a-glance-block .views-field-field-email,
-#block-views-dataset-at-a-glance-block .views-field-field-email-1,
-#block-views-challenge-at-a-glance-block .views-field-field-email,
-#block-views-challenge-at-a-glance-block .views-field-field-email-1,
-#block-views-event-at-a-glance-block .views-field-field-email,
-#block-views-event-at-a-glance-block .views-field-field-email-1 {
-  background: transparent url(images/email.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-contact-point,
-#block-views-dataset-at-a-glance-block .views-field-field-contact-point,
-#block-views-challenge-at-a-glance-block .views-field-field-contact-point,
-#block-views-event-at-a-glance-block .views-field-field-contact-point {
-  background: transparent url(images/skype.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-hackpad,
-#block-views-dataset-at-a-glance-block .views-field-field-hackpad,
-#block-views-challenge-at-a-glance-block .views-field-field-hackpad,
-#block-views-event-at-a-glance-block .views-field-field-hackpad {
-  background: transparent url(images/event-hackpad.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-field-hackpad a,
-#block-views-dataset-at-a-glance-block .views-field-field-hackpad a,
-#block-views-challenge-at-a-glance-block .views-field-field-hackpad a,
-#block-views-event-at-a-glance-block .views-field-field-hackpad a {
-  font-weight: bold;
-}
-#block-views-organizer-at-a-glance-block .views-field-view,
-#block-views-dataset-at-a-glance-block .views-field-view,
-#block-views-challenge-at-a-glance-block .views-field-view,
-#block-views-event-at-a-glance-block .views-field-view {
-  background: transparent url(images/event-host.png) no-repeat 0 0;
-}
-#block-views-organizer-at-a-glance-block .views-field-view .view-event-organizers-names .item-list ul li .views-field,
-#block-views-dataset-at-a-glance-block .views-field-view .view-event-organizers-names .item-list ul li .views-field,
-#block-views-challenge-at-a-glance-block .views-field-view .view-event-organizers-names .item-list ul li .views-field,
-#block-views-event-at-a-glance-block .views-field-view .view-event-organizers-names .item-list ul li .views-field {
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * "Recent blog posts" block
- */
-/*
- * "Book navigation" block for the current book's table of contents
- */
-/*
- * "Recent comments" block
- */
-/*
- * "Active forum topics" block
- */
-/*
- * "New forum topics" block
- */
-/*
- * Language switcher block
- */
-/*
- * Custom menu block
- */
-/*
- * "Recent content" block
- */
-/*
- * "Syndicate" block for primary RSS feed; see also page.css's .feed-icon
- */
-/*
- * "Most recent poll" block
- */
-/*
- * "Author information" block for the profile of the page's author
- */
-/*
- * "Search form" block
- */
-/*
- * "Shortcuts" block
- */
-/*
- * "Popular content" block
- */
-/*
- * "Main menu" block
- */
-/*
- * "Management" block for Drupal management menu
- */
-/*
- * "Navigation" block for Drupal navigation menu
- */
-/*
- * "User menu" block for Drupal user menu
- */
-/*
- * "System help" block
- */
-/*
- * "Main page content" block
- */
-/*
- * "Powered by Drupal" block
- */
-/*
- * "User login form" block
- */
-/*
- * "Who's new" block for a list of the newest users
- */
-/*
- * "Who's online" block for a list of the online users
- */
-/* =============================================================================
- *   Node Styling
- * ========================================================================== */
-.node {
-  margin-bottom: 20px;
-}
-.node .node-title {
-  margin: 0;
-}
-.node .submitted {
-  font-size: .9em;
-  padding: 3px 0;
-  color: #003d7d;
-}
-.node .node-content h2.field-label {
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-
-.node-type-event #content-column {
-  min-height: 400px;
-}
-
-/*
- * All nodes are given a node-FOO class that describes the type of content that
- * it is. If you create a new content type called "my-custom-type", it will
- * receive a "node-my-custom-type" class.
- */
-.node-event .field-name-field-url h2 {
-  margin: 0;
-}
-.node-event .field-name-field-url .field-items {
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  margin-left: .5em;
-}
-
-.node-organizer .node-content .field-items {
-  margin: 10px 0;
-}
-
-/* =============================================================================
- *   Comment Styling - Comments, comment wrapper, comment form
- * ========================================================================== */
-/*
- * Wrapper for the list of comments and its titles
- */
-#comments {
-  margin: 1.5em 0;
-}
-#comments h2.comment-title {
-  margin: 0;
-}
-#comments h2.comment-form {
-  margin: 0;
-}
-
-/*
- * Wrapper for a single comment
- */
-.comment {
-  margin-bottom: 20px;
-}
-
-/*
- * Comment title
- */
-.comment-title {
-  margin: 0;
-}
-
-/*
- * Comment states
- */
-/*
- * Preview of the comment before submitting new or updated comment
- */
-/*
- * "New" marker for comments that are new for the current user
- */
-.new {
-  color: #cc0000;
-}
-
-/*
- * Nested comments are indented
- */
-.indented {
-  margin-left: 40px;
-}
-
-/* =============================================================================
- *   Forms
- * ========================================================================== */
-/*
- * Wrapper for a form element (or group of form elements) and its label
- */
-.form-item input.error,
-.form-item textarea.error,
-.form-item select.error {
-  border: 1px solid #cc0000;
-}
-.form-item label {
-  font-weight: 700;
-}
-.form-item .description {
-  font-size: 0.85em;
-}
-.form-item .form-type-checkbox label {
-  font-weight: normal;
-}
-.form-item input.form-checkbox,
-.form-item input.form-radio {
-  margin: 0 0 3px 1em;
-}
-.form-item input.form-text,
-.form-item textarea {
-  border: 1px solid #f26b51;
-}
-.form-item select {
-  border: 1px solid #f26b51;
-}
-.form-item select option {
-  padding: 2px;
-}
-.form-item select option:focus {
-  background: #003d7d !important;
-}
-
-/*
- * Highlight marks and form required mark
- */
-.marker,
-.form-required {
-  color: #cc0000;
-}
-
-/*
- * The submit button
- */
-.form-submit, button {
-  border: none;
-  background: #003d7d;
-  color: #fff;
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-size: 21px;
-  padding: 4px 10px 2px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-right: .5em;
-}
-
-.form-submit:hover,
-button:hover {
-  background: #164e83;
-}
-
-.container-inline div,
-.container-inline label {
-  display: inline;
-}
-
-/*
- * Define consistent borders
- */
-fieldset {
-  border: 1px solid #ffd400;
-  margin: 2em 0 0;
-  position: relative;
-  background: rgba(236, 244, 251, 0.3);
-}
-
-legend {
-  background: #f26b51;
-  padding: 0 10px;
-  color: #fff;
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-size: 1.5em;
-  line-height: 1.1em;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  text-shadow: 1px 1px 0 #003d7d;
-  position: absolute;
-  top: -10px;
-  left: 10px;
-}
-fieldset legend {
-  background: #fff;
-  padding: 0;
-  color: #000;
-  text-transform: none;
-  letter-spacing: 0;
-  text-shadow: none;
-  top: 0;
-  left: 0;
-}
-#subscriptions-ui-node-form fieldset {
-  border: none;
-}
-#subscriptions-ui-node-form fieldset table,
-#subscriptions-ui-node-form fieldset table tr,
-#subscriptions-ui-node-form fieldset table th,
-#subscriptions-ui-node-form fieldset table thead th,
-#subscriptions-ui-node-form fieldset table thead tr {
-  background-color: #fff;
-  border: 0px solid #fff;
-}
-/*
- * Tips for Drupal's input formats
- */
-/*
- * Buttons used by contrib modules like Media
- */
-
-/*
- * Password confirmation
- */
-.password-parent,
-.confirm-parent {
-  margin: 0;
-}
-
-/* =============================================================================
- *   Tables
- * ========================================================================== */
-table {
-  margin: 10px 0;
-  padding: 0;
-  width: 100%;
-}
-table.sticky-header {
-  z-index: 10;
-}
-
-.view-challenge-list table {
-  -webkit-box-shadow: 0 0 10px #999999;
-  -moz-box-shadow: 0 0 10px #999999;
-  box-shadow: 0 0 10px #999999;
-}
-.view-challenge-list table td.views-field-field-performer {
-  min-width: 150px;
-}
-
-table,
-thead,
-tbody,
-tr,
-th,
-td {
-  border-color: #ffd400;
-}
-
-table,
-td,
-th {
-  vertical-align: middle;
-}
-
-caption,
-th,
-td {
-  text-align: left;
-}
-
-th,
-thead tr {
-  background-color: #ffd400;
-  color: #164e83;
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-size: 1.25em;
-  font-weight: normal;
-  text-transform: uppercase;
-  border-bottom: 2px solid #f26b51;
-  white-space: nowrap;
-}
-
-td,
-th {
-  border-bottom: 0;
-  margin: 0;
-  padding: 2px 7px;
-}
-#footer table,
-#footer tbody tr {
-  border: none;
-}
-tr {
-  /* Table row striping */
-}
-tr.odd {
-  background: white;
-  background: rgba(255, 255, 255, 0.4);
-}
-tr.info, tr.even, tr:nth-child(2n+2) {
-  border-bottom: 0;
-  background-color: whitesmoke;
-  background: rgba(236, 244, 251, 0.4);
-}
-tr.odd td.active {
-  background-color: #eeeeee;
-}
-tr.even td.active {
-  background-color: #ebebeb;
-}
-
-tr.even, tr.odd {
-  border-color: #ffd400;
-}
-
-/*
- * Forum tables
- * Core sets white-space to nowrap, which makes no sense
- */
-#forum td .created,
-#forum td .posts,
-#forum td .topics,
-#forum td .last-reply,
-#forum td .replies,
-#forum td .pager {
-  white-space: normal;
-}
-
-/* =============================================================================
- *   Messages
- * ========================================================================== */
-div.messages {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-div.messages ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/*
- * Unpublished nodes
- */
-.node-unpublished p.unpublished,
-.comment-unpublished p.unpublished {
-  color: pink;
-  color: rgba(239, 170, 170, 0.4);
-  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1.2;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  text-align: center;
-  text-transform: uppercase;
-  word-wrap: break-word;
-}
-.ie6-7 .node-unpublished p.unpublished > *, .ie6-7
-.comment-unpublished p.unpublished > * {
-  position: relative;
-}
-
-/* =============================================================================
- *    Maintenance pages
- * ========================================================================== */
-.maintenance-page .container {
-  padding: 40px 0;
-}
-.maintenance-page #site-name,
-.maintenance-page #page-title {
-  margin: 0;
-}
-
-.db-offline .container {
-  margin: 0 auto;
-  padding: 40px 0;
-  width: 100%;
-  max-width: 960px;
-}
-.db-offline div.messages {
-  margin: 20px 0 0;
-}
-.db-offline #content {
-  padding: 20px 0;
-}
-
-/* =============================================================================
- *   Misc overrides for contrib modules
- * ========================================================================== */
-/*
- * Admin menu overrides
- */
-#admin-menu {
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Devel Module
- */
-.dev-query {
-  background: #eeeeee;
-  padding: 30px;
-}
-
-/*
- * Styleguide module tweaks
- */
-#styleguide-header {
-  padding: 0 10px;
-}
-#styleguide-header .item-list {
-  font-family: inherit;
-  margin: 0 20px 20px 0;
-  min-height: 260px;
-  width: auto;
-}
-
-.calendar-calendar th.days {
-  font-weight: normal;
-}
-
-#block-views-exp-sols-search-page {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: transparent url(images/sponsored-by-intel.png) no-repeat right 10px;
-  padding-top: 90px;
-  width: 33%;
-}
-#block-views-exp-sols-search-page label {
-  color: #999;
-  font-weight: normal;
-}
-#block-views-exp-sols-search-page .views-submit-button {
-  display: none;
-}
-#block-views-exp-sols-search-page #edit-query-wrapper {
-  padding: 0;
-  width: 100%;
-}
-#block-views-exp-sols-search-page .block-inner {
-  margin: 0;
-}
-#block-views-exp-sols-search-page .form-text {
-  border: 1px solid #ccc;
-  font-size: 1.15em;
-  width: 100%;
-  height: 20px;
-  display: block;
-}
-
-#block-block-7 {
-  border-top: 2px dotted #ffd400;
-  border-bottom: 2px dotted #ffd400;
-  padding: 8px 0;
-}
-#block-block-7 h2 {
-  font-size: 3em;
-  margin: 0 10px 0 0;
-  line-height: 1em;
-  white-space: nowrap;
-  float: left;
-}
-#block-block-7 h3 {
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  color: #164e83;
-  font-size: 1.5em;
-  margin: 0;
-  line-height: 1.1em;
-  float: left;
-  width: 60%;
-}
-#block-block-7 h3 a {
-  color: #164e83;
-}
-#block-block-7 h3 a:hover {
-  color: #f26b51;
-}
-
-#block-views-sponsors-block-block-1,
-#block-views-sponsors-block-block-2,
-#block-views-sponsors-block-block-3,
-#block-views-sponsors-block-block-4,
-#block-views-sponsors-block-block-5,
-#block-views-sponsors-block-block {
-  margin-top: 1em;
-}
-#block-views-sponsors-block-block-1 h2.block-title,
-#block-views-sponsors-block-block-2 h2.block-title,
-#block-views-sponsors-block-block-3 h2.block-title,
-#block-views-sponsors-block-block-4 h2.block-title,
-#block-views-sponsors-block-block-5 h2.block-title,
-#block-views-sponsors-block-block h2.block-title {
-  background: #ecf4fb;
-  color: #003d7d;
-  text-shadow: .5px .5px 0 #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em !important;
-  margin: 0 0 1em;
-  text-align: center;
-}
-
-#block-views-sponsors-block-block-2 .views-field-field-logo {
-  width: 100%;
-  text-align: center;
-}
-
-#block-views-sponsors-block-block-1 .view-content,
-#block-views-sponsors-block-block-3 .view-content {
-  clear: left;
-  width: 100%;
-  display: table;
-}
-#block-views-sponsors-block-block-1 .view-content .views-field-field-logo,
-#block-views-sponsors-block-block-3 .view-content .views-field-field-logo {
-  min-height: 125px;
-  display: table;
-  width: 33%;
-  float: left;
-}
-#block-views-sponsors-block-block-1 .view-content .views-field-field-logo .field-content,
-#block-views-sponsors-block-block-3 .view-content .views-field-field-logo .field-content {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  padding: 5px;
-  height: 100px;
-  overflow: visible;
-}
-
-#block-views-sponsors-block-block-4 .view-content {
-  text-align: center;
-}
-#block-views-sponsors-block-block-4 .view-content div {
-  display: inline;
-}
-#block-views-sponsors-block-block-4 .views-field-title {
-  padding: .25em 1em;
-  border-right: 1px solid #d6d6d6;
-  white-space: normal;
-}
-
-#block-views-sponsors-block-block-5 .view-content {
-  clear: left;
-  width: 100%;
-  display: table;
-}
-#block-views-sponsors-block-block-5 .view-content .views-field-field-logo {
-  min-height: 125px;
-  display: table;
-  width: 33%;
-  float: left;
-}
-#block-views-sponsors-block-block-5 .view-content .views-field-field-logo .field-content {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  padding: 5px;
-  height: 100px;
-  overflow: visible;
-}
-
-#openlayers-container-openlayers-map--5 {
-  position: absolute;
-  top: 268px;
-  left: 10px;
-}
-
-#openlayers-container-openlayers-map--3 {
-  position: absolute;
-  bottom: 68px;
-  left: 160px;
-}
-
-.view-home-page-map.view-display-id-page {
-  float: left;
-  width: 75%;
-  margin-left: 0%;
-  margin-right: -75%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  padding: 0 10px 0 0;
-  position: relative;
-}
-.view-home-page-map.view-display-id-page a.view-footer {
-  background: white url(images/get-involved.png) no-repeat right top;
-  height: 47px;
-  line-height: 47px;
-  padding-right: 140px;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 1.5em;
-  display: block;
-}
-.view-home-page-map.view-display-id-page a.view-footer:link,
-.view-home-page-map.view-display-id-page a.view-footer:visited {
-  color: #000;
-}
-.view-home-page-map.view-display-id-page a.view-footer:hover,
-.view-home-page-map.view-display-id-page a.view-footer:focus {
-  text-decoration: underline;
-  color: #003d7d;
-}
-.view-home-page-map.view-display-id-page .view-footer span {
-  color: #f26b51;
-}
-
-#block-block-4 {
-  float: left;
-  width: 25%;
-  margin-left: 75%;
-  margin-right: -100%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  text-align: center;
-  font-size: 1.1em;
-}
-
-#block-ndch-stats-ndch-stats {
-  clear: left;
-  float: left;
-  width: 33.33333%;
-  margin-left: 0%;
-  margin-right: -33.33333%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-}
-#block-ndch-stats-ndch-stats h2.block-title {
-  display: none;
-}
-#block-ndch-stats-ndch-stats .stats-wrapper {
-  background: transparent url(images/stats.png) no-repeat 0 0;
-  height: 390px;
-  width: 246px;
-  margin: 0 auto;
-}
-#block-ndch-stats-ndch-stats .stats {
-  width: 225px;
-  line-height: 1em;
-  color: #f26b51;
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  font-size: 68px;
-  display: block;
-}
-#block-ndch-stats-ndch-stats .stat-events {
-  text-align: right;
-  height: 118px;
-  display: block;
-}
-#block-ndch-stats-ndch-stats .stat-locations {
-  height: 90px;
-  display: block;
-}
-#block-ndch-stats-ndch-stats .stat-resources {
-  padding-left: 62px;
-  height: 84px;
-  display: block;
-}
-
-#block-views-homepage-latest-block-2 {
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-}
-#block-views-homepage-latest-block-2 .views-field-title a {
-  font-size: 1.4em;
-  margin: 0 0 .5em 0;
-  display: block;
-  color: #f26b51;
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-}
-#block-views-homepage-latest-block-2 .view-homepage-latest {
-  padding-right: 15px;
-}
-
-.front #block-views-hashtags-block,
-.front #block-twitter-block-default,
-.front #block-block-5 {
-  float: left;
-  width: 33.33333%;
-  margin-left: 66.66667%;
-  margin-right: -100%;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("../scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  padding: 0 0 0 10px;
-}
-.front #block-views-hashtags-block h1.summary,
-.front #block-twitter-block-default h1.summary,
-.front #block-block-5 h1.summary {
-  color: #f26b51;
-}
-
-.view-blog .field-type-image {
-  float: right;
-  margin: 0 0 10px 15px;
-}
-.view-blog .views-row {
-  padding: 8px 0;
-  border-top: 2px dotted #ffd400;
-}
-.view-blog .node-readmore a {
-  background: transparent url(images/blog-icon.png) no-repeat 0 -31px;
-  padding: 0 10px 0 38px;
-  height: 20px;
-  line-height: 20px;
-}
-.view-blog .node-readmore a:hover {
-  background: transparent url(images/blog-icon.png) no-repeat 0 0;
-}
-.view-blog .comment-add a {
-  background: transparent url(images/blog-icon.png) no-repeat 0 -95px;
-  padding: 0 10px 0 35px;
-  height: 20px;
-  line-height: 20px;
-}
-.view-blog .comment-add a:hover {
-  background: transparent url(images/blog-icon.png) no-repeat 0 -63px;
-}
-.view-blog ul.links.inline {
-  line-height: 20px;
-  margin-top: 5px;
-}
-
-#views-exposed-form-application-list-page .views-exposed-form,
-#views-exposed-form-organization-list-page .views-exposed-form,
-#views-exposed-form-events-list-page .views-exposed-form {
-  background: #eee;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  display: inline-block;
-  font-size: .94em;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widgets,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widgets,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets {
-  margin-bottom: 0;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget {
-  padding: 4px 1em;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget label,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget label,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget label {
-  color: #666;
-  font-weight: normal;
-  float: left;
-  margin: 3px 5px;
-  text-shadow: 1px 1px 1px #fff;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .views-widget,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .views-widget,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .views-widget {
-  float: left;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-item select,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-item select,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-item select {
-  border: 1px solid #ccc;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-submit,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-submit,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-submit {
-  margin-top: 2px;
-  font-family: Verdana, Geneva, "DejaVu Sans", Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  text-transform: none;
-  color: #666;
-  text-shadow: 1px 1px 1px #fff;
-  padding: 2px 8px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cccccc), color-stop(50%, #eeeeee), color-stop(100%, #dadada));
-  background-image: -webkit-linear-gradient(#cccccc, #eeeeee, #dadada);
-  background-image: -moz-linear-gradient(#cccccc, #eeeeee, #dadada);
-  background-image: -o-linear-gradient(#cccccc, #eeeeee, #dadada);
-  background-image: linear-gradient(#cccccc, #eeeeee, #dadada);
-  border: 1px solid #ccc;
-  letter-spacing: 0;
-}
-#views-exposed-form-application-list-page .views-exposed-form .views-exposed-widget .form-submit:hover,
-#views-exposed-form-organization-list-page .views-exposed-form .views-exposed-widget .form-submit:hover,
-#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widget .form-submit:hover {
-  background: #164e83;
-  color: #fff;
-  text-shadow: none;
-}
-
-.view-event-sponsors-block .view-content .views-row {
-  float: left;
-}
-.view-event-sponsors-block .view-content .views-field {
-  display: table;
-  height: 100px;
-  margin-bottom: 10px;
-}
-.view-event-sponsors-block .view-content .views-field .field-content {
-  width: auto;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 5px;
-}
-
-.country {
-  display: none;
-}
-
-.view-events-list table {
-  margin-left: 10px;
-}
-.view-events-list td {
-  width: 50%;
-}
-.view-events-list caption {
-  font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  font-size: 1.5em;
-  color: #164e83;
-  margin-left: -10px;
-}
-
-.view-dataset-list caption {
-  background: #f26b51;
-}
-.view-dataset-list caption a {
-  padding: 2px 25px 2px 10px;
-  color: #fff;
-  font-family: "governorregular", Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
-}
-.view-dataset-list th {
-  padding: 0 7px;
-  font-size: 1.1em;
-}
-.view-dataset-list td.views-field-created,
-.view-dataset-list td.views-field-field-format {
-  width: 20%;
-}
-.view-dataset-list td.views-field-title-1 {
-  width: 60%;
-}
-
-.view-latest-news .views-row {
-  margin: 5px 0;
-}
-
-/*
-* Twitter block
-*/
-#block-views-hashtags-block {
-  max-width: 360px;
-}
-#block-views-hashtags-block h2.block-title {
-  background: transparent url(images/blue-tweet.png) no-repeat 0 4px;
-  padding-left: 36px;
-  line-height: 28px;
-  margin: 0 0 8px;
-}
-#block-views-hashtags-block .twitter-status {
-  background: none;
-  padding: 5px 5px 0;
-}
-#block-views-hashtags-block .views-row {
-  clear: both;
-  position: relative;
-  background: rgba(255, 255, 255, 0.65);
-  margin: 0 0 6px 0;
-  padding: 3px;
-  display: block;
-  font-size: .85em;
-  border: 1px solid #ecf4fb;
-}
-
-.region-header {
-}
-
-
-
-
-
-
-
-
-
-
-.table-action-button a {
-  text-transform: lowercase;
-  display: block;
-  float: left;
-  text-decoration: none;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding;
-  background-clip: padding-box;
-  margin: 0 0.5em 0.5em 0;
-  vertical-align: middle;
-  -webkit-appearance: none;
-  -moz-border-radius: 11px;
-  -webkit-border-radius: 11px;
-  border-radius: 11px;
-  background: #ddd url(../images/button.png) repeat-x;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
-  background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
-  border: 1px solid;
-  border-color: #ddd #bbb #999;
-  cursor: pointer;
-  color: #333;
-  font: bold 12px/1.2 Arial, sans-serif;
-  outline: 0;
-  overflow: visible;
-  padding: 4px 10px 3px;
-  text-shadow: #fff 0 1px 1px;
-  width: auto;
-
-  /* IE7 */
-  *padding-top: 2px;
-  *padding-bottom: 0px;
-}
-
-body.front .button {
-  min-width: 200px;
-  margin: 0 20px 10px 20px;
-  text-align: center;
-  float: none;
-}
-
-.table-action-button a {
-  text-transform: lowercase;
-  display: block;
-  float: left;
-  text-decoration: none;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding;
-  background-clip: padding-box;
-  margin: 0 0.5em 0.5em 0;
-  vertical-align: middle;
-  -webkit-appearance: none;
-  -moz-border-radius: 11px;
-  -webkit-border-radius: 11px;
-  border-radius: 11px;
-  background: #dddddd url(../images/button.png) repeat-x;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd));
-  background: -moz-linear-gradient(top center, white 0%, #dddddd 100%);
-  border: 1px solid;
-  border-color: #ddd #bbb #999;
-  cursor: pointer;
-  color: #333;
-  font: bold 12px/1.2 Arial, sans-serif;
-  outline: 0;
-  overflow: visible;
-  padding: 4px 10px 3px;
-  text-shadow: #fff 0 1px 1px;
-  width: auto;
-  /* IE7 */
-  *padding-top: 2px;
-  *padding-bottom: 0px;
-}
-
-a.button {
-  color: #fff;
-  text-decoration: none;
-  -moz-appearance: button;
-  appearance: button;
-}
-
-.region-three-33-first .view,
-.region-three-33-second .view,
-.region-three-33-third .view {
-  padding: 0;
-}
-
-body.front .block .views-field-field-image {
-  width: 55px;
-  margin: 0 10px 10px 0;
-  float: left;
-}
-
-body.front .view .views-field-field-add-deployment-for a {
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-}
-body.front h2.node-title a {
-  text-decoration: none;
-}
-
-.view-homepage-latest.view-display-id-block_2 .field-type-image {
-  width: 220px;
-  margin: 0 10px 10px 0;
-  float: left;
-}
-
-.region-footer {
-  text-align: center;
-}
-.region-footer .view-content .cols-4 tr td .views-field-field-logo {
-}
-.region-footer .view-content .cols-4 tr td.col-1,
-.region-footer .view-content .cols-4 tr td.col-2,
-.region-footer .view-content .cols-4 tr td.col-3 {
-  padding-right: 30px;
-  padding-bottom: 20px;
-}
-
-body.front #region-content form {
-  text-align: left;
-}
-.view-homepage-latest .views-row {
-  clear: both;
-}
-
-
-
-
-
-
-/* Call to action button */
-.button {
-  -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #91a6d6;
-  box-shadow: inset 0px 1px 0px 0px #91a6d6;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6280cb), color-stop(1, #102047));
-  background: -moz-linear-gradient(center top, #6280cb 5%, #102047 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6280cb', endColorstr='#102047');
-  background-color: #6280cb;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #142859;
-  display: inline-block;
-  color: #ffffff;
-  font-family: arial;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 11px 28px;
-  text-decoration: none;
-  text-shadow: 1px 1px 0px #101f42;
-}
-.button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #102047), color-stop(1, #6280cb));
-  background: -moz-linear-gradient(center top, #102047 5%, #6280cb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#102047', endColorstr='#6280cb');
-  background-color: #102047;
-}
-.button:active {
-  position: relative;
-  top: 1px;
-}
-
-body.front .button {
-  min-width: 200px;
-  margin: 0 20px 10px 20px;
-  text-align: center;
-  float: none;
-}
-.at-panel.three-3x33 {
-  margin-top: 20px;
-}
-body.node-type-application .field-name-field-image {
-  width: 145px;
-  margin: 0 10px 10px 0;
-  float: left;
-}
+.block .menu li.content { padding: 0; }
+
+/* ============================================================================= Breadcrumbs ========================================================================== */
+#breadcrumb { margin: 10px 0; /* If the label is set to show in theme settings the label class is added */ }
+#breadcrumb .breadcrumb-label { font-size: 1em; display: inline; padding-right: 10px; }
+#breadcrumb .breadcrumb-label:after { content: ":"; }
+#breadcrumb ol { margin: 0; padding: 0; }
+#breadcrumb .with-breadcrumb-label ol { display: inline; }
+#breadcrumb li { list-style: none; display: inline; }
+
+/* ============================================================================= Pagers ========================================================================== */
+ul.pager { clear: both; margin: 1em 0; text-align: center; }
+
+.item-list ul.pager li { margin: 0; }
+
+ul.pager li { background-image: none; display: inline; list-style-type: none; padding: .5em; }
+ul.pager li.pager-current { font-weight: 700; }
+
+.block ul.pager li { margin: 0; }
+
+/* Theme the various states of pager links */
+/* ============================================================================= Skip Navigation ========================================================================== */
+#skip-link { left: 50%; margin-left: -6.5em; margin-top: 0; padding: 0 0.5em; position: absolute; width: 12em; z-index: 50; }
+#skip-link a { background: #444; background: rgba(0, 0, 0, 0.6); color: white; display: block; line-height: 2; padding: 0; text-align: center; text-decoration: none; }
+#skip-link a:link, #skip-link a:visited { background: #444; background: rgba(0, 0, 0, 0.6); color: white; display: block; line-height: 2; padding: 0; text-align: center; text-decoration: none; }
+#skip-link a:hover, #skip-link a:focus, #skip-link a:active { outline: 0; }
+
+/* ============================================================================= Tabs (local tasks) ========================================================================== */
+#tasks { margin-bottom: 15px; }
+
+ul.primary { border-bottom-color: #cfecf9; margin: 20px 0; padding: 0 0 0 5px; }
+ul.primary li { display: block; float: left; margin: 0 1px -1px; }
+ul.primary li a { background-color: whitesmoke; border-color: #cfecf9; margin-right: 1px; padding: 0 10px; display: block; float: left; height: 1.5em; line-height: 1.5em; }
+ul.primary li a:hover, ul.primary li a:focus { background-color: #eeeeee; border-color: #cfecf9; }
+ul.primary li.active a, ul.primary li.active a:hover, ul.primary li.active a:focus { background-color: white; border-bottom-color: white; }
+
+ul.secondary { border-bottom: 1px solid #cfecf9; margin: 1em 0 0; padding: 0 .3em 1em; }
+ul.secondary li { border-right: 0; list-style: none; padding: 0 10px 0 0; }
+ul.secondary li a:hover, ul.secondary li a.active { border-bottom: none; text-decoration: underline; }
+
+/* ============================================================================= Action links ========================================================================== */
+ul.action-links { margin: 20px 0 0; list-style: none; }
+
+/* ============================================================================= Field Styling ========================================================================== */
+/* Wrapper for any field */
+/* Above and inline classes are on the field wrapper */
+/* When labels are set to inline in field display settings the clearfix class is automatically added */
+/* Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues */
+.field-label { font-size: 1em; font-weight: 700; font-family: inherit; line-height: inherit; margin-bottom: 0; }
+
+/* Field types (Core) */
+/* Image fields use the <figure> and <figcaption> elements from HTML5 */
+/* Taxonomy */
+.field-type-taxonomy-term-reference { /* The same bottom margin as p, blockquote, ul, ol and dl */ margin-bottom: 1.5em; }
+.field-type-taxonomy-term-reference.field-label-inline .field-items { margin: 0; padding: 0; }
+.field-type-taxonomy-term-reference.field-label-inline .field-item { display: inline; list-style: none; padding: 0 10px 0 0; }
+
+/* Image Alignment Theme Settings - included here so you can easily override  */
+/* Float none setting */
+/* Float left setting */
+.ia-l .field-type-image figure, .iat-l .field-type-image figure { margin: 5px 20px 15px 0; }
+
+/* Centered setting */
+.ia-c .field-type-image figure, .iat-c .field-type-image figure { margin: 5px auto 15px; }
+
+/* Float right setting */
+.ia-r .field-type-image figure, .iat-r .field-type-image figure { margin: 5px 0 15px 20px; }
+
+/* ============================================================================= Block Styling ========================================================================== */
+.block { margin-bottom: 20px; }
+
+.block-title { margin: 0; }
+
+.block-content ul, .block-content ol { padding: 0 0 0 15px; }
+.block-content li { margin: 0; padding: 0; }
+
+.pane-home-page-map-panel-pane-1 h2.pane-title { margin: 1.5em 0 0.5em; }
+
+.view-nodequeue-4 .views-field-title, .view-nodequeue-5 .views-field-title, .view-nodequeue-6 .views-field-title { font-size: 1.35em; line-height: 1.2em; font-weight: bold; }
+.view-nodequeue-4 .views-row, .view-nodequeue-5 .views-row, .view-nodequeue-6 .views-row { padding-bottom: 10px; }
+.view-nodequeue-4 .view-footer p, .view-nodequeue-5 .view-footer p, .view-nodequeue-6 .view-footer p { text-align: right; }
+
+.view-nodequeue-5 .views-row { position: relative; }
+.view-nodequeue-5 .views-field-title a { color: #043852; padding-left: 70px; }
+.view-nodequeue-5 .views-field-body { padding-left: 70px; }
+.view-nodequeue-5 .views-field-field-image { display: inline; position: absolute; top: 0; left: 0; }
+
+.view-top-rated-problems .views-field-title-field, .pane-top-rated-problems-panel-pane-2 .views-field-title-field { font-size: 1.35em; line-height: 1.2em; font-weight: bold; }
+.view-top-rated-problems .views-row, .pane-top-rated-problems-panel-pane-2 .views-row { margin-bottom: 1em; }
+.view-top-rated-problems .views-field-field-image, .pane-top-rated-problems-panel-pane-2 .views-field-field-image { float: left; }
+
+.view-home-page-map .view-footer { margin: 0 auto; position: relative; left: 50%; float: left; }
+.view-home-page-map .view-footer .map-legend { position: relative; left: -50%; height: 20px; clear: both; }
+.view-home-page-map .view-footer .map-legend li { float: left; list-style-type: none; padding-left: 30px; padding-top: 2px; height: 27px; background-repeat: no-repeat; margin-right: 20px; margin-left: 0; }
+.view-home-page-map .view-footer .map-legend .map-event { background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend.png); }
+.view-home-page-map .view-footer .map-legend .map-problem { background-image: url(/profiles/opencivic/themes/cat_man_do/images/problem-legend.png); }
+
+/* Problem statement table */
+.view-problems-list .views-field-created { white-space: nowrap; }
+
+.pane-block-1 a.button, #block-block-1 a.button { -moz-appearance: none; -webkit-appearance: none; background: #2fabe7; color: #fff; display: block; height: 45px; line-height: 45px; margin: .5em 0; text-align: center; vertical-align: middle; }
+.pane-block-1 a.button:hover, #block-block-1 a.button:hover { background: #043852; text-decoration: none; }
+
+/* Events map */
+.view-events-map .view-footer { margin: 0 auto 20px auto; position: relative; left: 50%; float: left; }
+.view-events-map .view-footer .map-legend { position: relative; left: -50%; height: 20px; clear: both; }
+.view-events-map .view-footer .map-legend li { float: left; list-style-type: none; padding-left: 30px; padding-top: 2px; height: 27px; background-repeat: no-repeat; margin-right: 20px; margin-left: 0; }
+.view-events-map .view-footer .map-legend .map-event-core { background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend.png); }
+.view-events-map .view-footer .map-legend .map-event-affiliate { background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend1.png); }
+.view-events-map .view-footer .map-legend .map-event-unaffiliated { background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend2.png); }
+
+#views-exposed-form-solr-search-page, #block-views-exp-search-page { margin: 0; }
+#views-exposed-form-solr-search-page .block-inner, #block-views-exp-search-page .block-inner { margin: 0; }
+#views-exposed-form-solr-search-page label.compact-form-label, #block-views-exp-search-page label.compact-form-label { color: #2fabe7; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 1.1em; font-weight: 300; left: 10px; top: 6px; }
+#views-exposed-form-solr-search-page input.form-text, #block-views-exp-search-page input.form-text { background: #ececec; border: none; padding: 10px; width: 200px; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
+#views-exposed-form-solr-search-page input.form-text:focus, #block-views-exp-search-page input.form-text:focus { border: none; }
+#views-exposed-form-solr-search-page input.form-submit, #block-views-exp-search-page input.form-submit { display: none; }
+#views-exposed-form-solr-search-page .views-exposed-form .views-exposed-widget, #block-views-exp-search-page .views-exposed-form .views-exposed-widget { float: none; padding: 0; }
+
+.node-type-application .sidebar .views-field-field-release-notes, .node-type-application .sidebar .views-field-field-install-url, .node-type-application .sidebar .views-field-field-creator, .node-type-application .sidebar .views-field-field-software-type, .node-type-application .sidebar .views-field-field-civic-category, .node-type-application .sidebar .views-field-field-download-url, .node-type-application .sidebar .views-field-field-file-attachments, .node-type-application .sidebar .views-field-field-telephone, .node-type-application .sidebar .views-field-field-aggregate-rating, .node-type-application .sidebar .views-field-field-keywords, .node-type-application .sidebar .views-field-field-application-category, .node-type-application .sidebar .views-field-field-civic-category, .node-type-application .sidebar .views-field-field-url, .node-type-application .sidebar .views-field-name, .node-type-application .sidebar .views-field-field-problem-author, .node-type-application .sidebar .views-field-field-address, .node-type-application .sidebar .views-field-field-requirements, .node-type-event .sidebar .views-field-field-release-notes, .node-type-event .sidebar .views-field-field-install-url, .node-type-event .sidebar .views-field-field-creator, .node-type-event .sidebar .views-field-field-software-type, .node-type-event .sidebar .views-field-field-civic-category, .node-type-event .sidebar .views-field-field-download-url, .node-type-event .sidebar .views-field-field-file-attachments, .node-type-event .sidebar .views-field-field-telephone, .node-type-event .sidebar .views-field-field-aggregate-rating, .node-type-event .sidebar .views-field-field-keywords, .node-type-event .sidebar .views-field-field-application-category, .node-type-event .sidebar .views-field-field-civic-category, .node-type-event .sidebar .views-field-field-url, .node-type-event .sidebar .views-field-name, .node-type-event .sidebar .views-field-field-problem-author, .node-type-event .sidebar .views-field-field-address, .node-type-event .sidebar .views-field-field-requirements, .node-type-problem .sidebar .views-field-field-release-notes, .node-type-problem .sidebar .views-field-field-install-url, .node-type-problem .sidebar .views-field-field-creator, .node-type-problem .sidebar .views-field-field-software-type, .node-type-problem .sidebar .views-field-field-civic-category, .node-type-problem .sidebar .views-field-field-download-url, .node-type-problem .sidebar .views-field-field-file-attachments, .node-type-problem .sidebar .views-field-field-telephone, .node-type-problem .sidebar .views-field-field-aggregate-rating, .node-type-problem .sidebar .views-field-field-keywords, .node-type-problem .sidebar .views-field-field-application-category, .node-type-problem .sidebar .views-field-field-civic-category, .node-type-problem .sidebar .views-field-field-url, .node-type-problem .sidebar .views-field-name, .node-type-problem .sidebar .views-field-field-problem-author, .node-type-problem .sidebar .views-field-field-address, .node-type-problem .sidebar .views-field-field-requirements { padding-left: 1.5em; position: relative; }
+.node-type-application .sidebar .views-field-field-release-notes:before, .node-type-application .sidebar .views-field-field-install-url:before, .node-type-application .sidebar .views-field-field-creator:before, .node-type-application .sidebar .views-field-name:before, .node-type-application .sidebar .views-field-field-software-type:before, .node-type-application .sidebar .views-field-field-civic-category:before, .node-type-application .sidebar .views-field-field-download-url:before, .node-type-application .sidebar .views-field-field-file-attachments:before, .node-type-application .sidebar .views-field-field-telephone:before, .node-type-application .sidebar .views-field-field-aggregate-rating:before, .node-type-application .sidebar .views-field-field-keywords:before, .node-type-application .sidebar .views-field-field-application-category:before, .node-type-application .sidebar .views-field-field-civic-category:before, .node-type-application .sidebar .views-field-field-url:before, .node-type-application .sidebar .views-field-field-problem-author:before, .node-type-application .sidebar .views-field-field-address:before, .node-type-application .sidebar .views-field-field-requirements:before, .node-type-event .sidebar .views-field-field-release-notes:before, .node-type-event .sidebar .views-field-field-install-url:before, .node-type-event .sidebar .views-field-field-creator:before, .node-type-event .sidebar .views-field-name:before, .node-type-event .sidebar .views-field-field-software-type:before, .node-type-event .sidebar .views-field-field-civic-category:before, .node-type-event .sidebar .views-field-field-download-url:before, .node-type-event .sidebar .views-field-field-file-attachments:before, .node-type-event .sidebar .views-field-field-telephone:before, .node-type-event .sidebar .views-field-field-aggregate-rating:before, .node-type-event .sidebar .views-field-field-keywords:before, .node-type-event .sidebar .views-field-field-application-category:before, .node-type-event .sidebar .views-field-field-civic-category:before, .node-type-event .sidebar .views-field-field-url:before, .node-type-event .sidebar .views-field-field-problem-author:before, .node-type-event .sidebar .views-field-field-address:before, .node-type-event .sidebar .views-field-field-requirements:before, .node-type-problem .sidebar .views-field-field-release-notes:before, .node-type-problem .sidebar .views-field-field-install-url:before, .node-type-problem .sidebar .views-field-field-creator:before, .node-type-problem .sidebar .views-field-name:before, .node-type-problem .sidebar .views-field-field-software-type:before, .node-type-problem .sidebar .views-field-field-civic-category:before, .node-type-problem .sidebar .views-field-field-download-url:before, .node-type-problem .sidebar .views-field-field-file-attachments:before, .node-type-problem .sidebar .views-field-field-telephone:before, .node-type-problem .sidebar .views-field-field-aggregate-rating:before, .node-type-problem .sidebar .views-field-field-keywords:before, .node-type-problem .sidebar .views-field-field-application-category:before, .node-type-problem .sidebar .views-field-field-civic-category:before, .node-type-problem .sidebar .views-field-field-url:before, .node-type-problem .sidebar .views-field-field-problem-author:before, .node-type-problem .sidebar .views-field-field-address:before, .node-type-problem .sidebar .views-field-field-requirements:before { font-family: FontAwesome; position: absolute; top: 0; left: 0; }
+.node-type-application .sidebar .views-field-field-install-url:before, .node-type-event .sidebar .views-field-field-install-url:before, .node-type-problem .sidebar .views-field-field-install-url:before { content: "\f109"; }
+.node-type-application .sidebar .views-field-field-release-notes:before, .node-type-application .sidebar .views-field-field-file-attachments:before, .node-type-event .sidebar .views-field-field-release-notes:before, .node-type-event .sidebar .views-field-field-file-attachments:before, .node-type-problem .sidebar .views-field-field-release-notes:before, .node-type-problem .sidebar .views-field-field-file-attachments:before { content: "\f15b"; }
+.node-type-application .sidebar .views-field-field-telephone:before, .node-type-event .sidebar .views-field-field-telephone:before, .node-type-problem .sidebar .views-field-field-telephone:before { content: "\f095"; }
+.node-type-application .sidebar .views-field-field-aggregate-rating:before, .node-type-event .sidebar .views-field-field-aggregate-rating:before, .node-type-problem .sidebar .views-field-field-aggregate-rating:before { content: "\f005"; }
+.node-type-application .sidebar .views-field-field-keywords:before, .node-type-event .sidebar .views-field-field-keywords:before, .node-type-problem .sidebar .views-field-field-keywords:before { content: "\f02c"; }
+.node-type-application .sidebar .views-field-field-software-type:before, .node-type-application .sidebar .views-field-field-civic-category:before, .node-type-application .sidebar .views-field-field-application-category:before, .node-type-application .sidebar .views-field-field-civic-category:before, .node-type-event .sidebar .views-field-field-software-type:before, .node-type-event .sidebar .views-field-field-civic-category:before, .node-type-event .sidebar .views-field-field-application-category:before, .node-type-event .sidebar .views-field-field-civic-category:before, .node-type-problem .sidebar .views-field-field-software-type:before, .node-type-problem .sidebar .views-field-field-civic-category:before, .node-type-problem .sidebar .views-field-field-application-category:before, .node-type-problem .sidebar .views-field-field-civic-category:before { content: "\f02b"; }
+.node-type-application .sidebar .views-field-field-download-url:before, .node-type-event .sidebar .views-field-field-download-url:before, .node-type-problem .sidebar .views-field-field-download-url:before { content: "\f0ac"; }
+.node-type-application .sidebar .views-field-field-url:before, .node-type-event .sidebar .views-field-field-url:before, .node-type-problem .sidebar .views-field-field-url:before { content: "\f015"; }
+.node-type-application .sidebar .views-field-field-creator:before, .node-type-application .sidebar .views-field-name:before, .node-type-application .sidebar .views-field-field-problem-author:before, .node-type-event .sidebar .views-field-field-creator:before, .node-type-event .sidebar .views-field-name:before, .node-type-event .sidebar .views-field-field-problem-author:before, .node-type-problem .sidebar .views-field-field-creator:before, .node-type-problem .sidebar .views-field-name:before, .node-type-problem .sidebar .views-field-field-problem-author:before { content: "\f007"; }
+.node-type-application .sidebar .views-field-field-address:before, .node-type-event .sidebar .views-field-field-address:before, .node-type-problem .sidebar .views-field-field-address:before { content: "\f041"; }
+.node-type-application .sidebar .views-field-field-requirements:before, .node-type-event .sidebar .views-field-field-requirements:before, .node-type-problem .sidebar .views-field-field-requirements:before { content: "\f0c9"; }
+
+#block-views-organization-map-block, #block-views-8a46796849269d8e113b11b88308e01c { margin-bottom: 0; }
+#block-views-organization-map-block .block-content, #block-views-8a46796849269d8e113b11b88308e01c .block-content { margin: 10px 0 0 0; }
+
+.sidebar .view-organization-related-deployments .views-row, .sidebar .view-replated-deployments .views-row { padding-left: 1.5em; position: relative; margin: 0 0 .6em 0; }
+.sidebar .view-organization-related-deployments .views-row:before, .sidebar .view-replated-deployments .views-row:before { content: "\f041"; font-family: FontAwesome; position: absolute; top: 0; left: 0; }
+.sidebar .view-organization-related-deployments .views-field-field-url, .sidebar .view-replated-deployments .views-field-field-url { padding: 0; }
+.sidebar .view-organization-related-deployments .views-field-field-url:before, .sidebar .view-replated-deployments .views-field-field-url:before { content: ""; }
+.sidebar h2.block-title { background: #2fabe7; color: #fff; font-size: 1.15em; margin: 10px 0; padding: 5px 10px; text-transform: uppercase; }
+.sidebar .block-inner { margin: 0 10px; }
+.sidebar .block-content { margin: 0 12px; }
+
+.block-facetapi { -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
+.block-facetapi .block-inner, .block-facetapi .block-content { margin: 0; }
+.block-facetapi h2.block-title { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; color: #fff; background: #0d7db3; border-bottom: 1px solid #cccccc; font-size: 1em; margin-bottom: 0; padding: 7px 15px; }
+.block-facetapi ul { margin: 0 0 0.5em; padding: 0; -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+.block-facetapi ul li.leaf, .block-facetapi ul li.collapsed, .block-facetapi ul li.expanded { border-bottom: 1px dotted #cccccc; list-style-type: none; list-style-image: none; margin: 0; padding: 0; }
+.block-facetapi ul li.leaf li, .block-facetapi ul li.collapsed li, .block-facetapi ul li.expanded li { position: relative; }
+.block-facetapi ul li.leaf li a, .block-facetapi ul li.collapsed li a, .block-facetapi ul li.expanded li a { padding-left: 48px; }
+.block-facetapi ul li.leaf li:before, .block-facetapi ul li.collapsed li:before, .block-facetapi ul li.expanded li:before { content: "\f178"; font-family: "FontAwesome"; color: #cccccc; position: absolute; top: 4px; left: 30px; }
+.block-facetapi ul li.leaf a, .block-facetapi ul li.collapsed a, .block-facetapi ul li.expanded a { color: #043852; display: block; padding: 3px 10px 3px 25px; position: relative; }
+.block-facetapi ul li.leaf a:hover, .block-facetapi ul li.collapsed a:hover, .block-facetapi ul li.expanded a:hover { color: #54a800; background: rgba(0, 0, 0, 0.05); text-decoration: none; }
+.block-facetapi ul li.leaf a:hover:after, .block-facetapi ul li.collapsed a:hover:after, .block-facetapi ul li.expanded a:hover:after { content: "\f055"; color: #6edb00; font-family: "FontAwesome"; position: absolute; top: 4px; left: 6px; }
+.block-facetapi ul li.leaf a.facetapi-active, .block-facetapi ul li.collapsed a.facetapi-active, .block-facetapi ul li.expanded a.facetapi-active { background: rgba(0, 0, 0, 0.15); border-bottom: 1px solid #fff; color: #333; }
+.block-facetapi ul li.leaf a.facetapi-active:before, .block-facetapi ul li.collapsed a.facetapi-active:before, .block-facetapi ul li.expanded a.facetapi-active:before { -webkit-transform: scalex(0.8); -moz-transform: scalex(0.8); -ms-transform: scalex(0.8); -o-transform: scalex(0.8); transform: scalex(0.8); content: ''; position: absolute; border-style: solid; border-width: 15px 15px 15px 0; border-color: transparent rgba(0, 0, 0, 0.15); display: block; width: 0; z-index: 1; left: -12px; top: -2px; }
+.block-facetapi ul li.leaf a.facetapi-active:after, .block-facetapi ul li.collapsed a.facetapi-active:after, .block-facetapi ul li.expanded a.facetapi-active:after { content: "\f00d"; font-family: "FontAwesome"; position: absolute; top: 3px; left: 6px; }
+.block-facetapi ul li.leaf a.facetapi-active:hover:after, .block-facetapi ul li.collapsed a.facetapi-active:hover:after, .block-facetapi ul li.expanded a.facetapi-active:hover:after { color: red; }
+.block-facetapi a.facetapi-limit-link { display: block; padding: 5px 5px 5px 30px; position: relative; }
+.block-facetapi a.facetapi-limit-link:before { content: "\f150"; font-family: "FontAwesome"; position: absolute; top: 6px; left: 15px; }
+.block-facetapi a.facetapi-limit-link.open:before { content: "\f151"; }
+
+/* ============================================================================= Node Styling ========================================================================== */
+.node { margin-bottom: 20px; }
+.node .node-title { margin: 0; }
+.node .submitted { font-size: .9em; padding: 3px 0; color: #2fabe7; }
+.node .node-content h2.field-label { font-size: 1.5em; text-transform: uppercase; }
+
+.node-type-event #content-column { min-height: 400px; }
+
+.node-type-organization .field-name-field-image, .node-type-organization .field-name-field-logo, .node-type-application .field-name-field-image, .node-type-application .field-name-field-logo { float: left; margin: 0 15px 10px 0; }
+
+.node-blog .field-name-field-image { float: right; margin: 0 0 10px 15px; }
+
+.node-event .field-name-field-url h2 { margin: 0; }
+.node-event .field-name-field-url .field-items { font-size: 1.5em; text-transform: uppercase; margin-left: .5em; }
+
+.node-organizer .node-content .field-items { margin: 10px 0; }
+
+.node-problem .field-name-body { margin: 1em 0; }
+
+.node-dataset h2.field-label { margin: 0; }
+
+.node-type-event .sidebar .views-field { margin: 1em 0; }
+.node-type-event .field-type-date { font-size: 1.25em; }
+.node-type-event .field-name-field-event-type ul { padding: 0; }
+.node-type-event .field-name-field-event-type li { list-style-type: none; font-weight: bold; }
+
+/* ============================================================================= Comment Styling - Comments, comment wrapper, comment form ========================================================================== */
+/* Wrapper for the list of comments and its titles */
+#comments { margin: 1.5em 0; }
+#comments h2.comment-title { margin: 0; }
+#comments h2.comment-form { margin: 0; }
+
+.comment { margin-bottom: 20px; }
+
+.comment-title { margin: 0; }
+
+/* "New" marker for comments that are new for the current user */
+.new { color: #cc0000; }
+
+/* Nested comments are indented */
+.indented { margin-left: 40px; }
+
+/* ============================================================================= Forms ========================================================================== */
+/* Wrapper for a form element (or group of form elements) and its label */
+.form-item input.error, .form-item textarea.error, .form-item select.error { border: 1px solid #cc0000; }
+.form-item label { font-weight: 700; }
+.form-item .description { font-size: 0.85em; }
+.form-item .form-type-checkbox label { font-weight: normal; }
+.form-item input.form-checkbox, .form-item input.form-radio { margin: 0 0 3px 1em; }
+.form-item input.form-text, .form-item textarea { border: 1px solid #cccccc; padding: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
+.form-item input.form-text:focus, .form-item textarea:focus { border-color: #6edb00; }
+.form-item select { border: 1px solid #cccccc; padding: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
+.form-item select option { padding: 2px; }
+.form-item select option:focus { background: #2fabe7 !important; }
+.form-item select:focus { border-color: #6edb00; }
+
+/* Highlight marks and form required mark */
+.marker, .form-required { color: #cc0000; }
+
+/* The submit button */
+.form-submit, button { border: none; background: #2fabe7; color: #fff; padding: 6px 12px 3px; margin-right: .5em; }
+
+.form-submit:hover, button:hover { background: #043852; }
+
+.container-inline div, .container-inline label { display: inline; }
+
+fieldset { border: 1px solid #cfecf9; margin: 2em 0 0; position: relative; background: rgba(236, 244, 251, 0.3); }
+
+legend { background: #0d7db3; color: #fff; line-height: 1.1em; padding: 5px 10px; text-transform: uppercase; position: absolute; top: -10px; left: 10px; }
+
+.fieldset-legend a { color: #fff; }
+
+fieldset.captcha { padding-top: 1.75em; }
+
+/* Buttons used by contrib modules like Media */
+a.button { -webkit-appearance: button; -moz-appearance: button; appearance: button; }
+
+/* Password confirmation */
+.password-parent, .confirm-parent { margin: 0; }
+
+/* ============================================================================= Tables ========================================================================== */
+table { margin: 10px 0; padding: 0; width: 100%; }
+table.sticky-header { z-index: 10; }
+
+table, thead, tbody, tr, th, td { border-color: #cfecf9; }
+
+table, td, th { vertical-align: middle; }
+
+caption, th, td { text-align: left; }
+
+th, thead tr { background-color: #cfecf9; color: #043852; font-size: 1em; text-transform: uppercase; border-bottom: 2px solid #a1d9f4; white-space: nowrap; }
+
+td, th { border-bottom: 0; margin: 0; padding: 2px 7px; }
+
+tbody tr { border-top: 1px solid #cfecf9; }
+
+tr { /* Table row striping */ }
+tr.odd { background: white; background: rgba(255, 255, 255, 0.4); }
+tr.info, tr.even, tr:nth-child(2n+2) { border-bottom: 0; background-color: whitesmoke; background: rgba(236, 244, 251, 0.4); }
+tr.odd td.active { background-color: #eeeeee; }
+tr.even td.active { background-color: #ececec; }
+
+tr.even, tr.odd { border-color: #cfecf9; }
+
+/* Forum tables Core sets white-space to nowrap, which makes no sense */
+#forum td .created, #forum td .posts, #forum td .topics, #forum td .last-reply, #forum td .replies, #forum td .pager { white-space: normal; }
+
+/* ============================================================================= Messages ========================================================================== */
+div.messages { margin-bottom: 10px; margin-top: 10px; }
+div.messages ul { margin-top: 0; margin-bottom: 0; }
+
+/* Unpublished nodes */
+.node-unpublished p.unpublished, .comment-unpublished p.unpublished { color: pink; color: rgba(239, 170, 170, 0.4); font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif; font-size: 50px; font-weight: 700; line-height: 1.2; height: 0; margin: 0; padding: 0; overflow: visible; text-align: center; text-transform: uppercase; word-wrap: break-word; }
+.ie6-7 .node-unpublished p.unpublished > *, .ie6-7 .comment-unpublished p.unpublished > * { position: relative; }
+
+/* ============================================================================= Maintenance pages ========================================================================== */
+.maintenance-page .container { padding: 40px 0; }
+.maintenance-page #site-name, .maintenance-page #page-title { margin: 0; }
+
+.db-offline .container { margin: 0 auto; padding: 40px 0; width: 100%; max-width: 960px; }
+.db-offline div.messages { margin: 20px 0 0; }
+.db-offline #content { padding: 20px 0; }
+
+/* ============================================================================= Misc overrides for contrib modules ========================================================================== */
+/* Admin menu overrides */
+#admin-menu { margin: 0; padding: 0; }
+
+/* Devel Module */
+.dev-query { background: #eeeeee; padding: 30px; }
+
+/* Styleguide module tweaks */
+#styleguide-header { padding: 0 10px; }
+#styleguide-header .item-list { font-family: inherit; margin: 0 20px 20px 0; min-height: 260px; width: auto; }
+
+/* ============================================================================= Contrib style overrides ========================================================================== */
+.calendar-calendar th.days { font-weight: normal; }
+
+.calendar-calendar td.empty { color: #BABABA; }
+
+.calendar-calendar .month-view .full tr td.today, .calendar-calendar .month-view .full tr.odd td.today, .calendar-calendar .month-view .full tr.even td.today, .calendar-calendar .month-view .full tr td.single-day.today, .calendar-calendar .month-view .full td.date-box.today { border-color: #6edb00; }
+
+.multi-day .view-item a { color: #fff; text-decoration: underline; }
+
+#block-views-exp-sols-search-page { position: absolute; top: 0; right: 0; width: 33%; }
+#block-views-exp-sols-search-page label { color: #999; font-weight: normal; }
+#block-views-exp-sols-search-page .views-submit-button { display: none; }
+#block-views-exp-sols-search-page #edit-query-wrapper { padding: 0; width: 100%; }
+#block-views-exp-sols-search-page .block-inner { margin: 0; }
+#block-views-exp-sols-search-page .form-text { border: 1px solid #ccc; font-size: 1.15em; width: 100%; height: 20px; display: block; }
+
+/* ============================================================================= AT Panels ========================================================================== */
+.three-3x33 .view-application-list .views-row, .three-3x33 .view-homepage-latest .views-row { clear: both; margin-bottom: 1.5em; position: relative; }
+.three-3x33 .view-application-list .views-field-title a, .three-3x33 .view-homepage-latest .views-field-title a { font-size: 1.4em; margin: 0; display: block; color: #043852; }
+.three-3x33 .view-application-list .views-field-field-image, .three-3x33 .view-homepage-latest .views-field-field-image { position: absolute; top: 0; left: 0; }
+.three-3x33 .view-application-list .views-field-field-address, .three-3x33 .view-homepage-latest .views-field-field-address { color: #043852; font-size: .85em; }
+.three-3x33 .view-application-list .view-homepage-latest, .three-3x33 .view-homepage-latest .view-homepage-latest { padding-right: 15px; }
+.three-3x33 .view-application-list h2.block-title, .three-3x33 .view-homepage-latest h2.block-title { margin: 0 0 .5em; }
+.three-3x33 .view-homepage-latest.view-display-id-block .views-field-field-description { padding-left: 65px; }
+.three-3x33 .view-homepage-latest.view-display-id-block .views-field-title a { padding-left: 65px; }
+
+/* ============================================================================= View styles ========================================================================== */
+.view div.feed-icon { float: right; margin-top: -3em; font-size: 1em; }
+.view .view-header { clear: right; }
+
+.view-blog .field-type-image { float: right; margin: 0 0 10px 15px; }
+.view-blog .views-row { padding: 8px 0; border-top: 2px dotted #cfecf9; }
+.view-blog .node-readmore a { padding: 0 10px 0 38px; height: 20px; line-height: 20px; }
+.view-blog .node-readmore a:before { content: '\f061'; font-family: "FontAwesome"; }
+.view-blog .comment-add a { background: none; padding: 0 10px 0 35px; height: 20px; line-height: 20px; }
+.view-blog .comment-add a:before { content: '\f0e5'; font-family: "FontAwesome"; }
+.view-blog ul.links.inline { line-height: 20px; margin-top: 5px; }
+
+.view-event-sponsors-block .view-content .views-row { float: left; }
+.view-event-sponsors-block .view-content .views-field { display: table; height: 100px; margin-bottom: 10px; }
+.view-event-sponsors-block .view-content .views-field .field-content { width: auto; text-align: center; display: table-cell; vertical-align: middle; padding: 0 5px; }
+
+.view-events-list table { margin-left: 10px; }
+.view-events-list td { width: 50%; }
+.view-events-list caption { text-transform: uppercase; font-size: 1.5em; color: #043852; margin-left: -10px; }
+
+.view-dataset-list caption { background: #ed1c24; }
+.view-dataset-list caption a { padding: 2px 25px 2px 10px; color: #fff; font-size: 1.1em; }
+.view-dataset-list th { padding: 0 7px; font-size: 1.1em; }
+.view-dataset-list td.views-field-created, .view-dataset-list td.views-field-field-format { width: 20%; }
+.view-dataset-list td.views-field-title-1 { width: 60%; }
+
+.view-latest-news .views-row { margin: 5px 0; }
+
+#user-login ul.github-links { margin: 0 40px 0 0; padding: 0; }
+#user-login li.github-link { float: left; list-style-type: none; width: 100%; margin: 0; }
+#user-login li.github-link a { -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; background: #eeeeee; background-image: none; padding: 8px 16px 8px 40px; position: relative; width: 100%; display: block; }
+#user-login li.github-link a:before { content: "\f113"; font-family: "FontAwesome"; font-size: 1.5em; position: absolute; top: 2px; left: 12px; }
+#user-login li.github-link a:hover { color: #043852; background: #cccccc; }
+#user-login li.github-link span.ext { display: none; }
+#user-login ul.rpx-links { margin: 10px 0 20px 0; padding: 0; float: left; list-style-type: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; background: #eeeeee; background-image: none; padding: 8px 16px 8px 0; position: relative; }
+#user-login ul.rpx-links a { background-image: none; }
+#user-login ul.rpx-links a:hover { color: #043852; background: #cccccc; }
+#user-login ul.rpx-links span.ext { display: none; }
+#user-login .form-item { clear: both; }
+
+.view-solr-search h2.title { margin-bottom: 0; line-height: 1.25em; }
+
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-field-icon, .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-nothing { text-align: center; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column { display: inline-block; width: 19.5%; margin: 0; padding: 0; vertical-align: top; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field { margin: 0 auto 8px; padding: 0 10px; text-align: center; text-transform: uppercase; display: table; min-height: 35px; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field a { color: #2fabe7; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field a:hover { color: #6edb00; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field .category-label { display: table-cell; line-height: 1.25em; vertical-align: middle; }
+
+.region-footer .block-views h2.block-title { color: #cccccc; font-size: 1.5em; position: relative; text-align: center; text-transform: uppercase; }
+.region-footer .block-views h2.block-title:before { content: "."; color: #fff; border-top: 1px solid #ececec; position: absolute; left: 0; top: 50%; width: 33%; }
+.region-footer .block-views h2.block-title:after { content: "."; color: #fff; border-top: 1px solid #ececec; position: absolute; right: 0; top: 50%; width: 33%; }
+.region-footer .block-views .view-content { *position: relative; *zoom: 1; }
+.region-footer .block-views .view-content .views-row { margin-bottom: 25px; }
+.region-footer .block-views .view-content .views-row .field-content { margin: 0 auto; text-align: center; vertical-align: middle; }
+.region-footer .block-views .view-content:before, .region-footer .block-views .view-content:after { content: ""; display: table; }
+.region-footer .block-views .view-content:after { clear: both; }
+.region-footer .block-views .view-content .views-row:nth-of-type(3n+1) { clear: left; float: left; width: 33.33333%; margin-left: 0%; margin-right: -33.33333%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }
+.region-footer .block-views .view-content .views-row:nth-of-type(3n+2) { float: left; width: 33.33333%; margin-left: 33.33333%; margin-right: -66.66667%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }
+.region-footer .block-views .view-content .views-row:nth-of-type(3n+3) { float: left; width: 33.33333%; margin-left: 66.66667%; margin-right: -100%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; }

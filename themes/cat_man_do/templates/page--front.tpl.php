@@ -113,13 +113,11 @@
               </header>
             <?php endif; ?>
 
-            <?php if ($content = render($page['content'])): ?>
+            <?php if ($is_front == FAlSE && $content = render($page['content'])): ?>
               <div id="content">
                 <?php print $content; ?>
               </div>
             <?php endif; ?>
-
-            <?php print $feed_icons; ?>
 
             <?php print render($title_suffix); // Prints page level contextual links ?>
 

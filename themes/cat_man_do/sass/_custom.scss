@@ -1,39 +1,22 @@
 //
 // Custom sass variables and mixins
 //
-// Variables
-// -----------------------------------------------------------------------------
-// The variables set here serve only as example of how you can use SASS variables
-// to centralize and control frequently used styles more easily. Here you will
-// find variables for colors, fonts and the global gutter width.
-//
-// Mixins
-// -----------------------------------------------------------------------------
-// To use a mixin in this file, add this line to the top of your .scss file:
-//   @import "base"; (_base.scss imports _custom.scss).
-//
-// Then to use a mixin for a particular rule, add this inside the ruleset's
-// curly brackets:
-//   @include mix-in-name;
-//
 
-//
 // Color Variables
-// Colors used in the sample global.styles. You can use these to recolor many
-// elements such as forms, tables, tabs etc.
 //
 $red:          #ed1c24; // cat_man_do red
-$blue:         #4690d7; // cat_man_do blue
-$dark:         #164e83; // dark blue
-$whisper:      #ECF4FB; // cityscape
-$skyblue:      #8AD8F7; // #77C9EC;
+$green:        #6edb00; // cat_man_do green
+$blue:         #2fabe7; // cat_man_do blue
+$dark:         #043852; //#043852; // dark blue
+$whisper:      #ECF4FB; // just a hint of blue
+$medium:       #0d7db3; // #77C9EC;
 $page:         #fff;    // to match the page background, default is white
-$border:       #D1E9FC;    // all borders set in global.styles - tables, fieldset, primary links
+$border:       lighten($blue,35%);    // all borders set in global.styles - tables, fieldset, primary links
 $highlight:    #c00;    // required mark, form error highlight, "new" label on comments
 $ultralight:   #f5f5f5; // table row even, primary link inactive tabs
 $light:        #eee;    // table row odd active, primary link inactive hover
-$medium_light: #ebebeb; // table row even active
-$medium_dark:  #e5e5e5; // table thead
+$medium_light: #ececec; // table row even active
+$medium_dark:  #cccccc; // table thead
 $debug:        rgba(255, 192, 203, 0.5); // Full width wrapper test
 
 $thead:          $medium_dark;
@@ -49,9 +32,9 @@ $primary_task_active: $page;
 
 //
 // Font Variables
-// These font stacks are an exact copy of the stacks found in AT Cores
-// theme settings for web safe fonts.
 //
+$site-font:                   'Lato', sans-serif;
+$icons:                       'FontAwesome';
 $fat-header:                  'governorregular', Arial, Helvetica, sans-serif;
 $thin-header:                 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
 $sans-serif-small:            'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -69,13 +52,13 @@ $mono:                        Consolas, Monaco, 'Courier New', Courier, monospac
 //
 // Gutters
 //
-// Set a variable for the gutters. Adaptivetheme allows you to easly modify the
-// global gutter width for precise control over the design. Panel pages need
-// special gutter wrangling when a Panel is inside #content wrapper, so to ease
-// setting this we use a variable.
-//
 $gutter-width: 10px;
 
+
+@mixin null_appearance {
+  -moz-appearance:none;
+  -webkit-appearance:none;
+}
 
 //
 // Markup free clearing

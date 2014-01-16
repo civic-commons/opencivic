@@ -84,6 +84,7 @@
   regions[secondary_content] = Secondary
   regions[tertiary_content]  = Tertiary
   regions[footer]            = Footer
+  regions[footer_menu]       = Footer Menu
   regions[leaderboard]       = Leaderboard
   regions[header]            = Header
   regions[menu_bar]          = Menu Bar
@@ -136,7 +137,7 @@
   ; plugins[page_layout][layouts] = layouts/page
 
   ; Panels layout plugins
-  ; plugins[panels][layouts] = layouts/panels
+  plugins[panels][layouts] = layouts/panels
 
 
 ;----------// Site Features

@@ -2,54 +2,22 @@
 // _base.scss imports _custom.scss (variables and mixins) and other partials.
 @import "base";
 
-
-/*
- * @file
- * global.styles
- *
- * Styles you add here will load for all device sizes, they are "global", as
- * opposed to "responsive" styles, which only load for a given breakpoint (media
- * query) that you set in theme settings. See the README for more details.
- *
- *
- * How to use this file:
- * --------------------
- *
- * There are many empty selectors and some basic styles to act as a guide.
- * Nothing is set in stone and you can change anything - even delete all of it
- * and start with your own clean slate.
- *
- * To FORCE PRINT all selectors you can search and replace a single { (opening
- * curly brace) and insert an empty comment. This is very useful in conjuction
- * with FireSass: https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
- *
- * See global.base also which includes normalize.css and some additional
- * helper classes and base styles.
- */
-
 /* =============================================================================
  *   Base
  * ========================================================================== */
-
-/* 
- * To preserve theme settings never apply font properties to the HTML element.
- * This is critically important if you are using the Responsive JavaScript
- * feature as this relies on being able to set a pseudo font family on the HTML
- * element. If you need to set default font properties of any kind use the BODY
- * element as these can be overridden using font theme settings.
- */
 
 html {
   background: $page;
 }
 
 body {
-  font-family: $sans-serif-small; // Set from _custom.scss font variables
+  font-family: $site-font; // Set from _custom.scss font variables
   font-size: 87.5%;
 }
 
-#page {
+.container {
   max-width: 960px;
+  margin:0 auto;
 }
 
 /* =============================================================================
@@ -57,110 +25,41 @@ body {
  * ========================================================================== */
 
 #page-title {
-    font-family: $fat-header;
-    font-weight: normal !important;
-    text-transform: uppercase;
-    color:$blue;
+  color:$blue;
+  margin:1.5em 0 1em;
+  text-transform: uppercase;
 }
 .front #page-title {
   display: none;
 }
 .node-teaser h1.node-title {
-  font-family: $fat-header;
-  font-weight: normal;
   font-size:1.35em;
   line-height: 1.2em;
 }
 
-
 h2 {
-  font-family: $fat-header;
-  font-weight: normal !important;
   color:$blue;
   font-size: 1.7em;
 }
 h2.block-title {
-  font-family:$thin-header;
   font-size:2em;
+  font-weight:normal;
+  margin:1em 0 .5em;
+}
+h2.pane-title {
+  font-weight:normal;
+  margin:1em 0 .5em;
+}
+.pond-container h2.pane-title,
+.pond-container h2.block-title,
+.three-3x33 h2.pane-title,
+.three-3x33 h2.block-title {
+  margin-top:0;
 }
 
 h3 {
-  font-weight: normal;
-  font-family: $fat-header;
   color:$dark;
 }
-
-
-h4 {}
-
-
-h5 {}
-
-
-h6 {}
-
-
-p {}
-
-
-b,
-strong {}
-
-
-i,
-em {}
-
-
-dfn {}
-
-
-sup {}
-
-
-sub {}
-
-
-del {}
-
-
-ins {}
-
-
-blockquote {}
-
-
-cite {}
-
-
-q {}
-
-
-address {}
-
-
-ul {}
-
-
-ol {}
-
-
-li {}
-
-
-dl {}
-
-
-dd {}
-
-
-dt {}
-
-
-abbr {}
-
-
-acronym {}
-
 
 pre,
 code,
@@ -176,39 +75,86 @@ var {
  *   Wrappers
  * ========================================================================== */
 
-/*
- * Page wrapper, includes the .container class which sets the overall page or section width
- * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
- */
+#page-wrapper {
+  border-top:6px solid $blue;
+  .container {}
+}
 #page  {
   position: relative;
   .container {}
 }
 
-
-/*
- * Wraps all header elements - branding and .region-header
- */
-#header {}
-
-
-/*
- * Wraps the sidebars the content column
- */
-#columns {}
-
-
-/*
- * Main content column wrapper
- */
-#content-column {
-  background:transparent url(images/cityscape.png) no-repeat 50% 95%;
+#header-wrapper {
+  #header {
+    @include zen-grid-container;
+    #branding {
+      @include zen-grid-item(6,1,left);
+      #logo {
+        float:left;
+      }
+    }
+    #secondary-menu-bar {
+      clear:none;
+      padding-left:0;
+      @include zen-grid-item(6,1,right);
+      .menu-wrapper {
+        margin-left:0;
+      }
+      nav ul.menu {
+        float:right;
+        li a {
+          padding: 0 6px;
+          font-size:1em;
+        }
+      }
+    }
+    .region-header {
+      @include zen-clear(right);
+      @include zen-grid-item(6,1,right);
+      #block-views-exp-solr-search-page {
+        float:right;
+        width:auto;
+      }
+    }
+  }
 }
-
-
-/*
- * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
- */
+#secondary-content-wrapper {
+  background:$blue;
+  color:#fff;
+  .block-content {
+    a {
+      color:$dark;
+    }
+  }
+  .region {
+    padding:40px 0;
+  }
+  .region-secondary-content .block {
+    @include zen-grid-container;
+    .highlight-text {
+      @include zen-grid-item(8,1);
+      font-size:1.15em;
+      font-weight:normal;
+    }
+    .highlight-button {
+      @include zen-grid-item(4,9);
+      text-align:center;
+      a {
+        color:#fff;
+        background:$green;
+        display:inline-block;
+        font-size:1.5em;
+        font-weight:normal;
+        margin-top:10%;
+        padding:10px 20px;
+        &:hover {
+          background:$dark;
+          text-decoration:none;
+        }
+      }
+    }
+  }
+}
 #main-content {
   @include zen-grid-container;
   margin:0;
@@ -216,118 +162,35 @@ var {
 body.sidebar-second #main-content {
   padding-right:20px;  
 }
-.page-event #main-content {
-  background: none;
-}
 
-/*
- * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
- */
-#content {}
-
-
-/*
- * Footer wrapper
- */
-#footer {}
-
-
-/*
- * Panels may need additional margin wrangling when in the $content region
- */
-#content .panel-display {}
-
-
-/*
- * Full Width Wrappers
- * These are used in the optional page--full-width-wrappers.tpl.php template.
- * All have internal .container classes. In the full width wrapper template the
- * .container classes set the width or max-width of the contained element - you
- * can style this but never add any width/margin/padding/borders etc to .container
- */
-
-/*
- * Wraps #page
- */
-#page-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps the leaderboard
- */
-#leaderboard-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps the header
- */
-#header-wrapper {
-  /* Debug styles, is this working */
-  background: $debug;
-  .container {}
-}
-
-
-/*
- * Wraps the nav elements
- */
 #nav-wrapper {
-  .container {}
+   background:$medium;
+  .container { 
+  }
 }
-
-
-/*
- * Wraps breadcrumb
- */
-#breadcrumb-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps messages and help
- */
-#messages-help-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps the secondary content/preface region
- */
-#secondary-content-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps the main content column
- */
-#content-wrapper {
-  .container {}
-}
-
-
-/*
- * Wraps the tertiary content/postfix region
- */
-#tertiary-content-wrapper {
-  .container {}
-}
-
-
-/*
- * Footer wrapper
- */
-#footer-wrapper {
-  /* Debug styles, is this working? */
-  background: $debug;
-
-  .container {}
+#footer-nav-wrapper {
+  background:$dark;
+  height:60px;
+  #block-menu-menu-footer-menu {
+    h2.block-title {
+      display:none;
+    }
+    margin:0;
+    ul,li {
+      margin:0;
+      padding:0;
+      list-style-type:none;
+    }
+    li {
+      display:inline;
+      a {
+        color:#fff;
+        float:left;
+        padding: 20px 15px 0;
+        text-transform:uppercase;
+      }
+    }
+  }
 }
 
 
@@ -335,99 +198,33 @@ body.sidebar-second #main-content {
  *   Branding
  * ========================================================================== */
 
-/*
- * Wraps all the branding elements, logo, name and slogan
- */
 #branding {
   margin:0;
 }
 
-
-/*
- * Logo
- */
 #logo {
-  padding: 10px 0 0;
-
+  display:inline-block;
+  padding: 15px 0 0 5px;
   img {
     vertical-align: bottom;
   }
 }
 
-
-/*
- * Wrapper for the site name and slogan (hgroup)
- */
-#name-and-slogan {}
-
-
-/*
- * Site name (h1)
- */
-#site-name {
-  margin: 0;
-
-  a {
-
-    &:link,
-    &:visited {
-      text-decoration: none;
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
+#name-and-slogan {
+  h2#site-slogan {
+    color:#6e6e6e;
+    font-style:italic;
+    font-weight:300 !important;
+    font-size:16px;
+    margin:0 0 10px;
   }
+  display:inline-block;
+  margin: 0 10px;
 }
-
-
-/*
- * Site slogan (h2)
- */
-#site-slogan {
-  margin: 0;
-}
-
-
-/* =============================================================================
- *   Page content header
- * ========================================================================== */
-
-/*
- * Main content header wraps the page title, tabs and actions links
- */
-#main-content-header {}
-
-
-/*
- * The main page title (h1)
- */
-#page-title {
-  margin: 0;
-  text-transform: uppercase;
-}
-
 
 /* =============================================================================
  *   Misc Global Styles
  * ========================================================================== */
-
-/*
- * Feed icons
- */
-.feed-icon {}
-
-
-/*
- * Aggregator feed source
- */
-#aggregator .feed-source .feed-icon {
-  display: inline;
-  float: none;
-  margin-right: 10px;
-}
-
 
 .feed-details dt,
 .feed-details dd {
@@ -435,16 +232,8 @@ body.sidebar-second #main-content {
   margin: 0;
 }
 
-
-/*
- * Generic styles for the more link
- */
 .more-link {}
 
-
-/*
- * Generic styles for links. See the ul.links declaration in node and comment stylesheets
- */
 ul.links {
   margin: 0;
   padding: 0;
@@ -460,10 +249,6 @@ ul.links {
   }
 }
 
-
-/*
- * Search results are an ordered list so reset the margin
- */
 .search-results {
   margin: 0;
 }
@@ -473,83 +258,49 @@ ul.links {
  *   Regions
  * ========================================================================== */
 
-/*
- * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
- */
-.region {}
-
-
-/*
- * Regions have an inner div - perfect for adding margin, padding or borders
- */
-.region-inner {}
-
-
-/*
- * Regions can be nested, such as when using Panels
- */
-.region-inner .region-inner {}
-
-
-/*
- * Header region, embedded in the #header
- */
-.region-header {}
-
-
-/*
- * Generally used to output Drupals help block, if the help module is enabled
- */
-.region-help {}
-
-
-/*
- * Secondary content
- */
-.region-secondary-content {}
-
-
-/*
- * Sits above the main content header, like a content-top region
- */
-.region-highlighted {}
-
-
-/*
- * Sits below the main content, like a content-bottom region
- */
-.region-content-aside {}
-
-
-/*
- * Sidebars - targets both
- */
-.sidebar {}
-
-
-/*
- * First sidebar
- */
-.region-sidebar-first {}
-
-
-/*
- * Second sidebar
- */
-.region-sidebar-second {}
-
-
-/*
- * Tertiary content
- */
-.region-tertiary-content {}
-
-
-/*
- * Footer region
- */
-.region-footer {}
-
+div.region .block {
+  margin-left:10px;
+  margin-right:10px;
+}
+//frontpage
+.cfr-pond-header {
+  margin-bottom:0;
+  .panel-pane,
+  .block-inner,
+  h2.block-title {
+    margin-bottom:0;
+  }
+}
+.cfr-pond-column-content-row1 {
+  h2.block-title {
+    color:#fff;
+    background:$green;
+    font-size:1.5em;
+    margin:10px 0;
+    padding:5px 8px;
+    text-align:center;
+  }
+  a:link,
+  a:visited {
+    color:$blue;
+  }
+  .block {
+    margin-bottom:0;
+  }
+}
+.cfr-pond-column-content-row2 {
+  h2.block-title {
+    margin-top:0;
+  }
+}
+.cfr-pond-middle {
+  margin-bottom:0;
+}
+.cfr-pond-footer {
+  .view-blog .views-row {
+    border:none;
+  }
+}
 
 /* =============================================================================
  *   Links
@@ -560,7 +311,7 @@ a {
 
   &:link,
   &:visited {
-    color:$red;
+    color:darken($green,10%);
   }
 
   &:active,
@@ -569,7 +320,7 @@ a {
   &:hover,
   &:focus {
     text-decoration: underline;
-    color:$blue;
+    color:$green;
   }
 }
 
@@ -578,38 +329,51 @@ a {
  *   Primary, Secondary and Menu Bar region menus
  * ========================================================================== */
 
-/*
- * Use one of the following id's for granular control:
- *  - #menu-bar (menu bar region)
- *  - #primary-menu (main menu)
- *  - #secondary-menu (secondary/user menu)
- * You can target all of these with .nav or div[id$="menu-bar"]
- */
 
 #menu-bar {
-  height:40px;
-  line-height: 40px;
-  background: $blue;
-  nav ul.menu {
-    a {
+  background: $medium;
+  height:50px;
+  line-height: 50px;
+  margin:0;
+  nav#block-menu-block-1 {
+    display:inline-block;
+    li.leaf a {
       color:#fff;
-      font-family: $fat-header;
+      border-right:1px solid $medium;
       font-weight: normal !important;
       text-transform: uppercase;
       font-size:1.2em;
     }
-    a:hover {
-      background: $red;
-      @include box-shadow(#900 0 0 10px inset);
+    li.leaf a:hover {
+      @include box-shadow($dark 0 0 12px inset);
+    }
+    li.leaf a.active {
+      @include box-shadow($dark 0 0 12px inset);
+      color:$green;
     }
   }
   #block-system-main-menu {
     margin:0;
     float: left;
   }
-  #block-menu-menu-social-links {
+  nav#block-block-3 {
     float:right;
-    margin:0;
+    margin:0 20px 0 0;
+    max-height:50px;
+    p {
+      margin:0;
+      a {
+        color:#fff;
+        font-size:26px;
+        margin:0 10px;
+        &:hover {
+          color:$dark;
+        }
+      }
+      span.ext {
+        display:none;
+      }
+    }
   }
 }
 .nav {
@@ -838,30 +602,6 @@ ul.menu {
   padding: 0;   
 }
 
- 
-/* =============================================================================
- *   Book navigation menu
- * ========================================================================== */
-
-.book-navigation {
-
-  .page-links {}
-
-  .page-previous {}
-
-  .page-next {}
-
-  .page-up {
-    /* Prevent text wrapping to a new line, assumes English "up" is used (two characters) */
-    min-width: 2em;
-    white-space: nowrap;
-  }
-  
-  .menu {
-    margin-left: 0;
-  }
-}
-
 
 /* =============================================================================
  *   Breadcrumbs
@@ -919,7 +659,7 @@ ul.menu {
 
 ul.pager {
   clear: both;
-  margin: 0;
+  margin: 1em 0;
   text-align: center;
 }
 
@@ -1171,98 +911,6 @@ ul.action-links {
 
 
 /*
- * Text
- */
-.field-type-text {}
-
-
-/*
- * Long text
- */
-.field-type-text-long {}
-
-
-/*
- * Text with summary
- */
-.field-type-text-with-summary {}
-
-
-/*
- * File
- */
-.field-type-file {}
-
-
-/*
- * Number/Integer
- */
-.field-type-number-integer {}
-
-
-/*
- * Decimal
- */
-.field-type-number-decimal {}
-
-
-/*
- * Number float
- */
-.field-type-number-float {}
-
-
-/*
- * List
- */
-.field-type-list-text {}
-
-
-/*
- * List boolean
- */
-.field-type-list-boolean {}
-
-
-/*
- * List integer
- */
-.field-type-list-integer {}
-
-
-/*
- * List float
- */
-.field-type-list-float {}
-
-
-/*
- * Field types (Contrib)
- */
-.field-type-datetime {}
-
-.field-type-node-reference {}
-
-.field-type-user-reference {}
-
-
-/*
- * Named fields
- */
-.field-name-body {}
-
-.field-name-field-image {}
-
-.field-name-field-tags {}
-
-
-/*
- * Underscores in field name are replaced with dashes
- */
-.field-name-field-FIELDNAME {}
-
-
-/*
  * Image Alignment Theme Settings - included here so you can easily override 
  */
 
@@ -1305,61 +953,14 @@ ul.action-links {
  *   Block Styling
  * ========================================================================== */
 
-/*
- * Main wrapper for most blocks, block_system_main does not have it
- */
 .block {
   margin-bottom: 20px;
 }
 
-
-/*
- * Inner wrapper for most blocks, good for margin, padding and borders, block_system_main does not have it
- */
-.block-inner {}
-
-
-/*
- * The first block in the region
- */
-.block.first {}
-
-
-/*
- * The last block in the region
- */
-.block.last {}
-
-
-/*
- * Zebra striping for each block in the region
- */
-.block.odd {}
-
-
-/*
- * Zebra striping for each block in the region
- */
-.block.even {}
-
-
-/*
- * Block title
- */
 .block-title {
   margin: 0;
 }
 
-
-/*
- * Block content wrapper
- */
-.block-content {}
-
-
-/*
- * Match item list and block menu margin and padding
- */
 .block-content {
 
   ul,
@@ -1373,349 +974,409 @@ ul.action-links {
   }
 }
 
-
-/*
- * Block for the latest news items in the first category
- */
-#block-aggregator-category-1 {}
-
-
-/*
- * Block for the latest news items in the first feed
- */
-#block-aggregator-feed-1 {}
-
-
-/*
- * First block created with "Add block" link
- */
-#block-block-2 {
-  @include zen-grid-container;
-  text-align: center;
-  padding:20px 0;
-  .option1{
-    @include zen-grid-item(3, 1);
-    background:url("images/plan.png") no-repeat scroll 50% 0 transparent;
+.pane-home-page-map-panel-pane-1 {
+  h2.pane-title {
+    margin:1.5em 0 0.5em;
   }
-  .option2{
-    @include zen-grid-item(3, 4);
-    background:url("images/support.png") no-repeat scroll 50% 8px transparent;
+}
+
+//frontpage featured items
+.view-nodequeue-4,
+.view-nodequeue-5,
+.view-nodequeue-6 {
+  .views-field-title{
+    font-size: 1.35em;
+    line-height: 1.2em;
+    font-weight:bold;
   }
-  .option3{
-    @include zen-grid-item(3, 7);
-    background:url("images/contribute.png") no-repeat scroll 50% 0 transparent;
+  .views-row {
+    padding-bottom:10px;
   }
-  .option4{
-    @include zen-grid-item(3, 10);
-    background:url("images/participate.png") no-repeat scroll 50% 0 transparent;
+  .view-footer p {
+    text-align:right;
   }
-  .block-content {
-    a {
-      color:$blue;
-      display: block;
-      padding:70px 10px 5px;
-      div {
-        margin: 0.5em 0.5em 0;
-        white-space: nowrap;
-        font-size: 1.7em;
-        font-family: $fat-header;
+}
+.view-nodequeue-5 {
+  .views-row {
+    position:relative;
+  }
+  .views-field-title a {
+    color:$dark;
+    padding-left:70px;
+  }
+  .views-field-body {
+    padding-left:70px;
+  }
+  .views-field-field-image {
+    display:inline;
+    position:absolute;
+    top:0;
+    left:0;
+  }
+}
+
+.view-top-rated-problems,
+.pane-top-rated-problems-panel-pane-2 {
+  .views-field-title-field {
+    //node titles
+    font-size: 1.35em;
+    line-height: 1.2em;
+    font-weight:bold;
+  }
+  .views-row {
+    margin-bottom:1em;
+  }
+  .views-field-field-image {
+    float:left;
+  }
+}
+
+.view-home-page-map {
+  .view-footer {
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    float: left;
+    .map-legend {
+      position: relative;
+      left: -50%;
+      height: 20px;
+      clear: both;
+      li {
+        float: left;
+        list-style-type: none;
+        padding-left: 30px;
+        padding-top: 2px;
+        height: 27px;
+        background-repeat: no-repeat;
+        margin-right: 20px;
+        margin-left: 0;        
+      }
+      .map-event {
+        background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend.png);
+      }
+      .map-problem {
+        background-image: url(/profiles/opencivic/themes/cat_man_do/images/problem-legend.png);
       }
     }
-    a:hover,
-    a h2:hover {
-      color:$red;
-      text-decoration: none;
+  }
+}
+
+/* Problem statement table */
+.view-problems-list {
+  .views-field-created {
+    white-space: nowrap;
+  }  
+}
+
+.pane-block-1,
+#block-block-1 {
+  a.button {
+    @include null_appearance;
+    background:$blue;
+    color:#fff;
+    display:block;
+    height:45px;
+    line-height:45px;
+    margin:.5em 0;
+    text-align:center;
+    vertical-align:middle;
+    &:hover {
+      background:$dark;
+      text-decoration:none;
     }
   }
 }
 
-#block-views-sponsors-block-block {
-  .view-header {
-    border-top:2px dotted $border;
-    border-bottom:2px dotted $border;
-    padding: 8px 0;
-  }
-  .view-header:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-}
-#block-views-event-sponsors-block-block {
-  border-top:1px solid #ccc;
-  padding-top:10px;
-  .view-content {
-  }
-}
-#block-views-event-organizers-block {
-  border-top:1px solid #ccc;
-  clear:both;
-  padding-top:10px;
-  .views-row {
-    width:45%;
-    float:left;
-    padding: 10px 5px 0 0;
-    .views-field-field-image {
-      float:left;
-      margin-right:10px;
-    }
-    .views-field-field-email a {
-      background: transparent url(images/email_sm.png) no-repeat 0 0;
-      width:20px;
-      height:20px;
-      text-indent: -9999px;
-      overflow: hidden;
-      display: block;
-      margin-top:5px;
-    }
-    .views-field-field-description {
-      font-size: .9em;
-      line-height: 1.1em;
+/* Events map */
+.view-events-map {
+  .view-footer {
+    margin: 0 auto 20px auto;
+    position: relative;
+    left: 50%;
+    float: left;
+    .map-legend {
+      position: relative;
+      left: -50%;
+      height: 20px;
+      clear: both;
+      li {
+        float: left;
+        list-style-type: none;
+        padding-left: 30px;
+        padding-top: 2px;
+        height: 27px;
+        background-repeat: no-repeat;
+        margin-right: 20px;
+        margin-left: 0;        
+      }
+      .map-event-core {
+        background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend.png);
+      }
+      .map-event-affiliate {
+        background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend1.png);
+      }
+      .map-event-unaffiliated {
+        background-image: url(/profiles/opencivic/themes/cat_man_do/images/event-legend2.png);
+      }
     }
   }
 }
-#block-views-event-github-block {
-  border-top:1px solid #ccc;
-  border-bottom:1px solid #ccc;
-  background: transparent url(images/octocat.png) no-repeat 0 15px;
-  padding-left:80px;
-  height:85px;
-  line-height: 85px;
-  h2.block-title {
+
+
+#views-exposed-form-solr-search-page,
+#block-views-exp-search-page {
+  margin:0;
+  .block-inner {
+    margin:0;
+  }
+  label.compact-form-label {
+    color:$blue;
+    font-family:$sans-serif-small;
+    font-size: 1.1em;
+    font-weight:300;
+    left: 10px;
+    top: 6px;
+  }
+  input.form-text {
+    background:$medium_light;
+    border:none;
+    padding:10px;
+    width:200px;
+    @include border-radius(0);
+    &:focus {
+      border:none;
+    }
+  }
+  input.form-submit {
     display:none;
   }
-  .views-field-field-github a {
-    padding: 6px 20px;
-    @include background-image(linear-gradient($blue, $dark));
-    @include border-radius(3px);
-    border:1px solid $dark;
-    color:#fff;
-  }
-  .views-field-field-github a:hover {
-    text-decoration: none;
-    @include background-image(linear-gradient($red,#c00));
-    border:1px solid #c00;
+  .views-exposed-form .views-exposed-widget {
+    float:none;
+    padding:0;
   }
 }
 
-#block-views-organizer-at-a-glance-block,
-#block-views-dataset-at-a-glance-block,
-#block-views-challenge-at-a-glance-block,
-#block-views-event-at-a-glance-block {
-  .views-field {
-    padding:0 0 10px 40px;
-    .views-label {
-      color:$red;
-      font-weight: bold;
-    }
-  }
-  .views-field-field-image,
-  .views-field.views-field-field-description {
-    padding:0 0 10px 0;
-  }
-  .views-field-field-address,
-  .views-field-field-location {
-    background: transparent url(images/event-location.png) no-repeat 0 0;
-  }
-  .views-field-field-frequency,
-  .views-field-field-start-date {
-    background: transparent url(images/clock.png) no-repeat 0 0;
-  }
+.node-type-application .sidebar,
+.node-type-event .sidebar,
+.node-type-problem .sidebar  {
+  //icon placement spacing
+  .views-field-field-release-notes,
+  .views-field-field-install-url,
+  .views-field-field-creator,
+  .views-field-field-software-type,
   .views-field-field-civic-category,
-  .views-field-field-event-type {
-    background: transparent url(images/event-bolt.png) no-repeat 0 0;
-  }
-  .views-field-field-url {
-    background: transparent url(images/event-mouse.png) no-repeat 0 0;
-  }
-  .views-field-field-author,
-  .views-field-field-performer {
-    background: transparent url(images/event-host.png) no-repeat 0 0;
-  }
-  .views-field-field-twitter-hashtag {
-    background: transparent url(images/event-tweet.png) no-repeat 0 0;
-  }
-  .views-field-field-resource,
+  .views-field-field-download-url,
   .views-field-field-file-attachments,
-  .views-field-field-url-related {
-    background: transparent url(images/event-links.png) no-repeat 0 0;
+  .views-field-field-telephone,
+  .views-field-field-aggregate-rating,
+  .views-field-field-keywords,
+  .views-field-field-application-category,
+  .views-field-field-civic-category,
+  .views-field-field-url,
+  .views-field-name,
+  .views-field-field-problem-author,
+  .views-field-field-address,
+  .views-field-field-requirements {
+    padding-left:1.5em;
+    position:relative;
   }
-  .views-field-field-keywords {
-    background: transparent url(images/tag.png) no-repeat 0 0;
+  .views-field-field-release-notes:before,
+  .views-field-field-install-url:before,
+  .views-field-field-creator:before,
+  .views-field-name:before,
+  .views-field-field-software-type:before,
+  .views-field-field-civic-category:before,
+  .views-field-field-download-url:before,
+  .views-field-field-file-attachments:before,
+  .views-field-field-telephone:before,
+  .views-field-field-aggregate-rating:before,
+  .views-field-field-keywords:before,
+  .views-field-field-application-category:before,
+  .views-field-field-civic-category:before,
+  .views-field-field-url:before,
+  .views-field-field-problem-author:before,
+  .views-field-field-address:before,
+  .views-field-field-requirements:before {
+    font-family: FontAwesome;
+    position:absolute;
+    top:0;
+    left:0;
   }
-  .views-field-field-aggregate-rating {
-    background: transparent url(images/rating.png) no-repeat 0 0;
-  }
-  .views-field-field-telephone {
-    background: transparent url(images/phone.png) no-repeat 0 0;
-  }
-  .views-field-field-email,
-  .views-field-field-email-1 {
-    background: transparent url(images/email.png) no-repeat 0 0;
-  }
-  .views-field-field-contact-point {
-    background: transparent url(images/skype.png) no-repeat 0 0;
-  }
-  .views-field-field-hackpad {
-    background: transparent url(images/event-hackpad.png) no-repeat 0 0;
-    a {
-      font-weight: bold;
-    }
-  }
-  .views-field-view {
-    background: transparent url(images/event-host.png) no-repeat 0 0;
-    .view-event-organizers-names {
-      .item-list ul li .views-field {
-        margin:0;
-        padding:0;
-      }
-    }    
+  //icon codes
+  .views-field-field-install-url:before { content:"\f109"; }
+  .views-field-field-release-notes:before,
+  .views-field-field-file-attachments:before { content:"\f15b"; }
+  .views-field-field-telephone:before { content:"\f095"; }
+  .views-field-field-aggregate-rating:before { content:"\f005"; }
+  .views-field-field-keywords:before { content:"\f02c"; }
+  .views-field-field-software-type:before,
+  .views-field-field-civic-category:before,
+  .views-field-field-application-category:before,
+  .views-field-field-civic-category:before { content:"\f02b"; }
+  .views-field-field-download-url:before { content: "\f0ac"; }
+  .views-field-field-url:before { content: "\f015"; }
+  .views-field-field-creator:before,
+  .views-field-name:before,
+  .views-field-field-problem-author:before { content: "\f007"; }
+  .views-field-field-address:before { content: "\f041"; }
+  .views-field-field-requirements:before { content: "\f0c9"; }
+}
+
+//problem statement map & org node map
+#block-views-organization-map-block,
+#block-views-8a46796849269d8e113b11b88308e01c {
+  margin-bottom:0;
+  .block-content {
+    margin:10px 0 0 0;
   }
 }
 
-/*
- * "Recent blog posts" block
- */
-#block-blog-recent {}
+.sidebar {
+  .view-organization-related-deployments,
+  .view-replated-deployments {
+    .views-row {
+      padding-left:1.5em;
+      position:relative;
+      margin:0 0 .6em 0;
+    }
+    .views-row:before {
+      content: "\f041";
+      font-family: FontAwesome;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    .views-field-field-url {
+      padding:0;
+      &:before {
+        content:"";
+      }
+    }
+  }
+  h2.block-title {
+    background:$blue;
+    color:#fff;
+    font-size:1.15em;
+    margin:10px 0;
+    padding:5px 10px;
+    text-transform:uppercase;
+  }
+  .block-inner {
+    margin:0 10px;
+  }
+  .block-content {
+    margin:0 12px;
+  }
+}
 
-
-/*
- * "Book navigation" block for the current book's table of contents
- */
-#block-book-navigation {}
-
-
-/*
- * "Recent comments" block
- */
-#block-comment-recent {}
-
-
-/*
- * "Active forum topics" block
- */
-#block-forum-active {}
-
-
-/*
- * "New forum topics" block
- */
-#block-forum-new {}
-
-
-/*
- * Language switcher block
- */
-#block-locale-language {}
-
-
-/*
- * Custom menu block
- */
-#block-menu-menu-NAME {}
-
-
-/*
- * "Recent content" block
- */
-#block-node-recent {}
-
-
-/*
- * "Syndicate" block for primary RSS feed; see also page.css's .feed-icon
- */
-#block-node-syndicate {}
-
-
-/*
- * "Most recent poll" block
- */
-#block-poll-recent {}
-
-
-/*
- * "Author information" block for the profile of the page's author
- */
-#block-profile-author-information {}
-
-
-/*
- * "Search form" block
- */
-#block-search-form {}
-
-
-/*
- * "Shortcuts" block
- */
-#block-shortcut-shortcuts {}
-
-
-/*
- * "Popular content" block
- */
-#block-statistics-popular {}
-
-
-/*
- * "Main menu" block
- */
-#block-system-main-menu {}
-
-
-/*
- * "Management" block for Drupal management menu
- */
-#block-system-management {}
-
-
-/*
- * "Navigation" block for Drupal navigation menu
- */
-#block-system-navigation {}
-
-
-/*
- * "User menu" block for Drupal user menu
- */
-#block-system-user-menu {}
-
-
-/*
- * "System help" block
- */
-#block-system-help {}
-
-
-/*
- * "Main page content" block
- */
-#block-system-main {}
-
-
-/*
- * "Powered by Drupal" block
- */
-#block-system-powered-by {}
-
-
-/*
- * "User login form" block
- */
-#block-user-login {}
-
-
-/*
- * "Who's new" block for a list of the newest users
- */
-#block-user-new {}
-
-
-/*
- * "Who's online" block for a list of the online users
- */
-#block-user-online {}
-
+.block-facetapi {
+  @include border-radius(4px);
+  @include box-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  .block-inner,
+  .block-content {
+    margin:0;
+  }
+  h2.block-title {
+    @include border-top-radius(4px);
+    color:#fff;
+    background:$medium;
+    border-bottom:1px solid $medium_dark;
+    font-size:1em;
+    margin-bottom:0;
+    padding:7px 15px;
+  }
+  ul {
+    margin:0 0 0.5em;
+    padding:0;
+    @include border-bottom-radius(4px);
+  }
+  ul li.leaf,
+  ul li.collapsed,
+  ul li.expanded {
+    border-bottom:1px dotted $medium_dark;
+    list-style-type:none;
+    list-style-image:none;
+    margin:0;
+    padding:0;
+    li {
+      position:relative;
+      a {
+        padding-left:48px;
+      }
+    }
+    li:before {
+      content:"\f178";
+      font-family:$icons;
+      color:$medium_dark;
+      position:absolute;
+      top:4px;
+      left:30px;
+    }
+    a {
+      color:$dark;
+      display:block;
+      padding:3px 10px 3px 25px;
+      position:relative;
+      &:hover {
+        color:darken($green, 10%);
+        background: rgba(black, 0.05);
+        text-decoration:none;
+      }
+      &:hover:after {
+        content:"\f055";
+        color:$green;
+        font-family:$icons;
+        position:absolute;
+        top:4px;
+        left:6px;
+      }
+    }
+    a.facetapi-active {
+      background:rgba(black, 0.15);
+      border-bottom:1px solid #fff;
+      color:#333;
+    }
+    a.facetapi-active:before {
+      @include transform(scalex(.8)); //remove jagged edge
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 15px 15px 15px 0;
+      border-color: transparent rgba(black, 0.15);
+      display: block;
+      width: 0;
+      z-index: 1;
+      left: -12px;
+      top: -2px;
+    }
+    a.facetapi-active:after {
+      content:"\f00d";
+      font-family:$icons;
+      position:absolute;
+      top:3px;
+      left:6px;
+    }
+    a.facetapi-active:hover:after {
+      color:red;
+    }
+  }
+  a.facetapi-limit-link {
+    display:block;
+    padding:5px 5px 5px 30px;
+    position:relative;
+  }
+  a.facetapi-limit-link:before {
+    content:"\f150";
+    font-family:$icons;
+    position:absolute;
+    top:6px;
+    left:15px;
+  }
+  a.facetapi-limit-link.open:before {
+    content:"\f151";
+  }
+}
 
 /* =============================================================================
  *   Node Styling
@@ -1723,20 +1384,6 @@ ul.action-links {
 
 .node {
   margin-bottom: 20px;
-
-  &.node-promoted {}
-
-  &.node-sticky {}
-
-  &.node-by-viewer {}
-
-  &.node-teaser {}
-
-  &.node-full {}
-
-  &.odd {}
-
-  &.even {}
 
   .node-title {
     margin: 0;
@@ -1756,8 +1403,6 @@ ul.action-links {
 
   .node-content {
     h2.field-label {
-      font-family: $thin-header;
-      font-weight: normal;
       font-size: 1.5em;
       text-transform: uppercase;
     }
@@ -1785,23 +1430,20 @@ ul.action-links {
     min-height: 400px;
   }
 }
-.preview .node {}
-
-
-/*
- * All nodes are given a node-FOO class that describes the type of content that
- * it is. If you create a new content type called "my-custom-type", it will
- * receive a "node-my-custom-type" class.
- */
-.node-page {}
-
-.node-article {}
-
-.node-book {}
-
-.node-forum {}
-
-.node-poll {}
+.node-type-organization,
+.node-type-application {
+  .field-name-field-image,
+  .field-name-field-logo {
+    float:left;
+    margin:0 15px 10px 0;
+  }
+}
+.node-blog {
+  .field-name-field-image {
+    float:right;
+    margin:0 0 10px 15px;
+  }
+}
 
 .node-event {
   .field-name-field-url {
@@ -1809,7 +1451,6 @@ ul.action-links {
       margin:0;
     }
     .field-items {
-      font-family: $thin-header;
       font-size: 1.5em;
       text-transform: uppercase;
       margin-left:.5em;
@@ -1824,6 +1465,33 @@ ul.action-links {
     .field-items {
        margin:10px 0;
     }  
+  }
+}
+.node-problem {
+  .field-name-body {
+    margin:1em 0;
+  }
+}
+.node-dataset {
+  h2.field-label {
+    margin:0;
+  }
+}
+.node-type-event {
+  .sidebar .views-field {
+    margin:1em 0;
+  }
+  .field-type-date {
+    font-size:1.25em;
+  }
+  .field-name-field-event-type {
+    ul {
+      padding:0;
+    }
+    li {
+      list-style-type:none;
+      font-weight:bold;
+    }
   }
 }
 
@@ -1848,68 +1516,13 @@ ul.action-links {
   }
 }
 
-
-/*
- * Wrapper for a single comment
- */
 .comment {
   margin-bottom: 20px;
-
-  &.first {}
-
-  &.last {}
-
-  &.odd {}
-
-  &.even {}
-
-  .user-picture {}
-
-  .submitted {
-
-    p {}
-
-    .username {}
-
-    time {}
-  }
-
-  .user-signature {}
-
-  ul.links {}
 }
 
-
-/*
- * Comment title
- */
 .comment-title {
   margin: 0;
 }
-
-
-/*
- * Comment states
- */
-.comment-new {}
-
-.comment-by-anonymous {}
-
-.comment-by-node-author {}
-
-.comment-by-viewer {}
-
-.comment-title-hidden {}
-
-.comment-with-picture {}
-
-.comment-with-signature {}
-
-
-/*
- * Preview of the comment before submitting new or updated comment
- */
-.comment-preview {}
 
 
 /*
@@ -1962,19 +1575,28 @@ ul.action-links {
   }
   input.form-text,
   textarea {
-    border:1px solid $skyblue;
+    border:1px solid $medium_dark;
+    padding:4px;
+    @include border-radius(4px);
+    &:focus {
+      border-color:$green;
+    }
   }
   select {
-    border:1px solid $skyblue;
+    border:1px solid $medium_dark;
+    padding:4px;
+    @include border-radius(4px);
     option {
       padding: 2px;
     }
     option:focus {
       background: $blue !important;
     }
+    &:focus {
+      border-color:$green;
+    }
   }
 }
-
 
 /*
  * Highlight marks and form required mark
@@ -1992,12 +1614,7 @@ ul.action-links {
   border:none;
   background: $blue;
   color:#fff;
-  font-family:$thin-header;
-  font-weight: normal;
-  font-size:21px;
-  padding: 4px 10px 2px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  padding: 6px 12px 3px;
   margin-right:.5em;
 }
 .form-submit:hover,
@@ -2013,9 +1630,6 @@ button:hover {
   }
 }
 
-/*
- * Define consistent borders
- */
 fieldset {
   border: 1px solid $border;
   margin:2em 0 0;
@@ -2023,23 +1637,22 @@ fieldset {
   background:rgba(236, 244, 251, 0.3);
 }
 legend {
-  background: $skyblue;
-  padding:0 10px;
-  color:#fff;
-  font-family: $thin-header;
-  font-size: 1.5em;
+  background: $medium;
+  color:#fff; 
   line-height: 1.1em;
+  padding:5px 10px;
   text-transform: uppercase;
-  letter-spacing: .5px;
-  text-shadow: 1px 1px 0 $blue;
   position: absolute;
   top:-10px;
   left:10px;
 }
-/*
- * Tips for Drupal's input formats
- */
-.tips { 
+.fieldset-legend {
+  a {
+    color:#fff;
+  }
+}
+fieldset.captcha {
+  padding-top:1.75em;
 }
 
 
@@ -2075,13 +1688,6 @@ table {
   
 }
 
-.view-challenge-list table {
-  @include box-shadow(0 0 10px #999);
-  td.views-field-field-performer {
-    min-width:150px;
-  }
-}
-
 table,
 thead,
 tbody,
@@ -2109,11 +1715,9 @@ th,
 thead tr {
   background-color: $border;
   color: $dark;
-  font-family: $thin-header;
-  font-size: 1.25em;
-  font-weight: normal;
+  font-size: 1em;
   text-transform: uppercase;
-  border-bottom:2px solid $skyblue;
+  border-bottom:2px solid lighten($blue,25%);
   white-space: nowrap;
 }
 
@@ -2150,10 +1754,6 @@ tr {
     background: rgba(236, 244, 251, 0.4);
   }
 
-  &.drag {}
-
-  &.drag-previous {}
-
   &.odd td.active {
     background-color: $light;
   }
@@ -2169,13 +1769,6 @@ tr.even, tr.odd {
 
 .lt-ie8 tr {
 
-  &.even,
-  &.odd {
-
-    th,
-    td {
-    }
-  }
 }
 
 
@@ -2210,28 +1803,6 @@ div {
       margin-bottom: 0;
     }
   }
-
-  &.status {
-  }
-
-  &.warning {
-  }
-}
-
-tr.warning {
-}
-
-
-div.error,
-tr.error {
-}
-
-
-.error {
-}
-
-
-.warning {
 }
 
 
@@ -2322,16 +1893,31 @@ tr.error {
   }
 }
 
+/* =============================================================================
+ *   Contrib style overrides
+ * ========================================================================== */
 .calendar-calendar th.days {
   font-weight:normal;
+}
+.calendar-calendar td.empty {
+  color: #BABABA;
+}
+.calendar-calendar .month-view .full tr td.today, 
+.calendar-calendar .month-view .full tr.odd td.today, 
+.calendar-calendar .month-view .full tr.even td.today,
+.calendar-calendar .month-view .full tr td.single-day.today,
+.calendar-calendar .month-view .full td.date-box.today {
+  border-color: $green;
+}
+.multi-day .view-item a {
+  color:#fff;
+  text-decoration:underline;
 }
 
 #block-views-exp-sols-search-page {
   position: absolute;
   top:0;
   right:0;
-  background: transparent url(images/sponsored-by-intel.png) no-repeat right 10px;
-  padding-top:90px;
   width:33%;
   label {
     color:#999;
@@ -2355,203 +1941,64 @@ tr.error {
     display: block;
   }
 }
-#block-block-7 {
-  border-top:2px dotted $border;
-  border-bottom:2px dotted $border;
-  padding: 8px 0;
-  h2 {
-    font-size: 3em;
-    margin:0 10px 0 0;
-    line-height: 1em;
-    white-space: nowrap;
-    float:left;
-  }
-  h3 {
-    font-family: $thin-header;
-    color:$dark;
-    font-size: 1.5em;
-    margin:0;
-    line-height: 1.1em;
-    float:left;
-    width:60%;
-    a {
-      color:$dark;
+
+
+/* =============================================================================
+ *   AT Panels
+ * ========================================================================== */
+.three-3x33 {
+  .view-application-list,
+  .view-homepage-latest {
+    .views-row {
+      clear:both;
+      margin-bottom:1.5em;
+      position:relative;
     }
-    a:hover {
-      color:$red;
+    .views-field-title a {
+      font-size:1.4em;
+      margin:0;
+      display: block;
+      color: $dark;
+    }
+    .views-field-field-image {
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    .views-field-field-address {
+      color:$dark;
+      font-size:.85em;
+    }
+    .view-homepage-latest {
+      padding-right:15px;
+    }
+    h2.block-title {
+      margin:0 0 .5em;
+    }
+  }
+  .view-homepage-latest.view-display-id-block {
+    .views-field-field-description {
+      padding-left:65px;
+    }    
+    .views-field-title a {
+      padding-left:65px;
     }
   }
 }
 
-#block-views-sponsors-block-block-1,
-#block-views-sponsors-block-block-2,
-#block-views-sponsors-block-block-3,
-#block-views-sponsors-block-block-4,
-#block-views-sponsors-block-block-5,
-#block-views-sponsors-block-block {
-  margin-top:1em;
-  h2.block-title {
-    background:$whisper;
-    color:$blue;
-    text-shadow: .5px .5px 0 #fff;
-    font-family: $sans-serif-arial-helvetica;
-    font-size: 1em !important;
-    margin:0 0 1em;
-    text-align:center;
+/* =============================================================================
+ *   View styles
+ * ========================================================================== */
+
+
+.view {
+  div.feed-icon {
+    float:right;
+    margin-top: -3em;
+    font-size: 1em;
   }
-}
-#block-views-sponsors-block-block-2 {
-  .views-field-field-logo {
-    width:100%;
-    text-align: center;
-  }
-}
-#block-views-sponsors-block-block-1,
-#block-views-sponsors-block-block-3 {
-  .view-content {
-    clear:left;
-    width:100%;
-    display:table;
-    .views-field-field-logo {
-      min-height: 125px;
-      display:table;
-      width:33%;
-      float: left;
-      .field-content {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-        padding:5px;
-        height:100px;
-        overflow: visible;
-      }
-    }
-  }
-}
-#block-views-sponsors-block-block-4 {
-  .view-content {
-    text-align: center;
-    div {
-      display: inline;
-    }
-  }
-  .views-field-title {
-    padding:.25em 1em;
-    border-right:1px solid #d6d6d6;
-    white-space: normal;
-  }
-}
-#block-views-sponsors-block-block-5 {
-  .view-content {
-    clear:left;
-    width:100%;
-    display:table;
-    .views-field-field-logo {
-      min-height: 125px;
-      display:table;
-      width:33%;
-      float: left;
-      .field-content {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-        padding:5px;
-        height:100px;
-        overflow: visible;
-      }
-    }
-  }
-}
-#openlayers-container-openlayers-map--5 {
-  position: absolute;
-  top: 268px;
-  left: 10px;
-}
-#openlayers-container-openlayers-map--3 {
-  position: absolute;
-  bottom: 68px;
-  left: 160px;
-}
-.view-home-page-map.view-display-id-page {
-  @include zen-grid-item(9, 1);
-  padding: 0 10px 0 0;
-  position: relative;
-  .view-footer {
-    background: #fff url(images/get-involved.png) no-repeat right top;
-    height:47px;
-    line-height: 47px;
-    padding-right:140px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom:1.5em;
-    span {
-      color:$red;
-    }
-  }
-}
-#block-block-4 {
-  @include zen-grid-item(3, 10);
-  text-align:center;
-  font-size: 1.1em;
-}
-#block-ndch-stats-ndch-stats {
-  @include zen-clear();
-  @include zen-grid-item(4, 1);
-  h2.block-title {
-    display: none;
-  }
-  .stats-wrapper {
-    background: transparent url(images/stats.png) no-repeat 0 0;
-    height:390px;
-    width:246px;
-    margin: 0 auto;
-  }
-  .stats {
-    width:225px;
-    line-height: 1em;
-    color:$red;
-    font-family:$thin-header;
-    font-size:68px;
-    display: block;
-  }
-  .stat-events {
-    text-align: right;
-    height: 118px;
-    display: block;
-  }
-  .stat-locations {
-    height:90px;
-    display: block;
-  }
-  .stat-resources {
-    padding-left:62px;
-    height:84px;
-    display: block;
-  }
-  .stat-participants {
-    
-  }
-}
-#block-views-homepage-latest-block-2 {
-  @include zen-grid-item(4, 5);
-  .views-field-title a {
-    font-size:1.4em;
-    margin:0 0 .5em 0;
-    display: block;
-    color: $red;
-    font-family: $fat-header;
-  }
-  .view-homepage-latest {
-    padding-right:15px;
-  }
-}
-.front #block-views-hashtags-block,
-.front #block-twitter-block-default,
-.front #block-block-5 {
-  @include zen-grid-item(4,9);
-  padding:0 0 0 10px;
-  h1.summary {
-    color:$red;
+  .view-header {
+    clear:right;
   }
 }
 
@@ -2565,72 +2012,27 @@ tr.error {
     border-top:2px dotted $border;
   }
   .node-readmore a {
-    background: transparent url(images/blog-icon.png) no-repeat 0 -31px;
     padding:0 10px 0 38px;
     height:20px;
     line-height: 20px;
   }
-  .node-readmore a:hover {
-    background: transparent url(images/blog-icon.png) no-repeat 0 0;
+  .node-readmore a:before {
+    content:'\f061';
+    font-family:$icons;
   }
   .comment-add a {
-    background: transparent url(images/blog-icon.png) no-repeat 0 -95px;
+    background: none;
     padding:0 10px 0 35px;
     height:20px;
     line-height: 20px;
   }
-  .comment-add a:hover {
-    background: transparent url(images/blog-icon.png) no-repeat 0 -63px;
+  .comment-add a:before {
+    content:'\f0e5';
+    font-family:$icons;
   }
   ul.links.inline {
     line-height: 20px;
     margin-top:5px;
-  }
-}
-#views-exposed-form-organization-list-page,
-#views-exposed-form-events-list-page {
-  .views-exposed-form {
-    background: #eee;
-    @include border-radius(8px);
-    border:1px solid #ccc;
-    display:inline-block;
-    font-size: .94em;
-    .views-exposed-widgets {
-      margin-bottom:0;
-    }
-    .views-exposed-widget {
-      padding:4px 1em;
-      label {
-        color:#666;
-        font-weight: normal;
-        float:left;
-        margin:3px 5px;
-        text-shadow: 1px 1px 1px #fff;
-      }
-      .views-widget {
-        float:left;
-      }
-      .form-item select {
-        border:1px solid #ccc;
-      }
-      .form-submit {
-        margin-top: 2px;
-        font-family: $sans-serif-large;
-        font-size: 1em;
-        text-transform: none;
-        color:#666;
-        text-shadow: 1px 1px 1px #fff;
-        padding: 2px 8px;
-        @include background-image(linear-gradient(#cccccc, #eeeeee, #dadada));
-        border:1px solid #ccc;
-        letter-spacing: 0;
-      }
-      .form-submit:hover {
-        background:$dark;
-        color:#fff;
-        text-shadow: none;
-      }
-    }
   }
 }
 
@@ -2651,7 +2053,7 @@ tr.error {
     }
   }
 }
-.country { display:none; }
+
 .view-events-list {
   table {
     margin-left:10px;
@@ -2660,7 +2062,6 @@ tr.error {
     width:50%;
   }
   caption {
-    font-family: $thin-header;
     text-transform: uppercase;
     font-size:1.5em;
     color:$dark;
@@ -2674,7 +2075,6 @@ tr.error {
     a {
       padding: 2px 25px 2px 10px;
       color: #fff;
-      font-family: $fat-header;
       font-size: 1.1em;
     }
   }
@@ -2697,71 +2097,163 @@ tr.error {
   }
 }
 
-/*
-* Twitter block
-*/
-#block-views-hashtags-block {
-  max-width: 360px;
-  h2.block-title {
-    background: transparent url(images/blue-tweet.png) no-repeat 0 4px;
-    padding-left:36px;
-    line-height: 28px;
-    margin:0 0 8px;
+#user-login {
+  //log in with github
+  ul.github-links {
+    margin:0 40px 0 0;
+    padding:0;
   }
-  .twitter-status {
-    background: none;
-    padding:5px 5px 0;
-  }
-  .views-row {
-    clear: both;
-    position: relative;
-    background: rgba(255, 255, 255, 0.65);
-    margin:0 0 6px 0;
-    padding: 3px;
-    display: block;
-    font-size: .85em;
-    border:1px solid $whisper;
-  }
-}
-
-/* Sign up 
-
-
-#webform-client-form-19 {
-  .form-item {
-    margin:4px 0;
-    padding:3px;
-    background:rgba(236, 244, 251, 0.3);
-  }
-  label {
-    display: inline-block;
-    width:48%;
-    vertical-align: top;
-    padding: 0 8px;
+  li.github-link {
+    float:left;
+    list-style-type:none;
+    width: 100%;
     margin:0;
-  }
-  .form-checkboxes {
-    label {
-      border:none;
-      width:auto;
+    a {
+      @include border-radius(5px);
+      background:$light;
+      background-image:none;
+      padding:8px 16px 8px 40px;
+      position:relative;
+      width: 100%;
+      display: block;
     }
+    a:before {
+      content:"\f113";
+      font-family:$icons;
+      font-size:1.5em;
+      position:absolute;
+      top:2px;
+      left:12px;
+    }
+    a:hover {
+      color:$dark;
+      background:$medium_dark;
+    }
+    span.ext {
+      display:none;
+    }
+  }
+  //log in with janrain
+  ul.rpx-links {
+    margin: 10px 0 20px 0;
+    padding:0;
+    float:left;
+    list-style-type:none;
+    @include border-radius(5px);
+    background:$light;
+    background-image:none;
+    padding:8px 16px 8px 0;
+    position:relative;
+    a {
+      background-image:none;
+    }
+    // a:before {
+    //   content:"\f113";
+    //   font-family:$icons;
+    //   font-size:1.5em;
+    //   position:absolute;
+    //   top:2px;
+    //   left:12px;
+    // }
+    a:hover {
+      color:$dark;
+      background:$medium_dark;
+    }
+    span.ext {
+      display:none;
+    }
+  }
+  .form-item {
+    clear:both;
+  }
+}
+
+//VIEWS
+.view-solr-search {
+  h2.title {
+    margin-bottom:0;
+    line-height:1.25em;
+  }
+}
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid {
+  .views-field-field-icon,
+  .views-field-nothing {
+    text-align:center;
+  }
+  .views-column {
     display:inline-block;
-    .form-item {
-      background:transparent !important;
-    }
-  }
-  .form-text {
-    width:48%;
-  }
-  fieldset {
-    .form-item {
-      background: transparent;
-    }
-  }
-  #webform-component-other-value {
-    .form-text {
-      float:right;
+    width:19.5%;
+    margin:0;
+    padding:0;
+    vertical-align:top;
+    .views-field {
+      margin:0 auto 8px;
+      padding:0 10px;
+      text-align:center;
+      text-transform:uppercase;
+      display:table;
+      min-height:35px;
+      a {
+        color:$blue;
+        &:hover {
+          color:$green;
+        }
+      }
+      .category-label {
+        display:table-cell;
+        line-height:1.25em;
+        vertical-align:middle;
+      }
     }
   }
 }
-*/
+
+//sponsors
+.region-footer .block-views {
+  h2.block-title {
+    color:$medium_dark;
+    font-size:1.5em;
+    position:relative;
+    text-align:center;
+    text-transform:uppercase;
+  }
+  h2.block-title:before {
+    content:".";
+    color:#fff;
+    border-top:1px solid $medium_light;
+    position:absolute;
+    left:0;
+    top:50%;
+    width:33%;
+  }
+  h2.block-title:after {
+    content:".";
+    color:#fff;
+    border-top:1px solid $medium_light;
+    position:absolute;
+    right:0;
+    top:50%;
+    width:33%;
+  }
+  .view-content {
+    .views-row {
+      margin-bottom:25px;
+      .field-content {
+        margin:0 auto;
+        text-align:center;
+        vertical-align:middle;
+      }
+    }
+    @include zen-grid-container;
+    .views-row:nth-of-type(3n+1) {
+      @include zen-clear();
+      @include zen-grid-item(4,1);
+    }
+    .views-row:nth-of-type(3n+2) {
+      @include zen-grid-item(4,5);
+    }
+    .views-row:nth-of-type(3n+3) {
+      @include zen-grid-item(4,9);
+    }
+  }
+}

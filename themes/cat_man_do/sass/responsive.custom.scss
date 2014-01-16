@@ -3,22 +3,6 @@
 @import "base";
 
 /*
- * responsive.custom.css is for custom media queries that are not set via the
- * theme settings, such as cascading media queries.
- *
- * By default all the other responsive stylesheets used in Adaptivetheme use a
- * "stacking method", however cascading media queries use a waterfall method so
- * you can leverage the cascade and inheritance for all browsers that support
- * media queries, regardless of screen size.
- *
- * @SEE http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/#mq-overlap-stack
- *
- * NOTE: this file loads by default, to disable got to your theme settings and
- * look under the "CSS" settings tab.
- */
-
-
-/*
  * Really small screens and up
  */
 /* @media only screen and (min-width: 220px) {} */
@@ -33,33 +17,223 @@
 /*
  * Smartphone sizes and down
  */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 599px) {
   
-  /* 
-   * Float Region blocks example:
-   * In smaller screen sizes we can remove the float and widths so all blocks
-   * stack instead of displaying horizonally. The selector used here is an
-   * "attribute selector" which will match on any float block class. Use your
-   * inspector or Firebug to get the classes from the page output if you need
-   * more granular control over block alignment and stacking.
-   * 
-   * "Float Region blocks" is an extension for floating blocks in regions, see
-   * your themes appearance settings, under the Extensions tab.
-   */ 
   .region[class*="float-blocks"] .block {
     float: none;
     width: 100%;
   }
+  body {
+    font-size:.95em;
+  }
+  h1#page-title {
+    text-align:center;
+  }
+  #header-wrapper #header {
+    .region-header,
+    .region-inner,
+    #branding,
+    #secondary-menu-bar,
+    #secondary-menu-bar nav ul.menu {
+      clear:both;
+      float:none;
+      margin:5px 10px;
+      width:100%;
+    }
+    .region-header #block-views-exp-solr-search-page {
+      float:none;
+    }
+  }
+  #name-and-slogan {
+    width: 100%;
+  }
+  //front 
+  #secondary-content-wrapper .region-secondary-content .block {
+    .highlight-text,
+    .highlight-button {
+      float:none;
+      line-height:1.25em;
+      margin:10px;
+      text-align:center;
+      width:100%;
+    }
+  }
+  //Problem Page
+  .region-two-50-first,
+  .region-two-50-second {
+    width:100%;
+    margin:10px 15px;
+  }
+  .region-two-50-bottom {
+    .block {
+      margin-left:10px;
+      margin-right:10px;
+    }
+  }
+  .pane-problems-list-panel-pane-1 {
+    margin-left:10px;
+    margin-right:10px;
+    h2.pane-title {
+      margin:1em 15px .5em;
+    }
+    .view-header, {
+      margin:0 15px;
+    }
+    /* no-more-tables method: Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+     
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+     
+    tr { border: 1px solid $border; }
+    tr.odd td.active,
+    tr.even td.active {
+      background-color:transparent;
+    }
+    td {
+      /* Behave like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 40%;
+      white-space: normal;
+      text-align:left;
+      min-height:1.5em;
+      //squash extra padding
+      p {
+        margin:0;
+        padding:0;
+        text-align:left !important;
+      }
+      br {
+        display:none;
+      }
+    }
+    td:nth-of-type(4) {
+      border-bottom:none;
+    } 
+     
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 5px;
+      left: 6px;
+      line-height:1.25em;
+      width: 35%;
+      padding-right: 10px;
+      white-space: normal;
+      text-align:left;
+      font-weight: bold;
+    }
+    
+    //Label the data
+    td:nth-of-type(1):before { content: "Date Added"; }
+    td:nth-of-type(2):before { content: "Categories"; }
+    td:nth-of-type(3):before { content: "Title"; }
+    td:nth-of-type(4):before { content: "Rating"; }
+  }
+  //taxonomy icons
+  .pane-taxonomy-icons-panel-pane-1 {
+    h2.pane-title {
+      margin:1em 15px .5em;
+      line-height:1.15em;
+      text-align:center;
+    }
+    .view-taxonomy-icons .views-responsive-grid {
+      @include zen-grid-container;
+      .views-column {
+        @include zen-clear(); 
+        @include zen-grid-item(12,1);
+        text-align:center;
+        .views-field {
+          height:auto;
+          .category-label {
+            display:block;
+          }
+        }
+        .views-row {
+          margin-bottom:12px;
+        }
+      }
+    }
+  }
+  .pane-tags-by-content-type-panel-pane-1 {
+    h2.pane-title {
+      margin:1em 15px .5em;
+      line-height:1.15em;
+      text-align:center;
+    }
+  }
+  //sponsors
+  .region-footer .block-views {
+    h2.block-title:before,
+    h2.block-title:after {
+      display:none;
+    }
+    h2.block-title {
+      font-size:1em;
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .view-content .views-row:nth-of-type(n) {
+      @include zen-clear();
+      @include zen-grid-item(12,1);
+    }
+  }
+  .view {
+    div.feed-icon {
+      float:none;
+      font-size:.85em; 
+      margin:0 15px 10px 15px;
+    }
+    .view-header {
+      clear:none;
+    }
+  }
+
 }
 
 
 /*
  * Tablet sizes and up
  */
-/* @media only screen and (min-width: 768px) {} */
+@media only screen and (min-width: 768px) {
+
+} 
 
 
 /*
  * Desktops/laptops and up
  */
-/* @media only screen and (min-width: 1025px) {} */
+@media only screen and (min-width: 901px) {
+  #header-wrapper {
+    #header {
+      #branding {
+        @include zen-grid-item(9,1,left);
+        #site-slogan {
+          margin:40px 0 0 10%;
+          width:100%;
+        }
+      }
+      #secondary-menu-bar {
+        @include zen-grid-item(3,1,right);
+      }
+      .region-header {
+        @include zen-clear(right);
+        @include zen-grid-item(3,1,right);
+      }
+    }
+  }
+}

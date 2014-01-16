@@ -1,41 +1,10 @@
-/*
- *   Important Information about this CSS File
- *
- * - Do not delete or rename this file, if you do not use it leave it blank (delete
- *   everything) and the file will be skipped when you enable Production Mode in
- *   the Global theme settings.
- *
- * - Read the _README file in this directory, it contains useful help and other information.
- */
+@import url("font-awesome.scss");
+/* Important Information about this CSS File  - Do not delete or rename this file, if you do not use it leave it blank (delete everything) and the file will be skipped when you enable Production Mode in the Global theme settings.  - Read the _README file in this directory, it contains useful help and other information. */
 /* Increase the body font size on small devices */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000316}}
-html {
-  font-size: 112.5%; }
+html { font-size: 112.5%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000319}}
-#menu-bar {
-  height: auto; }
+#menu-bar { height: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000323}}
-.nav li a,
-.nav ul.menu li a {
-  padding: 0 5px; }
+.nav li a, .nav ul.menu li a { padding: 0 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000328}}
-#block-block-7 h2 {
-  float: left;
-  margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000332}}
-#block-block-7 h3 {
-  margin-left: 10px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000336}}
-#block-views-exp-sols-search-page {
-  padding: 0 0 0 55%;
-  width: 100%; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jday\/Vagrant\/vagrant-drupal\/web\/ndch\/profiles\/opencivic\/themes\/cat_man_do\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000345}}
-#block-views-sponsors-block-block-1 .view-content .views-field-field-logo,
-#block-views-sponsors-block-block-3 .view-content .views-field-field-logo,
-#block-views-sponsors-block-block-5 .view-content .views-field-field-logo {
-  width: 50% !important; }
+#block-views-exp-sols-search-page { padding: 0 0 0 55%; width: 100%; }

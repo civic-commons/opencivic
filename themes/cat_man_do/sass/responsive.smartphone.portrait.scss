@@ -20,53 +20,17 @@ html {
   height:auto;
 }
 
-#block-block-4,
-.front #block-block-5,
-.front #block-twitter-block-default,
-.front #block-views-hashtags-block,
-#block-ndch-stats-ndch-stats,
-#block-views-homepage-latest-block-2 {
-  @include zen-clear();
-  @include zen-grid-item(12, 1);
-}
-#block-block-2 {
-  @include zen-grid-container;
-  .option1{
-    @include zen-grid-item(12, 1);
-  }
-  .option2{
-    @include zen-clear();
-    @include zen-grid-item(12, 1);
-  }
-  .option3{
-    @include zen-clear(); 
-    @include zen-grid-item(12, 1);
-  }
-  .option4{
-    @include zen-clear();
-    @include zen-grid-item(12, 1);
-  }
-}
-#block-block-7 {
-  text-align: center;
-  h2 {
-    font-size:2em;
+.view {
+  div.feed-icon {
     float:none;
-    margin:0;
+    margin-top: 0;
   }
-  h3 {
-    width:100%;
-  }
-  .view-content .views-field-field-logo {
-    width:100%;
+  .view-header {
+    clear:none;
   }
 }
-.view-home-page-map {
-  @include zen-grid-item(12, 1);
-  .view-footer {
-    display: none;
-  }
-}
+
+
 #block-views-exp-sols-search-page {
   background: transparent url(images/somewhere-near-you.png) no-repeat 0 0;
   margin: 0 auto;
@@ -89,20 +53,5 @@ html {
   }
   .form-submit {
     margin-left:70px;
-  }
-}
-#block-views-sponsors-block-block-1,
-#block-views-sponsors-block-block-3,
-#block-views-sponsors-block-block-5 {
-  .view-content .views-field-field-logo {
-    width:100%;
-  }
-}
-#block-views-sponsors-block-block-4 {
-  .view-content div {
-    display:block;
-  }
-  .views-field-title {
-    border:none;
   }
 }
