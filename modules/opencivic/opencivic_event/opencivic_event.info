@@ -1,10 +1,10 @@
-name = OCComm Events
+name = OpenCivic Event
 description = Provides the event type and a calendar of events.
 core = 7.x
 package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-beta1
-project = occomm_events
+project = opencivic_event
 dependencies[] = addressfield
 dependencies[] = better_exposed_filters
 dependencies[] = calendar

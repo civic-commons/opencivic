@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.field_group.inc
+ * opencivic_event.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function occomm_events_field_group_info() {
+function opencivic_event_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

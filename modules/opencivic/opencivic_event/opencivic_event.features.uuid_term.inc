@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.features.uuid_term.inc
+ * opencivic_event.features.uuid_term.inc
  */
 
 /**
  * Implements hook_uuid_features_default_terms().
  */
-function occomm_events_uuid_features_default_terms() {
+function opencivic_event_uuid_features_default_terms() {
   $terms = array();
 
   $terms[] = array(

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.features.taxonomy.inc
+ * opencivic_event.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function occomm_events_taxonomy_default_vocabularies() {
+function opencivic_event_taxonomy_default_vocabularies() {
   return array(
     'event_type' => array(
       'name' => 'Event type',

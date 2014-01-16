@@ -4,4 +4,4 @@
  * Code for the OCComm Events feature.
  */
 
-include_once 'occomm_events.features.inc';
+include_once 'opencivic_event.features.inc';

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.features.field.inc
+ * opencivic_event.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function occomm_events_field_default_fields() {
+function opencivic_event_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-event-body'.

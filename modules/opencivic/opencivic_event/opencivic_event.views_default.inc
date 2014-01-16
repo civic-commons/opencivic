@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.views_default.inc
+ * opencivic_event.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function occomm_events_views_default_views() {
+function opencivic_event_views_default_views() {
   $export = array();
 
   $view = new view();

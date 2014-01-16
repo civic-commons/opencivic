@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.strongarm.inc
+ * opencivic_event.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function occomm_events_strongarm() {
+function opencivic_event_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

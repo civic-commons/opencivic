@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * occomm_events.features.inc
+ * opencivic_event.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function occomm_events_ctools_plugin_api() {
+function opencivic_event_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -21,14 +21,14 @@ function occomm_events_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function occomm_events_views_api() {
+function opencivic_event_views_api() {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function occomm_events_node_info() {
+function opencivic_event_node_info() {
   $items = array(
     'event' => array(
       'name' => t('Event'),
@@ -45,7 +45,7 @@ function occomm_events_node_info() {
 /**
  * Implements hook_rdf_default_mappings().
  */
-function occomm_events_rdf_default_mappings() {
+function opencivic_event_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: event
