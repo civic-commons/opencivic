@@ -4,4 +4,4 @@
  * Code for the OCAPI Services feature.
  */
 
-include_once 'ocapi_services.features.inc';
+include_once 'opencivic_api.features.inc';

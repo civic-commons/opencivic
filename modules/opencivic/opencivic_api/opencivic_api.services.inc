@@ -7,7 +7,7 @@
 /**
  * Implements hook_default_services_endpoint().
  */
-function ocapi_services_default_services_endpoint() {
+function opencivic_api_default_services_endpoint() {
   $export = array();
 
   $endpoint = new stdClass();
