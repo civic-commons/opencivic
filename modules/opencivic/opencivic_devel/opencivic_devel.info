@@ -1,10 +1,10 @@
-name = AppCat devel
+name = OpenCivic Devel
 description = Modules to help during site development. Disable in production.
 core = 7.x
 package = OpenCivic
 php = 5.2.4
 version = 7.x-1.0-beta1
-project = appcat_devel
+project = opencivic_devel
 dependencies[] = architecture
 dependencies[] = bundle_copy
 dependencies[] = coder
