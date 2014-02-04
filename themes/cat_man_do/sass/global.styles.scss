@@ -86,31 +86,30 @@ var {
 
 #header-wrapper {
   #header {
-    @include zen-grid-container;
-    #branding {
-      @include zen-grid-item(6,1,left);
-      #logo {
-        float:left;
-      }
-    }
-    #secondary-menu-bar {
-      clear:none;
-      padding-left:0;
-      @include zen-grid-item(6,1,right);
-      .menu-wrapper {
-        margin-left:0;
-      }
-      nav ul.menu {
-        float:right;
-        li a {
-          padding: 0 6px;
-          font-size:1em;
+    position:relative;
+    .region-header {
+      //top menu
+      #block-menu-menu-menu-bar {
+        margin:0;
+        h2.block-title {
+          display:none;
+        }
+        ul.menu {
+          float:right;
+          margin:.5em 5px;
+          padding:0;
+          li.leaf {
+            display:inline;
+            font-size:1em;
+            list-style-type:none;
+            padding: 0 6px;
+            a {
+              white-space:nowrap;
+            }
+          }
         }
       }
-    }
-    .region-header {
-      @include zen-clear(right);
-      @include zen-grid-item(6,1,right);
+      //search
       #block-views-exp-solr-search-page {
         float:right;
         width:auto;
@@ -119,22 +118,29 @@ var {
   }
 }
 #secondary-content-wrapper {
-  background:$blue;
+  background-color:$blue;
+  background-image: url(images/frontpage-photo.jpg);
+  background-position:center center;
+  @include background-size(cover);
   color:#fff;
+  .block {
+    margin-bottom:0;
+  }
   .block-content {
     a {
       color:$dark;
     }
   }
   .region {
-    padding:40px 0;
+    padding:40px 0 20px 0;
   }
   .region-secondary-content .block {
     @include zen-grid-container;
     .highlight-text {
       @include zen-grid-item(8,1);
-      font-size:1.15em;
+      font-size:1.3em;
       font-weight:normal;
+      text-shadow: 0 0 3px #000;
     }
     .highlight-button {
       @include zen-grid-item(4,9);
@@ -166,16 +172,18 @@ body.sidebar-second #main-content {
 #nav-wrapper {
    background:$medium;
   .container { 
+    position:relative;
   }
 }
 #footer-nav-wrapper {
   background:$dark;
   height:60px;
-  #block-menu-menu-footer-menu {
+  #block-menu-menu-footer-menu,
+  .primary-menu-wrapper {
+    margin:0;
     h2.block-title {
       display:none;
     }
-    margin:0;
     ul,li {
       margin:0;
       padding:0;
@@ -186,13 +194,59 @@ body.sidebar-second #main-content {
       a {
         color:#fff;
         float:left;
+        height:40px;
         padding: 20px 15px 0;
         text-transform:uppercase;
+        &:hover {
+          background:darken($dark,5%);
+        }
       }
     }
   }
 }
 
+//Projects
+.page-projects {
+  h1#page-title {
+    margin:1em 10px .5em;
+  }
+  .pane-block-8 {
+    font-size:1.5em;
+  }
+  #content .region h2.block-title {
+    background: $blue;
+    color: #FFFFFF;
+    font-size: 1.25em;
+    margin-top: 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
+  }
+  .view-projects {
+    .views-field-title {
+      font-size:1.15em;
+      font-weight:bold;
+      margin-bottom:.25em;
+    }
+    .views-field-field-description {
+      margin-bottom:1em;
+    }
+  }
+  .pane-taxonomy-icons-panel-pane-2 {
+    .views-column {
+      float:left;
+      text-align:center;
+      width:20%;
+    }
+  }
+  .pane-taxonomy-icons-panel-pane-3 {
+    .views-column {
+      float:left;
+      text-align:center;
+      width:16.667%;
+    }
+  }
+}
+ 
 
 /* =============================================================================
  *   Branding
@@ -200,6 +254,7 @@ body.sidebar-second #main-content {
 
 #branding {
   margin:0;
+  position:absolute;
 }
 
 #logo {
@@ -212,14 +267,16 @@ body.sidebar-second #main-content {
 
 #name-and-slogan {
   h2#site-slogan {
-    color:#6e6e6e;
+    color:$slogan;
     font-style:italic;
     font-weight:300 !important;
-    font-size:16px;
+    font-size:18px;
     margin:0 0 10px;
   }
-  display:inline-block;
-  margin: 0 10px;
+  position: absolute;
+  top: 45px;
+  left: 250px;
+  white-space: nowrap;
 }
 
 /* =============================================================================
@@ -263,18 +320,26 @@ div.region .block {
   margin-right:10px;
 }
 //frontpage
+.front #block-system-main {
+  margin-bottom:0;
+}
 .cfr-pond-header {
   margin-bottom:0;
   .panel-pane,
   .block-inner,
   h2.block-title {
+    margin-top:10px;
+    margin-bottom:0;
+  }
+  .cfr-pond-container {
     margin-bottom:0;
   }
 }
 .cfr-pond-column-content-row1 {
+  margin-bottom:0;
   h2.block-title {
     color:#fff;
-    background:$green;
+    background:darken($green,5%);
     font-size:1.5em;
     margin:10px 0;
     padding:5px 8px;
@@ -289,16 +354,28 @@ div.region .block {
   }
 }
 .cfr-pond-column-content-row2 {
+  margin-bottom:0;
   h2.block-title {
     margin-top:0;
+  }
+  .cfr-pond-column .panel-pane {
+    margin-bottom:0;
   }
 }
 .cfr-pond-middle {
   margin-bottom:0;
+  h2.block-title {
+    margin-top:0;
+    margin-bottom:.5em;
+  }
 }
 .cfr-pond-footer {
+  margin-bottom:0;
   .view-blog .views-row {
     border:none;
+  }
+  h2.block-title {
+    margin-top:0;
   }
 }
 
@@ -329,13 +406,12 @@ a {
  *   Primary, Secondary and Menu Bar region menus
  * ========================================================================== */
 
-
 #menu-bar {
   background: $medium;
   height:50px;
   line-height: 50px;
   margin:0;
-  nav#block-menu-block-1 {
+  #block-menu-block-1 {
     display:inline-block;
     li.leaf a {
       color:#fff;
@@ -356,7 +432,7 @@ a {
     margin:0;
     float: left;
   }
-  nav#block-block-3 {
+  #block-block-3 {
     float:right;
     margin:0 20px 0 0;
     max-height:50px;
@@ -411,6 +487,21 @@ a {
 
   .block {
     margin-bottom: 0;
+  }
+}
+//responsive menu
+.responsive-menus.responsified {
+  clear:none;
+  span.toggler {
+    background:$medium;
+    @include border-radius(0);
+    @include box-shadow(0 0 0 transparent);
+  }
+  .responsive-menus-simple {
+    @include border-radius(0);
+  }
+  .responsive-menus-simple li a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   }
 }
 
@@ -1014,6 +1105,17 @@ ul.action-links {
     left:0;
   }
 }
+.cfr-pond-container .view-feartued-events {
+  .views-field-title a {
+    font-weight:600;
+  }
+  .view-footer {
+    text-align:right;
+  }
+  .views-row {
+    margin-bottom:10px;
+  }
+}
 
 .view-top-rated-problems,
 .pane-top-rated-problems-panel-pane-2 {
@@ -1031,6 +1133,7 @@ ul.action-links {
   }
 }
 
+.view-cfr-home-page-map,
 .view-home-page-map {
   .view-footer {
     margin: 0 auto;
@@ -1157,71 +1260,96 @@ ul.action-links {
   }
 }
 
-.node-type-application .sidebar,
-.node-type-event .sidebar,
-.node-type-problem .sidebar  {
-  //icon placement spacing
-  .views-field-field-release-notes,
-  .views-field-field-install-url,
-  .views-field-field-creator,
-  .views-field-field-software-type,
-  .views-field-field-civic-category,
-  .views-field-field-download-url,
-  .views-field-field-file-attachments,
-  .views-field-field-telephone,
-  .views-field-field-aggregate-rating,
-  .views-field-field-keywords,
-  .views-field-field-application-category,
-  .views-field-field-civic-category,
-  .views-field-field-url,
-  .views-field-name,
-  .views-field-field-problem-author,
-  .views-field-field-address,
-  .views-field-field-requirements {
-    padding-left:1.5em;
-    position:relative;
+.node-type-problem,
+.node-type-project {
+  .sidebar .block-inner {
+    @include box-shadow(0 1px 8px 1px $medium_dark);
+    background-color: $whisper;
+    padding-bottom:15px;
   }
-  .views-field-field-release-notes:before,
-  .views-field-field-install-url:before,
-  .views-field-field-creator:before,
-  .views-field-name:before,
-  .views-field-field-software-type:before,
-  .views-field-field-civic-category:before,
-  .views-field-field-download-url:before,
-  .views-field-field-file-attachments:before,
-  .views-field-field-telephone:before,
-  .views-field-field-aggregate-rating:before,
-  .views-field-field-keywords:before,
-  .views-field-field-application-category:before,
-  .views-field-field-civic-category:before,
-  .views-field-field-url:before,
-  .views-field-field-problem-author:before,
-  .views-field-field-address:before,
-  .views-field-field-requirements:before {
-    font-family: FontAwesome;
-    position:absolute;
-    top:0;
-    left:0;
+  //map block
+  #block-views-project-at-a-glance-block-3,
+  #block-views-8a46796849269d8e113b11b88308e01c {
+    .block-inner,
+    .field-content {
+      padding-bottom:0;
+    }
   }
-  //icon codes
-  .views-field-field-install-url:before { content:"\f109"; }
-  .views-field-field-release-notes:before,
-  .views-field-field-file-attachments:before { content:"\f15b"; }
-  .views-field-field-telephone:before { content:"\f095"; }
-  .views-field-field-aggregate-rating:before { content:"\f005"; }
-  .views-field-field-keywords:before { content:"\f02c"; }
-  .views-field-field-software-type:before,
-  .views-field-field-civic-category:before,
-  .views-field-field-application-category:before,
-  .views-field-field-civic-category:before { content:"\f02b"; }
-  .views-field-field-download-url:before { content: "\f0ac"; }
-  .views-field-field-url:before { content: "\f015"; }
-  .views-field-field-creator:before,
-  .views-field-name:before,
-  .views-field-field-problem-author:before { content: "\f007"; }
-  .views-field-field-address:before { content: "\f041"; }
-  .views-field-field-requirements:before { content: "\f0c9"; }
+  #block-views-project-at-a-glance-block-3 {
+    &.block {
+      margin-bottom:10px;
+    }
+    .block-content {
+      margin:10px 0 0 0;
+    }
+  }
 }
+
+// .node-type-application .sidebar,
+// .node-type-event .sidebar,
+// .node-type-problem .sidebar  {
+//   //icon placement spacing
+//   .views-field-field-release-notes,
+//   .views-field-field-install-url,
+//   .views-field-field-creator,
+//   .views-field-field-software-type,
+//   .views-field-field-civic-category,
+//   .views-field-field-download-url,
+//   .views-field-field-file-attachments,
+//   .views-field-field-telephone,
+//   .views-field-field-aggregate-rating,
+//   .views-field-field-keywords,
+//   .views-field-field-application-category,
+//   .views-field-field-civic-category,
+//   .views-field-field-url,
+//   .views-field-name,
+//   .views-field-field-problem-author,
+//   .views-field-field-address,
+//   .views-field-field-requirements {
+//     padding-left:1.5em;
+//     position:relative;
+//   }
+//   .views-field-field-release-notes:before,
+//   .views-field-field-install-url:before,
+//   .views-field-field-creator:before,
+//   .views-field-name:before,
+//   .views-field-field-software-type:before,
+//   .views-field-field-civic-category:before,
+//   .views-field-field-download-url:before,
+//   .views-field-field-file-attachments:before,
+//   .views-field-field-telephone:before,
+//   .views-field-field-aggregate-rating:before,
+//   .views-field-field-keywords:before,
+//   .views-field-field-application-category:before,
+//   .views-field-field-civic-category:before,
+//   .views-field-field-url:before,
+//   .views-field-field-problem-author:before,
+//   .views-field-field-address:before,
+//   .views-field-field-requirements:before {
+//     font-family: FontAwesome;
+//     position:absolute;
+//     top:0;
+//     left:0;
+//   }
+//   //icon codes
+//   .views-field-field-install-url:before { content:"\f109"; }
+//   .views-field-field-release-notes:before,
+//   .views-field-field-file-attachments:before { content:"\f15b"; }
+//   .views-field-field-telephone:before { content:"\f095"; }
+//   .views-field-field-aggregate-rating:before { content:"\f005"; }
+//   .views-field-field-keywords:before { content:"\f02c"; }
+//   .views-field-field-software-type:before,
+//   .views-field-field-civic-category:before,
+//   .views-field-field-application-category:before,
+//   .views-field-field-civic-category:before { content:"\f02b"; }
+//   .views-field-field-download-url:before { content: "\f0ac"; }
+//   .views-field-field-url:before { content: "\f015"; }
+//   .views-field-field-creator:before,
+//   .views-field-name:before,
+//   .views-field-field-problem-author:before { content: "\f007"; }
+//   .views-field-field-address:before { content: "\f041"; }
+//   .views-field-field-requirements:before { content: "\f0c9"; }
+// }
 
 //problem statement map & org node map
 #block-views-organization-map-block,
@@ -1494,6 +1622,35 @@ ul.action-links {
     }
   }
 }
+
+.view-problem-statement-details,
+.view-project-at-a-glance {
+  .views-label {
+    color:$slogan;
+    display:block;
+    font-weight:bold;
+    clear:both;
+  }
+  .field-content {
+    display:block;
+    padding-bottom:8px;
+  }
+  .view-taxonomy-icons {
+    .views-field-field-small-icon {
+      float:left;
+    }
+    .views-field-name {
+      display:inline-block;
+      clear:both;
+      margin-left:5px;
+    }
+    .field-content {
+      padding:0;
+      line-height:29px;
+    }
+  }
+}
+
 
 /* =============================================================================
  *   Comment Styling - Comments, comment wrapper, comment form
@@ -2097,6 +2254,32 @@ div {
   }
 }
 
+.view-id-featured_apps {
+  .views-row {
+    clear:both;
+    margin-bottom:1.5em;
+    position:relative;
+  }
+  .views-field-title a {
+    font-size:1.4em;
+    margin:0;
+    display: block;
+    color: $dark;
+    padding-left:70px;
+  }
+  .views-field-body {
+    padding-left:70px;
+  }
+  .views-field-field-image {
+    position:absolute;
+    top:0;
+    left:0;
+  }
+  .view-footer {
+    text-align:right;
+  }
+}
+
 #user-login {
   //log in with github
   ul.github-links {
@@ -2245,15 +2428,26 @@ div {
       }
     }
     @include zen-grid-container;
-    .views-row:nth-of-type(3n+1) {
-      @include zen-clear();
-      @include zen-grid-item(4,1);
-    }
-    .views-row:nth-of-type(3n+2) {
-      @include zen-grid-item(4,5);
-    }
-    .views-row:nth-of-type(3n+3) {
-      @include zen-grid-item(4,9);
-    }
+  }
+}
+#block-views-sponsors-block-block .view-content {
+  .views-row-1 {
+    @include zen-grid-item(6,1);
+  }
+  .views-row-2 {
+    @include zen-grid-item(6,7);
+  }
+}
+#block-views-sponsors-block-block-1 .view-content,
+#block-views-sponsors-block-block-2 .view-content {
+  .views-row:nth-of-type(3n+1) {
+    @include zen-clear();
+    @include zen-grid-item(4,1);
+  }
+  .views-row:nth-of-type(3n+2) {
+    @include zen-grid-item(4,5);
+  }
+  .views-row:nth-of-type(3n+3) {
+    @include zen-grid-item(4,9);
   }
 }

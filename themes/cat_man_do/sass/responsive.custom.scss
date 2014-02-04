@@ -30,23 +30,26 @@
     text-align:center;
   }
   #header-wrapper #header {
-    .region-header,
-    .region-inner,
-    #branding,
-    #secondary-menu-bar,
-    #secondary-menu-bar nav ul.menu {
+    height:auto;
+    #branding {
       clear:both;
       float:none;
-      margin:5px 10px;
-      width:100%;
+      padding:5px 10px;
+      position:relative;
     }
+    .region-header #block-menu-menu-menu-bar ul.menu,
     .region-header #block-views-exp-solr-search-page {
       float:none;
+      margin:.5em 0;
+    }
+    #name-and-slogan {
+      width: 100%;
     }
   }
-  #name-and-slogan {
-    width: 100%;
+  .responsive-menus .contextual-links-wrapper {
+    display:none !important;
   }
+
   //front 
   #secondary-content-wrapper .region-secondary-content .block {
     .highlight-text,
@@ -56,6 +59,20 @@
       margin:10px;
       text-align:center;
       width:100%;
+    }
+  }
+  //content 
+  .cfr-pond-column-content .cfr-pond-column-inner,
+  .cfr-pond-secondary-column-content .cfr-pond-secondary-column-content-region-inner,
+  .cfr-pond-footer .cfr-pond-footer-inner {
+    margin-left:10px;
+    margin-right:10px;
+  }
+  .cfr-pond-header,
+  .cfr-pond-middle {
+    .block-title {
+      margin-left:10px;
+      margin-right:10px;
     }
   }
   //Problem Page
@@ -176,6 +193,14 @@
       text-align:center;
     }
   }
+  //footer nav
+  #footer-nav-wrapper {
+    height:10px;
+    #block-menu-menu-footer-menu,
+    .primary-menu-wrapper {
+      display:none;
+    }
+  }
   //sponsors
   .region-footer .block-views {
     h2.block-title:before,
@@ -186,10 +211,6 @@
       font-size:1em;
       text-align:center;
       margin-bottom:20px;
-    }
-    .view-content .views-row:nth-of-type(n) {
-      @include zen-clear();
-      @include zen-grid-item(12,1);
     }
   }
   .view {
@@ -202,37 +223,49 @@
       clear:none;
     }
   }
-
+  #block-views-sponsors-block-block,
+  #block-views-sponsors-block-block-1,
+  #block-views-sponsors-block-block-2 {
+    .view-content .views-row:nth-of-type(n) {
+      @include zen-clear();
+      @include zen-grid-item(12,1);
+    }
+  }
 }
 
 
 /*
- * Tablet sizes and up
+ * Tablet sizes
  */
-@media only screen and (min-width: 768px) {
-
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  #header-wrapper {
+    #header {
+      min-height:120px
+    }
+  }
 } 
-
 
 /*
  * Desktops/laptops and up
  */
-@media only screen and (min-width: 901px) {
+@media only screen and (max-width: 900px) {
+  html body.admin-menu {
+    margin-top: 55px !important;
+  }
   #header-wrapper {
     #header {
       #branding {
-        @include zen-grid-item(9,1,left);
-        #site-slogan {
-          margin:40px 0 0 10%;
-          width:100%;
+        #name-and-slogan {
+          clear:left;
+          display:block;
+          margin:5px;
+          position:relative;
+          top:auto;
+          left:auto;
+          h2#site-slogan {
+            font-size:14px;
+          }
         }
-      }
-      #secondary-menu-bar {
-        @include zen-grid-item(3,1,right);
-      }
-      .region-header {
-        @include zen-clear(right);
-        @include zen-grid-item(3,1,right);
       }
     }
   }

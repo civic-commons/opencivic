@@ -82,7 +82,7 @@ function cat_man_do_preprocess_username(&$vars) {
 
 // Send certain taxononmy fields in views to alternative template (replacing terms with icons)
 function cat_man_do_preprocess_views_view_field(&$vars) {
-  $views = array('application_list', 'problems_list');
+  $views = array('application_list', 'problems_list', 'projects');
   // Re-enable applications list once icons in place
   $fields = array('field_application_category', 'field_civic_category');
   if (in_array($vars['view']->name, $views) && isset($vars['field']->definition['field_name']) && in_array($vars['field']->definition['field_name'], $fields)) {

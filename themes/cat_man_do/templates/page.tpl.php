@@ -42,7 +42,7 @@
             </div><!-- /end #branding -->
           <?php endif; ?>
 
-        <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>
+        <?php //if ($secondary_navigation): print $secondary_navigation; endif; ?>
         <?php print render($page['header']); ?>
 
         </header>
@@ -53,7 +53,7 @@
       <div id="nav-wrapper">
         <div class="container clearfix">
           <?php print render($page['menu_bar']); ?>
-          <?php if ($primary_navigation): print $primary_navigation; endif; ?>
+          <?php //if ($primary_navigation): print $primary_navigation; endif; ?>
         </div>
       </div>
     <?php endif; ?>
@@ -166,10 +166,7 @@
 
       <div id="footer-nav-wrapper">
         <div class="container clearfix">
-          <?php print render($page['footer_menu']); ?>
-          <?php $menu = menu_navigation_links('main_menu');
-            print theme('links__system_main_menu', array('links' => $menu));
-          ?>
+          <?php if ($primary_navigation): print $primary_navigation; endif; ?>
         </div>
       </div>
 
