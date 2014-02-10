@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the appcat_search_db feature.
- */
-
-include_once 'appcat_search_db.features.inc';
