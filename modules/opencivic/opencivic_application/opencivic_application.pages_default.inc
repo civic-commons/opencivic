@@ -136,8 +136,8 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-3';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
-    $pane->subtype = 'application_list-panel_pane_1';
-    $pane->shown = FALSE;
+    $pane->subtype = 'opencivic_application_facet_search-panel_pane_1';
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'teaser',
@@ -204,7 +204,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-5';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-AiS11Yq1KpRaXszcfPq4beqTqRwtn1VO';
+    $pane->subtype = 'facetapi-J1Be0uKVaIDh87OP1Zzn2bKCDn2xtHej';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -226,7 +226,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-6';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-uSb0zDxvVG4IwGx04BDjgoyKFCQGyb2O';
+    $pane->subtype = 'facetapi-FZfCmWlM6xk0avo54ojL5PErj6ZKbtUj';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -248,7 +248,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-7';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-Vn8grOhiXtX9JCJ1vhG3JbaHJ1avhwkV';
+    $pane->subtype = 'facetapi-CYD2Cu94E1JmyRCgAan7cW0tZkzM7n4X';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -270,7 +270,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-8';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-zJ8Cbklh6Lz1M1mblPUBuhgT05r4yNPr';
+    $pane->subtype = 'facetapi-OJUJxzfYb0cUBKO8191iNWzX0y80x20Y';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

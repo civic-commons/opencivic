@@ -180,58 +180,6 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-application-field_oc_civic_category'
-  $field_instances['node-application-field_oc_civic_category'] = array(
-    'bundle' => 'application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'What civic purpose does this application serve, e.g., education, elections?',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_civic_category',
-    'label' => 'Civic sector',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_buttons',
-      'weight' => 13,
-    ),
-  );
-
   // Exported field_instance: 'node-application-field_oc_app_contributor'
   $field_instances['node-application-field_oc_app_contributor'] = array(
     'bundle' => 'application',
@@ -582,71 +530,6 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'file_generic',
       'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-application-field_image'
-  $field_instances['node-application-field_image'] = array(
-    'bundle' => 'application',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'app_detail_logo',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_image',
-    'label' => 'Logo',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 1,
-      'default_image' => 0,
-      'entity_translation_sync' => FALSE,
-      'file_directory' => 'content/applications/logos',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'field_oc_app_title' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 2,
     ),
   );
 
@@ -1035,12 +918,13 @@ function opencivic_application_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
+      'field_oc_app_title' => 0,
       'file_directory' => 'content/applications/images',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'field_oc_app_title' => 0,
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1057,18 +941,18 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-application-field_software_type'
-  $field_instances['node-application-field_software_type'] = array(
+  // Exported field_instance: 'node-application-field_oc_app_title'
+  $field_instances['node-application-field_oc_app_title'] = array(
     'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1090,22 +974,25 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_software_type',
-    'label' => 'Software type',
-    'required' => 0,
+    'field_name' => 'field_oc_app_title',
+    'label' => 'Title',
+    'required' => TRUE,
     'settings' => array(
       'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
+      'module' => 'text',
       'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
       ),
-      'type' => 'options_buttons',
-      'weight' => 18,
+      'type' => 'text_textfield',
+      'weight' => 0,
     ),
   );
 
@@ -1245,18 +1132,18 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-application-field_oc_app_title'
-  $field_instances['node-application-field_oc_app_title'] = array(
+  // Exported field_instance: 'node-application-field_oc_civic_category'
+  $field_instances['node-application-field_oc_civic_category'] = array(
     'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'What civic purpose does this application serve, e.g., education, elections?',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 17,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1278,25 +1165,74 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_title',
-    'label' => 'Title',
-    'required' => TRUE,
+    'field_name' => 'field_oc_civic_category',
+    'label' => 'Civic sector',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'text',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(
-        'size' => 60,
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
-      'type' => 'text_textfield',
-      'weight' => 0,
+      'type' => 'options_buttons',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-application-field_software_type'
+  $field_instances['node-application-field_software_type'] = array(
+    'bundle' => 'application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_software_type',
+    'label' => 'Software type',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_buttons',
+      'weight' => 18,
     ),
   );
 
@@ -1319,7 +1255,6 @@ function opencivic_application_field_default_field_instances() {
   t('Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?');
   t('Key features');
   t('License');
-  t('Logo');
   t('Rating');
   t('Related applications');
   t('Release Notes');

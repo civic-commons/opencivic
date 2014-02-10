@@ -66,43 +66,6 @@ function opencivic_application_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // // Exported field_base: 'field_oc_civic_category'
-  // $field_bases['field_oc_civic_category'] = array(
-  //   'active' => 1,
-  //   'cardinality' => -1,
-  //   'deleted' => 0,
-  //   'entity_types' => array(),
-  //   'field_name' => 'field_oc_civic_category',
-  //   'foreign keys' => array(
-  //     'tid' => array(
-  //       'columns' => array(
-  //         'tid' => 'tid',
-  //       ),
-  //       'table' => 'taxonomy_term_data',
-  //     ),
-  //   ),
-  //   'indexes' => array(
-  //     'tid' => array(
-  //       0 => 'tid',
-  //     ),
-  //   ),
-  //   'locked' => 0,
-  //   'module' => 'taxonomy',
-  //   'settings' => array(
-  //     'allowed_values' => array(
-  //       0 => array(
-  //         'vocabulary' => 'civic_category',
-  //         'parent' => 0,
-  //         'depth' => '',
-  //       ),
-  //     ),
-  //     'entity_translation_sync' => FALSE,
-  //     'options_list_callback' => NULL,
-  //   ),
-  //   'translatable' => 0,
-  //   'type' => 'taxonomy_term_reference',
-  // );
-
   // Exported field_base: 'field_oc_app_contributor'
   $field_bases['field_oc_app_contributor'] = array(
     'active' => 1,
@@ -110,14 +73,7 @@ function opencivic_application_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_oc_app_contributor',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -154,14 +110,7 @@ function opencivic_application_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_oc_app_creator',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -427,14 +376,7 @@ function opencivic_application_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_oc_app_related_apps',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -562,41 +504,34 @@ function opencivic_application_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_software_type'
-  $field_bases['field_software_type'] = array(
+  // Exported field_base: 'field_oc_app_title'
+  $field_bases['field_oc_app_title'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_software_type',
+    'field_name' => 'field_oc_app_title',
     'foreign keys' => array(
-      'tid' => array(
+      'format' => array(
         'columns' => array(
-          'tid' => 'tid',
+          'format' => 'format',
         ),
-        'table' => 'taxonomy_term_data',
+        'table' => 'filter_format',
       ),
     ),
     'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'taxonomy',
+    'module' => 'text',
     'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'software_type',
-          'parent' => 0,
-          'depth' => '',
-        ),
-      ),
       'entity_translation_sync' => FALSE,
-      'options_list_callback' => NULL,
+      'max_length' => 255,
     ),
     'translatable' => 1,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_oc_app_url'
@@ -664,34 +599,41 @@ function opencivic_application_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_oc_app_title'
-  $field_bases['field_oc_app_title'] = array(
+  // Exported field_base: 'field_software_type'
+  $field_bases['field_software_type'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_app_title',
+    'field_name' => 'field_software_type',
     'foreign keys' => array(
-      'format' => array(
+      'tid' => array(
         'columns' => array(
-          'format' => 'format',
+          'tid' => 'tid',
         ),
-        'table' => 'filter_format',
+        'table' => 'taxonomy_term_data',
       ),
     ),
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'taxonomy',
     'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'software_type',
+          'parent' => 0,
+          'depth' => '',
+        ),
+      ),
       'entity_translation_sync' => FALSE,
-      'max_length' => 255,
+      'options_list_callback' => NULL,
     ),
     'translatable' => 1,
-    'type' => 'text',
+    'type' => 'taxonomy_term_reference',
   );
 
   return $field_bases;

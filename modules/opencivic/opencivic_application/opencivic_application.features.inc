@@ -7,13 +7,16 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function opencivic_application_ctools_plugin_api($module = NULL, $api = NULL) {
+function opencivic_application_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
+  list($module, $api) = func_get_args();
   if ($module == "panelizer" && $api == "panelizer") {
     return array("version" => "1");
   }
+  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -46,6 +49,7 @@ function opencivic_application_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'app_detail_logo',
   );
 
   // Exported image style: screenshot.
@@ -69,6 +73,7 @@ function opencivic_application_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'screenshot',
   );
 
   // Exported image style: small_square_thumbnail.
@@ -92,6 +97,7 @@ function opencivic_application_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'small_square_thumbnail',
   );
 
   return $styles;
@@ -112,13 +118,4 @@ function opencivic_application_node_info() {
     ),
   );
   return $items;
-}
-
-/**
- * Implements hook_views_api().
- */
-function opencivic_application_views_api() {
-  return array(
-    'api' => '3.0',
-  );
 }

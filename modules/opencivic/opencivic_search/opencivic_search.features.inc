@@ -15,6 +15,13 @@ function opencivic_search_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function opencivic_search_views_api() {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_default_search_api_index().
  */
 function opencivic_search_default_search_api_index() {
