@@ -28,7 +28,13 @@ function opencivic_application_panelizer_defaults() {
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
-  $panelizer->extra = array();
+  $panelizer->extra = array(
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Applications
+%node:title',
+    'panels_breadcrumbs_paths' => 'apps',
+    'panels_breadcrumbs_home' => 1,
+  );
   $display = new panels_display();
   $display->layout = 'burr_flipped';
   $display->layout_settings = array();

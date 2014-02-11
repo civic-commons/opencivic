@@ -28,7 +28,13 @@ function opencivic_story_panelizer_defaults() {
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
-  $panelizer->extra = array();
+  $panelizer->extra = array(
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Stories
+%node:title',
+    'panels_breadcrumbs_paths' => 'stories',
+    'panels_breadcrumbs_home' => 1,
+  );
   $display = new panels_display();
   $display->layout = 'flexible';
   $display->layout_settings = array();
