@@ -401,13 +401,6 @@ projects[views_data_export][version] = "3.0-beta6"
 projects[views_field_view][subdir] = "contrib"
 projects[views_field_view][version] = 1.1
 
-projects[views_php][subdir] = "contrib"
-projects[views_php][version] = "1.x-dev"
-projects[views_php][download][url] = "http://git.drupal.org/project/views_php.git"
-projects[views_php][download][revision] = 2b5ed52228394ee3c8e8c86be283da957cdfa6f6
-projects[views_php][download][branch] = 7.x-1.x
-projects[views_php][type] = "module"
-
 projects[views_random_seed][subdir] = "contrib"
 projects[views_random_seed][version] = "1.2"
 
