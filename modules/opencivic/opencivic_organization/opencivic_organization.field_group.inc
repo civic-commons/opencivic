@@ -28,13 +28,13 @@ function opencivic_organization_field_group_info() {
       2 => 'field_oc_org_additional_type',
       3 => 'field_oc_org_address',
       4 => 'field_oc_org_coordinates',
-      5 => 'field_oc_app_keywords',
+      5 => 'field_oc_org_email',
       6 => 'field_oc_org_logo',
       7 => 'field_oc_org_member',
       8 => 'field_oc_org_telephone',
-      9 => 'field_oc_org_url',
-      10 => 'field_oc_org_email',
-      11 => 'field_oc_org_twitter',
+      9 => 'field_oc_org_twitter',
+      10 => 'field_oc_org_url',
+      11 => 'field_oc_org_github_account',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -88,8 +88,7 @@ function opencivic_organization_field_group_info() {
     'weight' => '20',
     'children' => array(
       0 => 'field_oc_civic_category',
-      1 => 'field_oc_app_related_apps',
-      2 => 'field_oc_org_services',
+      1 => 'field_oc_org_services',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
