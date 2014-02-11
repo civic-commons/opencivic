@@ -188,7 +188,7 @@ dependencies[] = date_popup_authored
 dependencies[] = uuid
 
 ; Features
-;; dependencies[] = appcat_misc
+dependencies[] = appcat_misc_menus
 ;; dependencies[] = appcat_misc_taxonomies
 
 ; dependencies[] = appcat_misc_taxonomy_app_terms
@@ -202,4 +202,15 @@ dependencies[] = uuid
 ; dependencies[] = insert_block
 ; dependencies[] = appcat_search_db
 ; dependencies[] = ole
+
+
+dependencies[] = opencivic_core
+dependencies[] = opencivic_application
+dependencies[] = opencivic_blog
+dependencies[] = opencivic_deployment
+dependencies[] = opencivic_event
+dependencies[] = opencivic_organization
+dependencies[] = opencivic_story
+dependencies[] = opencivic_search
+dependencies[] = opencivic_sponsor
 
