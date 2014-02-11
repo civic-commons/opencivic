@@ -69,7 +69,7 @@ function opencivic_application_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -124,7 +124,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'exposed',
-      'weight' => 24,
+      'weight' => 14,
     ),
   );
 
@@ -176,7 +176,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_buttons',
-      'weight' => 19,
+      'weight' => 8,
     ),
   );
 
@@ -235,7 +235,7 @@ function opencivic_application_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 15,
+      'weight' => 9,
     ),
   );
 
@@ -294,7 +294,7 @@ function opencivic_application_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -417,7 +417,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 22,
+      'weight' => 16,
     ),
   );
 
@@ -529,7 +529,7 @@ function opencivic_application_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 13,
+      'weight' => 7,
     ),
   );
 
@@ -597,7 +597,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 23,
+      'weight' => 17,
     ),
   );
 
@@ -652,7 +652,7 @@ function opencivic_application_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 7,
+      'weight' => 9,
     ),
   );
 
@@ -704,7 +704,65 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_buttons',
-      'weight' => 21,
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'node-application-field_oc_app_logo'
+  $field_instances['node-application-field_oc_app_logo'] = array(
+    'bundle' => 'application',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 23,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_app_logo',
+    'label' => 'Logo',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 4,
     ),
   );
 
@@ -763,64 +821,7 @@ function opencivic_application_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 17,
-    ),
-  );
-
-  // Exported field_instance: 'node-application-field_oc_app_release_notes'
-  $field_instances['node-application-field_oc_app_release_notes'] = array(
-    'bundle' => 'application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_app_release_notes',
-    'label' => 'Release Notes',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'label_help_description' => 'Describe the history of this application and features available in the current version.',
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -875,7 +876,7 @@ function opencivic_application_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 9,
+      'weight' => 15,
     ),
   );
 
@@ -937,62 +938,7 @@ function opencivic_application_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 11,
-    ),
-  );
-
-  // Exported field_instance: 'node-application-field_oc_app_title'
-  $field_instances['node-application-field_oc_app_title'] = array(
-    'bundle' => 'application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 21,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_app_title',
-    'label' => 'Title',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => 5,
     ),
   );
 
@@ -1060,7 +1006,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1128,7 +1074,7 @@ function opencivic_application_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 12,
+      'weight' => 6,
     ),
   );
 
@@ -1180,7 +1126,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_buttons',
-      'weight' => 13,
+      'weight' => 7,
     ),
   );
 
@@ -1232,7 +1178,7 @@ function opencivic_application_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_buttons',
-      'weight' => 18,
+      'weight' => 13,
     ),
   );
 
@@ -1255,9 +1201,9 @@ function opencivic_application_field_default_field_instances() {
   t('Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?');
   t('Key features');
   t('License');
+  t('Logo');
   t('Rating');
   t('Related applications');
-  t('Release Notes');
   t('Requirements');
   t('Screenshot images of the app.');
   t('Screenshots');
@@ -1267,7 +1213,6 @@ function opencivic_application_field_default_field_instances() {
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
   t('The keywords/tags used to describe this content. Separate tags with a comma.');
-  t('Title');
   t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');

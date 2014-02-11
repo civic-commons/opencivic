@@ -90,10 +90,10 @@ function opencivic_application_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '4',
         ),
         'redirect' => array(
-          'weight' => '4',
+          'weight' => '3',
         ),
         'language' => array(
           'weight' => '2',
