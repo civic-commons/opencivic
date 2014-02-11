@@ -185,7 +185,7 @@ dependencies[] = module_filter
 dependencies[] = date_popup_authored
 
 ; Panopoly Recommended - Other
-dependencies[] = uuid
+;dependencies[] = uuid
 
 ; Features
 dependencies[] = appcat_misc_menus
