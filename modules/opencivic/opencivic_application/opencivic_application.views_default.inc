@@ -8,9 +8,8 @@
  * Implements hook_views_default_views().
  */
 function opencivic_application_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: application_at_a_glance
   $view = new view();
   $view->name = 'application_at_a_glance';
   $view->description = 'Defines the "At a Glance" block for Application detail pages';
@@ -72,7 +71,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_app_license']['field'] = 'field_oc_app_license';
   $handler->display->display_options['fields']['field_oc_app_license']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_app_license']['delta_offset'] = '0';
-  /* Field: Content: Release Notes */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_oc_app_release_notes']['id'] = 'field_oc_app_release_notes';
   $handler->display->display_options['fields']['field_oc_app_release_notes']['table'] = 'field_data_field_oc_app_release_notes';
   $handler->display->display_options['fields']['field_oc_app_release_notes']['field'] = 'field_oc_app_release_notes';
@@ -96,7 +95,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_app_keywords']['field'] = 'field_oc_app_keywords';
   $handler->display->display_options['fields']['field_oc_app_keywords']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_app_keywords']['delta_offset'] = '0';
-  /* Field: Content: Website */
+  /* Field: Content: Application Homepage */
   $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
@@ -304,284 +303,8 @@ function opencivic_application_views_default_views() {
 
   /* Display: Application Media pane */
   $handler = $view->new_display('panel_pane', 'Application Media pane', 'panel_pane_3');
-  $translatables['application_at_a_glance'] = array(
-    t('Master'),
-    t('At a Glance'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Application function'),
-    t('Civic sector'),
-    t('Creator'),
-    t('Host website'),
-    t('Demo website'),
-    t('License'),
-    t('Release notes'),
-    t('Requirements'),
-    t('Software type'),
-    t('Tags'),
-    t('Website'),
-    t('Rating'),
-    t('All'),
-    t('OpenCivic Application At a Glance'),
-    t('Application Key Features'),
-    t('Key Features'),
-    t('Displays the key features for an application'),
-    t('Application Media'),
-    t('Media'),
-    t('Displays the screenshots and video for an application'),
-    t('Application At a Glance pane'),
-    t('View panes'),
-    t('Application Key Features pane'),
-    t('Key features'),
-    t('Application Media pane'),
-  );
+  $export['application_at_a_glance'] = $view;
 
-  $views[$view->name] = $view;
-
-  // Exported view: application_categories
-  $view = new view();
-  $view->name = 'opencivic_application_categories';
-  $view->description = 'Defines icon views for the Application content type';
-  $view->tag = 'opencivic,Application';
-  $view->base_table = 'taxonomy_term_data';
-  $view->human_name = 'OpenCivic Application categories';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Application categories';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
-    'name' => 'name',
-  );
-  /* Relationship: Taxonomy term: Content using Application function */
-  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['id'] = 'reverse_field_oc_app_app_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['field'] = 'reverse_field_oc_app_app_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['required'] = TRUE;
-  /* Field: Taxonomy term: Small icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
-    'image_style' => '',
-    'image_link' => 'content',
-  );
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Sort criterion: Taxonomy term: Name */
-  $handler->display->display_options['sorts']['name']['id'] = 'name';
-  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_app_app_category_node';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'application_category' => 'application_category',
-  );
-
-  /* Display: Application categories */
-  $handler = $view->new_display('block', 'Application categories', 'block');
-  $handler->display->display_options['display_description'] = 'Small icons and names of application categories';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Application/Application categories';
-
-  /* Display: Civic categories */
-  $handler = $view->new_display('block', 'Civic categories', 'block_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Civic categories';
-  $handler->display->display_options['display_description'] = 'Small icons and names of civic categories';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic sector */
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['id'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['field'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['required'] = TRUE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'civic_category' => 'civic_category',
-  );
-  $handler->display->display_options['block_description'] = 'Application/Civic categories';
-
-  /* Display: Application categories icons */
-  $handler = $view->new_display('block', 'Application categories icons', 'block_2');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Application categories icons';
-  $handler->display->display_options['display_description'] = 'Small icons of application categories';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '7';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
-  );
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Term ID */
-  $handler->display->display_options['fields']['tid']['id'] = 'tid';
-  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['tid']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid']['label'] = '';
-  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Small icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
-    'image_style' => '',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['block_description'] = 'Application/Application categories icons';
-
-  /* Display: Civic categories icons */
-  $handler = $view->new_display('block', 'Civic categories icons', 'block_3');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Civic categories icons';
-  $handler->display->display_options['display_description'] = 'Small icons of civic categories';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '7';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
-    'name' => 'name',
-  );
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Civic sector */
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['id'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['field'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['required'] = TRUE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Term ID */
-  $handler->display->display_options['fields']['tid']['id'] = 'tid';
-  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['tid']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid']['label'] = '';
-  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Small icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
-    'image_style' => '',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_civic_category_node';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'civic_category' => 'civic_category',
-  );
-  $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
-  $translatables['application_categories'] = array(
-    t('Master'),
-    t('Application categories'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('field_oc_app_app_category'),
-    t('All'),
-    t('Small icons and names of application categories'),
-    t('Application/Application categories'),
-    t('Civic categories'),
-    t('Small icons and names of civic categories'),
-    t('field_oc_civic_category'),
-    t('Application/Civic categories'),
-    t('Application categories icons'),
-    t('Small icons of application categories'),
-    t('.'),
-    t(','),
-    t('Application/Application categories icons'),
-    t('Civic categories icons'),
-    t('Small icons of civic categories'),
-    t('Application/Civic categories icons'),
-  );
-
-  $views[$view->name] = $view;
-
-  // Exported view: application_list
   $view = new view();
   $view->name = 'application_list';
   $view->description = 'The Applications listing page';
@@ -886,46 +609,8 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'application' => 'application',
   );
-  $translatables['application_list'] = array(
-    t('Master'),
-    t('Applications'),
-    t('See all'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Description'),
-    t('We are working to build the most complete and up-to-date database of civic software &mdash; both the apps themselves and where they are used. You can help by adding a new app or by linking information about a place where an existing app has been deployed and used.'),
-    t('No apps'),
-    t('No apps added yet. Please add the first app!'),
-    t('Nid'),
-    t('Date added'),
-    t('Title'),
-    t('App function'),
-    t('Civic sector'),
-    t('App type'),
-    t('Rating'),
-    t('Applications list'),
-    t('Applications listing page.'),
-    t('more'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Applications feed'),
-    t('Latest apps'),
-    t('Applications list pane'),
-    t('View panes'),
-    t('Latest apps pane'),
-  );
+  $export['application_list'] = $view;
 
-  $views[$view->name] = $view;
-
-  // Exported view: apps_search_list
   $view = new view();
   $view->name = 'apps_search_list';
   $view->description = '';
@@ -947,45 +632,35 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Indexed Node: Node ID */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Title */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Image */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'apps_logo_small',
-    'image_link' => 'content',
-  );
-  /* Field: Indexed Node: Short description */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_oc_app_description']['id'] = 'field_oc_app_description';
   $handler->display->display_options['fields']['field_oc_app_description']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['fields']['field_oc_app_description']['field'] = 'field_oc_app_description';
   $handler->display->display_options['fields']['field_oc_app_description']['label'] = '';
   $handler->display->display_options['fields']['field_oc_app_description']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Civic sector */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_oc_civic_category']['id'] = 'field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['fields']['field_oc_civic_category']['field'] = 'field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['label'] = 'Sectors';
-  $handler->display->display_options['fields']['field_oc_civic_category']['link_to_entity'] = 0;
-  $handler->display->display_options['fields']['field_oc_civic_category']['view_mode'] = 'full';
-  $handler->display->display_options['fields']['field_oc_civic_category']['bypass_access'] = 0;
-  /* Filter criterion: Indexed Node: Content type */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1002,7 +677,7 @@ function opencivic_application_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Indexed Node: Content type */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -1010,31 +685,218 @@ function opencivic_application_views_default_views() {
     'application' => 'application',
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
-  $translatables['apps_search_list'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Node ID'),
-    t('.'),
-    t(','),
-    t('Sectors'),
-    t('Content type'),
-    t('Content pane'),
-    t('View panes'),
+  $export['apps_search_list'] = $view;
+
+  $view = new view();
+  $view->name = 'opencivic_application_categories';
+  $view->description = 'Defines icon views for the Application content type';
+  $view->tag = 'opencivic,Application';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'OpenCivic Application categories';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Application categories';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_small_icon' => 'field_small_icon',
+    'name' => 'name',
+  );
+  /* Relationship: Taxonomy term: Content using Application function */
+  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['id'] = 'reverse_field_oc_app_app_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['field'] = 'reverse_field_oc_app_app_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['required'] = TRUE;
+  /* Field: : field_small_icon */
+  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_app_app_category_node';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'application_category' => 'application_category',
   );
 
-  $views[$view->name] = $view;
+  /* Display: Application categories */
+  $handler = $view->new_display('block', 'Application categories', 'block');
+  $handler->display->display_options['display_description'] = 'Small icons and names of application categories';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Application/Application categories';
 
-  return $views;
+  /* Display: Civic categories */
+  $handler = $view->new_display('block', 'Civic categories', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Civic categories';
+  $handler->display->display_options['display_description'] = 'Small icons and names of civic categories';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Taxonomy term: Content using Civic sector */
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['id'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['field'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['required'] = TRUE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'civic_category' => 'civic_category',
+  );
+  $handler->display->display_options['block_description'] = 'Application/Civic categories';
+
+  /* Display: Application categories icons */
+  $handler = $view->new_display('block', 'Application categories icons', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Application categories icons';
+  $handler->display->display_options['display_description'] = 'Small icons of application categories';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '7';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_small_icon' => 'field_small_icon',
+  );
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  /* Field: : field_small_icon */
+  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['block_description'] = 'Application/Application categories icons';
+
+  /* Display: Civic categories icons */
+  $handler = $view->new_display('block', 'Civic categories icons', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Civic categories icons';
+  $handler->display->display_options['display_description'] = 'Small icons of civic categories';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '7';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_small_icon' => 'field_small_icon',
+    'name' => 'name',
+  );
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Taxonomy term: Content using Civic sector */
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['id'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['field'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_civic_category_node']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  /* Field: : field_small_icon */
+  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
+  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_oc_civic_category_node';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'civic_category' => 'civic_category',
+  );
+  $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
+  $export['opencivic_application_categories'] = $view;
+
+  return $export;
 }

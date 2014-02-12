@@ -454,6 +454,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -470,7 +476,7 @@ function opencivic_organization_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
@@ -1078,14 +1084,18 @@ function opencivic_organization_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => 'nofollow',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'entity_translation_sync' => FALSE,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'rel_remove' => 'default',
       'title' => 'value',
       'title_maxlength' => 128,
       'title_value' => 'Homepage',
