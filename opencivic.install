@@ -341,11 +341,6 @@
   );
   field_create_instance($instance);
 
-  // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
-
   // Enable the admin theme.
   db_update('system')
     ->fields(array('status' => 1))
@@ -354,7 +349,6 @@
     ->execute();
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
-  opencivic_set_google_fonts();
   variable_set('site_frontpage', 'ocsetup_home');
 }
 
