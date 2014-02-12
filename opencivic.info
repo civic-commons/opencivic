@@ -144,7 +144,7 @@ dependencies[] = fivestar_green
 dependencies[] = subscriptions_subscribers
 dependencies[] = addressfield_extras
 dependencies[] = appcat_blocks
-dependencies[] = ocsetup
+; dependencies[] = ocsetup
 
 ; Devel
 dependencies[] = schemaorg
