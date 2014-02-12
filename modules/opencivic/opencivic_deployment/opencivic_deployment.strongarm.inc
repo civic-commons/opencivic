@@ -56,7 +56,7 @@ function opencivic_deployment_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_node_deployment';
-  $strongarm->value = '[node:field_deployment_of] deployed by [node:field_member]';
+  $strongarm->value = '[node:field_oc_deploy_deployment_of] deployed by [node:field_oc_deploy_member]';
   $export['auto_entitylabel_pattern_node_deployment'] = $strongarm;
 
   $strongarm = new stdClass();

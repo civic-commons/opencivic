@@ -85,11 +85,11 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_app_requirements']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_app_requirements']['delta_offset'] = '0';
   /* Field: Content: Software type */
-  $handler->display->display_options['fields']['field_software_type']['id'] = 'field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['table'] = 'field_data_field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['field'] = 'field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_software_type']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['id'] = 'field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['table'] = 'field_data_field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['field'] = 'field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_app_software_type']['delta_offset'] = '0';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_oc_app_keywords']['id'] = 'field_oc_app_keywords';
   $handler->display->display_options['fields']['field_oc_app_keywords']['table'] = 'field_data_field_oc_app_keywords';
@@ -652,11 +652,11 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_civic_category']['field'] = 'field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['delta_offset'] = '0';
   /* Field: Content: Software type */
-  $handler->display->display_options['fields']['field_software_type']['id'] = 'field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['table'] = 'field_data_field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['field'] = 'field_software_type';
-  $handler->display->display_options['fields']['field_software_type']['label'] = 'App type';
-  $handler->display->display_options['fields']['field_software_type']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['id'] = 'field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['table'] = 'field_data_field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['field'] = 'field_oc_app_software_type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['label'] = 'App type';
+  $handler->display->display_options['fields']['field_oc_app_software_type']['delta_offset'] = '0';
   /* Field: Content: Rating */
   $handler->display->display_options['fields']['field_oc_app_aggregate_rating']['id'] = 'field_oc_app_aggregate_rating';
   $handler->display->display_options['fields']['field_oc_app_aggregate_rating']['table'] = 'field_data_field_oc_app_aggregate_rating';

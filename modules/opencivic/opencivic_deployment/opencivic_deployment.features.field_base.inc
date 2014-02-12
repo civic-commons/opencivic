@@ -28,13 +28,13 @@ function opencivic_deployment_field_default_field_bases() {
     'type' => 'geofield',
   );
 
-  // Exported field_base: 'field_deployment_of'
-  $field_bases['field_deployment_of'] = array(
+  // Exported field_base: 'field_oc_deploy_deployment_of'
+  $field_bases['field_oc_deploy_deployment_of'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_deployment_of',
+    'field_name' => 'field_oc_deploy_deployment_of',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -72,13 +72,13 @@ function opencivic_deployment_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_location'
-  $field_bases['field_location'] = array(
+  // Exported field_base: 'field_oc_deploy_location'
+  $field_bases['field_oc_deploy_location'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_location',
+    'field_name' => 'field_oc_deploy_location',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -90,13 +90,13 @@ function opencivic_deployment_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_member'
-  $field_bases['field_member'] = array(
+  // Exported field_base: 'field_oc_deploy_member'
+  $field_bases['field_oc_deploy_member'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_member',
+    'field_name' => 'field_oc_deploy_member',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(

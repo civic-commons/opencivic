@@ -1130,8 +1130,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-application-field_software_type'
-  $field_instances['node-application-field_software_type'] = array(
+  // Exported field_instance: 'node-application-field_oc_app_software_type'
+  $field_instances['node-application-field_oc_app_software_type'] = array(
     'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1163,7 +1163,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_software_type',
+    'field_name' => 'field_oc_app_software_type',
     'label' => 'Software type',
     'required' => 0,
     'settings' => array(

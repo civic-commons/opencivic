@@ -99,7 +99,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-3';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_location';
+    $pane->subtype = 'node:field_oc_deploy_location';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -130,7 +130,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-4';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_deployment_of';
+    $pane->subtype = 'node:field_oc_deploy_deployment_of';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -183,7 +183,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-6';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_member';
+    $pane->subtype = 'node:field_oc_deploy_member';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

@@ -106,7 +106,7 @@ function opencivic_deployment_rdf_default_mappings() {
         0 => 'schema:url',
       ),
     ),
-    'field_location' => array(
+    'field_oc_deploy_location' => array(
       'predicates' => array(
         0 => 'schema:location',
       ),
@@ -114,13 +114,13 @@ function opencivic_deployment_rdf_default_mappings() {
     'field_oc_app_related_apps' => array(
       'predicates' => array(),
     ),
-    'field_deployment_of' => array(
+    'field_oc_deploy_deployment_of' => array(
       'predicates' => array(),
     ),
     'field_oc_app_contributor' => array(
       'predicates' => array(),
     ),
-    'field_member' => array(
+    'field_oc_deploy_member' => array(
       'predicates' => array(
         0 => 'schema:performer',
       ),

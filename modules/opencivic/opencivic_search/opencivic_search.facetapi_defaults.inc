@@ -86,10 +86,10 @@ function opencivic_search_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@opencivic_search::field_software_type';
+  $facet->name = 'search_api@opencivic_search::field_oc_app_software_type';
   $facet->searcher = 'search_api@opencivic_search';
   $facet->realm = '';
-  $facet->facet = 'field_software_type';
+  $facet->facet = 'field_oc_app_software_type';
   $facet->enabled = FALSE;
   $facet->settings = array(
     'operator' => 'and',
@@ -105,7 +105,7 @@ function opencivic_search_facetapi_default_facet_settings() {
     'default_true' => '1',
     'facet_search_ids' => array(),
   );
-  $export['search_api@opencivic_search::field_software_type'] = $facet;
+  $export['search_api@opencivic_search::field_oc_app_software_type'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -406,10 +406,10 @@ function opencivic_search_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@opencivic_search:block:field_software_type';
+  $facet->name = 'search_api@opencivic_search:block:field_oc_app_software_type';
   $facet->searcher = 'search_api@opencivic_search';
   $facet->realm = 'block';
-  $facet->facet = 'field_software_type';
+  $facet->facet = 'field_oc_app_software_type';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -443,7 +443,7 @@ function opencivic_search_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@opencivic_search:block:field_software_type'] = $facet;
+  $export['search_api@opencivic_search:block:field_oc_app_software_type'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

@@ -113,7 +113,7 @@ function opencivic_event_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
-    'field_location' => array(
+    'field_oc_deploy_location' => array(
       'predicates' => array(
         0 => 'schema:location',
       ),

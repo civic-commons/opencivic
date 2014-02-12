@@ -570,13 +570,13 @@ function opencivic_application_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_software_type'
-  $field_bases['field_software_type'] = array(
+  // Exported field_base: 'field_oc_app_software_type'
+  $field_bases['field_oc_app_software_type'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_software_type',
+    'field_name' => 'field_oc_app_software_type',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(

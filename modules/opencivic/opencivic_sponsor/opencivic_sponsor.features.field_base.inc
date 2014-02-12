@@ -41,13 +41,13 @@ function opencivic_sponsor_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_logo'
-  $field_bases['field_logo'] = array(
+  // Exported field_base: 'field_oc_sponsor_logo'
+  $field_bases['field_oc_sponsor_logo'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_logo',
+    'field_name' => 'field_oc_sponsor_logo',
     'foreign keys' => array(
       'fid' => array(
         'columns' => array(

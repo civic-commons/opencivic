@@ -172,10 +172,10 @@ function opencivic_story_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
-    'field_app_references' => array(
+    'field_oc_story_app_references' => array(
       'predicates' => array(),
     ),
-    'field_organization_references' => array(
+    'field_oc_story_organization_references' => array(
       'predicates' => array(),
     ),
   );

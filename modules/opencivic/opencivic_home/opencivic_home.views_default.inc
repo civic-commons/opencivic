@@ -35,17 +35,17 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   /* Relationship: App deployed */
-  $handler->display->display_options['relationships']['field_deployment_of_target_id']['id'] = 'field_deployment_of_target_id';
-  $handler->display->display_options['relationships']['field_deployment_of_target_id']['table'] = 'field_data_field_deployment_of';
-  $handler->display->display_options['relationships']['field_deployment_of_target_id']['field'] = 'field_deployment_of_target_id';
-  $handler->display->display_options['relationships']['field_deployment_of_target_id']['ui_name'] = 'App deployed';
-  $handler->display->display_options['relationships']['field_deployment_of_target_id']['label'] = 'App deployed';
+  $handler->display->display_options['relationships']['field_oc_deploy_deployment_of_target_id']['id'] = 'field_oc_deploy_deployment_of_target_id';
+  $handler->display->display_options['relationships']['field_oc_deploy_deployment_of_target_id']['table'] = 'field_data_field_oc_deploy_deployment_of';
+  $handler->display->display_options['relationships']['field_oc_deploy_deployment_of_target_id']['field'] = 'field_oc_deploy_deployment_of_target_id';
+  $handler->display->display_options['relationships']['field_oc_deploy_deployment_of_target_id']['ui_name'] = 'App deployed';
+  $handler->display->display_options['relationships']['field_oc_deploy_deployment_of_target_id']['label'] = 'App deployed';
   /* Relationship: Developer */
-  $handler->display->display_options['relationships']['field_member_target_id']['id'] = 'field_member_target_id';
-  $handler->display->display_options['relationships']['field_member_target_id']['table'] = 'field_data_field_member';
-  $handler->display->display_options['relationships']['field_member_target_id']['field'] = 'field_member_target_id';
-  $handler->display->display_options['relationships']['field_member_target_id']['ui_name'] = 'Developer';
-  $handler->display->display_options['relationships']['field_member_target_id']['label'] = 'Developer';
+  $handler->display->display_options['relationships']['field_oc_deploy_member_target_id']['id'] = 'field_oc_deploy_member_target_id';
+  $handler->display->display_options['relationships']['field_oc_deploy_member_target_id']['table'] = 'field_data_field_oc_deploy_member';
+  $handler->display->display_options['relationships']['field_oc_deploy_member_target_id']['field'] = 'field_oc_deploy_member_target_id';
+  $handler->display->display_options['relationships']['field_oc_deploy_member_target_id']['ui_name'] = 'Developer';
+  $handler->display->display_options['relationships']['field_oc_deploy_member_target_id']['label'] = 'Developer';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
@@ -55,13 +55,13 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, Y';
   /* Field: Content: Add deployment of */
-  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['label'] = 'Application';
-  $handler->display->display_options['fields']['field_deployment_of']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_deployment_of']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['id'] = 'field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['table'] = 'field_data_field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['field'] = 'field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['label'] = 'Application';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['settings'] = array(
     'link' => 1,
   );
   /* Field: Content: Website */
@@ -71,12 +71,12 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['fields']['field_oc_app_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_oc_app_url']['type'] = 'link_url';
   /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_deploy_location']['id'] = 'field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['table'] = 'field_data_field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['field'] = 'field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['type'] = 'addressfield_city_only';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['settings'] = array(
     'use_widget_handlers' => 1,
     'format_handlers' => array(
       'address' => 'address',
@@ -124,8 +124,8 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'leaflet';
   $handler->display->display_options['style_options']['data_source'] = 'field_oc_deploy_coordinates';
-  $handler->display->display_options['style_options']['name_field'] = 'field_deployment_of';
-  $handler->display->display_options['style_options']['description_field'] = 'field_deployment_of';
+  $handler->display->display_options['style_options']['name_field'] = 'field_oc_deploy_deployment_of';
+  $handler->display->display_options['style_options']['description_field'] = 'field_oc_deploy_deployment_of';
   $handler->display->display_options['style_options']['map'] = 'google-roadmap';
   $handler->display->display_options['style_options']['height'] = '500';
   $handler->display->display_options['style_options']['icon'] = array(
@@ -285,25 +285,25 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Add deployment of */
-  $handler->display->display_options['fields']['field_deployment_of']['id'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['table'] = 'field_data_field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['field'] = 'field_deployment_of';
-  $handler->display->display_options['fields']['field_deployment_of']['label'] = '';
-  $handler->display->display_options['fields']['field_deployment_of']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_deployment_of']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_deployment_of']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_deployment_of']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['id'] = 'field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['table'] = 'field_data_field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['field'] = 'field_oc_deploy_deployment_of';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['settings'] = array(
     'link' => 0,
   );
   /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['label'] = '';
-  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_location']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_location']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_deploy_location']['id'] = 'field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['table'] = 'field_data_field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['field'] = 'field_oc_deploy_location';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_deploy_location']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['type'] = 'addressfield_city_only';
+  $handler->display->display_options['fields']['field_oc_deploy_location']['settings'] = array(
     'use_widget_handlers' => 1,
     'format_handlers' => array(
       'address' => 'address',

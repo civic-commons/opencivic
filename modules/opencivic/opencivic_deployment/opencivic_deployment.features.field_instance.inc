@@ -122,7 +122,7 @@ function opencivic_deployment_field_default_field_instances() {
       'module' => 'geocoder',
       'settings' => array(
         'delta_handling' => 'default',
-        'geocoder_field' => 'field_location',
+        'geocoder_field' => 'field_oc_deploy_location',
         'geocoder_handler' => 'google',
         'handler_settings' => array(
           'google' => array(
@@ -144,8 +144,8 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_deployment_of'
-  $field_instances['node-deployment-field_deployment_of'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_deploy_deployment_of'
+  $field_instances['node-deployment-field_oc_deploy_deployment_of'] = array(
     'bundle' => 'deployment',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
@@ -178,7 +178,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_deployment_of',
+    'field_name' => 'field_oc_deploy_deployment_of',
     'label' => 'Add deployment of',
     'required' => 0,
     'settings' => array(
@@ -211,12 +211,12 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_location'
-  $field_instances['node-deployment-field_location'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_deploy_location'
+  $field_instances['node-deployment-field_oc_deploy_location'] = array(
     'bundle' => 'deployment',
     'default_value' => array(
       0 => array(
-        'element_key' => 'node|deployment|field_location|und|0',
+        'element_key' => 'node|deployment|field_oc_deploy_location|und|0',
         'thoroughfare' => '',
         'premise' => '',
         'locality' => '',
@@ -258,7 +258,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_location',
+    'field_name' => 'field_oc_deploy_location',
     'label' => 'Location',
     'required' => 0,
     'settings' => array(
@@ -286,8 +286,8 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_member'
-  $field_instances['node-deployment-field_member'] = array(
+  // Exported field_instance: 'node-deployment-field_oc_deploy_member'
+  $field_instances['node-deployment-field_oc_deploy_member'] = array(
     'bundle' => 'deployment',
     'default_value' => NULL,
     'default_value_function' => '',
@@ -320,7 +320,7 @@ function opencivic_deployment_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_member',
+    'field_name' => 'field_oc_deploy_member',
     'label' => 'Organizations Involved',
     'required' => 0,
     'settings' => array(

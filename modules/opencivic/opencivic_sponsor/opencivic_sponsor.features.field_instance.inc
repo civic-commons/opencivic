@@ -67,8 +67,8 @@ function opencivic_sponsor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sponsor-field_logo'
-  $field_instances['node-sponsor-field_logo'] = array(
+  // Exported field_instance: 'node-sponsor-field_oc_sponsor_logo'
+  $field_instances['node-sponsor-field_oc_sponsor_logo'] = array(
     'bundle' => 'sponsor',
     'deleted' => 0,
     'description' => 'URL of an image for the logo of the sponsor.',
@@ -103,7 +103,7 @@ function opencivic_sponsor_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_logo',
+    'field_name' => 'field_oc_sponsor_logo',
     'label' => 'Logo',
     'required' => 0,
     'settings' => array(

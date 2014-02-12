@@ -155,7 +155,7 @@ function opencivic_event_field_default_fields() {
         'module' => 'geocoder',
         'settings' => array(
           'delta_handling' => 'default',
-          'geocoder_field' => 'field_location',
+          'geocoder_field' => 'field_oc_deploy_location',
           'geocoder_handler' => 'google',
           'handler_settings' => array(
             'google' => array(
@@ -262,14 +262,14 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-event-field_location'.
-  $fields['node-event-field_location'] = array(
+  // Exported field: 'node-event-field_oc_deploy_location'.
+  $fields['node-event-field_oc_deploy_location'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_location',
+      'field_name' => 'field_oc_deploy_location',
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -312,7 +312,7 @@ function opencivic_event_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_location',
+      'field_name' => 'field_oc_deploy_location',
       'label' => 'Location',
       'required' => FALSE,
       'settings' => array(

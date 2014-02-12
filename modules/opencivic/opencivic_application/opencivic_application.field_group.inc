@@ -174,7 +174,7 @@ function opencivic_application_field_group_info() {
       1 => 'field_oc_app_install_url',
       2 => 'field_oc_app_license',
       3 => 'field_oc_app_requirements',
-      4 => 'field_software_type',
+      4 => 'field_oc_app_software_type',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
