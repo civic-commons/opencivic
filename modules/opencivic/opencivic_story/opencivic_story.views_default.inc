@@ -65,11 +65,11 @@ function opencivic_story_views_default_views() {
     'link' => 1,
   );
   /* Field: Content: Organization references */
-  $handler->display->display_options['fields']['field_oc_story_organization_references']['id'] = 'field_oc_story_organization_references';
-  $handler->display->display_options['fields']['field_oc_story_organization_references']['table'] = 'field_data_field_oc_story_organization_references';
-  $handler->display->display_options['fields']['field_oc_story_organization_references']['field'] = 'field_oc_story_organization_references';
-  $handler->display->display_options['fields']['field_oc_story_organization_references']['label'] = 'Orgs';
-  $handler->display->display_options['fields']['field_oc_story_organization_references']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_story_org_references']['id'] = 'field_oc_story_org_references';
+  $handler->display->display_options['fields']['field_oc_story_org_references']['table'] = 'field_data_field_oc_story_org_references';
+  $handler->display->display_options['fields']['field_oc_story_org_references']['field'] = 'field_oc_story_org_references';
+  $handler->display->display_options['fields']['field_oc_story_org_references']['label'] = 'Orgs';
+  $handler->display->display_options['fields']['field_oc_story_org_references']['settings'] = array(
     'link' => 1,
   );
   /* Sort criterion: Content: Post date */

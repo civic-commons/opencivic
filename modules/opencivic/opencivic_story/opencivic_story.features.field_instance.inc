@@ -203,8 +203,8 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-story-field_oc_story_organization_references'
-  $field_instances['node-story-field_oc_story_organization_references'] = array(
+  // Exported field_instance: 'node-story-field_oc_story_org_references'
+  $field_instances['node-story-field_oc_story_org_references'] = array(
     'bundle' => 'story',
     'default_value' => NULL,
     'default_value_function' => '',
@@ -240,7 +240,7 @@ function opencivic_story_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_story_organization_references',
+    'field_name' => 'field_oc_story_org_references',
     'label' => 'Organization references',
     'required' => 0,
     'settings' => array(

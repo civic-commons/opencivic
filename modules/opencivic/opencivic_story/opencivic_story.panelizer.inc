@@ -148,7 +148,7 @@ function opencivic_story_panelizer_defaults() {
     $pane->pid = 'new-5';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_story_organization_references';
+    $pane->subtype = 'node:field_oc_story_org_references';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
