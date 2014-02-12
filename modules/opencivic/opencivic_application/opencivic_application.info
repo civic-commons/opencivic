@@ -16,7 +16,6 @@ dependencies[] = link
 dependencies[] = media
 dependencies[] = node
 dependencies[] = opencivic_core
-dependencies[] = opencivic_sponsor
 dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = panelizer
