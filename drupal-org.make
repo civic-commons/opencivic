@@ -38,11 +38,6 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 projects[panopoly_search][version] = 1.1
 projects[panopoly_search][subdir] = panopoly
 
-; Panopoly apps
-
-projects[panopoly_faq][version] = 2.x-dev
-projects[panopoly_faq][subdir] = panopoly
-
 
 ; OpenCivic modules
 
