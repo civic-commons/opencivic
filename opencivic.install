@@ -360,8 +360,8 @@
     ->execute();
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
-  // variable_set('site_frontpage', 'ocsetup_home');
-  variable_set('site_frontpage', 'frontpage');
+  variable_set('site_frontpage', 'ocsetup_home');
+  // variable_set('site_frontpage', 'frontpage');
 }
 
 /**
