@@ -60,8 +60,7 @@ projects[addanother][version] = "2.1"
 
 ; Patched to support devel_generate integration
 projects[addressfield][subdir] = "contrib"
-projects[addressfield][version] = "1.0-beta3"
-projects[addressfield][patch][1156776] = http://drupal.org/files/addressfield_devel_generate-1156776-2.patch
+projects[addressfield][version] = "1.0-beta5"
 
 projects[addressfield_tokens][subdir] = "contrib"
 projects[addressfield_tokens][version] = 1.3
