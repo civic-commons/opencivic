@@ -10,51 +10,51 @@
 function opencivic_application_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: administer panelizer node application breadcrumbs.
-  $permissions['administer panelizer node application breadcrumbs'] = array(
-    'name' => 'administer panelizer node application breadcrumbs',
+  // Exported permission: administer panelizer node oc_application breadcrumbs.
+  $permissions['administer panelizer node oc_application breadcrumbs'] = array(
+    'name' => 'administer panelizer node oc_application breadcrumbs',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application content.
-  $permissions['administer panelizer node application content'] = array(
-    'name' => 'administer panelizer node application content',
+  // Exported permission: administer panelizer node oc_application content.
+  $permissions['administer panelizer node oc_application content'] = array(
+    'name' => 'administer panelizer node oc_application content',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application context.
-  $permissions['administer panelizer node application context'] = array(
-    'name' => 'administer panelizer node application context',
+  // Exported permission: administer panelizer node oc_application context.
+  $permissions['administer panelizer node oc_application context'] = array(
+    'name' => 'administer panelizer node oc_application context',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application defaults.
-  $permissions['administer panelizer node application defaults'] = array(
-    'name' => 'administer panelizer node application defaults',
+  // Exported permission: administer panelizer node oc_application defaults.
+  $permissions['administer panelizer node oc_application defaults'] = array(
+    'name' => 'administer panelizer node oc_application defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application layout.
-  $permissions['administer panelizer node application layout'] = array(
-    'name' => 'administer panelizer node application layout',
+  // Exported permission: administer panelizer node oc_application layout.
+  $permissions['administer panelizer node oc_application layout'] = array(
+    'name' => 'administer panelizer node oc_application layout',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application overview.
-  $permissions['administer panelizer node application overview'] = array(
-    'name' => 'administer panelizer node application overview',
+  // Exported permission: administer panelizer node oc_application overview.
+  $permissions['administer panelizer node oc_application overview'] = array(
+    'name' => 'administer panelizer node oc_application overview',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer node application settings.
-  $permissions['administer panelizer node application settings'] = array(
-    'name' => 'administer panelizer node application settings',
+  // Exported permission: administer panelizer node oc_application settings.
+  $permissions['administer panelizer node oc_application settings'] = array(
+    'name' => 'administer panelizer node oc_application settings',
     'roles' => array(),
     'module' => 'panelizer',
   );

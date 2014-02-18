@@ -45,7 +45,7 @@ function opencivic_story_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'application' => 'application',
+          'oc_application' => 'oc_application',
         ),
       ),
       'target_type' => 'node',

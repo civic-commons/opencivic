@@ -148,7 +148,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   /* Filter criterion: Content: Key features (field_oc_app_feature_list) */
   $handler->display->display_options['filters']['field_oc_app_feature_list_value']['id'] = 'field_oc_app_feature_list_value';
@@ -188,7 +188,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   /* Filter criterion: Content: Key features (field_oc_app_feature_list) */
   $handler->display->display_options['filters']['field_oc_app_feature_list_value']['id'] = 'field_oc_app_feature_list_value';
@@ -250,7 +250,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Screenshots (field_oc_app_screenshot:alt) */
@@ -293,7 +293,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   /* Filter criterion: Content: Key features (field_oc_app_feature_list) */
   $handler->display->display_options['filters']['field_oc_app_feature_list_value']['id'] = 'field_oc_app_feature_list_value';
@@ -412,7 +412,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   /* Filter criterion: Content: Application function (field_oc_app_app_category) */
   $handler->display->display_options['filters']['field_oc_app_app_category_tid']['id'] = 'field_oc_app_app_category_tid';
@@ -429,7 +429,7 @@ function opencivic_application_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['field_oc_app_app_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_app_app_category_tid']['vocabulary'] = 'application_category';
+  $handler->display->display_options['filters']['field_oc_app_app_category_tid']['vocabulary'] = 'oc_application_category';
   $handler->display->display_options['filters']['field_oc_app_app_category_tid']['hierarchy'] = 1;
   /* Filter criterion: Content: Civic sector (field_oc_civic_category) */
   $handler->display->display_options['filters']['field_oc_civic_category_tid']['id'] = 'field_oc_civic_category_tid';
@@ -484,7 +484,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['path'] = 'apps/feed';
@@ -550,7 +550,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Latest apps';
@@ -607,7 +607,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $export['application_list'] = $view;
 
@@ -665,7 +665,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
@@ -682,7 +682,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['type_1']['table'] = 'search_api_index_apps_cat_db_nodes_index';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
   $handler->display->display_options['filters']['type_1']['value'] = array(
-    'application' => 'application',
+    'oc_application' => 'oc_application',
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
   $export['apps_search_list'] = $view;
@@ -755,7 +755,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'application_category' => 'application_category',
+    'oc_application_category' => 'oc_application_category',
   );
 
   /* Display: Application categories */

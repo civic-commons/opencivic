@@ -222,7 +222,7 @@ function opencivic_deployment_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['field_oc_app_app_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_app_app_category_tid']['vocabulary'] = 'application_category';
+  $handler->display->display_options['filters']['field_oc_app_app_category_tid']['vocabulary'] = 'oc_application_category';
   /* Filter criterion: Content: Civic sector (field_oc_civic_category) */
   $handler->display->display_options['filters']['field_oc_civic_category_tid']['id'] = 'field_oc_civic_category_tid';
   $handler->display->display_options['filters']['field_oc_civic_category_tid']['table'] = 'field_data_field_oc_civic_category';

@@ -185,7 +185,7 @@ function opencivic_deployment_field_default_field_instances() {
       'behaviors' => array(
         'node_links' => array(
           'content_types' => array(
-            'application' => 'application',
+            'oc_application' => 'oc_application',
           ),
           'status' => 1,
         ),

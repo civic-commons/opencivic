@@ -9,9 +9,9 @@
  */
 function opencivic_application_taxonomy_default_vocabularies() {
   return array(
-    'application_category' => array(
+    'oc_application_category' => array(
       'name' => 'Application function',
-      'machine_name' => 'application_category',
+      'machine_name' => 'oc_application_category',
       'description' => 'The technical function of the software.',
       'hierarchy' => 0,
       'module' => 'taxonomy',

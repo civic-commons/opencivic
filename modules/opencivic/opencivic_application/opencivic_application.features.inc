@@ -119,7 +119,7 @@ function opencivic_application_image_default_styles() {
  */
 function opencivic_application_node_info() {
   $items = array(
-    'application' => array(
+    'oc_application' => array(
       'name' => t('Application'),
       'base' => 'node_content',
       'description' => t('An <b>Application</b> is a software project developed to address a particular problem or need, e.g., CiviCRM, Alfresco, Microsoft Office, etc. It can be either proprietary or open source.'),

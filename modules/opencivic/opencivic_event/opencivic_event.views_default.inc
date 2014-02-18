@@ -143,7 +143,7 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['row_options']['colors']['legend'] = 'taxonomy';
   $handler->display->display_options['row_options']['colors']['calendar_colors_type'] = array(
-    'application' => '#ffffff',
+    'oc_application' => '#ffffff',
     'article' => '#ffffff',
     'page' => '#ffffff',
     'blog' => '#ffffff',
