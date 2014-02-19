@@ -43,10 +43,10 @@ function opencivic_event_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_location|node|event|form';
+  $field_group->identifier = 'group_location|node|oc_event|form';
   $field_group->group_name = 'group_location';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event';
+  $field_group->bundle = 'oc_event';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -68,7 +68,7 @@ function opencivic_event_field_group_info() {
       ),
     ),
   );
-  $export['group_location|node|event|form'] = $field_group;
+  $export['group_location|node|oc_event|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -76,7 +76,7 @@ function opencivic_event_field_group_info() {
   $field_group->identifier = 'group_main|node|event|form';
   $field_group->group_name = 'group_main';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event';
+  $field_group->bundle = 'oc_event';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -94,7 +94,7 @@ function opencivic_event_field_group_info() {
       ),
     ),
   );
-  $export['group_main|node|event|form'] = $field_group;
+  $export['group_main|node|oc_event|form'] = $field_group;
 
   return $export;
 }

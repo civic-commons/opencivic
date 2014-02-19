@@ -94,7 +94,7 @@ function opencivic_application_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'organization' => 'organization',
+          'oc_organization' => 'oc_organization',
         ),
       ),
       'target_type' => 'node',
@@ -131,7 +131,7 @@ function opencivic_application_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'organization' => 'organization',
+          'oc_organization' => 'oc_organization',
         ),
       ),
       'target_type' => 'node',
