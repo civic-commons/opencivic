@@ -115,7 +115,7 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 
@@ -331,7 +331,7 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
   $handler->display->display_options['block_description'] = 'Homepage/Recent deployments';
 

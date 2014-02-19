@@ -81,7 +81,7 @@ function opencivic_deployment_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
 
   /* Display: Block */
@@ -268,7 +268,7 @@ function opencivic_deployment_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 
@@ -409,7 +409,7 @@ function opencivic_deployment_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $translatables['deployments_list'] = array(
@@ -537,7 +537,7 @@ function opencivic_deployment_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
 
   /* Display: Deployments map pane */
@@ -672,7 +672,7 @@ function opencivic_deployment_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'deployment' => 'deployment',
+    'oc_deployment' => 'oc_deployment',
   );
 
   /* Display: Block */

@@ -10,51 +10,51 @@
 function opencivic_deployment_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'administer panelizer node deployment breadcrumbs'.
-  $permissions['administer panelizer node deployment breadcrumbs'] = array(
-    'name' => 'administer panelizer node deployment breadcrumbs',
+  // Exported permission: 'administer panelizer node oc_deployment breadcrumbs'.
+  $permissions['administer panelizer node oc_deployment breadcrumbs'] = array(
+    'name' => 'administer panelizer node oc_deployment breadcrumbs',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment content'.
-  $permissions['administer panelizer node deployment content'] = array(
-    'name' => 'administer panelizer node deployment content',
+  // Exported permission: 'administer panelizer node oc_deployment content'.
+  $permissions['administer panelizer node oc_deployment content'] = array(
+    'name' => 'administer panelizer node oc_deployment content',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment context'.
-  $permissions['administer panelizer node deployment context'] = array(
-    'name' => 'administer panelizer node deployment context',
+  // Exported permission: 'administer panelizer node oc_deployment context'.
+  $permissions['administer panelizer node oc_deployment context'] = array(
+    'name' => 'administer panelizer node oc_deployment context',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment defaults'.
-  $permissions['administer panelizer node deployment defaults'] = array(
-    'name' => 'administer panelizer node deployment defaults',
+  // Exported permission: 'administer panelizer node oc_deployment defaults'.
+  $permissions['administer panelizer node oc_deployment defaults'] = array(
+    'name' => 'administer panelizer node oc_deployment defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment layout'.
-  $permissions['administer panelizer node deployment layout'] = array(
-    'name' => 'administer panelizer node deployment layout',
+  // Exported permission: 'administer panelizer node oc_deployment layout'.
+  $permissions['administer panelizer node oc_deployment layout'] = array(
+    'name' => 'administer panelizer node oc_deployment layout',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment overview'.
-  $permissions['administer panelizer node deployment overview'] = array(
-    'name' => 'administer panelizer node deployment overview',
+  // Exported permission: 'administer panelizer node oc_deployment overview'.
+  $permissions['administer panelizer node oc_deployment overview'] = array(
+    'name' => 'administer panelizer node oc_deployment overview',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node deployment settings'.
-  $permissions['administer panelizer node deployment settings'] = array(
-    'name' => 'administer panelizer node deployment settings',
+  // Exported permission: 'administer panelizer node oc_deployment settings'.
+  $permissions['administer panelizer node oc_deployment settings'] = array(
+    'name' => 'administer panelizer node oc_deployment settings',
     'roles' => array(),
     'module' => 'panelizer',
   );

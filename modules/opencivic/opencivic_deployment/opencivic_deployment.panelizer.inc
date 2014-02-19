@@ -13,10 +13,10 @@ function opencivic_deployment_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:deployment:default';
+  $panelizer->name = 'node:oc_deployment:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'deployment';
+  $panelizer->panelizer_key = 'oc_deployment';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';
@@ -208,7 +208,7 @@ function opencivic_deployment_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-2';
   $panelizer->display = $display;
-  $export['node:deployment:default'] = $panelizer;
+  $export['node:oc_deployment:default'] = $panelizer;
 
   return $export;
 }
