@@ -59,44 +59,44 @@ function opencivic_organization_user_default_permissions() {
     'module' => 'panelizer',
   );
 
-  // Exported permission: administer panelizer taxonomy_term organization_type defaults.
-  $permissions['administer panelizer taxonomy_term organization_type defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term organization_type defaults',
+  // Exported permission: administer panelizer taxonomy_term oc_organization_type defaults.
+  $permissions['administer panelizer taxonomy_term oc_organization_type defaults'] = array(
+    'name' => 'administer panelizer taxonomy_term oc_organization_type defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: create organization content.
-  $permissions['create organization content'] = array(
-    'name' => 'create organization content',
+  // Exported permission: create oc_organization content.
+  $permissions['create oc_organization content'] = array(
+    'name' => 'create oc_organization content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete any organization content.
-  $permissions['delete any organization content'] = array(
-    'name' => 'delete any organization content',
+  // Exported permission: delete any oc_organization content.
+  $permissions['delete any oc_organization content'] = array(
+    'name' => 'delete any oc_organization content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete own organization content.
-  $permissions['delete own organization content'] = array(
-    'name' => 'delete own organization content',
+  // Exported permission: delete own oc_organization content.
+  $permissions['delete own oc_organization content'] = array(
+    'name' => 'delete own oc_organization content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit any organization content.
-  $permissions['edit any organization content'] = array(
-    'name' => 'edit any organization content',
+  // Exported permission: edit any oc_organization content.
+  $permissions['edit any oc_organization content'] = array(
+    'name' => 'edit any oc_organization content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit own organization content.
-  $permissions['edit own organization content'] = array(
-    'name' => 'edit own organization content',
+  // Exported permission: edit own oc_organization content.
+  $permissions['edit own oc_organization content'] = array(
+    'name' => 'edit own oc_organization content',
     'roles' => array(),
     'module' => 'node',
   );

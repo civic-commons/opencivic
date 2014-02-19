@@ -21,7 +21,7 @@ function opencivic_blog_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function opencivic_blog_node_info() {
   $items = array(
-    'blog' => array(
+    'oc_blog' => array(
       'name' => t('Blog'),
       'base' => 'node_content',
       'description' => t('A blog post.'),

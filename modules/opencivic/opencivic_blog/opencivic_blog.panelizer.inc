@@ -16,7 +16,7 @@ function opencivic_blog_panelizer_defaults() {
   $panelizer->name = 'node:oc_blog:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'blog';
+  $panelizer->panelizer_key = 'oc_blog';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';

@@ -59,37 +59,37 @@ function opencivic_story_user_default_permissions() {
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'create story content'.
-  $permissions['create story content'] = array(
-    'name' => 'create story content',
+  // Exported permission: 'create oc_story content'.
+  $permissions['create oc_story content'] = array(
+    'name' => 'create oc_story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any story content'.
-  $permissions['delete any story content'] = array(
-    'name' => 'delete any story content',
+  // Exported permission: 'delete any oc_story content'.
+  $permissions['delete any oc_story content'] = array(
+    'name' => 'delete any oc_story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own story content'.
-  $permissions['delete own story content'] = array(
-    'name' => 'delete own story content',
+  // Exported permission: 'delete own oc_story content'.
+  $permissions['delete own oc_story content'] = array(
+    'name' => 'delete own oc_story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any story content'.
-  $permissions['edit any story content'] = array(
-    'name' => 'edit any story content',
+  // Exported permission: 'edit any oc_story content'.
+  $permissions['edit any oc_story content'] = array(
+    'name' => 'edit any oc_story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own story content'.
-  $permissions['edit own story content'] = array(
-    'name' => 'edit own story content',
+  // Exported permission: 'edit own oc_story content'.
+  $permissions['edit own oc_story content'] = array(
+    'name' => 'edit own oc_story content',
     'roles' => array(),
     'module' => 'node',
   );

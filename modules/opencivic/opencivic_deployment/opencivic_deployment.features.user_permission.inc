@@ -59,37 +59,37 @@ function opencivic_deployment_user_default_permissions() {
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'create deployment content'.
-  $permissions['create deployment content'] = array(
-    'name' => 'create deployment content',
+  // Exported permission: 'create oc_deployment content'.
+  $permissions['create oc_deployment content'] = array(
+    'name' => 'create oc_deployment content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any deployment content'.
-  $permissions['delete any deployment content'] = array(
-    'name' => 'delete any deployment content',
+  // Exported permission: 'delete any oc_deployment content'.
+  $permissions['delete any oc_deployment content'] = array(
+    'name' => 'delete any oc_deployment content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own deployment content'.
-  $permissions['delete own deployment content'] = array(
-    'name' => 'delete own deployment content',
+  // Exported permission: 'delete own oc_deployment content'.
+  $permissions['delete own oc_deployment content'] = array(
+    'name' => 'delete own oc_deployment content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any deployment content'.
-  $permissions['edit any deployment content'] = array(
-    'name' => 'edit any deployment content',
+  // Exported permission: 'edit any oc_deployment content'.
+  $permissions['edit any oc_deployment content'] = array(
+    'name' => 'edit any oc_deployment content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own deployment content'.
-  $permissions['edit own deployment content'] = array(
-    'name' => 'edit own deployment content',
+  // Exported permission: 'edit own oc_deployment content'.
+  $permissions['edit own oc_deployment content'] = array(
+    'name' => 'edit own oc_deployment content',
     'roles' => array(),
     'module' => 'node',
   );

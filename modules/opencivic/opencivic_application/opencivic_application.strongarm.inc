@@ -239,9 +239,9 @@ function opencivic_application_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_oc_oc_application_category_pattern';
+  $strongarm->name = 'pathauto_taxonomy_term_oc_application_category_pattern';
   $strongarm->value = 'appcat/[term:name]';
-  $export['pathauto_taxonomy_term_oc_oc_application_category_pattern'] = $strongarm;
+  $export['pathauto_taxonomy_term_oc_application_category_pattern'] = $strongarm;
 
   return $export;
 }

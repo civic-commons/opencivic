@@ -59,37 +59,37 @@ function opencivic_application_user_default_permissions() {
     'module' => 'panelizer',
   );
 
-  // Exported permission: create application content.
-  $permissions['create application content'] = array(
-    'name' => 'create application content',
+  // Exported permission: create oc_application content.
+  $permissions['create oc_application content'] = array(
+    'name' => 'create oc_application content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete any application content.
-  $permissions['delete any application content'] = array(
-    'name' => 'delete any application content',
+  // Exported permission: delete any oc_application content.
+  $permissions['delete any oc_application content'] = array(
+    'name' => 'delete any oc_application content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: delete own application content.
-  $permissions['delete own application content'] = array(
-    'name' => 'delete own application content',
+  // Exported permission: delete own oc_application content.
+  $permissions['delete own oc_application content'] = array(
+    'name' => 'delete own oc_application content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit any application content.
-  $permissions['edit any application content'] = array(
-    'name' => 'edit any application content',
+  // Exported permission: edit any oc_application content.
+  $permissions['edit any oc_application content'] = array(
+    'name' => 'edit any oc_application content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: edit own application content.
-  $permissions['edit own application content'] = array(
-    'name' => 'edit own application content',
+  // Exported permission: edit own oc_application content.
+  $permissions['edit own oc_application content'] = array(
+    'name' => 'edit own oc_application content',
     'roles' => array(),
     'module' => 'node',
   );

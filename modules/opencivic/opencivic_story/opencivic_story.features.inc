@@ -50,7 +50,7 @@ function opencivic_story_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: comment_node_story
-  $schemaorg['comment']['comment_node_story'] = array(
+  $schemaorg['comment']['comment_node_oc_story'] = array(
     'rdftype' => array(
       0 => 'sioc:Post',
       1 => 'sioct:Comment',
