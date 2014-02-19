@@ -13,7 +13,7 @@ function opencivic_blog_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:blog:default';
+  $panelizer->name = 'node:oc_blog:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
   $panelizer->panelizer_key = 'blog';
@@ -170,7 +170,7 @@ function opencivic_blog_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $panelizer->display = $display;
-  $export['node:blog:default'] = $panelizer;
+  $export['node:oc_blog:default'] = $panelizer;
 
   return $export;
 }

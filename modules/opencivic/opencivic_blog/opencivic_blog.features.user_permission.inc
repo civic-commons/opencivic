@@ -10,51 +10,51 @@
 function opencivic_blog_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'administer panelizer node blog breadcrumbs'.
-  $permissions['administer panelizer node blog breadcrumbs'] = array(
-    'name' => 'administer panelizer node blog breadcrumbs',
+  // Exported permission: 'administer panelizer node oc_blog breadcrumbs'.
+  $permissions['administer panelizer node oc_blog breadcrumbs'] = array(
+    'name' => 'administer panelizer node oc_blog breadcrumbs',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog content'.
-  $permissions['administer panelizer node blog content'] = array(
-    'name' => 'administer panelizer node blog content',
+  // Exported permission: 'administer panelizer node oc_blog content'.
+  $permissions['administer panelizer node oc_blog content'] = array(
+    'name' => 'administer panelizer node oc_blog content',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog context'.
-  $permissions['administer panelizer node blog context'] = array(
-    'name' => 'administer panelizer node blog context',
+  // Exported permission: 'administer panelizer node oc_blog context'.
+  $permissions['administer panelizer node oc_blog context'] = array(
+    'name' => 'administer panelizer node oc_blog context',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog defaults'.
-  $permissions['administer panelizer node blog defaults'] = array(
-    'name' => 'administer panelizer node blog defaults',
+  // Exported permission: 'administer panelizer node oc_blog defaults'.
+  $permissions['administer panelizer node oc_blog defaults'] = array(
+    'name' => 'administer panelizer node oc_blog defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog layout'.
-  $permissions['administer panelizer node blog layout'] = array(
-    'name' => 'administer panelizer node blog layout',
+  // Exported permission: 'administer panelizer node oc_blog layout'.
+  $permissions['administer panelizer node oc_blog layout'] = array(
+    'name' => 'administer panelizer node oc_blog layout',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog overview'.
-  $permissions['administer panelizer node blog overview'] = array(
-    'name' => 'administer panelizer node blog overview',
+  // Exported permission: 'administer panelizer node oc_blog overview'.
+  $permissions['administer panelizer node oc_blog overview'] = array(
+    'name' => 'administer panelizer node oc_blog overview',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node blog settings'.
-  $permissions['administer panelizer node blog settings'] = array(
-    'name' => 'administer panelizer node blog settings',
+  // Exported permission: 'administer panelizer node oc_blog settings'.
+  $permissions['administer panelizer node oc_blog settings'] = array(
+    'name' => 'administer panelizer node oc_blog settings',
     'roles' => array(),
     'module' => 'panelizer',
   );

@@ -371,7 +371,7 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'blog' => 'blog',
+    'oc_blog' => 'oc_blog',
   );
   $handler->display->display_options['block_description'] = 'Homepage/From the blog';
   $translatables['homepage_latest'] = array(
