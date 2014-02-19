@@ -10,9 +10,9 @@
 function opencivic_sponsor_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-sponsor-body'
-  $field_instances['node-sponsor-body'] = array(
-    'bundle' => 'sponsor',
+  // Exported field_instance: 'node-oc_sponsor-body'
+  $field_instances['node-oc_sponsor-body'] = array(
+    'oc_sponsor' => 'oc_sponsor',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -67,9 +67,9 @@ function opencivic_sponsor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sponsor-field_oc_sponsor_logo'
-  $field_instances['node-sponsor-field_oc_sponsor_logo'] = array(
-    'bundle' => 'sponsor',
+  // Exported field_instance: 'node-oc_sponsor-field_oc_sponsor_logo'
+  $field_instances['node-oc_sponsor-field_oc_sponsor_logo'] = array(
+    'oc_sponsor' => 'oc_sponsor',
     'deleted' => 0,
     'description' => 'URL of an image for the logo of the sponsor.',
     'display' => array(
@@ -132,9 +132,9 @@ function opencivic_sponsor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sponsor-field_oc_sponsor_url'
-  $field_instances['node-sponsor-field_oc_sponsor_url'] = array(
-    'bundle' => 'sponsor',
+  // Exported field_instance: 'node-oc_sponsor-field_oc_sponsor_url'
+  $field_instances['node-oc_sponsor-field_oc_sponsor_url'] = array(
+    'oc_sponsor' => 'oc_sponsor',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Enter the URL of the homepage where people can go to find more information.',
@@ -201,9 +201,9 @@ function opencivic_sponsor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sponsor-title_field'
-  $field_instances['node-sponsor-title_field'] = array(
-    'bundle' => 'sponsor',
+  // Exported field_instance: 'node-oc_sponsor-title_field'
+  $field_instances['node-oc_sponsor-title_field'] = array(
+    'oc_sponsor' => 'oc_sponsor',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
