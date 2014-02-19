@@ -65,7 +65,7 @@ function opencivic_organization_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'organization_type',
+          'vocabulary' => 'oc_organization_type',
           'parent' => 0,
           'depth' => '',
         ),
@@ -256,7 +256,7 @@ function opencivic_organization_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'organization' => 'organization',
+          'oc_organization' => 'oc_organization',
         ),
       ),
       'target_type' => 'node',

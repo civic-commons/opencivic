@@ -40,7 +40,7 @@ function opencivic_sponsor_fe_nodequeue_export_fields() {
     'i18n' => 0,
     'subqueues' => 1,
     'types' => array(
-      0 => 'sponsor',
+      0 => 'oc_sponsor',
     ),
     'roles' => array(),
     'count' => 0,
@@ -86,7 +86,7 @@ function opencivic_sponsor_image_default_styles() {
  */
 function opencivic_sponsor_node_info() {
   $items = array(
-    'sponsor' => array(
+    'oc_sponsor' => array(
       'name' => t('Sponsor'),
       'base' => 'node_content',
       'description' => t('Information about website sponsors.'),

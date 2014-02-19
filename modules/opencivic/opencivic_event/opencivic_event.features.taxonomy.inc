@@ -9,9 +9,9 @@
  */
 function opencivic_event_taxonomy_default_vocabularies() {
   return array(
-    'event_type' => array(
+    'oc_event_type' => array(
       'name' => 'Event type',
-      'machine_name' => 'event_type',
+      'machine_name' => 'oc_event_type',
       'description' => 'For use in classifying events.',
       'hierarchy' => '0',
       'module' => 'taxonomy',

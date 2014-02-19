@@ -31,7 +31,7 @@ function opencivic_story_views_api($module = NULL, $api = NULL) {
  */
 function opencivic_story_node_info() {
   $items = array(
-    'story' => array(
+    'oc_story' => array(
       'name' => t('Story'),
       'base' => 'node_content',
       'description' => t('More detailed content about the use of a particular app or service in a certain context.'),
@@ -50,7 +50,7 @@ function opencivic_story_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: comment_node_story
-  $schemaorg['comment']['comment_node_story'] = array(
+  $schemaorg['comment']['comment_node_oc_story'] = array(
     'rdftype' => array(
       0 => 'sioc:Post',
       1 => 'sioct:Comment',
@@ -100,7 +100,7 @@ function opencivic_story_rdf_default_mappings() {
   );
 
   // Exported RDF mapping: story
-  $schemaorg['node']['story'] = array(
+  $schemaorg['node']['oc_story'] = array(
     'rdftype' => array(
       0 => 'schema:Article',
       1 => 'sioc:Item',

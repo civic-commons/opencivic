@@ -177,7 +177,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'organization' => 'organization',
+    'oc_organization' => 'oc_organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 
@@ -279,7 +279,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'organization' => 'organization',
+    'oc_organization' => 'oc_organization',
   );
 
   /* Display: Organization map pane */
@@ -365,7 +365,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'organization' => 'organization',
+    'oc_organization' => 'oc_organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Civic sector (field_oc_civic_category) */
@@ -444,7 +444,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'organization' => 'organization',
+    'oc_organization' => 'oc_organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['pane_title'] = 'Organizations map pane';

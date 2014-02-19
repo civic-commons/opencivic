@@ -10,9 +10,9 @@
 function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'taxonomy_term-application_category-description_field'
-  $field_instances['taxonomy_term-application_category-description_field'] = array(
-    'bundle' => 'application_category',
+  // Exported field_instance: 'taxonomy_term-oc_application_category-description_field'
+  $field_instances['taxonomy_term-oc_application_category-description_field'] = array(
+    'bundle' => 'oc_application_category',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -55,9 +55,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-application_category-field_icon'
-  $field_instances['taxonomy_term-application_category-field_icon'] = array(
-    'bundle' => 'application_category',
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_icon'] = array(
+    'bundle' => 'oc_application_category',
     'deleted' => 0,
     'description' => 'Upload an icon to visually illustrate this term.',
     'display' => array(
@@ -86,7 +86,7 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => 'application_category/icons',
+      'file_directory' => 'oc_application_category/icons',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -119,9 +119,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-application_category-field_small_icon'
-  $field_instances['taxonomy_term-application_category-field_small_icon'] = array(
-    'bundle' => 'application_category',
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_small_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_small_icon'] = array(
+    'bundle' => 'oc_application_category',
     'deleted' => 0,
     'description' => 'Upload a smaller version of the icon for this taxonomy term.',
     'display' => array(
@@ -150,7 +150,7 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => 'application_category/icons',
+      'file_directory' => 'oc_application_category/icons',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -172,9 +172,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-application_category-name_field'
-  $field_instances['taxonomy_term-application_category-name_field'] = array(
-    'bundle' => 'application_category',
+  // Exported field_instance: 'taxonomy_term-oc_application_category-name_field'
+  $field_instances['taxonomy_term-oc_application_category-name_field'] = array(
+    'bundle' => 'oc_application_category',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

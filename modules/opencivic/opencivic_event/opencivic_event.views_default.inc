@@ -103,7 +103,7 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event' => 'event',
+    'oc_event' => 'oc_event',
   );
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
@@ -143,16 +143,16 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['row_options']['colors']['legend'] = 'taxonomy';
   $handler->display->display_options['row_options']['colors']['calendar_colors_type'] = array(
-    'application' => '#ffffff',
+    'oc_application' => '#ffffff',
     'article' => '#ffffff',
     'page' => '#ffffff',
-    'blog' => '#ffffff',
-    'deployment' => '#ffffff',
-    'event' => '#ffffff',
-    'organization' => '#ffffff',
-    'problem' => '#ffffff',
-    'project' => '#ffffff',
-    'sponsor' => '#ffffff',
+    'oc_blog' => '#ffffff',
+    'oc_deployment' => '#ffffff',
+    'oc_event' => '#ffffff',
+    'oc_organization' => '#ffffff',
+    'oc_problem' => '#ffffff',
+    'oc_project' => '#ffffff',
+    'oc_sponsor' => '#ffffff',
     'webform' => '#ffffff',
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -356,7 +356,7 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event' => 'event',
+    'oc_event' => 'oc_event',
   );
   /* Filter criterion: Content: Date -  start date (field_start_date) */
   $handler->display->display_options['filters']['field_start_date_value']['id'] = 'field_start_date_value';
@@ -439,7 +439,7 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event' => 'event',
+    'oc_event' => 'oc_event',
   );
   $translatables['event_calendar'] = array(
     t('Master'),

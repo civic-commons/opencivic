@@ -10,9 +10,9 @@
 function opencivic_deployment_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-deployment-body'
-  $field_instances['node-deployment-body'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-body'
+  $field_instances['node-oc_deployment-body'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'What happened? Optionally, tell the story of how this application was used and your experience with it.',
@@ -73,9 +73,9 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_deploy_coordinates'
-  $field_instances['node-deployment-field_oc_deploy_coordinates'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-field_oc_deploy_coordinates'
+  $field_instances['node-oc_deployment-field_oc_deploy_coordinates'] = array(
+    'bundle' => 'oc_deployment',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -144,9 +144,9 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_deploy_deployment_of'
-  $field_instances['node-deployment-field_oc_deploy_deployment_of'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-field_oc_deploy_deployment_of'
+  $field_instances['node-oc_deployment-field_oc_deploy_deployment_of'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
@@ -185,7 +185,7 @@ function opencivic_deployment_field_default_field_instances() {
       'behaviors' => array(
         'node_links' => array(
           'content_types' => array(
-            'application' => 'application',
+            'oc_application' => 'oc_application',
           ),
           'status' => 1,
         ),
@@ -211,12 +211,12 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_deploy_location'
-  $field_instances['node-deployment-field_oc_deploy_location'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-field_oc_deploy_location'
+  $field_instances['node-oc_deployment-field_oc_deploy_location'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => array(
       0 => array(
-        'element_key' => 'node|deployment|field_oc_deploy_location|und|0',
+        'element_key' => 'node|oc_deployment|field_oc_deploy_location|und|0',
         'thoroughfare' => '',
         'premise' => '',
         'locality' => '',
@@ -286,9 +286,9 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_deploy_member'
-  $field_instances['node-deployment-field_oc_deploy_member'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-field_oc_deploy_member'
+  $field_instances['node-oc_deployment-field_oc_deploy_member'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => NULL,
     'default_value_function' => '',
     'deleted' => 0,
@@ -354,9 +354,9 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-field_oc_deploy_url'
-  $field_instances['node-deployment-field_oc_deploy_url'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-field_oc_deploy_url'
+  $field_instances['node-oc_deployment-field_oc_deploy_url'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Enter a URL where people can go to find more information',
@@ -423,9 +423,9 @@ function opencivic_deployment_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-deployment-title_field'
-  $field_instances['node-deployment-title_field'] = array(
-    'bundle' => 'deployment',
+  // Exported field_instance: 'node-oc_deployment-title_field'
+  $field_instances['node-oc_deployment-title_field'] = array(
+    'bundle' => 'oc_deployment',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

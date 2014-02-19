@@ -54,7 +54,7 @@ function opencivic_application_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'application_category',
+          'vocabulary' => 'oc_application_category',
           'parent' => 0,
           'depth' => '',
         ),
@@ -94,7 +94,7 @@ function opencivic_application_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'organization' => 'organization',
+          'oc_organization' => 'oc_organization',
         ),
       ),
       'target_type' => 'node',
@@ -131,7 +131,7 @@ function opencivic_application_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'organization' => 'organization',
+          'oc_organization' => 'oc_organization',
         ),
       ),
       'target_type' => 'node',
@@ -427,7 +427,7 @@ function opencivic_application_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'application' => 'application',
+          'oc_application' => 'oc_application',
         ),
       ),
       'target_type' => 'node',

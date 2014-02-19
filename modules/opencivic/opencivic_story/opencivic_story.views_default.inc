@@ -89,7 +89,7 @@ function opencivic_story_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'story' => 'story',
+    'oc_story' => 'oc_story',
   );
 
   /* Display: Stories list */

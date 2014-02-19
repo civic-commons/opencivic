@@ -328,6 +328,7 @@ projects[redirect][version] = "1.0-rc1"
 
 projects[references_dialog][subdir] = "contrib"
 projects[references_dialog][version] = "1.0-alpha4"
+projects[references_dialog][patch][1856978] = https://drupal.org/files/references_dialog-1856978-2.patch
 
 projects[rpx][subdir] = "contrib"
 projects[rpx][version] = 2.5

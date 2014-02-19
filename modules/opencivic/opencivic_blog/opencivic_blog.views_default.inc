@@ -57,7 +57,7 @@ function opencivic_blog_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'blog' => 'blog',
+    'oc_blog' => 'oc_blog',
   );
 
   /* Display: Page */

@@ -21,7 +21,7 @@ function opencivic_deployment_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function opencivic_deployment_node_info() {
   $items = array(
-    'deployment' => array(
+    'oc_deployment' => array(
       'name' => t('Deployment'),
       'base' => 'node_content',
       'description' => t('A <b>deployment</b> is an instance of an application being installed or used to solve a problem or perform a service for a specific organization or location.'),
@@ -40,7 +40,7 @@ function opencivic_deployment_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: deployment
-  $schemaorg['node']['deployment'] = array(
+  $schemaorg['node']['oc_deployment'] = array(
     'rdftype' => array(
       0 => 'schema:UserInteraction',
       1 => 'sioc:Item',
