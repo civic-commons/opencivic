@@ -10,8 +10,8 @@ echo "Removing docroot"
 rm -rf docroot
  
 echo "Building OpenCivic profile"
-# drush make -y scripts/build-dkan-profile.make docroot --no-gitinfofile
-drush make -y projects/opencivic/build-opencivic-profile.make docroot --no-gitinfofile
+# drush make -y scripts/rebuild-opencivic.make docroot --no-gitinfofile
+drush make -y projects/opencivic/build-opencivic.make docroot --no-gitinfofile
  
 # Remove .gitignore files that are undesired.
  
