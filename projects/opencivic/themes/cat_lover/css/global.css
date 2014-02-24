@@ -1,0 +1,3389 @@
+/*
+ * Body
+ */
+/* line 8, ../sass/_base_smacss.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+/* line 21, ../sass/_base_smacss.scss */
+#skip-link {
+  margin: 0;
+}
+/* line 25, ../sass/_base_smacss.scss */
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+/* line 42, ../sass/_base_smacss.scss */
+#logo {
+  /* Wrapping link for logo */
+  float: left;
+  /* LTR */
+  margin: 0;
+  padding: 0;
+}
+/* line 47, ../sass/_base_smacss.scss */
+#logo img {
+  vertical-align: bottom;
+}
+
+/* line 52, ../sass/_base_smacss.scss */
+#name-and-slogan {
+  /* Wrapper for website name and slogan */
+  float: left;
+}
+
+/* line 56, ../sass/_base_smacss.scss */
+#site-name {
+  /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+/* line 62, ../sass/_base_smacss.scss */
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+/* line 68, ../sass/_base_smacss.scss */
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+/* line 73, ../sass/_base_smacss.scss */
+#site-slogan {
+  /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+/* line 78, ../sass/_base_smacss.scss */
+.region-header {
+  /* Wrapper for any blocks placed in the header region */
+  clear: both;
+  /* Clear the logo */
+}
+
+/*
+ * Main (container for everything else)
+ */
+/*
+ * Content
+ */
+/* line 99, ../sass/_base_smacss.scss */
+.breadcrumb {
+  /* The path to the current page in the form of a list of links */
+}
+/* line 100, ../sass/_base_smacss.scss */
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 104, ../sass/_base_smacss.scss */
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 117, ../sass/_base_smacss.scss */
+h1.title,
+h2.node-title,
+h2.block-title,
+h2.title,
+h2.comment-form,
+h3.title {
+  /* Comment title */
+  margin: 0px;
+}
+
+/* line 121, ../sass/_base_smacss.scss */
+tr.even {
+  /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 125, ../sass/_base_smacss.scss */
+tr.odd {
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 129, ../sass/_base_smacss.scss */
+div.messages {
+  /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0;
+  /* Drupal core uses "6px 0" margin */
+}
+/* line 132, ../sass/_base_smacss.scss */
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* line 138, ../sass/_base_smacss.scss */
+div.status {
+  /* Normal priority messages */
+}
+
+/* line 142, ../sass/_base_smacss.scss */
+div.warning,
+tr.warning {
+  /* Medium priority messages */
+  /* border: 1px solid #f0c020; */
+  /* Drupal core uses: 1px solid #f0c020 */
+}
+
+/* line 147, ../sass/_base_smacss.scss */
+div.error,
+tr.error {
+  /* High priority messages. See also the .error declaration below. */
+}
+
+/*
+Core styles.
+*/
+/*
+ *
+ * Base Typography 
+ *
+ */
+/* line 163, ../sass/_base_smacss.scss */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  *font-size: small;
+}
+
+/* line 169, ../sass/_base_smacss.scss */
+select, input, textarea, button {
+  font: 99% sans-serif;
+}
+
+/* line 172, ../sass/_base_smacss.scss */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/*
+ *
+ * Base Styles 
+ *
+ */
+/* line 180, ../sass/_base_smacss.scss */
+body, select, input, textarea {
+  color: #444;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 184, ../sass/_base_smacss.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+}
+
+/* always force a scrollbar in non-IE */
+/* line 190, ../sass/_base_smacss.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+/* line 194, ../sass/_base_smacss.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* line 197, ../sass/_base_smacss.scss */
+a, a:link, a:active, a:visited {
+  color: #374884;
+}
+
+/* line 200, ../sass/_base_smacss.scss */
+a:hover {
+  color: #7793ec;
+  text-decoration: underline;
+}
+
+/* line 204, ../sass/_base_smacss.scss */
+ul, ol {
+  margin-left: 1.8em;
+}
+
+/* line 207, ../sass/_base_smacss.scss */
+ol {
+  list-style-type: decimal;
+}
+
+/* Remove margins for navigation lists */
+/* line 211, ../sass/_base_smacss.scss */
+nav ul, nav li {
+  margin: 0;
+}
+
+/* line 214, ../sass/_base_smacss.scss */
+p {
+  margin-bottom: 1.5em;
+}
+
+/* line 217, ../sass/_base_smacss.scss */
+small {
+  font-size: 85%;
+}
+
+/* line 220, ../sass/_base_smacss.scss */
+strong, th {
+  font-weight: bold;
+}
+
+/* line 223, ../sass/_base_smacss.scss */
+td, td img {
+  vertical-align: top;
+}
+
+/* line 228, ../sass/_base_smacss.scss */
+.view-taxonomy-icons td img,
+.view-taxonomy-icons td a,
+.view-taxonomy-icons td .field-content {
+  text-align: center;
+}
+
+/* line 231, ../sass/_base_smacss.scss */
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+/* line 235, ../sass/_base_smacss.scss */
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+/* line 239, ../sass/_base_smacss.scss */
+pre {
+  padding: 15px;
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+/* line 251, ../sass/_base_smacss.scss */
+textarea {
+  overflow: auto;
+}
+
+/* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+/* line 255, ../sass/_base_smacss.scss */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px;
+}
+
+/* hand cursor on clickable input elements */
+/* line 274, ../sass/_base_smacss.scss */
+label, input[type=button], input[type=submit], button {
+  cursor: pointer;
+}
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+/* line 278, ../sass/_base_smacss.scss */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* colors for form validity */
+/* line 282, ../sass/_base_smacss.scss */
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0px 0px 5px red;
+  -webkit-box-shadow: 0px 0px 5px red;
+  box-shadow: 0px 0px 5px red;
+}
+
+/* line 289, ../sass/_base_smacss.scss */
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+
+/* line 292, ../sass/_base_smacss.scss */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+/* line 298, ../sass/_base_smacss.scss */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 302, ../sass/_base_smacss.scss */
+#page-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* line 310, ../sass/_base_smacss.scss */
+#region-menu-bar ul a {
+  display: block;
+  height: 31px;
+  color: #374884;
+  text-decoration: none;
+  padding: 0 19px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 34px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 whitesmoke;
+  border-top: 1px solid #fafafa;
+  border-left: 1px solid #fafafa;
+}
+/* line 323, ../sass/_base_smacss.scss */
+#region-menu-bar ul a.active {
+  background-image: none;
+  background-color: #e6e6e6;
+  border-color: #b4b4b4;
+  color: #374884;
+  box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+}
+/* line 333, ../sass/_base_smacss.scss */
+#region-menu-bar ul:hover a.active:hover {
+  background-image: none;
+  background-color: #e6e6e6;
+  border-color: #b4b4b4;
+  color: #374884;
+  box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+}
+/* line 342, ../sass/_base_smacss.scss */
+#region-menu-bar ul a:hover {
+  background-color: #eaeaea;
+  border-color: #eaeaea;
+  color: #374884;
+  box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+  -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+}
+/* line 350, ../sass/_base_smacss.scss */
+#region-menu-bar ul:hover a.active {
+  border-top: 1px solid #fafafa;
+  border-left: 1px solid #fafafa;
+  color: #374884;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/* line 362, ../sass/_base_smacss.scss */
+.block-menu-block:first-child #region-menu-bar ul {
+  border: 0;
+  margin-top: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* line 366, ../sass/_base_smacss.scss */
+.block-menu-block:first-child #region-menu-bar ul li {
+  border-right: 0;
+  border-bottom: 0;
+  background-color: transparent;
+  padding-left: 15px;
+}
+/* line 372, ../sass/_base_smacss.scss */
+.block-menu-block:first-child #region-menu-bar ul a {
+  display: block;
+  height: auto;
+  color: #374884;
+  background-color: none;
+  background-image: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-shadow: none;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 4px;
+  padding: 4px;
+}
+/* line 387, ../sass/_base_smacss.scss */
+.block-menu-block:first-child #region-menu-bar ul a:visited {
+  display: block;
+  height: auto;
+  color: #374884;
+  background-color: none;
+  background-image: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-shadow: none;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+/* line 6, ../sass/_layout.scss */
+.error {
+  /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */
+  /* Drupal core uses a #e55 background */
+}
+
+/* line 10, ../sass/_layout.scss */
+.warning {
+  /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */
+  /* Drupal core uses a #e09010 background */
+}
+
+/* line 14, ../sass/_layout.scss */
+.tabs {
+  /* See also the tabs.css file. */
+}
+
+/* line 17, ../sass/_layout.scss */
+.region-help {
+  /* Help text on a page */
+}
+
+/* line 20, ../sass/_layout.scss */
+.more-help-link {
+  /* Link to more help */
+}
+
+/* line 23, ../sass/_layout.scss */
+.region-content {
+  /* Wrapper for the actual page content */
+}
+
+/* line 26, ../sass/_layout.scss */
+ul.inline {
+  /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+/* line 30, ../sass/_layout.scss */
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 36, ../sass/_layout.scss */
+span.field-label {
+  /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 40, ../sass/_layout.scss */
+.item-list .pager {
+  /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+/* line 43, ../sass/_layout.scss */
+.item-list .pager li {
+  /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+/* line 48, ../sass/_layout.scss */
+.feed-icon {
+  /* The link to the RSS or Atom feed for the current list of content */
+}
+
+/* line 51, ../sass/_layout.scss */
+.more-link {
+  /* Aggregator, blog, and forum more link */
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+/*
+ * Footer
+ */
+/*
+ * Page bottom
+ */
+/* line 85, ../sass/_layout.scss */
+.region-bottom {
+  /* Wrapper for any blocks placed in the page bottom region */
+}
+
+/*
+ *
+ * Structure / Layout
+ *
+ */
+/* line 101, ../sass/_layout.scss */
+#page {
+  width: auto;
+  padding: 0;
+}
+
+/* line 105, ../sass/_layout.scss */
+aside .content {
+  font-size: 12px;
+  padding: 9px 9px;
+}
+
+/* line 109, ../sass/_layout.scss */
+.block {
+  clear: both;
+}
+
+/* line 112, ../sass/_layout.scss */
+.block {
+  margin-bottom: 20px;
+}
+
+/* line 118, ../sass/_layout.scss */
+.region-content .field-name-field-application-screenshots .field-items .field-item img {
+  margin: 10px 0;
+}
+
+/* line 121, ../sass/_layout.scss */
+.view-id-top_applications_by_interactions .views-row {
+  margin-bottom: 15px;
+}
+
+/* line 124, ../sass/_layout.scss */
+#zone-header .block-addtoany {
+  text-indent: -9999px !important;
+  background: none !important;
+}
+
+/* line 128, ../sass/_layout.scss */
+.views-exposed-form .views-exposed-widget {
+  float: left;
+  padding: 0.5em 0.3em 0 0;
+}
+
+/*
+ *
+ * Header
+ *
+ */
+/* line 140, ../sass/_layout.scss */
+#section-header {
+  background: url("../images/header-bg.png") 0 -40px repeat-x;
+}
+
+/* line 143, ../sass/_layout.scss */
+#zone-branding-wrapper {
+  position: relative;
+  padding-top: 0px;
+  background: url("../images/header-bg2.png") center 0px no-repeat;
+}
+
+/* line 148, ../sass/_layout.scss */
+#zone-branding {
+  /*
+     background: url('../images/tagline2.png') 248px 29px no-repeat;
+   */
+}
+
+/* line 152, ../sass/_layout.scss */
+#zone-branding .logo-img {
+  float: left;
+  margin: 0 0 0 -10px;
+  padding: 10px 0px 7px 0 !important;
+}
+
+/* line 156, ../sass/_layout.scss */
+#zone-branding .logo-img #logo {
+  width: 181px;
+  height: 80px;
+}
+
+/* line 160, ../sass/_layout.scss */
+.site-name-slogan {
+  display: none;
+}
+
+/* line 163, ../sass/_layout.scss */
+#region-menu-bar {
+  margin-right: 0;
+  float: right;
+}
+
+/* line 168, ../sass/_layout.scss */
+.block-menu-block {
+  margin-bottom: 10px;
+}
+/* line 170, ../sass/_layout.scss */
+.block-menu-block #region-menu-bar ul {
+  float: right;
+  border-top: 1px solid #d9d9d9;
+  border-left: 1px solid #cccccc;
+  border-bottom: 1px solid white;
+}
+/* line 175, ../sass/_layout.scss */
+.block-menu-block #region-menu-bar ul li {
+  border: 0;
+  border-right: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* line 186, ../sass/_layout.scss */
+#region-content .field-label {
+  margin-top: 20px;
+}
+
+/* line 189, ../sass/_layout.scss */
+.region-content-inner {
+  margin-bottom: 0px;
+}
+
+/* line 192, ../sass/_layout.scss */
+.region-content-inner p {
+  margin-bottom: .8em;
+}
+
+/* line 195, ../sass/_layout.scss */
+.item-list ul li {
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 0 10px;
+  margin: 0 0 10px;
+}
+
+/* line 200, ../sass/_layout.scss */
+#region-sidebar-second .item-list ul li {
+  border: none;
+  margin: 0 0 2px;
+  padding: 0 0 2px;
+  list-style: inside;
+}
+
+/* line 209, ../sass/_layout.scss */
+body.front .block .views-field-field-image {
+  width: 55px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+/* line 215, ../sass/_layout.scss */
+body.front .view .views-field-field-add-deployment-for a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 220, ../sass/_layout.scss */
+body.front h2.node-title a {
+  text-decoration: none;
+}
+
+/* User login
+============================================================================ */
+/* Janrain Engage (LinkedIn)
+-----------------------------*/
+/* line 10, ../sass/_module.scss */
+#user-login {
+  padding: 20px;
+}
+
+/* hide login bar links */
+/* line 15, ../sass/_module.scss */
+#region-content-top .rpx-links,
+#region-header .rpx-links {
+  display: none;
+}
+
+/* make linkedin link big on user login */
+/* line 22, ../sass/_module.scss */
+#user-login li.rpx-link {
+  margin-left: 0;
+  /* overrides system style */
+  font-size: 1em;
+  display: block;
+  padding: 10px 0;
+}
+/* line 28, ../sass/_module.scss */
+#user-login li.rpx-link br {
+  display: none;
+}
+/* line 32, ../sass/_module.scss */
+#user-login a.rpxnow {
+  /* linkedin icon */
+  margin-left: 19px;
+}
+
+/* line 38, ../sass/_module.scss */
+#block-system-user-menu {
+  clear: both;
+  float: right;
+  margin-bottom: 0px;
+}
+/* line 42, ../sass/_module.scss */
+#block-system-user-menu ul {
+  border: 1px solid #e4e4e4;
+  list-style: none;
+  text-align: left;
+  background: #F7F7F7;
+  font-style: normal;
+  /*  margin-top: 1px; */
+}
+/* line 50, ../sass/_module.scss */
+#block-system-user-menu li {
+  display: inline;
+}
+/* line 53, ../sass/_module.scss */
+#block-system-user-menu a {
+  text-decoration: none;
+  padding: 1px 3px 1px 3px;
+}
+
+/* line 60, ../sass/_module.scss */
+#block-user-login,
+#block-addtoany-addtoany-button {
+  float: right;
+  clear: both;
+  margin-left: 0em;
+}
+
+/* line 65, ../sass/_module.scss */
+#block-user-login {
+  margin-bottom: 0px;
+  /* margin-top: -80px */
+  /* moves it above search, closer to util bar */
+}
+
+/* line 75, ../sass/_module.scss */
+#block-cc-helper-cc-breadcrumb {
+  margin: 0;
+  float: left;
+  clear: none;
+}
+
+/* line 80, ../sass/_module.scss */
+.region-content-top-inner {
+  min-height: 25px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+}
+
+/* line 87, ../sass/_module.scss */
+#block-cc-helper-cc-breadcrumb .block {
+  clear: none;
+}
+
+/* line 92, ../sass/_module.scss */
+#block-addtoany-addtoany-button {
+  display: none;
+}
+
+/* line 95, ../sass/_module.scss */
+#block-cc-flag-block-flag-block {
+  background: none;
+  box-shadow: none;
+  margin-bottom: none;
+}
+
+/* line 100, ../sass/_module.scss */
+#block-cc-flag-block-flag-block li {
+  display: inline;
+}
+
+/* line 104, ../sass/_module.scss */
+.block-title h2 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Block: Preview Intro */
+/* line 113, ../sass/_module.scss */
+.preview-intro {
+  margin-bottom: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 1px 8px 1px #ded8d8;
+  -webkit-box-shadow: 0 1px 8px 1px #ded8d8;
+  box-shadow: 0 1px 8px 1px #ded8d8;
+}
+
+/* Block: Preview Intro */
+/* line 123, ../sass/_module.scss */
+.preview-intro {
+  margin-bottom: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 1px 8px 1px #ded8d8;
+  -webkit-box-shadow: 0 1px 8px 1px #ded8d8;
+  box-shadow: 0 1px 8px 1px #ded8d8;
+}
+
+/* Block: Add to the Marketplace */
+/* line 133, ../sass/_module.scss */
+.block.add-to-marketplace {
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+/* line 139, ../sass/_module.scss */
+.block.add-to-marketplace,
+.block.highlight,
+#region-sidebar-second .block {
+  background-color: #FBFBFB;
+  /* to mimic the color of the foil: background-color: #FBF6DD; */
+  -moz-box-shadow: 0 1px 8px 1px #ded8d8;
+  -webkit-box-shadow: 0 1px 8px 1px #ded8d8;
+  box-shadow: 0 1px 8px 1px #ded8d8;
+}
+
+/* line 149, ../sass/_module.scss */
+.add-to-marketplace,
+.edit_block,
+.block-cc-editing,
+.block-cc-api {
+  border: 3px dashed #c3c8cd;
+  text-align: center;
+}
+
+/* line 156, ../sass/_module.scss */
+.region-sidebar-second .add-button,
+.add-to-marketplace .add-button,
+.edit_block .add-button,
+.block-cc-editing .add-button {
+  display: block;
+  background-image: url("../images/buttonbg2.png");
+  width: 220px;
+  height: 22px;
+  margin: auto;
+  text-align: center;
+  padding: 8px 0px 8px 0px;
+  font-weight: normal;
+  font-family: Helvetica, Arial;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3em;
+  margin-bottom: 3px;
+  -webkit-box-shadow: 2px 2px 3px #aaaaaa;
+  -moz-box-shadow: 2px 2px 3px #aaaaaa;
+  box-shadow: 2px 2px 3px #aaaaaa;
+  border: 2px solid #cb2a3c;
+  border-bottom: initial;
+  border-top: 1px solid #ac2b3f;
+  border-right: 2px solid #ac2b3f;
+}
+
+/* line 179, ../sass/_module.scss */
+.block.add-to.marketplace div, .block.edit_block div {
+  text-align: center;
+  display: inline-block;
+  margin-left: 52px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+/* line 186, ../sass/_module.scss */
+.block.edit_block p {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+/* line 190, ../sass/_module.scss */
+.block.edit_block div {
+  margin-left: 0px;
+  margin-bottom: 0px;
+  padding: 3px 9px;
+}
+
+/* line 195, ../sass/_module.scss */
+.block.add-to-marketplace h2, .block.edit_block h2 {
+  color: #555;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+}
+
+/* line 201, ../sass/_module.scss */
+.block.add-to-marketplace li, .block.edit_block li {
+  list-style: none;
+}
+
+/* line 205, ../sass/_module.scss */
+.block.add-to.marketplace p,
+.block.edit_block p {
+  margin: 15px 0px 0px 0px;
+  font-size: 1.2em;
+}
+
+/* line 209, ../sass/_module.scss */
+.block-cc-editing {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* line 213, ../sass/_module.scss */
+.block-cc-editing .cc-editing-node-edit-button {
+  margin-bottom: 10px;
+}
+
+/* line 216, ../sass/_module.scss */
+.block-cc-editing .cc-editing-node-edit-revision-count {
+  font-style: italic;
+}
+
+/* line 219, ../sass/_module.scss */
+.example {
+  margin-bottom: 10px;
+}
+
+/* line 222, ../sass/_module.scss */
+.edit_date {
+  display: block;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* line 227, ../sass/_module.scss */
+#region-sidebar-second .add-to-marketplace {
+  margin-top: -16px;
+}
+
+/* line 230, ../sass/_module.scss */
+.page-taxonomy .add-to-marketplace {
+  margin-top: 3px;
+}
+
+/* line 233, ../sass/_module.scss */
+.highlight views-row {
+  margin: 0 0 0px;
+}
+
+/* line 236, ../sass/_module.scss */
+.front .add-to-marketplace h2 {
+  text-align: center;
+}
+
+/* Apps & org Page
+============================================================================ */
+/* Apps & org Pages */
+/* line 246, ../sass/_module.scss */
+.field-name-field-application-logo,
+.field-name-field-organization-logo {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+
+/* line 250, ../sass/_module.scss */
+.node-type-organization .field-name-field-organization-address {
+  margin: 0 0 10px;
+}
+
+/* line 253, ../sass/_module.scss */
+.group_basic_info {
+  margin: 0 0 20px;
+}
+
+/* line 256, ../sass/_module.scss */
+#block-views-at-a-glance-application-block .content {
+  padding-top: 0;
+  list-style: none;
+}
+
+/* line 260, ../sass/_module.scss */
+.views-field-field-application-used-in {
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  background: url(../images/icon_place_mini.gif) left center no-repeat scroll;
+  padding: 5px 0px 0px 24px;
+  margin: 0 0 5px;
+}
+
+/* line 268, ../sass/_module.scss */
+.views-field-field-application-used-in .views-label {
+  font-size: 16px;
+}
+
+/* line 271, ../sass/_module.scss */
+.views-field-field-application-used-in div {
+  display: inline;
+}
+
+/* line 274, ../sass/_module.scss */
+#block-views-at-a-glance-application-block .view-header p {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 0 10px;
+  margin: 0 0 10px;
+}
+
+/* line 281, ../sass/_module.scss */
+#block-views-at-a-glance-application-block .view-header .cc-places-count {
+  padding: 0 0.2em;
+}
+
+/* line 290, ../sass/_module.scss */
+#block-views-at-a-glance-application-block .views-field-php, #block-views-at-a-glance-application-block .views-field-field-application-reqs,
+#block-views-at-a-glance-application-block .views-field-field-application-hosturl,
+#block-views-at-a-glance-application-block .views-field-field-application-deliverymeth,
+#block-views-at-a-glance-application-block .views-field-field-application-license,
+#block-views-at-a-glance-application-block .views-field-field-application-rlss,
+#block-views-at-a-glance-application-block .views-field-nothing {
+  border-top: 1px solid #eeeeee;
+  margin: 0 0 10px;
+  padding: 10px 0 0;
+  display: block;
+}
+
+/* line 298, ../sass/_module.scss */
+#block-views-cc-organizations-block {
+  margin-top: 20px;
+}
+
+/* line 301, ../sass/_module.scss */
+.views-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* line 305, ../sass/_module.scss */
+#block-views-at-a-glance-application-block ul div {
+  display: inline;
+  margin-right: 0.2em;
+}
+
+/* line 312, ../sass/_module.scss */
+#block-menu-menu-footer-menu {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 38%;
+  text-align: center;
+}
+/* line 313, ../sass/_module.scss */
+#block-menu-menu-footer-menu .block-title {
+  display: none;
+}
+/* line 326, ../sass/_module.scss */
+#block-menu-menu-footer-menu ul {
+  list-style-type: none;
+}
+/* line 328, ../sass/_module.scss */
+#block-menu-menu-footer-menu ul li {
+  float: left;
+  list-style: none;
+}
+/* line 332, ../sass/_module.scss */
+#block-menu-menu-footer-menu ul li a {
+  text-decoration: none;
+}
+
+/* line 357, ../sass/_module.scss */
+#block-menu-menu-footer-menu .block-inner,
+#block-menu-menu-footer-menu .block-inner .content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Home page
+ */
+/**
+ * Recent activity block
+ */
+/* line 372, ../sass/_module.scss */
+#block-views-interactions-block,
+#block-views-interactions-block-1 {
+  height: 31em;
+}
+
+/* line 375, ../sass/_module.scss */
+#block-views-interactions-block-1 .block-inner {
+  padding-top: 50px;
+}
+
+/* line 378, ../sass/_module.scss */
+#block-views-interactions-block .content {
+  padding: 10px 0;
+}
+
+/* line 381, ../sass/_module.scss */
+#block-block-22 .block-inner .content {
+  background: transparent;
+  border: none;
+  color: black;
+  text-align: left;
+  text-transform: none;
+  font-size: 1.3em;
+  font-weight: 100;
+  margin: 0;
+  font-family: 'PT Sans';
+  line-height: 1.3em;
+}
+
+/* line 393, ../sass/_module.scss */
+#block-block-22 .block-inner .content a {
+  text-decoration: none;
+}
+
+/**
+ * Browse places block
+ */
+/* line 403, ../sass/_module.scss */
+.view-apps-browse-by h2.block-title {
+  margin-bottom: 1em;
+}
+/* line 405, ../sass/_module.scss */
+.view-apps-browse-by h2.block-title .browse {
+  width: 370px;
+  display: inline-block;
+}
+/* line 411, ../sass/_module.scss */
+.view-apps-browse-by .block-title .using {
+  width: 125px;
+  display: inline-block;
+}
+/* line 415, ../sass/_module.scss */
+.view-apps-browse-by .block-title .created {
+  width: 110px;
+  display: inline-block;
+}
+/* line 420, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps {
+  /*background: transparent url('../images/created-inactive.png') top left no-repeat;*/
+  /*height: 44px;*/
+  padding: 0px;
+  margin: 0px;
+}
+/* line 425, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps:first-child {
+  /*background: transparent url('../images/hammer-wrench-inactive.png') top left no-repeat;*/
+}
+/* line 428, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps .cc-org-prefix-using {
+  color: transparent;
+  background: transparent url("../images/hammer-wrench-active-24.png") 12px 0 no-repeat;
+  width: 40px;
+  height: 24px;
+  /*height: 44px;*/
+  display: block;
+  float: left;
+  margin-right: 5px;
+  font-size: 0;
+}
+/* line 439, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps .cc-org-prefix-sharing {
+  color: transparent;
+  background: transparent url("../images/hammer-wrench-active-24.png") 12px 0 no-repeat;
+  width: 40px;
+  height: 24px;
+  /*height: 44px;*/
+  display: block;
+  float: left;
+  margin-right: 5px;
+  font-size: 0;
+  /*background: transparent url('../images/created-active.png') top left no-repeat;*/
+  background: transparent url("../images/gov-gov-gray-24.png") 12px 0 no-repeat;
+}
+/* line 452, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps .cc-org-count {
+  /*padding-top: 3px;
+  font-size: 2em;*/
+  font-size: 1.2em;
+  padding: 0;
+  line-height: 1.2em;
+  color: #777777;
+}
+/* line 460, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address-2 .cc-org-apps .cc-org-postfix {
+  display: none;
+}
+/* line 465, ../sass/_module.scss */
+.view-apps-browse-by .views-field-field-organization-address {
+  /*line-height: 44px;
+  margin-left: 10px;*/
+}
+/* line 469, ../sass/_module.scss */
+.view-apps-browse-by .view-footer a {
+  display: block;
+  float: right;
+  width: 125px;
+  border: 1px solid #e4e4e4;
+  background-color: #F7F7F7;
+  color: #222222;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: .8em;
+}
+
+/* line 484, ../sass/_module.scss */
+.context-places .views-field .views-field-php .cc-org-apps {
+  color: red;
+}
+
+/* line 487, ../sass/_module.scss */
+.beta {
+  position: absolute;
+  vertical-align: top;
+  width: 996px;
+  padding: 4px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: -147px;
+  margin-bottom: 0;
+  font-family: "PT Sans", Helvetica, Arial;
+  font-size: 1.2em;
+}
+/* line 500, ../sass/_module.scss */
+.beta span {
+  background: #dcdbdb;
+  padding: 4px;
+  opacity: 0.8;
+}
+/* line 505, ../sass/_module.scss */
+.beta a {
+  margin-left: 10px;
+  background: #dcdbdb;
+  padding: 4px 6px 4px 4px;
+  opacity: 0.8;
+}
+/* line 511, ../sass/_module.scss */
+.beta .build {
+  /*margin-left: 217px;*/
+  float: right;
+  margin-right: 46px;
+}
+
+/* line 519, ../sass/_module.scss */
+.construction {
+  float: left;
+}
+
+/* line 522, ../sass/_module.scss */
+.beta .red {
+  color: #C33;
+  margin-right: 5px;
+}
+
+/*
+#
+# Interaction Node view
+#
+*/
+/* line 534, ../sass/_module.scss */
+body.node-type-interaction h1#page-title {
+  display: none;
+}
+
+/* line 537, ../sass/_module.scss */
+article.node-interaction {
+  padding-top: 25px;
+}
+
+/* line 540, ../sass/_module.scss */
+#region-content .field-label-inline .field-label {
+  background: none;
+  padding: 0 15px 0 0;
+  color: #333;
+  margin: 0;
+  width: 120px;
+  font-size: auto;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: inherit;
+  border: none !important;
+  font-size: inherit;
+  font-weight: bold;
+  text-align: right;
+}
+
+/**
+ * Profile and User Register
+ */
+/* line 558, ../sass/_module.scss */
+#region-content .profile h3 {
+  margin-top: 2em;
+}
+
+/* line 561, ../sass/_module.scss */
+.profile .user-picture {
+  float: none;
+}
+
+/* Hide Vertical tabs on register page */
+/* line 565, ../sass/_module.scss */
+#user-register-form .vertical-tabs {
+  margin-left: 0;
+}
+
+/* line 568, ../sass/_module.scss */
+#user-register-form .vertical-tabs .vertical-tabs-list {
+  display: none;
+}
+
+/**
+ * Story content type
+ */
+/* line 574, ../sass/_module.scss */
+.node .field-name-field-story-image {
+  float: right;
+  margin: 0 10px 10px 10px;
+}
+
+/**
+ * Engagement Commons
+ */
+/* line 582, ../sass/_module.scss */
+.ec-stories #block-block-36 {
+  margin-bottom: 20px;
+}
+
+/* line 585, ../sass/_module.scss */
+.ec-stories #region-sidebar-second {
+  margin-top: 16px;
+}
+
+/* line 588, ../sass/_module.scss */
+.ec-stories h1#page-title {
+  display: inline;
+}
+
+/* line 591, ../sass/_module.scss */
+.ec-stories footer.submitted {
+  font-size: 100%;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* line 596, ../sass/_module.scss */
+#views_slideshow_cycle_teaser_section_engagement_commons_page-page {
+  width: 940px;
+  background-color: #374884;
+}
+
+/* line 601, ../sass/_module.scss */
+.engagement-commons #breadcrumb, .engagement-commons #block-user-login {
+  display: none;
+}
+/* line 604, ../sass/_module.scss */
+.engagement-commons #region-sidebar-second {
+  margin-top: 16px;
+}
+/* line 607, ../sass/_module.scss */
+.engagement-commons #block-block-36 {
+  height: 125px;
+  margin-top: 5px;
+  background: transparent url("../images/engagement_commons/eg-banner.png") top left no-repeat;
+  color: transparent;
+  padding-bottom: 0px;
+  border-bottom: 5px solid #374884;
+  margin-bottom: 0px;
+}
+/* line 616, ../sass/_module.scss */
+.engagement-commons .block #block-block-36 {
+  margin-bottom: 0px;
+}
+/* line 619, ../sass/_module.scss */
+.engagement-commons h1#page-title {
+  display: none;
+}
+/* line 622, ../sass/_module.scss */
+.engagement-commons #region-sidebar-second {
+  margin-top: 0px;
+}
+/* line 623, ../sass/_module.scss */
+.engagement-commons #region-sidebar-second .add-to-marketplace {
+  margin-top: 0px;
+}
+/* line 628, ../sass/_module.scss */
+.engagement-commons .views-row {
+  margin: 10px 0 30px;
+}
+/* line 631, ../sass/_module.scss */
+.engagement-commons .engagement-commons-slide-row {
+  margin-top: 0px;
+}
+/* line 634, ../sass/_module.scss */
+.engagement-commons .view-id-engagement_commons_page view-display-id-block_2 {
+  height: 300px;
+  overflow: hidden;
+}
+/* line 638, ../sass/_module.scss */
+.engagement-commons #block-views-engagement-commons-page-block-2 {
+  margin-bottom: 0;
+  height: 300px;
+  overflow: hidden;
+}
+/* line 642, ../sass/_module.scss */
+.engagement-commons #block-views-engagement-commons-page-block-2 h2.block-title {
+  display: none;
+}
+/* line 646, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 649, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-row, .engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 653, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-nothing, .engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-title a, .engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-field-story-apps {
+  width: 300px;
+  color: #222222;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  text-align: right;
+  padding-right: 20px;
+}
+/* line 662, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-title a {
+  font-size: 2.25em;
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 100px;
+  padding: 10px 20px 10px 20px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  line-height: 1.2em;
+}
+/* line 672, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-field-story-apps {
+  color: #666666;
+  top: 80px;
+}
+/* line 675, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-field-story-apps .views-label {
+  font-weight: normal;
+}
+/* line 678, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-field-story-apps a {
+  color: #666666;
+  font-weight: bold;
+}
+/* line 683, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page .views-slideshow-cycle-main-frame .views-field-nothing {
+  text-transform: uppercase;
+  padding: 10px 20px 0 20px;
+  color: #666666;
+  height: 40px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* line 692, ../sass/_module.scss */
+.engagement-commons #zone-header #block-system-user-menu {
+  display: none;
+}
+/* line 695, ../sass/_module.scss */
+.engagement-commons #block-menu-menu-mktplc-section-nav {
+  margin-bottom: 2px;
+}
+/* line 698, ../sass/_module.scss */
+.engagement-commons #block-block-37 {
+  font-size: 1.25em;
+}
+/* line 700, ../sass/_module.scss */
+.engagement-commons #block-block-37 h2.block-title {
+  color: #0d59ac;
+  background: none;
+  border: none;
+  padding: 0;
+  text-transform: none;
+  font-size: 1.25em;
+}
+/* line 710, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page.view-display-id-block_1 td {
+  width: 25%;
+  padding: 10px;
+  text-align: center;
+}
+/* line 715, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page.view-display-id-block_1 .views-field-field-application-logo {
+  float: none;
+  margin: 0 auto;
+  width: auto;
+}
+/* line 721, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page.view-display-id-block_1 .views-field-field-story-apps .views-label {
+  color: #666666;
+  font-weight: normal;
+  font-size: .85em;
+}
+/* line 726, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page.view-display-id-block_1 .views-field-field-story-apps .field-content {
+  display: inline;
+}
+/* line 728, ../sass/_module.scss */
+.engagement-commons .view-engagement-commons-page.view-display-id-block_1 .views-field-field-story-apps .field-content a {
+  text-decoration: none;
+}
+/* line 734, ../sass/_module.scss */
+.engagement-commons .view-id-engagement_commons_page.view-display-id-page .views-field-field-story-image {
+  float: left;
+  margin: 0 20px 5px 0;
+}
+/* line 738, ../sass/_module.scss */
+.engagement-commons .feed-icon {
+  display: none;
+}
+/* line 742, ../sass/_module.scss */
+.engagement-commons .grid-11 .view-id-engagement_commons_page .view-content {
+  padding: 0.08em 0.8em;
+}
+/* line 745, ../sass/_module.scss */
+.engagement-commons .grid-11 .view-id-engagement_commons_page .views-field-title .field-content a {
+  font-family: "PT Sans", Helvetica, Arial;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+/**
+ * Problem page.
+ */
+/* line 757, ../sass/_module.scss */
+#block-views-problems-block {
+  position: relative;
+}
+/* line 759, ../sass/_module.scss */
+#block-views-problems-block .feed-icon {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+}
+/* line 764, ../sass/_module.scss */
+#block-views-problems-block .view-footer {
+  color: #FFF;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+}
+
+/**
+ * User Actions Block
+ */
+/* line 779, ../sass/_module.scss */
+#block-cc-actions-cc-actions li {
+  display: block;
+}
+/* line 781, ../sass/_module.scss */
+#block-cc-actions-cc-actions li.cc-actions-my-account .top-level-item {
+  background: url("../images/greenhead.png") repeat scroll 0 0 #374884;
+  margin-bottom: 0;
+}
+/* line 786, ../sass/_module.scss */
+#block-cc-actions-cc-actions .top-level-item, #block-cc-actions-cc-actions li.first {
+  background-repeat: no-repeat;
+}
+/* line 789, ../sass/_module.scss */
+#block-cc-actions-cc-actions .top-level-item {
+  background: url("../images/greenhead.png") repeat scroll 0 0 #374884;
+}
+
+/* line 795, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-field-application-logo {
+  margin: 0 10px 5px 0;
+  float: left;
+}
+/* line 799, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-nid {
+  font-size: .85em;
+}
+/* line 802, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-field-application-sdesc {
+  margin-left: 70px;
+  font-size: .85em;
+}
+
+/* line 811, ../sass/_module.scss */
+.block-subscriptions-ui h3 {
+  font-size: 14px;
+  margin: 15px 0 0 7px;
+  color: #666;
+}
+
+/* line 816, ../sass/_module.scss */
+.block-subscriptions-ui .item-list ul {
+  margin-left: 10px;
+}
+
+/* line 819, ../sass/_module.scss */
+#application-node-form .vertical-tabs-list li.vertical-tab-button:nth-child(4) {
+  display: none;
+}
+
+/* Temporary until Friday */
+/* line 823, ../sass/_module.scss */
+#user-profile-form .vertical-tabs-list li.vertical-tab-button:nth-child(2) {
+  display: none;
+}
+
+/* line 828, ../sass/_module.scss */
+#block-cc-helper-cc-app-challenge #app-challenge .app-left {
+  float: left;
+}
+/* line 830, ../sass/_module.scss */
+#block-cc-helper-cc-app-challenge #app-challenge .app-left p.line1 {
+  font-family: "PT Sans", Arial;
+  font-size: 18px;
+  text-align: left;
+}
+/* line 836, ../sass/_module.scss */
+#block-cc-helper-cc-app-challenge #app-challenge .app-right {
+  margin-left: 314px;
+}
+/* line 839, ../sass/_module.scss */
+#block-cc-helper-cc-app-challenge #app-challenge .app-right p.line2 {
+  font-family: "PT Sans", Arial;
+  font-size: 18px;
+  text-align: left;
+}
+/* line 844, ../sass/_module.scss */
+#block-cc-helper-cc-app-challenge #app-challenge .app-right p.line3 {
+  font-family: PT Sans;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* Navigation content
+******************************************************************************/
+/* line 860, ../sass/_module.scss */
+#breadcrumb {
+  margin-top: -18px;
+  margin-bottom: 0px;
+  width: 740px;
+}
+
+/* line 865, ../sass/_module.scss */
+.breadcrumb {
+  font-size: 12px;
+}
+
+/* line 868, ../sass/_module.scss */
+body.page-user #breadcrumb {
+  margin-top: 0px;
+}
+
+/* line 873, ../sass/_module.scss */
+.edit-content-button {
+  text-align: right;
+}
+/* line 875, ../sass/_module.scss */
+.edit-content-button a:hover {
+  background: #ddd;
+  color: #444;
+  text-decoration: none;
+}
+/* line 880, ../sass/_module.scss */
+.edit-content-button a:link {
+  background: #eee;
+  padding: 5px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* line 867, ../sass/_module.scss */
+#region-header {
+  position: relative;
+}
+
+/* line 873, ../sass/_module.scss */
+#region-header .region-header-inner {
+  /*  margin-bottom: 3px;  */
+  background: url("../images/search-bg.png") center top no-repeat;
+  height: 57px;
+  font-size: 12px;
+  -webkit-box-shadow: 0px 2px 4px #cccccc;
+  -moz-box-shadow: 0px 2px 4px #cccccc;
+  box-shadow: 0px 2px 4px #cccccc;
+}
+/* line 882, ../sass/_module.scss */
+#region-header .form-item, #region-header .form-actions {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 912, ../sass/_module.scss */
+#block-menu-menu-mktplc-section-nav {
+  padding: 10px 14px 7px 14px;
+  margin-bottom: 5px;
+  float: left;
+}
+
+/* line 917, ../sass/_module.scss */
+.add-content-menu {
+  float: left;
+  padding: 12px 14px;
+}
+
+/* line 921, ../sass/_module.scss */
+.add-content-menu select#edit-jump {
+  color: #999;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  padding: 0 5px;
+  margin: 1px 14px 0 0;
+}
+
+/* line 929, ../sass/_module.scss */
+input#edit-go {
+  /* this button is hidden via JS but there's a flicker */
+  display: none;
+}
+
+/* line 936, ../sass/_module.scss */
+#section-content {
+  font-size: 15px;
+}
+
+/* line 939, ../sass/_module.scss */
+body.front #region-content {
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: center;
+}
+
+/* line 945, ../sass/_module.scss */
+.page-node #section-content .tabs {
+  display: block;
+}
+
+/* Controls
+******************************************************************************/
+/* Call to action button */
+/* line 957, ../sass/_module.scss */
+.button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  box-shadow: inset 0px 1px 0px 0px #91a6d6;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6280cb), color-stop(1, #102047));
+  background: -moz-linear-gradient(center top, #6280cb 5%, #102047 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6280cb', endColorstr='#102047');
+  background-color: #6280cb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #142859;
+  display: inline-block;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 11px 28px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #101f42;
+}
+/* line 977, ../sass/_module.scss */
+.button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #102047), color-stop(1, #6280cb));
+  background: -moz-linear-gradient(center top, #102047 5%, #6280cb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#102047', endColorstr='#6280cb');
+  background-color: #102047;
+}
+/* line 983, ../sass/_module.scss */
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+/* line 993, ../sass/_module.scss */
+.table-action-button a {
+  text-transform: lowercase;
+  display: block;
+  float: left;
+  text-decoration: none;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  margin: 0 0.5em 0.5em 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: #dddddd url(../images/button.png) repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd));
+  background: -moz-linear-gradient(top center, white 0%, #dddddd 100%);
+  border: 1px solid;
+  border-color: #ddd #bbb #999;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 4px 10px 3px;
+  text-shadow: #fff 0 1px 1px;
+  width: auto;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px;
+}
+
+/* line 1026, ../sass/_module.scss */
+body.front .button {
+  min-width: 200px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+  float: none;
+}
+
+/* line 1033, ../sass/_module.scss */
+a.button {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ *
+ * Content-type specific layouts
+ *
+ */
+/* override .grid-16 for apps and orgs */
+/* line 1051, ../sass/_module.scss */
+body.node-type-application #region-content,
+body.node-type-organization #region-content,
+body.node-type-project #region-content,
+body.node-type-standard #region-content,
+body.node-type-page #region-content {
+  width: 630px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* line 1056, ../sass/_module.scss */
+body.context-wiki #region-content {
+  width: 940px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* line 1061, ../sass/_module.scss */
+.page-places #region-content {
+  width: 940px;
+  margin-bottom: 20px;
+}
+
+/* line 1066, ../sass/_module.scss */
+.node-type-story .user-picture {
+  display: none;
+}
+
+/**
+ * Search bar region
+ */
+/* line 1053, ../sass/_module.scss */
+#region-header .section-nav .menu {
+  float: left;
+  border-right: 1px solid gainsboro;
+  padding: 0;
+  margin: 0;
+}
+/* line 1058, ../sass/_module.scss */
+#region-header .section-nav .menu li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 1064, ../sass/_module.scss */
+#region-header .section-nav .menu a {
+  height: 38px;
+  padding: 0 15px;
+  line-height: 38px;
+  font-sizE: 15px;
+  font-weight: bold;
+  color: #4CA3D9;
+  text-decoration: none;
+  border-left: 1px solid gainsboro;
+  text-transform: none;
+  display: block;
+  background: url("../images/nav38px.png") 0 0 repeat-x;
+}
+/* line 1076, ../sass/_module.scss */
+#region-header .section-nav .menu a:visited {
+  height: 38px;
+  padding: 0 15px;
+  line-height: 38px;
+  font-sizE: 15px;
+  font-weight: bold;
+  color: #4CA3D9;
+  text-decoration: none;
+  border-left: 1px solid gainsboro;
+  text-transform: none;
+  display: block;
+  background: url("../images/nav38px.png") 0 0 repeat-x;
+}
+/* line 1089, ../sass/_module.scss */
+#region-header .section-nav .menu a:hover {
+  background-image: url("../images/nav-bg-hover38.png");
+}
+/* line 1092, ../sass/_module.scss */
+#region-header .section-nav .menu a.active {
+  background-image: url("../images/nav-bg-selected38.png");
+}
+/* line 1097, ../sass/_module.scss */
+#region-header .block-custom-search-blocks {
+  float: left;
+  width: 750px;
+  margin-bottom: 0;
+  clear: none;
+  padding-top: 10px;
+}
+/* line 1104, ../sass/_module.scss */
+#region-header input {
+  margin: 0;
+}
+/* line 1107, ../sass/_module.scss */
+#region-header .search-form div {
+  display: inline;
+}
+/* line 1110, ../sass/_module.scss */
+#region-header .custom-search-box {
+  color: #999;
+  height: 38px;
+  line-height: 38px;
+  font-size: 15px;
+  width: 681px;
+  margin: 0 10px 0 0;
+  font-style: italic;
+  border: 1px solid #eeeeee;
+  border-top: 2px solid #dddddd;
+}
+/* line 1121, ../sass/_module.scss */
+#region-header .form-submit {
+  height: 38px;
+  width: auto;
+}
+
+/* line 1155, ../sass/_module.scss */
+.front .region-content-top-inner {
+  padding: 10px 0;
+  min-height: 0;
+}
+
+/* line 1159, ../sass/_module.scss */
+.region-content-top-inner {
+  padding: 10px 0;
+  min-height: 25px;
+}
+
+/* line 1168, ../sass/_module.scss */
+.block-title h2,
+h2.block-title,
+#region-content .field-label {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #fff;
+  background: #374884;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  line-height: 2;
+  margin-bottom: 10px;
+  padding: 0 0.8em;
+  border-top: 1px solid #99c5ff;
+  border-right: 1px solid #5684bf;
+  border-bottom: 1px solid #5684bf;
+  border-left: 1px solid #99c5ff;
+}
+
+/* line 1184, ../sass/_module.scss */
+h2.block-title {
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-style: none;
+  text-align: left;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 1191, ../sass/_module.scss */
+#block-views-places-block-3 h2.block-title {
+  margin-bottom: 5px;
+}
+
+/* line 1197, ../sass/_module.scss */
+.item-list .architecture-fields li, .item-list .architecture-fields ul li {
+  border: none;
+  list-style-type: square;
+}
+/* line 1203, ../sass/_module.scss */
+.item-list .architecture-content-types li, .item-list .architecture-content-types ul li {
+  border: none;
+  list-style-type: square;
+}
+/* line 1209, ../sass/_module.scss */
+.item-list .architecture-fields li, .item-list .architecture-fields ul li {
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+}
+
+/* Places Page */
+/* line 1221, ../sass/_module.scss */
+.view-id-places .view-content {
+  margin-bottom: 10px;
+}
+/* line 1224, ../sass/_module.scss */
+.view-id-places .views-row {
+  border-bottom: 1px dashed #eeeeee;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+/* line 1228, ../sass/_module.scss */
+.view-id-places .views-row > div {
+  /*float: left;
+  width: 48%;
+  margin-right: 2%;*/
+}
+/* line 1233, ../sass/_module.scss */
+.view-id-places .views-row div {
+  /*  display: inline; */
+}
+/* line 1235, ../sass/_module.scss */
+.view-id-places .views-row div.views-field-title {
+  display: block;
+  font-weight: bold;
+}
+/* line 1241, ../sass/_module.scss */
+.view-id-places a {
+  font-size: 16px;
+  text-decoration: none;
+}
+/* line 1245, ../sass/_module.scss */
+.view-id-places .views-row div.location {
+  display: block;
+}
+/* line 1248, ../sass/_module.scss */
+.view-id-places .using-sharing {
+  display: inline;
+}
+/* line 1251, ../sass/_module.scss */
+.view-id-places .cc-org-apps {
+  /*float: left;
+  width: 48%;
+  margin-right: 2%;*/
+  float: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Applications Page */
+/* line 1263, ../sass/_module.scss */
+.page-applications #region-content {
+  width: 940px;
+}
+/* line 1266, ../sass/_module.scss */
+.page-applications #region-content-leftcolumn, .page-applications #region-content-leftcolumn-lower {
+  float: left;
+  clear: left;
+}
+/* line 1270, ../sass/_module.scss */
+.page-applications #region-content-rightcolumn, .page-applications #region-content-rightcolumn-lower {
+  float: right;
+  clear: right;
+}
+
+/**
+ * Footer
+ */
+/* line 1281, ../sass/_module.scss */
+footer#section-footer {
+  background-color: #FFFFFF;
+  color: #A5A5A5;
+  margin: 40px 0 0;
+  padding: 20px 0;
+}
+
+/* line 1288, ../sass/_module.scss */
+.zone-bottom-footer h2.block-title,
+footer#section-footer h2.block-title {
+  color: #44484F;
+  text-align: center;
+  background: transparent;
+  font-size: 18px;
+  text-transform: none;
+  padding: 0;
+  border: 0;
+}
+
+/* line 1298, ../sass/_module.scss */
+footer#section-footer a:link,
+footer#section-footer a:visited {
+  color: #a5a5a5;
+}
+
+/* line 1301, ../sass/_module.scss */
+footer#section-footer a:hover {
+  color: #cacaca;
+}
+
+/* line 1304, ../sass/_module.scss */
+#zone-footer-wrapper {
+  background-color: #44484F;
+}
+
+/* line 1309, ../sass/_module.scss */
+#zone-bottom-footer-wrapper {
+  background-color: #ffffff;
+}
+
+/* line 1312, ../sass/_module.scss */
+#zone-bottom-footer p {
+  margin-bottom: 0;
+}
+
+/* line 1315, ../sass/_module.scss */
+#block-cc-helper-cc-footer-logo-links h2.block-title {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto auto;
+  border-bottom-color: -moz-use-text-color;
+  border-bottom-style: none;
+  border-bottom-width: 0;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-source: none;
+  border-image-width: 1 1 1 1;
+  border-left-color-ltr-source: physical;
+  border-left-color-rtl-source: physical;
+  border-left-color-value: -moz-use-text-color;
+  border-left-style-ltr-source: physical;
+  border-left-style-rtl-source: physical;
+  border-left-style-value: none;
+  border-left-width-ltr-source: physical;
+  border-left-width-rtl-source: physical;
+  border-left-width-value: 0;
+  border-right-color-ltr-source: physical;
+  border-right-color-rtl-source: physical;
+  border-right-color-value: -moz-use-text-color;
+  border-right-style-ltr-source: physical;
+  border-right-style-rtl-source: physical;
+  border-right-style-value: none;
+  border-right-width-ltr-source: physical;
+  border-right-width-rtl-source: physical;
+  border-right-width-value: 0;
+  border-top-color: -moz-use-text-color;
+  border-top-style: none;
+  border-top-width: 0;
+  color: #A5A5A5;
+  font-size: 18px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  text-align: center;
+  text-transform: none;
+}
+
+/**
+ * OpenLayers maps styling
+ */
+/* line 1374, ../sass/_module.scss */
+body .openlayers-map .olControlAttribution {
+  right: inherit;
+  left: 5px;
+  background-color: rgba(15, 15, 15, 0.5);
+  color: #EEEEEE;
+  padding: 5px;
+  font-size: 10px;
+  border-radius: 3px;
+}
+/* line 1383, ../sass/_module.scss */
+body .openlayers-views-map .olControlAttribution a {
+  color: #EEEEEE;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* line 1389, ../sass/_module.scss */
+body .openlayers-map .olControlPermalink {
+  right: 5px;
+  bottom: 5px;
+  background-color: rgba(15, 15, 15, 0.5);
+  color: #EEEEEE;
+  padding: 5px;
+  font-size: 10px;
+  border-radius: 3px;
+}
+/* line 1397, ../sass/_module.scss */
+body .openlayers-map .olControlPermalink a {
+  color: #EEEEEE;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* line 1403, ../sass/_module.scss */
+body .openlayers-map .olFramedCloudPopupContent {
+  border-radius: 5px;
+  color: #EEEEEE;
+}
+/* line 1406, ../sass/_module.scss */
+body .openlayers-map .olFramedCloudPopupContent a {
+  color: #EEEEEE;
+}
+/* line 1410, ../sass/_module.scss */
+body .openlayers-map img.olImageLoadError {
+  background-color: transparent;
+}
+
+/* line 1417, ../sass/_module.scss */
+.view-id-problem_definitions_map {
+  position: relative;
+}
+/* line 1419, ../sass/_module.scss */
+.view-id-problem_definitions_map .view-footer {
+  position: absolute;
+  bottom: -4px;
+  right: 13px;
+}
+
+/* line 1426, ../sass/_module.scss */
+.view-id-cc_hackathon_sites_map .attachment-after {
+  position: relative;
+  top: -64px;
+  right: 13px;
+  text-align: right;
+  height: 5px;
+}
+
+/* Search Page */
+/* line 1440, ../sass/_module.scss */
+.page-search #page-title {
+  font-size: 1em;
+  margin-top: 15px;
+  border-left: 1px solid #dddddd;
+  padding-left: 3px;
+  color: #aaa;
+  visibility: hidden;
+  display: none;
+}
+/* line 1449, ../sass/_module.scss */
+.page-search ul, .page-search ol {
+  margin-left: 0px;
+}
+/* line 1452, ../sass/_module.scss */
+.page-search .refine-search .form-item-custom-search-blocks-form-2 {
+  display: none;
+}
+/* line 1455, ../sass/_module.scss */
+.page-search #block-system-main {
+  border-left: 1px solid #dddddd;
+  padding-left: 13px;
+}
+/* line 1459, ../sass/_module.scss */
+.page-search #block-custom-search-blocks-2 {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #FFFFFF;
+}
+/* line 1465, ../sass/_module.scss */
+.page-search .form-item {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+/* line 1466, ../sass/_module.scss */
+.page-search .form-item label.option {
+  font-size: 1.3em;
+  padding-bottom: 5px;
+}
+
+/* line 1475, ../sass/_module.scss */
+.form-actions {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+/* line 1480, ../sass/_module.scss */
+.refine-search {
+  padding: 0px 9px 0px 9px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  float: left;
+  background: white;
+}
+
+ /**
+* Application Views
+*/
+/* line 1496, ../sass/_module.scss */
+.view-content thead th, .view-content .cols-5 tr td {
+  padding: 3px 18px 3px 3px;
+}
+/* line 1500, ../sass/_module.scss */
+.view-content .cols-4 tr td {
+  padding: 3px 18px 3px 3px;
+}
+/* line 1503, ../sass/_module.scss */
+.view-content .cols-4 tr .views-field-comment-count {
+  text-align: center;
+}
+/* line 1508, ../sass/_module.scss */
+.view-content .cols-5 tr .views-field-field-application-rating, .view-content .cols-5 tr .views-field-field-rating {
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+}
+/* line 1513, ../sass/_module.scss */
+.view-content .cols-4 tr .views-field-field-problem-rating {
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+}
+
+/* line 1519, ../sass/_module.scss */
+.view-id-applications.view-display-id-block_8 .meta td {
+  display: none;
+}
+
+/* line 1523, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-field-application-logo {
+  margin: 0 10px 5px 0;
+  float: left;
+}
+/* line 1527, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-nid {
+  font-size: .85em;
+}
+/* line 1530, ../sass/_module.scss */
+.view-top-applications-by-interactions .views-field-field-application-sdesc {
+  margin-left: 70px;
+  font-size: .85em;
+}
+
+/**
+ * Organization Views
+ */
+/* line 1539, ../sass/_module.scss */
+.view-top-organizations-by-interaction .views-row .views-field {
+  float: left;
+  width: 210px;
+}
+
+/* line 1543, ../sass/_module.scss */
+.view-top-organizations-by-interaction .views-row .views-field-nid {
+  width: 60px;
+  text-align: right;
+}
+
+/**
+ * Three column regions.  They get their heights shared.
+ */
+/* line 1525, ../sass/_module.scss */
+.region-three-33-first #block-views-interactions-block .content {
+  padding: 0;
+}
+
+/* line 1530, ../sass/_module.scss */
+.container-16 .grid-5.region-three-33-first,
+.container-16 .grid-5.region-three-33-second,
+.container-16 .grid-5.region-three-33-third {
+  width: 300px;
+}
+
+/* line 1535, ../sass/_module.scss */
+.region-three-33-first .view,
+.region-three-33-second .view,
+.region-three-33-third .view {
+  position: relative;
+  margin: 0;
+  padding: 0 0.8em;
+}
+
+/* line 1545, ../sass/_module.scss */
+.region-three-33-first .view .item-list,
+.region-three-33-second .view .item-list,
+.region-three-33-third .view .item-list,
+.region-three-33-third .view .view-footer,
+.region-three-33-second .view .view-footer,
+.region-three-33-first .view .view-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* line 1552, ../sass/_module.scss */
+.region-three-33-first .view .views-row-last,
+.region-three-33-second .view .views-row-last,
+.region-three-33-third .view .views-row-last {
+  padding-bottom: 30px;
+}
+
+/* line 1583, ../sass/_module.scss */
+#block-custom-search-blocks-1 {
+  margin-left: 90px;
+}
+
+/**
+ * Recent Stories on Homepage Block
+  */
+/* line 1589, ../sass/_module.scss */
+.views-field-field-story-image {
+  float: left;
+  margin-right: 40px;
+}
+
+/* line 1593, ../sass/_module.scss */
+.views-field-field-story-image .views-field-title a {
+  font-size: 22px;
+}
+
+/* line 1596, ../sass/_module.scss */
+h1.architecture-entity {
+  font-size: 24pt;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* line 1601, ../sass/_module.scss */
+h2.architecture-bundle {
+  font-size: 18pt;
+  margin-top: 6px;
+}
+
+/* footer logo links */
+/* line 1606, ../sass/_module.scss */
+#block-cc-helper-cc-footer-logo-links {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 930px;
+}
+
+/* line 1612, ../sass/_module.scss */
+#worldbank, #eirene, #cat_lover, #rhok {
+  margin: 0 25px;
+}
+
+/* Solr search bar */
+/* line 1591, ../sass/_module.scss */
+#region-header .form-submit {
+  background: url("../images/search_gray_btn.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: transparent;
+  height: 38px;
+  margin-top: 5px;
+  width: auto;
+  text-shadow: none;
+  border-radius: 0;
+}
+
+/* line 1601, ../sass/_module.scss */
+#region-header input#edit-term {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #dddddd #eeeeee #eeeeee;
+  border-image: none;
+  border-style: solid;
+  border-width: 2px 1px 1px;
+  color: #999999;
+  font-size: 15px;
+  font-style: italic;
+  height: 38px;
+  line-height: 38px;
+  margin: 5px 4px 0 15px;
+  width: 760px;
+}
+
+/* line 1643, ../sass/_module.scss */
+#views-exposed-form-solr-search-page {
+  padding: 0 40px;
+}
+
+/* line 1646, ../sass/_module.scss */
+#user-login-form {
+  font-size: 12px;
+}
+
+/* line 1649, ../sass/_module.scss */
+#block-views-exp-solr-search-page .views-exposed-form label {
+  display: none;
+}
+
+/* line 1652, ../sass/_module.scss */
+html.js #block-views-exp-solr-search-page input.form-autocomplete {
+  background-image: url("../images/throbber3.gif") !important;
+  background-position: 99% 8px !important;
+  background-repeat: no-repeat;
+}
+
+/* line 1657, ../sass/_module.scss */
+html.js #block-views-exp-solr-search-page input.throbbing {
+  background-position: 99% -32px !important;
+}
+
+/* line 1660, ../sass/_module.scss */
+body.context-users #region-sidebar-second {
+  margin-top: 112px;
+}
+
+/* Craig's changes */
+/* line 1667, ../sass/_module.scss */
+.region-sidebar-second .add-button,
+.add-to-marketplace .add-button,
+.edit_block .add-button,
+.block-cc-editing .add-button {
+  background-color: #C25837;
+  font-family: Oswald;
+  font-weight: lighter;
+  text-transform: capitalize;
+  font-size: 19px;
+  text-align: left;
+  padding-left: 8px;
+  padding-bottom: 10px;
+  border-style: none;
+  border-color: #C25837;
+  background-image: none;
+}
+
+/* line 1680, ../sass/_module.scss */
+h1.title.test {
+  font-family: Oswald;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #374884;
+  font-size: 39px;
+}
+
+/* line 1689, ../sass/_module.scss */
+.view-applications div.view-header,
+.view-projects div.view-header,
+.view-problems div.view-header {
+  background: transparent;
+  border: none;
+  color: black;
+  text-align: left;
+  text-transform: none;
+  font-size: 1.3em;
+  font-weight: 100;
+  margin: 0;
+  font-family: 'PT Sans';
+  line-height: 1.3em;
+}
+
+/* line 1701, ../sass/_module.scss */
+li.menu-2828.menu-path-problems.even a {
+  color: #374884;
+}
+
+/* line 1704, ../sass/_module.scss */
+li.menu-2496.menu-path-node-16036.odd.last a {
+  color: #374884;
+}
+
+/* line 1707, ../sass/_module.scss */
+div.field-item.even p {
+  color: #444444;
+  font-family: Helvetica,Arial,Sans-serif;
+}
+
+/* line 1711, ../sass/_module.scss */
+div.field-item.even p strong {
+  font-size: 20px;
+  font-weight: bold;
+  border-style: none;
+  border-color: #bf34bf;
+  border-top-width: 1px;
+}
+
+/* Style listings at bottom of problems and projects listing pages */
+/* line 1720, ../sass/_module.scss */
+.view-projects-all.view-id-projects_all,
+.view-problems.view-display-id-block {
+  font-family: PT Sans;
+  font-weight: normal;
+}
+
+/* line 1725, ../sass/_module.scss */
+.view.view-projects-all.view-display-id-block .views-field-title a,
+.view.view-problems.view-display-id-block .views-field-title a {
+  font-weight: normal;
+}
+
+/* line 1729, ../sass/_module.scss */
+.view.view-projects-all.view-display-id-block th.views-field-title a,
+.view.view-problems.view-display-id-block th.views-field-title a {
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+/* line 1734, ../sass/_module.scss */
+.view.view-projects-all.view-display-id-block .views-field-created,
+.view.view-problems.view-display-id-block .views-field-created {
+  font-size: 10pt;
+  white-space: nowrap;
+}
+
+/* line 1739, ../sass/_module.scss */
+.view.view-projects-all.view-display-id-block thead,
+.view.view-problems.view-display-id-block thead {
+  font-size: 10pt;
+}
+
+/* line 1743, ../sass/_module.scss */
+.view.view-projects-all.view-display-id-block .views-field-field-small-icon,
+.view.view-problems.view-display-id-block .views-field-field-small-icon {
+  margin-right: 10px;
+}
+
+/* line 1747, ../sass/_module.scss */
+.view-projects-all.view-display-id-block th,
+.view-problems.view-display-id-block th {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* line 1751, ../sass/_module.scss */
+.hackathon-rating-avg {
+  color: #374884;
+  font-size: 16pt;
+}
+
+/* line 1756, ../sass/_module.scss */
+.view-project-categories,
+.view-problem-categories {
+  font-family: PT Sans;
+  color: #374884;
+  text-transform: uppercase;
+  font-size: 9pt;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* line 1763, ../sass/_module.scss */
+.view-project-categories a,
+.view-problem-categories a {
+  font-family: PT Sans;
+  color: #374884;
+  text-transform: uppercase;
+  font-size: 9pt;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* line 1773, ../sass/_module.scss */
+.view-project-categories .views-row,
+.view-problem-categories .views-row {
+  margin: 0 0 5px;
+}
+
+/* line 1778, ../sass/_module.scss */
+.view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_2 tr td, .view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_3 tr td {
+  width: 21px;
+  padding: 3px 0px 3px 0px;
+}
+/* line 1783, ../sass/_module.scss */
+.view-content .cols-4 tr td .view-problem-categories.view-id-problem_categories.view-display-id-block_1 tr td {
+  width: 21px;
+  padding: 3px 0px 3px 0px;
+}
+/* line 1788, ../sass/_module.scss */
+.view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_2 table, .view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_3 table {
+  width: auto;
+}
+/* line 1792, ../sass/_module.scss */
+.view-content .cols-4 tr td .view-problem-categories.view-id-problem_categories.view-display-id-block_1 table {
+  width: auto;
+}
+/* line 1796, ../sass/_module.scss */
+.view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_2 tr td img, .view-content .cols-5 tr td .view-project-categories.view-id-project_categories.view-display-id-block_3 tr td img {
+  width: 21px;
+}
+/* line 1800, ../sass/_module.scss */
+.view-content .cols-4 tr td .view-problem-categories.view-id-problem_categories.view-display-id-block_1 tr td img {
+  width: 21px;
+}
+
+/* line 1809, ../sass/_module.scss */
+.view-applications-all.view-display-id-block .view-display-id-block_2 .views-field-field-small-icon,
+.view-applications-all.view-display-id-block .view-display-id-block_3 .views-field-field-small-icon,
+.view.view-projects-all.view-display-id-block .view-display-id-block_2 .views-field-field-small-icon,
+.view.view-projects-all.view-display-id-block .view-display-id-block_3 .views-field-field-small-icon,
+.view.view-problems.view-display-id-block .view-display-id-block_1 .views-field-field-small-icon {
+  margin-right: 5px;
+}
+
+/* line 1816, ../sass/_module.scss */
+.node-type-application .field-name-field-image {
+  float: left;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+/* line 1823, ../sass/_module.scss */
+.view-application-categories a {
+  -moz-text-blink: none;
+  -moz-text-decoration-color: -moz-use-text-color;
+  -moz-text-decoration-line: none;
+  -moz-text-decoration-style: solid;
+  color: #374884;
+  font-family: PT Sans;
+  font-size: 9pt;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* line 1835, ../sass/_module.scss */
+.view-application-categories a:hover {
+  text-decoration: none;
+  color: #7793ec;
+  font-family: PT Sans;
+  font-size: 9pt;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* line 1844, ../sass/_module.scss */
+.view-application-at-a-glance > .view-content > .views-row > .views-field {
+  border-bottom: solid 1px #DDDDDD;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 1850, ../sass/_module.scss */
+.view-application-categories .views-row {
+  color: #666666;
+  margin-bottom: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+/* line 1860, ../sass/_module.scss */
+.views-field-field-license a:first-child,
+.views-field-field-requirements a:first-child,
+.views-field-field-software-type a:first-child {
+  margin-left: 0;
+}
+
+/* line 1866, ../sass/_module.scss */
+.views-field-field-license a,
+.views-field-field-requirements a,
+.views-field-field-software-type a {
+  margin-left: 10px;
+}
+
+/* line 1870, ../sass/_module.scss */
+#block-user-login {
+  float: none;
+}
+
+/* line 1864, ../sass/_module.scss */
+.region-three-33-first .view,
+.region-three-33-second .view,
+.region-three-33-third .view {
+  padding: 0;
+}
+
+/* line 1881, ../sass/_module.scss */
+#page-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/*
+Frontpage specific.
+*/
+/* line 1890, ../sass/_module.scss */
+.front #block-system-main {
+  margin: 0;
+}
+/* line 1894, ../sass/_module.scss */
+.front #page-title {
+  font-size: 53px;
+  margin: 0;
+  padding-left: 0px;
+  padding-top: 0px;
+  margin-top: -10px;
+  text-align: left;
+  font-weight: normal;
+  font-family: Oswald;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+/* Views styling
+============================================================================ */
+/* activity feed */
+/* line 1923, ../sass/_module.scss */
+.view-interactions .interaction {
+  text-transform: lowercase;
+  padding: 1px 3px;
+  background: #ffffcc;
+  color: black;
+}
+/* line 1928, ../sass/_module.scss */
+.view-interactions .interaction .Deployed {
+  background: #D0E664;
+}
+
+/**
+ * General views (generic views) styling
+ */
+/* line 1938, ../sass/_module.scss */
+.view .views-field-picture {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+/* line 1943, ../sass/_module.scss */
+.view.view-user-views .views-field-name a,
+.view .views-field-title a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 1948, ../sass/_module.scss */
+.view.view-user-views .views-field-created {
+  font-size: 12px;
+}
+
+/* line 1951, ../sass/_module.scss */
+.view-featured-sites .view-footer p {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+/* line 1957, ../sass/_module.scss */
+.view-at-a-glance-project .views-label {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+/* line 1968, ../sass/_module.scss */
+.view-at-a-glance-project .views-field-field-members,
+.view-at-a-glance-project .views-field-field-sanitation-category,
+.view-at-a-glance-project .views-field-field-application-softfunction,
+.view-at-a-glance-project .views-field-field-application-tags,
+.view-at-a-glance-project .views-field-field-rating {
+  margin-top: 9px;
+}
+
+/* List: By Place */
+/* line 1978, ../sass/_module.scss */
+.places-list-container {
+  margin-bottom: 20px;
+}
+/* line 1980, ../sass/_module.scss */
+.places-list-container .view-content {
+  margin-bottom: 10px;
+}
+/* line 1983, ../sass/_module.scss */
+.places-list-container .views-field-field-organization-address {
+  font-weight: bold;
+}
+/* line 1986, ../sass/_module.scss */
+.places-list-container td {
+  border-bottom: 1px dashed #eeeeee;
+  padding: 5px 0;
+  clear: both;
+}
+/* line 1990, ../sass/_module.scss */
+.places-list-container td > div {
+  /*float: left;
+  width: 48%;
+  margin-right: 2%;
+  */
+}
+
+/* line 1999, ../sass/_module.scss */
+.front .places-list-container .views-field-field-organization-address {
+  float: left;
+  width: 230px;
+}
+
+/* line 2003, ../sass/_module.scss */
+.front .using-sharing {
+  float: right;
+  width: 260px;
+}
+
+/* line 2007, ../sass/_module.scss */
+.places-list-container td div {
+  display: inline;
+}
+
+/* line 2010, ../sass/_module.scss */
+.views-field-field-organization-address a {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* line 2015, ../sass/_module.scss */
+.view-at-a-glance .cc-org-apps,
+.cc-org-apps {
+  /*  width: 100px;*/
+  float: left;
+  width: 50%;
+}
+
+/* line 2020, ../sass/_module.scss */
+.view-at-a-glance .cc-org-details-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* line 2024, ../sass/_module.scss */
+.page-places .cc-org-apps {
+  width: inherit;
+}
+
+/* line 2027, ../sass/_module.scss */
+.cc-org-apps > div {
+  /*margin-right: 0.3em;*/
+}
+
+/* line 2031, ../sass/_module.scss */
+.cc-org-prefix-using,
+.cc-org-prefix-sharing {
+  /*  padding-left: 4px; */
+  font-size: 12px;
+  /*  width: 20px;*/
+  display: inline-block;
+  height: 20px;
+  float: left;
+}
+
+/* line 2040, ../sass/_module.scss */
+.view-at-a-glance .views-field-field-organization-address-2 .field-content, .page-places .views-field-field-organization-interactions .field-content,
+.page-places .views-field-field-organization-address-2 .field-content, .page-places .views-field-field-organization-interactions .field-content {
+  width: 440px;
+  color: #666;
+  line-height: 2;
+  display: block;
+  margin-left: 0;
+  clear: left;
+  background: #F8F8F8;
+  border: 1px solid #e4e4e4;
+  height: 20px;
+  margin-top: 18px;
+  background: #f8f8f8 url("../images/icon_place_18_gray.png") 1px 1px no-repeat;
+  padding: 0px 0px 0px 20px;
+}
+
+/* line 2054, ../sass/_module.scss */
+.page-places .views-field-field-organization-address-2 .field-content {
+  padding: 0px 0px 0px 18px;
+}
+
+/* line 2058, ../sass/_module.scss */
+.view-at-a-glance .views-field-field-organization-interactions .field-content,
+.page-places .views-field-field-organization-interactions .field-content {
+  background: #f8f8f8 url("../images/civic-18.png") 1px 1px no-repeat;
+}
+
+/* line 2062, ../sass/_module.scss */
+.view-at-a-glance .company .views-field-field-organization-interactions .field-content,
+.page-places .company .views-field-field-organization-interactions .field-content {
+  background: #f8f8f8 url("../images/bldg-grey.gif") 1px 1px no-repeat;
+}
+
+/* line 2066, ../sass/_module.scss */
+.view-at-a-glance .view-id-places .views-row,
+.page-places .view-id-places .views-row {
+  border-bottom: none;
+}
+
+/* line 2070, ../sass/_module.scss */
+.view-at-a-glance .cc-org-prefix-sharing:after,
+.view-at-a-glance .cc-org-prefix-using:after {
+  content: ": ";
+  padding-right: 10px;
+}
+
+/* line 2074, ../sass/_module.scss */
+.page-places .cc-org-prefix-using {
+  background: url("../images/hammer-wrench-active-18.png") 3.4em 2px no-repeat;
+  padding-right: 2.4em;
+  border-left: 1px solid #e4e4e4;
+  padding-left: 4px;
+}
+
+/* .view-at-a-glance .cc-org-prefix-sharing, */
+/* line 2081, ../sass/_module.scss */
+.page-places .cc-org-prefix-sharing {
+  background: url("../images/gov-gov-gray-18.png") 4.3em 2px no-repeat;
+  padding-right: 2.0em;
+  border-left: 1px solid #e4e4e4;
+  padding-left: 4px;
+}
+
+/* line 2088, ../sass/_module.scss */
+.view-at-a-glance .cc-org-count,
+.page-places .cc-org-count {
+  font-size: 12px;
+  margin-right: 7px;
+  float: left;
+}
+
+/* line 2096, ../sass/_module.scss */
+.view-at-a-glance .cc-using,
+.view-at-a-glance .cc-sharing,
+.page-places .cc-using,
+.page-places .cc-sharing {
+  height: 20px;
+}
+
+/* line 2100, ../sass/_module.scss */
+.view-at-a-glance .cc-org-postfix,
+.cc-org-postfix {
+  display: none;
+  font-size: 0px;
+}
+
+/* line 2105, ../sass/_module.scss */
+.view-at-a-glance .view-id-places .cc-org-apps,
+.page-places .view-id-places .cc-org-apps {
+  margin-right: 0px;
+}
+
+/* line 2108, ../sass/_module.scss */
+.view-at-a-glance .field-content {
+  margin-bottom: 20px;
+}
+
+/* List: By Function */
+/* line 2113, ../sass/_module.scss */
+.functions-list-container {
+  margin: 10px 0;
+  /*width: 940px;
+  clear: both;*/
+}
+
+/* line 2118, ../sass/_module.scss */
+.browse-by-grid {
+  padding-top: 10px;
+  font-size: 12px;
+  color: #666;
+  padding-left: 24px;
+}
+/* line 2123, ../sass/_module.scss */
+.browse-by-grid a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+/* line 2128, ../sass/_module.scss */
+.browse-by-grid td {
+  background: white !important;
+  padding: 0 10px 20px 0;
+}
+
+/* Views Rows */
+/* line 2134, ../sass/_module.scss */
+.views-row {
+  margin: 0 0 20px;
+  color: #666;
+  position: relative;
+}
+
+/* line 2139, ../sass/_module.scss */
+.views-row .views-field-field-problem-name .field-content {
+  white-space: pre;
+  /* CSS2 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla */
+  white-space: -hp-pre-wrap;
+  /* HP printers */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+/* line 2157, ../sass/_module.scss */
+.view-at-a-glance-problem .views-row .views-field-field-problem-url-1 {
+  margin-top: 0!important;
+}
+
+/* line 2160, ../sass/_module.scss */
+.view-at-a-glance-problem .views-row .views-field {
+  margin: 8px 0 0 0;
+}
+
+/* line 2163, ../sass/_module.scss */
+.views-row .views-field-edit-node {
+  background-color: #EEEEEE;
+  border: 1px solid #f2f2f2;
+  float: right;
+  margin: 8px 0 0;
+  padding: 0 3px 3px;
+}
+
+/* line 2170, ../sass/_module.scss */
+.views-row .views-field-edit-node a {
+  color: #605859;
+  text-decoration: none;
+}
+
+/* line 2174, ../sass/_module.scss */
+.views-row:before, .views-row:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 2180, ../sass/_module.scss */
+.views-row:after {
+  clear: both;
+}
+
+/* line 2183, ../sass/_module.scss */
+.views-row {
+  zoom: 1;
+}
+
+/* List: Apps */
+/* line 2187, ../sass/_module.scss */
+.apps-list {
+  margin: 20px 0;
+}
+
+/* line 2190, ../sass/_module.scss */
+.views-field-field-application-logo {
+  float: left;
+  width: 60px;
+  margin-right: -60px;
+}
+
+/* line 2197, ../sass/_module.scss */
+.apps-list .views-field-field-application-sdesc, .apps-list .views-field-field-interaction-organization {
+  margin-left: 70px;
+}
+/* line 2200, ../sass/_module.scss */
+.apps-list .views-field-title {
+  padding-top: 5px;
+}
+/* line 2202, ../sass/_module.scss */
+.apps-list .views-field-title a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 2208, ../sass/_module.scss */
+.apps-list .views-field-field-application-sdesc {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* line 2215, ../sass/_module.scss */
+.meta {
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  line-height: 2;
+  display: block;
+  margin-left: 0;
+  clear: left;
+  background: #F8F8F8;
+  border: 1px solid #e4e4e4;
+  height: 24px;
+}
+
+/* line 2229, ../sass/_module.scss */
+.apps-list .meta a {
+  text-decoration: none;
+}
+/* line 2232, ../sass/_module.scss */
+.apps-list .meta .civic-function, .apps-list .meta .places-used, .apps-list .meta .date-updated {
+  margin: 0 5px;
+}
+/* line 2235, ../sass/_module.scss */
+.apps-list .meta span.civic-function {
+  float: right;
+}
+
+/* line 2240, ../sass/_module.scss */
+.apps-list span.places-used {
+  font-weight: bold;
+  float: left;
+  border-right: 1px solid #e4e4e4;
+  padding-right: 12px;
+  width: 100px;
+}
+
+/* line 2247, ../sass/_module.scss */
+.apps-list span.date-updated {
+  float: left;
+}
+
+/* List: Recent Activity */
+/* line 2253, ../sass/_module.scss */
+.view-interactions .views-row {
+  margin-bottom: 12px;
+}
+/* line 2256, ../sass/_module.scss */
+.view-interactions a {
+  text-decoration: none;
+}
+/* line 2259, ../sass/_module.scss */
+.view-interactions .org-name {
+  font-weight: bold;
+  /*font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;*/
+}
+/* line 2264, ../sass/_module.scss */
+.view-interactions .org-name a {
+  font-weight: bold;
+  /*font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;*/
+}
+/* line 2271, ../sass/_module.scss */
+.view-interactions .app-name {
+  font-weight: bold;
+}
+/* line 2273, ../sass/_module.scss */
+.view-interactions .app-name a {
+  font-weight: bold;
+}
+
+/* List: Related Apps */
+/* line 2280, ../sass/_module.scss */
+.view-related-apps-block view-empty {
+  display: none;
+}
+
+/* Blog
+============================================================================ */
+/* line 2289, ../sass/_module.scss */
+#block-views-blog-block .field-type-image {
+  float: left;
+  margin: 0 10px 10px 0;
+  width: 220px;
+}
+
+/* line 5, ../sass/_review.scss */
+body.page-preview #region-header, body.page-preview #breadcrumb {
+  display: none;
+}
+/* line 8, ../sass/_review.scss */
+body.page-preview #region-content {
+  padding: 40px;
+  text-align: center;
+  width: 920px;
+}
+
+
+#region-menu-bar ul li.leaf {
+  list-style-image: none;
+  list-style-type: none;
+}
+#region-menu-bar h2.block-title {
+  display: none;
+}
+
+#region-menu-bar ul.menu li {
+  margin: 0;
+  padding: 0;
+}
+
+#region-menu-bar ul li {
+  border: 1px solid #ccc;
+  border-top: 0;
+  float: left; 
+  background-color: #eee;
+}
+#region-menu-bar ul {
+  float: right;
+}
+
+#views-exposed-form-search-page label {
+  display: none;
+}
+
+#region-header input#edit-query {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #DDDDDD #EEEEEE #EEEEEE;
+  border-image: none;
+  border-style: solid;
+  border-width: 2px 1px 1px;
+  color: #999999;
+  font-size: 15px;
+  font-style: italic;
+  height: 38px;
+  line-height: 38px;
+  margin: 5px 4px 0 55px;
+  width: 760px;
+}
+#region-footer table {
+  border: none;
+}

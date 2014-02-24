@@ -1,0 +1,328 @@
+<?php
+
+/**
+ * @file
+ * Defines additional formatters and widget options for the
+ * Address Field module.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function addressfield_extras_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'addressfield') {
+    return $plugin;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function addressfield_extras_menu() {
+  $items = array();
+  $items['addressfield_extras_import'] = array(
+    'title' => t('Addressfield Extras Import'),
+    'page callback' => array('addressfield_extras_start_batch'),
+    'access callback' => TRUE,
+    'type'            => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function addressfield_extras_cron() {
+  if (!variable_get('addressfield_extras_finished', FALSE)) {
+    global $base_root;
+    $options = array(
+      'headers' => array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'),
+      'method'  => 'POST',
+      'data'    => 'addressfield_extras_cron_key=' . rawurlencode(trim(variable_get('cron_key', 'drupal'))),
+      'timeout' => 5,
+    );
+    drupal_http_request($base_root . '/?q=addressfield_extras_import', $options);
+
+  }
+}
+
+/**
+ * Callback for batch update page.
+ */
+function addressfield_extras_start_batch() {
+  if (isset($_POST['addressfield_extras_cron_key']) && $_POST['addressfield_extras_cron_key'] == variable_get('cron_key', 'drupal')) {
+    drupal_form_submit('addressfield_extras_start_batch_form', $form_state);
+  }
+  else {
+    drupal_access_denied();
+  }
+}
+
+/**
+ * Batch import form.
+ */
+function addressfield_extras_start_batch_form($form_state) {
+  $form = array();
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Start batch processing')
+  );
+
+  return $form;
+}
+
+/**
+ * Form submit, starts batch process.
+ */
+function addressfield_extras_start_batch_form_submit($form, &$form_state) {
+  $batch = array(
+    'operations' => array(
+      array('addressfield_extras_batch_process_file', array())
+    ),
+    'finished' => 'addressfield_extras_batch_finished',
+    'title' => t('Processing'),
+    // We use a single multi-pass operation, so the default
+    // 'Remaining x of y operations' message will be confusing here.
+    'progress_message' => '',
+    'error_message' => t('An error was encountered processing the file.'),
+  );
+  batch_set($batch);
+}
+
+/**
+ * Imports csv file.
+ */
+function addressfield_extras_batch_process_file(&$context) {
+  if (!isset($context['sandbox']['offset'])) {
+    $context['sandbox']['offset'] = 0;
+    $context['sandbox']['records'] = 0;
+  }
+  $previous_line = variable_get('addressfield_extras_batch_line', FALSE);
+  if ($previous_line) {
+    $context['sandbox']['offset'] = $previous_line;
+  }
+
+  $filename = drupal_get_path('module', 'addressfield_extras') . '/regions.csv';
+
+  $fp = fopen($filename, 'r');
+
+  if ( $fp === FALSE ) {
+    // Failed to open file
+    watchdog('addressfield_extras', 'Failed to open ' . $filename);
+    $context['finished'] = TRUE;
+    return;
+  }
+
+  $ret = fseek($fp, $context['sandbox']['offset']);
+
+  if ( $ret != 0 ) {
+    // Failed to seek
+    watchdog('addressfield_extras', 'Failed to seek to ' . $context['sandbox']['offset']);
+    $context['finished'] = TRUE;
+    return;
+  }
+
+  $limit = 5;  // Maximum number of rows to process at a time
+  $done = FALSE;
+
+  for ( $i = 0; $i < $limit; $i++ ) {
+    $line = fgetcsv($fp);
+    if ( $line === FALSE ) {
+      $done = TRUE;
+      // No more records to process
+      break;
+    }
+    else {
+      $context['sandbox']['records']++;
+      $context['sandbox']['offset'] = ftell($fp);
+      $record = $context['sandbox']['records'];
+      // Do something with the data
+      $save = array(
+        'iso' => $line[0],
+        'fip' => $line[1],
+        'name' => $line[2],
+      );
+      // Uncomment the following line if you need to debug what is happening..
+      // watchdog('rtester', "Line $record:<pre>" . print_r($line, TRUE) . '</pre>');
+      drupal_write_record('addressfield_extras_region', $save);
+      variable_set('addressfield_extras_batch_line', ftell($fp));
+    }
+  }
+
+  $eof = feof($fp); 
+
+  if ( $eof )  {
+    $context['success'] = TRUE;
+    variable_del('addressfield_extras_batch_line');
+    variable_set('addressfield_extras_finished', TRUE);
+  }
+  $context['message'] = "Processed " . $context['sandbox']['records'] . " records";
+
+  $context['finished'] = ( $eof || $done ) ? 1 : 0;
+}
+
+/**
+ * Success message for batch process.
+ */
+function addressfield_extras_batch_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t('The file has been processed.'));
+  }
+  else {
+    drupal_set_message(t('An error occurred and processing did not complete.'), 'error');
+    $message = format_plural(count($results), '1 item successfully processed:', '@count items successfully processed:');
+    $message .= theme('item_list', array('items' => $results));
+    drupal_set_message($message);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function addressfield_extras_field_formatter_info() {
+  return array(
+    'addressfield_city_only' => array(
+      'label' => t('City only'),
+      'description' => t('Output just the city, state and country part of an address field as a single line of comma-separated text.'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_country_only' => array(
+      'label' => t('Country only'),
+      'description' => t('Output just the country part of an address field as a single line.'),
+      'field types' => array('addressfield'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function addressfield_extras_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  if ($display['type'] == 'addressfield_city_only') {
+    $element = array();
+    foreach ($items as $delta => $item) {
+      $county = isset($item['sub_administrative_area']) ? $item['sub_administrative_area'] : NULL;
+      $item['sub_administrative_area'] = (!empty($county) && empty($item['locality'])) ? t('@county County', array('@county' => $county)) : NULL;
+      $region = isset($item['administrative_area']) ? $item['administrative_area'] : NULL;
+      $country = isset($item['country']) ? $item['country'] : NULL;
+      $item['administrative_area'] = !in_array($country, array('US', 'CA')) ? _addressfield_extras_region($region, $country) : $region;
+      $series = array(
+        $item['locality'],
+        $item['sub_administrative_area'],
+        $item['administrative_area'],
+        $item['country'],
+      );
+      $all_existing = array_filter($series);
+      $element[$delta]['#markup'] = implode(', ', $all_existing);
+    }
+    return $element;
+  }
+  elseif ($display['type'] == 'addressfield_country_only') {
+    $available_countries = _addressfield_country_options_list();
+    $element = array();
+    foreach ($items as $delta => $item) {
+//      $c = isset($item['country']) ? $item['country'] : NULL;
+//      $s = array($item['country']);
+//      $all_existing = array_filter($s);
+//      $code = implode(', ', $all_existing);
+      $code = $item['country'] ? $item['country'] : '';
+      $country = isset($available_countries[$code]) ? $available_countries[$code] : $code;
+      $element[$delta]['#markup'] = $country;
+    }
+    return $element;
+  }
+}
+
+/**
+ * Fix error message.
+ *
+ * See http://drupal.org/node/1175838 for details.
+ *
+ * Implements hook_field_formatter_prepare_view().
+ */
+function addressfield_extras_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  foreach ($entities as $id => $entity) {
+    if (empty($items[$id])) {
+      $items[$id][] = array();
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function addressfield_extras_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $disp = $instance['display'][$view_mode];
+  if ($disp['type'] == 'using_sharing') {
+    $opts = array(
+      'organization' => t('By organization'),
+      'city' => t('By organizations in the same city'),
+    );
+    return t('How to count: "!by".', array('!by' => $opts[$disp['settings']['count_by']]));
+  }
+}
+
+/**
+ * Helper function to return region name.
+ *
+ * @param String $fip
+ *   Our special region code.
+ * @param String $iso
+ *   Country code (ISO standard).
+ *
+ * @return String
+ *   The name of the region.
+ */
+function _addressfield_extras_region($fip, $iso) {
+  return _addressfield_extras_unquote(db_select('addressfield_extras_region')
+    ->fields('addressfield_extras_region', array('name'))
+    ->condition('fip', $fip, '=')
+    ->condition('iso', $iso, '=')
+    ->execute()
+    ->fetchField(0));
+}
+
+/**
+ * Helper function to strip out double quotes.
+ *
+ * @param String $string
+ *   The string to be stripped.
+ *
+ * @return String
+ *   The trimmed string.
+ */
+function _addressfield_extras_unquote($string) {
+  return trim($string, '"');
+}
+
+/**
+ * Helper function to identify options list separators.
+ *
+ * @param String $string
+ *   The string to be tested.
+ *
+ * @return Boolean
+ *   True if the string is something other than the separator.
+ */
+function _addressfield_extras_is_not_separator($string) {
+  return $string != '--';
+}
+
+/**
+ * Helper function to return country regions.
+ *
+ * @param String $country
+ *   The name of the country.
+ *
+ * @return Array
+ *   A keyed array of regions in that country.
+ */
+function _addressfield_extras_regions($country) {
+  return array_map('_addressfield_extras_unquote', db_select('addressfield_extras_region')
+    ->fields('addressfield_extras_region', array('fip', 'name'))
+    ->condition('iso', $country, '=')
+    ->execute()
+    ->fetchAllKeyed(0));
+}

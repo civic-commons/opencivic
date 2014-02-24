@@ -1,0 +1,39 @@
+/**
+ * @file
+ * Pond panel layout
+**/
+
+.cfr-pond-container {
+  margin-bottom: 1em;
+}
+
+.cfr-pond-column {
+  min-height: 1px;
+  width: 34.043%;
+  float: left;
+}
+
+  .cfr-pond-column-inner {
+    margin-right: 20px;
+  }
+
+  .cfr-pond-column3,
+  .cfr-pond-secondary-column3 {
+    min-height: 1px;
+    width: 31.915%;
+    margin-right: 0;
+  }
+  
+/* iPhone [portrait + landscape] */
+@media only screen and (max-width: 480px) {
+  .cfr-pond-column,
+  .cfr-pond-column3,
+  .cfr-pond-secondary-column3 {
+    width: 100%;
+    float: none;
+  }
+  
+  .cfr-pond-column-inner  {
+    margin-right: 0;
+  }
+}

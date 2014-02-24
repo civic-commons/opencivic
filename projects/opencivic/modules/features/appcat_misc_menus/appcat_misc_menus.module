@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AppCat misc menus feature.
+ */
+
+include_once 'appcat_misc_menus.features.inc';

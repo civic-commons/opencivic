@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Hackathon project feature.
+ */
+
+include_once 'ochack_project.features.inc';

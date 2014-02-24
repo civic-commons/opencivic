@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenCivic Application feature.
+ */
+
+include_once 'opencivic_application.features.inc';
