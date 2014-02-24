@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Implements hook_schema()
+ */
+function addressfield_extras_schema() {
+  $schema['addressfield_extras_region'] = array(
+    'description' => t('Stores information about regions associated with different countries.'),
+    'fields' => array(
+      'iso' => array(
+        'description' => 'Two letter ISO country code.',
+        'type' => 'varchar',
+        'length' => 5,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'fip' => array(
+        'description' => 'Our special region code.',
+        'type' => 'varchar',
+        'length' => 5,
+        'default' => '',
+        'not null' => FALSE,
+      ),
+      'name' => array(
+        'description' => 'The region name.',
+        'type' => 'varchar',
+        'length' => 40,
+        'default' => '',
+        'not null' => FALSE,
+      ),
+    ),
+  );
+  return $schema;
+}

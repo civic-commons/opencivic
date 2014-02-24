@@ -1,0 +1,106 @@
+<?php
+/**
+ * @file
+ * Adds a list of subscription subscribers to the subscriptions block.
+ *
+ * In this more verbose, multi-line description, you can specify what this
+ * file does exactly. Make sure to wrap your documentation in column 78 so
+ * that the file can be displayed nicely in default-sized consoles.
+ */
+
+/**
+ * Implements hook_block_view_MODULE_DELTA_alter().
+ */
+function subscriptions_subscribers_block_view_subscriptions_ui_0_alter(&$data, $block) {
+  $data['subject'] = t('Subscribe to Updates');
+  if (!isset($data['content']['params']['#value'][1]) || $data['content']['params']['#value'][1]['module'] != 'node') {
+    return;
+  }
+  $nid = $data['content']['params']['#value'][1]['value'];
+  $node = node_load($nid);
+  $name = node_type_get_name($node);
+  $subscriber_list = subscriptions_subscribers($nid, $name);
+  $data['content']['subscribers_list'] = array(
+    '#markup' => $subscriber_list,
+  );
+}
+
+/**
+ * Build the HTML to append to the Subscriptions block.
+ *
+ * @param int $nid
+ *   A node ID
+ * @param int $name
+ *   The display name of the content type to be added.
+ *
+ * @return array
+ *
+ * @ingroup form
+ */
+function subscriptions_subscribers($nid, $name) {
+  $subscriptions = array();
+  $uids = db_select('subscriptions', 's')
+    ->fields('s', array('recipient_uid'))
+    ->condition('s.module', 'node')
+    ->condition('s.field', 'nid')
+    ->condition('s.value', $nid)
+    ->execute()
+    ->fetchCol();
+  if (count($uids)) {
+    $accounts = user_load_multiple($uids);
+    $users = theme('user_list', array('users' => $accounts, 'title' => t("Current Subscribers to This !name", array('!name' => $name))));
+    return $users;
+  }
+  return '';
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function subscriptions_subscribers_block_info() {
+  $blocks['user_subscriptions']['info'] = t('Subscriptions for This User');
+  $blocks['user_subscriptions']['cache'] = DRUPAL_NO_CACHE;
+  return $blocks;
+}
+
+/**
+ * Build an HTML block listing all subscriptions for a particular user,
+ * to display on that user's profile page.
+ *
+ * Implements hook_block_view().
+ */
+function subscriptions_subscribers_block_view($delta = '') {
+  $block = array();
+  if (arg(0) != 'user') {
+    return $block;
+  }
+  $uid = arg(1);
+  switch ($delta) {
+    case 'user_subscriptions':
+      $nids = db_select('subscriptions', 's')
+        ->fields('s', array('value'))
+        ->condition('s.module', 'node')
+        ->condition('s.field', 'nid')
+        ->condition('s.recipient_uid', $uid)
+        ->execute()
+        ->fetchCol();
+      if (count($nids)) {
+        $nodes = node_load_multiple($nids);
+        $links = array();
+        foreach ($nodes as $nid => $node) {
+          $links[node_type_get_name($node) . ' Subscriptions'][] = l($node->title, 'node/'.$node->nid);
+        }
+        ksort($links);
+        $block['subject'] = t('Subscriptions for This User');
+        foreach ($links as $type => $items)
+        $block['content'] .= theme('item_list', array(
+          'items' => $items,
+          'title' => $type,
+          'type' => 'ul',
+          'attributes' => array('class' => array('subscriptions-user-subscriptions')),
+        ));
+      }
+      break;
+  }
+  return $block;
+}

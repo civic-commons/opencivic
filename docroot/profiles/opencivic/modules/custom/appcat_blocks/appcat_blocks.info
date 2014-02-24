@@ -1,0 +1,10 @@
+name = AppCat blocks
+description = "Defines custom blocks for the OpenCivic distro"
+core = 7.x
+version = "7.x-1.x-dev"
+project = "AppCat"
+
+; Module dependencies
+dependencies[] = menu_block
+
+

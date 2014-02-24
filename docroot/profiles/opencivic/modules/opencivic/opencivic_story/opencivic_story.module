@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenCivic Story feature.
+ */
+
+include_once 'opencivic_story.features.inc';

@@ -1,0 +1,13 @@
+
+
+
+body.page-preview {
+  #region-header, #breadcrumb {
+    display: none;
+  }
+  #region-content {
+    padding: 40px;
+    text-align: center;
+    width: 920px;
+  }
+}

@@ -1,0 +1,404 @@
+
+
+
+/*
+ * Body
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+
+#skip-link {
+  margin: 0;
+
+  a,
+  a:visited {
+    display: block;
+    width: 100%;
+    padding: 2px 0 3px 0;
+    text-align: center;
+    background-color: #666;
+    color: #fff;
+  }
+}
+
+/*
+ * Header
+ */
+
+#header {
+}
+
+#logo { /* Wrapping link for logo */
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+
+  img {
+    vertical-align: bottom;
+  }
+}
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+  float: left;
+}
+
+#site-name { /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+
+  a:link,
+  a:visited {
+    color: #000;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+}
+
+#site-slogan { /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+.region-header { /* Wrapper for any blocks placed in the header region */
+  clear: both; /* Clear the logo */
+}
+
+/*
+ * Main (container for everything else)
+ */
+
+#main {
+}
+
+/*
+ * Content
+ */
+
+#content {
+}
+
+.region-highlighted {
+}
+
+.breadcrumb { /* The path to the current page in the form of a list of links */
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title { /* Comment title */
+  margin: 0px;
+}
+
+tr.even { /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+tr.odd {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+div.status { /* Normal priority messages */
+}
+
+div.warning,
+tr.warning { /* Medium priority messages */
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+}
+
+div.error,
+tr.error { /* High priority messages. See also the .error declaration below. */
+}
+
+
+
+
+/*
+Core styles.
+*/
+
+
+/*
+ *
+ * Base Typography 
+ *
+ */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  *font-size: small; }
+
+select, input, textarea, button {
+  font: 99% sans-serif; }
+
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/*
+ *
+ * Base Styles 
+ *
+ */
+body, select, input, textarea {
+  color: #444;
+  font-family: Helvetica, Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0; }
+
+/* always force a scrollbar in non-IE */
+html {
+  overflow-y: scroll; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {
+  outline: none; }
+
+a, a:link, a:active, a:visited {
+  color: #374884; }
+
+a:hover {
+  color: #7793ec;
+  text-decoration: underline; }
+
+ul, ol {
+  margin-left: 1.8em; }
+
+ol {
+  list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li {
+  margin: 0; }
+
+p {
+  margin-bottom: 1.5em; }
+
+small {
+  font-size: 85%; }
+
+strong, th {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+.view-taxonomy-icons td img,
+.view-taxonomy-icons td a,
+.view-taxonomy-icons td .field-content {
+  text-align: center; }
+
+sub {
+  vertical-align: sub;
+  font-size: smaller; }
+
+sup {
+  vertical-align: super;
+  font-size: smaller; }
+
+pre {
+  padding: 15px;
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+textarea {
+  overflow: auto; }
+
+/* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px; }
+
+/* thnx ivannikolic! */
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button {
+  cursor: pointer; }
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* colors for form validity */
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0px 0px 5px red;
+  -webkit-box-shadow: 0px 0px 5px red;
+  box-shadow: 0px 0px 5px red; }
+
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid {
+  background-color: #f0dddd; }
+
+button {
+  width: auto;
+  overflow: visible; }
+
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+
+#page-title {
+  font-size: 40px;
+  margin-bottom: 10px; }
+
+
+
+
+ul.nice-menu {
+  a {
+    display: block;
+    height: 31px;
+    color: #374884;
+    text-decoration: none;
+    padding: 0 19px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 whitesmoke;
+    border-top: 1px solid #fafafa;
+    border-left: 1px solid #fafafa;
+    &.active {
+      background-image: none;
+      background-color: #e6e6e6;
+      border-color: #b4b4b4;
+      color: #374884;
+      box-shadow: inset 0 0 5px 0 #a2a2a2;
+      -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+      -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+    }
+  }
+  &:hover a.active:hover {
+    background-image: none;
+    background-color: #e6e6e6;
+    border-color: #b4b4b4;
+    color: #374884;
+    box-shadow: inset 0 0 5px 0 #a2a2a2;
+    -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+    -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+  }
+  a:hover {
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+    color: #374884;
+    box-shadow: inset 0 0 5px 0 #a2a2a2;
+    -moz-box-shadow: inset 0 0 5px 0 #a2a2a2;
+    -webkit-box-shadow: inset 0 0 5px 0 #a2a2a2;
+  }
+  &:hover a.active {
+    border-top: 1px solid #fafafa;
+    border-left: 1px solid #fafafa;
+    color: #374884;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+
+// TODO: trim?
+.block-nice-menus:first-child ul.nice-menu {
+  border: 0;
+  margin-top: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  li {
+    border-right: 0;
+    border-bottom: 0;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+  a {
+    display: block;
+    height: auto;
+    color: #374884;
+    background-color: none;
+    background-image: none;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-shadow: none;
+    border-top: 0;
+    border-left: 0;
+    border-radius: 4px;
+    padding: 4px;
+    &:visited {
+      display: block;
+      height: auto;
+      color: #374884;
+      background-color: none;
+      background-image: none;
+      padding: 0;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.5;
+      text-shadow: none;
+      border-top: 0;
+      border-left: 0;
+      border-radius: 4px;
+      padding: 4px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+
+// _base.scss imports _custom.scss and other partials.
+@import "base";
+
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+
+/* Increase the default font size on small devices */
+html {
+  font-size: 112.5%; 
+}
+#menu-bar {
+  height:auto;
+}
+
+.view {
+  div.feed-icon {
+    float:none;
+    margin-top: 0;
+  }
+  .view-header {
+    clear:none;
+  }
+}
+
+
+#block-views-exp-sols-search-page {
+  background: transparent url(images/somewhere-near-you.png) no-repeat 0 0;
+  margin: 0 auto;
+  padding: 80px 0 0;
+  position: inherit;
+  width: 98%;
+}
+
+#views-exposed-form-events-list-page .views-exposed-form .views-exposed-widgets {
+  font-size: 12px;
+  label {
+    width:60px;
+  }
+  .views-exposed-widget {
+    width:90%;
+    padding:4px;
+    .views-widget {
+      float: left;
+    }
+  }
+  .form-submit {
+    margin-left:70px;
+  }
+}

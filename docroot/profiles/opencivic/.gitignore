@@ -1,0 +1,11 @@
+libraries
+modules/contrib
+modules/devel
+modules/panopoly
+themes/tao
+themes/rubik
+themes/omega
+themes/adaptivetheme
+themes/responsive_bartik
+.DS_Store
+*.scssc

@@ -1,0 +1,11 @@
+name = OCMisc Cat Man Do Settings
+description = Settings for the Cat Man Do Theme
+core = 7.x
+package = Misc
+version = 7.x-1.0-alpha5
+project = ocmisc_cat_man_do_settings
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = theme_cat_man_do_settings

@@ -1,0 +1,10 @@
+name = API Enhancements
+description = Provides a public page for API documentation, as well as tests for the API.
+core = 7.x
+package = "OpenCivic"
+dependencies[] = services
+dependencies[] = rest_server
+
+; File registry
+files[] = ocapi.module
+
