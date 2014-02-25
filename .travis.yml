@@ -1,0 +1,10 @@
+language: php
+
+php:
+  - 5.3
+
+mysql:
+  database: opencivic_test
+  username: root
+  encoding: utf8
+
