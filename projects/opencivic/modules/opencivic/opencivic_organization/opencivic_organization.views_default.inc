@@ -114,7 +114,7 @@ function opencivic_organization_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['vocabulary'] = 'organization_type';
+  $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['vocabulary'] = 'oc_organization_type';
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['hierarchy'] = 1;
   /* Filter criterion: Content: Related applications (field_oc_app_related_apps) */
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['id'] = 'field_oc_app_related_apps_target_id';
