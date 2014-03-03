@@ -32,7 +32,7 @@ function opencivic_organization_default_page_manager_pages() {
   $handler->api_version = 1;
   $handler->name = 'page_organizations_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'organizations';
+  $handler->subtask = 'oc_organizations';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -131,7 +131,7 @@ function opencivic_organization_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['organizations'] = $page;
+  $pages['oc_organizations'] = $page;
 
   return $pages;
 
