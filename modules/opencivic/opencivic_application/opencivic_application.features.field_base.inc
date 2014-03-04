@@ -357,7 +357,7 @@ function opencivic_application_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'license',
+          'vocabulary' => 'oc_license',
           'parent' => 0,
           'depth' => '',
         ),
@@ -461,7 +461,7 @@ function opencivic_application_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'requirements',
+          'vocabulary' => 'oc_requirements',
           'parent' => 0,
         ),
       ),
