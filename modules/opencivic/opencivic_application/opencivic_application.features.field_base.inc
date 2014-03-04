@@ -530,7 +530,7 @@ function opencivic_application_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'software_type',
+          'vocabulary' => 'oc_software_type',
           'parent' => 0,
           'depth' => '',
         ),
