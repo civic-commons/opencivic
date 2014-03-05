@@ -13,7 +13,7 @@ fi
 GIT_ROOT=$(git rev-parse --show-toplevel)
 cd $GIT_ROOT
  
-# Pull down latest copy of DKAN.
+# Pull down latest copy of OpenCivic.
 bash scripts/distro.pull.sh
 
 echo "Removing docroot"

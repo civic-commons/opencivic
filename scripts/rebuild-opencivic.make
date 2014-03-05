@@ -6,16 +6,14 @@ includes[opencivic] = "../projects/opencivic/build-opencivic.make"
 projects[drupal][version] = "7.25"
 
 ; DKAN
-; projects[dkan][type] = profile
-; projects[dkan][download][type] = git
-; projects[dkan][download][url] = http://git.drupal.org/project/dkan.git
-; projects[dkan][download][branch] = 7.x-1.x
-; projects[dkan][patch][2150037] = https://drupal.org/files/issues/dkan-front_group_thumbs-2150037-1.patch
+projects[dkan][type] = profile
+projects[dkan][download][type] = git
+projects[dkan][download][url] = http://git.drupal.org/project/dkan_dataset.git
+projects[dkan][download][branch] = 7.x-1.x
 
-; Field Group
-; projects[field_group][subdir] = dkan
-; projects[field_group][version] = 1.3
-; projects[field_group][patch][2042681] = https://drupal.org/files/issues/field-group-show-ajax-2042681-8.patch
+Field Group
+projects[field_group][subdir] = dkan
+projects[field_group][version] = 1.4
 
 ; Entity Reference
 ; projects[entityreference][version] = 1.1

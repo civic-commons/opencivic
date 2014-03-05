@@ -290,7 +290,7 @@ function opencivic_organization_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'service',
+          'vocabulary' => 'oc_service',
           'parent' => 0,
           'depth' => '',
         ),

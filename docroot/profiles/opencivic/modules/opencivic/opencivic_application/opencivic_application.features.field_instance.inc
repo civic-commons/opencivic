@@ -273,7 +273,7 @@ function opencivic_application_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_oc_app_creator',
-    'label' => 'Creator',
+    'label' => 'App creator',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,

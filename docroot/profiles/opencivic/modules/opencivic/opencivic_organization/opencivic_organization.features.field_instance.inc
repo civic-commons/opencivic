@@ -177,7 +177,7 @@ function opencivic_organization_field_default_field_instances() {
         'size' => 7,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 12,
     ),
   );
 
