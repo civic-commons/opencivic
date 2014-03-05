@@ -793,7 +793,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'civic_category' => 'civic_category',
+    'oc_civic_category' => 'oc_civic_category',
   );
   $handler->display->display_options['block_description'] = 'Application/Civic categories';
 
@@ -893,7 +893,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'civic_category' => 'civic_category',
+    'oc_civic_category' => 'oc_civic_category',
   );
   $handler->display->display_options['block_description'] = 'Application/Civic categories icons';
   $export['opencivic_application_categories'] = $view;

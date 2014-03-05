@@ -35,7 +35,7 @@ function opencivic_core_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'civic_category',
+          'vocabulary' => 'oc_civic_category',
           'parent' => 0,
           'depth' => '',
         ),
