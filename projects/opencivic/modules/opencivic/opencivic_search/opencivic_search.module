@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the OpenCivic Search feature.
- */
-
-include_once 'opencivic_search.features.inc';

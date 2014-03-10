@@ -1,6 +1,0 @@
-name = Fivestar Green
-description = Defines a green star for rating with the fivestar module.
-core = 7.x
-package = Voting
-dependencies[] = fivestar
-

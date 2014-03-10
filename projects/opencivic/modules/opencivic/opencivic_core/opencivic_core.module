@@ -1,9 +1,0 @@
-<?php
-/**
- * @file
-  * Code for the OpenCivic Core module.
- */
-
-
-include_once 'opencivic_core.features.inc';
-
