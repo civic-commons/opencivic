@@ -10,8 +10,8 @@
 function opencivic_event_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-oc_event-body'.
-  $fields['node-oc_event-body'] = array(
+  // Exported field: 'node-event-body'.
+  $fields['node-event-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -42,7 +42,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -92,8 +92,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_coordinates'.
-  $fields['node-oc_event-field_coordinates'] = array(
+  // Exported field: 'node-event-field_coordinates'.
+  $fields['node-event-field_coordinates'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -111,7 +111,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'geofield',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -155,7 +155,7 @@ function opencivic_event_field_default_fields() {
         'module' => 'geocoder',
         'settings' => array(
           'delta_handling' => 'default',
-          'geocoder_field' => 'field_oc_deploy_location',
+          'geocoder_field' => 'field_location',
           'geocoder_handler' => 'google',
           'handler_settings' => array(
             'google' => array(
@@ -178,8 +178,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_event_type'.
-  $fields['node-oc_event-field_event_type'] = array(
+  // Exported field: 'node-event-field_event_type'.
+  $fields['node-event-field_event_type'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -204,7 +204,7 @@ function opencivic_event_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'oc_event_type',
+            'vocabulary' => 'event_type',
             'parent' => '0',
             'depth' => '',
           ),
@@ -216,7 +216,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -262,14 +262,14 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_oc_deploy_location'.
-  $fields['node-oc_event-field_oc_deploy_location'] = array(
+  // Exported field: 'node-event-field_location'.
+  $fields['node-event-field_location'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_oc_deploy_location',
+      'field_name' => 'field_location',
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -281,7 +281,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'addressfield',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'The location where the deployment occurred.',
@@ -312,7 +312,7 @@ function opencivic_event_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_oc_deploy_location',
+      'field_name' => 'field_location',
       'label' => 'Location',
       'required' => FALSE,
       'settings' => array(
@@ -333,8 +333,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_start_date'.
-  $fields['node-oc_event-field_start_date'] = array(
+  // Exported field: 'node-event-field_start_date'.
+  $fields['node-event-field_start_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -366,7 +366,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'date',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'deleted' => '0',
       'description' => 'The start date and time of the event.',
       'display' => array(
@@ -430,8 +430,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_telephone'.
-  $fields['node-oc_event-field_telephone'] = array(
+  // Exported field: 'node-event-field_telephone'.
+  $fields['node-event-field_telephone'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -450,7 +450,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'phone_number',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -738,8 +738,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-field_url'.
-  $fields['node-oc_event-field_url'] = array(
+  // Exported field: 'node-event-field_url'.
+  $fields['node-event-field_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -770,7 +770,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'link_field',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter the URL of the homepage where people can go to find more information.',
@@ -832,8 +832,8 @@ function opencivic_event_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_event-title_field'.
-  $fields['node-oc_event-title_field'] = array(
+  // Exported field: 'node-event-title_field'.
+  $fields['node-event-title_field'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -863,7 +863,7 @@ function opencivic_event_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_event',
+      'bundle' => 'event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',

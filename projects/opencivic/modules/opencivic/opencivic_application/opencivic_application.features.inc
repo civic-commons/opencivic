@@ -27,13 +27,6 @@ function opencivic_application_ctools_plugin_api() {
 }
 
 /**
- * Implements hook_views_api().
- */
-function opencivic_application_views_api() {
-  return array("api" => "3.0");
-}
-
-/**
  * Implements hook_image_default_styles().
  */
 function opencivic_application_image_default_styles() {
@@ -119,7 +112,7 @@ function opencivic_application_image_default_styles() {
  */
 function opencivic_application_node_info() {
   $items = array(
-    'oc_application' => array(
+    'application' => array(
       'name' => t('Application'),
       'base' => 'node_content',
       'description' => t('An <b>Application</b> is a software project developed to address a particular problem or need, e.g., CiviCRM, Alfresco, Microsoft Office, etc. It can be either proprietary or open source.'),

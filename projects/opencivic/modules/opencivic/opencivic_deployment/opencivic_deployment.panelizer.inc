@@ -13,10 +13,10 @@ function opencivic_deployment_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:oc_deployment:default';
+  $panelizer->name = 'node:deployment:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'oc_deployment';
+  $panelizer->panelizer_key = 'deployment';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';
@@ -99,7 +99,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-3';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_deploy_location';
+    $pane->subtype = 'node:field_location';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -130,7 +130,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-4';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_deploy_deployment_of';
+    $pane->subtype = 'node:field_deployment_of';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -183,7 +183,7 @@ function opencivic_deployment_panelizer_defaults() {
     $pane->pid = 'new-6';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_deploy_member';
+    $pane->subtype = 'node:field_member';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -208,7 +208,7 @@ function opencivic_deployment_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-2';
   $panelizer->display = $display;
-  $export['node:oc_deployment:default'] = $panelizer;
+  $export['node:deployment:default'] = $panelizer;
 
   return $export;
 }

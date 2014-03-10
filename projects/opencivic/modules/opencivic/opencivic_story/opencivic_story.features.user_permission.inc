@@ -10,86 +10,86 @@
 function opencivic_story_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'administer panelizer node oc_story breadcrumbs'.
-  $permissions['administer panelizer node oc_story breadcrumbs'] = array(
-    'name' => 'administer panelizer node oc_story breadcrumbs',
+  // Exported permission: 'administer panelizer node story breadcrumbs'.
+  $permissions['administer panelizer node story breadcrumbs'] = array(
+    'name' => 'administer panelizer node story breadcrumbs',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story content'.
-  $permissions['administer panelizer node oc_story content'] = array(
-    'name' => 'administer panelizer node oc_story content',
+  // Exported permission: 'administer panelizer node story content'.
+  $permissions['administer panelizer node story content'] = array(
+    'name' => 'administer panelizer node story content',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story context'.
-  $permissions['administer panelizer node oc_story context'] = array(
-    'name' => 'administer panelizer node oc_story context',
+  // Exported permission: 'administer panelizer node story context'.
+  $permissions['administer panelizer node story context'] = array(
+    'name' => 'administer panelizer node story context',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story defaults'.
-  $permissions['administer panelizer node oc_story defaults'] = array(
-    'name' => 'administer panelizer node oc_story defaults',
+  // Exported permission: 'administer panelizer node story defaults'.
+  $permissions['administer panelizer node story defaults'] = array(
+    'name' => 'administer panelizer node story defaults',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story layout'.
-  $permissions['administer panelizer node oc_story layout'] = array(
-    'name' => 'administer panelizer node oc_story layout',
+  // Exported permission: 'administer panelizer node story layout'.
+  $permissions['administer panelizer node story layout'] = array(
+    'name' => 'administer panelizer node story layout',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story overview'.
-  $permissions['administer panelizer node oc_story overview'] = array(
-    'name' => 'administer panelizer node oc_story overview',
+  // Exported permission: 'administer panelizer node story overview'.
+  $permissions['administer panelizer node story overview'] = array(
+    'name' => 'administer panelizer node story overview',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node oc_story settings'.
-  $permissions['administer panelizer node oc_story settings'] = array(
-    'name' => 'administer panelizer node oc_story settings',
+  // Exported permission: 'administer panelizer node story settings'.
+  $permissions['administer panelizer node story settings'] = array(
+    'name' => 'administer panelizer node story settings',
     'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'create oc_story content'.
-  $permissions['create oc_story content'] = array(
-    'name' => 'create oc_story content',
+  // Exported permission: 'create story content'.
+  $permissions['create story content'] = array(
+    'name' => 'create story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any oc_story content'.
-  $permissions['delete any oc_story content'] = array(
-    'name' => 'delete any oc_story content',
+  // Exported permission: 'delete any story content'.
+  $permissions['delete any story content'] = array(
+    'name' => 'delete any story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own oc_story content'.
-  $permissions['delete own oc_story content'] = array(
-    'name' => 'delete own oc_story content',
+  // Exported permission: 'delete own story content'.
+  $permissions['delete own story content'] = array(
+    'name' => 'delete own story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any oc_story content'.
-  $permissions['edit any oc_story content'] = array(
-    'name' => 'edit any oc_story content',
+  // Exported permission: 'edit any story content'.
+  $permissions['edit any story content'] = array(
+    'name' => 'edit any story content',
     'roles' => array(),
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own oc_story content'.
-  $permissions['edit own oc_story content'] = array(
-    'name' => 'edit own oc_story content',
+  // Exported permission: 'edit own story content'.
+  $permissions['edit own story content'] = array(
+    'name' => 'edit own story content',
     'roles' => array(),
     'module' => 'node',
   );

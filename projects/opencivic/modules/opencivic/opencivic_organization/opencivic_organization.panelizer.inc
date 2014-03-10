@@ -13,10 +13,10 @@ function opencivic_organization_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:oc_organization:default';
+  $panelizer->name = 'node:organization:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'oc_organization';
+  $panelizer->panelizer_key = 'organization';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';
@@ -452,7 +452,7 @@ function opencivic_organization_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $panelizer->display = $display;
-  $export['node:oc_organization:default'] = $panelizer;
+  $export['node:organization:default'] = $panelizer;
 
   return $export;
 }

@@ -9,9 +9,9 @@
  */
 function opencivic_organization_taxonomy_default_vocabularies() {
   return array(
-    'oc_organization_type' => array(
+    'organization_type' => array(
       'name' => 'Organization type',
-      'machine_name' => 'oc_organization_type',
+      'machine_name' => 'organization_type',
       'description' => 'Is this a company, an NGO, a government agency?',
       'hierarchy' => 0,
       'module' => 'taxonomy',

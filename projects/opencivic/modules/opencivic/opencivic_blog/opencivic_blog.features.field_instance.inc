@@ -10,9 +10,9 @@
 function opencivic_blog_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-oc_blog-body'
-  $field_instances['node-oc_blog-body'] = array(
-    'bundle' => 'oc_blog',
+  // Exported field_instance: 'node-blog-body'
+  $field_instances['node-blog-body'] = array(
+    'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -67,9 +67,9 @@ function opencivic_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_blog-field_image'
-  $field_instances['node-oc_blog-field_image'] = array(
-    'bundle' => 'oc_blog',
+  // Exported field_instance: 'node-blog-field_image'
+  $field_instances['node-blog-field_image'] = array(
+    'bundle' => 'blog',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -136,9 +136,9 @@ function opencivic_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_blog-field_oc_blog_keywords'
-  $field_instances['node-oc_blog-field_oc_blog_keywords'] = array(
-    'bundle' => 'oc_blog',
+  // Exported field_instance: 'node-blog-field_oc_blog_keywords'
+  $field_instances['node-blog-field_oc_blog_keywords'] = array(
+    'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -191,9 +191,9 @@ function opencivic_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_blog-title_field'
-  $field_instances['node-oc_blog-title_field'] = array(
-    'bundle' => 'oc_blog',
+  // Exported field_instance: 'node-blog-title_field'
+  $field_instances['node-blog-title_field'] = array(
+    'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

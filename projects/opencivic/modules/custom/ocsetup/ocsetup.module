@@ -229,7 +229,7 @@ function ocsetup_form_submit($form, &$form_state) {
         break;
 
       case 'ocfinish':
-        variable_set('site_frontpage', 'frontpage');
+        variable_set('site_frontpage', 'frontpage3');
         drupal_flush_all_caches();
         break;
     }

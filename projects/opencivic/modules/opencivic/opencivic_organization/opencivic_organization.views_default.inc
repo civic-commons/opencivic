@@ -114,7 +114,7 @@ function opencivic_organization_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['vocabulary'] = 'oc_organization_type';
+  $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['vocabulary'] = 'organization_type';
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['hierarchy'] = 1;
   /* Filter criterion: Content: Related applications (field_oc_app_related_apps) */
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['id'] = 'field_oc_app_related_apps_target_id';
@@ -177,7 +177,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'oc_organization' => 'oc_organization',
+    'organization' => 'organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 
@@ -226,7 +226,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_oc_deploy_deployment_of_target_id';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_deployment_of_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]';
@@ -245,14 +245,14 @@ function opencivic_organization_views_default_views() {
     'data' => 'full',
   );
   /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_oc_deploy_location']['id'] = 'field_oc_deploy_location';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['table'] = 'field_data_field_oc_deploy_location';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['field'] = 'field_oc_deploy_location';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_deploy_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['type'] = 'addressfield_city_only';
-  $handler->display->display_options['fields']['field_oc_deploy_location']['settings'] = array(
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_location']['type'] = 'addressfield_city_only';
+  $handler->display->display_options['fields']['field_location']['settings'] = array(
     'use_widget_handlers' => 1,
     'format_handlers' => array(
       'address' => 'address',
@@ -279,7 +279,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'oc_organization' => 'oc_organization',
+    'organization' => 'organization',
   );
 
   /* Display: Organization map pane */
@@ -305,8 +305,6 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -316,7 +314,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_oc_deploy_deployment_of_target_id';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_deployment_of_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]';
@@ -365,7 +363,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'oc_organization' => 'oc_organization',
+    'organization' => 'organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Civic sector (field_oc_civic_category) */
@@ -444,7 +442,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'oc_organization' => 'oc_organization',
+    'organization' => 'organization',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['pane_title'] = 'Organizations map pane';

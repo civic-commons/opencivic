@@ -9,9 +9,9 @@
  */
 function opencivic_core_taxonomy_default_vocabularies() {
   return array(
-    'oc_civic_category' => array(
+    'civic_category' => array(
       'name' => 'Civic sector',
-      'machine_name' => 'oc_civic_category',
+      'machine_name' => 'civic_category',
       'description' => 'The public service provided by the software.',
       'hierarchy' => 1,
       'module' => 'taxonomy',
@@ -32,9 +32,9 @@ function opencivic_core_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'oc_license' => array(
+    'license' => array(
       'name' => 'License',
-      'machine_name' => 'oc_license',
+      'machine_name' => 'license',
       'description' => 'The licensing terms under which software is distributed.',
       'hierarchy' => 0,
       'module' => 'taxonomy',
@@ -55,9 +55,32 @@ function opencivic_core_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'oc_requirements' => array(
+    'organization_type' => array(
+      'name' => 'Organization type',
+      'machine_name' => 'organization_type',
+      'description' => 'Is this a company, an NGO, a government agency?',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'requirements' => array(
       'name' => 'Requirements',
-      'machine_name' => 'oc_requirements',
+      'machine_name' => 'requirements',
       'description' => 'Software or hardware that an Application needs in order to run. If a dependency is not listed, please add it.',
       'hierarchy' => 0,
       'module' => 'taxonomy',
@@ -78,9 +101,9 @@ function opencivic_core_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'oc_service' => array(
+    'service' => array(
       'name' => 'Service',
-      'machine_name' => 'oc_service',
+      'machine_name' => 'service',
       'description' => 'Software support services provided by vendors and other organizations.',
       'hierarchy' => 0,
       'module' => 'taxonomy',
@@ -101,9 +124,9 @@ function opencivic_core_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'oc_software_type' => array(
+    'software_type' => array(
       'name' => 'Software type',
-      'machine_name' => 'oc_software_type',
+      'machine_name' => 'software_type',
       'description' => 'Ways that software users are allowed to access and use the software.',
       'hierarchy' => 0,
       'module' => 'taxonomy',

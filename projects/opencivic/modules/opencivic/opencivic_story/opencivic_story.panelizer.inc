@@ -13,10 +13,10 @@ function opencivic_story_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:oc_story:default';
+  $panelizer->name = 'node:story:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'oc_story';
+  $panelizer->panelizer_key = 'story';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';
@@ -122,7 +122,7 @@ function opencivic_story_panelizer_defaults() {
     $pane->pid = 'new-4';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_story_app_references';
+    $pane->subtype = 'node:field_app_references';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -148,7 +148,7 @@ function opencivic_story_panelizer_defaults() {
     $pane->pid = 'new-5';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_story_org_references';
+    $pane->subtype = 'node:field_organization_references';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -198,7 +198,7 @@ function opencivic_story_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $panelizer->display = $display;
-  $export['node:oc_story:default'] = $panelizer;
+  $export['node:story:default'] = $panelizer;
 
   return $export;
 }

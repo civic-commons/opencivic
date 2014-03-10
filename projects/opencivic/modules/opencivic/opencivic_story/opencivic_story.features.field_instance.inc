@@ -10,9 +10,9 @@
 function opencivic_story_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-oc_story-body'
-  $field_instances['node-oc_story-body'] = array(
-    'bundle' => 'oc_story',
+  // Exported field_instance: 'node-story-body'
+  $field_instances['node-story-body'] = array(
+    'bundle' => 'story',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -67,9 +67,9 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_story-field_oc_story_app_references'
-  $field_instances['node-oc_story-field_oc_story_app_references'] = array(
-    'bundle' => 'oc_story',
+  // Exported field_instance: 'node-story-field_app_references'
+  $field_instances['node-story-field_app_references'] = array(
+    'bundle' => 'story',
     'default_value' => NULL,
     'default_value_function' => '',
     'deleted' => 0,
@@ -104,7 +104,7 @@ function opencivic_story_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_story_app_references',
+    'field_name' => 'field_app_references',
     'label' => 'App references',
     'required' => 0,
     'settings' => array(
@@ -138,9 +138,9 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_story-field_image'
-  $field_instances['node-oc_story-field_image'] = array(
-    'bundle' => 'oc_story',
+  // Exported field_instance: 'node-story-field_image'
+  $field_instances['node-story-field_image'] = array(
+    'bundle' => 'story',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -203,9 +203,9 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_story-field_oc_story_org_references'
-  $field_instances['node-oc_story-field_oc_story_org_references'] = array(
-    'bundle' => 'oc_story',
+  // Exported field_instance: 'node-story-field_organization_references'
+  $field_instances['node-story-field_organization_references'] = array(
+    'bundle' => 'story',
     'default_value' => NULL,
     'default_value_function' => '',
     'deleted' => 0,
@@ -240,7 +240,7 @@ function opencivic_story_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_story_org_references',
+    'field_name' => 'field_organization_references',
     'label' => 'Organization references',
     'required' => 0,
     'settings' => array(
@@ -274,9 +274,9 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_story-field_tags'
-  $field_instances['node-oc_story-field_tags'] = array(
-    'bundle' => 'oc_story',
+  // Exported field_instance: 'node-story-field_tags'
+  $field_instances['node-story-field_tags'] = array(
+    'bundle' => 'story',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

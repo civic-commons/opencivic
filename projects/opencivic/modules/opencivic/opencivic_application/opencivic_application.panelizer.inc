@@ -13,10 +13,10 @@ function opencivic_application_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
-  $panelizer->name = 'node:oc_application:default';
+  $panelizer->name = 'node:application:default';
   $panelizer->title = 'Default';
   $panelizer->panelizer_type = 'node';
-  $panelizer->panelizer_key = 'oc_application';
+  $panelizer->panelizer_key = 'application';
   $panelizer->no_blocks = TRUE;
   $panelizer->css_id = '';
   $panelizer->css = '';
@@ -633,7 +633,7 @@ function opencivic_application_panelizer_defaults() {
     $pane->pid = 'new-23';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_app_software_type';
+    $pane->subtype = 'node:field_software_type';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -744,7 +744,7 @@ function opencivic_application_panelizer_defaults() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $panelizer->display = $display;
-  $export['node:oc_application:default'] = $panelizer;
+  $export['node:application:default'] = $panelizer;
 
   return $export;
 }

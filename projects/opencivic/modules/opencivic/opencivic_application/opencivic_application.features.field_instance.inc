@@ -10,9 +10,9 @@
 function opencivic_application_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-oc_application-body'
-  $field_instances['node-oc_application-body'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-body'
+  $field_instances['node-application-body'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'What does the application do? What should people know about the application?',
@@ -73,9 +73,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_aggregate_rating'
-  $field_instances['node-oc_application-field_oc_app_aggregate_rating'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_aggregate_rating'
+  $field_instances['node-application-field_oc_app_aggregate_rating'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).',
@@ -128,9 +128,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_app_category'
-  $field_instances['node-oc_application-field_oc_app_app_category'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_app_category'
+  $field_instances['node-application-field_oc_app_app_category'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Type of software application, e.g. "Game, Multimedia."',
@@ -180,9 +180,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_contributor'
-  $field_instances['node-oc_application-field_oc_app_contributor'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_contributor'
+  $field_instances['node-application-field_oc_app_contributor'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Which vendors provide support for this app? To add a vendor, start typing a vendor name into the field, and if that vendor is already in our system, and it should autocomplete. If the vendor is not already in our system, use the "+ Create Organization" button to add a vendor.',
@@ -239,9 +239,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_creator'
-  $field_instances['node-oc_application-field_oc_app_creator'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_creator'
+  $field_instances['node-application-field_oc_app_creator'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.',
@@ -273,7 +273,7 @@ function opencivic_application_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_oc_app_creator',
-    'label' => 'App creator',
+    'label' => 'Creator',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -298,9 +298,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_description'
-  $field_instances['node-oc_application-field_oc_app_description'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_description'
+  $field_instances['node-application-field_oc_app_description'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'A short description, e.g., "A web-based visualization tool."',
@@ -353,9 +353,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_download_url'
-  $field_instances['node-oc_application-field_oc_app_download_url'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_download_url'
+  $field_instances['node-application-field_oc_app_download_url'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'If the software can be downloaded, URL to download it.',
@@ -394,18 +394,14 @@ function opencivic_application_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => '_blank',
+        'target' => 'default',
         'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'rel_remove' => 'default',
+      'entity_translation_sync' => FALSE,
       'title' => 'required',
       'title_maxlength' => 128,
       'title_value' => 'Host name',
@@ -425,9 +421,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_feature_list'
-  $field_instances['node-oc_application-field_oc_app_feature_list'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_feature_list'
+  $field_instances['node-application-field_oc_app_feature_list'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Features or modules provided by this application (and possibly required by other applications).',
@@ -480,9 +476,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_file_attachments'
-  $field_instances['node-oc_application-field_oc_app_file_attachments'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_file_attachments'
+  $field_instances['node-application-field_oc_app_file_attachments'] = array(
+    'bundle' => 'application',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -537,9 +533,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_install_url'
-  $field_instances['node-oc_application-field_oc_app_install_url'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_install_url'
+  $field_instances['node-application-field_oc_app_install_url'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'URL at which a demo version of the app may be found for review.',
@@ -578,18 +574,14 @@ function opencivic_application_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => '_blank',
+        'target' => 'default',
         'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'rel_remove' => 'default',
+      'entity_translation_sync' => FALSE,
       'title' => 'optional',
       'title_maxlength' => 128,
       'title_value' => '',
@@ -609,9 +601,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_keywords'
-  $field_instances['node-oc_application-field_oc_app_keywords'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_keywords'
+  $field_instances['node-application-field_oc_app_keywords'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'The keywords/tags used to describe this content. Separate tags with a comma.',
@@ -664,9 +656,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_license'
-  $field_instances['node-oc_application-field_oc_app_license'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_license'
+  $field_instances['node-application-field_oc_app_license'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -716,9 +708,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_logo'
-  $field_instances['node-oc_application-field_oc_app_logo'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_logo'
+  $field_instances['node-application-field_oc_app_logo'] = array(
+    'bundle' => 'application',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -733,12 +725,6 @@ function opencivic_application_field_default_field_instances() {
         'weight' => 23,
       ),
       'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -780,9 +766,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_related_apps'
-  $field_instances['node-oc_application-field_oc_app_related_apps'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_related_apps'
+  $field_instances['node-application-field_oc_app_related_apps'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -839,9 +825,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_requirements'
-  $field_instances['node-oc_application-field_oc_app_requirements'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_requirements'
+  $field_instances['node-application-field_oc_app_requirements'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).',
@@ -894,9 +880,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_screenshot'
-  $field_instances['node-oc_application-field_oc_app_screenshot'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_screenshot'
+  $field_instances['node-application-field_oc_app_screenshot'] = array(
+    'bundle' => 'application',
     'deleted' => 0,
     'description' => 'Screenshot images of the app.',
     'display' => array(
@@ -956,61 +942,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_software_type'
-  $field_instances['node-oc_application-field_oc_app_software_type'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 20,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_app_software_type',
-    'label' => 'Software type',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_buttons',
-      'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_application-field_oc_app_url'
-  $field_instances['node-oc_application-field_oc_app_url'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_url'
+  $field_instances['node-application-field_oc_app_url'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Enter the URL of the application homepage where people can go to find more information',
@@ -1049,18 +983,14 @@ function opencivic_application_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => 'nofollow',
-        'target' => '_blank',
+        'target' => 'default',
         'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'rel_remove' => 'default',
+      'entity_translation_sync' => FALSE,
       'title' => 'value',
       'title_maxlength' => 128,
       'title_value' => 'App Homepage',
@@ -1080,9 +1010,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_video'
-  $field_instances['node-oc_application-field_oc_app_video'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_app_video'
+  $field_instances['node-application-field_oc_app_video'] = array(
+    'bundle' => 'application',
     'deleted' => 0,
     'description' => 'An embedded video object.',
     'display' => array(
@@ -1118,7 +1048,7 @@ function opencivic_application_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => 'oc_application',
+      'file_directory' => 'application',
       'file_extensions' => 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp mp3 mov m4v mp4 mpeg avi ogg wmv ico',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -1148,9 +1078,9 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_civic_category'
-  $field_instances['node-oc_application-field_oc_civic_category'] = array(
-    'bundle' => 'oc_application',
+  // Exported field_instance: 'node-application-field_oc_civic_category'
+  $field_instances['node-application-field_oc_civic_category'] = array(
+    'bundle' => 'application',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'What civic purpose does this application serve, e.g., education, elections?',
@@ -1197,6 +1127,58 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'options_buttons',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-application-field_software_type'
+  $field_instances['node-application-field_software_type'] = array(
+    'bundle' => 'application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_software_type',
+    'label' => 'Software type',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_buttons',
+      'weight' => 13,
     ),
   );
 

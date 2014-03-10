@@ -21,7 +21,7 @@ function opencivic_deployment_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function opencivic_deployment_node_info() {
   $items = array(
-    'oc_deployment' => array(
+    'deployment' => array(
       'name' => t('Deployment'),
       'base' => 'node_content',
       'description' => t('A <b>deployment</b> is an instance of an application being installed or used to solve a problem or perform a service for a specific organization or location.'),
@@ -40,7 +40,7 @@ function opencivic_deployment_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: deployment
-  $schemaorg['node']['oc_deployment'] = array(
+  $schemaorg['node']['deployment'] = array(
     'rdftype' => array(
       0 => 'schema:UserInteraction',
       1 => 'sioc:Item',
@@ -106,7 +106,7 @@ function opencivic_deployment_rdf_default_mappings() {
         0 => 'schema:url',
       ),
     ),
-    'field_oc_deploy_location' => array(
+    'field_location' => array(
       'predicates' => array(
         0 => 'schema:location',
       ),
@@ -114,13 +114,13 @@ function opencivic_deployment_rdf_default_mappings() {
     'field_oc_app_related_apps' => array(
       'predicates' => array(),
     ),
-    'field_oc_deploy_deployment_of' => array(
+    'field_deployment_of' => array(
       'predicates' => array(),
     ),
     'field_oc_app_contributor' => array(
       'predicates' => array(),
     ),
-    'field_oc_deploy_member' => array(
+    'field_member' => array(
       'predicates' => array(
         0 => 'schema:performer',
       ),

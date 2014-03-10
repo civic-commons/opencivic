@@ -13,27 +13,28 @@ function opencivic_organization_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_info|node|oc_organization|form';
+  $field_group->identifier = 'group_info|node|organization|form';
   $field_group->group_name = 'group_info';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_organization';
+  $field_group->bundle = 'organization';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
     'label' => 'Basic info',
     'weight' => '19',
     'children' => array(
-      0 => 'field_oc_org_abbreviation',
-      1 => 'field_oc_org_additional_type',
-      2 => 'field_oc_org_address',
-      3 => 'field_oc_org_coordinates',
-      4 => 'field_oc_org_email',
-      5 => 'field_oc_org_github_account',
+      0 => 'body',
+      1 => 'field_oc_org_abbreviation',
+      2 => 'field_oc_org_additional_type',
+      3 => 'field_oc_org_address',
+      4 => 'field_oc_org_coordinates',
+      5 => 'field_oc_org_email',
       6 => 'field_oc_org_logo',
       7 => 'field_oc_org_member',
       8 => 'field_oc_org_telephone',
       9 => 'field_oc_org_twitter',
       10 => 'field_oc_org_url',
+      11 => 'field_oc_org_github_account',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -45,15 +46,15 @@ function opencivic_organization_field_group_info() {
       ),
     ),
   );
-  $export['group_info|node|oc_organization|form'] = $field_group;
+  $export['group_info|node|organization|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_main|node|oc_organization|form';
+  $field_group->identifier = 'group_main|node|organization|form';
   $field_group->group_name = 'group_main';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_organization';
+  $field_group->bundle = 'organization';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -71,15 +72,15 @@ function opencivic_organization_field_group_info() {
       ),
     ),
   );
-  $export['group_main|node|oc_organization|form'] = $field_group;
+  $export['group_main|node|organization|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_services|node|oc_organization|form';
+  $field_group->identifier = 'group_services|node|organization|form';
   $field_group->group_name = 'group_services';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_organization';
+  $field_group->bundle = 'organization';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -99,7 +100,7 @@ function opencivic_organization_field_group_info() {
       ),
     ),
   );
-  $export['group_services|node|oc_organization|form'] = $field_group;
+  $export['group_services|node|organization|form'] = $field_group;
 
   return $export;
 }

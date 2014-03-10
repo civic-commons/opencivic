@@ -30,7 +30,7 @@ function opencivic_event_views_api() {
  */
 function opencivic_event_node_info() {
   $items = array(
-    'oc_event' => array(
+    'event' => array(
       'name' => t('Event'),
       'base' => 'node_content',
       'description' => t('An <b>Event</b> could be a local hackathon or any other event with a time, place and date where people meet.'),
@@ -49,7 +49,7 @@ function opencivic_event_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: event
-  $schemaorg['node']['oc_event'] = array(
+  $schemaorg['node']['event'] = array(
     'rdftype' => array(
       0 => 'schema:Event',
       1 => 'sioc:Item',
@@ -113,7 +113,7 @@ function opencivic_event_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
-    'field_oc_deploy_location' => array(
+    'field_location' => array(
       'predicates' => array(
         0 => 'schema:location',
       ),

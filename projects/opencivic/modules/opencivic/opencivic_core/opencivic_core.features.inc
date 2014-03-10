@@ -26,6 +26,23 @@ function opencivic_core_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 // /**
+//  * Implements hook_node_info().
+//  */
+// function opencivic_organization_node_info() {
+//   $items = array(
+//     'organization' => array(
+//       'name' => t('Organization'),
+//       'base' => 'node_content',
+//       'description' => t('An <b>organization</b> can be a company, government agency, nongovernmental organization or team of people working together to create, support or use software applications.'),
+//       'has_title' => '1',
+//       'title_label' => t('Name'),
+//       'help' => '',
+//     ),
+//   );
+//   return $items;
+// }
+
+// /**
 //  * Implements hook_views_api().
 //  */
 // function opencivic_organization_views_api() {

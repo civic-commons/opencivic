@@ -13,7 +13,7 @@ function opencivic_sponsor_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'footer_sitewide_oc_sponsor_logos';
+  $context->name = 'footer_sitewide_sponsor_logos';
   $context->description = 'Defines the sponsor logos display in the footer.';
   $context->tag = 'Sitewide';
   $context->conditions = array(
@@ -41,7 +41,7 @@ function opencivic_sponsor_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Defines the sponsor logos display in the footer.');
   t('Sitewide');
-  $export['footer_sitewide_oc_sponsor_logos'] = $context;
+  $export['footer_sitewide_sponsor_logos'] = $context;
 
   return $export;
 }

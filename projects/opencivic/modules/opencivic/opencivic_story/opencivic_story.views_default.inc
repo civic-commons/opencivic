@@ -57,19 +57,19 @@ function opencivic_story_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   /* Field: Content: App references */
-  $handler->display->display_options['fields']['field_oc_story_app_references']['id'] = 'field_oc_story_app_references';
-  $handler->display->display_options['fields']['field_oc_story_app_references']['table'] = 'field_data_field_oc_story_app_references';
-  $handler->display->display_options['fields']['field_oc_story_app_references']['field'] = 'field_oc_story_app_references';
-  $handler->display->display_options['fields']['field_oc_story_app_references']['label'] = 'Apps';
-  $handler->display->display_options['fields']['field_oc_story_app_references']['settings'] = array(
+  $handler->display->display_options['fields']['field_app_references']['id'] = 'field_app_references';
+  $handler->display->display_options['fields']['field_app_references']['table'] = 'field_data_field_app_references';
+  $handler->display->display_options['fields']['field_app_references']['field'] = 'field_app_references';
+  $handler->display->display_options['fields']['field_app_references']['label'] = 'Apps';
+  $handler->display->display_options['fields']['field_app_references']['settings'] = array(
     'link' => 1,
   );
   /* Field: Content: Organization references */
-  $handler->display->display_options['fields']['field_oc_story_org_references']['id'] = 'field_oc_story_org_references';
-  $handler->display->display_options['fields']['field_oc_story_org_references']['table'] = 'field_data_field_oc_story_org_references';
-  $handler->display->display_options['fields']['field_oc_story_org_references']['field'] = 'field_oc_story_org_references';
-  $handler->display->display_options['fields']['field_oc_story_org_references']['label'] = 'Orgs';
-  $handler->display->display_options['fields']['field_oc_story_org_references']['settings'] = array(
+  $handler->display->display_options['fields']['field_organization_references']['id'] = 'field_organization_references';
+  $handler->display->display_options['fields']['field_organization_references']['table'] = 'field_data_field_organization_references';
+  $handler->display->display_options['fields']['field_organization_references']['field'] = 'field_organization_references';
+  $handler->display->display_options['fields']['field_organization_references']['label'] = 'Orgs';
+  $handler->display->display_options['fields']['field_organization_references']['settings'] = array(
     'link' => 1,
   );
   /* Sort criterion: Content: Post date */
@@ -89,7 +89,7 @@ function opencivic_story_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'oc_story' => 'oc_story',
+    'story' => 'story',
   );
 
   /* Display: Stories list */

@@ -13,10 +13,10 @@ function opencivic_application_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_basic|node|oc_application|form';
+  $field_group->identifier = 'group_basic|node|application|form';
   $field_group->group_name = 'group_basic';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -41,15 +41,15 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_basic|node|oc_application|form'] = $field_group;
+  $export['group_basic|node|application|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_categories|node|oc_application|form';
+  $field_group->identifier = 'group_categories|node|application|form';
   $field_group->group_name = 'group_categories';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -70,15 +70,15 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_categories|node|oc_application|form'] = $field_group;
+  $export['group_categories|node|application|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_main|node|oc_application|form';
+  $field_group->identifier = 'group_main|node|application|form';
   $field_group->group_name = 'group_main';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -99,15 +99,15 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_main|node|oc_application|form'] = $field_group;
+  $export['group_main|node|application|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_media|node|oc_application|form';
+  $field_group->identifier = 'group_media|node|application|form';
   $field_group->group_name = 'group_media';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -128,15 +128,15 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_media|node|oc_application|form'] = $field_group;
+  $export['group_media|node|application|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_related|node|oc_application|form';
+  $field_group->identifier = 'group_related|node|application|form';
   $field_group->group_name = 'group_related';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -155,15 +155,15 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_related|node|oc_application|form'] = $field_group;
+  $export['group_related|node|application|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_technical|node|oc_application|form';
+  $field_group->identifier = 'group_technical|node|application|form';
   $field_group->group_name = 'group_technical';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_application';
+  $field_group->bundle = 'application';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main';
   $field_group->data = array(
@@ -174,7 +174,7 @@ function opencivic_application_field_group_info() {
       1 => 'field_oc_app_install_url',
       2 => 'field_oc_app_license',
       3 => 'field_oc_app_requirements',
-      4 => 'field_oc_app_software_type',
+      4 => 'field_software_type',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -186,7 +186,7 @@ function opencivic_application_field_group_info() {
       ),
     ),
   );
-  $export['group_technical|node|oc_application|form'] = $field_group;
+  $export['group_technical|node|application|form'] = $field_group;
 
   return $export;
 }
