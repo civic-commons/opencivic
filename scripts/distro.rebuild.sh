@@ -2,10 +2,10 @@
 
 MAKEFILE="$1"
 MAKEPATH="projects/opencivic/build-opencivic.make"
-if [ "$MAKEFILE" == "build" ]; then
+if [ "$MAKEFILE" == "default" ] || [ "$MAKEFILE" == "" ]; then
   MAKEPATH="projects/opencivic/build-opencivic.make"
-elif [ "$MAKEFILE" == "rebuild" ] || [ "$MAKEFILE" == "" ]; then
-  MAKEPATH="scripts/rebuild-opencivic.make"
+elif [ "$MAKEFILE" == "override" ]; then
+  MAKEPATH="scripts/override-opencivic.make"
 else
   MAKEPATH="scripts/$MAKEFILE"
 fi
