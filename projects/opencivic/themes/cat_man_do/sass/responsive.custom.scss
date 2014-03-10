@@ -1,0 +1,272 @@
+
+// _base.scss imports _custom.scss and other partials.
+@import "base";
+
+/*
+ * Really small screens and up
+ */
+/* @media only screen and (min-width: 220px) {} */
+
+
+/*
+ * Smartphone sizes and up
+ */
+/* @media only screen and (min-width: 320px) {} */
+
+
+/*
+ * Smartphone sizes and down
+ */
+@media only screen and (max-width: 599px) {
+  
+  .region[class*="float-blocks"] .block {
+    float: none;
+    width: 100%;
+  }
+  body {
+    font-size:.95em;
+  }
+  h1#page-title {
+    text-align:center;
+  }
+  #header-wrapper #header {
+    height:auto;
+    #branding {
+      clear:both;
+      float:none;
+      padding:5px 10px;
+      position:relative;
+    }
+    .region-header #block-menu-menu-menu-bar ul.menu,
+    .region-header #block-views-exp-solr-search-page {
+      float:none;
+      margin:.5em 0;
+    }
+    #name-and-slogan {
+      width: 100%;
+    }
+  }
+  .responsive-menus .contextual-links-wrapper {
+    display:none !important;
+  }
+
+  //front 
+  #secondary-content-wrapper .region-secondary-content .block {
+    .highlight-text,
+    .highlight-button {
+      float:none;
+      line-height:1.25em;
+      margin:10px;
+      text-align:center;
+      width:100%;
+    }
+  }
+  //content 
+  .cfr-pond-column-content .cfr-pond-column-inner,
+  .cfr-pond-secondary-column-content .cfr-pond-secondary-column-content-region-inner,
+  .cfr-pond-footer .cfr-pond-footer-inner {
+    margin-left:10px;
+    margin-right:10px;
+  }
+  .cfr-pond-header,
+  .cfr-pond-middle {
+    .block-title {
+      margin-left:10px;
+      margin-right:10px;
+    }
+  }
+  //Problem Page
+  .region-two-50-first,
+  .region-two-50-second {
+    width:100%;
+    margin:10px 15px;
+  }
+  .region-two-50-bottom {
+    .block {
+      margin-left:10px;
+      margin-right:10px;
+    }
+  }
+  .pane-problems-list-panel-pane-1 {
+    margin-left:10px;
+    margin-right:10px;
+    h2.pane-title {
+      margin:1em 15px .5em;
+    }
+    .view-header, {
+      margin:0 15px;
+    }
+    /* no-more-tables method: Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+     
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+     
+    tr { border: 1px solid $border; }
+    tr.odd td.active,
+    tr.even td.active {
+      background-color:transparent;
+    }
+    td {
+      /* Behave like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 40%;
+      white-space: normal;
+      text-align:left;
+      min-height:1.5em;
+      //squash extra padding
+      p {
+        margin:0;
+        padding:0;
+        text-align:left !important;
+      }
+      br {
+        display:none;
+      }
+    }
+    td:nth-of-type(4) {
+      border-bottom:none;
+    } 
+     
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 5px;
+      left: 6px;
+      line-height:1.25em;
+      width: 35%;
+      padding-right: 10px;
+      white-space: normal;
+      text-align:left;
+      font-weight: bold;
+    }
+    
+    //Label the data
+    td:nth-of-type(1):before { content: "Date Added"; }
+    td:nth-of-type(2):before { content: "Categories"; }
+    td:nth-of-type(3):before { content: "Title"; }
+    td:nth-of-type(4):before { content: "Rating"; }
+  }
+  //taxonomy icons
+  .pane-taxonomy-icons-panel-pane-1 {
+    h2.pane-title {
+      margin:1em 15px .5em;
+      line-height:1.15em;
+      text-align:center;
+    }
+    .view-taxonomy-icons .views-responsive-grid {
+      @include zen-grid-container;
+      .views-column {
+        @include zen-clear(); 
+        @include zen-grid-item(12,1);
+        text-align:center;
+        .views-field {
+          height:auto;
+          .category-label {
+            display:block;
+          }
+        }
+        .views-row {
+          margin-bottom:12px;
+        }
+      }
+    }
+  }
+  .pane-tags-by-content-type-panel-pane-1 {
+    h2.pane-title {
+      margin:1em 15px .5em;
+      line-height:1.15em;
+      text-align:center;
+    }
+  }
+  //footer nav
+  #footer-nav-wrapper {
+    height:10px;
+    #block-menu-menu-footer-menu,
+    .primary-menu-wrapper {
+      display:none;
+    }
+  }
+  //sponsors
+  .region-footer .block-views {
+    h2.block-title:before,
+    h2.block-title:after {
+      display:none;
+    }
+    h2.block-title {
+      font-size:1em;
+      text-align:center;
+      margin-bottom:20px;
+    }
+  }
+  .view {
+    div.feed-icon {
+      float:none;
+      font-size:.85em; 
+      margin:0 15px 10px 15px;
+    }
+    .view-header {
+      clear:none;
+    }
+  }
+  #block-views-sponsors-block-block,
+  #block-views-sponsors-block-block-1,
+  #block-views-sponsors-block-block-2 {
+    .view-content .views-row:nth-of-type(n) {
+      @include zen-clear();
+      @include zen-grid-item(12,1);
+    }
+  }
+}
+
+
+/*
+ * Tablet sizes
+ */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  #header-wrapper {
+    #header {
+      min-height:120px
+    }
+  }
+} 
+
+/*
+ * Desktops/laptops and up
+ */
+@media only screen and (max-width: 900px) {
+  html body.admin-menu {
+    margin-top: 55px !important;
+  }
+  #header-wrapper {
+    #header {
+      #branding {
+        #name-and-slogan {
+          clear:left;
+          display:block;
+          margin:5px;
+          position:relative;
+          top:auto;
+          left:auto;
+          h2#site-slogan {
+            font-size:14px;
+          }
+        }
+      }
+    }
+  }
+}

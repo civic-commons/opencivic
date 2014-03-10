@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OCMisc Cat Man Do Settings feature.
+ */
+
+include_once 'ocmisc_cat_man_do_settings.features.inc';

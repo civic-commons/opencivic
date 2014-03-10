@@ -1,0 +1,57 @@
+@import url("font-awesome.scss");
+/* Really small screens and up */
+/* @media only screen and (min-width: 220px) {} */
+/* Smartphone sizes and up */
+/* @media only screen and (min-width: 320px) {} */
+/* Smartphone sizes and down */
+@media only screen and (max-width: 599px) { .region[class*="float-blocks"] .block { float: none; width: 100%; }
+  body { font-size: .95em; }
+  h1#page-title { text-align: center; }
+  #header-wrapper #header { height: auto; }
+  #header-wrapper #header #branding { clear: both; float: none; padding: 5px 10px; position: relative; }
+  #header-wrapper #header .region-header #block-menu-menu-menu-bar ul.menu, #header-wrapper #header .region-header #block-views-exp-solr-search-page { float: none; margin: .5em 0; }
+  #header-wrapper #header #name-and-slogan { width: 100%; }
+  .responsive-menus .contextual-links-wrapper { display: none !important; }
+  #secondary-content-wrapper .region-secondary-content .block .highlight-text, #secondary-content-wrapper .region-secondary-content .block .highlight-button { float: none; line-height: 1.25em; margin: 10px; text-align: center; width: 100%; }
+  .cfr-pond-column-content .cfr-pond-column-inner, .cfr-pond-secondary-column-content .cfr-pond-secondary-column-content-region-inner, .cfr-pond-footer .cfr-pond-footer-inner { margin-left: 10px; margin-right: 10px; }
+  .cfr-pond-header .block-title, .cfr-pond-middle .block-title { margin-left: 10px; margin-right: 10px; }
+  .region-two-50-first, .region-two-50-second { width: 100%; margin: 10px 15px; }
+  .region-two-50-bottom .block { margin-left: 10px; margin-right: 10px; }
+  .pane-problems-list-panel-pane-1 { margin-left: 10px; margin-right: 10px; /* no-more-tables method: Force table to not be like tables anymore */ /* Hide table headers (but not display: none;, for accessibility) */ }
+  .pane-problems-list-panel-pane-1 h2.pane-title { margin: 1em 15px .5em; }
+  .pane-problems-list-panel-pane-1 .view-header { margin: 0 15px; }
+  .pane-problems-list-panel-pane-1 table, .pane-problems-list-panel-pane-1 thead, .pane-problems-list-panel-pane-1 tbody, .pane-problems-list-panel-pane-1 th, .pane-problems-list-panel-pane-1 td, .pane-problems-list-panel-pane-1 tr { display: block; }
+  .pane-problems-list-panel-pane-1 thead tr { position: absolute; top: -9999px; left: -9999px; }
+  .pane-problems-list-panel-pane-1 tr { border: 1px solid #cfecf9; }
+  .pane-problems-list-panel-pane-1 tr.odd td.active, .pane-problems-list-panel-pane-1 tr.even td.active { background-color: transparent; }
+  .pane-problems-list-panel-pane-1 td { /* Behave like a "row" */ border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 40%; white-space: normal; text-align: left; min-height: 1.5em; }
+  .pane-problems-list-panel-pane-1 td p { margin: 0; padding: 0; text-align: left !important; }
+  .pane-problems-list-panel-pane-1 td br { display: none; }
+  .pane-problems-list-panel-pane-1 td:nth-of-type(4) { border-bottom: none; }
+  .pane-problems-list-panel-pane-1 td:before { /* Now like a table header */ position: absolute; /* Top/left values mimic padding */ top: 5px; left: 6px; line-height: 1.25em; width: 35%; padding-right: 10px; white-space: normal; text-align: left; font-weight: bold; }
+  .pane-problems-list-panel-pane-1 td:nth-of-type(1):before { content: "Date Added"; }
+  .pane-problems-list-panel-pane-1 td:nth-of-type(2):before { content: "Categories"; }
+  .pane-problems-list-panel-pane-1 td:nth-of-type(3):before { content: "Title"; }
+  .pane-problems-list-panel-pane-1 td:nth-of-type(4):before { content: "Rating"; }
+  .pane-taxonomy-icons-panel-pane-1 h2.pane-title { margin: 1em 15px .5em; line-height: 1.15em; text-align: center; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid { *position: relative; *zoom: 1; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid:before, .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid:after { content: ""; display: table; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid:after { clear: both; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column { clear: left; float: left; width: 100%; margin-left: 0%; margin-right: -100%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; text-align: center; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field { height: auto; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field .category-label { display: block; }
+  .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-row { margin-bottom: 12px; }
+  .pane-tags-by-content-type-panel-pane-1 h2.pane-title { margin: 1em 15px .5em; line-height: 1.15em; text-align: center; }
+  #footer-nav-wrapper { height: 10px; }
+  #footer-nav-wrapper #block-menu-menu-footer-menu, #footer-nav-wrapper .primary-menu-wrapper { display: none; }
+  .region-footer .block-views h2.block-title:before, .region-footer .block-views h2.block-title:after { display: none; }
+  .region-footer .block-views h2.block-title { font-size: 1em; text-align: center; margin-bottom: 20px; }
+  .view div.feed-icon { float: none; font-size: .85em; margin: 0 15px 10px 15px; }
+  .view .view-header { clear: none; }
+  #block-views-sponsors-block-block .view-content .views-row:nth-of-type(n), #block-views-sponsors-block-block-1 .view-content .views-row:nth-of-type(n), #block-views-sponsors-block-block-2 .view-content .views-row:nth-of-type(n) { clear: left; float: left; width: 100%; margin-left: 0%; margin-right: -100%; padding-left: 5px; padding-right: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; word-wrap: break-word; *behavior: url("../scripts/boxsizing.htc"); _display: inline; _overflow: hidden; _overflow-y: visible; } }
+/* Tablet sizes */
+@media only screen and (min-width: 600px) and (max-width: 899px) { #header-wrapper #header { min-height: 120px; } }
+/* Desktops/laptops and up */
+@media only screen and (max-width: 900px) { html body.admin-menu { margin-top: 55px !important; }
+  #header-wrapper #header #branding #name-and-slogan { clear: left; display: block; margin: 5px; position: relative; top: auto; left: auto; }
+  #header-wrapper #header #branding #name-and-slogan h2#site-slogan { font-size: 14px; } }

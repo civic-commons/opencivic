@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AppCat home views feature.
+ */
+
+include_once 'opencivic_home.features.inc';

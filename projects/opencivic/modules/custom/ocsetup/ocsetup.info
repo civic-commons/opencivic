@@ -1,0 +1,5 @@
+name = Open Civic Setup
+description = "Sets up components for the Open Civic distro"
+core = 7.x
+package = OpenCivic
+version = "7.x-1.x-dev"
