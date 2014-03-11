@@ -2,6 +2,17 @@ Drupal codebase for an Opencivic-based website.
 
 git remote add origin https://github.com/civic-commons/opencivic.git
 
+h2. To merge changes from the upstream distro to the test environment
+
+git checkout opencivic_7.x-2.x-test
+git merge --squash -s subtree --no-commit opencivic_7.x-2.x
+
+h2. To merge changes from the test environment back to the upstream distro
+
+git checkout opencivic_7.x-2.x
+git merge --squash -s subtree --no-commit opencivic_7.x-2.x-test
+
+h2. To install the subtree module
 
 cd ~/
 git clone
