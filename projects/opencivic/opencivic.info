@@ -18,7 +18,6 @@ dependencies[] = list
 dependencies[] = menu
 dependencies[] = number
 dependencies[] = options
-; dependencies[] = overlay
 dependencies[] = path
 dependencies[] = rdf
 dependencies[] = shortcut
@@ -187,18 +186,10 @@ dependencies[] = date_popup_authored
 
 ; Features
 dependencies[] = appcat_misc_menus
-;; dependencies[] = appcat_misc_taxonomies
-
-; dependencies[] = appcat_misc_taxonomy_app_terms
-; dependencies[] = appcat_misc_taxonomy_civic_terms
-; dependencies[] = appcat_misc_taxonomy_terms
-; dependencies[] = appcat_application_content
-; dependencies[] = appcat_organization_content
 
 ; Included in distro but not enabled at installation
 ; dependencies[] = inline_entity_form
 ; dependencies[] = insert_block
-; dependencies[] = appcat_search_db
 ; dependencies[] = ole
 
 
