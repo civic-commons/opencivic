@@ -6,11 +6,15 @@ h2. To merge changes from the upstream distro to the test environment
 
 git checkout opencivic_7.x-2.x-test
 git merge --squash -s subtree --no-commit opencivic_7.x-2.x
+git pull --rebase
+git push
 
 h2. To merge changes from the test environment back to the upstream distro
 
 git checkout opencivic_7.x-2.x
 git merge --squash -s subtree --no-commit opencivic_7.x-2.x-test
+git pull --rebase
+git push
 
 h2. To install the subtree module
 
