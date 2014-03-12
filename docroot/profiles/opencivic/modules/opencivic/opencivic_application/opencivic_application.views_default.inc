@@ -709,7 +709,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
+    'field_oc_small_icon' => 'field_oc_small_icon',
     'name' => 'name',
   );
   /* Relationship: Taxonomy term: Content using Application function */
@@ -717,14 +717,14 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['field'] = 'reverse_field_oc_app_app_category_node';
   $handler->display->display_options['relationships']['reverse_field_oc_app_app_category_node']['required'] = TRUE;
-  /* Field: : field_small_icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+  /* Field: : field_oc_small_icon */
+  $handler->display->display_options['fields']['field_oc_small_icon']['id'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['table'] = 'field_data_field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['field'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_small_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => 'content',
   );
@@ -810,7 +810,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
+    'field_oc_small_icon' => 'field_oc_small_icon',
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -821,14 +821,14 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['tid']['label'] = '';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-  /* Field: : field_small_icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+  /* Field: : field_oc_small_icon */
+  $handler->display->display_options['fields']['field_oc_small_icon']['id'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['table'] = 'field_data_field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['field'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_small_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => 'content',
   );
@@ -847,7 +847,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_small_icon' => 'field_small_icon',
+    'field_oc_small_icon' => 'field_oc_small_icon',
     'name' => 'name',
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -865,14 +865,14 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['tid']['label'] = '';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-  /* Field: : field_small_icon */
-  $handler->display->display_options['fields']['field_small_icon']['id'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['table'] = 'field_data_field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['field'] = 'field_small_icon';
-  $handler->display->display_options['fields']['field_small_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_small_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_small_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_small_icon']['settings'] = array(
+  /* Field: : field_oc_small_icon */
+  $handler->display->display_options['fields']['field_oc_small_icon']['id'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['table'] = 'field_data_field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['field'] = 'field_oc_small_icon';
+  $handler->display->display_options['fields']['field_oc_small_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_small_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_small_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_small_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => 'content',
   );

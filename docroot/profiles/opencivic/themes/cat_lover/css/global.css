@@ -2685,8 +2685,8 @@ div.field-item.even p strong {
 }
 
 /* line 1743, ../sass/_module.scss */
-.view.view-projects-all.view-display-id-block .views-field-field-small-icon,
-.view.view-problems.view-display-id-block .views-field-field-small-icon {
+.view.view-projects-all.view-display-id-block .views-field-field-oc-small-icon,
+.view.view-problems.view-display-id-block .views-field-field-oc-small-icon {
   margin-right: 10px;
 }
 
@@ -2758,11 +2758,11 @@ div.field-item.even p strong {
 }
 
 /* line 1809, ../sass/_module.scss */
-.view-applications-all.view-display-id-block .view-display-id-block_2 .views-field-field-small-icon,
-.view-applications-all.view-display-id-block .view-display-id-block_3 .views-field-field-small-icon,
-.view.view-projects-all.view-display-id-block .view-display-id-block_2 .views-field-field-small-icon,
-.view.view-projects-all.view-display-id-block .view-display-id-block_3 .views-field-field-small-icon,
-.view.view-problems.view-display-id-block .view-display-id-block_1 .views-field-field-small-icon {
+.view-applications-all.view-display-id-block .view-display-id-block_2 .views-field-field-oc-small-icon,
+.view-applications-all.view-display-id-block .view-display-id-block_3 .views-field-field-oc-small-icon,
+.view.view-projects-all.view-display-id-block .view-display-id-block_2 .views-field-field-oc-small-icon,
+.view.view-projects-all.view-display-id-block .view-display-id-block_3 .views-field-field-oc-small-icon,
+.view.view-problems.view-display-id-block .view-display-id-block_1 .views-field-field-oc-small-icon {
   margin-right: 5px;
 }
 
