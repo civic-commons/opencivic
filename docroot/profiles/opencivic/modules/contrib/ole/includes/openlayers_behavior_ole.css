@@ -1,0 +1,12 @@
+.oleDialog label {
+    display:inline;
+    font-weight: normal;
+}
+
+.oleDialog .form-submit {
+    margin-top:1em;
+}
+
+.oleDialog input[type=checkbox] {
+    margin-right: 0.5ex;
+}

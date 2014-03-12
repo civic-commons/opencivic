@@ -1,0 +1,159 @@
+<?php
+
+/*
+ * @file
+ * Contains tests for Translation management
+ */
+
+/**
+ * Upgrade tests.
+ */
+class TMGMTUpgradeAlpha1TestCase extends DrupalWebTestCase {
+
+  protected $profile = 'testing';
+
+  static function getInfo() {
+    return array(
+      'name' => t('Upgrade tests Alpha1'),
+      'description' => t('Tests the upgrade path from 7.x-1.0-alpha1'),
+      'group' => t('Translation Management'),
+    );
+  }
+
+  function setUp() {
+    // Enable all dependencies.
+    parent::setUp(array('entity', 'views', 'translation', 'locale'));
+
+    // Create the tmgmt tables and fill them.
+    module_load_include('inc', 'tmgmt', 'tests/tmgmt_alpha1_dump.sql');
+
+    // @todo: Figure out why this is necessary.
+    $enabled_modules = db_query("SELECT name FROM {system} where status = 1 and type = 'module'")->fetchCol();
+    foreach ($enabled_modules as $enabled_module) {
+      module_load_install($enabled_module);
+      // Set the schema version to the number of the last update provided
+      // by the module.
+      $versions = drupal_get_schema_versions($enabled_module);
+      $version = $versions ? max($versions) : SCHEMA_INSTALLED;
+      db_update('system')
+        ->condition('name', $enabled_module)
+        ->fields(array('schema_version' => $version))
+        ->execute();
+    }
+
+    // Set schema version to 0 and then install the tmgmt modules, to simulate
+    // an enabling.
+    db_update('system')
+      ->condition('name', array('tmgmt', 'tmgmt_ui', 'tmgmt_field', 'tmgmt_node', 'tmgmt_test', 'tmgmt_node_ui'))
+      ->fields(array(
+        'schema_version' => 0,
+      ))
+      ->execute();
+    module_enable(array('tmgmt', 'tmgmt_ui', 'tmgmt_field', 'tmgmt_node', 'tmgmt_test', 'tmgmt_node_ui'));
+
+    // Log in as a user that can run update.php
+    $admin = $this->drupalCreateUser(array('administer software updates'));
+    $this->drupalLogin($admin);
+
+    $this->performUpgrade();
+  }
+
+  /**
+   * Verifies that the data has been migrated properly
+   */
+  function testUpgradePath() {
+    // Log in as a user with enough permissions.
+    $translator = $this->drupalCreateUser(array('administer tmgmt'));
+    $this->drupalLogin($translator);
+    // Go to a job and check the review form.
+    $this->drupalGet('admin/tmgmt/jobs/1');
+    // Make sure the #status values have been set accordingly.
+    $this->assertRaw(t('Accepted: @accepted, reviewed: @reviewed, translated: @translated, pending: @pending.', array('@accepted' => 0, '@reviewed' => 0, '@translated' => 2, '@pending' => 0)));
+    // Extract the word count field and make sure it's correct.
+    $word_count = $this->xpath('//td[contains(@class, :class)]', array(':class' => 'views-field-word-count-1'));
+    $this->assertEqual(6, trim((string)reset($word_count)));
+
+    $this->clickLink(t('review'));
+    // Needs review icon.
+    $this->assertRaw('tmgmt-ui-icon-yellow tmgmt-ui-state-translated');
+    // Translated values.
+    $this->assertRaw('de_Test content');
+    $this->assertRaw('de_This is the body.');
+    // Reject button.
+    $this->assertRaw('✗');
+
+    // Check that accepted count has been updated correctly.
+    $this->drupalGet('admin/tmgmt/jobs/2');
+    // Make sure the #status values have been set accordingly.
+    $this->assertRaw(t('Accepted: @accepted, reviewed: @reviewed, translated: @translated, pending: @pending.', array('@accepted' => 2, '@reviewed' => 0, '@translated' => 0, '@pending' => 0)));
+
+
+  }
+
+
+  /**
+   * Perform the upgrade.
+   *
+   * Copied and adapted from UpgradePathTestCase::performUpgrade().
+   *
+   * @param $register_errors
+   *   Register the errors during the upgrade process as failures.
+   * @return
+   *   TRUE if the upgrade succeeded, FALSE otherwise.
+   */
+  protected function performUpgrade($register_errors = TRUE) {
+    $update_url = $GLOBALS['base_url'] . '/update.php';
+
+    // Load the first update screen.
+    $this->drupalGet($update_url, array('external' => TRUE));
+    if (!$this->assertResponse(200)) {
+      return FALSE;
+    }
+
+    // Continue.
+    $this->drupalPost(NULL, array(), t('Continue'));
+    if (!$this->assertResponse(200)) {
+      return FALSE;
+    }
+
+    // The test should pass if there are no pending updates.
+    $content = $this->drupalGetContent();
+    if (strpos($content, t('No pending updates.')) !== FALSE) {
+      $this->pass(t('No pending updates and therefore no upgrade process to test.'));
+      $this->pendingUpdates = FALSE;
+      return TRUE;
+    }
+
+    // Go!
+    $this->drupalPost(NULL, array(), t('Apply pending updates'));
+    if (!$this->assertResponse(200)) {
+      return FALSE;
+    }
+
+    // Check for errors during the update process.
+    foreach ($this->xpath('//li[@class=:class]', array(':class' => 'failure')) as $element) {
+      $message = strip_tags($element->asXML());
+      $this->upgradeErrors[] = $message;
+      if ($register_errors) {
+        $this->fail($message);
+      }
+    }
+
+    if (!empty($this->upgradeErrors)) {
+      // Upgrade failed, the installation might be in an inconsistent state,
+      // don't process.
+      return FALSE;
+    }
+
+    // Check if there still are pending updates.
+    $this->drupalGet($update_url, array('external' => TRUE));
+    $this->drupalPost(NULL, array(), t('Continue'));
+    if (!$this->assertText(t('No pending updates.'), t('No pending updates at the end of the update process.'))) {
+      return FALSE;
+    }
+
+    // Clear caches.
+    $this->checkPermissions(array(), TRUE);
+  }
+
+}

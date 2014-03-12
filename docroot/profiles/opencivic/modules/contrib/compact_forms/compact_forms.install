@@ -1,0 +1,26 @@
+<?php
+// $Id: compact_forms.install,v 1.3 2011/01/09 06:22:40 sun Exp $
+
+/**
+ * @file
+ * Installation functions for Compact Forms module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function compact_forms_uninstall() {
+  variable_del('compact_forms_colons');
+  variable_del('compact_forms_descriptions');
+  variable_del('compact_forms_field_size');
+  variable_del('compact_forms_ids');
+  variable_del('compact_forms_stars');
+}
+
+/**
+ * Remove 'compact_forms_colons' variable.
+ */
+function compact_forms_update_7000() {
+  variable_del('compact_forms_colons');
+}
+

@@ -1,0 +1,226 @@
+<?php
+/**
+ * @file field_tools.module
+ * Contains useful tools for working with fields.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function field_tools_help($path, $arg) {
+  // system_modules() form passes us in an array of nothing but empty strings
+  // which we don't want to get tripped up by.
+  $args_filtered = array_filter($arg);
+  if (!$args_filtered) {
+    return;
+  }
+
+  // WTF: the $arg array is 12 items long with empty cruft at the end!?!
+  $args_reverse = array_reverse($args_filtered);
+
+  // Provide help for any path that ends in 'fields/%/clone'.
+  $last_three = array_slice(array_filter($arg), -3);
+  // If we get fewer than three items we don't care anyway.
+  if (count($last_three) >= 3) {
+    if ($last_three[0] == 'fields' && $last_three[2] == 'clone') {
+      return t('Apply this existing field to the other bundles by copying the current field instance.');
+    }
+  }
+
+  // Provide help for any path that ends in 'fields-clone'.
+  if ($args_reverse[0] == 'fields-clone') {
+    return t("Apply some or all fields of the current bundle to other bundles by copying the field instances.");
+  }
+  // Provide help any path that ends in 'fields-clone/to'.
+  if (count($args_reverse) > 1 && $args_reverse[1] == 'fields-clone' && $args_reverse[0] == 'to') {
+    return t("Select the fields you want to copy this bundle. You can only select one instance of a particular field.");
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function field_tools_menu() {
+  // Create tabs for all possible bundles.
+  foreach (entity_get_info() as $entity_type => $entity_info) {
+    if ($entity_info['fieldable']) {
+      foreach ($entity_info['bundles'] as $bundle_name => $bundle_info) {
+        if (isset($bundle_info['admin'])) {
+          // Extract path information from the bundle.
+          $path = $bundle_info['admin']['path'];
+
+          // Determine whether this path caters for several bundles (usually all)
+          // of one entity type, or just one.
+          if (isset($bundle_info['admin']['bundle argument'])) {
+            // Different bundles can appear on the same path (e.g. %node_type and
+            // %comment_node_type). To allow field_ui_menu_load() to extract the
+            // actual bundle object from the translated menu router path
+            // arguments, we need to identify the argument position of the bundle
+            // name string ('bundle argument') and pass that position to the menu
+            // loader. The position needs to be casted into a string; otherwise it
+            // would be replaced with the bundle name string.
+            $bundle_arg = $bundle_info['admin']['bundle argument'];
+            $bundle_pos = (string) $bundle_arg;
+          }
+          else {
+            // Otherwise, this path is for a single bundle. Things are much simpler!
+            $bundle_arg = $bundle_name;
+            $bundle_pos = '0';
+          }
+          // This is the position of the %field_ui_menu placeholder in the
+          // items below.
+          $field_position = count(explode('/', $path)) + 1;
+
+          // Extract access information, providing defaults.
+          $access = array_intersect_key($bundle_info['admin'], drupal_map_assoc(array('access callback', 'access arguments')));
+          $access += array(
+            'access callback' => 'user_access',
+            'access arguments' => array('administer site configuration'),
+          );
+
+          // Menu item for cloning a bundle's fields en masse.
+          // In some cases, $path is the same for every bundle, eg nodes, and
+          // hence doing this here is redundant.
+          $items["$path/fields-clone"] = array(
+            'title' => 'Clone fields',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('field_tools_bundle_fields_clone_from_form', $entity_type, $bundle_arg),
+            'type' => MENU_LOCAL_TASK,
+            'file' => 'field_tools.admin.inc',
+            'weight' => 10,
+          ) + $access;
+          $items["$path/fields-clone/from"] = array(
+            'title' => 'Clone fields from this bundle',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('field_tools_bundle_fields_clone_from_form', $entity_type, $bundle_arg),
+            'type' => MENU_DEFAULT_LOCAL_TASK,
+            'file' => 'field_tools.admin.inc',
+            'weight' => 10,
+          ) + $access;
+          $items["$path/fields-clone/to"] = array(
+            'title' => 'Clone fields to this bundle',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('field_tools_bundle_fields_clone_to_form', $entity_type, $bundle_arg),
+            'type' => MENU_LOCAL_TASK,
+            'file' => 'field_tools.admin.inc',
+            'weight' => 20,
+          ) + $access;
+
+          // Menu item for cloning a single field.
+          $items["$path/fields/%field_ui_menu/clone"] = array(
+            'load arguments' => array($entity_type, $bundle_arg, $bundle_pos, '%map'),
+            'title' => 'Clone',
+            'page callback' => 'drupal_get_form',
+            // The numeric $field_position gets us the field instance from the
+            // %field_ui_menu menu loader.
+            'page arguments' => array('field_tools_field_clone_form', $field_position),
+            'type' => MENU_LOCAL_TASK,
+            'file' => 'field_tools.admin.inc',
+            'weight' => 10,
+          ) + $access;
+        }
+      }
+    }
+  }
+
+  // Field tools overview.
+  $items["admin/reports/fields/tools"] = array(
+    'title' => 'Tools',
+    'page callback' => 'field_tools_field_overview',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -1,
+    'file' => 'field_tools.admin.inc',
+  ) + $access;
+
+  $items["admin/reports/fields/field/%"] = array(
+    'title' => 'Field instances',
+    'page callback' => 'field_tools_field_page',
+    'page arguments' => array(4),
+    'file' => 'field_tools.admin.inc',
+  ) + $access;
+  $items["admin/reports/fields/field/%field_tools_field_menu/edit"] = array(
+    'title' => 'Edit instance',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('field_tools_field_edit_form', 4),
+    'file' => 'field_tools.admin.inc',
+  ) + $access;
+  $items["admin/reports/fields/field/%field_tools_field_menu/delete"] = array(
+    'title' => 'Delete instances',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('field_tools_field_delete_form', 4),
+    'file' => 'field_tools.admin.inc',
+  ) + $access;
+
+  return $items;
+}
+
+/**
+ * Menu loader for a field.
+ *
+ * @param $field_name
+ *  The machine name of a field.
+ */
+function field_tools_field_menu_load($field_name) {
+  if ($field = field_info_field($field_name)) {
+    return $field;
+  }
+  return FALSE;
+}
+
+/**
+ * Helper to get a list of all instances of a field.
+ *
+ * @param $field_name
+ *  The name of a field.
+ *
+ *
+ * @return
+ *  An array of entity types and bundles this field has instances on. Keys are
+ *  entity types, values are arrays of bundle names.
+ */
+function field_tools_info_instances($field_name) {
+  $instances = field_info_instances();
+  $field_bundles = array();
+  foreach ($instances as $entity_type => $bundles) {
+    foreach ($bundles as $bundle => $bundle_instances) {
+      if (isset($bundle_instances[$field_name])) {
+        $field_bundles[$entity_type][] = $bundle;
+      }
+    }
+  }
+  return $field_bundles;
+}
+
+/**
+ * Helper function to determine whether a field can be attached an entity type.
+ *
+ * Certain fields like comment_body are restricted to certain entity types.
+ *
+ * @param string $entity_type
+ *  The entity type to check.
+ * @param array $field_info
+ *  The field info to check.
+ *
+ * @return boolean
+ *  Whether the field can be attached to the entity type.
+ */
+function _field_tools_entity_can_attach_field($entity_type, $field_info) {
+  return !(!empty($field_info['entity_types']) && !in_array($entity_type, $field_info['entity_types']));
+}
+
+/**
+ * Helper function to tell if a field is already attached to a bundle.
+ *
+ * @param string $entity_type
+ *   The entity type to check.
+ * @param string $bundle_type
+ *   The bundle type to check.
+ * @param array $field_info
+ *   The field info array for the field to check.
+ *
+ * @return boolean
+ *   Whether the field is already attached to this bundle.
+ */
+function _field_tools_field_already_attached($entity_type, $bundle_type, $field_info) {
+  return array_key_exists($entity_type, $field_info['bundles']) && in_array($bundle_type, $field_info['bundles'][$entity_type]);
+}

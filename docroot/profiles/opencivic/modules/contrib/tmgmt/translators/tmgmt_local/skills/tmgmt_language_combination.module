@@ -1,0 +1,288 @@
+<?php
+
+/**
+ * Implements hook_field_info().
+ */
+function tmgmt_language_combination_field_info() {
+  $info['tmgmt_language_combination'] = array(
+    'label' => t('Language combination'),
+    'description' => t('Allows the definition of language combinations (e.g. "From english to german").'),
+    'default_widget' => 'tmgmt_language_combination_default',
+    'default_formatter' => 'tmgmt_language_combination_default',
+    'settings' => array(
+      'user_register_form' => 1,
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function tmgmt_language_combination_field_schema($field) {
+  $schema = array(
+    'columns' => array(
+      'language_from' => array(
+        'description' => 'The langcode of the language from which the user is able to translate.',
+        'type' => 'varchar',
+        'length' => 10,
+      ),
+      'language_to' => array(
+        'description' => 'The langcode of the language to which the user is able to translate.',
+        'type' => 'varchar',
+        'length' => 10,
+      ),
+    ),
+    'indexes' => array(
+      'language' => array('language_from', 'language_to'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function tmgmt_language_combination_field_widget_info() {
+  $info['tmgmt_language_combination_default'] = array(
+    'label' => t('Select list'),
+    'description' => t('Default widget for allowing users to define translation combination.'),
+    'field types' => array('tmgmt_language_combination'),
+    'behaviors' => array(
+      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
+      'default value' => FIELD_BEHAVIOR_DEFAULT,
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function tmgmt_language_combination_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  if (isset($form_state['list_all_languages'])) {
+    $languages_options = tmgmt_language_combination_languages_predefined_list();
+  }
+  else {
+    $languages_options = array();
+    foreach (language_list() as $code => $language) {
+      $languages_options[$code] = $language->name;
+    }
+  }
+
+  $options = array('_none' => t('- None -')) + $languages_options;
+
+  $element['language_from'] = array(
+    '#type' => 'select',
+    '#title' => t('From'),
+    '#options' => $options,
+    '#default_value' => isset($items[$delta]) ? $items[$delta]['language_from'] : '',
+    '#attributes' => array('class' => array('from-language')),
+  );
+
+  $element['language_to'] = array(
+    '#type' => 'select',
+    '#title' => t('To'),
+    '#options' => $options,
+    '#default_value' => isset($items[$delta]) ? $items[$delta]['language_to'] : '',
+    '#attributes' => array('class' => array('to-language')),
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_validate().
+ */
+function tmgmt_language_combination_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  $existing = array();
+
+  foreach ($items as $delta => $item) {
+    $key = $item['language_from'] . ':' . $item['language_to'];
+
+    if (!tmgmt_language_combination_field_is_empty($item, 'tmgmt_language_combination')) {
+      if ($item['language_from'] == $item['language_to']) {
+        $errors[$field['field_name']][$langcode][$delta][] = array(
+          'error' => 'tmgmt_language_combination_equal',
+          'message' => t("%name: The 'from' and 'to' language fields can't have the same value.", array('%name' => $instance['label'])),
+        );
+      }
+
+      if (isset($existing[$key])) {
+        $errors[$field['field_name']][$langcode][$delta][] = array(
+          'error' => 'tmgmt_language_combination_equal',
+          'message' => t('%name: The language combination has to be unique.', array('%name' => $instance['label'])),
+        );
+      }
+    }
+
+    $existing[$key] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_field_widget_error().
+ */
+function tmgmt_language_combination_field_widget_error($element, $error, $form, &$form_state) {
+  form_error($element, $error['message']);
+}
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function tmgmt_language_combination_field_is_empty($item, $field) {
+  if (empty($item['language_from']) || empty($item['language_to']) || $item['language_from'] == '_none' || $item['language_to'] == '_none') {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function tmgmt_language_combination_field_formatter_info() {
+  $info['tmgmt_language_combination_default'] = array(
+    'label' => t('Default'),
+    'description' => t('Default formatter for displaying the translation combination of a user.'),
+    'field types' => array('tmgmt_language_combination'),
+  );
+
+  $info['tmgmt_language_combination_table'] = array(
+    'label' => t('Table'),
+    'description' => t('Formatter for displaying the translation combination of a user in a table.'),
+    'field types' => array('tmgmt_language_combination'),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function tmgmt_language_combination_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'tmgmt_language_combination_default':
+      $element['#theme'] = 'item_list';
+      $element['#items'] = array();
+
+      foreach ($items as $delta => $item) {
+        $from = tmgmt_language_combination_language_label($item['language_from']);
+        $to = tmgmt_language_combination_language_label($item['language_to']);
+        $element['#items'][$delta]['data'] = t('From @from to @to', array('@from' => $from, '@to' => $to));
+        $element['#items'][$delta]['class'][] = drupal_html_class($from . '-' . $to) . '">';
+      }
+      break;
+
+    case 'tmgmt_language_combination_table':
+      $rows = array();
+
+      foreach ($items as $item) {
+        $to = tmgmt_language_combination_language_label($item['language_to']);
+        $from = tmgmt_language_combination_language_label($item['language_from']);
+        $row[] = array(
+          'data' => $from,
+          'class' => array('from-language', drupal_html_class('language-' . $from)),
+        );
+
+        $row[] = array(
+          'data' => $to,
+          'class' => array('to-language', drupal_html_class('language-' . $to)),
+        );
+
+        $rows[] = array(
+          'data' => $row,
+          'class' => array(drupal_html_class($from . '-' . $to)),
+        );
+      }
+
+      $element = array(
+        '#theme' => 'table',
+        '#header' => array(t('From'), t('To')),
+        '#rows' => $rows,
+      );
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_update().
+ */
+function tmgmt_language_combination_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  $languages = language_list();
+  $added_languages = array();
+
+  // In case the skill languages is not know to the system, install them.
+  foreach ($items as $item) {
+    if (!isset($languages[$item['language_to']]) && !isset($added_languages[$item['language_to']])) {
+      locale_add_language($item['language_to']);
+      $added_languages[$item['language_to']] = $item['language_to'];
+    }
+    if (!isset($languages[$item['language_from']]) && !isset($added_languages[$item['language_from']])) {
+      locale_add_language($item['language_from']);
+      $added_languages[$item['language_from']] = $item['language_from'];
+    }
+  }
+}
+
+/**
+ * Returns the label of a language.
+ *
+ * @todo Remove this once the core language label function is fixed.
+ *
+ * @param $language
+ *   A language in ISO format.
+ * @return string
+ *   The label of the language or an empty string if the language or its label
+ *   are not defined.
+ */
+function tmgmt_language_combination_language_label($language) {
+  $languages = tmgmt_language_combination_languages_predefined_list();
+  if (!empty($languages[$language])) {
+    return $languages[$language];
+  }
+  return '';
+}
+
+/**
+ * Prepares a language code list for a select form item with all languages.
+ */
+function tmgmt_language_combination_languages_predefined_list() {
+  $predefined = &drupal_static(__FUNCTION__);
+
+  if (!isset($predefined)) {
+    include_once DRUPAL_ROOT . '/includes/iso.inc';
+    $predefined = _locale_get_predefined_list();
+
+    foreach ($predefined as $key => $value) {
+
+      // Include native name in output, if possible
+      if (count($value) > 1) {
+        $tname = t($value[0]);
+        $predefined[$key] = ($tname == $value[1]) ? $tname : "$tname ($value[1])";
+      }
+      else {
+        $predefined[$key] = t($value[0]);
+      }
+    }
+
+    // Add custom languages that are not part of the iso.inc definition.
+    $installed_languages = language_list();
+    foreach ($installed_languages as $lang => $info) {
+      if (!isset($predefined[$lang])) {
+        $predefined[$lang] = $info->name;
+      }
+    }
+
+    asort($predefined);
+  }
+
+  return $predefined;
+}

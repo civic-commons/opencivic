@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Test cases for the microsoft translator module.
+ */
+
+/**
+ * Basic tests for the microsoft translator.
+ */
+class TMGMTMicrosoftTestCase extends TMGMTBaseTestCase {
+
+  /**
+   * Implements getInfo().
+   */
+  static function getInfo() {
+    return array(
+      'name' => t('Microsoft Translator tests'),
+      'description' => t('Tests the microsoft translator plugin integration.'),
+      'group' => t('Translation Management'),
+    );
+  }
+
+  /**
+   * Overrides SimplenewsTestCase::setUp()
+   */
+  function setUp() {
+    parent::setUp(array('tmgmt_ui', 'tmgmt_microsoft', 'tmgmt_microsoft_test'));
+  }
+
+  /**
+   * Tests basic API methods of the plugin.
+   */
+  function testMicrosoft() {
+    $translator = $this->createTranslator();
+    $translator->plugin = 'microsoft';
+    $translator->settings = array(
+      'url' => url('tmgmt_microsoft_mock/v2/Http.svc', array('absolute' => TRUE)),
+    );
+    $translator->save();
+
+    $job = $this->createJob();
+    $job->translator = $translator->name;
+    $item = $job->addItem('test_source', 'test', '1');
+    $item->data = array(
+      'wrapper' => array(
+        '#text' => 'Hello world',
+      ),
+    );
+    $item->save();
+
+    $this->assertFalse($job->isTranslatable(), 'Check if the translator is not
+                       available at this point because we did not define the API
+                       parameters.');
+
+    // Save a wrong api key.
+    $translator->settings['api'] = 'wrong key';
+    $translator->settings['clientid'] = 'wrong clientid';
+    $translator->settings['clientsecret'] = 'wrong secret';
+    $translator->save();
+
+    $t = $job->getTranslator();
+    $languages = $t->getSupportedTargetLanguages('en');
+    $this->assertTrue(empty($languages), t('We can not get the languages using wrong api parameters.'));
+
+    // Save a correct api key.
+    $translator->settings['api'] = 'correct key';
+    $translator->settings['clientid'] = 'correct clientid';
+    $translator->settings['clientsecret'] = 'correct secret';
+    $translator->save();
+
+    // Make sure the translator returns the correct supported target languages.
+    $t = $job->getTranslator();
+    cache_clear_all('languages:' . $t->name, 'cache_tmgmt');
+    $languages = $t->getSupportedTargetLanguages('en');
+    $this->assertTrue(isset($languages['de']));
+    $this->assertTrue(isset($languages['es']));
+    $this->assertTrue(isset($languages['it']));
+    $this->assertTrue(isset($languages['zh-hans']));
+    $this->assertTrue(isset($languages['zh-hant']));
+    $this->assertFalse(isset($languages['zh-CHS']));
+    $this->assertFalse(isset($languages['zh-CHT']));
+    $this->assertFalse(isset($languages['en']));
+
+    $this->assertTrue($job->isTranslatable());
+
+    $job->requestTranslation();
+
+    // Now it should be needs review.
+    foreach ($job->getItems() as $item) {
+      $this->assertTrue($item->isNeedsReview());
+    }
+    $items = $job->getItems();
+    $item = end($items);
+    $data = $item->getData();
+    $this->assertEqual('de_Hello world', $data['wrapper']['#translation']['#text']);
+  }
+
+}

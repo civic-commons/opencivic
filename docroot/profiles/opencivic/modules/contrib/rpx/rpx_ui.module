@@ -1,0 +1,532 @@
+<?php
+
+/**
+ * @file
+ *
+ * This module provides a configuration user interface for
+ * Janrain Engage (formerly RPX).
+ *
+ * @see http://www.janrain.com/products/engage
+ */
+
+define('RPX_ACCOUNTS_STRING', t('Linked accounts'));
+
+/**
+ * Implements hook_menu().
+ */
+function rpx_ui_menu() {
+  $items['admin/config/people/rpx'] = array(
+    'title' => 'Janrain Engage',
+    'description' => 'Configure the settings for Janrain Engage',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_admin_settings'),
+    'access arguments' => array('administer janrain engage'),
+    'weight' => -4,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/settings'] = array(
+    'title' => 'Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_admin_settings'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/settings/reset'] = array(
+    'title' => 'Reset to defaults',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_admin_reset_confirm'),
+    'access arguments' => array('administer janrain engage'),
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/mapping'] = array(
+    'title' => 'Field Mapping',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_mapping_settings_form'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -8,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/mapping/edit'] = array(
+    'title' => 'Edit mapping options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_mapping_edit_form'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_CALLBACK,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/mapping/default'] = array(
+    'title' => 'Edit default mapping options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_mapping_default'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_LOCAL_ACTION,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items["admin/config/people/rpx/fields"] = array(
+    'title' => 'Manage fields',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_field_overview_form'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -7,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/fields/reset'] = array(
+    'title' => 'Reset to defaults',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_field_reset_confirm'),
+    'access arguments' => array('administer janrain engage'),
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/fields/edit'] = array(
+    'title' => 'Edit field',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_field_edit_form'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_CALLBACK,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  $items['admin/config/people/rpx/fields/delete'] = array(
+    'title' => 'Delete field',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('rpx_profile_field_delete'),
+    'access arguments' => array('administer janrain engage'),
+    'type' => MENU_CALLBACK,
+    'file' => 'rpx_ui.admin.inc',
+  );
+
+  if (variable_get('rpx_apikey', FALSE)) {
+    $items['user/%user/rpx'] = array(
+      'title' => variable_get('rpx_accounts_string', RPX_ACCOUNTS_STRING),
+      'page callback' => 'rpx_user_identities',
+      'page arguments' => array(1),
+      'access callback' => '_rpx_own_identities_access',
+      'access arguments' => array(1),
+      'type' => MENU_LOCAL_TASK,
+      'file' => 'rpx_ui.pages.inc',
+    );
+
+    $items['user/%user/rpx/delete'] = array(
+      'title' => 'Delete Linked Account',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('rpx_user_delete_form', 1),
+      'access callback' => '_rpx_own_identities_access',
+      'access arguments' => array(1),
+      'type' => MENU_CALLBACK,
+      'file' => 'rpx_ui.pages.inc',
+    );
+  }
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function rpx_ui_permission() {
+  $permissions = array(
+    'administer janrain engage' =>  array(
+      'title' => t('Administer Janrain Engage settings'),
+      'restrict access' => TRUE,
+    ),
+    'manage own identities' =>  array(
+      'title' => t('Manage own 3rd party identities'),
+      'description' => t('Add and delete own 3rd party identities on the Janrain Engage Identities tab in the user profile.'),
+    ),
+  );
+  return $permissions;
+}
+
+/**
+ * Menu item access callback - users should be allowed to 'manage own
+ * identities' and edit user data for the account.
+ */
+function _rpx_own_identities_access($account) {
+  return user_access('manage own identities') && user_edit_access($account);
+}
+
+/*
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adds social sharing settings to the content type edit form.
+ */
+function rpx_ui_form_node_type_form_alter(&$form, &$form_state) {
+  $type = $form['#node_type']->type;
+
+  $form['rpx_ui'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Janrain Engage'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#access' => user_access('administer janrain engage'),
+    '#weight' => 25,
+    '#group' => 'additional_settings',
+  );
+
+  $form['rpx_ui']['content_title'] = array(
+    '#type' => 'markup',
+    '#title' => t('Content title'),
+    '#markup' => t('<strong>CONTENT</strong>'),
+  );
+
+  $form['rpx_ui']['share_button'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Share button settings'),
+    '#description' => t('Display the content "share" button in the following locations for this content type:'),
+  );
+
+  $form['rpx_ui']['share_button']['rpx_attach_share_link_to_teasers'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Teasers'),
+    '#default_value' => variable_get('rpx_attach_share_link_to_teasers_'. $type, 0),
+  );
+
+  $form['rpx_ui']['share_button']['rpx_attach_share_link_to_nodelink'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Links area'),
+    '#default_value' => variable_get('rpx_attach_share_link_to_nodelink_'. $type, 0),
+  );
+
+  $form['rpx_ui']['share_button']['rpx_attach_share_link_to_nodecont'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Content region'),
+    '#default_value' => variable_get('rpx_attach_share_link_to_nodecont_'. $type, 0),
+  );
+
+  $form['rpx_ui']['share_button']['rpx_attach_share_link_to_nodecont_weight'] = array(
+    '#type' => 'weight',
+    '#title' => t('Weight for "share" button'),
+    '#title_display' => 'invisible',
+    '#default_value' => variable_get('rpx_attach_share_link_to_nodecont_weight_'. $type, 40),
+    '#delta' => 50,
+    '#description' => t('Weight value for the "share" button displayed in content region.'),
+  );
+
+  $form['rpx_ui']['comments_title'] = array(
+    '#type' => 'markup',
+    '#title' => t('Comments title'),
+    '#markup' => t('<strong>COMMENTS</strong>'),
+  );
+
+  $form['rpx_ui']['comments'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Comments settings'),
+  );
+    $form['rpx_ui']['comments']['rpx_comment_popup_social_at_once'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Automatically launch social sharing widget after comment submission'),
+    '#default_value' => variable_get('rpx_comment_popup_social_at_once_'. $type, 0),
+  );
+
+  $form['rpx_ui']['comments']['rpx_attach_share_link_to_comments'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Attach "share" link to comments'),
+    '#default_value' => variable_get('rpx_attach_share_link_to_comments_'. $type, 0),
+  );
+}
+
+/**
+ * Gets a list of enabled provider icons.
+ *
+ * @param boolean $force_lookup
+ *   If set, the list will be obtained from Engage even if a local
+ *   one is available.
+ *
+ * @return
+ *   An array of themed provider icons.
+ */
+function rpx_get_enabled_provider_array($force_lookup = FALSE) {
+  $providers = variable_get('rpx_enabled_providers', array());
+  $realm = variable_get('rpx_realm', '');
+  $realm_scheme = variable_get('rpx_realm_scheme', 'http');
+
+  if ((!count($providers) && $realm) || $force_lookup) {
+    $providers = RPX::get_enabled_providers($realm, $realm_scheme);
+    variable_set('rpx_enabled_providers', $providers);
+  }
+
+  $providers = _rpx_providers();
+  $display_list = array();
+
+  foreach ($providers as $provider_name => $provider_title) {
+    $display_list[] = theme('rpx_icon', array('provider' => $provider_name, 'style' => 'rpx-icon-inline')) . '<span' . drupal_attributes(array('class' => 'rpx-provider-title')) . '>' . $provider_title .  '</span>';
+
+  }
+
+  return $display_list;
+}
+
+function _rpx_drupal_field_catalog() {
+  $catalog = array();
+
+  // Build an array containing the fields defined by the Profile core module.
+  if (module_exists('profile')) {
+    $result = db_query("SELECT fid, title, name FROM {profile_field} WHERE type IN ('textfield', 'textarea', 'url', 'date', 'selection') ORDER BY weight, title", array());
+    $fields = array();
+
+    while ($row = $result->fetchObject()) {
+      $fields[$row->name] = $row->title;
+    }
+
+    // The core profile (legacy) module has no notion of bundles, so this
+    // is just for consistency with the new fieldable entities (profile2, user,
+    // etc.)
+    $bundles = array(
+      '' => array(
+        'title' => '',
+        'fields' => $fields,
+      ),
+    );
+
+    $catalog['profile'] = array(
+      'title' => 'Profile (Core)',
+      'bundles' => $bundles,
+    );
+  }
+  // Add the fields defined by the Profile2 module.
+  // @todo Is there a way to only include those fields that accept text as input
+  // for now? This way it will be less error-prone experience for users.
+  if (module_exists('profile2')) {
+    $catalog['profile2'] = array(
+      'title' => 'Profile 2',
+      'bundles' => array(),
+    );
+
+    foreach (field_info_bundles('profile2') as $bundle_name => $bundle) {
+      $catalog['profile2']['bundles'][$bundle_name] = array(
+        'title'  => $bundle['label'],
+        'fields' => array(),
+      );
+
+      foreach (field_info_instances('profile2', $bundle_name) as $field_name => $field) {
+        $catalog['profile2']['bundles'][$bundle_name]['fields'][$field_name] = $field['label'];
+      }
+    }
+  }
+  // Add the fields defined by the User entity.
+  $catalog['user'] = array(
+    'title' => 'User',
+    'bundles' => array(),
+  );
+
+  foreach (field_info_bundles('user') as $bundle_name => $bundle) {
+    $catalog['user']['bundles'][$bundle_name] = array(
+      'title'  => $bundle['label'],
+      'fields' => array(),
+    );
+
+    foreach (field_info_instances('user', $bundle_name) as $field_name => $field) {
+      $catalog['user']['bundles'][$bundle_name]['fields'][$field_name] = $field['label'];
+    }
+  }
+
+  return $catalog;
+}
+
+/**
+ * Construct an array of options for select inputs.
+ *
+ * @see rpx_mapping_settings()
+ */
+function _rpx_drupal_field_options($catalog, $type) {
+  $options = array('' => '');
+
+  foreach ($catalog as $set => $set_contents) {
+    if ($type == 'set') {
+      $options[$set] = $set_contents['title'];
+    }
+    else if ($type == 'bundle') {
+      foreach ($set_contents['bundles'] as $bundle => $bundle_contents) {
+        $options[$bundle] = $bundle_contents['title'];
+      }
+    }
+  }
+  return $options;
+}
+
+/**
+ * Construct an array of options for select inputs.
+ *
+ * @see rpx_mapping_settings()
+ */
+function _rpx_engage_field_options() {
+  $options = array('' => '');
+  $fields = db_query("SELECT fid, title FROM {rpx_profile_field}");
+
+  while ($field = $fields->fetchObject()) {
+    $options[$field->fid] = $field->title;
+  }
+  return $options;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function rpx_ui_theme() {
+  $result = array(
+    'rpx_mapping_settings_form' => array(
+      'render element' => 'form',
+      'file' => 'rpx_ui.admin.inc',
+    ),
+  );
+
+  $result += array(
+    'rpx_profile_field_overview_form' => array(
+      'render element' => 'form',
+      'file' => 'rpx_ui.admin.inc',
+    ),
+  );
+
+  $result += array(
+    'rpx_provider_weight_table' => array(
+      'render element' => 'providers',
+      'file' => 'rpx_ui.admin.inc',
+    ),
+  );
+
+  if (module_exists('token')) {
+    $result += array(
+      'rpx_path_tree' => array(
+        'file' => 'rpx_ui.admin.inc',
+      ),
+    );
+  }
+
+  return $result;
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function rpx_ui_admin_paths() {
+  $paths = array(
+    'user/*/rpx' => TRUE,
+    'user/*/rpx/delete/*' => TRUE,
+  );
+  return $paths;
+}
+
+/**
+ * Implements hook_library().
+ */
+function rpx_ui_library() {
+  // jQuery treeTable plugin.
+  $libraries['treeTable'] = array(
+    'title' => 'jQuery treeTable',
+    'website' => 'http://plugins.jquery.com/project/treetable',
+    'version' => '2.3.0',
+    'js' => array(
+      drupal_get_path('module', 'rpx_ui') . '/jquery.treeTable.js' => array(),
+    ),
+    'css' => array(
+      drupal_get_path('module', 'rpx_ui') . '/jquery.treeTable.css' => array(),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Implements hook_help().
+ */
+function rpx_ui_help($path, $arg) {
+  switch ($path) {
+    case 'user/%/rpx':
+      return _rpx_user_help_text();
+
+    case 'admin/help#rpx_ui':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Janrain Engage allows your visitors to login to your site with their existing accounts on Facebook, Google, Twitter, Yahoo!, LinkedIn, Windows Live, MySpace, AOL or other networks and then share their comments, purchases, reviews or other activities from your site with friends on multiple social networks. For more information, see the Janrain Engage <a href="@engage-page">product page</a>.', array('@engage-page' => 'http://www.janrain.com/products/engage/')) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Logging in with Janrain Engage') . '</dt>';
+      $output .= '<dd>' . t("To log in using Janrain Engage, a user must already have an account with any of the 3rd party identity providers supported by Engage. Users can then create site accounts using their 3rd party ID, assign one or more 3rd party IDs to an existing account, and log in using a 3rd party ID. This lowers the barrier to registration, which helps increase the user base, and offers convenience and security to the users. Some of the identity providers return verified email addresses for the users, making the registration process even easier. When logging in, users are presented with the option of choosing one of the identity providers; Engage then communicates with the provider, asking it to verify the identity of the user. If the user is logged into their identity provider, Engage communicates back to your site, verifying the user. If they are not logged in, the provider will ask their user for their login and password. At no point does the site being logged into record the user's 3rd party account password.") . '</dd>';
+      $output .= '<dt>' . t('Sharing activities on social networks with Janrain Engage') . '</dt>';
+      $output .= '<dd>' . t('To share a comment using Janrain Engage, a user must choose the desired social networks from the list presented in the Social Publishing popup, signing into the networks if necessary.') . '</dd>';
+      $output .= '</dl>';
+      return $output;
+
+    case 'admin/config/people/rpx/mapping':
+      return '<p>' . t('This page displays the mapping of Drupal profile fields (either <em>User</em> fields or those created using the <em>Profile</em> and <em>Profile2</em> modules) to the 3rd party user profile data returned by Engage. This mapping is used to pre-fill configured Drupal profile fields at user signup and to import the data when user signs in using (or links) a 3rd party account. You can add a new mapping or edit/delete an existing one.') . '</p><p>'. t('Create an Engage data field to map to (on the <em>Manage Fields</em> tab), then select it from the dropdown menu below and select the Drupal profile field that should be mapped to the Engage data. Currently only 5 Drupal <em>Profile</em> field types are supported: single-line text, multi-line text, URL, list selection and date; <em>Profile2</em> and <em>User</em> fields support is limited to text fields.') . '</p>';
+
+  case 'admin/config/people/rpx/fields':
+    $help = '<p>' . t('Here you can create new fields that can be used on the <em>Field Mapping</em> tab. You can also edit or delete existing fields.') . '</p>';
+
+    if (!module_exists('token')) {
+      $help .= '<p>' . t('Please note: the <a href="@token_module_link" target="_blank">Token</a> module is not required for the data mapping to work, but you might want to install and enable it in order to see a list of all available paths here.', array('@token_module_link' => 'http://drupal.org/project/token')) . '</p>';
+    }
+    return $help;
+  }
+}
+
+function _rpx_user_help_text() {
+  $text = variable_get('rpx_user_help_text', FALSE);
+
+  if (!$text && $text !== '') {
+    $text = '<p>' . t('This site supports <a href="@engage-page">Janrain Engage</a>, an easy way to log in to many websites using your account with Facebook, Google, Yahoo!, Twitter and other identity providers. Janrain Engage can reduce the necessity of managing many usernames and passwords for many websites.', array('@engage-page' => 'http://www.janrain.com/products/engage/')) . '</p>';
+    $text .= '<p>' . t('To use Janrain Engage, choose a provider and sign in if prompted. Upon successful signin you will be returned to this site as a registered user. Next time you log in, you will be able to use the same 3rd party account instead of a regular username and password. You can have multiple 3rd party accounts if you like; just keep adding them here.') . '</p>';
+  }
+  return $text;
+}
+
+/**
+ * Helper function: deletes all data created by this module for a user.
+ *
+ * @param integer $uid
+ *   uid of the user that is being deleted.
+ */
+function _rpx_delete_user_data($uid) {
+  db_delete('rpx_mapping_provider')
+    ->condition('uid', $uid)
+    ->execute();
+
+  $aids = db_select('authmap')
+    ->fields('authmap', array('aid'))
+    ->condition('uid', $uid);
+
+  db_delete('rpx_linked_account')
+    ->condition('aid', $aids, 'IN')
+    ->execute();
+}
+
+/**
+ * Implements hook_user_delete().
+ */
+function rpx_ui_user_delete($account) {
+  _rpx_delete_user_data($account->uid);
+  _rpx_delete_engage_mapping('', $account->uid, TRUE);
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function rpx_ui_user_cancel($edit, $account, $method) {
+  switch ($method) {
+    case 'user_cancel_reassign':
+      _rpx_delete_user_data($account->uid);
+      _rpx_delete_engage_mapping('', $account->uid, TRUE);
+      break;
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function rpx_ui_views_api() {
+  return array(
+    'api' => 2,
+    'path' => drupal_get_path('module', 'rpx_ui') . '/views',
+   );
+}

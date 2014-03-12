@@ -1,0 +1,16 @@
+name = Better Jump Menus
+description = Enables creating custom jump menus programmatically via the CTools API.
+dependencies[] = ctools
+dependencies[] = block
+dependencies[] = menu
+package = Chaos tool suite
+
+; Purposively added for feature development.
+core = 7.x
+
+; Information added by drupal.org packaging script on 2012-06-07
+version = "7.x-1.4"
+core = "7.x"
+project = "jump_menu"
+datestamp = "1339052179"
+

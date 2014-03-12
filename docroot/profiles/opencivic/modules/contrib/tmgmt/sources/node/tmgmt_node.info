@@ -1,0 +1,25 @@
+name = Content Source
+description = Content Translation source plugin for the Translation Management system.
+package = Translation Management
+core = 7.x
+
+dependencies[] = tmgmt
+dependencies[] = tmgmt_field
+dependencies[] = translation
+
+files[] = tmgmt_node.plugin.inc
+files[] = tmgmt_node.ui.inc
+files[] = tmgmt_node.test
+
+; Views integration and handlers
+files[] = views/tmgmt_node.views.inc
+files[] = views/handlers/tmgmt_node_handler_field_translation_language_status.inc
+files[] = views/handlers/tmgmt_node_handler_field_translation_language_status_single.inc
+files[] = views/handlers/tmgmt_node_handler_filter_node_translatable_types.inc
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

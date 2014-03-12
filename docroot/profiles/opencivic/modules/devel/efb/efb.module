@@ -1,0 +1,846 @@
+<?php
+/**
+ * @file
+ * Entity Fields Builder module.
+ *
+ * This module takes schema class definitions from schema.org and
+ * uses them to define Drupal content types and other entities.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function efb_menu() {
+  $items['admin/config/content/efb'] = array(
+    'title' => 'Entity Fields Builder settings',
+    'description' => 'Configure settings specific to the Entity Fields Builder module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('efb_admin_settings'),
+    'file' => 'efb.admin.inc',
+    'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function efb_theme() {
+  return array(
+    'efb_admin_settings' => array(
+      'render element' => 'form',
+      'file' => 'efb.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Returns the name, description and field properties of a schema class.
+ *
+ * @param String $schema_name
+ *   The name of the schema class.
+ *
+ * @return Array
+ *   An associative array structured as follows:
+ *    'name' => $schema_name
+ *    'description' => $schema_description
+ *    'properties' => $properties
+ *   where $properties is an associative array in which each key
+ *   is a potential root for a Drupal machine name. Whereas
+ *   schema properties are in camelCase, Drupal machine names
+ *   are in all lowercase with words separated by underscores.
+ *   The values for each key must include at least the following:
+ *    'property_name' => the property name in camelCase
+ *    'machine_name' => the property name in underscore format
+ *                      (same as the key)
+ *    'expected_type' => the expected data type of this property,
+ *                       e.g., 'Text,' 'Number,' 'Date', 'Person', etc.
+ *    'description' => a text description of the property
+ */
+function efb_schema_class($schema_name) {
+  // This hook lets modules define methods for loading schemas based
+  // on their field names.
+  $schema = module_invoke_all('efb_schema_load', $schema_name);
+  drupal_alter('efb_schema', $schema);
+  return $schema;
+}
+
+/**
+ * Modify machine name validation.
+ *
+ * Only validate on add_schema_field rows if their "add" box is checked.
+ *
+ * @see form_validate_machine_name()
+ */
+function efb_validate_machine_name(&$element, &$form_state) {
+  if ($form_state['values']['fields'][$element['#parents'][1]]['insertion']['add']) {
+    form_validate_machine_name($element, $form_state);
+  }
+}
+
+/**
+ * Return an array mapping schema property types to Drupal field types.
+ *
+ * @param String $property_name
+ *   The name of a single property to be mapped (optional). If not
+ *   supplied, all known property types are mapped.
+ *
+ * @return Array
+ *   An associativie array mapping each schema datatype to an avaialble
+ *   Drupal field type.
+ */
+function efb_property_options_map($property_name=NULL) {
+  $map = module_invoke_all('efb_property_options', $property_name);
+  drupal_alter('efb_property_options', $map, $property_name);
+  return $map;
+}
+
+/**
+ * Implements hook_efb_property_options().
+ */
+function efb_efb_property_options($property_name=NULL) {
+  $options = array(
+    'Default',
+    'URL',
+    'Text',
+    'Number',
+    'Integer',
+    'Date',
+    'Boolean',
+    'Schema classes',
+  );
+  $field_type_options = array_keys(field_ui_field_type_options());
+
+  $property_options = array();
+  $default = variable_get('efb_select_default', 'text');
+  foreach ($options as $option) {
+    if (in_array(variable_get('efb_select_' . strtolower($option), $default), $field_type_options)) {
+      $property_options[$option] = array(
+        'type' => variable_get('efb_select_' . strtolower($option), $default),
+      );
+    }
+  }
+  return $property_options;
+}
+
+/**
+ * Implements hook_efb_property_options_alter().
+ */
+function efb_efb_property_options_alter(&$map, $property_name) {
+  if ($property_name == 'copyrightYear') {
+    $map['Number']['type'] = 'number_integer';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function efb_form_field_ui_field_overview_form_alter(&$form, &$form_state, $form_id) {
+  require_once DRUPAL_ROOT . '/modules/field_ui/field_ui.admin.inc';
+  $entity_type = $form['#entity_type'];
+  $bundle = $form['#bundle'];
+
+  $form['fields']['#header'] = array(
+//    t('Add?'),
+    t('Label/Property'),
+    t('Weight'),
+    t('Parent'),
+    t('Machine name'),
+    t('Field type'),
+    t('Widget'),
+    array('data' => t('Operations/Help text'), 'colspan' => 2),
+  );
+  $max_weight = field_info_max_weight($entity_type, $bundle, 'form') + 2;
+/*
+  if (isset($form['fields']['_add_existing_field'])) {
+    $keys_to_alter = array_merge($form['#fields'], $form['#extra'], array('_add_new_field', '_add_existing_field'));
+  }
+  else {
+    $keys_to_alter = array_merge($form['#fields'], $form['#extra'], array('_add_new_field'));
+  }
+  foreach ($keys_to_alter as $key) {
+    $row = $form['fields'][$key];
+    $add = array('add' => array('#markup' => ''));
+    $form['fields'][$key] = array_merge($add, $row);
+  }
+*/
+
+  $field_type_options = field_ui_field_type_options();
+  $widget_type_options = field_ui_widget_type_options(NULL, TRUE);
+  if (!$field_type_options || !$widget_type_options) {
+    return;
+  }
+
+  // This hook lets modules define methods for adding schema class names that
+  // add fields to the field overview form.
+  $schema_names = module_invoke_all('efb_schema_names', $entity_type, $bundle);
+  $form['#schema_machine_names'] = array();
+  $all_schema_properties = array();
+  foreach ($schema_names as $schema_name) {
+    $schema = efb_schema_class($schema_name);
+    if (!$schema) {
+      drupal_set_message(t("This entity wants to use %schema to define some additional field templates, but the Entity Fields Builder module couldn't find a schema type with that name.", array('%schema' => $schema_name)));
+    }
+    else {
+      drupal_set_message(t("This entity is associated with the %schema schema type.", array('%schema' => $schema_name)));
+      $use_existing_fields = variable_get('efb_use_existing_fields', 1);
+      if ($use_existing_fields) {
+        $form['fields']['#regions']['add_schema_existing_' . $schema_name] = array(
+          'attributes' => array('efb-region'),
+          'title' => t('Check items below to use <em>existing</em> fields based on properties of the @schema schema', array('@schema' => $schema['name'])),
+        );
+      }
+      $form['fields']['#regions']['add_schema_' . $schema_name] = array(
+        'attributes' => array('efb-region'),
+        'title' => t('Check items below to make <em>new</em> fields based on properties of the @schema schema', array('@schema' => $schema['name'])),
+      );
+      $field_machine_name = $form['fields']['_add_new_field']['field_name'];
+      foreach ($schema['properties'] as $machine_name_root => $properties) {
+        $property_options_map = efb_property_options_map($properties['property_name']);
+        $all_schema_properties[$properties['property_name']] = ucfirst(str_replace('_', ' ', $properties['machine_name']));
+        // Only create field templates for schema property names that have
+        // not already been used to create a template on this form.
+        // (This avoids duplicates in cases where more than one schema class
+        // is used to add templates to the form.)
+        if (!in_array($machine_name_root, $form['#schema_machine_names'])
+          && !in_array("field_" . $machine_name_root, $form['#fields'])
+        ) {
+          $form['#schema_machine_names'][] = $machine_name_root;
+          $max_weight += 1;
+          $existing_field_options = array(
+            "field_$machine_name_root" => "field_$machine_name_root",
+          );
+          if ($use_existing_fields && $field_data = field_info_field("field_$machine_name_root")) {
+            $name = '_add_schema_existing_field_' . $machine_name_root;
+            // Find an existing field instance and grab its widget type.
+            $field_instance_data = efb_find_existing_field_instance($field_data, $entity_type, "field_$machine_name_root");
+            $widget_default_type = $field_instance_data['widget']['type'];
+
+            // Build the form row.
+            $form['fields'][$name] = array(
+              '#attributes' => array(
+                'class' => array('draggable', 'tabledrag-leaf', 'add-new'),
+              ),
+              '#row_type' => 'add_schema_existing_field',
+              '#schema_name' => $schema_name,
+              '#region_callback' => 'efb_field_overview_row_region',
+              // Do some tweaky stuff with div tags to make this fit nicely
+              // within the existing form's table layout.
+              'insertion' => array(
+                '#type' => 'container',
+                '#prefix' => '<div class="efb-table"><div class="efb-row">',
+                '#suffix' => '</div></div>',
+                'add' => array(
+                  '#type' => 'checkbox',
+                  '#default_value' => FALSE,
+                  '#prefix' => '<div class="efb-checkbox-cell">',
+                ),
+                'efb_property' => array(
+                  '#type' => 'value',
+                  '#default_value' => $properties,
+                  '#suffix' => '</div>',
+                ),
+                'label' => array(
+                  '#type' => 'textfield',
+                  '#default_value' => ucfirst(str_replace('_', ' ', $machine_name_root)),
+                  '#title' => t('Existing field label'),
+                  '#title_display' => 'invisible',
+                  '#size' => 15,
+                  '#description' => t('Label'),
+                  '#attributes' => array('class' => array('label-textfield')),
+                  '#prefix' => '<div class="efb-cell"><div class="label-input"><div class="add-new-placeholder">' . t('Property %property', array('%property' => $properties['property_name'])) . '</div>',
+                  '#suffix' => '</div></div>',
+                ),
+              ),
+              'weight' => array(
+                '#type' => 'textfield',
+                '#default_value' => $max_weight,
+                '#size' => 3,
+                '#title_display' => 'invisible',
+                '#title' => t('Weight for added field'),
+                '#attributes' => array('class' => array('field-weight')),
+                '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+              ),
+              'parent_wrapper' => array(
+                'parent' => array(
+                  '#type' => 'select',
+                  '#title' => t('Parent for existing field'),
+                  '#title_display' => 'invisible',
+                  '#options' => $form['fields']['#parent_options'],
+                  '#empty_value' => '',
+                  '#attributes' => array('class' => array('field-parent')),
+                  '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+                  '#parents' => array('fields', $name, 'parent'),
+                ),
+                'hidden_name' => array(
+                  '#type' => 'hidden',
+                  '#default_value' => $name,
+                  '#attributes' => array('class' => array('field-name')),
+                ),
+              ),
+              'field_name' => array(
+                '#type' => 'select',
+                '#title' => t('Use existing field name'),
+                '#default_value' => "field_" . $machine_name_root,
+                '#disabled' => TRUE,
+                '#options' => $existing_field_options,
+                '#description' => t('Field to share'),
+                '#attributes' => array('class' => array('field-select')),
+                '#cell_attributes' => array('colspan' => 2),
+              ),
+              'widget_type' => array(
+                '#type' => 'select',
+                '#title' => t('Widget for existing field'),
+                '#title_display' => 'invisible',
+                '#options' => $widget_type_options,
+                '#default_value' => $widget_default_type,
+                '#empty_option' => t('- Select a widget -'),
+                '#description' => t('Form element to edit the data.'),
+                '#attributes' => array('class' => array('widget-type-select')),
+                '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+              ),
+              'description' => array(
+                '#type' => 'textarea',
+                '#title' => t('Help text'),
+                '#cell_attributes' => array('colspan' => 2),
+                '#default_value' => $field_instance_data['description'],
+                '#cell_attributes' => array('colspan' => 2),
+              ),
+            );
+          }
+          else {
+            $name = '_add_schema_field_' . $machine_name_root;
+
+            // Hackish fix to make field names work the same for
+            // versions of Drupal 7 prior to 7.14
+            if ($field_machine_name['#type'] == 'machine_name') {
+              $field_machine_name['#machine_name']['source'] = array(
+                'fields',
+                $name,
+                'insertion',
+                'machine_name_source',
+              );
+              $field_machine_name['#field_prefix'] = '<span dir="ltr">';
+              $field_machine_name['#machine_name']['#cell_attributes'] = array('colspan' => 1);
+              $field_machine_name['#element_validate'] = array('efb_validate_machine_name');
+            }
+
+            // Choose a default field type and widget type based
+            // on the schema type's expected type.
+            if (isset($property_options_map[$properties['expected_type']]['type'])) {
+              $default_type_value = $property_options_map[$properties['expected_type']]['type'];
+            }
+            elseif (efb_schema_class($properties['expected_type'])) {
+              $default_type_value = $property_options_map['Schema classes']['type'];
+            }
+            else {
+              $default_type_value = $property_options_map['Default']['type'];
+            }
+            $field_info = field_info_field_types($default_type_value);
+            $default_widget_type = $field_info['default_widget'];
+            drupal_add_css(drupal_get_path('module', 'efb') . '/efb.css');
+            $form['fields'][$name] = array(
+              '#attributes' => array(
+                'class' => array('draggable', 'tabledrag-leaf', 'add-new'),
+              ),
+              '#row_type' => 'add_schema_field',
+              '#schema_name' => $schema_name,
+              '#region_callback' => 'efb_field_overview_row_region',
+              'insertion' => array(
+                '#type' => 'container',
+                '#prefix' => '<div class="efb-table"><div class="efb-row">',
+                '#suffix' => '</div></div>',
+                'add' => array(
+                  '#type' => 'checkbox',
+                  '#default_value' => FALSE,
+                  '#prefix' => '<div class="efb-checkbox-cell">',
+                ),
+                'efb_property' => array(
+                  '#type' => 'value',
+                  '#value' => $properties,
+                ),
+                'machine_name_source' => array(
+                  '#type' => 'textfield',
+                  '#default_value' => "field_" . $machine_name_root,
+                  '#prefix' => '<div class="efb-hidden">',
+                  '#suffix' => '</div></div>',
+                ),
+                'label' => array(
+                  '#type' => 'textfield',
+                  '#default_value' => ucfirst(str_replace('_', ' ', $machine_name_root)),
+                  '#title' => t('Schema field label'),
+                  '#title_display' => 'invisible',
+                  '#size' => 15,
+                  '#description' => t('Label'),
+                  '#prefix' => '<div class="efb-cell"><div class="label-input"><div class="add-new-placeholder">' . t('Property %property', array('%property' => $properties['property_name'])) . '</div>',
+                  '#suffix' => '</div></div>',
+                ),
+              ),
+              'weight' => array(
+                '#type' => 'textfield',
+                '#default_value' => $max_weight,
+                '#size' => 3,
+                '#title_display' => 'invisible',
+                '#title' => t('Weight for schema field'),
+                '#attributes' => array('class' => array('field-weight')),
+                '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+              ),
+              'parent_wrapper' => array(
+                'parent' => array(
+                  '#type' => 'select',
+                  '#title' => t('Parent for schema field'),
+                  '#title_display' => 'invisible',
+                  '#options' => $form['fields']['#parent_options'],
+                  '#empty_value' => '',
+                  '#attributes' => array('class' => array('field-parent')),
+                  '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+                  '#parents' => array('fields', $name, 'parent'),
+                ),
+                'hidden_name' => array(
+                  '#type' => 'hidden',
+                  '#default_value' => $name,
+                  '#attributes' => array('class' => array('field-name')),
+                ),
+              ),
+              'field_name' => $field_machine_name,
+              'type' => array(
+                '#type' => 'select',
+                '#title' => t('@proptype:', array('@proptype' => $properties['expected_type'])),
+                '#options' => $field_type_options,
+                '#empty_option' => t('- Select a field type -'),
+                '#default_value' => $default_type_value,
+                '#description' => t('Type of data to store.'),
+                '#attributes' => array('class' => array('field-type-select')),
+              ),
+              'widget_type' => array(
+                '#type' => 'select',
+                '#title' => t('Widget for schema field'),
+                '#title_display' => 'invisible',
+                '#options' => $widget_type_options,
+                '#empty_option' => t('- Select a widget -'),
+                '#default_value' => $default_widget_type,
+                '#description' => t('Form element to edit the data.'),
+                '#attributes' => array('class' => array('widget-type-select')),
+                '#prefix' => '<div class="add-new-placeholder">&nbsp;</div>',
+              ),
+              'description' => array(
+                '#type' => 'textarea',
+                '#title' => t('Help text'),
+                '#cell_attributes' => array('colspan' => 2),
+                '#default_value' => $properties['description'],
+              ),
+              // Place the 'translatable' property as an explicit value
+              // so that contribmodules can form_alter() the value for
+              // newly created fields.
+              'translatable' => array(
+                '#type' => 'value',
+                '#value' => FALSE,
+              ),
+            );
+          }
+        }
+      }
+    }
+  }
+
+  // Alter existing field rows to add a property selector.
+  $keys_to_alter = array_merge($form['#fields'], $form['#extra']);
+  foreach ($keys_to_alter as $key) {
+    $row = $form['fields'][$key];
+    $add = array('add' => array('#markup' => ''));
+    $form['fields'][$key]['label'] = array(
+      '#type' => 'select',
+      '#title' => $form['fields'][$key]['label']['#markup'],
+      '#options' => $all_schema_properties,
+      '#empty_option' => t('- Select a schema property -'),
+      '#default_value' => schemaorg_ui_term_load($entity_type, $bundle, $key),
+    );
+  }
+
+  $form['#validate'][] = 'efb_field_overview_form_validate_add_schema_fields';
+  $form['#submit'][] = 'efb_field_overview_form_submit';
+}
+
+/**
+ * Validates the 'add schema field' rows of field_ui_field_overview_form().
+ *
+ * @see _field_ui_field_overview_form_validate_add_new()
+ */
+function efb_field_overview_form_validate_add_schema_fields($form, &$form_state) {
+  foreach ($form['#schema_machine_names'] as $machine_name_root) {
+    $form_field_key = '_add_schema_field_' . $machine_name_root;
+    $form_field_existing_key = '_add_schema_existing_field_' . $machine_name_root;
+    if (isset($form_state['values']['fields'][$form_field_existing_key])) {
+      $add = $form_state['values']['fields'][$form_field_existing_key]['insertion']['add'];
+      if ($add) {
+        $field = $form_state['values']['fields']['_add_schema_existing_field_' . $machine_name_root];
+        if (!$field['insertion']['label']) {
+          form_set_error('fields][$form_field_existing_key][insertion][label', t('Add existing field from schema: you need to provide a label.'));
+        }
+      }
+    }
+    elseif (isset($form_state['values']['fields'][$form_field_key])) {
+      $add = $form_state['values']['fields'][$form_field_key]['insertion']['add'];
+      if ($add) {
+        $field = $form_state['values']['fields']['_add_schema_field_' . $machine_name_root];
+        // Validate if information was provided in this 'add schema field' row.
+        if (array_filter(array(
+          $field['insertion']['label'],
+          $field['field_name'],
+          $field['type'],
+          $field['widget_type'],
+        ))) {
+          // Missing label.
+          if (!$field['insertion']['label']) {
+            form_set_error('fields][$form_field_key][insertion][label', t('Add new field from schema: you need to provide a label.'));
+          }
+
+          // Missing field name.
+          if (!$field['field_name']) {
+            form_set_error('fields][$form_field_key][field_name', t('Add new field from schema: you need to provide a field name.'));
+          }
+          // Field name validation.
+          else {
+            $field_name = $field['field_name'];
+
+            // Add the 'field_' prefix.
+            // $field_name = 'field_' . $field_name; // <--- DEPRECATED
+            form_set_value($form['fields'][$form_field_key]['field_name'], $field_name, $form_state);
+          }
+
+          // Missing field type.
+          if (!$field['type']) {
+            form_set_error('fields][$form_field_key][type', t('Add new field from schema: you need to select a field type.'));
+          }
+
+          // Missing widget type.
+          if (!$field['widget_type']) {
+            form_set_error('fields][$form_field_key][widget_type', t('Add new field from schema: you need to select a widget.'));
+          }
+          // Wrong widget type.
+          elseif ($field['type']) {
+            $widget_types = field_ui_widget_type_options($field['type']);
+            if (!isset($widget_types[$field['widget_type']])) {
+              form_set_error('fields][$form_field_key][widget_type', t('Add new field from schema: invalid widget.'));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Additional form submission handler for the 'Save and add fields' button.
+ *
+ * @see efb_form_field_ui_field_overview_form_alter()
+ */
+function efb_field_overview_form_submit($form, &$form_state) {
+  $form_values = $form_state['values']['fields'];
+  $entity_type = $form['#entity_type'];
+  $bundle = $form['#bundle'];
+  $admin_path = _field_ui_bundle_admin_path($entity_type, $bundle);
+
+  // Update field property mappings.
+  foreach ($form_values as $key => $values) {
+    if (in_array($key, $form['#fields'])) {
+      $instance = field_read_instance($entity_type, $key, $bundle);
+      module_invoke_all('efb_set_field_options', $values['label'], $entity_type, $bundle, $key, $instance['widget']['type']);
+    }
+  }
+
+  $needs_menu_rebuild = FALSE;
+  foreach ($form_values as $key => $values) {
+    // Create instances of existing schema-based field.
+    if ($form['fields'][$key]['#row_type'] == 'add_schema_existing_field' && $values['insertion']['add']) {
+      $field = field_info_field($values['field_name']);
+      if (!empty($field['locked'])) {
+        drupal_set_message(t('The field %label cannot be added because it is locked.', array('%label' => $values['insertion']['label'])), 'error');
+      }
+      else {
+        $instance = efb_find_existing_field_instance($field, $entity_type, $values['field_name']);
+        $instance['field_name'] = $field['field_name'];
+        $instance['entity_type'] = $entity_type;
+        $instance['bundle'] = $bundle;
+        $instance['label'] = $values['insertion']['label'];
+        $instance['widget']['type'] = $values['widget_type'];
+        $instance['widget']['weight'] = $values['weight'];
+        $instance['description'] = $values['description'];
+        try {
+          field_create_instance($instance);
+          module_invoke_all('efb_set_field_options', $values['insertion']['efb_property']['property_name'], $entity_type, $bundle, $values['field_name'], $values['widget_type']);
+          // $destinations[] = $admin_path . '/fields/' . $instance['field_name'] . '/edit';
+          // TODO: Store new field information for any additional submit handlers.
+          // $form_state['fields_added']['_add_existing_field'] = $instance['field_name'];
+        }
+        catch (Exception $e) {
+          drupal_set_message(t('There was a problem creating field instance %label: @message.', array('%label' => $instance['label'], '@message' => $e->getMessage())), 'error');
+        }
+      }
+    }
+    // Create new schema-based fields.
+    elseif ($form['fields'][$key]['#row_type'] == 'add_schema_field' && $values['insertion']['add']) {
+      $field = array();
+      if (!empty($values['field_name'])) {
+        $field = array(
+          'field_name' => $values['field_name'],
+          'type' => $values['type'],
+          'translatable' => $values['translatable'],
+        );
+        $instance = array(
+          'field_name' => $field['field_name'],
+          'entity_type' => $entity_type,
+          'bundle' => $bundle,
+          'label' => $values['insertion']['label'],
+          'description' => $values['description'],
+          'widget' => array(
+            'type' => $values['widget_type'],
+            'weight' => $values['weight'],
+          ),
+        );
+
+        // Create the field and instance.
+        try {
+          if ($field['type'] == 'entityreference') {
+            $field_info = field_info_field_types($field['type']);
+            $field['settings'] = $field_info['settings'];
+            $machine_name = efb_match_content_type($values['insertion']['efb_property']['expected_type'], $needs_menu_rebuild);
+            $field['settings']['handler_settings']['target_bundles'] = array($machine_name);
+          }
+          elseif ($field['type'] == 'taxonomy_term_reference') {
+            $field_info = field_info_field_types($field['type']);
+            $field['settings'] = $field_info['settings'];
+            $machine_name = efb_match_vocabulary($values['insertion']['efb_property']['expected_type']);
+            $field['settings']['allowed_values'][0]['vocabulary'] = $machine_name;
+          }
+          field_create_field($field);
+          field_create_instance($instance);
+          // This hook lets modules define methods for setting field
+          // options in addition to the default options provided by
+          // the field_create_field() and field_create_instance()
+          // methods.
+          module_invoke_all('efb_set_field_options', $values['insertion']['efb_property']['property_name'], $entity_type, $bundle, $values['field_name'], $values['type']);
+
+          // Store new field information for any additional submit handlers.
+          $form_state['fields_added'][$key] = $field['field_name'];
+        }
+        catch (Exception $e) {
+          drupal_set_message(t('There was a problem creating field %label: !message', array('%label' => $instance['label'], '!message' => $e->getMessage())), 'error');
+        }
+      }
+    }
+  }
+  // Update the menu router information.
+  if ($needs_menu_rebuild) {
+    menu_rebuild();
+  }
+}
+
+/**
+ * Matches a schema name to its corresponding content type.
+ *
+ * This is a helper function that matches up Entity reference
+ * fields with content types that match the schema class indicated
+ * by the "expected type" value of the schema property that was
+ * used as the field template.
+ *
+ * If a content type does not already exist that matches the
+ * expected type, this function can create one.
+ *
+ * @param String $schema_name
+ *   The name of the schema class.
+ * @param Boolean $needs_menu_rebuild
+ *   A Boolean flag that gets updated if a new content type
+ *   needs to be created.
+ *
+ * @return String
+ *   The machine name (bundle) of the matching content type
+ */
+function efb_match_content_type($schema_name, &$needs_menu_rebuild) {
+  $schema = efb_schema_class($schema_name);
+  // If a schema class exists for this property's expected type, create
+  // a content type corresponding to that schema class.
+  if (!$schema) {
+    return FALSE;
+  }
+  $machine_name = efb_to_underscore($schema_name);
+  module_invoke_all('efb_set_entity_options', 'node', $machine_name, $schema);
+  if (node_type_get_type($machine_name)) {
+    return $machine_name;
+  }
+  // Check to make sure the module is configured to automatically
+  // create matching content types before creating them.
+  if (!variable_get('efb_create_content_types', 0)) {
+    return FALSE;
+  }
+  $display_name = ucfirst(str_replace('_', ' ', $machine_name));
+  drupal_set_message(t("Created content type @content", array('@content' => $display_name)));
+  $type = array(
+    'type' => $machine_name,
+    'name' => $display_name,
+    'base' => 'node_content',
+    'description' => $schema['description'],
+    'custom' => TRUE,
+    'modified' => TRUE,
+    'locked' => FALSE,
+  );
+  $type = node_type_set_defaults($type);
+  node_type_save($type);
+  $needs_menu_rebuild = TRUE;
+  return $machine_name;
+}
+
+/**
+ * Matches a schema name to a corresponding taxonomy vocabulary.
+ *
+ * This is a helper function that matches up Term reference
+ * fields with vocabularies that match the schema class indicated
+ * by the "expected type" value of the schema property that was
+ * used as the field template.
+ *
+ * If a vocabulary does not already exist that matches the
+ * expected type, this function can create one.
+ *
+ * @param String $schema_name
+ *   The name of the schema class.
+ *
+ * @return String
+ *   The machine name (bundle) of the matching content type
+ */
+function efb_match_vocabulary($schema_name) {
+  $schema = efb_schema_class($schema_name);
+  // If a schema class exists for this property's expected type, create
+  // a content type corresponding to that schema class.
+  if (!$schema) {
+    return FALSE;
+  }
+  $machine_name = efb_to_underscore($schema_name);
+  module_invoke_all('efb_set_entity_options', 'taxonomy', $machine_name, $schema);
+  if (taxonomy_vocabulary_machine_name_load($machine_name)) {
+    return $machine_name;
+  }
+  // Check to make sure the module is configured to automatically
+  // create matching vocabularies before creating them.
+  if (!variable_get('efb_create_vocabularies', 0)) {
+    return FALSE;
+  }
+  $display_name = ucfirst(str_replace('_', ' ', $machine_name));
+  drupal_set_message(t("Created vocabulary @vocabulary", array('@vocabulary' => $display_name)));
+  $vocabulary = (object) array(
+    'name' => $display_name,
+    'machine_name' => $machine_name,
+    'description' => $schema['description'],
+    'hierarchy' => 0,
+    'weight' => 0,
+  );
+  taxonomy_vocabulary_save($vocabulary);
+  return $machine_name;
+}
+
+/**
+ * Finds an existing field instance to use as a model.
+ *
+ * This returns the first field instance it can find
+ * with a machine name that matches the field name parameter.
+ *
+ * @param Array $field
+ *   A field array returned by field_info_field().
+ * @param String $entity_type
+ *   The entity type of the field to be instantiated.
+ * @param String $field_name
+ *   The machine name of the field to be instantiated.
+ *
+ * @return Array
+ *   A field instance array returned by field_info_instance().
+ *
+ * @see field_info_field()
+ * @see field_info_instance()
+ */
+function efb_find_existing_field_instance($field, $entity_type, $field_name) {
+  if (isset($field['bundles'][$entity_type])) {
+    $bundle = $field['bundles'][$entity_type][0];
+  }
+  else {
+    foreach ($field['bundles'] as $iterated_entity_type => $bundles) {
+      $entity_type = $iterated_entity_type;
+      $bundle = $bundles[0];
+      exit;
+    }
+  }
+  return field_info_instance($entity_type, $field_name, $bundle);
+}
+
+/**
+ * Returns the region to which a row in the 'Manage fields' screen belongs.
+ *
+ * This function is used as a replacement to the #region_callback in
+ * field_ui_field_overview_form
+ *
+ * @see field_ui_field_overview_form()
+ * @see field_ui_field_overview_row_region()
+ */
+function efb_field_overview_row_region($row) {
+  switch ($row['#row_type']) {
+    case 'field':
+    case 'extra_field':
+      return 'main';
+
+    case 'add_schema_field':
+      return 'add_schema_' . $row['#schema_name'];
+
+    case 'add_schema_existing_field':
+      return 'add_schema_existing_' . $row['#schema_name'];
+
+    case 'add_new_field':
+      // If no input in 'label', assume the row has not been dragged out of the
+      // 'add new' section.
+      return (!empty($row['label']['#value']) ? 'main' : 'add_new');
+  }
+}
+
+/**
+ * Converts an underscored string to camelcase.
+ *
+ * @param String $underscored_string
+ *   The string to be converted.
+ * @param Boolean $capitalize_first_letter
+ *   Whether to capitalize the first letter in the camelcase version (Boolean).
+ *
+ * @return String
+ *   A string
+ */
+function efb_to_camelcase($underscored_string, $capitalize_first_letter=FALSE) {
+  if ($capitalize_first_letter) {
+    return preg_replace_callback(
+      '/(?:^|_)(.?)/',
+      create_function(
+        '$matches',
+        'return strtoupper($matches[1]);'
+      ),
+      $underscored_string
+    );
+  }
+  else {
+    return preg_replace_callback(
+      '/_(.?)/',
+      create_function(
+        '$matches',
+        'return strtoupper($matches[1]);'
+      ),
+      $underscored_string
+    );
+  }
+}
+
+/**
+ * Converts a camelcase string to underscored.
+ *
+ * @param String $camelcase_string
+ *   The string to be converted.
+ *
+ * @return String
+ *   A string
+ */
+function efb_to_underscore($camelcase_string) {
+  return strtolower(preg_replace('/([^A-Z])([A-Z])/', "$1_$2", $camelcase_string));
+}

@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * Content Overview Tests
+ */
+class TMGMTNodeSourceUIOverviewTestCase extends TMGMTEntityTestCaseUtility {
+
+  static function getInfo() {
+    return array(
+      'name' => 'Node Source UI Overview tests',
+      'description' => 'Tests the user interface for node overviews.',
+      'group' => 'Translation Management',
+      'dependencies' => array('rules'),
+    );
+  }
+
+  function setUp() {
+    parent::setUp(array('tmgmt_node_ui'));
+
+    $this->loginAsAdmin();
+
+    $this->setEnvironment('de');
+    $this->setEnvironment('fr');
+    $this->setEnvironment('es');
+    $this->setEnvironment('el');
+
+    $this->createNodeType('page', 'Page', TRANSLATION_ENABLED, FALSE);
+    // 1 means that the node type can have a language but is not translatable.
+    $this->createNodeType('untranslated', 'Untranslated', 1, FALSE);
+
+    $this->checkPermissions(array(), TRUE);
+
+    // Allow auto-accept.
+    $default_translator = tmgmt_translator_load('test_translator');
+    $default_translator->settings = array(
+      'auto_accept' => TRUE,
+    );
+    $default_translator->save();
+  }
+
+  /**
+   * Tests translating through the content source overview.
+   */
+  function testNodeSourceOverview() {
+
+    // Login as translator to translate nodes.
+    $this->loginAsTranslator(array(
+      'translate content',
+      'edit any page content',
+      'create page content',
+    ));
+
+    // Create a bunch of english nodes.
+    $node1 = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+    $node2 = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+    $node3 = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+    $node4 = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Create a node with an undefined language.
+    $node5 = $this->drupalCreateNode(array('type' => 'page'));
+
+    // Create a node of an untranslatable content type.
+    $node6 = $this->drupalCreateNode(array('type' => 'untranslated', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the overview page and make sure the nodes are there.
+    $this->drupalGet('admin/tmgmt/sources/node');
+
+    // Make sure that valid nodes are shown.
+    $this->assertText($node1->title);
+    $this->assertText($node2->title);
+    $this->assertText($node3->title);
+    $this->assertText($node4->title);
+    // Nodes without a language must not be shown.
+    $this->assertNoText($node5->title);
+    // Node with a type that is not enabled for translation must not be shown.
+    $this->assertNoText($node6->title);
+
+    // Now translate them.
+    $edit = array(
+      'views_bulk_operations[0]' => TRUE,
+      'views_bulk_operations[1]' => TRUE,
+      'views_bulk_operations[2]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translations'));
+
+    // Some assertions on the submit form.
+    $this->assertText(t('@title and 2 more (English to ?, Unprocessed)', array('@title' => $node1->title)));
+    $this->assertText($node1->title);
+    $this->assertText($node2->title);
+    $this->assertText($node3->title);
+    $this->assertNoText($node4->title);
+
+    // Translate
+    $edit = array(
+      'target_language' => 'de',
+    );
+    $this->drupalPost(NULL, $edit, t('Submit to translator'));
+    $this->assertNoText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node1->title, '@language' => t('German'))));
+    $this->assertText(t('The translation for @title has been accepted.', array('@title' => $node1->title)));
+    $this->assertNoText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node2->title, '@language' => t('German'))));
+    $this->assertText(t('The translation for @title has been accepted.', array('@title' => $node1->title)));
+    $this->assertNoText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node3->title, '@language' => t('German'))));
+    $this->assertText(t('The translation for @title has been accepted.', array('@title' => $node1->title)));
+
+    // Check the translated node.
+    $this->clickLink($node1->title);
+    $this->clickLink(t('Translate'));
+    $this->assertText('de_' . $node1->title);
+  }
+}
+

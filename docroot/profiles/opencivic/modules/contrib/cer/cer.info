@@ -1,0 +1,8 @@
+name = Corresponding Entity References
+description = Syncs the Entity reference between two node types which have an entityreference to each other.  
+core = 7.x
+dependencies[] = entityreference
+dependencies[] = ctools
+
+files[] = cer.admin.inc
+files[] = cer.crud.inc

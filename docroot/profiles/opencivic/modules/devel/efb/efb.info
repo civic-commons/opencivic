@@ -1,0 +1,7 @@
+name = Entity Fields Builder
+description = "Assists in adding fields to entities using Schema.org and other standards"
+core = 7.x
+package = Fields
+configure = admin/config/content/efb
+files[] = efb.module
+dependencies[] = schemaorg

@@ -1,0 +1,15 @@
+name = Date iCal
+description = Allows creation of an iCal feed in Views.
+package = Date/Time
+core = 7.x
+dependencies[] = date_views
+dependencies[] = entity
+files[] = date_ical_plugin_row_ical_feed.inc
+files[] = date_ical_plugin_style_ical_feed.inc
+
+; Information added by drupal.org packaging script on 2012-04-19
+version = "7.x-1.1"
+core = "7.x"
+project = "date_ical"
+datestamp = "1334834798"
+

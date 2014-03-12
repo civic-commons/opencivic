@@ -1,0 +1,6 @@
+name = Prepopulate Create Node Links
+description = Add links to nodes to add nodes that reference them
+core = 7.x
+package = Fields
+dependencies[] = entityreference_prepopulate
+files[] = views/views_handler_field_prepopulate_create_node_links.inc

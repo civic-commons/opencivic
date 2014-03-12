@@ -1,0 +1,13 @@
+; $Id: compact_forms.info,v 1.5 2011/01/09 06:22:40 sun Exp $
+name = Compact Forms
+description = Overlays form fields with their respective labels using JavaScript.
+package = User interface
+core = 7.x
+configure = admin/config/user-interface/compact_forms
+
+; Information added by drupal.org packaging script on 2011-01-09
+version = "7.x-1.0"
+core = "7.x"
+project = "compact_forms"
+datestamp = "1294554354"
+

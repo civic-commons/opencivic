@@ -1,0 +1,57 @@
+name = Translation Management Core
+description = Core functionality for the Translation Management Suite.
+package = Translation Management
+core = 7.x
+
+dependencies[] = entity
+dependencies[] = locale
+dependencies[] = views
+
+files[] = includes/tmgmt.exception.inc
+files[] = controller/tmgmt.controller.job.inc
+files[] = controller/tmgmt.controller.job_item.inc
+files[] = controller/tmgmt.controller.remote.inc
+files[] = controller/tmgmt.controller.translator.inc
+files[] = entity/tmgmt.entity.job.inc
+files[] = entity/tmgmt.entity.job_item.inc
+files[] = entity/tmgmt.entity.message.inc
+files[] = entity/tmgmt.entity.remote.inc
+files[] = entity/tmgmt.entity.translator.inc
+files[] = plugin/tmgmt.plugin.base.inc
+files[] = plugin/tmgmt.plugin.interface.base.inc
+files[] = plugin/tmgmt.plugin.interface.reject.inc
+files[] = plugin/tmgmt.plugin.interface.source.inc
+files[] = plugin/tmgmt.plugin.interface.translator.inc
+files[] = plugin/tmgmt.plugin.source.inc
+files[] = plugin/tmgmt.plugin.translator.inc
+files[] = plugin/tmgmt.ui.interface.source.inc
+files[] = plugin/tmgmt.ui.interface.translator.inc
+files[] = plugin/tmgmt.ui.source.inc
+files[] = plugin/tmgmt.ui.translator.inc
+files[] = includes/tmgmt.info.inc
+files[] = tests/tmgmt.base.test
+files[] = tests/tmgmt.base.entity.test
+files[] = tests/tmgmt.crud.test
+files[] = tests/tmgmt.plugin.test
+files[] = tests/tmgmt.helper.test
+files[] = tests/tmgmt.upgrade.alpha1.test
+
+; Views integration and handlers
+files[] = views/tmgmt.views.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_entity_label.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_job_item_type.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_translator.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_job_operations.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_progress.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_wordcount.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_message_message.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_job_item_operations.inc
+files[] = views/handlers/tmgmt_handler_field_tmgmt_job_item_count.inc
+files[] = views/plugins/tmgmt_views_job_access.inc
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

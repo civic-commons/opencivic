@@ -1,0 +1,4 @@
+; $Id$
+name = Transclude
+description = Transclude one node content into another
+core = 7.x

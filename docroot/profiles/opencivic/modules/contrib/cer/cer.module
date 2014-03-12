@@ -1,0 +1,334 @@
+<?php
+/**
+ * @file
+ * Module file providing the "corresponding entity reference" module main
+ * functions.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function cer_menu() {
+  $items = array();
+  $items['admin/config/system/cer'] = array(
+    'title' => 'Corresponding entity references',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cer_settings_form'),
+    'access arguments' => array('administer cer settings'),
+    'file' => 'cer.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/config/system/cer/references'] = array(
+    'title' => 'Corresponding entity references',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cer_settings_form'),
+    'access arguments' => array('administer cer settings'),
+    'file' => 'cer.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/config/system/cer/update'] = array(
+    'title' => 'Update existing entities',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cer_update_form'),
+    'access arguments' => array('administer cer settings'),
+    'file' => 'cer.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function cer_permission() {
+  return array(
+    'administer cer settings' => array(
+      'title' => t('Administer corresponding entity reference settings'),
+      'description' => t('Administer corresponding entity reference settings'),
+    )
+  );
+}
+
+/**
+ * Formats a label.
+ */
+function cer_format_label($key) {
+  $key = explode(' ', $key);
+  return t('Field instance:"!field1" on Entity type:"!entity1" - Bundle type:"!bundle1" <b>Corresponds with</b> Field instance:"!field2" on Entity type:"!entity2" Bundle type:"!bundle2"',
+    array('!entity1' => $key[0], '!bundle1' => $key[1], '!field1' => $key[2], '!entity2' => $key[3], '!bundle2' => $key[4], '!field2' => $key[5]));
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function cer_entity_insert($entity, $type) {
+  cer_processing_entity('insert', $entity, $type);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function cer_entity_update($entity, $type) {
+  cer_processing_entity('update', $entity, $type);
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function cer_entity_delete($entity, $type) {
+  cer_processing_entity('delete', $entity, $type);
+}
+
+/**
+ * Load enabled CNR presets.
+ */
+function cer_preset_load_enabled() {
+  ctools_include('export');
+  return ctools_export_load_object('cer', 'conditions', array('enabled' => 1));
+}
+
+/**
+ * Return CNR preset by key.
+ */
+function cer_preset_load($key) {
+  ctools_include('export');
+  return ctools_export_crud_load('cer', $key);
+}
+
+/**
+ * Return 1 if CNR preset specified by given key is enabled.
+ */
+function cer_preset_enabled($key) {
+  $preset = cer_preset_load($key);
+  return empty($preset) ? 0 : $preset->enabled;
+}
+
+/**
+ * Process a entity's corresponding entity references.
+ *
+ * @param $op the operation being performed on the entity.
+ * @param $entity the entity object
+ * @param $process_unchanged whether or not to process entity reference fields
+ *        whose values have not changed.
+ */
+function cer_processing_entity($op, $entity, $type, $process_unchanged = FALSE) {
+  module_load_include('inc', 'cer', 'cer.crud');
+
+  $result = cer_preset_load_enabled();
+
+  while ($row = array_shift($result)) {
+    $key = explode('*', $row->entity_types_content_fields);
+    if(($type == $key[0]) || ($type == $key[3])){
+
+      $entity->home = _cer_entity_get_bundle($entity, $type);
+
+      switch ($entity->home) {
+        case $key[1]:
+          // Create an array to pass to op function instead of 6 arguments.
+          $keys = array(
+            'home_entity_type' => $key[0],
+            'home_bundle' => $key[1],
+            'home_field' => $key[2],
+            'away_entity_type' => $key[3],
+            'away_bundle' => $key[4],
+            'away_field' => $key[5],
+          );
+          $args = array($entity, $keys, $process_unchanged);
+          $function = 'cer_' . $op;
+          call_user_func_array($function, $args);
+          if ($key[0] != $key[2]) {
+            break;
+          }
+
+        // Fall through.
+        case $key[4]:
+          $keys = array(
+            'home_entity_type' => $key[3],
+            'home_bundle' => $key[4],
+            'home_field' => $key[5],
+            'away_entity_type' => $key[0],
+            'away_bundle' => $key[1],
+            'away_field' => $key[2],
+          );
+          $args = array($entity, $keys, $process_unchanged);
+          $function = 'cer_' . $op;
+          call_user_func_array($function, $args);
+          break;
+      }
+    }
+  }
+}
+
+
+
+/**
+ * Submit a batch job to index the remaining, unindexed content.
+ */
+function cer_batch_index_remaining($type, $limit) {
+  $batch = array(
+    'operations' => array(
+      array(
+        'cer_batch_update_existing_entities', array($type, $limit)
+      ),
+    ),
+    'finished' => 'cer_batch_update_existing_finished',
+    'title' => t('Processing'),
+    'init_message' => t('Preparing to update corresponding entity references for existing entities...'),
+    'progress_message' => t('Processing entities...'),
+    'error_message' => t('Corresponding entity references - existing entity update has encountered an error.'),
+  );
+  batch_set($batch);
+}
+
+/**
+ * Batch Operation Callback
+ *
+ * @see cer_batch_index_remaining()
+ */
+function cer_batch_update_existing_entities($type, $limit, &$context) {
+  // If we are on our first time through.
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['current_entity'] = 0;
+    $count = 0;
+
+
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', $type)
+          ->entityCondition('entity_id', 0, '>')
+          ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+    $result = $query->execute();
+    if (isset($result[$type])) {
+      $ids = array_keys($result[$type]);
+      $count += count($ids);
+    }
+    $context['sandbox']['max'] = $count;
+  }
+
+  $ids = array();
+  $args = $type;
+  $args['current_entity'] = $context['sandbox']['current_entity'];
+
+  $labels = _cer_entity_ids();
+  $label = $labels[$type];
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', $type)
+        ->entityCondition('entity_id', $args['current_entity'], '>')
+        ->propertyOrderBy($label, 'ASC')
+        ->range(0, $limit)
+        ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+  if (isset($result[$type])) {
+    $ids = array_keys($result[$type]);
+  }
+
+  foreach ($ids as $id){
+      $entity = entity_load($type, array($id));
+      $entity = $entity[$id];
+      cer_processing_entity('update', $entity, $type, TRUE);
+      // Update our progress information.
+      $context['sandbox']['progress']++;
+      $context['sandbox']['current_entity'] = $entity->{$label};
+      $context['message'] = t('Processed @current of @total entities',
+                               array(
+                                 '@current' => $context['sandbox']['progress'],
+                                 '@total' => $context['sandbox']['max'],
+                               )
+                             );
+
+  }
+  // Inform the batch engine that we are not finished,
+  // and provide an estimation of the completion level we reached.
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+  // Put the total into the results section when we're finished so we can show
+  // it to the admin.
+  if ($context['finished']) {
+    $context['results']['count'] = $context['sandbox']['progress'];
+  }
+}
+
+/**
+ * Batch 'finished' callback.
+ *
+ * @see cer_batch_index_remaining()
+ */
+function cer_batch_update_existing_finished($success, $results, $operations) {
+  if ($success) {
+    $type = 'status';
+    $message = format_plural($results['count'], '1 entity processed successfully.', '@count entitys processed successfully.');
+  }
+  else {
+    $type = 'error';
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = 'An error occurred while processing ' . $error_operation[0] . ' with arguments:' . print_r($error_operation[0], TRUE);
+  }
+  drupal_set_message($message, $type);
+}
+
+function cer_ctools_plugin_api($owner, $api) {
+  if ($owner == 'cer' && $api == 'default_cer_presets') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Helper function. Returns entity "ID" keys.
+ *
+ * @param $entity_types Array containing "home" and "away" keys.
+ */
+function _cer_entity_ids($entity_types = NULL) {
+  $types = entity_get_info();
+  foreach($types as $key => $type){
+    $entity_type_ids[$key] = $type['entity keys']['id'];
+  }
+  if (isset($entity_types)){
+    $ids = array(
+      'home' => $entity_type_ids[$entity_types['home']],
+      'away' => $entity_type_ids[$entity_types['away']],
+    );
+    return $ids;
+  }
+  else {
+    return $entity_type_ids;
+  }
+}
+
+
+
+/**
+ * Helper function. Returns entity "bundle" keys.
+ *
+ * @param $entity_types Array containing "home" and "away" keys.
+ */
+function _cer_entity_bundles($entity_types) {
+  $types = entity_get_info();
+
+  foreach($types as $key => $type){
+    $entity_type_id[$key] = $type['entity keys']['bundle'];
+  }
+
+  $bundles = array(
+    'home' => $entity_type_id[$entity_types['home']],
+    'away' => $entity_type_id[$entity_types['away']],
+  );
+  return $bundles;
+}
+
+function _cer_entity_get_bundle($entity, $entity_type) {
+  $info = entity_get_info($entity_type);
+  if (empty($info['entity keys']['bundle'])) {
+    return $entity_type;
+  } else {
+    return $entity->{$info['entity keys']['bundle']};
+  }
+}

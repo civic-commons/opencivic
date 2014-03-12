@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Tests integration with pathauto.
+ */
+class TMGMTEntitySourcePathAutoTestCase extends TMGMTEntityTestCaseUtility {
+
+  static function getInfo() {
+    return array(
+      'name' => 'Entity Source Pathauto tests',
+      'description' => 'Verifies that the correct aliases are generated for entity transations',
+      'group' => 'Translation Management',
+      'dependencies' => array('entity_translation', 'pathauto'),
+    );
+  }
+
+  function setUp() {
+    parent::setUp(array('tmgmt_entity', 'entity_translation', 'pathauto'));
+    $this->loginAsAdmin();
+    $this->createNodeType('article', 'Article', ENTITY_TRANSLATION_ENABLED);
+  }
+
+  /**
+   * Tests that pathauto aliases are correctly created.
+   */
+  function testAliasCreation() {
+    $this->setEnvironment('de');
+
+    // Create a translation job.
+    $job = $this->createJob();
+    $job->translator = $this->default_translator->name;
+    $job->settings = array();
+    $job->save();
+
+    // Create a node.
+    $node = $this->createNode('article');
+    // Create a job item for this node and add it to the job.
+    $job->addItem('entity', 'node', $node->nid);
+
+    // Translate the job.
+    $job->requestTranslation();
+
+    // Check the translated job items.
+    foreach ($job->getItems() as $item) {
+      $item->acceptTranslation();
+    }
+
+    // Make sure that the correct url aliases were created.
+    $aliases = db_query('SELECT * FROM {url_alias} where source = :source', array(':source' => 'node/' . $node->nid))->fetchAllAssoc('language');
+    $this->assertEqual(2, count($aliases));
+    $this->assertTrue(isset($aliases['en']), 'English alias created.');
+    $this->assertTrue(isset($aliases['de']), 'German alias created.');
+  }
+
+}

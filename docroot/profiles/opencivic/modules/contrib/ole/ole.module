@@ -1,0 +1,246 @@
+<?php
+
+/**
+ * OpenLayers Editor library compatible suggestion.
+ */
+define('OLE_API', '1.0');
+
+/**
+ * Implements hook_help().
+ */
+function ole_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#ole':
+      return '<p>' . t('OpenLayers Editor is a web-based tool for easy and precise creation of spatial data.
+        It is build purely with HTML and JavaScript and thus runs on the desktop and mobile devices without plug-ins.
+        This module simply adds an additional behavior to the OpenLayers module.
+        For Server-side geometry processing you need to run Drupal on a PostGIS database.') . '</p>';
+  }
+  return '';
+}
+
+/**
+ * Implements hook_openlayers_behaviors().
+ */
+function ole_openlayers_behaviors() {
+  return array(
+    'openlayers_behavior_ole' => array(
+      'title' => t('OpenLayers Editor'),
+      'description' => t('Provides advanced geo editing capabilities.'),
+      'type' => 'map',
+      'path' => drupal_get_path('module', 'ole') . '/includes',
+      'behavior' => array(
+        'file' => 'openlayers_behavior_ole.inc',
+        'class' => 'openlayers_behavior_ole',
+        'parent' => 'openlayers_behavior',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ole_menu() {
+
+  $items['admin/structure/openlayers/editor/callbacks/version_check/%'] = array(
+    'title' => 'OpenLayers Version Check',
+    'page callback' => 'ole_version_check',
+    'page arguments' => array(6),
+    'access arguments' => array('administer openlayers'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/structure/openlayers/editor/callbacks/process/%'] = array(
+    'title' => 'OLE processing callback',
+    'page callback' => 'ole_process',
+    'page arguments' => array(6),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  // Editor settings
+  $items['admin/structure/openlayers/editor'] = array(
+    'title' => 'Editor',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ole_admin_settings'),
+    'access arguments' => array('administer openlayers'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -15,
+  );
+
+  return $items;
+}
+
+function ole_get_sql($method, $type = '') {
+  $filename = dirname(__FILE__) . '/sql.json';
+  $sql = json_decode(file_get_contents($filename));
+  if (isset($sql->$method) && isset($sql->$method->$type)) {
+    return $sql->$method->$type;
+  } 
+  elseif (isset($sql->$method)) {
+    return $sql->$method;
+  }
+}
+
+function ole_process($method = '') {
+
+  if (!in_array($method, array('clean', 'split', 'merge'))) {
+    return;
+  }
+
+  $params = drupal_get_query_parameters($_POST);
+  $result = array();
+
+  if (isset($params['geo'])) {
+
+    if (strpos($params['geo'], 'POLYGON') != FALSE) {
+      $type = 'polygon';
+    }
+    elseif (strpos($params['geo'], 'LINE') != FALSE) {
+      $type = 'line';
+    }
+    else {
+      $type = 'point';
+    }
+
+    $data = array(':geo' => $params['geo']);
+    if (isset($params['cut'])) {
+      $data[':cut'] = $params['cut'];
+    }
+
+    if ($sql = ole_get_sql($method, $type)) {
+      $result['geo'] = db_query($sql, $data)->fetchField();
+    }
+  }
+
+  drupal_json_output($result);
+}
+
+function ole_admin_settings() {
+
+  $client_check = variable_get('ole_version_check', 'no-check');
+  $source_description =
+    t('<p>Path to the JavaScript code of OpenLayers Editor.
+      Please <a href="https://github.com/geops/ole/downloads">download the
+      OpenLayers Editor library</a>, and add it to your Drupal installation.
+      For instance, you could use a Drupal relative path like:
+      <em>sites/all/libraries/ole/ole.min.js</em></p>
+      <ul>
+        <li>The default suggested, compatible version: <strong>%ole_api</strong></li>
+        <li>Your version found from client-side, Javascript check: <strong>%client</strong></li>
+      </ul>',
+      array(
+        '%ole_api' => OLE_API,
+        '%client' => ($client_check == 'no-check') ? t('(not checked)') : $client_check,
+      ));
+
+  // Define Form
+  $form = array();
+
+  $ole_source = variable_get('ole_source', '');
+  $form['ole_source'] = array(
+    '#type' => 'textfield',
+    '#title' => t('OpenLayers Editor Source'),
+    '#description' => $source_description,
+    '#default_value' => $ole_source,
+  );
+
+  $ole_css = variable_get('ole_css', '');
+  $form['ole_css'] = array(
+    '#type' => 'textfield',
+    '#title' => t('OpenLayers Editor CSS Path'),
+    '#description' => t('<p>Path to a CSS File for OpenLayers Editor.
+      For instance, you could use a Drupal relative path like:
+      <em>sites/all/libraries/ole/theme/geosilk/geosilk.css</em></p>'),
+    '#default_value' => $ole_css,
+  );
+
+  // We also want to do some nice AJAX magic to get the library
+  // version to the system.
+  $version = variable_get('ole_version_check', '');
+  if (empty($version) || $version == 'unavailable') {
+    // Load AJAX libraries
+    drupal_add_library('system', 'drupal.ajax');
+    drupal_add_library('system', 'jquery.form');
+    // Ensure that the library is included
+    openlayers_include();
+    ole_include();
+    // Add custom client JS
+    drupal_add_js(drupal_get_path('module', 'ole') . '/js/ole.admin.js');
+    drupal_set_message('<div class="ole-version-check-message">' .
+      t('Checking client library via Javascript...') . '</div>', 'none');
+  }
+
+  // Show hints about misconfigured paths.
+  // The $repeat parameter is required since Drupal calls this function twice. Once on POST and thereafter when it redirected using GET to the same URI.
+  if (!file_exists($ole_source)) {
+    drupal_set_message(t("Path to JavaScript file is invalid. OpenLayers Editor won't be functional."), 'warning', FALSE);
+  }
+  if (!file_exists($ole_css)) {
+    drupal_set_message(t("Path to CSS file is invalid. OpenLayers Editor won't be functional."), 'warning', FALSE);
+  }
+
+  // Make a system setting form and return
+  return system_settings_form($form);
+}
+
+
+function ole_include() {
+
+  $jsPath = check_plain(variable_get('ole_source', ''));
+  // Check for full URL and include it manually if external.
+  if (valid_url($jsPath, TRUE)) {
+    drupal_add_js($jsPath, 'external');
+  }
+  else {
+    drupal_add_js($jsPath);
+  }
+
+  $cssPath = check_plain(variable_get('ole_css', ''));
+  // Check for full URL and include it manually if external.
+  if (valid_url($cssPath, TRUE)) {
+    drupal_add_css($cssPath, 'external');
+  }
+  else {
+    if (!file_exists($cssPath)) {
+      drupal_set_message(t("Missing style sheet for OpenLayers Editor. You won't be able to edit geometries."), 'error');
+    }
+    drupal_add_css($cssPath, 'file');
+  }
+
+}
+
+/**
+ * Callback endpoint for sending in OL version from client JS.
+ */
+function ole_version_check($version = 'unavailable') {
+  $version = check_plain($version);
+
+  // Set variable with version for hook_requirements
+  // and so we dont do this on every page load.
+  variable_set('ole_version_check', $version);
+
+  // Do a basic check
+  if (strpos($version, OLE_API) !== FALSE) {
+    $status = 'valid';
+    $message = t('Valid library found with a Javascript client check. Version found: %version',
+      array('%version' => $version)
+    );
+  }
+  else {
+    $status = 'invalid';
+    $message = t('Could not find a valid library with a Javascript client-side check. Version found: %version',
+      array('%version' => $version)
+    );
+  }
+
+  // Kind of a hack, but since we are using messages for this, let's clear the
+  // messages queue out.
+  drupal_get_messages();
+
+  // We just want to send some markup back.
+  drupal_json_output(array(
+    'status' => $status,
+    'response' => $message,
+  ));
+}

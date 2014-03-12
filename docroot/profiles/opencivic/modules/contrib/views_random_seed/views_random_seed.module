@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Adds a random order handler with seed. If a constant integer argument N is specified,
+ * it is used as the seed value, which produces a repeatable sequence of column values.
+ * This makes it possible to have paging and not having items show up twice.
+ * See http://dev.mysql.com/doc/refman/5.0/en/mathematical-functions.html#function_rand
+ *
+ * For postgresql we need to use another technique as an integer is not supported in the
+ * random() function. We use 'select setseed(integer)' which random() will use afterwards.
+ * See http://www.postgresql.org/docs/current/interactive/functions-math.html
+ */
+
+/**
+ * Implements hook_views_data().
+ */
+function views_random_seed_views_data() {
+  $data['views']['random_seed'] = array(
+    'title' => t('Random seed'),
+    'help' => t('Randomize the display order with a seed which makes paging possible.'),
+    'sort' => array(
+      'handler' => 'views_random_seed_handler_sort_random',
+    ),
+  );
+
+  return $data;
+}
+
+/**
+ * Implements hook_views_handlers().
+ */
+function views_random_seed_views_handlers() {
+  return array(
+    'info' => array(
+      'path' => drupal_get_path('module', 'views_random_seed'),
+    ),
+    'handlers' => array(
+      'views_random_seed_handler_sort_random' => array(
+        'parent' => 'views_handler_sort',
+      )
+    )
+  );
+}

@@ -1,0 +1,13 @@
+name = Microsoft Translator Test Service Mocker
+description = Provides a local implementation of the Microsoft Translater API
+package = Translation Management
+core = 7.x
+
+hidden = TRUE
+
+; Information added by drupal.org packaging script on 2012-07-17
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "tmgmt_microsoft"
+datestamp = "1342532276"
+

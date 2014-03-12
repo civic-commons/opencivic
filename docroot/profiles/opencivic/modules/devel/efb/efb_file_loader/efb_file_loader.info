@@ -1,0 +1,6 @@
+name = EFB File Loader
+description = "Enables loading schemas from tab text files"
+core = 7.x
+package = Fields
+dependencies[] = efb
+

@@ -1,0 +1,20 @@
+name = Translation Management UI
+description = User interface.
+package = Translation Management
+core = 7.x
+
+dependencies[] = tmgmt
+dependencies[] = views_bulk_operations
+dependencies[] = rules
+
+files[] = includes/tmgmt_ui.controller.job.inc
+files[] = includes/tmgmt_ui.controller.job_item.inc
+files[] = includes/tmgmt_ui.controller.translator.inc
+files[] = tmgmt_ui.test
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

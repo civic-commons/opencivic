@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * A common interface for search services to suggest spellings
+ *
+ * This file only contains hooks to reduce the size of Drupal's bootstrap.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function search_api_spellcheck_theme($existing, $type, $theme, $path) {
+  $path = drupal_get_path('module', 'search_api_spellcheck') . '/theme';
+  $themes['search_api_spellcheck'] = array(
+    'variables' => array(
+       'spellcheck' => NULL,
+       'options' => array(),
+    ),
+    // theme function is in an include
+    'file' => 'theme/search_api_spellcheck.theme.inc',
+  );
+  $themes['search_api_spellcheck_single_suggestion'] = array(
+    'variables' => array(
+       'suggestion' => NULL,
+    ),
+    'template' => 'search-api-spellcheck-single-suggestion',
+    'path' => $path,
+  );
+  $themes['search_api_spellcheck_multiple_suggestions'] = array(
+    'variables' => array(
+      'suggestions' => array(),
+    ),
+    'template' => 'search-api-spellcheck-multiple-suggestions',
+    'path' => $path,
+  );
+  return $themes;
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function search_api_spellcheck_views_api() {
+  return array(
+    'api' => 2,
+    'path' => drupal_get_path('module', 'search_api_spellcheck') . '/views',
+  );
+}
+

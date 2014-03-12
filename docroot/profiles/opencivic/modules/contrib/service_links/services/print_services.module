@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Extends Service Links with Print module support.
+ *
+ * These services work only with alias enabled in Print module.
+ *
+ * @author Fabio Mucciante (TheCrow)
+ */
+
+/**
+ * Implements hook_service_links().
+ */
+function print_services_service_links() {
+  $links = array();
+
+  $links['print'] = array(
+    'name' => 'Print HTML',
+    'link' => '<front-page>print/<query>',
+    'description' => t('Printable version'),
+  );
+
+  if (module_exists('print_pdf')) {
+    $links['printpdf'] = array(
+      'name' => 'Print PDF',
+      'link' => '<front-page>printpdf/<query>',
+      'description' => t('PDF version'),
+    );
+  }
+
+  if (module_exists('print_mail')) {
+    $links['printmail'] = array(
+      'name' => 'Print Mail',
+      'link' => '<front-page>printmail/<query>',
+      'description' => t('Send to a friend'),
+    );
+  }
+
+  return $links;
+}

@@ -1,0 +1,9 @@
+<?php
+/**
+ * Update to clear the cache so the filter cache feels changes. 
+ */
+function insert_block_update_1() {
+  $ret = array();
+  cache_clear_all(); 
+  return $ret;
+}

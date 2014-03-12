@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Main module file for the translation management node source plugin user
+ * interface.
+ */
+
+/**
+ * Implements hook_page_alter().
+ */
+function tmgmt_node_ui_page_alter(&$page) {
+  // Translation tabs for nodes.
+  if (($node = menu_get_object()) && entity_access('create', 'tmgmt_job')) {
+    if (isset($page['content']['system_main']['translation_node_overview'])) {
+      module_load_include('inc', 'tmgmt_node_ui', 'tmgmt_node_ui.pages');
+      $page['content']['system_main']['translation_node_overview'] = drupal_get_form('tmgmt_node_ui_node_form', $node, $page['content']['system_main']['translation_node_overview']);
+    }
+    // Support the context module: when context is used for placing the
+    // system_main block, then block contents appear nested one level deeper
+    // under another 'content' key.
+    elseif (isset($page['content']['system_main']['content']['translation_node_overview'])) {
+      module_load_include('inc', 'tmgmt_node_ui', 'tmgmt_node_ui.pages');
+      $page['content']['system_main']['content']['translation_node_overview'] = drupal_get_form('tmgmt_node_ui_node_form', $node, $page['content']['system_main']['content']['translation_node_overview']);
+    }
+  }
+}
+
+/**
+ * Implements hook_action_info().
+ */
+function tmgmt_node_ui_action_info() {
+  return array(
+    'tmgmt_node_ui_checkout_multiple_action' => array(
+      'type' => 'node',
+      'label' => t('Request translations'),
+      'configurable' => false,
+      'aggregate' => true
+    )
+  );
+}
+
+/**
+ * Action to do multistep checkout for translations.
+ *
+ * @param array $nodes
+ *   Array of Drupal nodes.
+ * @param $info
+ *   Action info - not used.
+ *
+ */
+function tmgmt_node_ui_checkout_multiple_action($nodes, $info) {
+  $jobs = array();
+  $source_lang_registry = array();
+
+  // Loop through entities and create individual jobs for each source language.
+  foreach ($nodes as $node) {
+
+    try {
+
+      // For given source lang no job exists yet.
+      if (!isset($source_lang_registry[$node->language])) {
+        // Create new job.
+        $job = tmgmt_job_create($node->language, NULL, $GLOBALS['user']->uid);
+        // Add initial job item.
+        $job->addItem('node', 'node', $node->nid);
+        // Add job identifier into registry
+        $source_lang_registry[$node->language] = $job->tjid;
+        // Add newly created job into jobs queue.
+        $jobs[$job->tjid] = $job;
+      }
+      // We have a job for given source lang, so just add new job item for the
+      // existing job.
+      else {
+        $jobs[$source_lang_registry[$node->language]]->addItem('node', 'node', $node->nid);
+      }
+    }
+    catch (TMGMTException $e) {
+      watchdog_exception('tmgmt', $e);
+      drupal_set_message(t('Unable to add job item for node %name. Make sure the source content is not empty.', array('%name' => $node->title)), 'error');
+    }
+  }
+
+  // If necessary, do a redirect.
+  $redirects = tmgmt_ui_job_checkout_multiple($jobs);
+  if ($redirects) {
+    tmgmt_ui_redirect_queue_set($redirects, current_path());
+    drupal_set_message(format_plural(count($redirects), t('One job needs to be checked out.'), t('@count jobs need to be checked out.')));
+    drupal_goto(tmgmt_ui_redirect_queue_dequeue());
+  }
+}
+
+

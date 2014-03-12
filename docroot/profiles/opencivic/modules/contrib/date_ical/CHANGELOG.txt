@@ -1,0 +1,26 @@
+Date iCal 7.x
+=================
+
+===================
+Version 7.x-1.x-dev
+===================
+
+===================
+Version 7.x-1.1
+===================
+
+- Issue #1535312, Use feed_icon class for ical icon.
+- Better methods to hide the title and comments.
+- Issue #1529326, Hide the links.
+- Add dependency on Entity module.
+- Add the Date/Time package to .info file.
+
+===================
+Version 7.x-1.0
+===================
+
+- Issue #1447194 by tim.plunkett, Prevent date_ical_preprocess from running for every theme function.
+- Issue #1447118 by tim.plunkett: Use properly namespaced template functions.
+- Issue #1447104 by tim.plunkett: Fixed code clean-up and undefined notices.
+- Issue #1446936 by tim.plunkett: Views display format will not save.
+- Initial commit of D7 code.

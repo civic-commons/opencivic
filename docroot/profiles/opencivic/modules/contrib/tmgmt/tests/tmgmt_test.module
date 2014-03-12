@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Module file of the translation management test module.
+ */
+
+/**
+ * Implements hook_tmgmt_translator_plugin_info().
+ */
+function tmgmt_test_tmgmt_translator_plugin_info() {
+  return array(
+    'test_translator' => array(
+      'label' => t('Test translator'),
+      'description' => t('Simple translator for testing purposes.'),
+      'plugin controller class' => 'TMGMTTestTranslatorPluginController',
+      'ui controller class' => 'TMGMTTestTranslatorUIController',
+      'default settings' => array(
+        'expose_settings' => TRUE,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_tmgmt_source_plugin_info().
+ */
+function tmgmt_test_tmgmt_source_plugin_info() {
+  return array(
+    'test_source' => array(
+      'label' => t('Test source'),
+      'description' => t('Simple source for testing purposes.'),
+      'plugin controller class' => 'TMGMTTestSourcePluginController',
+    ),
+  );
+}
+
+/**
+ * Implements hook_tmgmt_source_suggestions().
+ */
+function tmgmt_test_tmgmt_source_suggestions(array $items, TMGMTJob $job) {
+  $suggestions = array();
+  foreach ($items as $item) {
+    if ($item->plugin == 'test_source') {
+      $suggestions[] = array(
+        'job_item' => tmgmt_job_item_create('test_source', $item->item_type .  '_suggestion', $item->item_id),
+        'reason' => t('Test suggestion for @type source @id', array('@type' => $item->item_type,'@id' => $item->item_id)),
+        'from_item' => $item->tjiid,
+      );
+    }
+  }
+  return $suggestions;
+}

@@ -1,0 +1,15 @@
+name = Microsoft Translator
+description = A Microsoft Translator which use Microsoft Translator service.
+package = Translation Management
+core = 7.x
+dependencies[] = tmgmt
+files[] = tmgmt_microsoft.plugin.inc
+files[] = tmgmt_microsoft.ui.inc
+files[] = tmgmt_microsoft.test
+
+; Information added by drupal.org packaging script on 2012-07-17
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "tmgmt_microsoft"
+datestamp = "1342532276"
+

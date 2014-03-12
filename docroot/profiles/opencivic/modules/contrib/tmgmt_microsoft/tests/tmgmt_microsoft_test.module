@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Module file of the translation management test module.
+ */
+
+/**
+ * Implements hook_tmgmt_menu().
+ */
+function tmgmt_microsoft_test_menu() {
+  $items['tmgmt_microsoft_mock/v2/Http.svc/Translate'] = array(
+    'page callback' => 'tmgmt_microsoft_test_service_translate',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  $items['tmgmt_microsoft_mock/v2/Http.svc/GetLanguagesForTranslate'] = array(
+    'page callback' => 'tmgmt_microsoft_test_service_get_languages',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  $items['tmgmt_microsoft_mock/v2/Http.svc/GetToken'] = array(
+    'page callback' => 'tmgmt_microsoft_test_service_token',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+/**
+ * Page callback for getting the supported languages.
+ */
+function tmgmt_microsoft_test_service_get_languages() {
+  $headers = getallheaders();
+  if ($headers['Authorization'] == 'Bearer correct token') {
+    print '<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><string>ar</string><string>bg</string><string>ca</string><string>zh-CHS</string><string>zh-CHT</string><string>cs</string><string>da</string><string>nl</string><string>en</string><string>et</string><string>fi</string><string>fr</string><string>de</string><string>el</string><string>ht</string><string>he</string><string>hi</string><string>hu</string><string>id</string><string>it</string><string>ja</string><string>ko</string><string>lv</string><string>lt</string><string>no</string><string>pl</string><string>pt</string><string>ro</string><string>ru</string><string>sk</string><string>sl</string><string>es</string><string>sv</string><string>th</string><string>tr</string><string>uk</string><string>vi</string></ArrayOfstring>';
+  }
+  else {
+    drupal_add_http_header('Status', '400 Invalid Token');
+    print 'Bad request';
+  }
+}
+
+/*
+ * Page callback for providing translation.
+ */
+
+function tmgmt_microsoft_test_service_translate() {
+  $headers = getallheaders();
+  if ($headers['Authorization'] == 'Bearer correct token') {
+    $translated_text = $_GET['to'] . '_' . $_GET['text'];
+    print '<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">' . $translated_text . '</string>';
+  }
+  else {
+    drupal_add_http_header('Status', '400 Invalid Token');
+    print 'Bad request';
+  }
+}
+
+/*
+ * Page callback for providing the access token.
+ */
+
+function tmgmt_microsoft_test_service_token() {
+  $response = new stdClass;
+  drupal_add_http_header('Content-Type', 'application/javascript; utf-8');
+  if (isset($_POST['grant_type']) && isset($_POST['scope']) && isset($_POST['client_id']) && isset($_POST['client_secret'])) {
+    if ($_POST['grant_type'] == 'client_credentials' && $_POST['scope'] == 'http://api.microsofttranslator.com' && $_POST['client_id'] == 'correct clientid' && $_POST['client_secret'] == 'correct secret') {
+      $response->access_token = 'correct token';
+      print json_encode($response);
+      exit;
+    }
+  }
+  drupal_add_http_header('Status', '400 Bad Request');
+  $response->error = TRUE;
+  $response->error_description = 'Wrong parameters';
+  print json_encode($response);
+}

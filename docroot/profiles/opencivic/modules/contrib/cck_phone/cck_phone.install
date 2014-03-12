@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Defines phone number fields for CCK.
+ * Installation file
+ */
+
+/**
+ * Implements hook_field_schema().
+ */
+function cck_phone_field_schema($field) {
+  return array(
+    'columns' => array(
+      'number' => array(
+        'type' => 'varchar',
+        'length' => 15,
+        'not null' => FALSE,
+      ),
+      'country_codes' => array(
+        'type' => 'varchar',
+        'length' => 2,
+        'not null' => FALSE,
+      ),
+      'extension' => array(
+        'type' => 'varchar',
+        'length' => 6,
+        'not null' => FALSE,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_install().
+ */
+function cck_phone_install() {
+  drupal_set_message(st('Phone number module installed successfully.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cck_phone_uninstall() {
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Notify content module when this module is enabled.
+ */
+function cck_phone_enable() {
+  // TODO: Migration path for phone.module to cck_phone
+}
+
+/**
+ * Implements hook_disable().
+ *
+ * Notify content module when this module is disabled.
+ */
+function cck_phone_disable() {
+}

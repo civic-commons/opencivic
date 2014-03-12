@@ -1,0 +1,15 @@
+name = Architecture
+description = "Produces an architectural overview of your Drupal website"
+core = 7.x
+files[] = architecture.module
+version = "7.x-1.x-dev"
+core = "7.x"
+datestamp = "1323823902"
+
+
+; Information added by drupal.org packaging script on 2013-08-19
+version = "7.x-1.2"
+core = "7.x"
+project = "architecture"
+datestamp = "1376878568"
+

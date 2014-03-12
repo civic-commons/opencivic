@@ -1,0 +1,190 @@
+/**
+ * @file
+ * CSS for the tmgmt admin pages.
+ */
+
+.tmgmt-ui-info-item {
+  float: left;
+  margin-right: 80px;
+}
+
+.tmgmt-ui-translator-wrapper {
+  width: 500px;
+  margin-right: 20px;
+  float: left;
+}
+
+.tmgmt-ui-translator-wrapper-right {
+  max-width: 700px;
+  float: left;
+}
+
+.tmgmt-ui-job-items-suggestions fieldset {
+  padding-top: 13px;
+}
+
+table.tmgmt-ui-review td {
+  vertical-align: top;
+}
+
+table.tmgmt-ui-review input.unreviewed {
+  text-decoration: line-through;
+}
+
+table.tmgmt-ui-review tbody th {
+  background: none;
+  font-weight: bold;
+}
+
+.tmgmt-ui-data-item-label .form-item {
+  /* Get the label out of way, so the status icon can be placed at the same
+  relative position */
+  position: absolute;
+}
+
+.tmgmt-ui-state {
+  /* Visually align the icon in the center between left table border and the
+     first textarea.*/
+  margin: 1.8em -10px 1em 0;
+  text-align: center;
+}
+
+.tmgmt-ui-state .tmgmt-ui-icon {
+  margin: 0 auto;
+}
+
+/* Base settings for the icon. */
+
+.tmgmt-ui-icon {
+  float: left;
+  color: #fff;
+  text-align: center;
+  border-style: solid;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+/* Icon colors. */
+.tmgmt-ui-icon-green {
+  border-color: #080f00;
+  background: #336600;
+  background : -webkit-gradient(linear, left top, left bottom, from(#5dba00), to(#336600));
+  background : -moz-linear-gradient(top, #5dba00, #336600);
+}
+
+.tmgmt-ui-icon-darkgreen {
+  border-color: #080f00;
+  background: #264d00;
+  background : -webkit-gradient(linear, left top, left bottom, from(#336600), to(#264d00));
+  background : -moz-linear-gradient(top, #336600, #264d00);
+}
+
+.tmgmt-ui-icon-grey {
+  border-color: #444;
+  background: #666;
+  background : -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#666));
+  background : -moz-linear-gradient(top, #aaa, #666);
+}
+
+.tmgmt-ui-icon-white {
+  border-color: #080f00;
+  background: #fff;
+  background : -webkit-gradient(linear, left top, left bottom, from(#fff), to(#aaa));
+  background : -moz-linear-gradient(top, #fff, #aaa);
+}
+
+.tmgmt-ui-icon-blue {
+  border-color: #080f00;
+  background: #007fff;
+  background : -webkit-gradient(linear, left top, left bottom, from(#007fff), to(#0050A0));
+  background : -moz-linear-gradient(top, #007fff, #0050A0);
+}
+
+.tmgmt-ui-icon-yellow {
+  border-color: #544300;
+  background: #a88700;
+  background : -webkit-gradient(linear, left top, left bottom, from(#ffcc00), to(#a88700));
+  background : -moz-linear-gradient(top, #ffcc00, #a88700);
+}
+
+.tmgmt-ui-icon-yellow {
+  border-color: #544300;
+  background: #a88700;
+  background : -webkit-gradient(linear, left top, left bottom, from(#ffcc00), to(#a88700));
+  background : -moz-linear-gradient(top, #ffcc00, #a88700);
+}
+
+.tmgmt-ui-icon-orange {
+  border-color: #210000;
+  background: #FF7f00;
+  background : -webkit-gradient(linear, left top, left bottom, from(#FF7f00), to(#A55000));
+  background : -moz-linear-gradient(top, #FF7f00, #A55000);
+}
+
+/* Icon sizes. */
+.tmgmt-ui-icon-128 {
+  width: 128px;
+  height: 128px;
+  border-width: 3px;
+  line-height: 128px;
+  text-shadow: 0 -2px 0 rgba(0,0,0,0.5);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.tmgmt-ui-icon.tmgmt-ui-icon-128 span {
+  font-size: 118px;
+}
+
+.tmgmt-ui-icon-64 {
+  width: 64px;
+  height: 64px;
+  border-width: 1px;
+  line-height: 64px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.tmgmt-ui-icon.tmgmt-ui-icon-64 span {
+  font-size: 52px;
+}
+
+.tmgmt-ui-icon-32 {
+  width: 32px;
+  height: 32px;
+  border-width: 1px;
+  line-height: 32px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.tmgmt-ui-icon.tmgmt-ui-icon-32 span {
+  font-size: 23px;
+}
+
+.tmgmt-ui-icon-10 {
+  width: 10px;
+  height: 10px;
+  border-width: 1px;
+  line-height: 16px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  margin-left: 5px;
+}
+
+.tmgmt-one-legend{
+  float: left;
+}
+
+.tmgmt-legend-icon{
+  float: left;
+  margin: 4px 4px;
+}
+
+.tmgmt-legend-status{
+  width: 152px;
+}

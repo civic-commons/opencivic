@@ -1,0 +1,148 @@
+<?php
+/**
+ * @file
+ * This is the file description for EFB Schema.org Integration module.
+ *
+ * Requires the Schema.org module 7.x-1.0-beta3 or later. (Earlier versions
+ * of the Schema.org module didn't have a separate schemaorg_ui module.)
+ */
+
+ /**
+  * Implements hook_efb_schema_names().
+  *
+  * Returns names of schemas whose properties should be
+  * available as possible fields.
+  *
+  * @see efb_form_field_ui_field_overview_form_alter()
+  */
+function efb_schemaorg_efb_schema_names($entity_type, $bundle) {
+
+  $schema_name = schemaorg_ui_term_load($entity_type, $bundle, 'rdftype');
+  if ($schema_name) {
+    return array($schema_name);
+  }
+}
+
+/**
+ * Implements hook_efb_set_entity_options().
+ *
+ * Sets additional configuration types for entity types and bundles
+ * related to a particular schema.
+ *
+ * @see efb_match_content_type()
+ */
+function efb_schemaorg_efb_set_entity_options($entity_type, $bundle, $schema) {
+  $mapping = rdf_mapping_load($entity_type, $bundle);
+  $mapping['rdftype'] = schemaorg_ui_terms_merge($schema['name'], $mapping['rdftype']);
+
+  rdf_mapping_save(array(
+    'type' => $entity_type,
+    'bundle' => $bundle,
+    'mapping' => $mapping,
+    )
+  );
+}
+
+/**
+ * Implements hook_efb_set_field_options().
+ *
+ * Saves schema.org and RDF mapping information to a field type.
+ *
+ * @param String $property
+ *   The name of the schema property to be mapped.
+ * @param String $entity_type
+ *   The entity type.
+ * @param String $bundle
+ *   The bundle to which the field instance is bound.
+ * @param String $field_name
+ *   The machine name of the field to be mapped.
+ * @param String $field_type
+ *   The field type to be mapped (e.g., text, text_long, etc.).
+ *
+ * @see schemaorg_ui_field_ui_field_edit_form_submit()
+ */
+function efb_schemaorg_efb_set_field_options($property, $entity_type, $bundle, $field_name, $field_type) {
+  $mapping = rdf_mapping_load($entity_type, $bundle);
+  // This field might not have an RDF mapping yet.
+  if (empty($mapping[$field_name])) {
+    $mapping[$field_name]['predicates'] = array();
+  }
+
+  $mapping[$field_name]['predicates'] = schemaorg_ui_terms_merge($property, $mapping[$field_name]['predicates']);
+
+  // Sets RDF mapping type in the case of fields where the object is a resource
+  // such as image, file, etc.
+  $rel_field_types = array('entityreference', 'image', 'file', 'taxonomy_term_reference');
+  if (in_array($field_type, $rel_field_types)) {
+    $mapping[$field_name]['type'] = 'rel';
+  }
+
+  // Some terms from schema.org are not yet supported, and legacy properties
+  // are being used instead. The legacy property is added to the RDF mappings
+  // along with the official property.
+  $legacy_properties = array(
+    'description' => 'summary',
+  );
+  if (array_key_exists($property, $legacy_properties)) {
+    array_unshift($mapping[$field_name]['predicates'], 'schema:' . $legacy_properties[$property]);
+  }
+
+  // Performs some maintenance tasks based on whether the mapping contains
+  // schema.org terms or not.
+  // Scans the mapping array to see if some fields are mapped to schema.org.
+  $schemaorg_mappings = FALSE;
+  // Some fields are ignored since they are not input by the user.
+  $ignored_fields = array('title', 'name', 'url');
+  foreach ($mapping as $field => $info) {
+    if (!empty($info['predicates']) && !in_array($field, $ignored_fields)) {
+      if (count($info['predicates']) != count(array_filter($info['predicates'], 'schemaorg_ui_filter_schema_term'))) {
+        $schemaorg_mappings = TRUE;
+        break;
+      }
+    }
+  }
+  if ($schemaorg_mappings) {
+    // Specifies the title/name mapping as expected by schema.org. This mapping
+    // is always set to schema:name and is not exposed in the UI.
+    // The label of an entity is usually either 'title' (e.g. node) or
+    // 'name' (e.g. user).
+    if (!empty($mapping['title'])) {
+      $mapping['title']['predicates'] = array('schema:name');
+    }
+    if (!empty($mapping['name'])) {
+      $mapping['name']['predicates'] = array('schema:name');
+    }
+    // Sets the mapping for the url of the entity. This mapping is always set
+    // to schema:url and is not exposed in the UI.
+    $mapping['url']['predicates'] = array('schema:url');
+    $mapping['url']['type'] = 'rel';
+    // Add schema:Person type to user mapping.
+    if ($entity_type == 'user' && $bundle == 'user') {
+      $mapping['rdftype'] = schemaorg_ui_terms_merge('Person', $mapping['rdftype']);
+    }
+  }
+  else {
+    // Makes sure no schema.org mapping for title/name remains if no schema.org
+    // terms are used.
+    if (!empty($mapping['title'])) {
+      $mapping['title']['predicates'] = array_filter($mapping['title']['predicates'], 'schemaorg_ui_filter_schema_term');
+    }
+    if (!empty($mapping['name'])) {
+      $mapping['name']['predicates'] = array_filter($mapping['name']['predicates'], 'schemaorg_ui_filter_schema_term');
+    }
+    // Since this pseudo-field mapping is only used for the purpose of
+    // schema.org, it is entirely removed.
+    unset($mapping['url']);
+    // Remove schema.org type from the user mapping.
+    if ($entity_type == 'user' && $bundle == 'user') {
+      $mapping['rdftype'] = array_filter($mapping['rdftype'], 'schemaorg_ui_filter_schema_term');
+    }
+  }
+
+  rdf_mapping_save(array(
+    'type' => $entity_type,
+    'bundle' => $bundle,
+    'mapping' => $mapping,
+    )
+  );
+}

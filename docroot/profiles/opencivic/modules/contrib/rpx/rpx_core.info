@@ -1,0 +1,21 @@
+name = Janrain Engage Core
+description = Core sign-in functionality for Janrain Engage.
+package = Janrain Engage
+core = 7.x
+files[] = rpx_core.module
+files[] = rpx_core.pages.inc
+files[] = rpx_core.webapi.inc
+
+; Information added by drupal.org packaging script on 2012-04-04
+version = "7.x-2.2"
+core = "7.x"
+project = "rpx"
+datestamp = "1333553178"
+
+
+; Information added by drupal.org packaging script on 2013-10-14
+version = "7.x-2.5"
+core = "7.x"
+project = "rpx"
+datestamp = "1381791789"
+

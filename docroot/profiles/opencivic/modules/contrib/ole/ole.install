@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * This file holds the functions for the installing
+ * and enabling of the OpenLayers Editor module.
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function ole_uninstall() {
+  // Get module variables
+  global $conf;
+  foreach (array_keys($conf) as $key) {
+    // Find variables that have the module prefix
+    if (strpos($key, 'ole_') === 0) {
+      variable_del($key);
+    }
+  }
+}

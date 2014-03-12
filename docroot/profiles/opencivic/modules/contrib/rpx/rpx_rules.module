@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Hooks and callback functions for rules.module integration.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function rpx_rules_menu() {
+  $items['rpx/cookie_handler'] = array(
+    'title' => 'RPX Rules cookies consumer endpoint',
+    'page callback' => 'rpx_rules_cookie_handler',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback; cookie consumer endpoint for Rules integration.
+ *
+ * Javascript code sends users here after setting a cookie.
+ *
+ * @see rpx_rules_page_alter()
+ * @see rpx_widgets_comment_view_alter()
+ * @see _rpx_share_button()
+ */
+function rpx_rules_cookie_handler() {
+  global $base_url;
+
+  foreach (array('node', 'comment', 'other') as $type) {
+    if (_rpx_event_enabled('rpx_social_cookie_set_' . $type) && isset($_COOKIE['Drupal_visitor_rpx_social_' . $type])) {
+      user_cookie_delete('rpx_social_' . $type);
+      if ($type == 'other') {
+        module_invoke_all('rpx_social_cookie_set', $type);
+      }
+      else {
+        $eid = $_COOKIE['Drupal_visitor_rpx_social_' . $type];
+        if (is_numeric($eid) && $entities = entity_load($type, array($eid))) {
+          module_invoke_all('rpx_social_cookie_set', $type, $entities[$eid]);
+        }
+      }
+    }
+  }
+  // Redirect user to the original page.
+  $dest = drupal_get_destination();
+  $dest = substr($dest['destination'], strlen($base_url) + 1);
+  $_GET['destination'] = $dest;
+  drupal_goto();
+}
+
+/**
+ * Implements hook_rules_rpx_social_cookie_set().
+ */
+function rpx_rules_rpx_social_cookie_set($type, $entity = NULL) {
+  rules_invoke_event('rpx_social_cookie_set_' . $type, $entity);
+}
+
+/**
+ * Implements hook_rules_rpx_account().
+ */
+function rpx_rules_rpx_linked_account($op, $account) {
+  switch ($op) {
+    case 'added':
+      $event = 'rpx_account_add';
+      break;
+
+    case 'deleted':
+      $event = 'rpx_account_delete';
+      break;
+  }
+
+  // Convert to an object.
+  $account = (object) $account;
+
+  // Invoke rules event.
+  rules_invoke_event($event, $account);
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function rpx_rules_page_alter(&$page) {
+  // Check if we should launch the widget. If overlay is enabled don't do
+  // anything, as the page will be reloaded again.
+  if (!isset($_SESSION['rpx_action_launch_social_data']) ||
+      function_exists('overlay_get_mode') && overlay_get_mode() == 'child') {
+
+    return;
+  }
+
+  // Attach the social javascript and pass the arguments to it.
+  rpx_js_social();
+  $settings['rpx']['atonce']['post'] = $_SESSION['rpx_action_launch_social_data'];
+  // Sharing cookie info (used in Rules integration).
+  if (_rpx_event_enabled('rpx_social_cookie_set_other')) {
+    // For some reason this plugin is not added for Chrome (and maybe others).
+    drupal_add_library('system', 'jquery.cookie');
+
+    $settings['rpx']['atonce']['cookie'] = array(
+      'type' => 'other',
+      'id' => 'none',
+    );
+  }
+
+  drupal_add_js($settings, 'setting');
+
+  // We only want to launch it once.
+  unset($_SESSION['rpx_action_launch_social_data']);
+}

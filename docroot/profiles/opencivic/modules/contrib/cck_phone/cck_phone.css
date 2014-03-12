@@ -1,0 +1,20 @@
+/* input field */
+.form-phone-number .form-item,
+.form-phone-number .form-item label {
+  display: inline;
+}
+.form-phone-number .form-item label {
+  margin-left: 1em;
+  margin-right: .5em;
+}
+
+/* admin settings */
+.cck-phone-settings .form-checkboxes .form-item {
+  float: left;
+  width: 33%;
+}
+
+.cck-phone-settings .cck-phone-default-country {
+  background: #eee;
+  font-weight: bold;
+}

@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Extends Service Links with browser bookmarking.
+ *
+ * @author Fabio Mucciante (TheCrow)
+ */
+
+/**
+ * Implements hook_service_links().
+ */
+function favorite_services_service_links() {
+  $links['favorite'] = array(
+    'name' => t('Favorite'),
+    'description' => t('Add this page in your favorites'),
+    'link' => '<url>&favtitle=<raw-encoded-title>',
+    'attributes' => array('style' => 'display:none;'),
+    'javascript' => 'favorite_services.js',
+  );
+
+  return $links;
+}

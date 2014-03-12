@@ -1,0 +1,4 @@
+name = Schema.org Cache
+description = "Retrieves and caches data from Schema.org"
+core = 7.x
+package = Schema.org

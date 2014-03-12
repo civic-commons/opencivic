@@ -1,0 +1,16 @@
+name = Phone Number
+description = "The phone module allows administrators to define a field type for phone numbers."
+package = Fields
+dependencies[] = field
+core = 7.x
+
+files[] = cck_phone.module
+files[] = includes/cck_phone_countrycodes.inc
+files[] = includes/cck_phone.token.inc
+files[] = includes/phone.au.inc
+files[] = includes/phone.ca.inc
+files[] = includes/phone.gb.inc
+files[] = includes/phone.hu.inc
+files[] = includes/phone.my.inc
+files[] = includes/phone.pl.inc
+files[] = includes/phone.us.inc

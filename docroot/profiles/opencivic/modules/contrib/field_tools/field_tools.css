@@ -1,0 +1,7 @@
+/**
+ * @file
+ * Extra CSS for field tools admin pages.
+ */
+table td {
+  vertical-align:top;
+}

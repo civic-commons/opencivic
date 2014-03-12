@@ -1,0 +1,15 @@
+name = Field tools taxonomy
+description = Allows taxonomy vocabularies to be applied to entities.
+dependencies[] = field_ui
+dependencies[] = taxonomy
+package = Fields
+core = 7.x
+files[] = field_tools_taxonomy.module
+files[] = field_tools_taxonomy.admin.inc
+
+; Information added by drupal.org packaging script on 2012-11-25
+version = "7.x-1.0-alpha3"
+core = "7.x"
+project = "field_tools"
+datestamp = "1353836247"
+

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Source plugin for the Translation Management system that handles nodes.
+ */
+
+/**
+ * Implements hook_tmgmt_source_plugin_info().
+ */
+function tmgmt_node_tmgmt_source_plugin_info() {
+  $info['node'] = array(
+    'label' => t('Node'),
+    'description' => t('Source handler for nodes.'),
+    'plugin controller class' => 'TMGMTNodeSourcePluginController',
+    'ui controller class' => 'TMGMTNodeSourceUIController',
+    'views controller class' => 'TMGMTNodeSourceViewsController',
+    'item types' => array(),
+  );
+  foreach (node_type_get_names() as $type => $name) {
+    if (translation_supported_type($type)) {
+      $info['node']['item types'][$type] = $name;
+    }
+  }
+  return $info;
+}

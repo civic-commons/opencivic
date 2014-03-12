@@ -1,0 +1,8 @@
+name = "Node export feeds"
+description = "Node export feeds importer.  This is a more advanced importer than the one built into node export, but tricky to use."
+core = "7.x"
+package = "Node export"
+dependencies[] = "feeds"
+dependencies[] = "node_export"
+files[] = FeedsNodeExportParser.inc
+files[] = FeedsNodeExportProcessor.inc

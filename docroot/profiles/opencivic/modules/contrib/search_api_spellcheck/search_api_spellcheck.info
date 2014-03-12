@@ -1,0 +1,20 @@
+name = Search spellcheck
+description = "Spelling suggestions from Search API services."
+dependencies[] = search_api
+core = 7.x
+package = Search
+
+; Classes
+files[] = includes/SearchApiSpellcheck.inc
+files[] = includes/SearchApiSpellcheckSuggestion.inc
+files[] = includes/SearchApiSpellcheckSuggestionLink.inc
+
+; Views Handlers
+files[] = views/views_handler_area_spellcheck.inc
+
+; Information added by drupal.org packaging script on 2011-05-20
+version = "7.x-1.0"
+core = "7.x"
+project = "search_api_spellcheck"
+datestamp = "1305887216"
+

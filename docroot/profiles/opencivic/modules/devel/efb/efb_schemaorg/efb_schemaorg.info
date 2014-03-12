@@ -1,0 +1,7 @@
+name = EFB Schema.org Integration
+description = "Integrates the Entity Field Builder module with the Schema.org module"
+core = 7.x
+package = Fields
+dependencies[] = efb
+dependencies[] = schemaorg_ui
+

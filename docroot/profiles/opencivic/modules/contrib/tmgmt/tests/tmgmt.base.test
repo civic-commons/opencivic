@@ -1,0 +1,181 @@
+<?php
+
+/*
+ * @file
+ * Contains tests for Translation management
+ */
+
+/**
+ * Base class for tests.
+ */
+class TMGMTBaseTestCase extends DrupalWebTestCase {
+  protected $profile = 'testing';
+
+  /**
+   * A default translator using the test translator.
+   *
+   * @var TMGMTTranslator
+   */
+  protected $default_translator;
+
+  /**
+   * List of permissions used by loginAsAdmin().
+   *
+   * @var array
+   */
+  protected $admin_permissions = array();
+
+  /**
+   * Drupal user object created by loginAsAdmin().
+   *
+   * @var object
+   */
+  protected $admin_user = NULL;
+
+  /**
+   * List of permissions used by loginAsTranslator().
+   *
+   * @var array
+   */
+  protected $translator_permissions = array();
+
+  /**
+   * Drupal user object created by loginAsTranslator().
+   *
+   * @var object
+   */
+  protected $translator_user = NULL;
+
+  /**
+   * Overrides DrupalWebTestCase::setUp()
+   */
+  function setUp() {
+    $modules = func_get_args();
+    if (isset($modules[0]) && is_array($modules[0])) {
+      $modules = $modules[0];
+    }
+    $modules = array_merge(array('entity', 'tmgmt', 'tmgmt_test'), $modules);
+    parent::setUp($modules);
+    $this->default_translator = tmgmt_translator_load('test_translator');
+
+    // Load default admin permissions.
+    $this->admin_permissions = array(
+      'administer languages',
+      'access administration pages',
+      'administer content types',
+      'administer tmgmt',
+    );
+
+    // Load default translator user permissions.
+    $this->translator_permissions = array(
+      'create translation jobs',
+      'submit translation jobs',
+      'accept translation jobs',
+    );
+  }
+
+  /**
+   * Will create a user with admin permissions and log it in.
+   *
+   * @param array $additional_permissions
+   *   Additional permissions that will be granted to admin user.
+   * @param boolean $reset_permissions
+   *   Flag to determine if default admin permissions will be replaced by
+   *   $additional_permissions.
+   *
+   * @return object
+   *   Newly created and logged in user object.
+   */
+  function loginAsAdmin($additional_permissions = array(), $reset_permissions = FALSE) {
+    $permissions = $this->admin_permissions;
+
+    if ($reset_permissions) {
+      $permissions = $additional_permissions;
+    }
+    elseif (!empty($additional_permissions)) {
+      $permissions = array_merge($permissions, $additional_permissions);
+    }
+
+    $this->admin_user = $this->drupalCreateUser($permissions);
+    $this->drupalLogin($this->admin_user);
+    return $this->admin_user;
+  }
+
+  /**
+   * Will create a user with translator permissions and log it in.
+   *
+   * @param array $additional_permissions
+   *   Additional permissions that will be granted to admin user.
+   * @param boolean $reset_permissions
+   *   Flag to determine if default admin permissions will be replaced by
+   *   $additional_permissions.
+   *
+   * @return object
+   *   Newly created and logged in user object.
+   */
+  function loginAsTranslator($additional_permissions = array(), $reset_permissions = FALSE) {
+    $permissions = $this->translator_permissions;
+
+    if ($reset_permissions) {
+      $permissions = $additional_permissions;
+    }
+    elseif (!empty($additional_permissions)) {
+      $permissions = array_merge($permissions, $additional_permissions);
+    }
+
+    $this->translator_user = $this->drupalCreateUser($permissions);
+    $this->drupalLogin($this->translator_user);
+    return $this->translator_user;
+  }
+
+  /**
+   * Creates, saves and returns a translator.
+   *
+   * @return TMGMTTranslator
+   */
+  function createTranslator() {
+    $translator = new TMGMTTranslator();
+    $translator->name = strtolower($this->randomName());
+    $translator->label = $this->randomName();
+    $translator->plugin = 'test_translator';
+    $translator->settings = array(
+      'key' => $this->randomName(),
+      'another_key' => $this->randomName(),
+    );
+    $this->assertEqual(SAVED_NEW, $translator->save());
+
+    // Assert that the translator was assigned a tid.
+    $this->assertTrue($translator->tid > 0);
+    return $translator;
+  }
+
+  /**
+   * Creates, saves and returns a translation job.
+   *
+   * @return TMGMTJob
+   */
+  function createJob($source = 'en', $target = 'de', $uid = 1)  {
+    $job = tmgmt_job_create($source, $target, $uid);
+    $this->assertEqual(SAVED_NEW, $job->save());
+
+    // Assert that the translator was assigned a tid.
+    $this->assertTrue($job->tjid > 0);
+    return $job;
+  }
+
+
+  /**
+   * Sets the proper environment.
+   *
+   * Currently just adds a new language.
+   *
+   * @param string $langcode
+   *   The language code.
+   */
+  function setEnvironment($langcode) {
+    // Add the language.
+    locale_add_language($langcode);
+  }
+
+}
+

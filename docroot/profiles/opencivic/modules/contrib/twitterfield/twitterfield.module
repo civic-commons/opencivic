@@ -1,0 +1,342 @@
+<?php
+/**
+ * @file
+ *   The Twitter Field Widget provides a custom field formatter to display
+ *   Twitter Id's as Twitter Profile Widgets.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function twitterfield_theme() {
+  return array(
+    'twitter_widget' => array(
+      'variables' => array('type' => NULL, 'value' => NULL, 'title' => NULL, 'subject' => NULL),
+      'template' => 'twitter-widget',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function twitterfield_field_widget_info() {
+  return array(
+    'twitterfield' => array(
+      'label' => t('TwitterField'),
+      'field types' => array('text'),
+      'settings' => array(
+        'size' => 60,
+        'allowed_types' => array('username'),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_settings_form().
+ */
+function twitterfield_field_widget_settings_form($field, $instance) {
+  $widget = $instance['widget'];
+  $settings = $widget['settings'];
+
+  if ($widget['type'] == 'twitterfield') {
+    $form['size'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Size of textfield'),
+      '#default_value' => $settings['size'],
+      '#required' => TRUE,
+      '#element_validate' => array('element_validate_integer_positive'),
+    );
+
+    $form['allowed_types'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Allowed Types'),
+      '#default_value' => $settings['allowed_types'],
+      '#options' => array(
+          'username' => t('Usernames (@username)'),
+          'list' => t('Lists (@username/list)'),
+          'hashtag' => t('Hashtags (#topic)'),
+          'search' => t('Searches'),
+        ),
+      '#description' => t('Select which types of expressions can be stored in this field.'),
+      '#element_validate' => array('_twitterfield_field_widget_settings_allowed_types_validate'),
+    );
+  }
+
+  return $form;
+}
+
+/**
+ * #element_validate function for widget settings form Allowed Types selection.
+ */
+function _twitterfield_field_widget_settings_allowed_types_validate($element, &$form_state) {
+  if (!array_filter($element['#value'])) {
+    form_set_error('allowed_types', t('You must select at least one type to allow.'));
+  }
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function twitterfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  switch ($instance['widget']['type']) {
+    case 'twitterfield':
+      $element['value'] = $element + array(
+        '#type' => 'textfield',
+        '#default_value' => isset($items[$delta]['value']) ? $items[$delta]['value'] : NULL,
+        '#size' => $instance['widget']['settings']['size'],
+        '#maxlength' => $field['settings']['max_length'],
+        '#attributes' => array('class' => array('text-full')),
+        '#element_validate' => array('_twitterfield_field_widget_validate'),
+      );
+      break;
+  }
+  return $element;
+}
+
+/**
+ * An #element_validate callback for the twitterfield field widget.
+ */
+function _twitterfield_field_widget_validate($element, &$form_state) {
+  if (empty($element['#value'])) {
+    return;
+  }
+
+  $instance = field_widget_instance($element, $form_state);
+  $allowed_types = $instance['widget']['settings']['allowed_types'];
+  $allowed_types_count = count(array_filter($allowed_types));
+
+  $error = '';
+
+  if ($allowed_types_count == 0) {
+    // We must be on the settings page, checking the default value,
+    // and the allowed types failed validation.
+    return;
+  }
+  elseif ($allowed_types_count == 1) {
+    if ($allowed_types['username'] && !_twitterfield_is_username($element['#value'])) {
+      $error = t('Only Usernames are allowed, and must be prepended with "@".');
+    }
+    elseif ($allowed_types['list'] && !_twitterfield_is_list($element['#value'])) {
+      $error = t('Only Lists are allowed, and must be in the format "@username/list".');
+    }
+    elseif ($allowed_types['hashtag'] && !_twitterfield_is_hashtag($element['#value'])) {
+      $error = t('Only Hashtags are allowed, and must be prepended with "#".');
+    }
+    elseif ($allowed_types['search'] && !_twitterfield_is_search($element['#value'])) {
+      $error = t('Only search strings are allowed.');
+    }
+  }
+  else {
+    if (!$allowed_types['username'] && _twitterfield_is_username($element['#value'])) {
+      $error = t('Usernames are not allowed.');
+    }
+    elseif (!$allowed_types['list'] && _twitterfield_is_list($element['#value'])) {
+      $error = t('Lists are not allowed.');
+    }
+    elseif (!$allowed_types['hashtag'] && _twitterfield_is_hashtag($element['#value'])) {
+      $error = t('Hashtags are not allowed.');
+    }
+    elseif (!$allowed_types['search'] && _twitterfield_is_search($element['#value'])) {
+      $error = t('Search strings are not allowed.');
+    }
+  }
+
+  if ($error) {
+    form_error($element, $error);
+  }
+}
+
+/**
+ * Implements hook_field_widget_error().
+ */
+function twitterfield_field_widget_error($element, $error, $form, &$form_state) {
+  form_error($element['value'], $error['message']);
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function twitterfield_field_formatter_info() {
+  $value = array(
+    'twitterfield_twitter_link' => array(
+      'label' => 'Twitter Link',
+      'field types' => array('text'),
+    ),
+    'twitterfield_twitter_widget' => array(
+      'label' => t('Twitter Widget'),
+      'field types' => array('text'),
+    ),
+  );
+
+  if (module_exists('twitter_pull')) {
+    $value['twitterfield_twitter_pull'] = array(
+      'label' => t('Twitter Pull'),
+      'field types' => array('text'),
+      'settings' => array('items' => 5, 'title' => ''),
+    );
+  }
+
+  return $value;
+}
+
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function twitterfield_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+
+  if ($display['type'] == 'twitterfield_twitter_pull') {
+    $element['items'] = array(
+      '#title' => t('Items to display'),
+      '#type' => 'textfield',
+      '#size' => 5,
+      '#default_value' => $settings['items'],
+      '#element_validate' => array('element_validate_integer_positive'),
+      '#required' => TRUE,
+    );
+    $element['title'] = array(
+      '#title' => t('Override Title'),
+      '#description' => t('Use %nonetoken to display no title, or leave blank to use the default title.', array('%nonetoken' => '<none>')),
+      '#type' => 'textfield',
+      '#size' => 20,
+      '#default_value' => $settings['title'],
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function twitterfield_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = array();
+
+  if ($display['type'] == 'twitterfield_twitter_pull') {
+    $summary[] = t('Items to display') . ': ' . $settings['items'];
+    $summary[] = t('Title') . ': ' . (empty($settings['title']) ? '<em>default</em>' : check_plain($settings['title']));
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function twitterfield_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'twitterfield_twitter_link':
+      foreach ($items as $delta => $item) {
+        if ($item['safe_value']) {
+          $value = $item['safe_value'];
+
+          if (_twitterfield_is_username($value) || _twitterfield_is_list($value)) {
+            $url_part = substr($value, 1);
+          }
+          else {
+            // hashtag or search string.
+            $url_part = 'search?q=' . rawurlencode($value);
+          }
+          $element[$delta] = array(
+            '#markup' => l($value, 'http://twitter.com/' . $url_part, array('attributes' => array('class' => 'twitterfield_twitter_link')))
+          );
+        }
+      }
+      break;
+
+    case 'twitterfield_twitter_widget':
+      foreach ($items as $delta => $item) {
+        if ($item['safe_value']) {
+          $type = 'search';
+          $value = $item['safe_value'];
+          // Title and subject need to be escaped for insertion into javascript string.
+          $title = NULL;
+          $subject = addslashes($value);
+
+          if (_twitterfield_is_username($value)) {
+            $type = 'profile';
+            $value = substr($value, 1);
+          }
+          elseif (_twitterfield_is_list($value)) {
+            $type = 'list';
+            $value = explode('/', substr($value, 1));
+          }
+          else {
+            // Search expressions need to be escaped for insertion in javascript string.
+            $value = addslashes($value);
+          }
+
+          $element[$delta] = array(
+            '#markup' => theme('twitter_widget', array('type' => $type, 'value' => $value, 'title' => $title, 'subject' => $subject)),
+          );
+        }
+      }
+      break;
+    case 'twitterfield_twitter_pull':
+      foreach ($items as $delta => $item) {
+        if ($item['safe_value']) {
+          $title = $item['safe_value'];
+          if (!empty($display['settings']['title'])) {
+            if ($display['settings']['title'] == '<none>') {
+              $title = FALSE;
+            }
+            else {
+              $title = $display['settings']['title'];
+            }
+          }
+          $element[$delta] = array(
+            '#markup' => twitter_pull_render($item['safe_value'], $title, $display['settings']['items']),
+          );
+        }
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Check if the given value is a twitter username.
+ *
+ * @param $value String to check.
+ * @return boolean
+ */
+function _twitterfield_is_username($value) {
+  return preg_match('/^@[\w]+$/', $value);
+}
+/**
+ * Check if the given value is a twitter list.
+ *
+ * @param $value String to check.
+ * @return boolean
+ */
+function _twitterfield_is_list($value) {
+  return preg_match('/^@[\w]+\/[\w]+$/', $value);
+}
+/**
+ * Check if the given value is a Hashtag.
+ *
+ * @param $value String to check.
+ * @return boolean
+ */
+function _twitterfield_is_hashtag($value) {
+  return preg_match('/^#[\w]+$/', $value);
+}
+/**
+ * Check if the given value is a search phrase.
+ *
+ * @param $value String to check.
+ * @return boolean
+ */
+function _twitterfield_is_search($value) {
+ return strpos($value, ' ') !== FALSE || !preg_match('/^[@#]/', $value);
+}

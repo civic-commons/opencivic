@@ -1,0 +1,246 @@
+<?php
+/**
+ * @file
+ * This module retrieves and caches schema data from Schema.org.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function schemaorg_cache_menu() {
+  // JSON for autocompletion of Schema.org fields.
+  $items['schemaorg_cache/autocomplete'] = array(
+    'title' => 'Autocomplete Schema.org types, datatypes and properties',
+    'page callback' => 'schemaorg_cache_autocomplete',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Returns the entire Schema.org schema as an associative array.
+ *
+ * Since the entire schema is large (700+ megabytes), we have
+ * other functions that separately cache parts of the schema.
+ *
+ * @see schemaorg_cache_datatypes()
+ * @see schemaorg_cache_properties()
+ * @see schemaorg_cache_types()
+ *
+ * @return Array
+ *   An associative array with four elements:
+ *     'datatypes' => array of the basic datatypes, e.g., Number, Text, Boolean
+ *     'properties' => array of the schema equivalent of Drupal fields
+ *     'types' => array of the equivalent of Drupal "entity subtypes" (bundles)
+ *     'valid' => a string with the date when the schema was last updated
+ */
+function schemaorg_cache_all() {
+  if ($cache = cache_get("schemaorg:schema")) {
+    $schema = $cache->data;
+  }
+  else {
+    $result = drupal_http_request("http://schema.rdfs.org/all.json");
+    $schema = drupal_json_decode($result->data);
+    cache_set("schemaorg:schema", $schema);
+  }
+  return $schema;
+}
+
+/**
+ * Returns JSON for autocompletion of Schema.org text fields.
+ *
+ * @return JSON
+ *   A JSON array with four elements:
+ *     'datatypes' => simple array of the basic datatypes
+ *     'properties' => simple array of the schema equivalent of Drupal fields
+ *     'types' => simple array of the equivalent of Drupal "entity subtypes"
+ */
+function schemaorg_cache_autocomplete() {
+  $terms = array(
+    'datatypes' => array_keys(schemaorg_cache_datatypes()),
+    'properties' => schemaorg_cache_properties(),
+    'types' => schemaorg_cache_types(),
+  );
+  drupal_json_output($terms);
+}
+
+/**
+ * Returns an array of Schema.org datatypes.
+ *
+ * Datatypes are basic datatypes: numbers, dates, strings, etc.
+ * Since there is only a small number of datatypes, there is no
+ * need to separately cache each datatype. Instead, we just cache
+ * a single array containing all of them.
+ *
+ * @return Array
+ *   An associative array.
+ */
+function schemaorg_cache_datatypes() {
+  if ($cache = cache_get("schemaorg:datatypes")) {
+    $datatypes = $cache->data;
+  }
+  else {
+    $schema = schemaorg_cache_all();
+    $datatypes = $schema['datatypes'];
+    cache_set("schemaorg:datatypes", $datatypes);
+  }
+  return $datatypes;
+}
+
+/**
+ * Returns an array of Schema.org property types.
+ *
+ * Property types are roughly the equivalent of Drupal fields.
+ * They have names such as additionalType, accountablePerson,
+ * copyrightYear, etc.
+ *
+ * A property type might refer to simple datatype, e.g., a number,
+ * string, date or Boolean value. It also might be a more
+ * complex schema type, which in turn would contain its own
+ * list of properties. Property types that refer to complex
+ * schema types would often be represented in Drupal as
+ * entity references.
+ *
+ * @param String $property_name
+ *   The name of the property. If supplied, the property
+ *   for just that name is cached and returned. If no name is
+ *   supplied, this function returns a simple array of the 
+ *   names of all Schema.org properties.
+ *
+ * @return Array
+ *   An associative array or a simple array.
+ */
+function schemaorg_cache_properties($property_name=NULL) {
+  if ($cache = cache_get("schemaorg:properties:$property_name")) {
+    $properties = $cache->data;
+    return $properties;
+  }
+  $schema = schemaorg_cache_all();
+  if ($property_name) {
+    $properties = $schema['properties'][$property_name];
+  }
+  else {
+    $properties = array_keys($schema['properties']);
+  }
+  cache_set("schemaorg:properties:$property_name", $properties);
+  return $properties;
+}
+
+/**
+ * Return an array of Schema.org schema types.
+ *
+ * Schema types are roughly the equivalent of Drupal content
+ * types or other entities, e.g., an entity type and bundle.
+ * They have names such as Thing, Person, CreativeWork, 
+ * SoftwareApplication, etc.
+ *
+ * @param String $type_name
+ *   The name of the schema type. If supplied, the schema type
+ *   for just that name is cached and returned. If no name is
+ *   supplied, this function returns a simple array of the 
+ *   names of all Schema.org schema types.
+ *
+ * @return Array
+ *   An associative array or a simple array.
+ */
+function schemaorg_cache_types($type_name=NULL) {
+  if ($cache = cache_get("schemaorg:types:$type_name")) {
+    $types = $cache->data;
+    return $types;
+  }
+  $schema = schemaorg_cache_all();
+  if ($type_name) {
+    $types = $schema['types'][$type_name];
+  }
+  else {
+    $types = array_keys($schema['types']);
+  }
+  cache_set("schemaorg:types:$type_name", $types);
+  return $types;
+}
+
+/**
+ * Implements hook_efb_schema_load().
+ *
+ * @see efb_schema_type()
+ */
+function schemaorg_cache_efb_schema_load($schema_name) {
+  if (!$schema_name || !schemaorg_cache_type_exists($schema_name)) {
+    return;
+  }
+  $schema_type = schemaorg_cache_types($schema_name);
+  $properties = array();
+  foreach ($schema_type['properties'] as $property_name) {
+    $property = schemaorg_cache_properties($property_name);
+    $machine_name = schemaorg_cache_to_underscore($property_name);
+    $properties[$machine_name] = array(
+      'property_name' => $property_name,
+      'machine_name' => $machine_name,
+      'expected_type' => implode(' or ', $property['ranges']),
+      'ranges' => $property['ranges'],
+      'description' => $property['comment'],
+    );
+  }
+  $schema = array(
+    'name' => $schema_name,
+    'description' => $schema_type['comment'],
+    'properties' => $properties,
+  );
+  return $schema;
+}
+
+/**
+ * Determine whether a datatype exists.
+ *
+ * @param String $datatype_name
+ *   The name of the datatype.
+ *
+ * @return Boolean
+ *   Returns true if this datatype is found in the array.
+ */
+function schemaorg_cache_datatype_exists($datatype_name) {
+  $datatypes = schemaorg_cache_datatypes();
+  return isset($datatypes[$datatype_name]);
+}
+
+/**
+ * Determine whether a schema type exists.
+ *
+ * @param String $type_name
+ *   The name of the schema type.
+ *
+ * @return Boolean
+ *   Returns true if this schema type is found in the array.
+ */
+function schemaorg_cache_type_exists($type_name) {
+  $types = schemaorg_cache_types();
+  return in_array($type_name, $types);
+}
+
+/**
+ * Determine whether a property exists.
+ *
+ * @param String $property_name
+ *   The name of the property.
+ *
+ * @return Boolean
+ *   Returns true if this property is found in the array.
+ */
+function schemaorg_cache_property_exists($property_name) {
+  $properties = schemaorg_cache_properties();
+  return in_array($property_name, $properties);
+}
+
+/**
+ * Converts a camelcase string to underscored.
+ *
+ * @param String $camelcase_string
+ *   The string to be converted.
+ *
+ * @return String
+ *   A string
+ */
+function schemaorg_cache_to_underscore($camelcase_string) {
+  return strtolower(preg_replace('/([^A-Z])([A-Z])/', "$1_$2", $camelcase_string));
+}

@@ -1,0 +1,32 @@
+name = Janrain Engage UI
+description = User interface for Janrain Engage.
+dependencies[] = rpx_core
+dependencies[] = rpx_widgets
+package = Janrain Engage
+core = 7.x
+files[] = rpx_ui.module
+files[] = rpx_ui.admin.inc
+files[] = rpx_ui.pages.inc
+files[] = rpx_ui.tokens.inc
+files[] = rpx_ui.paths.inc
+files[] = views/rpx_ui.views.inc
+files[] = views/rpx_ui_handler_field_provider_icon.inc
+files[] = views/rpx_ui_handler_field_delete_link.inc
+files[] = views/rpx_ui_handler_filter_provider_name.inc
+files[] = views/rpx_ui_handler_filter_provider_title.inc
+files[] = views/rpx_ui_handler_field_share.inc
+configure = admin/config/people/rpx
+
+
+; Information added by drupal.org packaging script on 2012-04-04
+version = "7.x-2.2"
+core = "7.x"
+project = "rpx"
+datestamp = "1333553178"
+
+; Information added by drupal.org packaging script on 2013-10-14
+version = "7.x-2.5"
+core = "7.x"
+project = "rpx"
+datestamp = "1381791789"
+

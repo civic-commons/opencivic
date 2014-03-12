@@ -1,0 +1,844 @@
+<?php
+
+/**
+ * @file
+ * Installation hooks for the Translation Management module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function tmgmt_uninstall() {
+  // Remove all variables that we added.
+  variable_del('tmgmt_quick_checkout');
+  variable_del('tmgmt_purge_finished');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function tmgmt_schema() {
+  $schema['tmgmt_job'] = array(
+    'description' => 'A translation job represents a translation order that can be assigned to a translator.',
+    'fields' => array(
+      'tjid' => array(
+        'description' => 'The identifier of the translation job.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'source_language' => array(
+        'description' => 'The source language of the data.',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+      ),
+      'target_language' => array(
+        'description' => 'The language the data should be translated to.',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+      ),
+      'state' => array(
+        'description' => 'The state of the translation job.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'created' => array(
+        'description' => 'Created timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'changed' => array(
+        'description' => 'Changed timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'translator' => array(
+        'description' => 'Machine name of the translator.',
+        'type' => 'varchar',
+        'length' => 128,
+      ),
+      'settings' => array(
+        'description' => 'Translator specific configuration and context for this job.',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+      'reference' => array(
+        'description' => 'Remote identifier of this translation job.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'uid' => array(
+        'description' => 'uid of the job creator',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'label' => array(
+        'description' => 'Optional user provided label of the job.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+    ),
+    'primary key' => array('tjid'),
+    'indexes' => array(
+      'state' => array('state'),
+      'reference' => array('reference'),
+    ),
+  );
+
+  $schema['tmgmt_remote'] = array(
+    'description' => 'TMGMT job remote mapping.',
+    'fields' => array(
+      'trid' => array(
+        'description' => 'The primary key.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'tjid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => '{tmgmt_job}.tjid foreign key',
+      ),
+      'tjiid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => '{tmgmt_job_item}.tjjid foreign key',
+      ),
+      'data_item_key' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Translation job data item key.',
+      ),
+      'remote_identifier_1' => array(
+        'type' => 'varchar',
+        'length' => 127,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_identifier_2' => array(
+        'type' => 'varchar',
+        'length' => 127,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_identifier_3' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Remote job url.',
+      ),
+      'word_count' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Word count info provided by the remote service.',
+      ),
+      'remote_data' => array(
+        'description' => 'Custom remote data.',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('trid'),
+    'indexes' => array(
+      'tjid' => array('tjid'),
+      'tjiid' => array('tjiid'),
+      'remote_identifiers' => array('remote_identifier_1', 'remote_identifier_2'),
+    ),
+  );
+
+  $schema['tmgmt_job_item'] = array(
+    'description' => 'A job item connects a source to a translation job.',
+    'fields' => array(
+      'tjiid' => array(
+        'description' => 'The identifier of the translation job item.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'tjid' => array(
+        'description' => 'The identifier of the translation job.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ),
+      'plugin' => array(
+        'description' => 'Indicates the plugin which provides this item.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'item_type' => array(
+        'description' => 'The type of the item, e.g. the entity type.',
+        'type' => 'varchar',
+        'length' => 128,
+      ),
+      'item_id' => array(
+        'description' => 'The unique id (within the given item type) of the item.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'state' => array(
+        'description' => 'The state of the translation job item.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'data' => array(
+        'description' => 'Can be used by the source plugin to store the data if it can not be retrieved anymore later on.',
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+      'changed' => array(
+        'description' => 'Changed timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'count_pending' => array(
+        'description' => 'Counter for all pending data items.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count_translated' => array(
+        'description' => 'Counter for all translated data items.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count_accepted' => array(
+        'description' => 'Counter for all accepted data items.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count_reviewed' => array(
+        'description' => 'Counter for all reviewed data items.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'word_count' => array(
+        'description' => 'Word count of all texts contained in this job item.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('tjiid'),
+    'indexes' => array(
+      'job_id' => array('tjid'),
+    ),
+    'foreign keys' => array(
+      'job' => array(
+        'table' => 'tmgmt_job',
+        'columns' => array('tjid'),
+      ),
+    ),
+  );
+
+  $schema['tmgmt_translator'] = array(
+    'description' => 'A translator is a combination of a translator type and type specific configuration.',
+    'fields' => array(
+      'tid' => array(
+        'description' => 'The identifier of the translator.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'description' => 'Machine name identifier of the translator.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'label' => array(
+        'description' => 'Label of the translator.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'description' => array(
+        'description' => 'Description of the translator.',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+      'plugin' => array(
+        'description' => 'Name of the translator service plugin.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'settings' => array(
+        'description' => 'Translator specific settings.',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+      'weight' => array(
+        'description' => 'The weight of the translator.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'status' => array(
+        'description' => 'The exportable status of the entity.',
+        'type' => 'int',
+        'not null' => TRUE,
+        // Set the default to ENTITY_CUSTOM without using the constant as it is
+        // not safe to use it at this point.
+        'default' => 0x01,
+        'size' => 'tiny',
+      ),
+      'module' => array(
+        'description' => 'The name of the providing module if the entity has been defined in code.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('tid'),
+    'unique keys' => array(
+      'name' => array('name'),
+    ),
+  );
+
+  $schema['tmgmt_message'] = array(
+    'description' => 'A log message can be used to store events that affect a job.',
+    'fields' => array(
+      'mid' => array(
+        'description' => 'The identifier of the message.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'tjid' => array(
+        'description' => 'The identifier of the translation job that the message belongs to.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'tjiid' => array(
+        'description' => 'The identifier of the translation job item that the message belongs to.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The identifier of the user who performed the action.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'default' => 0,
+      ),
+      'message' => array(
+        'description' => 'The language into the data should be translated.',
+        'type' => 'text',
+        'size' => 'big',
+      ),
+      'variables' => array(
+        'description' => 'The variables of the message as expected by t().',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+      'created' => array(
+        'description' => 'Created timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'type' => array(
+        'description' => 'Type of the message (debug, notice, warning or error)',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('mid'),
+    'indexes' => array(
+      'tjid' => array('tjid'),
+      'tjiid' => array('tjiid'),
+    ),
+  );
+
+  // Clone the schema for our cache table from Drupal core.
+  $schema['cache_tmgmt'] = drupal_get_schema_unprocessed('system', 'cache');
+
+  // Clone the schema for the entity cache module if it is enabled.
+  if (module_exists('entitycache')) {
+    $schema['cache_entity_tmgmt_translator'] = drupal_get_schema_unprocessed('system', 'cache');
+  }
+
+  return $schema;
+}
+
+/**
+ * Merge the content of the 'translation' field into the 'data' field.
+ */
+function tmgmt_update_7000(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(*) FROM {tmgmt_job_item}')->fetchField();
+  }
+
+  $results = db_select('tmgmt_job_item', 'tji')
+    ->fields('tji', array('tjiid', 'data', 'translation'))
+    ->range($sandbox['progress'], 50)
+    ->orderBy('tjiid', 'ASC')
+    ->execute();
+
+  foreach ($results as $item) {
+    $data = unserialize($item->data);
+    if (!empty($item->translation)) {
+      foreach (tmgmt_flatten_data(unserialize($item->translation)) as $key => $translation) {
+        if (!empty($item->data)) {
+          $key = explode('][', $key);
+          drupal_array_set_nested_value($data, array_merge($key, array('#translation')), $translation);
+        }
+      }
+      db_update('tmgmt_job_item')
+        ->condition('tjiid', $item->tjiid)
+        ->fields(array('data' => serialize($data)))
+        ->execute();
+    }
+
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+}
+
+/**
+ * Remove the 'translation' field from the job item entity.
+ */
+function tmgmt_update_7001() {
+  db_drop_field('tmgmt_job_item', 'translation');
+}
+
+/**
+ * Add counter columns to {tmgmt_job_item}.
+ */
+function tmgmt_update_7002() {
+  // Defining schema of additional fields.
+  $schema = array(
+    'count_pending' => array(
+      'description' => 'Counter for all pending data items.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+    ),
+    'count_translated' => array(
+      'description' => 'Counter for all translated data items.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+    ),
+    'count_approved' => array(
+      'description' => 'Counter for all approved data items.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+    ),
+  );
+  // Add aditional fields to db.
+  foreach ($schema as $field => $spec) {
+    db_add_field('tmgmt_job_item', $field, $spec);
+  }
+}
+
+/**
+ * Data parsing helper function for tmgmt_update_7003().
+ *
+ * Copied from TMGMTJobItemController::count().
+ *
+ * @param $item
+ *   The current data item.
+ * @param $entity
+ *   The job item the count should be calculated.
+ */
+ function _tmgmt_data_count_7003(&$item, $entity) {
+  if (!empty($item['#text'])) {
+    if (_tmgmt_filter_data($item)) {
+
+      // Set default states if no state is set.
+      if (!isset($item['#status'])) {
+        // Translation is present.
+        if (!empty($item['#translation'])) {
+          $item['#status'] = TMGMT_DATA_ITEM_STATE_TRANSLATED;
+        }
+        // No translation present.
+        else {
+          $item['#status'] = TMGMT_DATA_ITEM_STATE_PENDING;
+        }
+      }
+      switch ($item['#status']) {
+        case 1:
+          $entity->count_approved++;
+          break;
+        case 2:
+          $entity->count_translated++;
+          break;
+        default:
+          $entity->count_pending++;
+          break;
+      }
+    }
+  }
+  else {
+    foreach (element_children($item) as $key) {
+      _tmgmt_data_count_7003($item[$key], $entity);
+    }
+  }
+}
+
+/**
+ * Set counters for existing job items.
+ */
+function tmgmt_update_7003(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['last_tjiid'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(tjiid) FROM {tmgmt_job_item}')->fetchField();
+  }
+  $result = db_query('SELECT tjiid, data FROM {tmgmt_job_item} WHERE tjiid > :last_tjiid ORDER BY tjiid LIMIT 10', array( ':last_tjiid' => $sandbox['last_tjiid']));
+  foreach ($result as $row) {
+    // Unseralize data, count it and then save the counters.
+    if (!empty($row->data)) {
+      $fake_job_item = (object)array(
+        'count_approved' => 0,
+        'count_translated' => 0,
+        'count_pending' => 0,
+      );
+      $data = unserialize($row->data);
+      _tmgmt_data_count_7003($data, $fake_job_item);
+      $fields = (array)$fake_job_item + array(
+        'data' => serialize($data),
+      );
+      db_update('tmgmt_job_item')
+        ->condition('tjiid', $row->tjiid)
+        ->fields($fields)
+        ->execute();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+  if ($row) {
+    $sandbox['last_tjiid'] = $row->tjiid;
+  }
+}
+
+/**
+ * Replace the [#translation][#finished] attribute with [#status].
+ */
+function tmgmt_update_7004(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['last_tjiid'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(tjiid) FROM {tmgmt_job_item}')->fetchField();
+  }
+  $result = db_query('SELECT tjiid, data FROM {tmgmt_job_item} WHERE tjiid > :last_tjiid ORDER BY tjiid LIMIT 10', array(':last_tjiid' => $sandbox['last_tjiid']));
+  foreach ($result as $row) {
+    if (!empty($row->data)) {
+      $data = unserialize($row->data);
+      $flattened_data = array_filter(tmgmt_flatten_data($data), '_tmgmt_filter_data');
+      // Loop over data, find finished translations, remove the flag and set
+      // the status instead.
+      foreach ($flattened_data as $key => $values) {
+        if (!empty($values['#translation']['#finished'])) {
+          $finished = $values['#translation']['#finished'];
+          unset($values['#translation']['#finished']);
+          drupal_array_set_nested_value($data, array_merge($key, array('#translation')), $values['#translation']);
+          if ($finished && (empty($values['#status']) || $values['#status'] == TMGMT_DATA_ITEM_STATE_PENDING)) {
+            drupal_array_set_nested_value($data, array_merge($key, array('#status')), TMGMT_DATA_ITEM_STATE_TRANSLATED);
+          }
+          // Save the updated data structure.
+          db_update('tmgmt_job_item')
+            ->condition('tjiid', $row->tjiid)
+            ->fields(array('data' => serialize($data)))
+            ->execute();
+        }
+      }
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+  if ($row) {
+    $sandbox['last_tjiid'] = $row->tjiid;
+  }
+}
+
+/**
+ * Add word count column to {tmgmt_job_item}.
+ */
+function tmgmt_update_7005() {
+  if (!db_field_exists('tmgmt_job_item', 'word_count')) {
+    $spec = array(
+      'description' => 'Word count of all texts contained in this job item.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+    );
+    db_add_field('tmgmt_job_item', 'word_count', $spec);
+  }
+}
+
+/**
+ * Data parsing helper function for tmgmt_update_7006().
+ *
+ * Copied from TMGMTJobItemController::count().
+ *
+ * @param $item
+ *   The current data item.
+ * @param $entity
+ *   The job item the count should be calculated.
+ */
+ function _tmgmt_data_count_7006($item, $entity) {
+  if (!empty($item['#text'])) {
+    if (_tmgmt_filter_data($item)) {
+      module_load_include('module', 'tmgmt');
+      // Count words of the data item.
+      $entity->word_count += tmgmt_word_count($item['#text']);
+    }
+  }
+  else {
+    foreach (element_children($item) as $key) {
+      _tmgmt_data_count_7006($item[$key], $entity);
+    }
+  }
+}
+
+/**
+ * Set word count for existing job items.
+ */
+function tmgmt_update_7006(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['last_tjiid'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(tjiid) FROM {tmgmt_job_item}')->fetchField();
+  }
+
+  $result = db_query('SELECT tjiid, data FROM {tmgmt_job_item} WHERE tjiid > :last_tjiid ORDER BY tjiid LIMIT 10', array(':last_tjiid' => $sandbox['last_tjiid']));
+  foreach ($result as $row) {
+    // Unseralize data, count it and then save the counters.
+    if (!empty($row->data)) {
+      $fake_job_item = (object)array(
+        'word_count' => 0,
+      );
+      _tmgmt_data_count_7006(unserialize($row->data), $fake_job_item);
+      db_update('tmgmt_job_item')
+        ->condition('tjiid', $row->tjiid)
+        ->fields((array)$fake_job_item)
+        ->execute();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+  if ($row) {
+    $sandbox['last_tjiid'] = $row->tjiid;
+  }
+}
+
+/**
+ * Removing the tmgmt_auto_accept variable.
+ */
+function tmgmt_update_7007() {
+  variable_del('tmgmt_auto_accept');
+}
+
+/**
+ * Introduce the reviewed counter and rename approved.
+ */
+function tmgmt_update_7008() {
+  // Rename approved to reviewed to simplify the upgrade path.
+  db_change_field('tmgmt_job_item', 'count_approved', 'count_reviewed', array(
+    'description' => 'Counter for all reviewed data items.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+  // Add the accepted counter.
+  db_add_field('tmgmt_job_item', 'count_accepted', array(
+    'description' => 'Counter for all accepted data items.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+}
+
+/**
+ * Update data item status of accepted job items to accepted.
+ */
+function tmgmt_update_7009() {
+  // First set count_accepted to the value of count_reviewed.
+  db_update('tmgmt_job_item')
+    ->expression('count_accepted', 'count_reviewed + count_pending + count_translated')
+    ->condition('state', TMGMT_JOB_ITEM_STATE_ACCEPTED)
+    ->execute();
+  // Then set count_reviewed to 0.
+  db_update('tmgmt_job_item')
+    ->fields(array(
+      'count_reviewed' => 0,
+      'count_translated' => 0,
+      'count_pending' => 0,
+      ))
+    ->condition('state', TMGMT_JOB_ITEM_STATE_ACCEPTED)
+    ->execute();
+}
+
+/**
+ * Create tmgmt_remote table to provide generic functionality for remote job
+ * mappings.
+ */
+function tmgmt_update_7010() {
+  db_create_table('tmgmt_remote', array(
+    'description' => 'TMGMT job remote mapping.',
+    'fields' => array(
+      'trid' => array(
+        'description' => 'The primary key.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'tjid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => '{tmgmt_job}.tjid foreign key',
+      ),
+      'tjiid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => '{tmgmt_job_item}.tjjid foreign key',
+      ),
+      'data_item_key' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Translation job data item key.',
+      ),
+      'remote_identifier_1' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_identifier_2' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_identifier_3' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Custom remote identifier data.',
+      ),
+      'remote_url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Remote job url.',
+      ),
+      'word_count' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Word count info provided by the remote service.',
+      ),
+      'remote_data' => array(
+        'description' => 'Custom remote data.',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('trid'),
+    'indexes' => array(
+      'tjid' => array('tjid'),
+      'tjiid' => array('tjiid'),
+      'remote_identifiers' => array('remote_identifier_1', 'remote_identifier_2', 'remote_identifier_3'),
+    ),
+  ));
+}
+
+/**
+ * Add uid field for {tmgmt_message} table.
+ */
+function tmgmt_update_7011() {
+  db_add_field('tmgmt_message', 'uid', array(
+    'description' => 'The identifier of the user who performed the action.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+}
+
+/**
+ * Shortens remote_identifier_1/2 fields and recreates index for remote
+ * identifier fields to include only the first two.
+ */
+function tmgmt_update_7012() {
+  db_drop_index('tmgmt_remote', 'remote_identifiers');
+  db_change_field('tmgmt_remote', 'remote_identifier_1', 'remote_identifier_1', array(
+    'type' => 'varchar',
+    'length' => 127,
+    'not null' => TRUE,
+    'default' => '',
+    'description' => 'Custom remote identifier data.',
+  ));
+  db_change_field('tmgmt_remote', 'remote_identifier_2', 'remote_identifier_2', array(
+    'type' => 'varchar',
+    'length' => 127,
+    'not null' => TRUE,
+    'default' => '',
+    'description' => 'Custom remote identifier data.',
+  ));
+  db_add_index('tmgmt_remote', 'remote_identifiers', array('remote_identifier_1', 'remote_identifier_2'));
+}
+
+/**
+ * Shortens reference and label fields in {tmgmt_job} to length 255.
+ *
+ * Avoids issues with InnoDB and UTF-8 key limits.
+ */
+function tmgmt_update_7013() {
+  db_drop_index('tmgmt_job', 'reference');
+  db_change_field('tmgmt_job', 'reference', 'reference', array(
+    'description' => 'Remote identifier of this translation job.',
+    'type' => 'varchar',
+    'length' => 255,
+  ));
+  db_change_field('tmgmt_job', 'label', 'label', array(
+    'description' => 'Optional user provided label of the job.',
+    'type' => 'varchar',
+    'length' => 255,
+  ));
+  db_add_index('tmgmt_job', 'reference', array('reference'));
+}

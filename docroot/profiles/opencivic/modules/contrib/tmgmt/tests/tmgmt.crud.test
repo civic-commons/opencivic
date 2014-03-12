@@ -1,0 +1,509 @@
+<?php
+
+/*
+ * @file
+ * Contains tests for Translation management
+ */
+
+/**
+ * Basic CRUD tests.
+ */
+class TMGMTCRUDTestCase extends TMGMTBaseTestCase {
+
+  static function getInfo() {
+    return array(
+      'name' => 'CRUD tests',
+      'description' => 'Basic crud operations for jobs and translators',
+      'group' => 'Translation Management',
+    );
+  }
+
+  /**
+   * Test crud operations of translators.
+   */
+  function testTranslators() {
+    $translator = $this->createTranslator();
+
+    $loaded_translator = tmgmt_translator_load($translator->tid);
+
+    $this->assertEqual($translator->name, $loaded_translator->name);
+    $this->assertEqual($translator->label, $loaded_translator->label);
+    $this->assertEqual($translator->settings, $loaded_translator->settings);
+
+    // Update the settings.
+    $translator->settings['new_key'] = $this->randomString();
+    $this->assertEqual(SAVED_UPDATED, $translator->save());
+
+    $loaded_translator = tmgmt_translator_load($translator->tid);
+
+    $this->assertEqual($translator->name, $loaded_translator->name);
+    $this->assertEqual($translator->label, $loaded_translator->label);
+    $this->assertEqual($translator->settings, $loaded_translator->settings);
+
+    // Delete the translator, make sure the translator is gone.
+    $translator->delete();
+    $this->assertFalse(tmgmt_translator_load($translator->tid));
+  }
+
+  /**
+   * Test crud operations of jobs.
+   */
+  function testJobs() {
+    $job = $this->createJob();
+
+    $loaded_job = tmgmt_job_load($job->tjid);
+
+    $this->assertEqual($job->source_language, $loaded_job->source_language);
+    $this->assertEqual($job->target_language, $loaded_job->target_language);
+
+    // Assert that the created and changed information has been set to the
+    // default value.
+    $this->assertTrue($loaded_job->created > 0);
+    $this->assertTrue($loaded_job->changed > 0);
+    $this->assertEqual(0, $loaded_job->state);
+
+    // Update the settings.
+    $job->reference = 7;
+    $this->assertEqual(SAVED_UPDATED, $job->save());
+
+    $loaded_job = tmgmt_job_load($job->tjid);
+
+    $this->assertEqual($job->reference, $loaded_job->reference);
+
+    // Test the job items.
+    $item1 = $job->addItem('test_source', 'type', 5);
+    $item2 = $job->addItem('test_source', 'type', 4);
+
+    // Load and compare the items.
+    $items = $job->getItems();
+    $this->assertEqual(2, count($items));
+
+    $this->assertEqual($item1->plugin, $items[$item1->tjiid]->plugin);
+    $this->assertEqual($item1->item_type, $items[$item1->tjiid]->item_type);
+    $this->assertEqual($item1->item_id, $items[$item1->tjiid]->item_id);
+    $this->assertEqual($item2->plugin, $items[$item2->tjiid]->plugin);
+    $this->assertEqual($item2->item_type, $items[$item2->tjiid]->item_type);
+    $this->assertEqual($item2->item_id, $items[$item2->tjiid]->item_id);
+
+    // Delete the translator, make sure the translator is gone.
+    $job->delete();
+    $this->assertFalse(tmgmt_job_load($job->tjid));
+  }
+
+  function testRemoteMappings() {
+
+    $data_key = '5][test_source][type';
+
+    $translator = $this->createTranslator();
+    $job = $this->createJob();
+    $job->translator = $translator->name;
+    $job->save();
+    $item1 = $job->addItem('test_source', 'type', 5);
+    $item2 = $job->addItem('test_source', 'type', 4);
+
+    $result = $item1->addRemoteMapping($data_key, 'id11', array('remote_identifier_2' => 'id12', 'remote_identifier_3' => 'id13'));
+    $this->assertEqual($result, SAVED_NEW);
+
+    $job_mappings = $job->getRemoteMappings();
+    $item_mappings = $item1->getRemoteMappings();
+
+    $job_mapping = array_shift($job_mappings);
+    $item_mapping = array_shift($item_mappings);
+
+    $_job = $job_mapping->getJob();
+    $this->assertEqual($job->tjid, $_job->tjid);
+
+    $_job = $item_mapping->getJob();
+    $this->assertEqual($job->tjid, $_job->tjid);
+
+    $_item1 = $item_mapping->getJobItem();
+    $this->assertEqual($item1->tjiid, $_item1->tjiid);
+
+    /**
+     * @var TMGMTRemoteController $remote_mapping_controller
+     */
+    $remote_mapping_controller = entity_get_controller('tmgmt_remote');
+    $remote_mappings = $remote_mapping_controller->loadByRemoteIdentifier('id11', 'id12', 'id13');
+    $remote_mapping = array_shift($remote_mappings);
+    $this->assertEqual($item1->tjiid, $remote_mapping->tjiid);
+
+    $this->assertEqual(count($remote_mapping_controller->loadByRemoteIdentifier('id11')), 1);
+    $this->assertEqual(count($remote_mapping_controller->loadByRemoteIdentifier('id11', '')), 0);
+    $this->assertEqual(count($remote_mapping_controller->loadByRemoteIdentifier('id11', NULL, '')), 0);
+    $this->assertEqual(count($remote_mapping_controller->loadByRemoteIdentifier(NULL, NULL, 'id13')), 1);
+
+    // Test remote data.
+    $item_mapping->addRemoteData('test_data', 'test_value');
+    entity_save('tmgmt_remote', $item_mapping);
+    $item_mapping = entity_load_single('tmgmt_remote', $item_mapping->trid);
+    $this->assertEqual($item_mapping->getRemoteData('test_data'), 'test_value');
+
+    // Add mapping to the other job item as well.
+    $item2->addRemoteMapping($data_key, 'id21', array('remote_identifier_2' => 'id22', 'remote_identifier_3' => 'id23'));
+
+    // Test deleting.
+
+    // Delete item1.
+    entity_get_controller('tmgmt_job_item')->delete(array($item1->tjiid));
+    // Test if mapping for item1 has been removed as well.
+
+    $this->assertEqual(count($remote_mapping_controller->loadByLocalData(NULL, $item1->tjiid)), 0);
+
+    // We still should have mapping for item2.
+    $this->assertEqual(count($remote_mapping_controller->loadByLocalData(NULL, $item2->tjiid)), 1);
+
+    // Now delete the job and see if remaining mappings were removed as well.
+    entity_get_controller('tmgmt_job')->delete(array($job->tjid));
+    $this->assertEqual(count($remote_mapping_controller->loadByLocalData(NULL, $item2->tjiid)), 0);
+  }
+
+  /**
+   * Test crud operations of job items.
+   */
+  function testJobItems() {
+    $job = $this->createJob();
+
+    // Add some test items.
+    $item1 = $job->addItem('test_source', 'type', 5);
+    $item2 = $job->addItem('test_source', 'type', 4);
+
+    // Test single load callback.
+    $item = tmgmt_job_item_load($item1->tjiid);
+    $this->assertEqual($item1->plugin, $item->plugin);
+    $this->assertEqual($item1->item_type, $item->item_type);
+    $this->assertEqual($item1->item_id, $item->item_id);
+
+    // Test multiple load callback.
+    $items = tmgmt_job_item_load_multiple(array($item1->tjiid, $item2->tjiid));
+
+    $this->assertEqual(2, count($items));
+
+    $this->assertEqual($item1->plugin, $items[$item1->tjiid]->plugin);
+    $this->assertEqual($item1->item_type, $items[$item1->tjiid]->item_type);
+    $this->assertEqual($item1->item_id, $items[$item1->tjiid]->item_id);
+    $this->assertEqual($item2->plugin, $items[$item2->tjiid]->plugin);
+    $this->assertEqual($item2->item_type, $items[$item2->tjiid]->item_type);
+    $this->assertEqual($item2->item_id, $items[$item2->tjiid]->item_id);
+  }
+
+  /**
+   * Tests adding translated data and revision handling.
+   */
+  function testAddingTranslatedData() {
+    $translator = $this->createTranslator();
+    $job = $this->createJob();
+    $job->translator = $translator->name;
+    $job->save();
+
+    // Add some test items.
+    $item1 = $job->addItem('test_source', 'type', 5);
+    $key = array('dummy', 'deep_nesting');
+
+    $translation['dummy']['deep_nesting']['#text'] = 'translated 1';
+    $item1->addTranslatedData($translation);
+    $data = $item1->getData($key);
+
+    // Check job messages.
+    $messages = $job->getMessages();
+    $this->assertEqual(count($messages), 1);
+    $last_message = end($messages);
+    $this->assertEqual($last_message->message, 'The translation of !source to @language is finished and can now be <a href="!review_url">reviewed</a>.');
+
+    // Initial state - translation has been received for the first time.
+    $this->assertEqual($data['#translation']['#text'], 'translated 1');
+    $this->assertTrue(empty($data['#translation']['#text_revisions']));
+    $this->assertEqual($data['#translation']['#origin'], 'remote');
+    $this->assertEqual($data['#translation']['#timestamp'], REQUEST_TIME);
+
+
+    // Add translation, however locally customized.
+    $translation['dummy']['deep_nesting']['#text'] = 'translated 2';
+    $translation['dummy']['deep_nesting']['#origin'] = 'local';
+    $translation['dummy']['deep_nesting']['#timestamp'] = REQUEST_TIME - 5;
+    $item1->addTranslatedData($translation);
+    $data = $item1->getData($key);
+
+    // The translation text is updated.
+    $this->assertEqual($data['#translation']['#text'], 'translated 2');
+    $this->assertEqual($data['#translation']['#timestamp'], REQUEST_TIME - 5);
+
+    // Previous translation is among text_revisions.
+    $this->assertEqual($data['#translation']['#text_revisions'][0]['#text'], 'translated 1');
+    $this->assertEqual($data['#translation']['#text_revisions'][0]['#origin'], 'remote');
+    $this->assertEqual($data['#translation']['#text_revisions'][0]['#timestamp'], REQUEST_TIME);
+    // Current translation origin is local.
+    $this->assertEqual($data['#translation']['#origin'], 'local');
+
+    // Check job messages.
+    $messages = $job->getMessages();
+    $this->assertEqual(count($messages), 1);
+
+    // Add translation - not local.
+    $translation['dummy']['deep_nesting']['#text'] = 'translated 3';
+    unset($translation['dummy']['deep_nesting']['#origin']);
+    unset($translation['dummy']['deep_nesting']['#timestamp']);
+    $item1->addTranslatedData($translation);
+    $data = $item1->getData($key);
+
+    // The translation text is NOT updated.
+    $this->assertEqual($data['#translation']['#text'], 'translated 2');
+    $this->assertEqual($data['#translation']['#timestamp'], REQUEST_TIME - 5);
+    // Received translation is the latest revision.
+    $last_revision = end($data['#translation']['#text_revisions']);
+    $this->assertEqual($last_revision['#text'], 'translated 3');
+    $this->assertEqual($last_revision['#origin'], 'remote');
+    $this->assertEqual($last_revision['#timestamp'], REQUEST_TIME);
+    // Current translation origin is local.
+    $this->assertEqual($data['#translation']['#origin'], 'local');
+
+    // Check job messages.
+    $messages = $job->getMessages();
+    $this->assertEqual(count($messages), 2);
+    $last_message = end($messages);
+    $this->assertEqual($last_message->message, 'Translation for customized @key received. Revert your changes if you wish to use it.');
+
+    // Revert to previous revision which is the latest received translation.
+    $item1->dataItemRevert($key);
+    $data = $item1->getData($key);
+
+    // The translation text is updated.
+    $this->assertEqual($data['#translation']['#text'], 'translated 3');
+    $this->assertEqual($data['#translation']['#origin'], 'remote');
+    $this->assertEqual($data['#translation']['#timestamp'], REQUEST_TIME);
+    // Latest revision is now the formerly added local translation.
+    $last_revision = end($data['#translation']['#text_revisions']);
+    $this->assertTrue($last_revision['#text'], 'translated 2');
+    $this->assertTrue($last_revision['#origin'], 'remote');
+    $this->assertEqual($last_revision['#timestamp'], REQUEST_TIME - 5);
+
+    // Check job messages.
+    $messages = $job->getMessages();
+    $this->assertEqual(count($messages), 3);
+    $last_message = end($messages);
+    $this->assertEqual($last_message->message, 'Translation for @key reverted to the latest version.');
+
+    // There should be three revisions now.
+    $this->assertEqual(count($data['#translation']['#text_revisions']), 3);
+
+    // Attempt to update the translation with the same text, this should not
+    // lead to a new revision.
+    $translation['dummy']['deep_nesting']['#text'] = 'translated 3';
+    //unset($translation['dummy']['deep_nesting']['#origin']);
+    //unset($translation['dummy']['deep_nesting']['#timestamp']);
+    $item1->addTranslatedData($translation);
+    $data = $item1->getData($key);
+    $this->assertEqual(count($data['#translation']['#text_revisions']), 3);
+
+    // Mark the translation as reviewed, a new translation should not update the
+    // existing one but create a new translation.
+    $item1->updateData($key, array('#status' => TMGMT_DATA_ITEM_STATE_REVIEWED));
+    $translation['dummy']['deep_nesting']['#text'] = 'translated 4';
+    $item1->addTranslatedData($translation);
+    $data = $item1->getData($key);
+
+    // The translation text is NOT updated.
+    $this->assertEqual($data['#translation']['#text'], 'translated 3');
+    // Received translation is the latest revision.
+    $this->assertEqual(count($data['#translation']['#text_revisions']), 4);
+    $last_revision = end($data['#translation']['#text_revisions']);
+    $this->assertEqual($last_revision['#text'], 'translated 4');
+    $this->assertEqual($last_revision['#origin'], 'remote');
+    $this->assertEqual($last_revision['#timestamp'], REQUEST_TIME);
+
+    // Check job messages.
+    $messages = $job->getMessages();
+    $this->assertEqual(count($messages), 4);
+    $last_message = end($messages);
+    $this->assertEqual($last_message->message, 'Translation for already reviewed @key received and stored as a new revision. Revert to it if you wish to use it.');
+  }
+
+  /**
+   * Test the calculations of the counters.
+   */
+  function testJobItemsCounters() {
+    $job = $this->createJob();
+
+    // Some test data items.
+    $data1 = array(
+      '#text' => 'The text to be translated.',
+    );
+    $data2 = array(
+      '#text' => 'The text to be translated.',
+      '#translation' => '',
+    );
+    $data3 = array(
+      '#text' => 'The text to be translated.',
+      '#translation' => 'The translated data. Set by the translator plugin.',
+    );
+    $data4 = array(
+      '#text' => 'Another, longer text to be translated.',
+      '#translation' => 'The translated data. Set by the translator plugin.',
+      '#status' => TMGMT_DATA_ITEM_STATE_REVIEWED,
+    );
+    $data5 = array(
+      '#label' => 'label',
+      'data1' => $data1,
+      'data4' => $data4,
+    );
+
+    // No data items.
+    $this->assertEqual(0, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountTranslated());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(0, $job->getCountAccepted());
+    $this->assertEqual(0, $job->getWordCount());
+
+    // Add a test items.
+    $job_item1 = tmgmt_job_item_create('plugin', 'type', 4, array('tjid' => $job->tjid));
+    $job_item1->save();
+
+    // No pending, translated and confirmed data items.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    $job_item1 = entity_load_single('tmgmt_job_item', $job_item1->tjiid);
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(0, $job_item1->getCountPending());
+    $this->assertEqual(0, $job_item1->getCountTranslated());
+    $this->assertEqual(0, $job_item1->getCountReviewed());
+    $this->assertEqual(0, $job_item1->getCountAccepted());
+    $this->assertEqual(0, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountTranslated());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(0, $job->getCountAccepted());
+
+    // Add an untranslated data item.
+    $job_item1->data['data_item1'] = $data1;
+    $job_item1->save();
+
+    // One pending data items.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    $job_item1 = entity_load_single('tmgmt_job_item', $job_item1->tjiid);
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(1, $job_item1->getCountPending());
+    $this->assertEqual(0, $job_item1->getCountTranslated());
+    $this->assertEqual(0, $job_item1->getCountReviewed());
+    $this->assertEqual(5, $job_item1->getWordCount());
+    $this->assertEqual(1, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(0, $job->getCountTranslated());
+    $this->assertEqual(5, $job->getWordCount());
+
+
+    // Add another untranslated data item.
+    // Test with an empty translation set.
+    $job_item1->data['data_item1'] = $data2;
+    $job_item1->save();
+
+    // One pending data items.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    $job_item1 = entity_load_single('tmgmt_job_item', $job_item1->tjiid);
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(1, $job_item1->getCountPending());
+    $this->assertEqual(0, $job_item1->getCountTranslated());
+    $this->assertEqual(0, $job_item1->getCountReviewed());
+    $this->assertEqual(5, $job_item1->getWordCount());
+    $this->assertEqual(1, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountTranslated());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(5, $job->getWordCount());
+
+    // Add a translated data item.
+    $job_item1->data['data_item1'] = $data3;
+    $job_item1->save();
+
+    // One translated data items.
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(0, $job_item1->getCountPending());
+    $this->assertEqual(1, $job_item1->getCountTranslated());
+    $this->assertEqual(0, $job_item1->getCountReviewed());
+    $this->assertEqual(0, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(1, $job->getCountTranslated());
+
+    // Add a confirmed data item.
+    $job_item1->data['data_item1'] = $data4;
+    $job_item1->save();
+
+    // One reviewed data item.
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(1, $job_item1->getCountReviewed());
+    $this->assertEqual(1, $job->getCountReviewed());
+
+    // Add a translated and an untranslated and a confirmed data item
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    $job_item1 = entity_load_single('tmgmt_job_item', $job_item1->tjiid);
+    $job_item1->data['data_item1'] = $data1;
+    $job_item1->data['data_item2'] = $data3;
+    $job_item1->data['data_item3'] = $data4;
+    $job_item1->save();
+
+    // One pending and translated data items each.
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(1, $job->getCountPending());
+    $this->assertEqual(1, $job->getCountTranslated());
+    $this->assertEqual(1, $job->getCountReviewed());
+    $this->assertEqual(16, $job->getWordCount());
+
+    // Add nested data items.
+    $job_item1->data['data_item1'] = $data5;
+    $job_item1->save();
+
+    // One pending data items.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    $job_item1 = entity_load_single('tmgmt_job_item', $job_item1->tjiid);
+    $this->assertEqual('label', $job_item1->data['data_item1']['#label']);
+    $this->assertEqual(3, count($job_item1->data['data_item1']));
+
+    // Add a greater number of data items
+    for ($index = 1; $index <= 3; $index++) {
+      $job_item1->data['data_item' . $index] = $data1;
+    }
+    for ($index = 4; $index <= 10; $index++) {
+      $job_item1->data['data_item' . $index] = $data3;
+    }
+    for ($index = 11; $index <= 15; $index++) {
+      $job_item1->data['data_item' . $index] = $data4;
+    }
+    $job_item1->save();
+
+    // 3 pending and 7 translated data items each.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(3, $job->getCountPending());
+    $this->assertEqual(7, $job->getCountTranslated());
+    $this->assertEqual(5, $job->getCountReviewed());
+
+    // Add several job items
+    $job_item2 = tmgmt_job_item_create('plugin', 'type', 5, array('tjid' => $job->tjid));
+    for ($index = 1; $index <= 4; $index++) {
+      $job_item2->data['data_item' . $index] = $data1;
+    }
+    for ($index = 5; $index <= 12; $index++) {
+      $job_item2->data['data_item' . $index] = $data3;
+    }
+    for ($index = 13; $index <= 16; $index++) {
+      $job_item2->data['data_item' . $index] = $data4;
+    }
+    $job_item2->save();
+
+    // 3 pending and 7 translated data items each.
+    $job = entity_load_single('tmgmt_job', $job->tjid);
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(7, $job->getCountPending());
+    $this->assertEqual(15, $job->getCountTranslated());
+    $this->assertEqual(9, $job->getCountReviewed());
+
+    // Accept the job items.
+    foreach ($job->getItems() as $item) {
+      // Set the state directly to avoid triggering translator and source
+      // controllers that do not exist.
+      $item->setState(TMGMT_JOB_ITEM_STATE_ACCEPTED);
+      $item->save();
+    }
+    drupal_static_reset('tmgmt_job_statistics_load');
+    $this->assertEqual(0, $job->getCountPending());
+    $this->assertEqual(0, $job->getCountTranslated());
+    $this->assertEqual(0, $job->getCountReviewed());
+    $this->assertEqual(31, $job->getCountAccepted());
+  }
+
+}

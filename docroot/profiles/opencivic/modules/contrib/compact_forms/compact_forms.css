@@ -1,0 +1,13 @@
+/* $Id: compact_forms.css,v 1.2 2009/05/01 23:10:11 sun Exp $ */
+
+.compact-form-wrapper {
+  position: relative;
+  text-align: left;
+}
+.compact-form-label {
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  z-index: 1;
+  font-size: .9em;
+}

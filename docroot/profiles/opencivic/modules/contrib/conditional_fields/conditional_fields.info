@@ -1,0 +1,7 @@
+name = Conditional Fields
+description = Define dependencies between fields based on their states and values.
+core = 7.x
+package = Fields
+
+dependencies[] = field
+configure = admin/structure/dependencies

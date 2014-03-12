@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Source plugin for the Translation Management system that handles locale strings.
+ */
+
+/**
+ * Implements hook_tmgmt_source_plugin_info().
+ *
+ * @see TMGMTLocaleSourcePluginController
+ */
+function tmgmt_locale_tmgmt_source_plugin_info() {
+  $info['locale'] = array(
+    'label' => t('Locale source'),
+    'description' => t('Source handler for locale strings.'),
+    'plugin controller class' => 'TMGMTLocaleSourcePluginController',
+    'ui controller class' => 'TMGMTLocaleSourceUIController',
+    'item types' => array(
+      'default' => t('Locale'),
+    ),
+  );
+
+  return $info;
+}

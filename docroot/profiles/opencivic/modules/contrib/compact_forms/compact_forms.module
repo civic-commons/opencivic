@@ -1,0 +1,149 @@
+<?php
+// $Id: compact_forms.module,v 1.11 2011/01/09 06:22:40 sun Exp $
+
+/**
+ * @file
+ * Compact Forms Drupal module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function compact_forms_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#compact_forms':
+      return '<p>' . t('Makes form fields compact by overlaying the field label on top the field itself using jQuery.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function compact_forms_permission() {
+  return array(
+    'administer Compact Forms' => array(
+      'title' => t('Administer Compact Forms'),
+      'description' => t('Configure forms to display compact and their behavior.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function compact_forms_menu() {
+  $items['admin/config/user-interface/compact_forms'] = array(
+    'title' => 'Compact Forms',
+    'description' => 'Configure Compact Forms settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('compact_forms_admin_form'),
+    'access arguments' => array('administer Compact Forms'),
+    'file' => 'compact_forms.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function compact_forms_form_alter(&$form, $form_state, $form_id) {
+  static $css_ids, $form_ids, $loaded, $field_size, $descriptions;
+
+  // Prepare CSS form ids.
+  if (!isset($css_ids)) {
+    $css_ids = explode("\n", variable_get('compact_forms_ids', 'user-login-form'));
+    $css_ids = array_filter(array_map('trim', $css_ids));
+  }
+  // Prepare Form API form ids.
+  if (!isset($form_ids) && !empty($css_ids)) {
+    $form_ids = array();
+    foreach ($css_ids as $id) {
+      $form_ids[] = strtr($id, array('-' => '_'));
+    }
+  }
+  // Prepare form alteration settings.
+  if (!isset($field_size)) {
+    $field_size = variable_get('compact_forms_field_size', '');
+    $descriptions = variable_get('compact_forms_descriptions', 1);
+  }
+
+  if (in_array($form_id, $form_ids) || (isset($form['#id']) && in_array($form['#id'], $css_ids))) {
+    // If the custom #compact_forms property has been programmatically set to
+    // FALSE, do not process this form.
+    if (isset($form['#compact_forms']) && !$form['#compact_forms']) {
+      // Also remove it from the CSS IDs being added as JS settings.
+      foreach ($css_ids as $key => $value) {
+        if ($value == $form['#id']) {
+          unset($css_ids[$key]);
+        }
+      }
+      return;
+    }
+
+    // Load our page requisites and JavaScript settings.
+    if (!isset($loaded)) {
+      _compact_forms_include_js($css_ids);
+      $loaded = TRUE;
+    }
+    // Only alter the form if a custom field size is configured or form element
+    // descriptions shall be hidden.
+    if (!empty($field_size) || !$descriptions) {
+      _compact_forms_resize_fields($form, $field_size, $descriptions);
+    }
+  }
+}
+
+/**
+ * Helper function to recursively alter form elements.
+ *
+ * @todo Perform this in #after_build instead. - Or use hook_elements() to
+ *   append a #process function to all supported elements.
+ */
+function _compact_forms_resize_fields(&$form, $field_size, $descriptions) {
+  if (empty($form) || !is_array($form)) {
+    return;
+  }
+  foreach (element_children($form) as $key) {
+    if (!isset($form[$key]['#type'])) {
+      continue;
+    }
+    switch ($form[$key]['#type']) {
+      case 'fieldset':
+        _compact_forms_resize_fields($form[$key], $field_size, $descriptions);
+        break;
+
+      case 'textfield':
+      case 'textarea':
+      case 'password':
+      case 'password_confirm':
+        if (!empty($field_size)) {
+          $form[$key]['#size'] = $field_size;
+        }
+        if (!$descriptions) {
+          unset($form[$key]['#description']);
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Include JavaScript and CSS and attach behaviors to all selected forms.
+ *
+ * @param $css_ids
+ *   An array containing CSS form ids.
+ */
+function _compact_forms_include_js($css_ids) {
+  $path = drupal_get_path('module', 'compact_forms');
+  drupal_add_js($path . '/compact_forms.js');
+  drupal_add_css($path . '/compact_forms.css');
+
+  $settings = array(
+    'compactForms' => array(
+      'forms' => $css_ids,
+      'stars' => (int) variable_get('compact_forms_stars', 2),
+    ),
+  );
+  drupal_add_js($settings, 'setting');
+}
+

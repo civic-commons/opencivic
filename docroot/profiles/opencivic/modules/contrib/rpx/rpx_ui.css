@@ -1,0 +1,14 @@
+.rpx-path-tree {
+  font-size: 0.85em;
+  margin-left: 19px;
+}
+
+.rpx-path-tree td, .rpx-path-tree th {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.add-new-placeholder {
+  font-weight: bold;
+  padding-bottom: .5em;
+}

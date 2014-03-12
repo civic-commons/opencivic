@@ -1,0 +1,7 @@
+name = Node export
+description = "Allows users to export content and then import into another Drupal installation."
+dependencies[] = uuid
+core = 7.x
+package = "Node export"
+configure = admin/config/content/node_export
+files[]=views/views_handler_field_node_link_export.inc

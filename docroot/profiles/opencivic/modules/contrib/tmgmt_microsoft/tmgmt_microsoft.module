@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Module file of the translation management test module.
+ */
+
+/**
+ * Implements hook_tmgmt_translator_plugin_info().
+ */
+function tmgmt_microsoft_tmgmt_translator_plugin_info() {
+  return array(
+    'microsoft' => array(
+      'label' => t('Microsoft translator'),
+      'description' => t('Microsoft Translator service.'),
+      'plugin controller class' => 'TMGMTMicrosoftTranslatorPluginController',
+      'ui controller class' => 'TMGMTMicrosoftTranslatorUIController',
+      'default settings' => array(
+        'api' => '',
+        'clientid' => '',
+        'clientsecret' => '',
+      ),
+    ),
+  );
+}
+

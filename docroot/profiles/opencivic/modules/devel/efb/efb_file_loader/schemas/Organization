@@ -1,0 +1,39 @@
+An organization such as a school, NGO, corporation, club, etc.
+additionalType	 URL	An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+description	 Text	A short description of the item.
+image	 URL	URL of an image of the item.
+name	 Text	The name of the item.
+url	 URL	URL of the item.
+address	PostalAddress	Physical address of the item.
+aggregateRating	AggregateRating	The overall rating, based on a collection of reviews or ratings, of the item.
+brand	Brand or Organization	The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+contactPoint	ContactPoint	A contact point for a person or organization.
+contactPoints	ContactPoint	A contact point for a person or organization (legacy spelling; see singular form, contactPoint).
+duns	 Text	The Dun & Bradstreet DUNS number for identifying an organization or business person.
+email	 Text	Email address.
+employee	Person	Someone working for this organization.
+employees	Person	People working for this organization. (legacy spelling; see singular form, employee)
+event	Event	Upcoming or past event associated with this place or organization.
+events	Event	Upcoming or past events associated with this place or organization (legacy spelling; see singular form, event).
+faxNumber	 Text	The fax number.
+founder	Person	A person who founded this organization.
+founders	Person	A person who founded this organization (legacy spelling; see singular form, founder).
+foundingDate	 Date	The date that this organization was founded.
+globalLocationNumber	 Text	The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
+hasPOS	Place	Points-of-Sales operated by the organization or person.
+interactionCount	 Text	A count of a specific user interactions with this item—for example, 20 UserLikes, 5 UserComments, or 300 UserDownloads. The user interaction type should be one of the sub types of UserInteraction.
+isicV4	 Text	The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
+legalName	 Text	The official name of the organization, e.g. the registered company name.
+location	Place or PostalAddress	The location of the event or organization.
+logo	ImageObject or URL	URL of an image for the logo of the item.
+makesOffer	Offer	A pointer to products or services offered by the organization or person.
+member	Organization or Person	A member of this organization.
+members	Organization or Person	A member of this organization (legacy spelling; see singular form, member).
+naics	 Text	The North American Industry Classification System (NAICS) code for a particular organization or business person.
+owns	OwnershipInfo or Product	Products owned by the organization or person.
+review	Review	A review of the item.
+reviews	Review	Review of the item (legacy spelling; see singular form, review).
+seeks	Demand	A pointer to products or services sought by the organization or person (demand).
+taxID	 Text	The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+telephone	 Text	The telephone number.
+vatID	 Text	The Value-added Tax ID of the organisation or person.

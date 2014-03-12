@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Install file providing corresponding entity reference schema.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function cer_schema() {
+  $schema['cer'] = array(
+    'description' => t('Saves the content types and entity reference fields for which the corresponding entity reference is enabled'),
+    'fields' => array(
+      'entity_types_content_fields' => array('type' => 'varchar', 'length' => 200, 'not null' => TRUE, 'default' => ''),
+      'enabled' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0),
+    ),
+    'primary key' => array('entity_types_content_fields'),
+    'export' => array(
+      'key' => 'entity_types_content_fields',
+      'primary key' => 'entity_types_content_fields',
+      'key name' => 'Corresponding entity reference',
+      'identifier' => 'cnr_obj',
+      'api' => array(
+        'api' => 'default_cer_presets',
+        'owner' => 'cer',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Rename table to shorten module name.
+ */
+function cer_update_7001() {
+  db_rename_table('corresponding_entity_references', 'cer');
+}

@@ -1,0 +1,22 @@
+name = Content Source User Interface
+description = User Interface for the content translation source plugin.
+package = Translation Management
+core = 7.x
+
+dependencies[] = tmgmt_node
+dependencies[] = tmgmt_ui
+dependencies[] = views_bulk_operations
+
+files[] = tmgmt_node_ui.test
+files[] = tmgmt_node_ui.overview.test
+
+; Views handlers
+files[] = views/tmgmt_node_ui_handler_filter_node_translatable_types.inc
+files[] = views/tmgmt_node_ui_handler_field_jobs.inc
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

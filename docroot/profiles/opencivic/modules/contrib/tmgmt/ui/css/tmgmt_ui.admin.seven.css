@@ -1,0 +1,9 @@
+/**
+ * @file
+ * CSS for the tmgmt admin pages for theme seven.
+ */
+
+#content .tmgmt-color-legend{
+  float: right;
+  width: 310px;
+}

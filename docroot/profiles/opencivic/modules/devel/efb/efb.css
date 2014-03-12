@@ -1,0 +1,23 @@
+
+div.efb-table {
+  display: table;
+}
+div.efb-row {
+  display: table-row;
+}
+div.efb-cell {
+  display:table-cell;
+  vertical-align:top;;
+}
+div.efb-checkbox-cell {
+  display: table-cell;
+  vertical-align: top;
+  padding-right: 9px;
+}
+div.efb-hidden {
+  display: none;
+}
+tr.efb-region,
+tr.region-title {
+  background-color: #DECBA1;
+}

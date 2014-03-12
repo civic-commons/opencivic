@@ -1,0 +1,367 @@
+<?php
+
+/**
+ * Basic Node Source UI tests.
+ */
+class TMGMTNodeSourceUITestCase extends TMGMTEntityTestCaseUtility {
+
+  static function getInfo() {
+    return array(
+      'name' => 'Node Source UI tests',
+      'description' => 'Tests the user interface for node translation sources.',
+      'group' => 'Translation Management',
+    );
+  }
+
+  function setUp() {
+    parent::setUp(array('tmgmt_node_ui', 'block'));
+
+    // We need the administer blocks permission.
+    $this->loginAsAdmin(array('administer blocks'));
+
+    $this->setEnvironment('de');
+    $this->setEnvironment('fr');
+    $this->setEnvironment('es');
+    $this->setEnvironment('el');
+
+    // @todo Re-enable this when switching to testing profile.
+    // Enable the main page content block for hook_page_alter() to work.
+    $edit = array(
+      'blocks[system_main][region]' => 'content',
+    );
+    $this->drupalPost('admin/structure/block', $edit, t('Save blocks'));
+
+    $this->createNodeType('page', 'Page', TRANSLATION_ENABLED, FALSE);
+  }
+
+  /**
+   * Tests the create, submit and accept permissions.
+   */
+  function testPermissions() {
+
+    $no_permissions = $this->drupalCreateUser();
+    $this->drupalLogin($no_permissions);
+    $this->drupalGet('admin/tmgmt');
+    $this->assertResponse(403);
+
+    // Test with a user that is only allowed to create jobs.
+    $create_user = $this->drupalCreateUser(array('access administration pages', 'translate content', 'create translation jobs'));
+    $this->drupalLogin($create_user);
+
+    // Create an english source node.
+    $node = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the translate tab.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+
+    // Request a translation for german.
+    $edit = array(
+      'languages[de]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+    $this->assertText(t('One job has been created.'));
+    // Verify that we are still on the translate tab.
+    $this->assertText(t('Translations of @title', array('@title' => $node->title)));
+
+    $this->drupalGet('admin/tmgmt');
+    $this->assertResponse(200);
+    $this->assertLink(t('manage'));
+    $this->assertNoLink(t('submit'));
+    $this->assertNoLink(t('delete'));
+    $this->assertText(t('@title', array('@title' => $node->title)));
+    $this->clickLink(t('manage'));
+    $this->assertResponse(200);
+    $this->assertNoRaw(t('Submit to translator'));
+
+    // Try to access the delete page directly.
+    $this->drupalGet($this->getUrl() . '/delete');
+    $this->assertResponse(403);
+
+    // Log in as user with only submit permission.
+    $submit_user = $this->drupalCreateUser(array('access administration pages', 'translate content', 'submit translation jobs'));
+    $this->drupalLogin($submit_user);
+
+    // Go to the translate tab, verify that there is no request translation
+    // button.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+    $this->assertNoRaw(t('Request translation'));
+
+    // Go to the overview and submit the job.
+    $this->drupalGet('admin/tmgmt');
+    $this->assertResponse(200);
+    $this->assertLink(t('submit'));
+    $this->assertNoLink(t('manage'));
+    $this->assertNoLink(t('delete'));
+    $this->assertText(t('@title', array('@title' => $node->title)));
+
+    $this->clickLink('submit');
+
+    $this->drupalPost(NULL, array(), t('Submit to translator'));
+
+    // Make sure that the job is active now.
+    $this->assertText(t('Active'));
+    $this->assertLink(t('cancel'));
+    $this->clickLink(t('manage'));
+    $this->assertText(t('Needs review'));
+    $this->assertNoLink(t('review'));
+    $this->assertTrue(empty($urls));
+
+    // Now log in as user with only accept permission and review the job.
+    $accept_user = $this->drupalCreateUser(array('access administration pages', 'accept translation jobs'));
+    $this->drupalLogin($accept_user);
+
+    $this->drupalGet('admin/tmgmt');
+    $this->clickLink('manage');
+    $this->clickLink('review');
+
+    $this->drupalPost(NULL, array(), '✓');
+    // Verify that the accepted character is shown.
+    $this->assertText('&#x2611;');
+    $this->drupalPost(NULL, array(), t('Save as completed'));
+    $this->assertText(t('Accepted'));
+    $this->assertText('1/0/0');
+
+    // Go to the translate tab, verify that there is no request translation
+    // button.
+    //$this->drupalGet('node/' . $node->nid);
+    //$this->clickLink('Translate');
+    //$this->assertNoRaw(t('Request translation'));
+  }
+
+  /**
+   * Test the translate tab for a single checkout.
+   */
+  function testTranslateTabSingleCheckout() {
+
+    // Create a user that is allowed to translate nodes.
+    $translater = $this->drupalCreateUser(array('translate content', 'create translation jobs', 'submit translation jobs', 'accept translation jobs'));
+    $this->drupalLogin($translater);
+
+    // Create an english source node.
+    $node = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the translate tab.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+
+    // Assert some basic strings on that page.
+    $this->assertText(t('Translations of @title', array('@title' => $node->title)));
+    $this->assertText(t('Pending Translations'));
+
+    // Request a translation for german.
+    $edit = array(
+      'languages[de]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+
+    // Verify that we are on the translate tab.
+    $this->assertText(t('One job needs to be checked out.'));
+    $this->assertText($node->title);
+
+    // Submit.
+    $this->drupalPost(NULL, array(), t('Submit to translator'));
+
+    // Make sure that we're back on the translate tab.
+    $this->assertEqual(url('node/' . $node->nid . '/translate', array('absolute' => TRUE)), $this->getUrl());
+    $this->assertText(t('Test translation created.'));
+    $this->assertText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node->title, '@language' => t('German'))));
+
+    // Review.
+    $this->clickLink(t('Needs review'));
+
+    // @todo Review job throuh the UI.
+    $items = tmgmt_job_item_load_latest('node', 'node', $node->nid, 'en');
+    $items['de']->acceptTranslation();
+
+    // German node should now be listed and be clickable.
+    $this->drupalGet('node/' . $node->nid . '/translate');
+    $this->clickLink('de_' . $node->title);
+
+    // Test that the destination query argument does not break the redirect
+    // and we are redirected back to the correct page.
+    $this->drupalGet('node/' . $node->nid . '/translate', array('query' => array('destination' => 'node')));
+
+    // Request a spanish translation.
+    $edit = array(
+      'languages[es]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+
+    // Verify that we are on the checkout page.
+    $this->assertText(t('One job needs to be checked out.'));
+    $this->assertText($node->title);
+    $this->drupalPost(NULL, array(), t('Submit to translator'));
+
+    // Make sure that we're back on the originally defined destination URL.
+    $this->assertEqual(url('node', array('absolute' => TRUE)), $this->getUrl());
+  }
+
+  /**
+   * Test the translate tab for a single checkout.
+   */
+  function testTranslateTabMultipeCheckout() {
+    // Create a user that is allowed to translate nodes.
+    $translater = $this->drupalCreateUser(array('translate content', 'create translation jobs', 'submit translation jobs', 'accept translation jobs'));
+    $this->drupalLogin($translater);
+
+    // Create an english source node.
+    $node = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the translate tab.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+
+    // Assert some basic strings on that page.
+    $this->assertText(t('Translations of @title', array('@title' => $node->title)));
+    $this->assertText(t('Pending Translations'));
+
+    // Request a translation for german.
+    $edit = array(
+      'languages[de]' => TRUE,
+      'languages[es]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+
+    // Verify that we are on the translate tab.
+    $this->assertText(t('2 jobs need to be checked out.'));
+
+    // Submit all jobs.
+    $this->assertText($node->title);
+    $this->drupalPost(NULL, array(), t('Submit to translator and continue'));
+    $this->assertText($node->title);
+    $this->drupalPost(NULL, array(), t('Submit to translator'));
+
+    // Make sure that we're back on the translate tab.
+    $this->assertEqual(url('node/' . $node->nid . '/translate', array('absolute' => TRUE)), $this->getUrl());
+    $this->assertText(t('Test translation created.'));
+    $this->assertText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node->title, '@language' => t('Spanish'))));
+
+    // Review.
+    $this->clickLink(t('Needs review'));
+
+    // @todo Review job throuh the UI.
+    $items = tmgmt_job_item_load_latest('node', 'node', $node->nid, 'en');
+    $items['de']->acceptTranslation();
+    $items['es']->acceptTranslation();
+
+    // Translated nodes should now be listed and be clickable.
+    $this->drupalGet('node/' . $node->nid . '/translate');
+    $this->clickLink('de_' . $node->title);
+
+    // Translated nodes should now be listed and be clickable.
+    $this->drupalGet('node/' . $node->nid . '/translate');
+    $this->clickLink('es_' . $node->title);
+  }
+
+  /**
+   * Test the translate tab for a single checkout.
+   */
+  function testTranslateTabAutomatedCheckout() {
+    // Hide settings on the test translator.
+    $default_translator = tmgmt_translator_load('test_translator');
+    $default_translator->settings = array(
+      'expose_settings' => FALSE,
+    );
+    $default_translator->save();
+
+    // Create a user that is allowed to translate nodes.
+    $translater = $this->drupalCreateUser(array('translate content', 'create translation jobs', 'submit translation jobs', 'accept translation jobs'));
+    $this->drupalLogin($translater);
+
+    // Create an english source node.
+    $node = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the translate tab.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+
+    // Assert some basic strings on that page.
+    $this->assertText(t('Translations of @title', array('@title' => $node->title)));
+    $this->assertText(t('Pending Translations'));
+
+    // Request a translation for german.
+    $edit = array(
+      'languages[de]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+
+    // Verify that we are on the translate tab.
+    $this->assertNoText(t('One job needs to be checked out.'));
+
+    // Make sure that we're back on the translate tab.
+    $this->assertEqual(url('node/' . $node->nid . '/translate', array('absolute' => TRUE)), $this->getUrl());
+    $this->assertText(t('Test translation created.'));
+    $this->assertText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node->title, '@language' => t('German'))));
+
+    // Review.
+    $this->clickLink(t('Needs review'));
+
+    // @todo Review job throuh the UI.
+    $items = tmgmt_job_item_load_latest('node', 'node', $node->nid, 'en');
+    $items['de']->acceptTranslation();
+
+    // German node should now be listed and be clickable.
+    $this->drupalGet('node/' . $node->nid . '/translate');
+    $this->clickLink('de_' . $node->title);
+  }
+
+  /**
+   * Test the translate tab for a single checkout.
+   */
+  function testTranslateTabDisabledQuickCheckout() {
+    variable_set('tmgmt_quick_checkout', FALSE);
+
+    // Hide settings on the test translator.
+    $default_translator = tmgmt_translator_load('test_translator');
+    $default_translator->settings = array(
+      'expose_settings' => FALSE,
+    );
+    $default_translator->save();
+
+    // Create a user that is allowed to translate nodes.
+    $translater = $this->drupalCreateUser(array('translate content', 'create translation jobs', 'submit translation jobs', 'accept translation jobs'));
+    $this->drupalLogin($translater);
+
+    // Create an english source node.
+    $node = $this->drupalCreateNode(array('type' => 'page', 'language' => 'en', 'body' => array('en' => array(array()))));
+
+    // Go to the translate tab.
+    $this->drupalGet('node/' . $node->nid);
+    $this->clickLink('Translate');
+
+    // Assert some basic strings on that page.
+    $this->assertText(t('Translations of @title', array('@title' => $node->title)));
+    $this->assertText(t('Pending Translations'));
+
+    // Request a translation for german.
+    $edit = array(
+      'languages[de]' => TRUE,
+    );
+    $this->drupalPost(NULL, $edit, t('Request translation'));
+
+    // Verify that we are on the translate tab.
+    $this->assertText(t('One job needs to be checked out.'));
+    $this->assertText($node->title);
+
+    // Submit.
+    $this->drupalPost(NULL, array(), t('Submit to translator'));
+
+    // Make sure that we're back on the translate tab.
+    $this->assertEqual(url('node/' . $node->nid . '/translate', array('absolute' => TRUE)), $this->getUrl());
+    $this->assertText(t('Test translation created.'));
+    $this->assertText(t('The translation of @title to @language is finished and can now be reviewed.', array('@title' => $node->title, '@language' => t('German'))));
+
+    // Review.
+    $this->clickLink(t('Needs review'));
+
+    // @todo Review job throuh the UI.
+    $items = tmgmt_job_item_load_latest('node', 'node', $node->nid, 'en');
+    $items['de']->acceptTranslation();
+
+    // German node should now be listed and be clickable.
+    $this->drupalGet('node/' . $node->nid . '/translate');
+    $this->clickLink('de_' . $node->title);
+  }
+}

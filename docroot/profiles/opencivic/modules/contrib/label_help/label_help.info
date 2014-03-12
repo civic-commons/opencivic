@@ -1,0 +1,14 @@
+name = Label Help
+description = Creates the help text directly below the label in form fields 
+core = 7.x
+
+; File registry
+files[] = label_help.module
+
+
+; Information added by drupal.org packaging script on 2013-04-18
+version = "7.x-1.0"
+core = "7.x"
+project = "label_help"
+datestamp = "1366294266"
+

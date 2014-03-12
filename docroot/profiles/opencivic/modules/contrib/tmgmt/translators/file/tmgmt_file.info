@@ -1,0 +1,19 @@
+name = Export / Import File
+description = A translator which allows you to export source data into a file and import the translated in return.
+package = Translation Management
+core = 7.x
+dependencies[] = tmgmt
+configure = admin/config/regional/tmgmt_translator
+files[] = tmgmt_file.plugin.inc
+files[] = tmgmt_file.ui.inc
+files[] = tmgmt_file.format.interface.inc
+files[] = tmgmt_file.format.xliff.inc
+files[] = tmgmt_file.format.html.inc
+files[] = tmgmt_file.test
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

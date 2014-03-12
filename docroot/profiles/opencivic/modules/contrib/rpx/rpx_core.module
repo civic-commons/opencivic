@@ -1,0 +1,1080 @@
+<?php
+
+/**
+ * @file
+ *
+ * This module provides the RPX token handler and (sign-in) related logic for
+ * Janrain Engage (formerly RPX).
+ *
+ * @see http://www.janrain.com/products/engage
+ */
+
+define('RPX_MODULE_VERSION', '7.x-2.3-beta4');
+
+/*
+ * Engage data update options.
+ *
+ * Then a linked account is added by user using the 3rd party identities tab in
+ * the user profile, provider-sourced user profile data can optionally be
+ * imported into the Drupal fields, using any of the below options.
+ */
+// Do not update the field (default).
+define('RPX_UPDATE_NONE', 0);
+// Only update the field if it is empty.
+define('RPX_UPDATE_EMPTY', 1);
+// Always update (overwriting the existing data).
+define('RPX_UPDATE_ALWAYS', 2);
+// Update (overwriting the existing data), based on a weighted provider table.
+define('RPX_UPDATE_MAYBE', 3);
+// Update the data field as an additional value (for multi-value fields).
+define('RPX_UPDATE_ADD', 4);
+
+// Minimum number of seconds the Engage data is kept around for uncompleted
+// Engage signups (actual time in store depends on how often cron.php is run for
+// the site).
+define('RPX_SESSION_LIFETIME', 86400);
+
+// The Engage web API library
+require_once('rpx_core.webapi.inc');
+
+/**
+ * Implements hook_menu().
+ */
+function rpx_core_menu() {
+  $items['rpx/token_handler'] = array(
+    'title' => 'RPX Token Handler URL',
+    'page callback' => 'rpx_token_handler',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'rpx_core.pages.inc',
+  );
+  $items['rpx/confirm/%/%/%'] = array(
+    'title' => 'Confirm email',
+    'page callback' => 'rpx_email_confirm',
+    'page arguments' => array(2, 3, 4),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'rpx_core.pages.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Make sure that rpx_core_form_user_register_form_alter() is run after
+ * profile2_form_user_register_form_alter(), so that we can place our custom
+ * submit handler after profile2 has done placing its own.
+ *
+ * @see rpx_core_form_user_register_form_alter()
+ * @see rpx_user_register_submit()
+ * @see _rpx_import_user_data()
+ */
+function rpx_core_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_user_register_form_alter') {
+    $group = $implementations['rpx_core'];
+    unset($implementations['rpx_core']);
+    $implementations['rpx_core'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Prefills the registration form with values acquired via Engage.
+ */
+function rpx_core_form_user_register_form_alter(&$form, &$form_state) {
+  // Only alter if the user is signing in using Engage.
+  if (!$rpx_data = rpx_core_get_rpx_session()) {
+    return;
+  }
+
+  $profile = $rpx_data['profile'];
+
+  // Use the nickname returned by Engage.
+  $form['account']['name']['#default_value'] = $profile['preferredUsername'];
+  $mail = '';
+  if (!empty($profile['verifiedEmail'])) {
+    $mail = $profile['verifiedEmail'];
+  }
+  elseif (!empty($profile['email'])) {
+    $mail = $profile['email'];
+  }
+  // Use the email returned by Engage, if any.
+  $form['account']['mail']['#default_value'] = $mail;
+
+  // If email verification is not required, hide the password field and
+  // just fill with random password to avoid confusion.
+  if (!empty($profile['verifiedEmail']) ||
+      !variable_get('user_email_verification', TRUE) ||
+      variable_get('rpx_bypass_email_verification', FALSE)) {
+
+    $form['account']['pass']['#type'] = 'hidden';
+    $form['account']['pass']['#value'] = user_password();
+  }
+
+  $form['engage_claimed_id'] = array(
+    '#type' => 'value',
+    '#default_value' => $profile['identifier'],
+  );
+  $form['id_display'] = array(
+    '#type' => 'item',
+    '#weight' => 10,
+    '#title' => t('Your account ID'),
+    '#description' => t('This @provider account will be linked to your site account after registration.', array('@provider' => $_SESSION['rpx_last_provider_info']['title'])),
+    '#markup' => check_plain($profile['identifier']),
+  );
+
+  // Replace the default user_register form submit handler with our custom
+  // version, since we need to honor verifiedEmail and
+  // rpx_bypass_email_verification, save the Engage user picture, etc. We are
+  // also unsetting the profile2's submit handler, as we will be calling it
+  // ourselves (from rpx_user_register_submit()). This is done to solve the
+  // chicken and egg problem, where we can't import data into profile2 fields
+  // until profile2 has run its submit handler, and we can't have profile2 run
+  // its submit handler before we register the new account.
+  //
+  // @see _rpx_import_user_data()
+  // @see rpx_core_module_implements_alter()
+  // @see rpx_user_register_submit()
+  //
+  $form['#submit'][array_search('user_register_submit', $form['#submit'])] = 'rpx_user_register_submit';
+  if ($k = array_search('profile2_form_submit_handler', $form['#submit']) !== FALSE) {
+    unset($form['#submit'][$k]);
+    $form_state['rpx_flag_call_profile2_submit_handler'] = TRUE;
+  }
+
+  // Disable captcha (Captcha and Mollom modules), unless we are presenting the
+  // form to user after an error occurred during an attempt to sign him up
+  // automatically.
+  if (!isset($_SESSION['rpx_signup_failed'])) {
+    if (isset($form['actions']['captcha'])) {
+      unset($form['actions']['captcha']);
+    }
+    if (isset($form['mollom'])) {
+      unset($form['mollom']);
+
+      unset($form['#validate'][array_search('mollom_validate_analysis', $form['#validate'])]);
+      unset($form['#validate'][array_search('mollom_validate_captcha', $form['#validate'])]);
+      unset($form['#validate'][array_search('mollom_validate_post', $form['#validate'])]);
+
+      unset($form['#submit'][array_search('mollom_form_pre_submit', $form['#submit'])]);
+      unset($form['#submit'][array_search('mollom_form_submit', $form['#submit'])]);
+      if (isset($form['#submit']['mollom_data_delete_form_submit'])) {
+        unset($form['#submit']['mollom_data_delete_form_submit']);
+      }
+    }
+  }
+
+  $field_map = variable_get('rpx_profile_fields_map', array());
+  if (empty($field_map)) {
+    return;
+  }
+
+  // Use Engage data to pre-fill profile fields.
+  if(module_exists('profile')) {
+    // Build an array of Engage field ID's keyed by profile field name
+    $map = array();
+    foreach ($field_map as $mid => $field_mapping) {
+      // Make sure it's a valid mapping.
+      if (!isset($field_mapping['fid'])) {
+        continue;
+      }
+
+      if($field_mapping['set'] == 'profile') {
+        $map[$field_mapping['field']] = $field_mapping['fid'];
+      }
+    }
+    // Search for profile fields and initialize them with Engage profile data.
+    if(!empty($map)) {
+      $profile_fields = _rpx_profile_get_fields(array_keys($map), TRUE);
+
+      foreach ($profile_fields as $field) {
+        if (isset($form[$field->category][$field->name]) && is_array($form[$field->category][$field->name])) {
+          $default_value = _rpx_data_map($rpx_data, $map[$field->name]);
+          if ($default_value !== '') {
+            $default_value = _rpx_profile_format_value($field, $default_value);
+            if ($default_value !== NULL) {
+              $form[$field->category][$field->name]['#default_value'] = $default_value;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Use Engage data to pre-fill Profile2 fields.
+  if(module_exists('profile2')) {
+    // Build a map keyed by $bundle.$field (we cannot key by $field, as
+    // fields in different bundles can have the same name).
+    $map = array();
+    foreach ($field_map as $mid => $field_mapping) {
+      // Make sure it's a valid mapping.
+      if (!isset($field_mapping['fid'])) {
+        continue;
+      }
+
+      if($field_mapping['set'] == 'profile2') {
+        $map[$field_mapping['bundle'] . $field_mapping['field']] = $field_mapping['fid'];
+      }
+    }
+    if(!empty($map)) {
+      foreach (field_info_instances('profile2') as $bundle => $fields) {
+        foreach ($fields as $field => $array) {
+          if (isset($map[$bundle.$field]) && $mapped_value = _rpx_data_map($rpx_data, $map[$bundle.$field])) {
+            $form['profile_' . $bundle][$field][LANGUAGE_NONE][0]['value']['#default_value'] = $mapped_value;
+          }
+        }
+      }
+    }
+  }
+
+  // Use Engage data to pre-fill User fields.
+  $map = array();
+  foreach ($field_map as $mid => $field_mapping) {
+    // Make sure it's a valid mapping.
+    if (!isset($field_mapping['fid'])) {
+      continue;
+    }
+
+    if($field_mapping['set'] == 'user') {
+      $map[$field_mapping['field']] = $field_mapping['fid'];
+    }
+  }
+  if(!empty($map)) {
+    foreach (field_info_instances('user') as $bundle => $fields) {
+      foreach ($fields as $field => $array) {
+        if (isset($map[$field]) && $mapped_value = _rpx_data_map($rpx_data, $map[$field])) {
+          $form[$field][LANGUAGE_NONE][0]['value']['#default_value'] = $mapped_value;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Custom submit handler for the standard user_register form.
+ */
+function rpx_user_register_submit($form, &$form_state) {
+  form_state_values_clean($form_state);
+
+  $pass = user_password();
+
+  $form_state['values']['pass'] = $pass;
+  $form_state['values']['init'] = $form_state['values']['mail'];
+
+  $account = $form['#user'];
+  $category = $form['#user_category'];
+
+  $account_unchanged = clone $account;
+
+  entity_form_submit_build_entity('user', $account, $form, $form_state);
+
+  $edit = array_intersect_key((array) $account, $form_state['values']);
+  $account = user_save($account_unchanged, $edit, $category);
+
+  // Add the Engage user profile data to the account.
+  $rpx_data = rpx_core_get_rpx_session();
+  $edit['data']['rpx_data']['profile'] = $rpx_data['profile'];
+  $account = user_save($account, $edit);
+
+  // Terminate if an error occurred during user_save().
+  if (!$account) {
+    drupal_set_message(t("Error saving user account."), 'error');
+    $form_state['redirect'] = '';
+    rpx_core_delete_rpx_session();
+    return;
+  }
+  // Add the 3rd party profile picture to the account.
+  $account = _rpx_save_profile_picture($account);
+  watchdog('rpx_core', 'New user: %name (%email).', array('%name' => $form_state['values']['name'], '%email' => $form_state['values']['mail']), WATCHDOG_NOTICE, l(t('edit'), 'user/' . $account->uid . '/edit'));
+
+  $form_state['user'] = $account;
+  $form_state['values']['uid'] = $account->uid;
+
+
+  // Run the profile2 user_register form submit handler (@see
+  // rpx_core_form_user_register_form_alter().
+  $form_copy = $form;
+  $form_state_copy = $form_state;
+  if (module_exists('profile2') && isset($form_state['rpx_flag_call_profile2_submit_handler'])) {
+    profile2_form_submit_handler($form_copy, $form_state_copy);
+  }
+
+  _rpx_import_user_data($account);
+  rpx_core_delete_rpx_session();
+
+  // Add plain text password into user account to generate mail tokens.
+  $account->password = $pass;
+
+  // If no email verification required, log the user in immediately.
+  if ((!variable_get('user_email_verification', TRUE) ||
+       variable_get('rpx_bypass_email_verification', FALSE) ||
+       !empty($rpx_data['profile']['verifiedEmail']) &&
+       strtolower($account->mail) == strtolower($rpx_data['profile']['verifiedEmail'])) &&
+      $account->status) {
+
+    _user_mail_notify('register_no_approval_required', $account);
+    $form_state['uid'] = $account->uid;
+    user_login_submit(array(), $form_state);
+    drupal_set_message(t('Registration successful. You are now logged in.'));
+  }
+  elseif ($account->status) {
+    // Require email confirmation
+    drupal_mail('rpx_core', 'rpx_confirm_email', $account->mail, user_preferred_language($account), array('account' => $account));
+    drupal_set_message(t('In order to confirm your email address, an email has been sent to you with confirmation instructions.'));
+  }
+  else {
+    _user_mail_notify('register_pending_approval', $account);
+    drupal_set_message(t('Thank you for applying for an account. Your account is currently pending approval by the site administrator.<br />In the meantime, a welcome message with further instructions has been sent to your e-mail address.'));
+  }
+  $form_state['redirect'] = '';
+}
+
+/**
+ * Downloads user picture from the 3rd party and links it to the user account.
+ *
+ * Returns user account.
+ */
+function _rpx_save_profile_picture(&$account) {
+  // Should we bother?
+  if (!variable_get('rpx_import_profile_photo', 0) ||
+      !variable_get('user_pictures', 0) ||
+      !isset($account->data['rpx_data']['profile']['photo'])) {
+
+    return $account;
+  }
+
+  $photo_url = $account->data['rpx_data']['profile']['photo'];
+
+  // We need to have the file locally
+  $tmp_photo = drupal_tempnam('temporary://', 'drupal_rpx-');
+  $tmp_photo_realpath = drupal_realpath($tmp_photo);
+  copy($photo_url, $tmp_photo_realpath);
+
+  // We'll need a file object to work with the file
+  $info = image_get_info($tmp_photo_realpath);
+  $file = new stdClass();
+  $file->uid      = $account->uid;
+  $file->status   = 0; // mark the file as temporary
+  $file->filename = basename($tmp_photo_realpath);
+  $file->uri      = $tmp_photo;
+  $file->filemime = $info['mime_type'];
+  $file->filesize = $info['file_size'];
+
+  // The file should be an image
+  $errors = array();
+  $errors += file_validate_is_image($file);
+  $errors += file_validate_image_resolution($file, variable_get('user_picture_dimensions', '85x85'));
+  $errors += file_validate_size($file, variable_get('user_picture_file_size', '30') * 1024);
+
+  // Make sure file extension is a valid image
+  if (!in_array(strtolower($info['extension']), array('jpg', 'png', 'gif'))) {
+    $errors[] = ' invalid image file extension.';
+  }
+
+  if (count($errors)) {
+    drupal_set_message(t('Profile Image Import:') . ' ' . $errors[0], 'warning');
+    // Clean up (set fid to avoid error messages)
+    $file->fid = 0; file_delete($file);
+  }
+  else {
+    // We'll need a valid file id on the file object; file_save() will give us one
+    $file = file_save($file);
+    // Update user account (fid is not empty, status is temporary -- image
+    // will be moved to proper directory and assigned to the user)
+    $fields['picture'] = $file;
+    $account = user_save($account, $fields);
+  }
+
+  return $account;
+}
+
+/**
+ * Given an Engage field ID, return the Engage data it maps to.
+ *
+ * @see rpx_core_form_user_register_form_alter()
+ * @see _rpx_import_user_data()
+ */
+function _rpx_data_map($data, $fid) {
+  $parsed_path = db_query('SELECT parsed_path FROM {rpx_profile_field} WHERE fid = :fid', array('fid' => $fid))->fetchField();
+
+  $result = '';
+  if ($parsed_path = unserialize($parsed_path)) {
+    $result = _rpx_core_extract_data($data, $parsed_path);
+  }
+
+  return $result;
+}
+
+/**
+ * Get data from multi-dimensional array by keys specified in $path array.
+ *
+ * @param array $data
+ * @param array $path
+ * @return
+ *   Mixed value or NULL if it doesn't exist.
+ */
+function _rpx_core_extract_data($data, $path) {
+  $key = array_shift($path);
+  if ($key !== NULL) {
+    if (is_int($key) && $key < 0) {
+      // Negative index means we should count from the end of array.
+      // For example, -1 means last item.
+      // Key is already negative, so we use plus here.
+      $key = count($data) + $key;
+    }
+    if (isset($data[$key])) {
+      $value = $data[$key];
+      if (empty($path)) {
+        // No more keys, we've finished.
+        return $value;
+      }
+      elseif (is_array($value)) {
+        return _rpx_core_extract_data($value, $path);
+      }
+    }
+  }
+  return '';
+}
+
+/*
+ * Implementats hook_mail()
+ */
+function rpx_core_mail($key, &$message, $params) {
+  $language = $message['language'];
+  $variables = array('user' => $params['account']);
+  switch ($key) {
+    case 'rpx_confirm_email':
+      $message['subject'] = _rpx_mail_text($key .'_subject', $language, $variables);
+      $message['body'][] = str_replace('user/reset', 'rpx/confirm', _rpx_mail_text($key .'_body', $language, $variables));
+    break;
+  }
+}
+
+/**
+ * Returns a mail string for rpx_confirm_email_*.
+ *
+ * Used by rpx_core_mail() and the settings forms to retrieve mail strings.
+ */
+function _rpx_mail_text($key, $language = NULL, $variables = array(), $replace = TRUE) {
+  $langcode = isset($language) ? $language->language : NULL;
+
+  if ($admin_setting = variable_get('rpx_mail_' . $key, FALSE)) {
+    // An admin setting overrides the default string.
+    $text = $admin_setting;
+  }
+  else {
+    // No override, return default string.
+    switch ($key) {
+      case 'rpx_confirm_email_subject':
+        $text = t('Confirm your account at [site:name]', array(), array('langcode' => $langcode));
+        break;
+      case 'rpx_confirm_email_body':
+        $text = t("[user:name],
+
+Thank you for registering at [site:name].
+
+To confirm your email address, click on this link or copy and paste it in your browser:
+
+[user:one-time-login-url]
+
+After confirming your email address, you will be able to log in to [site:name] using your new account.
+
+--  [site:name] team", array(), array('langcode' => $langcode));
+        break;
+    }
+  }
+
+  if ($replace) {
+    return token_replace($text, $variables, array('language' => $language, 'callback' => 'user_mail_tokens'));
+  }
+
+  return $text;
+}
+
+/**
+ * Implements hook_user_insert().
+ */
+function rpx_core_user_insert(&$edit, $account, $category) {
+  // Make sure user has registered via Engage.
+  if (!$rpx_data = rpx_core_get_rpx_session()) {
+    return;
+  }
+
+  $profile = $rpx_data['profile'];
+
+  // Since we are inserting in two tables (authmap and rpx_linked_account),
+  // use a transaction.
+  $txn = db_transaction();
+  try {
+    user_set_authmaps($account, array('authname_rpx_core' => $profile['identifier']));
+    if (module_exists('rpx_ui')) {
+      // Get the new authmap ID and insert it in the rpx_linked_account table
+      $aid = db_query('SELECT aid FROM {authmap} WHERE authname = :id', array('id' => $profile['identifier']))->fetchField();
+      db_insert('rpx_linked_account')
+        ->fields(array(
+          'aid' => $aid,
+          'provider_name' => $_SESSION['rpx_last_provider_info']['name'],
+          'provider_title' => $_SESSION['rpx_last_provider_info']['title'],
+        ))
+        ->execute();
+    }
+  }
+  catch (Exception $e) {
+    $txn->rollback();
+    watchdog_exception('rpx_core', $e);
+    return;
+  }
+
+  _rpx_update_engage_mapping($account->uid);
+}
+
+/**
+ * Implements hook_menu_site_status_alter().
+ */
+function rpx_core_menu_site_status_alter(&$menu_site_status, $path) {
+  // Allow access to rpx/token_handler if site is in offline mode.
+  if ($menu_site_status == MENU_SITE_OFFLINE && user_is_anonymous() && $path == 'rpx/token_handler') {
+    $menu_site_status = MENU_SITE_ONLINE;
+  }
+}
+
+/**
+ * Gets a list of Engage providers.
+ *
+ * @param boolean $entire_list
+ *   If set, all available providers will be returned, including those that are
+ *   not enabled.
+ *
+ * @return
+ *   An array of provider titles keyed by provider machine name.
+ */
+function _rpx_providers($entire_list = FALSE) {
+  $providers['aol'] = 'AOL';
+  $providers['blogger'] = 'Blogger';
+  $providers['facebook'] = 'Facebook';
+  $providers['flickr'] = 'Flickr';
+  $providers['foursquare'] = 'Foursquare';
+  $providers['google'] = 'Google';
+  $providers['hyves'] = 'Hyves';
+  $providers['linkedin'] = 'LinkedIn';
+  $providers['live_id'] = 'Windows Live';
+  $providers['livejournal'] = 'LiveJournal';
+  $providers['myopenid'] = 'MyOpenID';
+  $providers['myspace'] = 'MySpace';
+  $providers['netlog'] = 'Netlog';
+  $providers['openid'] = 'OpenID';
+  $providers['orkut'] = 'orkut';
+  $providers['paypal'] = 'PayPal';
+  $providers['salesforce'] = 'Salesforce';
+  $providers['twitter'] = 'Twitter';
+  $providers['verisign'] = 'VeriSign PIP';
+  $providers['wordpress'] = 'Wordpress.com';
+  $providers['yahoo'] = 'Yahoo!';
+  $providers['vzn'] = 'VZ-Netzwerke';
+
+  if ($entire_list) {
+    return $providers;
+  }
+
+  $config_providers = variable_get('rpx_enabled_providers', FALSE);
+  if ($config_providers) {
+    $active = array();
+    foreach ($config_providers as $key) {
+      $active[$key] = $providers[$key];
+    }
+  }
+  else {
+    $active = $providers;
+  }
+
+  return $active;
+}
+
+/**
+ * Helper function: return machine name given a provider title returned by
+ * Engage.
+ *
+ * @param string $title
+ *   An Engage provider title.
+ *
+ * @return
+ *   The provider's machine name if it is known; "other" otherwise.
+ */
+function _rpx_get_provider_machine_name($title) {
+  $entire_list = TRUE;
+  $providers = _rpx_providers($entire_list);
+  $providers = array_flip($providers);
+
+  return isset($providers[$title]) ? $providers[$title] : 'other';
+}
+
+/**
+ * Returns the URL that will receive the Engage sign-in callback ("RPX token
+ * handler URL")
+ */
+function _rpx_token_url($rpx_params = array()) {
+  // Set destination so user will return to current page after login/registration
+  $dest = drupal_get_destination();
+  $dest = urldecode($dest['destination']);
+  // If initiating Engage login/registration from login or registration page send
+  // user to their account page
+  if (strpos($dest, 'user/login') !== FALSE || strpos($dest, 'user/register') !== FALSE) {
+    $dest = 'user';
+  }
+  $query[] = array('destination' => $dest);
+  if (is_array($rpx_params)) {
+    $query = array_merge($query, $rpx_params);
+  }
+
+  return url('rpx/token_handler', array('query' => $query, 'absolute' => TRUE));
+}
+
+/**
+ * Helper function: log a missing field error.
+ *
+ * @param string $entity_type
+ *   Name of entity the field belongs to (e.g. profile, profile2, user).
+ * @param string $field_name
+ *   Field name (e.g. profile_displayname).
+ * @param string $user_name
+ *   User name.
+ */
+function _rpx_report_missing_field($entity_type, $field_name, $user_name) {
+  watchdog('rpx_core', 'Cannot map Janrain Engage data to the %entity field %field, as it does not seem to exist for user %user. Update your fields and/or the Janrain Engage field map.', array('%entity' => $entity_type, '%field' => $field_name, '%user' => $user_name), WATCHDOG_WARNING, l(t('Field Mapping'), 'admin/config/people/rpx/mapping'));
+}
+
+/**
+ * Imports Engage user profile data into profile, profile2 and user entity
+ * fields, based on the settings for each mapping.
+ *
+ * @param object $account
+ *   Account for which we're importing the data.
+ */
+function _rpx_import_user_data($account) {
+  $map = variable_get('rpx_profile_fields_map', array());
+  $provider = $_SESSION['rpx_last_provider_info']['name'];
+  $rpx_data = rpx_core_get_rpx_session();
+
+  if (module_exists('profile')) {
+    // Collect profile fields list and load them together.
+    $field_names = array();
+    foreach ($map as $mid => $mapping) {
+      // Filter-out at least non-updatable profile fields.
+      if (!isset($mapping['update']) || $mapping['update'] == RPX_UPDATE_NONE || $mapping['set'] != 'profile') {
+        continue;
+      }
+      $field_names[] = $mapping['field'];
+    }
+    $profile_fields = _rpx_profile_get_fields($field_names, FALSE);
+  }
+
+  foreach ($map as $mid => $mapping) {
+    // Should we try to update the field at all?
+    if (!isset($mapping['update']) || $mapping['update'] == RPX_UPDATE_NONE) {
+      continue;
+    }
+
+    $new_data = _rpx_data_map($rpx_data, $mapping['fid']);
+
+    // Only update if provider returned data for the field.
+    if($new_data === '') {
+      continue;
+    }
+
+    // If data append is requested, make sure it's a multi-value field.
+    if ($mapping['update'] == RPX_UPDATE_ADD) {
+      $field_info = field_info_field($mapping['field']);
+      if (!isset($field_info['cardinality']) || $field_info['cardinality'] == 1) {
+        watchdog('rpx_core', 'Refusing to append new data to a single-value field %field_name.', array('%field_name' => $mapping['field']), WATCHDOG_WARNING);
+        continue;
+      }
+    }
+
+    // Check if whether we overwrite or not depends on the provider.
+    if ($mapping['update'] == RPX_UPDATE_MAYBE) {
+      // Make sure this provider is in the mapping's provider list.
+      if(($provider_weight = array_search($provider, $mapping['providers'])) === FALSE) {
+        continue;
+      }
+
+      // Make sure this provider is not lower in the weight table than the
+      // previous one.
+      $prev_provider = db_select('rpx_mapping_provider')
+        ->fields('rpx_mapping_provider', array('name'))
+        ->condition('uid', $account->uid)
+        ->condition('mid', $mid)
+        ->execute()
+        ->fetchAssoc();
+      $prev_provider = $prev_provider ? $prev_provider['name'] : '';
+      $prev_provider_weight = array_search($prev_provider, $mapping['providers']);
+      if ($prev_provider_weight !== FALSE && $provider_weight > $prev_provider_weight) {
+        continue;
+      }
+    }
+
+    // Import into the profile fields.
+    if(module_exists('profile') && $mapping['set'] == 'profile') {
+      // Check that field still exists.
+      if (!isset($profile_fields[$mapping['field']])) {
+        _rpx_report_missing_field('profile', $mapping['field'], $account->name);
+        continue;
+      }
+
+      $field = $profile_fields[$mapping['field']];
+      $old_value = db_select('profile_value')
+        ->fields('profile_value', array('value'))
+        ->condition('fid', $field->fid)
+        ->condition('uid', $account->uid)
+        ->execute()
+        ->fetchField();
+
+      if ($mapping['update'] == RPX_UPDATE_EMPTY) {
+        // Make sure the field is empty.
+        if ($old_value && $old_value !== '') {
+          continue;
+        }
+      }
+
+      $new_value = _rpx_profile_format_value($field, $new_data);
+      if ($new_value === NULL) {
+        watchdog('rpx_core', 'Wrong data format for field %field_name.', array('%field_name' => $mapping['field']), WATCHDOG_WARNING);
+        continue;
+      }
+
+      // Import the data.
+      if ($old_value !== FALSE) {
+        if (_profile_field_serialize($field->type)) {
+          // Unserialize complicated data to compare with new value
+          $old_value = unserialize($old_value);
+        }
+        if ($old_value != $new_value) {
+          db_update('profile_value')
+            ->fields(array('value' => _profile_field_serialize($field->type) ? serialize($new_value) : $new_value))
+            ->condition('fid', $field->fid)
+            ->condition('uid', $account->uid)
+            ->execute();
+        }
+      }
+      else {
+        // No value has been saved for this field for the user, so we need to INSERT.
+        db_insert('profile_value')
+          ->fields(array(
+            'fid' => $field->fid,
+            'uid' => $account->uid,
+            'value' => _profile_field_serialize($field->type) ? serialize($new_value) : $new_value,
+          ))
+          ->execute();
+      }
+    }
+    else {
+      // Check if we should import into the remaining (profile2 and user) entity
+      // types.
+      if(module_exists('profile2') && $mapping['set'] == 'profile2') {
+        $entity_type = 'profile2';
+        $entity = profile2_load_by_user($account->uid, $mapping['bundle']);
+      }
+      else if ($mapping['set'] == 'user') {
+        $entity_type = 'user';
+        $account = user_load($account->uid);
+        $entity = new stdClass();
+        $entity->uid = $account->uid;
+        if(isset($account->{$mapping['field']})) {
+          $entity->{$mapping['field']} = $account->{$mapping['field']};
+        }
+      }
+
+      // Check that field still exists.
+      if (!isset($entity->{$mapping['field']})) {
+        _rpx_report_missing_field($entity_type, $mapping['field'], $account->name);
+        continue;
+      }
+
+      $values = &$entity->{$mapping['field']}[LANGUAGE_NONE];
+
+      if ($mapping['update'] == RPX_UPDATE_EMPTY) {
+        // Make sure the field is empty.
+        if(isset($values[0]['value'])) {
+          continue;
+        }
+      }
+
+      //
+      // Import the data (profile2 and user entity types).
+      //
+      if($mapping['update'] == RPX_UPDATE_ADD) {
+        // If we are appending to a multi-value field, make sure it can accept
+        // another value.
+        if ($field_info['cardinality'] != -1 && count($values) >= $field_info['cardinality']) {
+          watchdog('rpx_core', 'Refusing to append new data: multi-value field %field_name can\'t accept another value.', array('%field_name' => $mapping['field']), WATCHDOG_WARNING);
+          continue;
+        }
+        elseif ($values) {
+          // Make sure $new_data value isn't already there.
+          $exists = FALSE;
+          foreach ($values as $value) {
+            if (!strcmp($value['value'], $new_data)) {
+              $exists = TRUE;
+              break;
+            }
+          }
+          if ($exists) {
+            continue;
+          }
+          else {
+            $slot = count($values);
+          }
+        }
+        else {
+          // Field has no values.
+          $slot = 0;
+        }
+      }
+      else {
+        $slot = 0;
+      }
+
+      $values[$slot]['value'] = $new_data;
+      field_attach_update($entity_type, $entity);
+    }
+
+    if($mapping['update'] != RPX_UPDATE_ADD) {
+      // Record the provider's name as the last provider used in the mapping.
+      db_merge('rpx_mapping_provider')
+        ->key(array(
+          'uid' => $account->uid,
+          'mid' => $mid,
+          ))
+        ->fields(array('name' => $provider))
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Retrieve profile fields meta-information for selected fields.
+ *
+ * @param array $names
+ *   profile fields to get information about
+ * @param array $reg_form
+ *   set TRUE to retrieve fields visible on registration form only
+ * @return
+ *   array profile_fields data for each field
+ */
+function _rpx_profile_get_fields($names = array(), $reg_form = FALSE) {
+  static $cache = array();
+
+  $result = array();
+  $load = array();
+  foreach ($names as $name) {
+    if (isset($cache[$name])) {
+      $result[$name] = $cache[$name];
+    }
+    else {
+      $load[] = $name;
+    }
+  }
+
+  if (!empty($load)) {
+    $query = db_select('profile_field')
+      ->fields('profile_field')
+      ->condition('name', $load, 'IN');
+
+    if ($reg_form) {
+      $query->condition('register', 1);
+      // Condition from _profile_get_fields()
+      if (!user_access('administer users')) {
+        $query->condition('visibility', PROFILE_HIDDEN, '<>');
+      }
+    }
+    $query = $query->execute();
+    while ($field = $query->fetchObject()) {
+      $result[$field->name] = $cache[$field->name] = $field;
+    }
+  }
+
+  return $result;
+}
+
+/**
+ * Format value for profile field.
+ *
+ * @param object $field
+ *   Field info from _rpx_profile_get_fields().
+ * @param string $value
+ *   Value from Janrain Engage data.
+ * @return
+ *   Mixed formatted value or NULL if formatting isn't possible.
+ */
+function _rpx_profile_format_value($field, $value) {
+  switch ($field->type) {
+    case 'date':
+      if (!preg_match('/^(\d{4})\-(\d{2})\-(\d{2})$/', $value, $parsed_date)) {
+        return NULL;
+      }
+
+      // Profile stores days and months without leading zeroes
+      $result = array(
+        'year' => $parsed_date[1],
+        'month' => ltrim($parsed_date[2], '0'),
+        'day' => ltrim($parsed_date[3], '0'),
+      );
+      return $result;
+
+    case 'selection':
+      // Split just like Profile module does
+      $options = preg_split("/[\n\r]/", $field->options);
+      foreach ($options as $option) {
+        if ($option = trim($option)) {
+          if (drupal_strtolower($value) == drupal_strtolower($option)) {
+            return $option;
+          }
+        }
+      }
+      // No matches found, value can't be formatted
+      return NULL;
+
+    default:
+      // single, multi-line text and URL fields
+      return $value;
+  }
+}
+
+/**
+ * Make sure the mapping returned by auth_info is right.
+ *
+ * @param integer $uid
+ *   User ID we are updating the mapping for.
+ */
+function _rpx_update_engage_mapping($uid) {
+  if (!variable_get('rpx_mapping_api', FALSE)) {
+    return;
+  }
+
+  $rpx_data = rpx_core_get_rpx_session();
+  $primary_key = isset($rpx_data['profile']['primaryKey']) ? $rpx_data['profile']['primaryKey'] : -1;
+  $rpx_id = $rpx_data['profile']['identifier'];
+
+  if ($primary_key != $uid) {
+    $result = RPX::map(variable_get('rpx_apikey', ''), $rpx_id, $uid);
+
+    if ($result['stat'] != 'ok') {
+      watchdog('rpx_core', 'Call to Engage map failed for user ID %uid and Engage ID %rpx_id; map() returned error: %err', array('%uid' => $uid, '%rpx_id' => $rpx_id, '%err' => $result['err']['msg']), WATCHDOG_WARNING);
+    }
+  }
+}
+
+/**
+ * Call Engage's unmap API to disassociate 3rd party account from user.
+ *
+ *   This function is an Engage-level error handling wrapper around
+ *   RPX::unmap().
+ *
+ * @param string $authname
+ *   The identifier we are unlinking from a Drupal uid.
+ * @param integer $uid
+ *   The Drupal user ID we are unlinking for.
+ * @param boolean $all
+ *   Set to TRUE if we should unmap all identifiers mapped to $uid (for example,
+ *   when user is deleted.)
+ *
+ * @see http://rpxnow.com/docs
+ */
+function _rpx_delete_engage_mapping($authname, $uid, $all = FALSE) {
+  if (!variable_get('rpx_mapping_api', FALSE)) {
+    return;
+  }
+
+  $api_key = variable_get('rpx_apikey', '');
+  $result = RPX::unmap($api_key, $authname, $uid, $all);
+
+  if ($result['stat'] != 'ok') {
+    watchdog('rpx_core', 'Call to Engage unmap failed for user ID %uid and Engage ID %rpx_id; unmap() returned error: %err', array('%uid' => $uid, '%rpx_id' => $authname, '%err' => $result['err']['msg']), WATCHDOG_WARNING);
+  }
+}
+
+/**
+ * Save data returned by auth_info call in a custom table.
+ *
+ * We don't store it in the session variable as it may contain sensitive fields
+ * (e.g. oauth tokens). We store it in a custom table instead, which we clean out
+ * periodically using cron.
+ *
+ * @see rpx_core_cron()
+ * @rpx_core_get_rpx_session()
+ */
+function rpx_core_save_rpx_session($rpx_data) {
+  db_merge ('rpx_sessions')
+    ->key(array(
+      'sid' => session_id(),
+    ))
+    ->fields(array(
+      'timestamp' => time(),
+      'rpx_data' => serialize($rpx_data),
+    ))
+    ->execute();
+
+  // Initialize the rpx_core_get_rpx_session()'s static variable to avoid
+  // unnecessary DB requests when it's called in the same page request.
+  $get_result = &drupal_static('rpx_core_get_rpx_session');
+  $get_result = $rpx_data;
+}
+
+/**
+ * Return auth_info data for the session if Engage signin is in progress.
+ *
+ * @return
+ *  Array of Engage signin (auth_info) data for the user if an Engage signin
+ *  transaction is in progress, or NULL otherwise.
+ *
+ * @see rpx_core_save_rpx_session()
+ */
+function rpx_core_get_rpx_session() {
+  $result = &drupal_static(__FUNCTION__);
+
+  if (!isset($result)) {
+    $result = db_select('rpx_sessions')
+      ->fields('rpx_sessions', array('timestamp', 'rpx_data'))
+      ->condition('sid', session_id())
+      ->execute()
+      ->fetchObject();
+
+    if ($result) {
+      // Make sure the session is not expired.
+      if (time() - $result->timestamp > RPX_SESSION_LIFETIME) {
+        rpx_core_delete_rpx_session();
+        $result = NULL;
+      }
+      else {
+        $result = unserialize($result->rpx_data);
+      }
+    }
+  }
+
+  return $result;
+}
+
+/**
+ * Delete Engage auth_info data for the session.
+ *
+ * @see rpx_core_save_rpx_session()
+ * @see rpx_core_get_rpx_session()
+ */
+function rpx_core_delete_rpx_session() {
+  db_delete('rpx_sessions')
+    ->condition('sid', session_id())
+    ->execute();
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Delete RPX sessions that are older than RPX_SESSION_LIFETIME.
+ */
+function rpx_core_cron() {
+  db_delete('rpx_sessions')
+    ->condition('timestamp', time() - RPX_SESSION_LIFETIME, '<=')
+    ->execute();
+}

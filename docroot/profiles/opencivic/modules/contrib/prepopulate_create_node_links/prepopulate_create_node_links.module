@@ -1,0 +1,124 @@
+<?php
+/**
+ * @file
+ * Enables links on nodes that are referenced by other nodes and have
+ * entityreference_prepopulate enabled on them.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function prepopulate_create_node_links_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'entityreference' || $module == 'ctools') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function prepopulate_create_node_links_node_view($node, $view_mode, $langcode) {
+  $links = prepopulate_create_node_links_create_node_links($node);
+  if (!empty($links)) {
+    $node->content['links']['nodereference_url'] = array(
+      '#theme' => 'links__node__prepopulate_create_node_links',
+      '#links' => $links,
+      '#attributes' => array('class' => array('links', 'inline')),
+    );
+  }
+}
+
+/**
+ * Return links to create nodes that references the $node argument.
+ *
+ * @param stdClass $node
+ *   The will node that will be referenced when the a node is added.
+ */
+function prepopulate_create_node_links_create_node_links($node) {
+  list(, , $content_type) = entity_extract_ids('node', $node);
+
+  $content_types = array_keys(node_type_get_types());
+  $fields = field_info_instances('node');
+  $links = array();
+
+  foreach ($fields as $target_type => $field) {
+    foreach ($field as $field_name => $instance) {
+      $field_info = field_info_field($field_name);
+
+      if (empty($field_info['settings']['target_type'])) {
+        // This isn't a reference field.
+        continue;
+      }
+
+      if (!empty($field_info['settings']['target_type']) && $field_info['settings']['target_type'] != 'node') {
+        // The node isn't referenced by the field.
+        continue;
+      }
+
+      if (!empty($field_info['settings']['handler_settings']['target_bundles']) && !in_array($content_type, $field_info['settings']['handler_settings']['target_bundles'])) {
+        // The content type isn't referenced by the field.
+        continue;
+      }
+
+      foreach ($content_types as $type_name) {
+        $instance = field_info_instance('node', $field_name, $type_name);
+
+        if (empty($instance['settings']['behaviors']['prepopulate']['status'])) {
+          // The field doesn't have prepopulate enabled.
+          continue;
+        }
+
+        if (empty($instance['settings']['behaviors']['node_links']['status'])) {
+          // The field doesn't have node links enabled.
+          continue;
+        }
+
+        if (empty($instance['settings']['behaviors']['node_links']['content_types'])) {
+          // The field doesn't have any content types enabled.
+          continue;
+        }
+
+        // in_array didn't work here for some reason. Perhaps I'm missing
+        // somthing obvious. Some pointers would be appreciated to let me know
+        // why I couldn't use it.
+        $enabled = $instance['settings']['behaviors']['node_links']['content_types'][$content_type];
+
+        if (!$enabled || $enabled != $content_type) {
+          // The field isn't listing this content type as an enabled one.
+          continue;
+        }
+
+        if (!node_access('create', $type_name)) {
+          continue;
+        }
+
+        // Build link.
+        $target_content_type = array(
+          '@content_type' => node_type_get_name($type_name),
+        );
+        $target_content_type_link = array(
+          '!content_type' => str_replace('_', '-', $type_name),
+        );
+        $links[$type_name . '_' . $field_name] = array(
+          'title' => t('Add new @content_type', $target_content_type),
+          'href' => format_string('node/add/!content_type', $target_content_type_link),
+          'query' => array($field_name => $node->nid) + drupal_get_destination(),
+          'attributes' => array(
+            'title' => t('Add new @content_type', $target_content_type),
+          ),
+        );
+      }
+    }
+  }
+  return $links;
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function prepopulate_create_node_links_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'prepopulate_create_node_links') . '/views',
+  );
+}

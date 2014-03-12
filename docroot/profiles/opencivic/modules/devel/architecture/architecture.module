@@ -1,0 +1,1054 @@
+<?php
+/**
+ * @file
+ * Provides reports about a Drupal site's data architecture.
+ *
+ * The Architecture module provides reports documenting how a Drupal site is
+ * architected. It provides reports on:
+ *   Site entities and fields
+ *   Site taxonomies
+ *   Site variables
+ * In addition to HTML reports, it exports data as CSV files. Ultimately this
+ * module is intended to provide an automatic export for all of the information
+ * components listed in Palantir's Build Spec spreadsheet, as described here:
+ * 
+ * http://www.palantir.net/blog/developing-drupal-sites-plan-or-perish
+ * https://docs.google.com/a/nuams.co/spreadsheet/ccc?key=0AuIiRK97zQSYdG1EUXNxdDhtVlZBang1N3o1b19IRWc#gid=0
+ * 
+ * as well as the information components currently available from the 
+ * sitedoc module:
+ * 
+ * https://drupal.org/project/sitedoc
+ */
+
+/*
+// Comment constand definitions.
+define('COMMENT_NODE_HIDDEN', 0);
+define('COMMENT_NODE_CLOSED', 1);
+define('COMMENT_NODE_OPEN', 2);
+// */
+
+/**
+ * Implements hook_menu().
+ */
+function architecture_menu() {
+  $items = array();
+  $items['admin/reports/architecture'] = array(
+    'title' => 'Site Architecture',
+    'description' => 'Displays website architecture.',
+    'page callback' => 'architecture_page',
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['admin/reports/architecture/list'] = array(
+    'title' => 'CSV Downloads',
+    'description' => 'Available CSV downloads of site architecture.',
+    'page callback' => 'architecture_page',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/reports/architecture/entities'] = array(
+    'title' => 'Site Entities',
+    'description' => 'Displays entities that are defined for this Drupal website.',
+    'page callback' => 'architecture_entities_page',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/reports/architecture/content_types_csv'] = array(
+    'title' => 'Content Types CSV',
+    'description' => 'CSV export of content types information',
+    'page callback' => 'architecture_content_types_csv',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/reports/architecture/entity_fields_csv'] = array(
+    'title' => 'Entity Fields CSV',
+    'description' => 'CSV export of entity fields information',
+    'page callback' => 'architecture_entity_fields_csv',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/reports/architecture/user_roles_csv'] = array(
+    'title' => 'User Roles CSV',
+    'description' => 'CSV export of user role information',
+    'page callback' => 'architecture_user_roles_csv',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/reports/architecture/menus_csv'] = array(
+    'title' => 'Menus CSV',
+    'description' => 'CSV export of menu information',
+    'page callback' => 'architecture_menus_csv',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/reports/architecture/image_styles_csv'] = array(
+    'title' => 'Image styles CSV',
+    'description' => 'CSV export of image style information',
+    'page callback' => 'architecture_image_styles_csv',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  if (module_exists('taxonomy')) {
+    $items['admin/reports/architecture/taxonomies_csv'] = array(
+      'title' => 'Taxonomies CSV',
+      'description' => 'CSV export of taxonomies information',
+      'page callback' => 'architecture_taxonomies_csv',
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_CALLBACK,
+    );
+    $items['admin/reports/architecture/taxonomies'] = array(
+      'title' => 'Site Taxonomies',
+      'description' => 'Displays taxonomies that are defined for this Drupal website.',
+      'page callback' => 'architecture_taxonomies_page',
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_LOCAL_TASK,
+    );
+  }
+  if (module_exists('nodequeue')) {
+    $items['admin/reports/architecture/nodequeues_csv'] = array(
+      'title' => 'Nodequeues CSV',
+      'description' => 'CSV export of nodequeue information',
+      'page callback' => 'architecture_nodequeues_csv',
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_CALLBACK,
+    );
+  }
+  if (module_exists('views')) {
+    $items['admin/reports/architecture/views_csv'] = array(
+      'title' => 'Views CSV',
+      'description' => 'Displays views that are defined for this Drupal website.',
+      'page callback' => 'architecture_views_csv',
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_CALLBACK,
+    );
+  }
+  $items['admin/reports/architecture/variables'] = array(
+    'title' => 'Site Variables',
+    'description' => 'Displays variables that are defined for this Drupal website.',
+    'page callback' => 'architecture_variables_page',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Returns the site architecture page.
+ */
+function architecture_page() {
+  $download_list = array(
+    l(t('Content Types CSV'), 'admin/reports/architecture/content_types_csv'),
+    l(t('Entity Fields CSV'), 'admin/reports/architecture/entity_fields_csv'),
+  );
+  if (module_exists('nodequeue')) {
+    $download_list[] = l(t('Nodequeues CSV'), 'admin/reports/architecture/nodequeues_csv');
+  }
+  $download_list[] = l(t('Image styles CSV'), 'admin/reports/architecture/image_styles_csv');
+  $download_list[] = l(t('Menus CSV'), 'admin/reports/architecture/menus_csv');
+  if (module_exists('taxonomy')) {
+    $download_list[] = l(t('Vocabularies CSV'), 'admin/reports/architecture/taxonomies_csv');
+  }
+  if (module_exists('views')) {
+    $download_list[] = l(t('Views CSV'), 'admin/reports/architecture/views_csv');
+  }
+  $download_list[] = l(t('User Roles CSV'), 'admin/reports/architecture/user_roles_csv');
+  return theme('item_list', array(
+    'items' => $download_list,
+    'title' => 'CSV Downloads',
+    'type' => 'ul',
+  ));
+}
+
+/**
+ * Returns the site entities page.
+ */
+function architecture_entities_page() {
+  return theme('architecture_entity_types', architecture_entity_types());
+}
+
+/**
+ * Returns the site entities page.
+ */
+function architecture_taxonomies_page() {
+  return theme('architecture_taxonomies', architecture_taxonomies());
+}
+
+/**
+ * Returns the site entities page.
+ */
+function architecture_variables_page() {
+  return theme('architecture_variables', architecture_variables());
+}
+
+/**
+ * Implements hook_theme().
+ */
+function architecture_theme() {
+  return array(
+    'architecture_content_types' => array(),
+    'architecture_entity_types' => array(),
+    'architecture_fields' => array(),
+    'architecture_taxonomies' => array(),
+    'architecture_variables' => array(),
+  );
+}
+
+/**
+ * Generates a CSV file of content type information.
+ *
+ * @param Array $requested_types
+ *   A list of content types to be returned.
+ */
+function architecture_content_types_csv($requested_types=NULL) {
+  // TODO: Include pathauto information.
+  $content_types = architecture_content_types($requested_types, TRUE);
+  architecture_csv_page('content_types', $content_types);
+}
+
+/**
+ * Generates a CSV file of user role information.
+ *
+ * @param Array $requested_types
+ *   A list of user roles to be returned.
+ */
+function architecture_user_roles_csv($requested_roles=NULL) {
+  $roles = architecture_user_roles($requested_roles, TRUE);
+  $roles = array(t('Role ID') => t('Role name')) + $roles;
+  architecture_csv_page('user_roles', $roles);
+}
+
+/**
+ * Generates a CSV file of menus information.
+ */
+function architecture_menus_csv() {
+  $menus = architecture_menus();
+  $i = 1;
+  $rows = array();
+  $rows['blank_' . $i++] = array(
+    'Machine name',
+    'Title',
+    'Description',
+  );
+  foreach ($menus as $name => $menu) {
+    $rows['blank_' . $i++] = array(
+      $menu['menu_name'],
+      $menu['title'],
+      $menu['description'],
+    );
+    if (count($menu['menu_blocks'])) {
+      $rows['blank_' . $i++] = array(
+        'MENU BLOCKS',
+        '',
+        '',
+        'Block title',
+        'Admin title',
+        'Starting level',
+        'Max depth',
+        'Expand children',
+        'Settings',
+        'Notes',
+      );
+      foreach ($menu['menu_blocks'] as $delta => $block) {
+        $rows['blank_' . $i++] = array(
+          '',
+          '',
+          '',
+          $block['block_title'],
+          $block['admin_title'],
+          $block['starting_level'],
+          $block['max_depth'],
+          $block['expand_children'],
+        );
+      }
+    }
+    $rows['blank_' . $i++] = array();
+  }
+  architecture_csv_page('menus', $rows, TRUE);
+}
+
+/**
+ * Generates a CSV file of nodequeue information.
+ */
+function architecture_nodequeues_csv() {
+  $nodequeues = architecture_nodequeues();
+  $i = 1;
+  $rows = array();
+  $rows['blank_' . $i++] = array(
+    t('Title'),
+    t('Machine name'),
+    t('Node types'),
+    t('Size'),
+    t('Add Link text'),
+    t('Remove Link text'),
+    t('Roles'),
+    t('Notes'),
+  );
+  foreach ($nodequeues as $nodequeue) {
+    $rows['blank_' . $i++] = array(
+      $nodequeue->title,
+      $nodequeue->name,
+      implode(', ', $nodequeue->types),
+      $nodequeue->size,
+      $nodequeue->link,
+      $nodequeue->link_remove,
+    );
+  }
+  architecture_csv_page('nodequeues', $rows, TRUE);
+}
+
+/**
+ * Generates a CSV file of imagestyle information.
+ */
+function architecture_image_styles_csv() {
+  $styles = architecture_image_styles();
+  //  Style name	Effect	Settings	Notes
+  $i = 1;
+  $rows = array();
+  $rows['blank_' . $i++] = array(
+    t('Style name'),
+    t('Effects'),
+    t('Settings'),
+    t('Notes'),
+  );
+  foreach ($styles as $name => $style) {
+    $name = $style['name'];
+    foreach($style['effects'] as $effect) {
+      $settings = '';
+      if (isset($effect['data']['width']) && isset($effect['data']['height'])) {
+        $settings = $effect['data']['width'] . 'x' . $effect['data']['height'];
+      }
+      elseif (isset($effect['data']['width'])) {
+        $settings = $effect['data']['width'] . t(' wide');
+      }
+      elseif (isset($effect['data']['height'])) {
+        $settings = $effect['data']['height'] . t(' high');
+      }
+      elseif (isset($effect['data']['degrees'])) {
+        $settings = $effect['data']['degrees'] . t(' degrees');
+      }
+      $rows['blank_' . $i++] = array(
+        $name,
+        $effect['label'],
+        $settings,
+      );
+      $name = '';
+    }
+    $rows['blank_' . $i++] = array();
+  }
+  architecture_csv_page('image_styles', $rows, TRUE);
+}
+
+/**
+ * Generates a CSV file of entities and their fields.
+ *
+ * @param Array $entity_type
+ *   A single entity type to be returned. If NULL, return info
+ *   about all entities.
+ */
+function architecture_entity_fields_csv($entity_type = NULL) {
+  $entity_types = $entity_type ? array($entity_type) : NULL;
+  $entity_types = architecture_entity_types($entity_types);
+  $i = 1;
+  $rows = array();
+  foreach ($entity_types as $type => $details) {
+    $rows['blank_' . $i++] = array($type, strtoupper($details['label']));
+    $rows['blank_' . $i++] = array();
+    foreach ($details['bundles'] as $bundle_type => $bundle) {
+      $rows['blank_' . $i++] = array(
+        $bundle_type,
+        $bundle['label'],
+        $bundle['description'],
+      );
+      // Fields header.
+      $rows['blank_' . $i++] = array(
+        'Machine name',
+        'Name',
+        'Field group',
+        'Type',
+        'Required',
+        '# Values',
+        'Widget type',
+        'Widget label',
+        'Field settings',
+        'Default',
+        'Help text',
+        'Notes',
+      );
+      if ($details['fieldable']) {
+        foreach ($bundle['fields'] as $machine_name => $field_specs) {
+          $settings = array();
+          foreach ($field_specs['field_settings'] as $name => $val) {
+            if (is_scalar($val)) {
+              $settings[] = "$name: $val";
+            }
+          }
+          $field_specs['field_settings'] = implode(', ', $settings);
+          array_unshift($field_specs, $machine_name);
+          $rows['blank_' . $i++] = $field_specs;
+        }
+        $rows['blank_' . $i++] = array();
+      }
+    }
+    $rows['blank_' . $i++] = array();
+  }
+  architecture_csv_page('entity_fields', $rows, TRUE);
+}
+
+/**
+ * Generates a CSV file of taxonomies and their terms.
+ *
+ */
+function architecture_taxonomies_csv() {
+  // TODO: Include pathauto information, term counts, content types.
+  $taxonomies = architecture_taxonomies();
+  $i = 1;
+  $rows = array();
+  $rows['blank_' . $i++] = array(
+    'Name',
+    'Machine name',
+    'Description',
+    'Hierarchy',
+    'Module',
+  );
+  foreach ($taxonomies as $key => $taxonomy) {
+    unset($taxonomy['terms']);
+    $rows['blank_' . $i++] = $taxonomy;
+  }
+  architecture_csv_page('taxonomies', $rows, TRUE);
+}
+
+/**
+ * Generates a CSV file of taxonomies and their terms.
+ *
+ */
+function architecture_views_csv() {
+  $views = architecture_views();
+  $i = 1;
+  $rows = array();
+  $rows['blank_' . $i++] = array(
+    'Name',
+    'Machine name',
+    'Base table',
+    'Description',
+    'Displays',
+  );
+  foreach ($views as $key => $view) {
+    $rows['blank_' . $i++] = array(
+      $view['name'],
+      $view['machine_name'],
+      $view['base_table'],
+      $view['description'],
+    );
+    $rows['blank_' . $i++] = array(
+      'DISPLAYS',
+      '',
+      '',
+      '',
+      t('Type'),
+      t('Machine name'),
+      t('Title'),
+      t('Fields'),
+      t('Filters'),
+      t('Sorts'),
+      t('Relationships'),
+      t('Arguments'),
+      t('Style'),
+      t('Empty text'),
+      t('Pager'),
+      t('Access control'),
+      t('Other display settings'),
+      t('Notes'),
+    );
+    foreach ($view['displays'] as $display_key => $display) {
+      
+      $rows['blank_' . $i++] = array(
+        '',
+        '',
+        '',
+        '',
+        $display['type'],
+        $display['machine_name'],
+        $display['title'],
+
+        $display['fields'] ? implode(', ', $display['fields']) : '',
+        $display['filters'] ? implode(', ', $display['filters']) : '',
+        $display['sorts'] ? implode(', ', $display['sorts']) : '',
+        $display['relationships'] ? implode(', ', $display['relationships']) : '',
+        $display['arguments'] ? implode(', ', $display['arguments']) : '',
+
+        $display['style'],
+        $display['empty_text'],
+        $display['pager'],
+        $display['access_control'],
+      );
+    }
+  }
+  architecture_csv_page('views', $rows, TRUE);
+}
+
+/**
+ * Utility function to generate a CSV file from an array.
+ *
+ * @param String $filename
+ *   The filename of the CSV file to be returned (without the .csv extension).
+ * @param Array $array
+ *   An associative array. Each primary key in the array corresponds to a single
+ *   row in the resulting CSV file.
+ * @param Boolean $omit_key
+ *   If true, exclude primary keys from the exported CSV rows.
+ */
+function architecture_csv_page($filename='results', $array=array(), $omit_key=FALSE) {
+  // Add the headers needed to let the browser know this is a csv file download.
+  drupal_add_http_header('Content-Type', 'text/csv; utf-8');
+  drupal_add_http_header('Content-Disposition', 'attachment; filename = ' . $filename . '.csv');
+
+  // Instead of writing to a file, we write to the output stream.
+  $fh = fopen('php://output', 'w');
+
+  // Create a simpler, two-dimensional array suitable for CSV export.
+  $return = array();
+  foreach ($array as $key => $val) {
+    if (!is_array($val)) {
+      $return[] = $omit_key ? array($val) : array($key, $val);
+    }
+    else {
+      $row = $omit_key ? array() : array($key);
+      foreach ($val as $key2 => $val2) {
+        if (is_array($val2)) {
+          $row[] = $key2;
+        }
+        elseif (is_bool($val2)) {
+          $row[] = $val2 ? 'TRUE' : 'FALSE';
+        }
+        else {
+          $row[] = $val2;
+        }
+      }
+      $return[] = $row;
+    }
+  }
+
+  // Loop through the rows and write them as csv data.
+  foreach ($return as $row) {
+    fputcsv($fh, $row);
+  }
+
+  // Close the output stream.
+  fclose($fh);
+}
+
+/**
+ * Generate an array of Drupal taxonomies and their terms.
+ *
+ * @param Array $requested_taxonomies
+ *   A list of taxonomies to be returned.
+ * 
+ * @return Array
+ *   An associative array of basic information about taxonomies
+ *   and their terms.
+ */
+function architecture_taxonomies($requested_taxonomies=NULL) {
+  // TODO: Add pathauto, taxonomy term counts.
+  $vocabularies = taxonomy_get_vocabularies();
+  $hier = array(t('Disabled'), t('Single'), t('Multiple'));
+  $vocabs = array();
+  foreach ($vocabularies as $vocab => $vocabulary) {
+    
+    $vocabs[$vocab] = array(
+      'name' => $vocabulary->name,
+      'machine_name' => $vocabulary->machine_name,
+      'description' => $vocabulary->description,
+      'hierarchy' => $hier[$vocabulary->hierarchy],
+      'module' => $vocabulary->module,
+      'terms' => array(),
+    );
+    $terms = taxonomy_get_tree($vocab);
+    foreach ($terms as $term) {
+      $vocabs[$vocab]['terms'][] = $term->name;
+    }
+  }
+  return $vocabs;
+}
+
+/**
+ * Generate an array of Drupal views.
+ *
+ * @return Array
+ *   An associative array of basic information about taxonomies
+ *   and their terms.
+ */
+function architecture_views($requested_views=NULL) {
+  $views = views_get_all_views();
+  $result = array();
+  foreach ($views as $key => $view) {
+    $displays = array();
+    foreach ($view->display as $display_key => $display) {
+      $style = NULL;
+      if (isset($display->display_options['style_plugin'])) {
+        $style = $display->display_options['style_plugin'];
+      }
+      $fields = $filters = $sorts = $relationships = $arguments = NULL;
+      if (isset($display->display_options['fields'])) {
+        $fields = array_keys($display->display_options['fields']);
+      }
+      if (isset($display->display_options['filters'])) {
+        $filters = array_keys($display->display_options['filters']);
+      }
+      if (isset($display->display_options['sorts'])) {
+        $sorts = array_keys($display->display_options['sorts']);
+      }
+      if (isset($display->display_options['relationships'])) {
+        $relationships = array_keys($display->display_options['relationships']);
+      }
+      if (isset($display->display_options['arguments'])) {
+        $arguments = array_keys($display->display_options['arguments']);
+      }
+      // Text to display if view is empty.
+      $empty = array();
+      if (isset($display->display_options['empty'])) {
+        if (is_array($display->display_options['empty'])) {
+          // Views API 3 version of empty
+          foreach ($display->display_options['empty'] as $empty_key => $empty_values) {
+            $empty[] = $empty_values['content'];
+          }
+          $empty = implode('\n', $empty);
+        }
+        else {
+          // Views API 2 version of empty
+          $empty = $display->display_options['empty'];
+        }
+      }
+      // Items per page.
+      $pager = NULL;
+      // Views API 3.
+      if (isset($display->display_options['pager'])) {
+        if (is_array($display->display_options['pager'])  && isset($display->display_options['pager']['options']['items_per_page'])) {
+          $pager = $display->display_options['pager']['options']['items_per_page'];
+        } 
+      }
+      // Views API 2.
+      elseif (isset($display->display_options['use_pager']) && $display->display_options['use_pager']) {
+        if (isset($display->display_options['use_pager']) && $display->display_options['use_pager'] && isset($display->display_options['items_per_page'])) {
+          $pager = $display->display_options['items_per_page'];
+        }
+      }
+      // Access rules.
+      $access = NULL;
+      if (isset($display->display_options['access']) && is_array($display->display_options['access'])) {
+        $access = $display->display_options['access']['type'];
+      }
+      
+      $displays[$display_key] = array(
+        'type' => $display->display_plugin,
+        'machine_name' => $display_key,
+        'title' => $display->display_title,
+        'fields' => $fields,
+        'filters' => $filters,
+        'sorts' => $sorts,
+        'relationships' => $relationships,
+        'arguments' => $arguments,
+        'style' => $style,
+        'empty_text' => $empty,
+        'pager' => $pager,
+        'access_control' => $access,
+        'display_settings' => $display_key,
+        'notes' => '',
+      );
+    }
+    $result[$key] = array(
+      'name' => $view->human_name,
+      'machine_name' => $view->name,
+      'base_table' => $view->base_table,
+      'description' => $view->description,
+      'displays' => $displays,
+    );
+  }
+  return $result;
+}
+
+/**
+ * Produce the user roles list.
+ *
+ * @return Array
+ *   A simple list of user roles
+ */
+function architecture_user_roles() {
+  $result = db_query('SELECT r.rid, r.name FROM {role} r')->fetchAll();
+  $roles = array();
+  foreach ($result as $role) {
+    $roles[$role->rid] = $role->name;
+  }
+  return $roles;
+}
+
+/**
+ * Produce the menus list.
+ *
+ * @return Array
+ *   An array of menus.
+ */
+function architecture_menus() {
+  $menus = menu_load_all();
+  foreach (array_keys($menus) as $menu_name) {
+    $menus[$menu_name]['menu_blocks'] = array();
+  }
+  if (module_exists('menu_block')) {
+    $block_ids = variable_get('menu_block_ids', array());
+    $menu_blocks = array();
+    foreach ($block_ids as $delta) {
+      $parent = variable_get("menu_block_{$delta}_parent", '');
+      if (!empty($parent)) {
+        list($parent_menu_name, $parent_mlid) = explode(':', $parent);
+        $parent_item = menu_link_load($parent_mlid);
+        $parent_title = $parent_item['title'];
+      }
+      
+      $menus[$parent_menu_name]['menu_blocks'][$delta] = array(
+        'block_title' => _menu_block_format_title(menu_block_get_config($delta)),
+        'title_link' => variable_get("menu_block_{$delta}_title_link", ''),
+        'admin_title' => variable_get("menu_block_{$delta}_admin_title", ''),
+        'parent' => variable_get("menu_block_{$delta}_parent", ''),
+        'parent_menu_name' => $parent_menu_name,
+        'parent_title' => $parent_title,
+        'starting_level' => variable_get("menu_block_{$delta}_level", ''),
+        'follow' => variable_get("menu_block_{$delta}_follow", ''),
+        'max_depth' => variable_get("menu_block_{$delta}_depth", ''),
+        'expand_children' => variable_get("menu_block_{$delta}_expanded", ''),
+        'sort' => variable_get("menu_block_{$delta}_sort", ''),
+      );
+
+
+    }
+  }
+  return $menus;
+}
+
+/**
+ * Produce the nodequeues list.
+ *
+ * @return Array
+ *   An array of nodequeues.
+ */
+function architecture_nodequeues() {
+  $queues = nodequeue_load_queues(nodequeue_get_all_qids());
+  return $queues;
+}
+
+/**
+ * Produce the image styles list.
+ *
+ * @return Array
+ *   An array of image styles.
+ */
+function architecture_image_styles() {
+  $styles = image_styles();
+  return $styles;
+}
+
+/**
+ * Return an HTML page listing taxonomies and their terms.
+ *
+ * @param Array $vocabularies
+ *   An associative array of basic information about taxonomies
+ *   and their terms.
+ * 
+ * @return HTML
+ *   Formatted HTML.
+ */
+function theme_architecture_taxonomies($vocabularies=array()) {
+  $output = '';
+  foreach ($vocabularies as $vocab => $vocabulary) {
+    $output .= '<h1 class="architecture-entity">' . $vocabulary['name'] . '</h1>';
+    $output .= "<p><b>Machine name: </b>" . $vocabulary['machine_name'] . '</p>';
+    if ($vocabulary['description']) {
+      $output .= '<p>' . $vocabulary['description'] . '</p>';
+    }
+    $output .= theme('item_list', array(
+      'items' => $vocabulary['terms'],
+      'title' => 'Terms',
+      'type' => 'ul',
+      'attributes' => array('class' => array('architecture-fields', 'architecture-vocabulary-term' . '-' . $vocabulary['machine_name'])),
+    ));
+  }
+  return $output;
+}
+
+/**
+ * Returns an array of content types.
+ *
+ * @param Array $requested_types
+ *   A simple array of content types to be returned.
+ * 
+ * @return Array
+ *   An associative array of content types and the names of their fields.
+ */
+function architecture_content_types($requested_types=NULL, $header=FALSE) {
+  // TODO: Add node counts.
+  // $count = db_query('SELECT COUNT(n.nid) FROM {node} n WHERE n.type = :type', array(':type' => $info->type))->fetchField();
+
+  $types = _node_types_build()->types;
+  $content_types = array();
+  if ($header) {
+    $content_types[] = array(
+      'Name',
+      'Machine name',
+      'Module',
+      'Title label',
+      'Description',
+      'Publish',
+      'Byline',
+      'Comments',
+      'Available menus',
+      'Fields',
+    );
+  }
+  foreach ($types as $type => $details) {
+    if (!is_array($requested_types) || in_array($type, $requested_types)) {
+      $options = variable_get('node_options_' . $type, array('status', 'promote'));
+      $comments = (module_exists('comment') && (variable_get('comment_' . $type, COMMENT_NODE_OPEN) == COMMENT_NODE_OPEN)) ? TRUE : FALSE;
+      $menus = array();
+      $menu_options = menu_get_menus();
+      foreach (variable_get('menu_options_' . $type, array('main-menu')) as $menu) {
+        $menus[] = $menu_options[$menu];
+      }
+      $content_types[$type] = array(
+        'name' => $details->name,
+        'machine_name' => $details->type,
+        'module' => $details->module,
+        'title_label' => $details->has_title ? $details->title_label : '',
+        'description' => $details->description,
+        'publish' => in_array('status', $options) ? TRUE : FALSE,
+        'byline' => variable_get('node_submitted_' . $type, TRUE) ? TRUE : FALSE,
+        'comments' => $comments,
+        'available_menus' => implode(', ', $menus),
+        'fields' => array(),
+      );
+      $fields = field_info_instances('node', $type);
+      foreach ($fields as $name => $particulars) {
+        $content_types[$type]['fields'][$name] = $particulars['label'];
+      }
+    }
+  }
+  return $content_types;
+}
+
+/**
+ * Returns an array of entities and their fields.
+ *
+ * @param Array $requested_types
+ *   A simple array of entity types to be returned.
+ * 
+ * @return Array
+ *   An associative array of entities and detailed information about
+ *   their fields.
+ */
+function architecture_entity_types($requested_types=NULL) {
+  $types = entity_get_info();
+  $content_types = _node_types_build()->types;
+  $entity_types = array();
+  foreach ($types as $type => $details) {
+    if (!is_array($requested_types) || in_array($type, $requested_types)) {
+      $entity_types[$type] = array(
+        'label' => $details['label'],
+        'description' => isset($details['description']) ? $details['description'] : NULL,
+        'fieldable' => $details['fieldable'],
+        'bundles' => array(),
+      );
+      foreach ($details['bundles'] as $bundle_name => $bundle_details) {
+        $entity_types[$type]['bundles'][$bundle_name] = array(
+          'label' => $bundle_details['label'],
+          'description' => isset($bundle_details['description']) ? $bundle_details['description'] : NULL,
+        );
+        if ($type == 'node') {
+          $entity_types[$type]['bundles'][$bundle_name]['description'] = $content_types[$bundle_name]->description;
+        }
+        if ($details['fieldable']) {
+          $fields = field_info_instances($type, $bundle_name);
+          $entity_types[$type]['bundles'][$bundle_name]['fields'] = architecture_entity_bundle_fields($type, $bundle_name);
+        }
+      }
+    }
+  }
+  return $entity_types;
+}
+
+/**
+ * Return array of detailed info on fields belonging to an entity bundle.
+ *
+ * @param String $type
+ *   The entity type.
+ * @param String $bundle_name
+ *   The bundle name.
+ * 
+ * @return Array
+ *   An associative array of detailed information about the fields which belong
+ *   to that entity.
+ */
+function architecture_entity_bundle_fields($type, $bundle_name) {
+  $fields = field_info_instances($type, $bundle_name);
+  $field_groups = field_group_info_groups($type, $bundle_name, 'form');
+  $fields_list = array();
+  foreach ($fields as $name => $particulars) {
+    $field_info = field_info_field($name);
+    $widget_type = field_info_widget_types($particulars['widget']['type']);
+    // Look up fieldgroup information.
+    $group = '';
+    foreach ($field_groups as $field_group) {
+      if (in_array($name, $field_group->children)) {
+        $group = $field_group->label;
+        break;
+      }
+    }
+    // Build the information to be returned for one field.
+    // Machine name.
+    $fields_list[$name] = array(
+      // Name.
+      'label' => $particulars['label'],
+      // Field group.
+      'field_group' => $group,
+      // Type.
+      'type' => $field_info['type'],
+      // Required.
+      'required' => $particulars['required'],
+      // # of values.
+      'num_values' => ($field_info['cardinality'] == FIELD_CARDINALITY_UNLIMITED) ? 'unlimited' : $field_info['cardinality'],
+      // Widget type.
+      'widget_type' => $particulars['widget']['type'],
+      // Widget label.
+      'widget_label' => $widget_type['label'],
+      // Settings.
+      'field_settings' => $particulars['settings'],
+      // Default value.
+      'default' => (isset($particulars['default_value'][0]['value']) && is_scalar($particulars['default_value'][0]['value'])) ? $particulars['default_value'][0]['value'] : '',
+      // Help text.
+      'description' => $particulars['description'],
+    );
+  }
+  return $fields_list;
+}
+
+/**
+ * Turns an array of entity types into formatted HTML.
+ *
+ * @param Array $entity_types
+ *   An array of entity types.
+ * 
+ * @return HTML
+ *   A formatted HTML listing.
+ */
+function theme_architecture_entity_types($entity_types=array()) {
+  $output = '';
+  foreach ($entity_types as $type => $details) {
+    $output .= '<h1 class="architecture-entity">' . $details['label'] . ' entities</h1>';
+    if ($details['description']) {
+      $output .= '<p>' . $details['description'] . '</p>';
+    }
+    foreach ($details['bundles'] as $bundle_name => $bundle_details) {
+      $output .= '<h2 class="architecture-bundle">' . $bundle_details['label'] . '</h2>';
+      $output .= "<p><b>Machine name: </b>" . $bundle_name . '</p>';
+      if ($bundle_details['description']) {
+        $output .= "<p>" . $bundle_details['description'] . '</p>';
+      }
+      if ($details['fieldable']) {
+        $output .= theme('architecture_fields', $bundle_details['fields'], $type, $bundle_name);
+      }
+    }
+  }
+  return $output;
+}
+
+/**
+ * Turns an array of fields into a formatted HTML list.
+ *
+ * @param Array $fields
+ *   An array of fields.
+ * @param String $entity_type
+ *   The machine name of the entity type.
+ * @param String $bundle
+ *   The machine name of the bundle.
+ * 
+ * @return HTML
+ *   An unordered HTML list.
+ */
+function theme_architecture_fields($fields=array(), $entity_type='', $bundle='') {
+  if ($fields) {
+    $items = array();
+    foreach ($fields as $machine_name => $field) {
+      $items[] = '<b>' . $field['label'] . '</b>' .
+        ($field['required'] ? '<span class="form-required" title="This field is required.">*</span>' : '') .
+        ' <i>(' . $machine_name . '):</i> ' . $field['type'] .
+        "<br /> Widget: " . $field['widget_label'] . ' <i>(' . $field['widget_type'] . ')</i>' .
+        ($field['description'] ? '<br /><i>Help text:</i> ' . $field['description'] : '');
+    }
+    return theme('item_list', array(
+      'items' => $items,
+      'title' => 'Fields',
+      'type' => 'ul',
+      'attributes' => array('class' => array('architecture-fields', 'architecture-' . $entity_type . '-field')),
+    ));
+  }
+}
+
+/**
+ * Turns an array of content types into formatted HTML.
+ *
+ * @param Array $content_types
+ *   An array of content_types.
+ * 
+ * @return HTML
+ *   An unordered HTML list.
+ */
+function theme_architecture_content_types($content_types=array()) {
+  $items = array();
+  foreach ($content_types as $type => $details) {
+    $item = '<b>' . $details['name'] . ' (' . $type . '):</b> ' . $details['description'];
+    if ($details['fields']) {
+      $item .= theme('item_list', array(
+        'items' => array_values($details['fields']),
+        'title' => 'Fields',
+        'type' => 'ul',
+        'attributes' => array('class' => array('architecture-fields', 'architecture-content-type-' . $type)),
+      ));
+    }
+    $items[] = $item;
+  }
+  return theme('item_list', array(
+    'items' => $items,
+    'type' => 'ul',
+    'attributes' => array('class' => 'architecture-content-types'),
+  ));
+}
+
+/**
+ * List your site's variables.
+ * 
+ * @param Array $requested_variables
+ *   An array of variables requested.
+ * 
+ * @return Array
+ *   A list of site variables.
+ */
+function architecture_variables($requested_variables=NULL) {
+  global $conf;
+  $keys = array_keys($conf);
+  return $keys;
+}
+
+/**
+ * Turns an array of site variables into a formatted array.
+ * 
+ * @param Array $keys
+ *   A simple array of variables requested.
+ * 
+ * @return HTML
+ *   A data dump of variables and their values.
+ */
+function theme_architecture_variables($keys=array()) {
+  global $conf;
+  $output = '';
+  foreach ($keys as $name) {
+    $output .= '<h2 class="architecture-bundle">' . $name . '</h1>';
+    $output .= '<pre>' . print_r($conf[$name], TRUE) . '</pre>';
+  }
+  return $output;
+}

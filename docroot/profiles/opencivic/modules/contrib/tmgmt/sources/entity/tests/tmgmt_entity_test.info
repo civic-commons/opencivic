@@ -1,0 +1,12 @@
+name = "Entity source plugin tests"
+description = "Support module for entity source testing."
+package = Testing
+core = 7.x
+hidden = TRUE
+
+; Information added by drupal.org packaging script on 2013-08-15
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "tmgmt"
+datestamp = "1376593905"
+

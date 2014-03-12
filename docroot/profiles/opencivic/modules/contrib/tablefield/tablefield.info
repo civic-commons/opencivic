@@ -1,0 +1,13 @@
+name = TableField
+description = Defines a generic tablular data field.
+core = 7.x
+files[] = tablefield.css
+files[] = tablefield.module
+files[] = tablefield.install
+
+; Information added by drupal.org packaging script on 2013-07-26
+version = "7.x-2.2"
+core = "7.x"
+project = "tablefield"
+datestamp = "1374858981"
+

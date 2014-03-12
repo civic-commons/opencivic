@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file field_tools_taxonomy.module
+ * Provides a UI for quickly applying a taxonomy to multiple entities as a term reference fields.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function field_tools_taxonomy_help($path, $arg) {
+  switch ($path) {
+    case 'admin/structure/taxonomy/%/apply':
+      return t("Apply this vocabulary to multiple entities as a term reference field.");
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function field_tools_taxonomy_menu() {
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/apply'] = array(
+    'title' => 'Apply',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('field_tools_taxonomy_apply_form', 3),
+    'file' => 'field_tools_taxonomy.admin.inc',
+    'access arguments' => array('administer taxonomy'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 10,
+  );
+
+  return $items;
+}

@@ -1,0 +1,50 @@
+// $Id: CHANGELOG.txt,v 1.21 2011/01/09 06:24:08 sun Exp $
+
+Compact Forms 7.x-1.x, xxxx-xx-xx
+---------------------------------
+
+
+Compact Forms 7.x-1.0, 2010-01-09
+---------------------------------
+by sun: Ported to Drupal 7.
+
+
+Compact Forms 6.x-1.3, 2010-01-09
+---------------------------------
+by sun: Code clean-up.
+#851922 by greggles, sun: Added Form API property to disable behavior.
+#903122 by mstrelan, sun: Fixed browser autocomplete shows both label and value.
+#903132 by mstrelan: Fixed $field is always equal to activeElement.
+#1002908 by jedihe, sun: Fixed variables not deleted upon uninstall.
+#682788 by sun: Fixed settings form.
+#461918 by neochief, mstrelan, sun: Fixed Chrome/Safari/Firefox browser quirks
+  with user login form.
+#765840 by chriscalip, sun: Fixed uncaught exception/syntax error.
+#523230 by LaurentB, sun: Added support for textareas.
+#251421 by sun: Fixed multiple forms with same ID are not compacted.
+
+
+Compact Forms 6.x-1.2, 2009-05-06
+---------------------------------
+#452196 by sun: Fixed JavaScript to re-use existing jQuery objects.
+#452946 by sun: Fixed $form['#id'] not respected when testing form ids.
+
+
+Compact Forms 6.x-1.1, 2009-05-03
+---------------------------------
+#404132 by sun: Fixed configuration settings and implementation of hook_help().
+#404132 by sun: Fixed page requisites only need to be loaded on pages containing
+  configured forms.
+#404132 by sun: Changed order of functions.
+#243952 by sun: Ported to 6.x.
+#404132 by sun: Major rewrite:
+  - Proper use of Drupal.behaviors.
+  - Split administrative functions into include file.
+  - Code clean-up.
+
+
+Compact Forms 5.x-1.0, 2007-07-29
+---------------------------------
+Initial release of Compact Forms.
+
+

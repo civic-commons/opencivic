@@ -1,0 +1,95 @@
+<?php
+
+
+/**
+ * Basic Node Source tests.
+ */
+class TMGMTNodeSourceTestCase extends TMGMTEntityTestCaseUtility {
+
+  static function getInfo() {
+    return array(
+      'name' => 'Node Source tests',
+      'description' => 'Exporting source data from nodes and saving translations back to nodes',
+      'group' => 'Translation Management',
+    );
+  }
+
+  function setUp() {
+    parent::setUp(array('tmgmt_node', 'translation'));
+    $this->loginAsAdmin();
+    $this->setEnvironment('de');
+    $this->createNodeType('page', 'Basic page', TRANSLATION_ENABLED, FALSE);
+    $this->attachFields('node', 'page', array(TRUE, TRUE, FALSE, FALSE));
+  }
+
+  /**
+   * Tests nodes field translation.
+   */
+  function testNodeSource() {
+
+    // Create a translation job.
+    $job = $this->createJob();
+    $job->translator = $this->default_translator->name;
+    $job->settings = array();
+    $job->save();
+
+    for ($i = 0; $i < 2; $i++) {
+      $node = $this->createNode('page');
+      // Create a job item for this node and add it to the job.
+      $item = $job->addItem('node', 'node', $node->nid);
+      $this->assertEqual('Basic page', $item->getSourceType());
+    }
+
+    // Translate the job.
+    $job->requestTranslation();
+
+    foreach ($job->getItems() as $item) {
+      $item->acceptTranslation();
+      $node = node_load($item->item_id);
+      // Check if the tnid attribute is bigger than 0.
+      $this->assertTrue($node->tnid > 0, 'The source node is part of a translation set.');
+      // The translations may be statically cached, so make make sure
+      // to reset the cache before loading the node translations.
+      $cached_translations = & drupal_static('translation_node_get_translations', array());
+      unset($cached_translations[$node->tnid]);
+      // Load the translation set of the source node.
+      $translations = translation_node_get_translations($node->tnid);
+      $this->assertNotNull($translations['de'], 'Translation found for the source node.');
+      if (isset($translations['de'])) {
+        $tnode = node_load($translations['de']->nid, NULL, TRUE);
+        $this->checkTranslatedData($tnode, $item->getData(), 'de');
+      }
+    }
+  }
+
+  /**
+   * Compares the data from an entity with the translated data.
+   *
+   * @param $node
+   *  The translated node object.
+   * @param $data
+   *  An array with the translated data.
+   * @param $langcode
+   *  The code of the target language.
+   */
+  function checkTranslatedData($node, $data, $langcode) {
+    foreach (element_children($data) as $field_name) {
+      if ($field_name == 'node_title') {
+        $this->assertEqual($node->title, $data['node_title']['#translation']['#text'], 'The title of the translated node matches the translated data.');
+        continue;
+      }
+      foreach (element_children($data[$field_name]) as $delta) {
+        $field_langcode = field_is_translatable('node', field_info_field($field_name)) ? $langcode : LANGUAGE_NONE;
+        foreach (element_children($data[$field_name][$delta]) as $column) {
+          $column_value = $data[$field_name][$delta][$column];
+          if (!isset($column_value['#translate']) || $column_value['#translate']) {
+            $this->assertEqual($node->{$field_name}[$field_langcode][$delta][$column], $column_value['#translation']['#text'], format_string('The translatable field %field:%delta has been populated with the proper translated data.', array(
+              '%field' => $field_name,
+              'delta' => $delta
+            )));
+          }
+        }
+      }
+    }
+  }
+}

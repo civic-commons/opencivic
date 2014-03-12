@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ *  Tests module for the Entity Source plugin.
+ */
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function tmgmt_entity_test_entity_info_alter(&$entity_info) {
+  if (isset($entity_info['taxonomy_term']) && empty($entity_info['taxonomy_term']['translation'])) {
+    $entity_info['taxonomy_term']['translation'] = array(
+      'tmgmt_entity_test_translation' => array(
+        'base path' => 'taxonomy/term/%taxonomy_term',
+        'alias' => TRUE,
+      ),
+    );
+  }
+}

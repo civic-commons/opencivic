@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * This is the file description for EFB Schema.org Integration module.
+ *
+ * Requires the Schema.org module 7.x-1.0-beta3 or later. (Earlier versions
+ * of the Schema.org module didn't have a separate schemaorg_ui module.)
+ */
+
+/**
+ * Implements hook_efb_schema_load().
+ *
+ * @see efb_schema_class()
+ */
+function efb_file_loader_efb_schema_load($schema_name) {
+  if (!$schema_name) {
+    return;
+  }
+  $schemas_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'efb_file_loader') . '/schemas';
+  if ($handle = @fopen("$schemas_path/$schema_name", 'r')) {
+    if (is_resource($handle)) {
+      $properties = array();
+      // Retrieve the first line of the file as the
+      // description of the schema class.
+      $schema_description = trim(fgets($handle));
+      while (($buffer = fgets($handle)) !== FALSE) {
+        list($property_name, $expected_type, $description) = explode("\t", trim($buffer));
+        $machine_name = efb_to_underscore($property_name);
+        $properties[$machine_name] = array(
+          'property_name' => trim($property_name),
+          'machine_name' => $machine_name,
+          'expected_type' => trim($expected_type),
+          'description' => trim($description),
+        );
+      }
+      return array(
+        'name' => $schema_name,
+        'description' => $schema_description,
+        'properties' => $properties,
+      );
+    }
+    fclose($handle);
+  }
+  return;
+}

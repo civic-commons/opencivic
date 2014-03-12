@@ -1,0 +1,25 @@
+<?php
+/**
+* Administration tests for my module.
+*/
+class ExtlinkAdministrationTestCase extends DrupalWebTestCase {
+ 
+
+/**
+   * Implements getInfo().
+   */
+  public static function getInfo() {
+    return array (
+      'name' => t('Administration'),
+      'description' => t('Administration tests for my module.'),
+      'group' => t('External Links'),
+    );
+  }
+  public function
+
+setUp() {
+    // Enable any module that you will need in your tests.
+    parent::setUp();
+  }
+}
+?>

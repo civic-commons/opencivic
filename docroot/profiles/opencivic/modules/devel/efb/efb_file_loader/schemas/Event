@@ -1,0 +1,18 @@
+An event happening at a certain time at a certain location.
+additionalType	 URL	An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+description	 Text	A short description of the item.
+image	 URL	URL of an image of the item.
+name	 Text	The name of the item.
+url	 URL	URL of the item.
+attendee	Organization or Person	A person or organization attending the event.
+attendees	Organization or Person	A person attending the event (legacy spelling; see singular form, attendee).
+duration	 Duration	The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.
+endDate	 Date	The end date and time of the event (in ISO 8601 date format).
+location	Place or PostalAddress	The location of the event or organization.
+offers	Offer	An offer to sell this item—for example, an offer to sell a product, the DVD of a movie, or tickets to an event.
+performer	Organization or Person	A performer at the event—for example, a presenter, musician, musical group or actor.
+performers	Organization or Person	The main performer or performers of the event—for example, a presenter, musician, or actor (legacy spelling; see singular form, performer).
+startDate	 Date	The start date and time of the event (in ISO 8601 date format).
+subEvent	Event	An Event that is part of this event. For example, a conference event includes many presentations, each are a subEvent of the conference.
+subEvents	Event	Events that are a part of this event. For example, a conference event includes many presentations, each are subEvents of the conference (legacy spelling; see singular form, subEvent).
+superEvent	Event	An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.

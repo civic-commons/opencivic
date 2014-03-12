@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Handle installs and updates.
+ */
+
+/**
+ * Update jump menu block deltas to allow different types of blocks.
+ */
+function jump_menu_update_7010() {
+
+  $message = 'Update ran to alter jump menu block deltas in order to allow
+    different types of blocks. This might require you to alter CSS files if you
+    have themed the blocks. You will also need to clear your cache.';
+  watchdog('jump_menu', $message, NULL, WATCHDOG_NOTICE);
+  drupal_set_message(t($message), 'warning');
+
+  // Update jump menu blocks.
+  // OG  = "jump_menu_name-of-menu"
+  // New = "jump_menu-m_name-of-menu" and "jump_menu-local_tasks" and beyond!
+  // Insert menu type key after module name.
+  /*
+  Apparently conditions can't be done as expression yet.
+  http://api.drupal.org/api/drupal/includes%21database%21query.inc/function/QueryConditionInterface%3A%3Acondition/7
+  $queryMenus = db_update('block')
+    ->condition('module', 'jump_menu')
+    // Extra check and handling, for folks who helped test the unreleased local tasks block.
+    ->condition('SUBSTR(delta, 1, 16)', 'jump_menu_local_', '<>')
+    ->fields(array('delta' => 'REPLACE(delta, "jump_menu_", "jump_menu-m_")'))
+    ->execute();
+  */
+  $query = "UPDATE {block} set delta = REPLACE(delta, 'jump_menu_', 'jump_menu-m_')
+    WHERE module = 'jump_menu' AND SUBSTR(delta, 1, 16) <> 'jump_menu_local_'";
+  $result = db_query($query);
+
+  // Update as mentioned above.
+  $query = "UPDATE {block} set delta = 'jump_menu-local_tasks'
+    WHERE module = 'jump_menu' AND SUBSTR(delta, 1, 16) = 'jump-menu_local_'";
+  $result = db_query($query);
+  /*
+  $queryLocal = db_update('block')
+    ->condition('module', 'jump_menu')
+    ->condition('delta', 'jump_menu_local_')
+    ->fields(array('delta' => 'jump_menu-local-tasks'))
+    ->execute();
+  */
+}

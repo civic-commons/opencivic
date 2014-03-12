@@ -1,0 +1,43 @@
+URL => text,
+Text => text_long,
+Number => number_decimal,
+Integer => number_integer,
+Date => datetime,
+Boolean => list_boolean,
+
+Thing
+Person
+AggregateRating
+MediaObject
+Audience
+AudioObject
+Organization or Person
+UserComments
+Place
+Offer
+Organization or Person
+Organization
+Review
+Review
+Organization
+VideoObject
+Text or URL
+ImageObject or URL
+
+
+list_boolean (String, 7 characters ) Boolean
+datetime (String, 4 characters ) Date | (Callback) Date();
+date (String, 17 characters ) Date (ISO format)
+datestamp (String, 21 characters ) Date (Unix timestamp)
+number_decimal (String, 7 characters ) Decimal
+file (String, 4 characters ) File | (Callback) File();
+number_float (String, 5 characters ) Float
+image (String, 5 characters ) Image
+number_integer (String, 7 characters ) Integer
+list_float (String, 12 characters ) List (float)
+list_integer (String, 14 characters ) List (integer)
+list_text (String, 11 characters ) List (text)
+text_long (String, 9 characters ) Long text
+text_with_summary (String, 21 characters ) Long text and summary
+taxonomy_term_reference (String, 14 characters ) Term reference
+text (String, 4 characters ) Text

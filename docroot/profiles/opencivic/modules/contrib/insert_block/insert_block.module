@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Insert blocks into the body of a node
+ *
+ * Sidebar blocks contain all sorts of nifty stuff, but sometimes you
+ * want to stick that stuff into the body of your node. Instead of using
+ * PHP snippets (a possible security hole on public sites), you can use
+ * this module. When it's activated...
+ *
+ * [block:name of module=delta of block]
+ *
+ * ...will insert the contents of a rendered sidebar block into the body
+ * of your node. If no delta is specified, the default block for that
+ * module will be displayed.
+ */
+
+/**
+ * Implementation of hook_help().
+ */
+function insert_block_help($section = 'admin/help#insert_block', $args = array()) {
+  $output = '';
+  switch ($section) {
+    case 'admin/help#insert_block':
+      return t('<p>Use special tags to insert the contents of a block into a node.</p><p>You may use [block:<em>module</em>=<em>delta</em>] tags in the body of a node or anywhere that Drupal\'s filter system runs to display the contents of block <em>delta</em> for module <em>module</em>.</p><p>To discover module names and deltas, visit admin/build/block and hover over a block\'s configure link and look in your browser\'s status bar. The last "word" you see is the name of the module and the number following that is the delta. If you leave off the delta in an Insert Block tag, the default delta will be used.</p>');
+  }
+}
+
+/**
+ * Implementation of hook_filter_info().
+ */
+function insert_block_filter_info() {
+  $filters['insert_block'] = array(
+    'title' => t('Insert blocks'),
+    'description' => t('Inserts the contents of a block into a node using [block:module=delta] tags.'),
+    'process callback' => '_insert_block',
+    'settings callback' => '_insert_block_settings',
+    'tips callback' => '_insert_block_tips',
+    'default settings' => array(
+      'check_roles' => 0,
+    ),
+    'cache' => FALSE,
+  );
+  return $filters;
+}
+
+function _insert_block($text, $filter, $format) {
+  global $user;
+  if (preg_match_all("/\[block:([^=\\]]+)=?([^\\]]*)?\]/i", $text, $match)) {
+    $block_roles = _insert_block_roles();
+    foreach ($match[2] as $key => $value) {
+      $raw_tags[] = $match[0][$key];
+      $module = $match[1][$key];
+      $delta = $match[2][$key];
+
+      // see comments on http://api.drupal.org/api/drupal/developer--theme.php/function/theme_block/7
+      $replacement = '';
+      if ($block = block_load($module, $delta)) {
+        $check_roles = !empty($filter->settings['check_roles']);
+        // If a block has no roles associated, it is displayed for every role.
+        // For blocks with roles associated, if none of the user's roles matches
+        // the settings from this block, remove it from the block list.
+        if ($check_roles && isset($block_roles[$block->module][$block->delta]) && !array_intersect($block_roles[$block->module][$block->delta], array_keys($user->roles))) {
+          // No match.
+          $block = NULL;
+        }
+        if ($block) {
+          $block_content = _block_render_blocks(array($block));
+          $build = _block_get_renderable_array($block_content);
+          $replacement = drupal_render($build);
+        }
+      }
+      $repl[] = $replacement;
+    }
+    return str_replace($raw_tags, $repl, $text);
+  }
+  return $text;
+}
+
+/**
+ * Settings callback for the insert block filter.
+ */
+function _insert_block_settings($form, &$form_state, $filter, $format, $defaults) {
+  $filter->settings += $defaults;
+  $settings['check_roles'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Check the roles assigned by the Block module'),
+    '#default_value' => $filter->settings['check_roles'],
+    '#description' => t('Without this checked, anyone can see inserted blocks.'),
+  );
+  return $settings;
+}
+
+function _insert_block_tips($filter, $format, $long = FALSE) {
+  if ($long) {
+    return t('<a name="filter-insert_block"></a>You may use [block:<em>module</em>=<em>delta</em>] tags to display the contents of block <em>delta</em> for module <em>module</em>. To discover module names and deltas, visit admin/build/block and hover over a block\'s configure link and look in your browser\'s status bar. The last "word" you see is the name of the module and the number following that is the delta. If you leave off the delta in an Insert Block tag, the default delta will be used.');
+  }
+  else {
+    return t('You may use <a href="@insert_block_help">[block:<em>module</em>=<em>delta</em>] tags</a> to display the contents of block <em>delta</em> for module <em>module</em>.',
+    array("@insert_block_help" => url("filter/tips/$format->format", array('fragment' => 'filter-insert_block'))));
+  }
+}
+
+/**
+ * Helper function to load and cache the block roles.
+ */
+function _insert_block_roles() {
+  // Build an array of roles for each block.
+  $block_roles = &drupal_static(__FUNCTION__, NULL);
+  if (!isset($block_roles)) {
+    $block_roles = array();
+    $result = db_query('SELECT module, delta, rid FROM {block_role}');
+    foreach ($result as $record) {
+      $block_roles[$record->module][$record->delta][] = $record->rid;
+    }
+  }
+  return $block_roles;
+}

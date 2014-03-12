@@ -1,0 +1,439 @@
+<?php
+/**
+ * @file 
+ * 
+ * Copyright 2011 New Signature
+ * http://www.newsignature.com
+ *
+ * @author Andrew Marcus
+ * @since Oct 4, 2011
+ */
+
+function addressfield_tokens_menu() {
+  $items = array();
+  
+  $items['admin/config/regional/address'] = array(
+    'title' => 'Addresses',
+    'description' => 'Settings for address fields and tokens',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('addressfield_tokens_admin_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'addressfield_tokens.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function addressfield_tokens_theme($existing, $type, $theme, $path) {
+  $theme = array(
+    'addressfield_formatter' => array(
+      'variables' => array('address' => NULL, 'handlers' => array('address')),
+      'file' => 'addressfield_tokens.theme.inc',
+    ),
+    'addressfield_formatter__citystate' => array(
+      'variables' => array('address' => NULL),
+      'file' => 'addressfield_tokens.theme.inc',
+    ),
+    'addressfield_formatter__linear' => array(
+      'variables' => array('address' => NULL, 'premise' => TRUE, 'organisation_name' => TRUE, 'name_line' => TRUE),
+      'file' => 'addressfield_tokens.theme.inc',
+    ),
+    'addressfield_formatter__components' => array(
+      'variables' => array(
+        'address' => NULL,
+        'components' => array('thoroughfare', 'premise', 'locality', 'administrative_area', 'postal_code', 'country'),
+        'separator' => ', ',
+      ),
+      'file' => 'addressfield_tokens.theme.inc',
+    ),
+  );
+  
+  return $theme;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function addressfield_tokens_field_formatter_info() {
+  return array(
+    'addressfield_citystate' => array(
+      'label' => t('City/State'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_linear' => array(
+      'label' => t('One line'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_state' => array(
+      'label' => t('State'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_country' => array(
+      'label' => t('Country'),
+      'field types' => array('addressfield'),
+    ),
+    'addressfield_components' => array(
+      'label' => t('Address components'),
+      'field types' => array('addressfield'),
+      'settings' => array(
+        'components' => array('thoroughfare', 'premise', 'locality', 'administrative_area', 'postal_code', 'country'),
+        'separator' => ', ',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function addressfield_tokens_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+  if ($display['type'] == 'addressfield_components') {
+    $element['components'] = array(
+      '#type' => 'select',
+      '#title' => t('Components to render'),
+      '#multiple' => TRUE,
+      '#rows' => 10,
+      '#options' => addressfield_tokens_components(),
+      '#default_value' => $settings['components'],
+      '#required' => TRUE,
+    );
+    $element['separator'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Separator'),
+      '#description' => t('The separator to use between components. Use \n for a line break.'),
+      '#default_value' => $settings['separator'],
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function addressfield_tokens_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $summary = '';
+
+  if ($display['type'] == 'addressfield_components') {
+    $comps = array_intersect_key(addressfield_tokens_components(), array_flip($settings['components']));
+    $sep = str_replace('\n', '<br/>', $settings['separator']);
+    $summary = implode($sep, $comps);
+  }
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function addressfield_tokens_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  
+  switch ($display['type']) {
+    case 'addressfield_citystate':
+      $theme = array('addressfield_formatter__citystate', 'addressfield_formatter');
+      if (!empty($item['country'])) {
+        array_unshift($theme, 'addressfield_formatter__citystate__' . $item['country']);
+      }
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => $theme,
+          '#address' => $item,
+        );
+      }
+      break;
+      
+    case 'addressfield_linear':
+      $theme = array('addressfield_formatter__linear', 'addressfield_formatter');
+      if (!empty($item['country'])) {
+        array_unshift($theme, 'addressfield_formatter__linear__' . $item['country']);
+      }
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => $theme,
+          '#address' => $item,
+        );
+      }
+      break;
+      
+    case 'addressfield_country':
+      foreach ($items as $delta => $item) {
+        if (!empty($item['country'])) {
+          $country = _addressfield_tokens_country($item['country']);
+          $element[$delta] = array(
+            '#type' => 'markup',
+            '#markup' => $country,
+            '#prefix' => '<span class="addressfield-country">',
+            '#suffix' => '</span>',
+          );
+        }
+      }
+      break;
+      
+    case 'addressfield_state':
+      foreach ($items as $delta => $item) {
+        if (!empty($item['country']) && !empty($item['administrative_area'])) {
+          $state = _addressfield_tokens_state($item['country'], $item['administrative_area']);
+          $element[$delta] = array(
+            '#type' => 'markup',
+            '#markup' => $state,
+            '#prefix' => '<span class="addressfield-state">',
+            '#suffix' => '</span>',
+          );
+        }
+      }
+      break;
+      
+    case 'addressfield_components':
+      $theme = array('addressfield_formatter__components', 'addressfield_formatter');
+      if (!empty($item['country'])) {
+        array_unshift($theme, 'addressfield_formatter__components__' . $item['country']);
+      }
+      
+      $settings = $display['settings'];
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => $theme,
+          '#address' => $item,
+          '#components' => $settings['components'],
+          '#separator' => $settings['separator'],
+        );
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Returns the country that has been configured as the default country.
+ */
+function addressfield_tokens_default_country() {
+  return variable_get('addressfield_tokens_default_country', 'US');
+}
+
+/**
+ * Returns the names that have been configured for each address field.
+ */
+function addressfield_tokens_property_names() {
+  $names = variable_get('addressfield_tokens_property_names', array());
+  if (empty($names)) {
+    $props = addressfield_data_property_info();
+    foreach($props as $name => $prop) {
+      $names[$name] = $prop['label'];
+    }
+  }
+  return $names;
+}
+
+function addressfield_tokens_components() {
+  $comps = &drupal_static(__FUNCTION__, array());
+  if (empty($comps)) {
+    $names = addressfield_tokens_property_names();
+    foreach (array('first_name', 'last_name', 'name_line', 'organisation_name', 'thoroughfare', 'premise', 'locality', 'dependent_locality', 'administrative_area', 'sub_administrative_area', 'postal_code', 'country') as $key) {
+      $comps[$key] = $names[$key];
+      if (in_array($key, array('administrative_area', 'country'))) {
+        $comps[$key . '_full'] = t('@name (full)', array(
+          '@name' => $names[$key],
+        ));
+      }
+    }
+  }
+  return $comps;
+}
+
+/**
+ * Gets the list of countries from the locale settings in Drupal.
+ * 
+ * @return array An array of countries.  The keys are the 2-letter 
+ *   abbreviations and the values are the full country names.
+ */
+function _addressfield_tokens_countries() {
+  $countries = &drupal_static(__FUNCTION__);
+  if (empty($countries)) {
+    include_once('includes/locale.inc');
+    $countries = country_get_list();
+  }
+  return $countries;
+}
+
+/**
+ * Gets the name of the country with the given abbreviation.
+ * 
+ * @param string $country The 2-letter abbreviation of the country.
+ * @return string The name of the country, or FALSE.
+ */
+function _addressfield_tokens_country($country) {
+  $countries = _addressfield_tokens_countries();
+  
+  // Country abbreviations will always be two uppercase letters. 
+  $country = drupal_strtoupper($country);
+  if (!empty($country) && isset($countries[$country])) {
+    return $countries[$country];
+  }
+  return $country;
+}
+
+/**
+ * Gets the abbreviation of the country with the given name
+ * 
+ * @param string The name of the country
+ * @return string $country The 2-letter abbreviation of the country, or FALSE.
+ */
+function _addressfield_tokens_country_abbr($country) {
+  $countries = array_flip(array_map('strtolower', _addressfield_tokens_countries()));
+
+  if (isset($countries[strtolower($country)])) {
+    return $countries[strtolower($country)];
+  }
+  return $country;
+}
+
+/**
+ * Gets the list of states in the given country.
+ * 
+ * @param string $country The 2-letter abbreviation of the country.
+ * 
+ * @return array An array of countries.  The keys are the 2-letter 
+ *   abbreviations and the values are the full country names.
+ */
+function _addressfield_tokens_states($country) {
+  $states = &drupal_static(__FUNCTION__);
+  $country = drupal_strtoupper($country);
+  if (!isset($states[$country])) {
+    $cache = cache_get('addressfield_tokens_states');
+    if ($cache) {
+      $states = $cache->data;
+    }
+  }
+  if (!isset($states[$country])) {
+    $format = addressfield_generate(array('country' => $country), array('address'), array('mode' => 'render'));
+    
+    if (isset($format['locality_block']['administrative_area']['#options'])) {
+      $states[$country] = $format['locality_block']['administrative_area']['#options'];
+    }
+    else {
+      $states[$country] = array();
+    }
+    cache_set('addressfield_tokens_states', $states);
+  }
+  return $states[$country];
+}
+
+/**
+ * Gets the name of the state with the given abbreviation.
+ * 
+ * @param string $country The 2-letter abbreviation of the country.
+ * @param string $state The 2-letter abbreviation of the state.
+ * @return string The name of the state, or FALSE.
+ */
+function _addressfield_tokens_state($country, $state) {
+  $states = _addressfield_tokens_states($country);
+  
+  // State abbreviations will usually be two uppercase letters. 
+  $state = drupal_strtoupper($state);
+  if (!empty($state) && !empty($states[$state])) {
+    return $states[$state];
+  }
+  return $state;
+}
+
+/** 
+ * Implements hook_webform_component_info(). 
+ */
+function addressfield_tokens_webform_component_info() {
+  $components = array ();
+  $components['addressfield'] = array (
+    'label'       => t('Address'),
+    'description' => t('Address field.'),
+    'features'    => array (
+      // Add content to CSV downloads. Defaults to TRUE.
+      'csv'           => TRUE,
+      // Show this component in e-mailed submissions. Defaults to TRUE.
+      'email'         => TRUE,
+      // Allow this component to be used as an e-mail FROM or TO address.
+      // Defaults to FALSE.
+      'email_address' => FALSE,
+      // Allow this component to be used as an e-mail SUBJECT or FROM name.
+      // Defaults to FALSE.
+      'email_name'    => FALSE,
+      // This component may be toggled as required or not. Defaults to TRUE.
+      'required'      => TRUE,
+      // This component has a title that can be toggled as displayed or not.
+      'title_display' => TRUE,
+      // This component has a title that can be displayed inline.
+      'title_inline'  => FALSE,
+      // If this component can be used as a conditional SOURCE. All components
+      // may always be displayed conditionally, regardless of this setting.
+      // Defaults to TRUE.
+      'conditional'   => FALSE,
+      // If this component allows other components to be grouped within it
+      // (like a fieldset or tabs). Defaults to FALSE.
+      'group'         => FALSE,
+      // If this component can be used for SPAM analysis, usually with Mollom.
+      'spam_analysis' => FALSE,
+      // If this component saves a file that can be used as an e-mail
+      // attachment. Defaults to FALSE.
+      'attachment'    => FALSE,
+    ),
+    'file'        => 'addressfield_tokens.components.inc',
+  );
+  return $components;
+}
+
+function _addressfield_tokens_webform_components($nid) {
+  $components = &drupal_static(__FUNCTION__, array());
+  if (!isset($components[$nid])) {
+    $components[$nid] = db_select('webform_component')
+      ->fields('webform_component')
+      ->condition('type', 'addressfield')
+      ->condition('nid', $nid)
+      ->execute()
+      ->fetchAllAssoc('cid', PDO::FETCH_ASSOC);
+  }
+  return $components[$nid];
+}
+
+/**
+ * Implements hook_webform_submission_load().
+ */
+function addressfield_tokens_webform_submission_load(&$submissions) {
+  $submissions_reset = reset($submissions);
+  $nid = $submissions_reset->nid;
+  
+  $components = _addressfield_tokens_webform_components($nid);
+    
+  foreach ($submissions as $sid => $submission) {
+    foreach ($components as $cid => $component) {
+      if (!empty($submission->data[$cid])) {
+        $parents = array($cid);
+        if (!empty($submission->data[$cid]['value'])) {
+          $parents[] = 'value';
+        }
+        $addresses = array();
+        foreach (drupal_array_get_nested_value($submission->data, $parents) as $delta => $data) {
+          $data = empty($data) ? array() : unserialize($data);
+          $addresses[$delta] = $data;
+        }
+        drupal_array_set_nested_value($submission->data, $parents, $addresses);
+      }
+    }
+  }
+}
+
+/** 
+ * Implements hook_webform_validator_alter(). 
+ */
+function addressfield_tokens_webform_validator_alter(&$validators) {
+  $validators['unique']['component_types'][] = 'addressfield';
+  $validators['oneoftwo']['component_types'][] = 'addressfield';
+  $validators['oneofseveral']['component_types'][] = 'addressfield';
+}

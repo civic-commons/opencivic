@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @file
+ * Module file of the translation management test module.
+ */
+
+/**
+ * Implements hook_tmgmt_translator_plugin_info().
+ */
+function tmgmt_file_tmgmt_translator_plugin_info() {
+  return array(
+    'file' => array(
+      'label' => t('File translator'),
+      'description' => t('File translator that exports and imports files.'),
+      'plugin controller class' => 'TMGMTFileTranslatorPluginController',
+      'ui controller class' => 'TMGMTFileTranslatorUIController',
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tmgmt_file_theme() {
+  return array(
+    'tmgmt_file_html_template' => array(
+      'path' => drupal_get_path('module', 'tmgmt_file') . '/templates',
+      'template' => 'tmgmt_file_html_template',
+    ),
+  );
+}
+
+/**
+ * Import form submit callback.
+ */
+function tmgmt_file_import_form_submit($form, &$form_state) {
+  // Ensure we have the file uploaded.
+  $job = $form_state['tmgmt_job'];
+  $supported_formats = array_keys(tmgmt_file_format_plugin_info());
+  if ($file = file_save_upload('file', array('file_validate_extensions' => array(implode(' ', $supported_formats))))) {
+    $extension = pathinfo($file->uri, PATHINFO_EXTENSION);
+    $controller = tmgmt_file_format_controller($extension);
+    if ($controller) {
+      // Validate the file.
+      $validated_job = $controller->validateImport($file->uri);
+      if (!$validated_job) {
+        $job->addMessage('Failed to validate file, import aborted.', array(), 'error');
+      }
+      elseif ($validated_job->tjid != $job->tjid) {
+        $uri = $validated_job->uri();
+        $label = $validated_job->label();
+        $job->addMessage('Import file is from job <a href="@url">@label</a>, import aborted.', array('@url' => url($uri['path']), '@label' => $label));
+      }
+      else {
+        try {
+          // Validation successful, start import.
+          $job->addTranslatedData($controller->import($file->uri));
+          $job->addMessage('Sucessfully imported file.');
+        } catch (Exception $e) {
+          $job->addMessage('File import failed with the following message: @message', array('@message' => $e->getMessage()), 'error');
+        }
+      }
+    }
+  }
+  foreach ($job->getMessagesSince() as $message) {
+    // Ignore debug messages.
+    if ($message->type == 'debug') {
+      continue;
+    }
+    if ($text = $message->getMessage()) {
+      drupal_set_message(filter_xss($text), $message->type);
+    }
+  }
+}
+
+/**
+ * Returns information about file format plugins.
+ *
+ * @param $plugin
+ *   (Optional) Name of a plugin/extension.
+ *
+ * @return
+ *   If a plugin name is provided, information about that plugin, an array of
+ *   plugin information otherwise. The information of each plugin consists of
+ *   the label and plugin controller class, keyed by the plugin name which is
+ *   also the extension for that file format.
+ */
+function tmgmt_file_format_plugin_info($plugin = NULL) {
+  return _tmgmt_plugin_info('file_format', $plugin);
+}
+
+/**
+ * Returns an array of file format plugin labels.
+ */
+function tmgmt_file_format_plugin_labels() {
+  return _tmgmt_plugin_labels('file_format');
+}
+
+/**
+ * Returns the file format plugin controller.
+ *
+ * @return TMGMTFileFormatInterface
+ *   Either a specific file format plugin controller instance or an array of
+ *   available controllers.
+ */
+function tmgmt_file_format_controller($plugin = NULL) {
+  return _tmgmt_plugin_controller('file_format', $plugin);
+}
+
+/**
+ * Implements hook_tmgmt_file_format_info().
+ */
+function tmgmt_file_tmgmt_file_format_plugin_info() {
+  return array(
+    'xlf' => array(
+      'label' => t('XLIFF'),
+      'plugin controller class' => 'TMGMTFileFormatXLIFF',
+    ),
+    'html' => array(
+      'label' => t('HTML'),
+      'plugin controller class' => 'TMGMTFileFormatHTML',
+    ),
+  );
+}
+
+/**
+ * Implements hook_tmgmt_job_delete().
+ */
+function tmgmt_file_tmgmt_job_delete(TMGMTJob $job) {
+  $translator = $job->getTranslator();
+
+  // Ignore jobs that don't have a file translator.
+  if (!$translator || $translator->plugin != 'file') {
+    return;
+  }
+  // Check if there are any files that need to be deleted.
+  // @todo There doesn't seem to be an API function for this...
+  $args = array(
+    ':module' => 'tmgmt_file',
+    ':type' => 'tmgmt_job',
+    ':id' => $job->tjid,
+  );
+  $result = db_query('SELECT fid FROM {file_usage} WHERE module = :module and type = :type and id = :id', $args);
+  $fids = $result->fetchCol();
+  if (!empty($fids)) {
+    foreach (file_load_multiple($fids) as $file) {
+      file_usage_delete($file, 'tmgmt_file', 'tmgmt_job', $job->tjid);
+      // It is very unlikely that these files are used anywhere else. Delete it.
+      file_delete($file);
+    }
+  }
+}
+
+/**
+ * Implements hook_file_download().
+ */
+function tmgmt_file_file_download($uri) {
+   // Get the file record based on the URI. If not in the database just return.
+  $files = file_load_multiple(array(), array('uri' => $uri));
+  if (count($files)) {
+    foreach ($files as $item) {
+      // Since some database servers sometimes use a case-insensitive comparison
+      // by default, double check that the filename is an exact match.
+      if ($item->uri === $uri) {
+        $file = $item;
+        break;
+      }
+    }
+  }
+  if (!isset($file)) {
+    return;
+  }
+
+  // Check if this file belongs to a job.
+  $usage_list = file_usage_list($file);
+  if (!isset($usage_list['tmgmt_file']['tmgmt_job'])) {
+    return;
+  }
+
+  foreach (tmgmt_job_load_multiple(array_keys($usage_list['tmgmt_file']['tmgmt_job'])) as $job) {
+    if (tmgmt_job_access('view', $job)) {
+      // Access is granted.
+      $headers = file_get_content_headers($file);
+      return $headers;
+    }
+  }
+
+  // Returning nothing means access denied unless another module specifically
+  // grants access.
+}
