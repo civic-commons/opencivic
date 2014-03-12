@@ -24,6 +24,8 @@ echo "Building OpenCivic profile from makefile at path $MAKEPATH"
 drush make -y "$MAKEPATH" docroot --no-gitinfofile
 
 # Remove .gitignore files that are undesired.
+rm docroot/profiles/opencivic/.gitignore
+rm docroot/profiles/opencivic/libraries/Leaflet/.gitignore
  
 echo "Symlinking sites directory to docroot/sites"
 cd docroot
