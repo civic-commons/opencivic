@@ -29,7 +29,7 @@ function cat_lover_admin_form_element_label($variables) {
   }
   $term = taxonomy_term_load($element['#parents'][2]);
   $icon = theme('image', array(
-    'path' => $term->field_small_icon['und'][0]['uri'],
+    'path' => $term->field_oc_small_icon['und'][0]['uri'],
     'alt' => '',
     'title' => NULL,
   ));

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * opencivic_organization.features.taxonomy.inc
+ * opencivic_core.features.taxonomy.inc
  */
 
 /**

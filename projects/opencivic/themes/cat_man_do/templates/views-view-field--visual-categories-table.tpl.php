@@ -9,9 +9,9 @@ $row_field = 'field_' . $field->field;
 if (!empty($row->$row_field)) {
   foreach($row->$row_field as $value) {
     $term = $value['raw']['taxonomy_term'];
-    if (!empty($term->field_small_icon[LANGUAGE_NONE])) {
+    if (!empty($term->field_oc_small_icon[LANGUAGE_NONE])) {
       $image_vars = array(
-        'path' => $term->field_small_icon[LANGUAGE_NONE][0]['uri'], 
+        'path' => $term->field_oc_small_icon[LANGUAGE_NONE][0]['uri'], 
         'title' => $term->name,
         'alt' => $term->name,
       );
