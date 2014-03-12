@@ -369,7 +369,7 @@ ul.action-links { margin: 20px 0 0; list-style: none; }
 
 .view-problem-statement-details .views-label, .view-project-at-a-glance .views-label { color: #6e6e6e; display: block; font-weight: bold; clear: both; }
 .view-problem-statement-details .field-content, .view-project-at-a-glance .field-content { display: block; padding-bottom: 8px; }
-.view-problem-statement-details .view-taxonomy-icons .views-field-field-small-icon, .view-project-at-a-glance .view-taxonomy-icons .views-field-field-small-icon { float: left; }
+.view-problem-statement-details .view-taxonomy-icons .views-field-field-oc-small-icon, .view-project-at-a-glance .view-taxonomy-icons .views-field-field-oc-small-icon { float: left; }
 .view-problem-statement-details .view-taxonomy-icons .views-field-name, .view-project-at-a-glance .view-taxonomy-icons .views-field-name { display: inline-block; clear: both; margin-left: 5px; }
 .view-problem-statement-details .view-taxonomy-icons .field-content, .view-project-at-a-glance .view-taxonomy-icons .field-content { padding: 0; line-height: 29px; }
 
@@ -555,7 +555,7 @@ div.messages ul { margin-top: 0; margin-bottom: 0; }
 
 .view-solr-search h2.title { margin-bottom: 0; line-height: 1.25em; }
 
-.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-field-icon, .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-nothing { text-align: center; }
+.pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-field-oc-icon, .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-field-nothing { text-align: center; }
 .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column { display: inline-block; width: 19.5%; margin: 0; padding: 0; vertical-align: top; }
 .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field { margin: 0 auto 8px; padding: 0 10px; text-align: center; text-transform: uppercase; display: table; min-height: 35px; }
 .pane-taxonomy-icons-panel-pane-1 .view-taxonomy-icons .views-responsive-grid .views-column .views-field a { color: #2fabe7; }
