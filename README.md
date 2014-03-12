@@ -16,6 +16,12 @@ git merge --squash -s subtree --no-commit opencivic_7.x-2.x-test
 git pull --rebase
 git push
 
+h2. Miscellaneous tricks
+
+To remove all empty directories (which git sometimes fails to do):
+
+find -depth -type d -empty -exec rmdir {} \;
+
 h2. To install the subtree module
 
 cd ~/
