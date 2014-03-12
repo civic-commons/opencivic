@@ -43,7 +43,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_civic_category']['table'] = 'field_data_field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['field'] = 'field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['delta_offset'] = '0';
-  /* Field: Content: Creator */
+  /* Field: Content: App creator */
   $handler->display->display_options['fields']['field_oc_app_creator']['id'] = 'field_oc_app_creator';
   $handler->display->display_options['fields']['field_oc_app_creator']['table'] = 'field_data_field_oc_app_creator';
   $handler->display->display_options['fields']['field_oc_app_creator']['field'] = 'field_oc_app_creator';
@@ -446,7 +446,7 @@ function opencivic_application_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['field_oc_civic_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_civic_category_tid']['vocabulary'] = 'civic_category';
+  $handler->display->display_options['filters']['field_oc_civic_category_tid']['vocabulary'] = 'oc_civic_category';
   $handler->display->display_options['filters']['field_oc_civic_category_tid']['hierarchy'] = 1;
 
   /* Display: Applications list */
