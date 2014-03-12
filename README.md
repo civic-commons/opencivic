@@ -1,29 +1,36 @@
-Drupal codebase for an Opencivic-based website.
+## Drupal codebase for an Opencivic-based website.
 
-git remote add origin https://github.com/civic-commons/opencivic.git
+    git remote add origin https://github.com/civic-commons/opencivic.git
 
-h2. To merge changes from the upstream distro to the test environment
+### To merge changes from the upstream distro to the test environment
 
+````
 git checkout opencivic_7.x-2.x-test
 git merge --squash -s subtree --no-commit opencivic_7.x-2.x
+git commit -m "update with latest changes from upstream bare-metal distro"
 git pull --rebase
 git push
+````
 
-h2. To merge changes from the test environment back to the upstream distro
+## To merge changes from the test environment back to the upstream distro
 
+````
 git checkout opencivic_7.x-2.x
 git merge --squash -s subtree --no-commit opencivic_7.x-2.x-test
+git commit -m "add latest changes from local work to upstream bare-metal distro"
 git pull --rebase
 git push
+````
 
-h2. Miscellaneous tricks
+### Miscellaneous tricks
 
 To remove all empty directories (which git sometimes fails to do):
 
-find -depth -type d -empty -exec rmdir {} \;
+    find -depth -type d -empty -exec rmdir {} \;
 
-h2. To install the subtree module
+### To install the subtree module
 
+````
 cd ~/
 git clone
 cd git/contrib/subtree
@@ -31,10 +38,12 @@ make
 sudo install -m 755 git-subtree /usr/lib/git-core
 cd ~/
 rm -Rf git
+````
 
 
+### Other stuff (Sheldon's notes, basically)
 
-
+````
 mkdir opencivic_site
 cd opencivic_site
 mkdir projects
@@ -89,3 +98,4 @@ sudo apachectl restart
 mysqladmin -u root create opencivicdb
 mysql -u root
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON opencivicdb.* TO 'opencivic'@'localhost' IDENTIFIED BY 'rN31wrld';
+````
