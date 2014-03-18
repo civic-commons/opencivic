@@ -6,6 +6,7 @@ echo "Pulling in latest updates on branch $BRANCH from remote $GITURL."
  
 # Change to git root directory.
 cd "$(git rev-parse --show-toplevel)"
+find . -name ".DS_Store" -depth -exec rm {} \;
 git checkout opencivic_7.x-2.x
 git pull --rebase
 git checkout opencivic_7.x-2.x-test
