@@ -474,11 +474,11 @@ projects[dkan_dataset][type] = "module"
 
 projects[dkan_datastore][subdir] = contrib
 projects[dkan_datastore][download][type] = git
-projects[dkan_datastore][download][version] = "1.x-dev"
-projects[dkan_datastore][download][branch] = "7.x-1.x"
-projects[dkan_datastore][download][revision] = 9c31f29605b37d8727c9e27d4e827d7888229d8f
-projects[dkan_datastore][download][url] = "http://git.drupal.org/project/dkan_dataset.git"
-projects[dkan_datastore][type] = "module"
+projects[dkan_dataset][download][version] = "1.x-dev"
+projects[dkan_dataset][download][branch] = "7.x-1.x"
+projects[dkan_dataset][download][revision] = 9c31f29605b37d8727c9e27d4e827d7888229d8f
+projects[dkan_dataset][download][url] = "http://git.drupal.org/project/dkan_dataset.git"
+projects[dkan_dataset][type] = "module"
 
 
 ; Development modules ===========================================================
