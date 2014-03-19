@@ -14,5 +14,5 @@ includes[] = drupal-org-core.make
 
 projects[opencivic][type] = profile
 projects[opencivic][download][type] = git
-projects[opencivic][download][url] = http://git.drupal.org/project/opencivic.git
+projects[opencivic][download][url] = https://github.com/civic-commons/opencivic
 projects[opencivic][download][branch] = 7.x-2.x
