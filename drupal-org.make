@@ -244,6 +244,7 @@ projects[logintoboggan][version] = "1.3"
 
 projects[mail_edit][subdir] = "contrib"
 projects[mail_edit][version] = "1.0"
+projects[mail_edit][patch][1826220] = https://drupal.org/files/mail_edit-undefined_index_path-1826220-2.patch
 
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][version] = 3.0-beta1
