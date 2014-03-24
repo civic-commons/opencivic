@@ -1,0 +1,150 @@
+<?php
+
+/**
+ * @file
+ * THIS FILE INTENTIONALLY LEFT BLANK.
+ *
+ * Yes, there is no code in the .module file. Migrate operates almost entirely
+ * through classes, and by adding any files containing class definitions to the
+ * .info file, those files are automatically included only when the classes they
+ * contain are referenced. The one non-class piece you need to implement is
+ * hook_migrate_api(), but because .migrate.inc is registered using
+ * hook_hook_info, by defining your implementation of that hook in
+ * example.migrate.inc, it is automatically invoked only when needed.
+ */
+
+function migrate_opencivic_flush_caches() {
+  migrate_opencivic_register_migrations();
+}
+
+function migrate_opencivic_register_migrations() {
+  $common_arguments = array(
+    'source_connection' => 'v1.europecommons',
+    'source_version' => 7,
+    'group_name' => 'opencivic',
+  );
+
+  // Roles
+  $role_arguments = $common_arguments + array(
+    'machine_name' => 'role',
+    'description' => t('Import Drupal 7 roles'),
+    'role_mappings' => array(
+    ),
+  );
+  Migration::registerMigration('DrupalRole6Migration',
+    $role_arguments['machine_name'], $role_arguments);
+
+  // Users
+  $user_arguments = $common_arguments + array(
+    'description' => t('Migration of users from OpenCivic v1'),
+    'machine_name' => 'user',
+    'role_migration' => 'role',
+  );
+
+  // We just use the migrate_d2d D6 migration class as-is.
+  Migration::registerMigration('UserMigration', $user_arguments['machine_name'],
+                               $user_arguments);
+
+  // For vocabulary migrations, source_vocabulary and destination_vocabulary are
+  // required arguments. Note that in Drupal 6 vocabularies did not have machine
+  // names, so we use the vocabulary ID to uniquely identify them.
+  $vocabulary_arguments = array(
+    array(
+      'description' => t('Migration of Application function terms from OpenCivic v1'),
+      'machine_name' => 'app_function_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => 'application_category',
+      'destination_vocabulary' => 'oc_application_category',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+    array(
+      'description' => t('Migration of Civic sector terms from OpenCivic v1'),
+      'machine_name' => 'civic_sector_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => '',
+      'destination_vocabulary' => '',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+    array(
+      'description' => t('Migration of Organization service terms from OpenCivic v1'),
+      'machine_name' => 'organization_service_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => 'service',
+      'destination_vocabulary' => 'service',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+    array(
+      'description' => t('Migration of Organization type terms from OpenCivic v1'),
+      'machine_name' => 'organization_type_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => 'organization_type',
+      'destination_vocabulary' => 'oc_organization_type',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+    array(
+      'description' => t('Migration of Software license terms from OpenCivic v1'),
+      'machine_name' => 'software_license_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => 'license',
+      'destination_vocabulary' => 'license',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+    array(
+      'description' => t('Migration of Software type terms from OpenCivic v1'),
+      'machine_name' => 'software_type_terms',
+      'group' => 'taxonomy',
+      'source_vocabulary' => 'software_type',
+      'destination_vocabulary' => 'software_type',
+      'class_name' => 'DrupalTerm7Migration',
+    ),
+  );
+
+  // Again, we're using the migrate_d2d class directly.
+  // The soft dependency says that while we don't have to run the user migration
+  // first, we want to make sure it's listed first so the vocubularies are
+  // listed right ahead of the node migrations.
+  $common_vocabulary_arguments = $common_arguments + array(
+    // 'class_name' => 'DrupalTerm6Migration',
+    // 'soft_dependencies' => array('User'),
+  );
+  foreach ($vocabulary_arguments as $arguments) {
+    $arguments += $common_vocabulary_arguments;
+    Migration::registerMigration($arguments['class_name'], $arguments['machine_name'],
+                                 $arguments);
+  }
+
+  $node_arguments = array(
+    array(
+      'class_name' => 'ApplicationsMigration',
+      'description' => t('Migration of news nodes from Drupal 6'),
+      'machine_name' => 'applications',
+      'source_type' => 'application',
+      'destination_type' => 'oc_application',
+    ),
+    array(
+      'class_name' => 'DeploymentsMigration',
+      'description' => t('Migration of campaign nodes from Drupal 6'),
+      'machine_name' => 'deployments',
+      'source_type' => 'deployment',
+      'destination_type' => 'oc_deployment',
+    ),
+    array(
+      'class_name' => 'OrganizationsMigration',
+      'description' => t('Migration of event nodes from Drupal 6'),
+      'machine_name' => 'organizations',
+      'source_type' => 'organization',
+      'destination_type' => 'oc_organization',
+    ),
+  );
+
+  $common_node_arguments = $common_arguments + array(
+    // 'user_migration' => 'User',
+  );
+
+  foreach ($node_arguments as $arguments) {
+    $arguments = array_merge_recursive($arguments, $common_node_arguments);
+    Migration::registerMigration($arguments['class_name'], $arguments['machine_name'],
+                                 $arguments);
+  }
+}
+
