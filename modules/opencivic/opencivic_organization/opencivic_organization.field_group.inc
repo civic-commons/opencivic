@@ -34,6 +34,7 @@ function opencivic_organization_field_group_info() {
       8 => 'field_oc_org_telephone',
       9 => 'field_oc_org_twitter',
       10 => 'field_oc_org_url',
+      11 => 'field_oc_org_description',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

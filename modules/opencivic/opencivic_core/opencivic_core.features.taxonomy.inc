@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * opencivic_organization.features.taxonomy.inc
+ * opencivic_core.features.taxonomy.inc
  */
 
 /**
@@ -36,6 +36,29 @@ function opencivic_core_taxonomy_default_vocabularies() {
       'name' => 'License',
       'machine_name' => 'license',
       'description' => 'The licensing terms under which software is distributed.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'oc_tags' => array(
+      'name' => 'Tags',
+      'machine_name' => 'oc_tags',
+      'description' => 'Use tags to group articles on similar topics into categories.',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,

@@ -43,7 +43,7 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_civic_category']['table'] = 'field_data_field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['field'] = 'field_oc_civic_category';
   $handler->display->display_options['fields']['field_oc_civic_category']['delta_offset'] = '0';
-  /* Field: Content: Creator */
+  /* Field: Content: App creator */
   $handler->display->display_options['fields']['field_oc_app_creator']['id'] = 'field_oc_app_creator';
   $handler->display->display_options['fields']['field_oc_app_creator']['table'] = 'field_data_field_oc_app_creator';
   $handler->display->display_options['fields']['field_oc_app_creator']['field'] = 'field_oc_app_creator';
@@ -89,12 +89,11 @@ function opencivic_application_views_default_views() {
   $handler->display->display_options['fields']['field_oc_app_software_type']['field'] = 'field_oc_app_software_type';
   $handler->display->display_options['fields']['field_oc_app_software_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_app_software_type']['delta_offset'] = '0';
-  /* Field: Content: Tags */
-  $handler->display->display_options['fields']['field_oc_app_keywords']['id'] = 'field_oc_app_keywords';
-  $handler->display->display_options['fields']['field_oc_app_keywords']['table'] = 'field_data_field_oc_app_keywords';
-  $handler->display->display_options['fields']['field_oc_app_keywords']['field'] = 'field_oc_app_keywords';
-  $handler->display->display_options['fields']['field_oc_app_keywords']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_app_keywords']['delta_offset'] = '0';
+  /* Field: Broken/missing handler */
+  $handler->display->display_options['fields']['field_oc_tags']['id'] = 'field_oc_tags';
+  $handler->display->display_options['fields']['field_oc_tags']['table'] = 'field_data_field_oc_tags';
+  $handler->display->display_options['fields']['field_oc_tags']['field'] = 'field_oc_tags';
+  $handler->display->display_options['fields']['field_oc_tags']['element_label_colon'] = FALSE;
   /* Field: Content: Application Homepage */
   $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';

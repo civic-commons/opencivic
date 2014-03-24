@@ -220,10 +220,10 @@ function opencivic_search_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@opencivic_search:block:field_oc_app_keywords';
+  $facet->name = 'search_api@opencivic_search:block:field_oc_tags';
   $facet->searcher = 'search_api@opencivic_search';
   $facet->realm = 'block';
-  $facet->facet = 'field_oc_app_keywords';
+  $facet->facet = 'field_oc_tags';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -249,7 +249,7 @@ function opencivic_search_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@opencivic_search:block:field_oc_app_keywords'] = $facet;
+  $export['search_api@opencivic_search:block:field_oc_tags'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

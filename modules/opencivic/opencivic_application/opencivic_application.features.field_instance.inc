@@ -609,61 +609,6 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_keywords'
-  $field_instances['node-oc_application-field_oc_app_keywords'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'The keywords/tags used to describe this content. Separate tags with a comma.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_app_keywords',
-    'label' => 'Tags',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'autocomplete_deluxe',
-      'settings' => array(
-        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
-        'content_taxonomy_autocomplete_new_terms' => 'allow',
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'node-oc_application-field_oc_app_license'
   $field_instances['node-oc_application-field_oc_app_license'] = array(
     'bundle' => 'oc_application',
@@ -1200,16 +1145,74 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-oc_application-field_oc_tags'
+  $field_instances['node-oc_application-field_oc_tags'] = array(
+    'bundle' => 'oc_application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 24,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_tags',
+    'label' => 'Tags',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'autocomplete_deluxe',
+      'settings' => array(
+        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+        'content_taxonomy_autocomplete_new_terms' => 'allow',
+        'delimiter' => '',
+        'label_help_description' => '',
+        'limit' => 10,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'min_length' => 0,
+        'size' => 60,
+      ),
+      'type' => 'autocomplete_deluxe_taxonomy',
+      'weight' => 9,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('A short description, e.g., "A web-based visualization tool."');
   t('An embedded video object.');
   t('App Description');
+  t('App creator');
   t('Application Homepage');
   t('Application function');
   t('Civic sector');
   t('Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).');
-  t('Creator');
   t('Demo url');
   t('Enter the URL of the application homepage where people can go to find more information');
   t('Features or modules provided by this application (and possibly required by other applications).');
@@ -1230,7 +1233,6 @@ function opencivic_application_field_default_field_instances() {
   t('Supporting vendors');
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
-  t('The keywords/tags used to describe this content. Separate tags with a comma.');
   t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
   t('Video');

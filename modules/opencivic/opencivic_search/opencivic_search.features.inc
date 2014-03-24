@@ -45,7 +45,7 @@ function opencivic_search_default_search_api_index() {
         "field_oc_app_app_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_description" : { "type" : "text" },
         "field_oc_app_feature_list" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_oc_app_keywords" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_oc_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_license" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_software_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_title" : { "type" : "text" },
