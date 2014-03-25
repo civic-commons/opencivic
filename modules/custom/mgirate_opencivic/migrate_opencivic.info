@@ -1,0 +1,10 @@
+name = Migrate OpenCivic
+description = Migrate OpenCivic content from v1 to v2.
+package = OpenCivic
+core = 7.x
+
+dependencies[] = migrate
+dependencies[] = migrate_d2d
+
+files[] = migrate_opencivic.migrate.inc
+files[] = node.inc

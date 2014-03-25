@@ -55,8 +55,8 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-oc_application_category-field_icon'
-  $field_instances['taxonomy_term-oc_application_category-field_icon'] = array(
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_oc_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_oc_icon'] = array(
     'bundle' => 'oc_application_category',
     'deleted' => 0,
     'description' => 'Upload an icon to visually illustrate this term.',
@@ -79,7 +79,7 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_icon',
+    'field_name' => 'field_oc_icon',
     'label' => 'Icon',
     'required' => 0,
     'settings' => array(
@@ -119,8 +119,8 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-oc_application_category-field_small_icon'
-  $field_instances['taxonomy_term-oc_application_category-field_small_icon'] = array(
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_oc_small_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_oc_small_icon'] = array(
     'bundle' => 'oc_application_category',
     'deleted' => 0,
     'description' => 'Upload a smaller version of the icon for this taxonomy term.',
@@ -143,7 +143,7 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_small_icon',
+    'field_name' => 'field_oc_small_icon',
     'label' => 'Small icon',
     'required' => 0,
     'settings' => array(
@@ -215,9 +215,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-license-description_field'
-  $field_instances['taxonomy_term-license-description_field'] = array(
-    'bundle' => 'license',
+  // Exported field_instance: 'taxonomy_term-oc_license-description_field'
+  $field_instances['taxonomy_term-oc_license-description_field'] = array(
+    'bundle' => 'oc_license',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -266,9 +266,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-license-name_field'
-  $field_instances['taxonomy_term-license-name_field'] = array(
-    'bundle' => 'license',
+  // Exported field_instance: 'taxonomy_term-oc_license-name_field'
+  $field_instances['taxonomy_term-oc_license-name_field'] = array(
+    'bundle' => 'oc_license',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -315,9 +315,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-requirements-description_field'
-  $field_instances['taxonomy_term-requirements-description_field'] = array(
-    'bundle' => 'requirements',
+  // Exported field_instance: 'taxonomy_term-oc_requirements-description_field'
+  $field_instances['taxonomy_term-oc_requirements-description_field'] = array(
+    'bundle' => 'oc_requirements',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -366,9 +366,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-requirements-name_field'
-  $field_instances['taxonomy_term-requirements-name_field'] = array(
-    'bundle' => 'requirements',
+  // Exported field_instance: 'taxonomy_term-oc_requirements-name_field'
+  $field_instances['taxonomy_term-oc_requirements-name_field'] = array(
+    'bundle' => 'oc_requirements',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -415,9 +415,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-service-description_field'
-  $field_instances['taxonomy_term-service-description_field'] = array(
-    'bundle' => 'service',
+  // Exported field_instance: 'taxonomy_term-oc_service-description_field'
+  $field_instances['taxonomy_term-oc_service-description_field'] = array(
+    'bundle' => 'oc_service',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -466,9 +466,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-service-name_field'
-  $field_instances['taxonomy_term-service-name_field'] = array(
-    'bundle' => 'service',
+  // Exported field_instance: 'taxonomy_term-oc_service-name_field'
+  $field_instances['taxonomy_term-service-oc_name_field'] = array(
+    'bundle' => 'oc_service',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -515,9 +515,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-software_type-description_field'
-  $field_instances['taxonomy_term-software_type-description_field'] = array(
-    'bundle' => 'software_type',
+  // Exported field_instance: 'taxonomy_term-oc_software_type-description_field'
+  $field_instances['taxonomy_term-oc_software_type-description_field'] = array(
+    'bundle' => 'oc_software_type',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -566,9 +566,9 @@ function appcat_misc_taxonomy_app_terms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-software_type-name_field'
-  $field_instances['taxonomy_term-software_type-name_field'] = array(
-    'bundle' => 'software_type',
+  // Exported field_instance: 'taxonomy_term-oc_software_type-name_field'
+  $field_instances['taxonomy_term-oc_software_type-name_field'] = array(
+    'bundle' => 'oc_software_type',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

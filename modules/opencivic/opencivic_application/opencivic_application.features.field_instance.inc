@@ -609,6 +609,64 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-oc_application-field_oc_tags'
+  $field_instances['node-oc_application-field_oc_tags'] = array(
+    'bundle' => 'oc_application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 24,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_tags',
+    'label' => 'Tags',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'autocomplete_deluxe',
+      'settings' => array(
+        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+        'content_taxonomy_autocomplete_new_terms' => 'allow',
+        'delimiter' => '',
+        'label_help_description' => '',
+        'limit' => 10,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'min_length' => 0,
+        'size' => 60,
+      ),
+      'type' => 'autocomplete_deluxe_taxonomy',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-oc_application-field_oc_app_license'
   $field_instances['node-oc_application-field_oc_app_license'] = array(
     'bundle' => 'oc_application',
@@ -1145,19 +1203,21 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_tags'
-  $field_instances['node-oc_application-field_oc_tags'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_oc_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_oc_icon'] = array(
+    'bundle' => 'oc_application_category',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Upload an icon to visually illustrate this term.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 24,
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1171,35 +1231,91 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'teaser' => array(
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_oc_icon',
+    'label' => 'Icon',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'application_category/icons',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'taxonomy_term-oc_application_category-field_oc_small_icon'
+  $field_instances['taxonomy_term-oc_application_category-field_oc_small_icon'] = array(
+    'bundle' => 'oc_application_category',
+    'deleted' => 0,
+    'description' => 'Upload a smaller version of the icon for this taxonomy term.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
     ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_tags',
-    'label' => 'Tags',
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_oc_small_icon',
+    'label' => 'Small icon',
     'required' => 0,
     'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'application_category/icons',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'autocomplete_deluxe',
+      'module' => 'image',
       'settings' => array(
-        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
-        'content_taxonomy_autocomplete_new_terms' => 'allow',
-        'delimiter' => '',
         'label_help_description' => '',
-        'limit' => 10,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'min_length' => 0,
-        'size' => 60,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
       ),
-      'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 9,
+      'type' => 'image_image',
+      'weight' => 3,
     ),
   );
 
@@ -1218,6 +1334,7 @@ function opencivic_application_field_default_field_instances() {
   t('Features or modules provided by this application (and possibly required by other applications).');
   t('File attachments');
   t('Host');
+  t('Icon');
   t('If the software can be downloaded, URL to download it.');
   t('Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?');
   t('Key features');
@@ -1229,12 +1346,15 @@ function opencivic_application_field_default_field_instances() {
   t('Screenshot images of the app.');
   t('Screenshots');
   t('Short description');
+  t('Small icon');
   t('Software type');
   t('Supporting vendors');
   t('Tags');
   t('The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.');
   t('Type of software application, e.g. "Game, Multimedia."');
   t('URL at which a demo version of the app may be found for review.');
+  t('Upload a smaller version of the icon for this taxonomy term.');
+  t('Upload an icon to visually illustrate this term.');
   t('Video');
   t('What civic purpose does this application serve, e.g., education, elections?');
   t('What do you think of the application? Is it easy to use? Is it easy to implement? (Your rating will be aggregated with others).');
