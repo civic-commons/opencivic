@@ -73,8 +73,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_aggregate_rating'
-  $field_instances['node-oc_application-field_oc_app_aggregate_rating'] = array(
+  // Exported field_instance: 'node-oc_application-field_oc_aggregate_rating'
+  $field_instances['node-oc_application-field_oc_aggregate_rating'] = array(
     'bundle' => 'oc_application',
     'default_value' => NULL,
     'deleted' => 0,
@@ -106,7 +106,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_aggregate_rating',
+    'field_name' => 'field_oc_aggregate_rating',
     'label' => 'Rating',
     'required' => 0,
     'settings' => array(
@@ -128,8 +128,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_app_category'
-  $field_instances['node-oc_application-field_oc_app_app_category'] = array(
+  // Exported field_instance: 'node-oc_application-field_oc_app_category'
+  $field_instances['node-oc_application-field_oc_app_category'] = array(
     'bundle' => 'oc_application',
     'default_value' => NULL,
     'deleted' => 0,
@@ -161,7 +161,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_app_category',
+    'field_name' => 'field_oc_app_category',
     'label' => 'Application function',
     'required' => 0,
     'settings' => array(
@@ -480,8 +480,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_file_attachments'
-  $field_instances['node-oc_application-field_oc_app_file_attachments'] = array(
+  // Exported field_instance: 'node-oc_application-field_oc_file_attachments'
+  $field_instances['node-oc_application-field_oc_file_attachments'] = array(
     'bundle' => 'oc_application',
     'deleted' => 0,
     'description' => '',
@@ -513,7 +513,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_file_attachments',
+    'field_name' => 'field_oc_file_attachments',
     'label' => 'File attachments',
     'required' => 0,
     'settings' => array(
@@ -719,8 +719,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_logo'
-  $field_instances['node-oc_application-field_oc_app_logo'] = array(
+  // Exported field_instance: 'node-oc_application-field_oc_logo'
+  $field_instances['node-oc_application-field_oc_logo'] = array(
     'bundle' => 'oc_application',
     'deleted' => 0,
     'description' => '',
@@ -755,7 +755,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_logo',
+    'field_name' => 'field_oc_logo',
     'label' => 'Logo',
     'required' => 0,
     'settings' => array(
@@ -1083,8 +1083,8 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_video'
-  $field_instances['node-oc_application-field_oc_app_video'] = array(
+  // Exported field_instance: 'node-oc_application-field_oc_video'
+  $field_instances['node-oc_application-field_oc_video'] = array(
     'bundle' => 'oc_application',
     'deleted' => 0,
     'description' => 'An embedded video object.',
@@ -1115,7 +1115,7 @@ function opencivic_application_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_app_video',
+    'field_name' => 'field_oc_video',
     'label' => 'Video',
     'required' => 0,
     'settings' => array(

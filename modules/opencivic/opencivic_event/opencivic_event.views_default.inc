@@ -441,25 +441,6 @@ function opencivic_event_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'oc_event' => 'oc_event',
   );
-  $translatables['event_calendar'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Event type'),
-    t('Month'),
-    t('All'),
-    t('Week'),
-    t('Day'),
-    t('Year'),
-    t('Block'),
-    t('iCal'),
-    t('Upcoming'),
-    t('Upcoming events block'),
-  );
   $export['event_calendar'] = $view;
 
   return $export;

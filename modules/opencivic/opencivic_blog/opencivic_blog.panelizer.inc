@@ -98,7 +98,7 @@ function opencivic_blog_panelizer_defaults() {
     $pane->pid = 'new-3';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_blog_keywords';
+    $pane->subtype = 'node:field_oc_tags';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

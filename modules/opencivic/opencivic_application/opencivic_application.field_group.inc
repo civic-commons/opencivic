@@ -28,7 +28,7 @@ function opencivic_application_field_group_info() {
       2 => 'field_oc_app_creator',
       3 => 'field_oc_app_description',
       4 => 'field_oc_app_feature_list',
-      5 => 'field_oc_app_logo',
+      5 => 'field_oc_logo',
       6 => 'field_oc_app_url',
     ),
     'format_type' => 'tab',
@@ -56,7 +56,7 @@ function opencivic_application_field_group_info() {
     'label' => 'Categories',
     'weight' => '20',
     'children' => array(
-      0 => 'field_oc_app_app_category',
+      0 => 'field_oc_app_category',
       1 => 'field_oc_civic_category',
       2 => 'field_oc_tags',
     ),
@@ -114,9 +114,9 @@ function opencivic_application_field_group_info() {
     'label' => 'Media',
     'weight' => '21',
     'children' => array(
-      0 => 'field_oc_app_file_attachments',
+      0 => 'field_oc_file_attachments',
       1 => 'field_oc_app_screenshot',
-      2 => 'field_oc_app_video',
+      2 => 'field_oc_video',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

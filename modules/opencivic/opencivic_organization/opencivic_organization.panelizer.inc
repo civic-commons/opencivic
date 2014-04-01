@@ -54,7 +54,7 @@ function opencivic_organization_panelizer_defaults() {
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_org_logo';
+    $pane->subtype = 'node:field_oc_logo';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

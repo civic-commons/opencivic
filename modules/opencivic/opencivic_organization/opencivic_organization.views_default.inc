@@ -213,7 +213,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'leaflet';
-  $handler->display->display_options['style_options']['data_source'] = 'field_oc_org_coordinates';
+  $handler->display->display_options['style_options']['data_source'] = 'field_oc_coordinates';
   $handler->display->display_options['style_options']['name_field'] = 'title';
   $handler->display->display_options['style_options']['description_field'] = 'title';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
@@ -235,13 +235,13 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Coordinates */
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['id'] = 'field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['table'] = 'field_data_field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['field'] = 'field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['click_sort_column'] = 'wkt';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_coordinates']['id'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['table'] = 'field_data_field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['field'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_coordinates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_coordinates']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_oc_coordinates']['settings'] = array(
     'data' => 'full',
   );
   /* Field: Content: Location */
@@ -325,13 +325,13 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Coordinates */
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['id'] = 'field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['table'] = 'field_data_field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['field'] = 'field_oc_org_coordinates';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['click_sort_column'] = 'wkt';
-  $handler->display->display_options['fields']['field_oc_org_coordinates']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_coordinates']['id'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['table'] = 'field_data_field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['field'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_coordinates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_coordinates']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_oc_coordinates']['settings'] = array(
     'data' => 'full',
   );
   /* Field: Content: Address */
@@ -422,7 +422,7 @@ function opencivic_organization_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'leaflet';
-  $handler->display->display_options['style_options']['data_source'] = 'field_oc_org_coordinates';
+  $handler->display->display_options['style_options']['data_source'] = 'field_oc_coordinates';
   $handler->display->display_options['style_options']['name_field'] = 'title';
   $handler->display->display_options['style_options']['description_field'] = 'title';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';

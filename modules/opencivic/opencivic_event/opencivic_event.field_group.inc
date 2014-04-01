@@ -53,7 +53,7 @@ function opencivic_event_field_group_info() {
     'label' => 'Location',
     'weight' => '53',
     'children' => array(
-      0 => 'field_coordinates',
+      0 => 'field_oc_coordinates',
       1 => 'field_oc_deploy_location',
       2 => 'field_telephone',
       3 => 'field_url',
@@ -69,32 +69,6 @@ function opencivic_event_field_group_info() {
     ),
   );
   $export['group_location|node|oc_event|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_main|node|event|form';
-  $field_group->group_name = 'group_main';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'oc_event';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Main',
-    'weight' => '0',
-    'children' => array(
-      0 => 'group_basic_info',
-      1 => 'group_location',
-    ),
-    'format_type' => 'tabs',
-    'format_settings' => array(
-      'formatter' => '',
-      'instance_settings' => array(
-        'classes' => '',
-      ),
-    ),
-  );
-  $export['group_main|node|oc_event|form'] = $field_group;
 
   return $export;
 }

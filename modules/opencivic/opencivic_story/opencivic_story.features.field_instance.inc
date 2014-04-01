@@ -274,8 +274,8 @@ function opencivic_story_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_story-field_tags'
-  $field_instances['node-oc_story-field_tags'] = array(
+  // Exported field_instance: 'node-oc_story-field_oc_tags'
+  $field_instances['node-oc_story-field_oc_tags'] = array(
     'bundle' => 'oc_story',
     'default_value' => NULL,
     'deleted' => 0,
@@ -308,7 +308,7 @@ function opencivic_story_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_tags',
+    'field_name' => 'field_oc_tags',
     'label' => 'Tags',
     'required' => 0,
     'settings' => array(

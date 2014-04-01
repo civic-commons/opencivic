@@ -125,7 +125,7 @@ function opencivic_deployment_rdf_default_mappings() {
         0 => 'schema:performer',
       ),
     ),
-    'field_oc_deploy_coordinates' => array(
+    'field_oc_coordinates' => array(
       'predicates' => array(),
     ),
     'title_field' => array(

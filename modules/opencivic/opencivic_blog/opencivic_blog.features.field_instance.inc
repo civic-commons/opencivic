@@ -136,8 +136,8 @@ function opencivic_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_blog-field_oc_blog_keywords'
-  $field_instances['node-oc_blog-field_oc_blog_keywords'] = array(
+  // Exported field_instance: 'node-oc_blog-field_oc_tags'
+  $field_instances['node-oc_blog-field_oc_tags'] = array(
     'bundle' => 'oc_blog',
     'default_value' => NULL,
     'deleted' => 0,
@@ -169,7 +169,7 @@ function opencivic_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_blog_keywords',
+    'field_name' => 'field_oc_tags',
     'label' => 'Tags',
     'required' => 0,
     'settings' => array(

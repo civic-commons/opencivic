@@ -10,24 +10,6 @@
 function opencivic_deployment_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_oc_deploy_coordinates'
-  $field_bases['field_oc_deploy_coordinates'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_deploy_coordinates',
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'geofield',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'geofield',
-  );
-
   // Exported field_base: 'field_oc_deploy_deployment_of'
   $field_bases['field_oc_deploy_deployment_of'] = array(
     'active' => 1,

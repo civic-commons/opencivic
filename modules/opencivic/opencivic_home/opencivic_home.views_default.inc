@@ -91,11 +91,11 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['text'] = '<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Coordinates */
-  $handler->display->display_options['fields']['field_oc_deploy_coordinates']['id'] = 'field_oc_deploy_coordinates';
-  $handler->display->display_options['fields']['field_oc_deploy_coordinates']['table'] = 'field_data_field_oc_deploy_coordinates';
-  $handler->display->display_options['fields']['field_oc_deploy_coordinates']['field'] = 'field_oc_deploy_coordinates';
-  $handler->display->display_options['fields']['field_oc_deploy_coordinates']['click_sort_column'] = 'wkt';
-  $handler->display->display_options['fields']['field_oc_deploy_coordinates']['settings'] = array(
+  $handler->display->display_options['fields']['field_oc_coordinates']['id'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['table'] = 'field_data_field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['field'] = 'field_oc_coordinates';
+  $handler->display->display_options['fields']['field_oc_coordinates']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_oc_coordinates']['settings'] = array(
     'data' => 'full',
   );
   /* Sort criterion: Content: Post date */
@@ -123,7 +123,7 @@ function opencivic_home_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Home page map pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'leaflet';
-  $handler->display->display_options['style_options']['data_source'] = 'field_oc_deploy_coordinates';
+  $handler->display->display_options['style_options']['data_source'] = 'field_oc_coordinates';
   $handler->display->display_options['style_options']['name_field'] = 'field_oc_deploy_deployment_of';
   $handler->display->display_options['style_options']['description_field'] = 'field_oc_deploy_deployment_of';
   $handler->display->display_options['style_options']['map'] = 'google-roadmap';
