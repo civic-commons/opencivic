@@ -17,6 +17,13 @@ function opencivic_sponsor_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function opencivic_sponsor_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_fe_nodequeue_export_fields().
  */
 function opencivic_sponsor_fe_nodequeue_export_fields() {
@@ -24,7 +31,6 @@ function opencivic_sponsor_fe_nodequeue_export_fields() {
 
   // Exported nodequeues: sponsors
   $nodequeues['sponsors'] = array(
-    'qid' => 1,
     'name' => 'sponsors',
     'title' => 'Sponsors',
     'subqueue_title' => '',
@@ -76,6 +82,7 @@ function opencivic_sponsor_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'sponsor_logo',
   );
 
   return $styles;
@@ -96,13 +103,4 @@ function opencivic_sponsor_node_info() {
     ),
   );
   return $items;
-}
-
-/**
- * Implements hook_views_api().
- */
-function opencivic_sponsor_views_api() {
-  return array(
-    'api' => '3.0',
-  );
 }

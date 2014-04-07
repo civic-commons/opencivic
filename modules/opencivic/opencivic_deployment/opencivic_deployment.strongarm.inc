@@ -27,16 +27,16 @@ function opencivic_deployment_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'addanother_tab_oc_deployment';
+  $strongarm->name = 'addanother_tab_edit_oc_deployment';
   $strongarm->value = 0;
-  $export['addanother_tab_oc_deployment'] = $strongarm;
+  $export['addanother_tab_edit_oc_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'addanother_tab_edit_oc_deployment';
+  $strongarm->name = 'addanother_tab_oc_deployment';
   $strongarm->value = 0;
-  $export['addanother_tab_edit_oc_deployment'] = $strongarm;
+  $export['addanother_tab_oc_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -90,16 +90,16 @@ function opencivic_deployment_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_oc_deployment';
-  $strongarm->value = '1';
-  $export['comment_oc_deployment'] = $strongarm;
+  $strongarm->name = 'comment_form_location_oc_deployment';
+  $strongarm->value = 1;
+  $export['comment_form_location_oc_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_oc_deployment';
-  $strongarm->value = 1;
-  $export['comment_form_location_oc_deployment'] = $strongarm;
+  $strongarm->name = 'comment_oc_deployment';
+  $strongarm->value = '1';
+  $export['comment_oc_deployment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -38,9 +38,9 @@ function opencivic_organization_views_api($module = NULL, $api = NULL) {
 function opencivic_organization_node_info() {
   $items = array(
     'oc_organization' => array(
-      'name' => t('Organization'),
+      'name' => t('Organisation'),
       'base' => 'node_content',
-      'description' => t('An <b>organization</b> can be a company, government agency, nongovernmental organization or team of people working together to create, support or use software applications.'),
+      'description' => t('An <b>organisation</b> can be a company, government agency, nongovernmental organisation or team of people working together to create, support or use software applications.'),
       'has_title' => '1',
       'title_label' => t('Name'),
       'help' => '',

@@ -430,7 +430,7 @@ function opencivic_application_field_default_field_instances() {
     'bundle' => 'oc_application',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Features or modules provided by this application (and possibly required by other applications).',
+    'description' => 'Important features provided by this application (and possibly required by other applications).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -462,7 +462,10 @@ function opencivic_application_field_default_field_instances() {
     'label' => 'Key features',
     'required' => 0,
     'settings' => array(
-      'entity_translation_sync' => FALSE,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -477,63 +480,6 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_application-field_oc_file_attachments'
-  $field_instances['node-oc_application-field_oc_file_attachments'] = array(
-    'bundle' => 'oc_application',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 22,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_file_attachments',
-    'label' => 'File attachments',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'entity_translation_sync' => FALSE,
-      'file_directory' => '',
-      'file_extensions' => 'txt odt ppt key doc docx csv tsv',
-      'max_filesize' => '10Mb',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 7,
     ),
   );
 
@@ -609,64 +555,6 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_tags'
-  $field_instances['node-oc_application-field_oc_tags'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 24,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_tags',
-    'label' => 'Tags',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'autocomplete_deluxe',
-      'settings' => array(
-        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
-        'content_taxonomy_autocomplete_new_terms' => 'allow',
-        'delimiter' => '',
-        'label_help_description' => '',
-        'limit' => 10,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'min_length' => 0,
-        'size' => 60,
-      ),
-      'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'node-oc_application-field_oc_app_license'
   $field_instances['node-oc_application-field_oc_app_license'] = array(
     'bundle' => 'oc_application',
@@ -716,70 +604,6 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'options_buttons',
       'weight' => 14,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_application-field_oc_logo'
-  $field_instances['node-oc_application-field_oc_logo'] = array(
-    'bundle' => 'oc_application',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 23,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_logo',
-    'label' => 'Logo',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 4,
     ),
   );
 
@@ -845,7 +669,7 @@ function opencivic_application_field_default_field_instances() {
   // Exported field_instance: 'node-oc_application-field_oc_app_requirements'
   $field_instances['node-oc_application-field_oc_app_requirements'] = array(
     'bundle' => 'oc_application',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => 'Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).',
     'display' => array(
@@ -884,15 +708,16 @@ function opencivic_application_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'taxonomy',
+      'module' => 'autocomplete_deluxe',
       'settings' => array(
+        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
         'autocomplete_path' => 'taxonomy/autocomplete',
         'content_taxonomy_autocomplete_new_terms' => 'allow',
         'label_help_description' => '',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'size' => 60,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'autocomplete_deluxe_taxonomy',
       'weight' => 15,
     ),
   );
@@ -1045,7 +870,7 @@ function opencivic_application_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_oc_app_url',
-    'label' => 'Application Homepage',
+    'label' => 'Application homepage',
     'required' => 0,
     'settings' => array(
       'attributes' => array(
@@ -1080,6 +905,237 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'link_field',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-oc_application-field_oc_civic_category'
+  $field_instances['node-oc_application-field_oc_civic_category'] = array(
+    'bundle' => 'oc_application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'What civic purpose does this application serve, e.g., education, elections?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_civic_category',
+    'label' => 'Civic sector',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_buttons',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-oc_application-field_oc_file_attachments'
+  $field_instances['node-oc_application-field_oc_file_attachments'] = array(
+    'bundle' => 'oc_application',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 22,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_file_attachments',
+    'label' => 'File attachments',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => '',
+      'file_extensions' => 'txt odt ppt key doc docx csv tsv',
+      'max_filesize' => '10Mb',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-oc_application-field_oc_logo'
+  $field_instances['node-oc_application-field_oc_logo'] = array(
+    'bundle' => 'oc_application',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 23,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_logo',
+    'label' => 'Logo',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-oc_application-field_oc_tags'
+  $field_instances['node-oc_application-field_oc_tags'] = array(
+    'bundle' => 'oc_application',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 24,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_tags',
+    'label' => 'Tags',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'autocomplete_deluxe',
+      'settings' => array(
+        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+        'content_taxonomy_autocomplete_new_terms' => 'allow',
+        'delimiter' => '',
+        'label_help_description' => '',
+        'limit' => 10,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'min_length' => 0,
+        'size' => 60,
+      ),
+      'type' => 'autocomplete_deluxe_taxonomy',
+      'weight' => 9,
     ),
   );
 
@@ -1148,58 +1204,6 @@ function opencivic_application_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_application-field_oc_civic_category'
-  $field_instances['node-oc_application-field_oc_civic_category'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'What civic purpose does this application serve, e.g., education, elections?',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_civic_category',
-    'label' => 'Civic sector',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_buttons',
-      'weight' => 7,
     ),
   );
 
@@ -1325,17 +1329,17 @@ function opencivic_application_field_default_field_instances() {
   t('An embedded video object.');
   t('App Description');
   t('App creator');
-  t('Application Homepage');
   t('Application function');
+  t('Application homepage');
   t('Civic sector');
   t('Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).');
   t('Demo url');
   t('Enter the URL of the application homepage where people can go to find more information');
-  t('Features or modules provided by this application (and possibly required by other applications).');
   t('File attachments');
   t('Host');
   t('Icon');
   t('If the software can be downloaded, URL to download it.');
+  t('Important features provided by this application (and possibly required by other applications).');
   t('Is the software a binary such as a .exe, like MS Word? Is it SaaS (Software as a Service), provided by a hosted or cloud service like Google Apps? Is it an open source scripting language like a PHP app?');
   t('Key features');
   t('License');

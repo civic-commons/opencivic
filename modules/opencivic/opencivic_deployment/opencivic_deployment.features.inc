@@ -17,6 +17,13 @@ function opencivic_deployment_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function opencivic_deployment_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function opencivic_deployment_node_info() {
@@ -39,7 +46,7 @@ function opencivic_deployment_node_info() {
 function opencivic_deployment_rdf_default_mappings() {
   $schemaorg = array();
 
-  // Exported RDF mapping: deployment
+  // Exported RDF mapping: oc_deployment
   $schemaorg['node']['oc_deployment'] = array(
     'rdftype' => array(
       0 => 'schema:UserInteraction',
@@ -136,13 +143,4 @@ function opencivic_deployment_rdf_default_mappings() {
   );
 
   return $schemaorg;
-}
-
-/**
- * Implements hook_views_api().
- */
-function opencivic_deployment_views_api() {
-  return array(
-    'api' => '3.0',
-  );
 }

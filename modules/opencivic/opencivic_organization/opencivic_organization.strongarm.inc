@@ -42,7 +42,7 @@ function opencivic_organization_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_oc_organization';
-  $strongarm->value = 'edit-panelizer';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_oc_organization'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -328,11 +328,6 @@ function opencivic_organization_strongarm() {
         'default' => 0,
         'choice' => 0,
       ),
-      'ical' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
       'featured' => array(
         'status' => 0,
         'default' => 0,
@@ -406,7 +401,7 @@ function opencivic_organization_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'schemaorg_ui_type_oc_organization';
-  $strongarm->value = 'Organization';
+  $strongarm->value = '';
   $export['schemaorg_ui_type_oc_organization'] = $strongarm;
 
   $strongarm = new stdClass();

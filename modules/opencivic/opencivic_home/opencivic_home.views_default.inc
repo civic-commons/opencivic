@@ -64,7 +64,7 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['fields']['field_oc_deploy_deployment_of']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Content: Website */
+  /* Field: Content: Application homepage */
   $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
@@ -128,55 +128,15 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['style_options']['description_field'] = 'field_oc_deploy_deployment_of';
   $handler->display->display_options['style_options']['map'] = 'google-roadmap';
   $handler->display->display_options['style_options']['height'] = '500';
-  $handler->display->display_options['style_options']['icon'] = array(
-    'iconUrl' => '',
-    'shadowUrl' => '',
-    'iconSize' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'iconAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'shadowAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-    'popupAnchor' => array(
-      'x' => '',
-      'y' => '',
-    ),
-  );
+  $handler->display->display_options['style_options']['zoom']['initialZoom'] = '4';
+  $handler->display->display_options['style_options']['zoom']['minZoom'] = '0';
+  $handler->display->display_options['style_options']['zoom']['maxZoom'] = '18';
+  $handler->display->display_options['style_options']['vector_display']['stroke'] = 0;
+  $handler->display->display_options['style_options']['vector_display']['fill'] = 0;
+  $handler->display->display_options['style_options']['vector_display']['clickable'] = 0;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $translatables['home_page_map'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('App deployed'),
-    t('Developer'),
-    t('Date added'),
-    t('Application'),
-    t('Website'),
-    t('Location'),
-    t('<span class="table-action-button"><a href="node/[nid]">deployment details</a></span>'),
-    t('Coordinates'),
-    t('Home page map pane'),
-    t('View panes'),
-  );
   $export['home_page_map'] = $view;
 
   $view = new view();
@@ -201,17 +161,12 @@ function opencivic_home_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Image */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'small_square_thumbnail',
-    'image_link' => 'content',
-  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -309,7 +264,7 @@ function opencivic_home_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Field: Content: Website */
+  /* Field: Content: Application homepage */
   $handler->display->display_options['fields']['field_oc_app_url']['id'] = 'field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['table'] = 'field_data_field_oc_app_url';
   $handler->display->display_options['fields']['field_oc_app_url']['field'] = 'field_oc_app_url';
@@ -374,30 +329,6 @@ function opencivic_home_views_default_views() {
     'oc_blog' => 'oc_blog',
   );
   $handler->display->display_options['block_description'] = 'Homepage/From the blog';
-  $translatables['homepage_latest'] = array(
-    t('Master'),
-    t('Latest Apps'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('The Latest Apps block for the home page'),
-    t('No apps'),
-    t('Please add the first application.'),
-    t('Homepage/Latest Apps'),
-    t('Recent Deployments'),
-    t('The Recent Deployments block for the homepage'),
-    t('No deployments'),
-    t('No deployments added yet.'),
-    t('Homepage/Recent deployments'),
-    t('From the blog'),
-    t('Blog teasers for the home page'),
-    t('No blogs'),
-    t('No blog posts yet.'),
-    t('Homepage/From the blog'),
-  );
   $export['homepage_latest'] = $view;
 
   return $export;

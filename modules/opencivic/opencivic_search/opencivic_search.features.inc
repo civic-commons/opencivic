@@ -7,8 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function opencivic_search_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function opencivic_search_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }
@@ -17,7 +16,7 @@ function opencivic_search_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function opencivic_search_views_api() {
+function opencivic_search_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
@@ -33,22 +32,22 @@ function opencivic_search_default_search_api_index() {
     "server" : "database_server",
     "item_type" : "node",
     "options" : {
-      "index_directly" : 0,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "nid" : { "type" : "integer" },
         "type" : { "type" : "string" },
         "title" : { "type" : "text" },
         "status" : { "type" : "integer" },
-        "field_oc_civic_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_oc_org_additional_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_oc_app_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_oc_civic_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_oc_tags" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_oc_app_description" : { "type" : "text" },
         "field_oc_app_feature_list" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_oc_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_license" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_oc_app_requirements" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_oc_app_software_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_oc_app_title" : { "type" : "text" },
+        "field_oc_org_additional_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {

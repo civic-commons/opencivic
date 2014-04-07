@@ -204,7 +204,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-5';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-J1Be0uKVaIDh87OP1Zzn2bKCDn2xtHej';
+    $pane->subtype = 'facetapi-CYD2Cu94E1JmyRCgAan7cW0tZkzM7n4X';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -226,7 +226,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-6';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-FZfCmWlM6xk0avo54ojL5PErj6ZKbtUj';
+    $pane->subtype = 'facetapi-OJUJxzfYb0cUBKO8191iNWzX0y80x20Y';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -248,7 +248,7 @@ function opencivic_application_default_page_manager_pages() {
     $pane->pid = 'new-7';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-CYD2Cu94E1JmyRCgAan7cW0tZkzM7n4X';
+    $pane->subtype = 'facetapi-w6hEFS6f9EX6AwseTEAdKAFj1MJUJBI4';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -266,28 +266,6 @@ function opencivic_application_default_page_manager_pages() {
     $pane->locks = array();
     $display->content['new-7'] = $pane;
     $display->panels['sidebar'][2] = 'new-7';
-    $pane = new stdClass();
-    $pane->pid = 'new-8';
-    $pane->panel = 'sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-OJUJxzfYb0cUBKO8191iNWzX0y80x20Y';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_string_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $display->content['new-8'] = $pane;
-    $display->panels['sidebar'][3] = 'new-8';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
