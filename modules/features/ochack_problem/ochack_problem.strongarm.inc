@@ -71,7 +71,7 @@ function ochack_problem_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '1',
         ),
         'redirect' => array(
           'weight' => '3',
