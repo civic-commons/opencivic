@@ -23,6 +23,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -74,6 +80,12 @@ function opencivic_organization_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -150,6 +162,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -213,6 +231,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -267,6 +291,12 @@ function opencivic_organization_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -334,6 +364,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'addressfield_default',
         'weight' => 3,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -396,6 +432,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 19,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -457,6 +499,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'email_default',
         'weight' => 16,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -510,6 +558,12 @@ function opencivic_organization_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 18,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -586,6 +640,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 6,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -645,6 +705,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -696,6 +762,12 @@ function opencivic_organization_field_default_field_instances() {
         'settings' => array(),
         'type' => 'global_phone_number',
         'weight' => 4,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -993,6 +1065,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 17,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1054,6 +1132,12 @@ function opencivic_organization_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 5,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1113,6 +1197,77 @@ function opencivic_organization_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-oc_organization-field_oc_related_content'
+  $field_instances['node-oc_organization-field_oc_related_content'] = array(
+    'bundle' => 'oc_organization',
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 20,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_related_content',
+    'label' => 'Related Items',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'node_links' => array(
+          'status' => 0,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference_view_widget',
+      'settings' => array(
+        'close_modal' => 1,
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'pass_argument' => 1,
+        'view' => 'oc_related_content_reference|entityreference_view_widget_1',
+      ),
+      'type' => 'entityreference_view_widget',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-oc_organization_type-description_field'
   $field_instances['taxonomy_term-oc_organization_type-description_field'] = array(
     'bundle' => 'oc_organization_type',
@@ -1125,6 +1280,12 @@ function opencivic_organization_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 1,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1172,6 +1333,12 @@ function opencivic_organization_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'entityreference_view_widget' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1229,6 +1396,7 @@ function opencivic_organization_field_default_field_instances() {
   t('Name');
   t('Organization type');
   t('Physical address of the item.');
+  t('Related Items');
   t('Services');
   t('Telephone');
   t('Twitter');

@@ -16,7 +16,10 @@ function opencivic_organization_default_page_manager_pages() {
   $page->admin_title = 'Organizations';
   $page->admin_description = '';
   $page->path = 'orgs';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Organizations',

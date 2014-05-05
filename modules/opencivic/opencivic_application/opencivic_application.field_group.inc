@@ -28,8 +28,8 @@ function opencivic_application_field_group_info() {
       2 => 'field_oc_app_creator',
       3 => 'field_oc_app_description',
       4 => 'field_oc_app_feature_list',
-      5 => 'field_oc_logo',
-      6 => 'field_oc_app_url',
+      5 => 'field_oc_app_url',
+      6 => 'field_oc_logo',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -114,8 +114,8 @@ function opencivic_application_field_group_info() {
     'label' => 'Media',
     'weight' => '21',
     'children' => array(
-      0 => 'field_oc_file_attachments',
-      1 => 'field_oc_app_screenshot',
+      0 => 'field_oc_app_screenshot',
+      1 => 'field_oc_file_attachments',
       2 => 'field_oc_video',
     ),
     'format_type' => 'tab',
@@ -144,6 +144,7 @@ function opencivic_application_field_group_info() {
     'weight' => '23',
     'children' => array(
       0 => 'field_oc_app_related_apps',
+      1 => 'field_oc_related_content',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
