@@ -16,7 +16,10 @@ function opencivic_application_default_page_manager_pages() {
   $page->admin_title = 'Apps';
   $page->admin_description = '';
   $page->path = 'apps/!keywords';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Apps',

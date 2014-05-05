@@ -161,13 +161,13 @@ function opencivic_organization_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
         'path' => array(
-          'weight' => '16',
+          'weight' => '3',
         ),
         'redirect' => array(
-          'weight' => '17',
+          'weight' => '4',
         ),
         'language' => array(
           'weight' => '5',
@@ -324,6 +324,16 @@ function opencivic_organization_strongarm() {
         'choice' => 0,
       ),
       'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'ical' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'entityreference_view_widget' => array(
         'status' => 0,
         'default' => 0,
         'choice' => 0,

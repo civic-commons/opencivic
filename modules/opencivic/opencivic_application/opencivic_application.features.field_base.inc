@@ -243,43 +243,6 @@ function opencivic_application_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_oc_app_related_apps'
-  $field_bases['field_oc_app_related_apps'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_app_related_apps',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 1,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'oc_application' => 'oc_application',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 1,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_oc_app_requirements'
   $field_bases['field_oc_app_requirements'] = array(
     'active' => 1,

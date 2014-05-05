@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file
+ * opencivic_core.features.inc
+ */
 
-// This file is deprecated and can be removed.
-// Please remove include_once('opencivic_core.features.inc') in opencivic_core.module as well.
+/**
+ * Implements hook_views_api().
+ */
+function opencivic_core_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}

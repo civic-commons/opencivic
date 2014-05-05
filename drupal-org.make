@@ -148,6 +148,9 @@ projects[entity_translation][version] = 1.0-beta3
 projects[entityreference_prepopulate][subdir] = "contrib"
 projects[entityreference_prepopulate][version] = "1.1"
 
+projects[entityreference_view_widget][subdir] = "contrib"
+projects[entityreference_view_widget][version] = "7.x-2.0-beta3"
+
 projects[extlink][subdir] = "contrib"
 projects[extlink][version] = 1.13
 

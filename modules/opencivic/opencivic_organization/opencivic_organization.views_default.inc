@@ -116,7 +116,7 @@ function opencivic_organization_views_default_views() {
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['vocabulary'] = 'oc_organization_type';
   $handler->display->display_options['filters']['field_oc_org_additional_type_tid']['hierarchy'] = 1;
-  /* Filter criterion: Content: Related applications (field_oc_app_related_apps) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['id'] = 'field_oc_app_related_apps_target_id';
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['table'] = 'field_data_field_oc_app_related_apps';
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['field'] = 'field_oc_app_related_apps_target_id';
@@ -402,7 +402,7 @@ function opencivic_organization_views_default_views() {
   );
   $handler->display->display_options['filters']['field_oc_org_services_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_oc_org_services_tid']['vocabulary'] = 'oc_service';
-  /* Filter criterion: Content: Related applications (field_oc_app_related_apps) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['id'] = 'field_oc_app_related_apps_target_id';
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['table'] = 'field_data_field_oc_app_related_apps';
   $handler->display->display_options['filters']['field_oc_app_related_apps_target_id']['field'] = 'field_oc_app_related_apps_target_id';

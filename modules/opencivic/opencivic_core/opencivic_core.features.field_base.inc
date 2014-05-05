@@ -10,6 +10,35 @@
 function opencivic_core_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'description_field'
+  $field_bases['description_field'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'description_field',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_with_summary',
+  );
+
   // Exported field_base: 'field_oc_aggregate_rating'
   $field_bases['field_oc_aggregate_rating'] = array(
     'active' => 1,
@@ -64,74 +93,6 @@ function opencivic_core_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_oc_video'
-  $field_bases['field_oc_video'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_video',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 0,
-      'display_field' => 0,
-      'entity_translation_sync' => array(
-        0 => 'fid',
-      ),
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
-  );
-
-  // Exported field_base: 'field_oc_file_attachments'
-  $field_bases['field_oc_file_attachments'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_oc_file_attachments',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 0,
-      'display_field' => 0,
-      'entity_translation_sync' => array(
-        0 => 'fid',
-      ),
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
   );
 
   // Exported field_base: 'field_oc_civic_category'
@@ -223,13 +184,13 @@ function opencivic_core_field_default_field_bases() {
     'type' => 'geofield',
   );
 
-  // Exported field_base: 'field_oc_logo'
-  $field_bases['field_oc_logo'] = array(
+  // Exported field_base: 'field_oc_file_attachments'
+  $field_bases['field_oc_file_attachments'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_logo',
+    'field_name' => 'field_oc_file_attachments',
     'foreign keys' => array(
       'fid' => array(
         'columns' => array(
@@ -244,42 +205,17 @@ function opencivic_core_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'image',
+    'module' => 'file',
     'settings' => array(
-      'default_image' => 0,
+      'display_default' => 0,
+      'display_field' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,
-    'type' => 'image',
-  );
-
-  // Exported field_base: 'description_field'
-  $field_bases['description_field'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'description_field',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 1,
-    'type' => 'text_with_summary',
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_oc_icon'
@@ -312,39 +248,75 @@ function opencivic_core_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_oc_tags'
-  $field_bases['field_oc_tags'] = array(
+  // Exported field_base: 'field_oc_logo'
+  $field_bases['field_oc_logo'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_oc_tags',
+    'field_name' => 'field_oc_logo',
     'foreign keys' => array(
-      'tid' => array(
+      'fid' => array(
         'columns' => array(
-          'tid' => 'tid',
+          'fid' => 'fid',
         ),
-        'table' => 'taxonomy_term_data',
+        'table' => 'file_managed',
       ),
     ),
     'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
+      'fid' => array(
+        0 => 'fid',
       ),
     ),
     'locked' => 0,
-    'module' => 'taxonomy',
+    'module' => 'image',
     'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'oc_tags',
-          'parent' => 0,
-        ),
-      ),
-      'options_list_callback' => 'content_taxonomy_allowed_values',
+      'default_image' => 0,
+      'uri_scheme' => 'public',
     ),
     'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'image',
+  );
+
+  // Exported field_base: 'field_oc_related_content'
+  $field_bases['field_oc_related_content'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_oc_related_content',
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_oc_small_icon'
@@ -375,6 +347,40 @@ function opencivic_core_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_oc_video'
+  $field_bases['field_oc_video'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_oc_video',
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
   );
 
   // Exported field_base: 'name_field'

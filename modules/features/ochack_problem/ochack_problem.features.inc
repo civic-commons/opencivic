@@ -7,12 +7,10 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function ochack_problem_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function ochack_problem_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -21,7 +19,7 @@ function ochack_problem_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function ochack_problem_views_api() {
+function ochack_problem_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
@@ -33,7 +31,7 @@ function ochack_problem_node_info() {
     'problem' => array(
       'name' => t('Problem statement'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <strong>problem statement</strong> describes a real-world problem that has inspired or is hoped to inspire a project or application.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

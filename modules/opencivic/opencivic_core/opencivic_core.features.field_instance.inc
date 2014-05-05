@@ -26,6 +26,12 @@ function opencivic_core_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -83,6 +89,12 @@ function opencivic_core_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',

@@ -1,27 +1,385 @@
 <?php
 /**
  * @file
- * opencivic_organization.features.field_instance.inc
+ * ochack_problem.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function opencivic_organization_field_default_field_instances() {
+function ochack_problem_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-oc_organization-field_oc_civic_category'
-  $field_instances['node-oc_organization-field_oc_civic_category'] = array(
-    'bundle' => 'oc_organization',
+  // Exported field_instance: 'node-problem-body'
+  $field_instances['node-problem-body'] = array(
+    'bundle' => 'problem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'What civic purpose does this organization serve, e.g., education, elections?',
+    'description' => 'Why does this issue matter? Why does it warrant attention? Describe the specific challenge. What is needed to address this problem? Describe the specific requirements and resources. Finally, how can you ensure that a hacked solution would deliver impact? What actions would be taken and resources made available to help a solution be implemented?',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Full description',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_address'
+  $field_instances['node-problem-field_address'] = array(
+    'bundle' => 'problem',
+    'default_value' => array(
+      0 => array(
+        'element_key' => 'node|problem|field_address|und|0',
+        'thoroughfare' => '',
+        'premise' => '',
+        'locality' => '',
+        'administrative_area' => '',
+        'postal_code' => '',
+        'country' => 'GB',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'addressfield',
+        'settings' => array(
+          'format_handlers' => array(
+            0 => 'address',
+          ),
+          'use_widget_handlers' => 1,
+        ),
+        'type' => 'addressfield_default',
+        'weight' => 15,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'addressfield',
+      'settings' => array(
+        'available_countries' => array(),
+        'format_handlers' => array(
+          'address' => 'address',
+          'address-hide-country' => 0,
+          'organisation' => 0,
+          'name-full' => 0,
+          'name-oneline' => 0,
+          'world' => 0,
+        ),
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'addressfield_standard',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_coordinates'
+  $field_instances['node-problem-field_coordinates'] = array(
+    'bundle' => 'problem',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'geofield',
+        'settings' => array(
+          'data' => 'full',
+        ),
+        'type' => 'geofield_wkt',
+        'weight' => 18,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_coordinates',
+    'label' => 'Coordinates',
+    'required' => 0,
+    'settings' => array(
+      'local_solr' => array(
+        'enabled' => FALSE,
+        'lat_field' => 'lat',
+        'lng_field' => 'lng',
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'geocoder',
+      'settings' => array(
+        'delta_handling' => 'default',
+        'geocoder_field' => 'field_address',
+        'geocoder_handler' => 'google',
+        'handler_settings' => array(
+          'google' => array(
+            'all_results' => 0,
+            'geometry_type' => 'point',
+            'reject_results' => array(
+              'APPROXIMATE' => 0,
+              'GEOMETRIC_CENTER' => 0,
+              'RANGE_INTERPOLATED' => 0,
+              'ROOFTOP' => 0,
+            ),
+          ),
+        ),
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'geocoder',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_description'
+  $field_instances['node-problem-field_description'] = array(
+    'bundle' => 'problem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'A short description, e.g., "A web-based visualization tool."',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 6,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_description',
+    'label' => 'Description',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 140,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_oc_aggregate_rating'
+  $field_instances['node-problem-field_oc_aggregate_rating'] = array(
+    'bundle' => 'problem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => TRUE,
+          'style' => 'average',
+          'text' => 'average',
+          'widget' => array(
+            'fivestar_widget' => NULL,
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 27,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_aggregate_rating',
+    'label' => 'Rating',
+    'required' => 0,
+    'settings' => array(
+      'allow_clear' => 0,
+      'stars' => 5,
+      'target' => 'none',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'fivestar',
+      'settings' => array(
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'exposed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_oc_civic_category'
+  $field_instances['node-problem-field_oc_civic_category'] = array(
+    'bundle' => 'problem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 21,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -53,7 +411,6 @@ function opencivic_organization_field_default_field_instances() {
     'label' => 'Civic sector',
     'required' => 0,
     'settings' => array(
-      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -64,22 +421,22 @@ function opencivic_organization_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 41,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_coordinates'
-  $field_instances['node-oc_organization-field_oc_coordinates'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
+  // Exported field_instance: 'node-problem-field_oc_file_attachments'
+  $field_instances['node-problem-field_oc_file_attachments'] = array(
+    'bundle' => 'problem',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
+        'type' => 'file_default',
+        'weight' => 25,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -107,60 +464,44 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_coordinates',
-    'label' => 'Coordinates',
+    'field_name' => 'field_oc_file_attachments',
+    'label' => 'File attachments',
     'required' => 0,
     'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'local_solr' => array(
-        'enabled' => FALSE,
-        'lat_field' => 'lat',
-        'lng_field' => 'lng',
-      ),
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt xls xlsx csv pdf doc docx json',
+      'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'geocoder',
+      'module' => 'file',
       'settings' => array(
-        'delta_handling' => 'default',
-        'geocoder_field' => 'field_oc_org_address',
-        'geocoder_handler' => 'google',
-        'handler_settings' => array(
-          'google' => array(
-            'all_results' => 0,
-            'geometry_type' => 'point',
-            'reject_results' => array(
-              'APPROXIMATE' => 0,
-              'GEOMETRIC_CENTER' => 0,
-              'RANGE_INTERPOLATED' => 0,
-              'ROOFTOP' => 0,
-            ),
-          ),
-        ),
         'label_help_description' => '',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'progress_indicator' => 'throbber',
       ),
-      'type' => 'geocoder',
-      'weight' => 10,
+      'type' => 'file_generic',
+      'weight' => 40,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_logo'
-  $field_instances['node-oc_organization-field_oc_logo'] = array(
-    'bundle' => 'oc_organization',
+  // Exported field_instance: 'node-problem-field_oc_logo'
+  $field_instances['node-problem-field_oc_logo'] = array(
+    'bundle' => 'problem',
     'deleted' => 0,
-    'description' => 'URL of an image for the logo of the item.',
+    'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'thumbnail',
+          'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 0,
+        'weight' => 23,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -189,13 +530,12 @@ function opencivic_organization_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_oc_logo',
-    'label' => 'Logo',
+    'label' => 'Image',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'entity_translation_sync' => FALSE,
-      'file_directory' => 'content/organizations/logos',
+      'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -213,23 +553,23 @@ function opencivic_organization_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 11,
+      'weight' => 37,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_org_abbreviation'
-  $field_instances['node-oc_organization-field_oc_org_abbreviation'] = array(
-    'bundle' => 'oc_organization',
+  // Exported field_instance: 'node-problem-field_oc_problem_description'
+  $field_instances['node-problem-field_oc_problem_description'] = array(
+    'bundle' => 'problem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'e.g., DPW or DoITT',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 26,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -257,112 +597,38 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_org_abbreviation',
-    'label' => 'Abbreviation',
-    'required' => 0,
+    'field_name' => 'field_oc_problem_description',
+    'label' => 'Description',
+    'required' => FALSE,
     'settings' => array(
-      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 7,
+        'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 44,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_org_additional_type'
-  $field_instances['node-oc_organization-field_oc_org_additional_type'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
+  // Exported field_instance: 'node-problem-field_oc_related_content'
+  $field_instances['node-problem-field_oc_related_content'] = array(
+    'bundle' => 'problem',
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_additional_type',
-    'label' => 'Organization type',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => 'What type of organization is it?',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_address'
-  $field_instances['node-oc_organization-field_oc_org_address'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => array(
-      0 => array(
-        'element_key' => 'node|oc_organization|field_oc_org_address|und|0',
-        'thoroughfare' => '',
-        'premise' => '',
-        'locality' => '',
-        'country' => 'AF',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Physical address of the item.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'addressfield',
+        'module' => 'entityreference',
         'settings' => array(
-          'format_handlers' => array(
-            0 => 'address',
-          ),
-          'use_widget_handlers' => 1,
+          'link' => FALSE,
         ),
-        'type' => 'addressfield_default',
-        'weight' => 3,
+        'type' => 'entityreference_label',
+        'weight' => 20,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -390,47 +656,48 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_org_address',
-    'label' => 'Address',
+    'field_name' => 'field_oc_related_content',
+    'label' => 'Related Items',
     'required' => 0,
     'settings' => array(
-      'entity_translation_sync' => FALSE,
+      'behaviors' => array(
+        'node_links' => array(
+          'status' => 0,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'addressfield',
+      'module' => 'entityreference_view_widget',
       'settings' => array(
-        'available_countries' => array(),
-        'format_handlers' => array(
-          'address' => 'address',
-          'world' => 'world',
-          'address-hide-country' => 0,
-          'organisation' => 0,
-          'name-full' => 0,
-          'name-oneline' => 0,
-        ),
+        'close_modal' => 1,
         'label_help_description' => '',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'pass_argument' => 1,
+        'view' => 'oc_related_content_reference|entityreference_view_widget_1',
       ),
-      'type' => 'addressfield_standard',
-      'weight' => 6,
+      'type' => 'entityreference_view_widget',
+      'weight' => 39,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_org_description'
-  $field_instances['node-oc_organization-field_oc_org_description'] = array(
-    'bundle' => 'oc_organization',
+  // Exported field_instance: 'node-problem-field_oc_tags'
+  $field_instances['node-problem-field_oc_tags'] = array(
+    'bundle' => 'problem',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 19,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 22,
       ),
       'entityreference_view_widget' => array(
         'label' => 'above',
@@ -458,45 +725,118 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_org_description',
-    'label' => 'Description',
+    'field_name' => 'field_oc_tags',
+    'label' => 'Tags',
     'required' => 0,
     'settings' => array(
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
+      'active' => 0,
+      'module' => 'taxonomy',
       'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'content_taxonomy_autocomplete_new_terms' => 'allow',
         'label_help_description' => '',
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
+        'size' => 60,
       ),
-      'type' => 'text_textarea',
-      'weight' => 12,
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 43,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_org_email'
-  $field_instances['node-oc_organization-field_oc_org_email'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
+  // Exported field_instance: 'node-problem-field_oc_video'
+  $field_instances['node-problem-field_oc_video'] = array(
+    'bundle' => 'problem',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'email',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'email_default',
+        'type' => 'file_default',
+        'weight' => 24,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_video',
+    'label' => 'Video',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'vimeo' => 'vimeo',
+          'youtube' => 'youtube',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 'video',
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 'media_internet',
+          'upload' => 0,
+          'youtube' => 'youtube',
+        ),
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'media_generic',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance: 'node-problem-field_telephone'
+  $field_instances['node-problem-field_telephone'] = array(
+    'bundle' => 'problem',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'cck_phone',
+        'settings' => array(),
+        'type' => 'global_phone_number',
         'weight' => 16,
       ),
       'entityreference_view_widget' => array(
@@ -525,272 +865,8 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_org_email',
-    'label' => 'Email',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'email',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'email_textfield',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_github_account'
-  $field_instances['node-oc_organization-field_oc_org_github_account'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'link',
-        'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 18,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_github_account',
-    'label' => 'GitHub account',
-    'required' => 0,
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'configurable_title' => 0,
-        'rel' => '',
-        'target' => '_blank',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 0,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'rel_remove' => 'default',
-      'title' => 'none',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-      'user_register_form' => FALSE,
-      'validate_url' => 1,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'link',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'link_field',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_member'
-  $field_instances['node-oc_organization-field_oc_org_member'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'A member of this organization.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 6,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_member',
-    'label' => 'Members',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'label_help_description' => '',
-        'match_operator' => 'CONTAINS',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'path' => '',
-        'references_dialog_add' => 1,
-        'references_dialog_edit' => 1,
-        'references_dialog_search' => 1,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 14,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_services'
-  $field_instances['node-oc_organization-field_oc_org_services'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_services',
-    'label' => 'Services',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_buttons',
-      'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_telephone'
-  $field_instances['node-oc_organization-field_oc_org_telephone'] = array(
-    'bundle' => 'oc_organization',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'cck_phone',
-        'settings' => array(),
-        'type' => 'global_phone_number',
-        'weight' => 4,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_telephone',
-    'label' => 'Telephone',
+    'field_name' => 'field_telephone',
+    'label' => 'Phone',
     'required' => 0,
     'settings' => array(
       'all_country_codes' => 1,
@@ -1031,11 +1107,10 @@ function opencivic_organization_field_default_field_instances() {
         ),
         'hide_single_cc' => 0,
       ),
-      'default_country' => 'us',
+      'default_country' => 'af',
       'enable_country_level_validation' => 1,
       'enable_default_country' => 1,
       'enable_extension' => 0,
-      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1047,80 +1122,13 @@ function opencivic_organization_field_default_field_instances() {
         'size' => 15,
       ),
       'type' => 'phone_number',
-      'weight' => 7,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'node-oc_organization-field_oc_org_twitter'
-  $field_instances['node-oc_organization-field_oc_org_twitter'] = array(
-    'bundle' => 'oc_organization',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 17,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_org_twitter',
-    'label' => 'Twitter',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'twitterfield',
-      'settings' => array(
-        'allowed_types' => array(
-          'hashtag' => 0,
-          'list' => 0,
-          'search' => 0,
-          'username' => 'username',
-        ),
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'twitterfield',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_org_url'
-  $field_instances['node-oc_organization-field_oc_org_url'] = array(
-    'bundle' => 'oc_organization',
+  // Exported field_instance: 'node-problem-field_url'
+  $field_instances['node-problem-field_url'] = array(
+    'bundle' => 'problem',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Enter the URL of the homepage where people can go to find more information.',
@@ -1158,26 +1166,21 @@ function opencivic_organization_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_oc_org_url',
-    'label' => 'Website',
+    'field_name' => 'field_url',
+    'label' => 'Url',
     'required' => 0,
     'settings' => array(
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
         'rel' => 'nofollow',
-        'target' => '_blank',
+        'target' => 'default',
         'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'rel_remove' => 'default',
       'title' => 'value',
       'title_maxlength' => 128,
       'title_value' => 'Homepage',
@@ -1193,217 +1196,28 @@ function opencivic_organization_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-oc_organization-field_oc_related_content'
-  $field_instances['node-oc_organization-field_oc_related_content'] = array(
-    'bundle' => 'oc_organization',
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 20,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_related_content',
-    'label' => 'Related Items',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'node_links' => array(
-          'status' => 0,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference_view_widget',
-      'settings' => array(
-        'close_modal' => 1,
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'pass_argument' => 1,
-        'view' => 'oc_related_content_reference|entityreference_view_widget_1',
-      ),
-      'type' => 'entityreference_view_widget',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-oc_organization_type-description_field'
-  $field_instances['taxonomy_term-oc_organization_type-description_field'] = array(
-    'bundle' => 'oc_organization_type',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'description_field',
-    'label' => 'Description',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => 0,
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => -5,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-oc_organization_type-name_field'
-  $field_instances['taxonomy_term-oc_organization_type-name_field'] = array(
-    'bundle' => 'oc_organization_type',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'entityreference_view_widget' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'name_field',
-    'label' => 'Name',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => 7,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('A member of this organization.');
-  t('Abbreviation');
+  t('A short description, e.g., "A web-based visualization tool."');
   t('Address');
   t('Civic sector');
   t('Coordinates');
   t('Description');
-  t('Email');
   t('Enter the URL of the homepage where people can go to find more information.');
-  t('GitHub account');
-  t('Logo');
-  t('Members');
-  t('Name');
-  t('Organization type');
-  t('Physical address of the item.');
+  t('File attachments');
+  t('Full description');
+  t('Image');
+  t('Phone');
+  t('Rating');
   t('Related Items');
-  t('Services');
-  t('Telephone');
-  t('Twitter');
-  t('URL of an image for the logo of the item.');
-  t('Website');
-  t('What civic purpose does this organization serve, e.g., education, elections?');
-  t('e.g., DPW or DoITT');
+  t('Tags');
+  t('Url');
+  t('Video');
+  t('Why does this issue matter? Why does it warrant attention? Describe the specific challenge. What is needed to address this problem? Describe the specific requirements and resources. Finally, how can you ensure that a hacked solution would deliver impact? What actions would be taken and resources made available to help a solution be implemented?');
 
   return $field_instances;
 }

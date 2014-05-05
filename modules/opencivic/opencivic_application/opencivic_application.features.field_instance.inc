@@ -24,6 +24,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -86,6 +92,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -141,6 +153,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 12,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -192,6 +210,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -252,6 +276,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -311,6 +341,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -365,6 +401,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 13,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -438,6 +480,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -495,6 +543,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -568,6 +622,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 19,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -607,65 +667,6 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_application-field_oc_app_related_apps'
-  $field_instances['node-oc_application-field_oc_app_related_apps'] = array(
-    'bundle' => 'oc_application',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_oc_app_related_apps',
-    'label' => 'Related applications',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'label_help_description' => '',
-        'match_operator' => 'CONTAINS',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'path' => '',
-        'references_dialog_add' => 1,
-        'references_dialog_edit' => 1,
-        'references_dialog_search' => 1,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'node-oc_application-field_oc_app_requirements'
   $field_instances['node-oc_application-field_oc_app_requirements'] = array(
     'bundle' => 'oc_application',
@@ -678,6 +679,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 16,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -733,6 +740,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -797,6 +810,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 20,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -848,6 +867,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 7,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -921,6 +946,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 17,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -972,6 +1003,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'file_default',
         'weight' => 22,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1033,6 +1070,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'image',
         'weight' => 23,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1081,6 +1124,77 @@ function opencivic_application_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-oc_application-field_oc_related_content'
+  $field_instances['node-oc_application-field_oc_related_content'] = array(
+    'bundle' => 'oc_application',
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 25,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_oc_related_content',
+    'label' => 'Related Items',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'node_links' => array(
+          'status' => 0,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference_view_widget',
+      'settings' => array(
+        'close_modal' => 1,
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'pass_argument' => 1,
+        'view' => 'oc_related_content_reference|entityreference_view_widget_1',
+      ),
+      'type' => 'entityreference_view_widget',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-oc_application-field_oc_tags'
   $field_instances['node-oc_application-field_oc_tags'] = array(
     'bundle' => 'oc_application',
@@ -1094,6 +1208,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 24,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1150,6 +1270,12 @@ function opencivic_application_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 3,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1223,6 +1349,12 @@ function opencivic_application_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1280,6 +1412,12 @@ function opencivic_application_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -1345,7 +1483,7 @@ function opencivic_application_field_default_field_instances() {
   t('License');
   t('Logo');
   t('Rating');
-  t('Related applications');
+  t('Related Items');
   t('Requirements');
   t('Screenshot images of the app.');
   t('Screenshots');
