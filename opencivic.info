@@ -131,7 +131,7 @@ dependencies[] = votingapi
 dependencies[] = webform
 
 ; For single sign-on
-dependencies[] = oauth_common
+;dependencies[] = oauth_common
 ;dependencies[] = oauth2
 ;dependencies[] = connector
 ;dependencies[] = oauthconnector
