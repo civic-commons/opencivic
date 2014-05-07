@@ -61,7 +61,7 @@ projects[addressfield_tokens][subdir] = "contrib"
 projects[addressfield_tokens][version] = 1.3
 
 projects[addtoany][subdir] = "contrib"
-projects[addtoany][version] = 4.4
+projects[addtoany][version] = 4.5
 
 projects[admin_menu][version] = 3.0-rc4
 projects[admin_menu][subdir] = "contrib"
@@ -90,7 +90,7 @@ projects[compact_forms][subdir] = "contrib"
 projects[compact_forms][version] = 1.0
 
 projects[captcha][subdir] = "contrib"
-projects[captcha][version] = "1.0-beta2"
+projects[captcha][version] = 1.0
 
 projects[cck_phone][subdir] = "contrib"
 projects[cck_phone][version] = "1.x-dev"
@@ -112,7 +112,7 @@ projects[connector][version] = 1.0-beta2
 projects[connector][subdir] = contrib
 
 projects[content_taxonomy][subdir] = "contrib"
-projects[content_taxonomy][version] = "1.0-beta1"
+projects[content_taxonomy][version] = "1.0-beta2"
 
 projects[context][subdir] = "contrib"
 
