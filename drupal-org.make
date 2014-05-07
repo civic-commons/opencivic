@@ -206,14 +206,6 @@ projects[i18n][version] = 1.11
 projects[imagecache_actions][subdir] = "contrib"
 projects[imagecache_actions][version] = 1.4
 
-projects[insert_block][subdir] = "contrib"
-projects[insert_block][version] = "1.x-dev"
-projects[insert_block][download][type] = "git"
-projects[insert_block][download][url] = "http://git.drupal.org/project/insert_block.git"
-projects[insert_block][download][revision] = be4314aef56af4b6bdf78d2f18e005c959d8cdd9
-projects[insert_block][download][branch] = 7.x-1.x
-projects[insert_block][type] = "module"
-
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
 

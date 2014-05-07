@@ -189,7 +189,6 @@ dependencies[] = appcat_misc_menus
 
 ; Included in distro but not enabled at installation
 ; dependencies[] = inline_entity_form
-; dependencies[] = insert_block
 ; dependencies[] = ole
 
 
