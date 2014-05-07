@@ -69,6 +69,7 @@ dependencies[] = fivestar_green
 dependencies[] = flag
 dependencies[] = fontyourface
 dependencies[] = globalredirect
+dependencies[] = general_services
 dependencies[] = honeypot
 dependencies[] = imagecache_actions
 dependencies[] = imagecache_canvasactions
@@ -107,6 +108,7 @@ dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_db
 dependencies[] = service_links
+;dependencies[] = smtp
 dependencies[] = stringoverrides
 dependencies[] = stylizer
 dependencies[] = styles
@@ -129,7 +131,7 @@ dependencies[] = votingapi
 dependencies[] = webform
 
 ; For single sign-on
-;dependencies[] = oauth_common
+dependencies[] = oauth_common
 ;dependencies[] = oauth2
 ;dependencies[] = connector
 ;dependencies[] = oauthconnector
@@ -154,8 +156,7 @@ dependencies[] = schemaorg
 ; dependencies[] = schemaorg_ui
 ; dependencies[] = schemaorg_cache
 ; Used for importing terms
-dependencies[] = taxonomy_csv
-; dependencies[] = taxonomy_manager
+; dependencies[] = taxonomy_csv
 ; dependencies[] = field_tools
 
 ; Panopoly Foundation

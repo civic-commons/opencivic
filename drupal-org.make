@@ -63,6 +63,7 @@ projects[addressfield_tokens][version] = 1.3
 projects[addtoany][subdir] = "contrib"
 projects[addtoany][version] = 4.4
 
+projects[admin_menu][version] = 3.0-rc4
 projects[admin_menu][subdir] = "contrib"
 
 projects[auto_entitylabel][subdir] = "contrib"
@@ -77,7 +78,7 @@ projects[autocomplete_deluxe][subdir] = "contrib"
 projects[autocomplete_deluxe][version] = 2.0-beta3
 
 projects[better_exposed_filters][subdir] = "contrib"
-projects[better_exposed_filters][version] = "3.0-beta3"
+projects[better_exposed_filters][version] = "3.0-beta4"
 
 projects[block_class][subdir] = "contrib"
 projects[block_class][version] = 2.1
@@ -131,7 +132,7 @@ projects[colorbox][download][branch] = 7.x-2.x
 projects[colorbox][type] = "module"
 
 projects[date_ical][subdir] = "contrib"
-projects[date_ical][version] = "1.1"
+projects[date_ical][version] = "1.5"
 
 projects[date][subdir] = "contrib"
 projects[date][version] = "2.6"
@@ -146,13 +147,13 @@ projects[entity_translation][subdir] = "contrib"
 projects[entity_translation][version] = 1.0-beta3
 
 projects[entityreference_prepopulate][subdir] = "contrib"
-projects[entityreference_prepopulate][version] = "1.1"
+projects[entityreference_prepopulate][version] = "1.5"
 
 projects[entityreference_view_widget][subdir] = "contrib"
 projects[entityreference_view_widget][version] = "7.x-2.0-beta3"
 
 projects[extlink][subdir] = "contrib"
-projects[extlink][version] = 1.13
+projects[extlink][version] = 1.53
 
 projects[features_extra][subdir] = "contrib"
 projects[features_extra][version] = 1.0-beta1
@@ -196,11 +197,11 @@ projects[google_analytics][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = contrib
 
-projects[honeypot][version] = 1.15
+projects[honeypot][version] = 1.55
 projects[honeypot][subdir] = contrib
 
 projects[i18n][subdir] = "contrib"
-projects[i18n][version] = 1.10
+projects[i18n][version] = 1.50
 
 projects[imagecache_actions][subdir] = "contrib"
 projects[imagecache_actions][version] = 1.4
@@ -240,7 +241,7 @@ projects[leaflet_more_maps][subdir] = "contrib"
 projects[leaflet_more_maps][version] = 1.7
 
 projects[link][subdir] = "contrib"
-projects[link][version] = 1.1
+projects[link][version] = 1.5
 
 projects[logintoboggan][subdir] = "contrib"
 projects[logintoboggan][version] = "1.3"
@@ -273,10 +274,10 @@ projects[nodequeue][subdir] = "contrib"
 projects[nodequeue][version] = "2.0-beta1"
 
 ; projects[nodereference_url][subdir] = "contrib"
-; projects[nodereference_url][version] = "1.12"
+; projects[nodereference_url][version] = "1.52"
 
-;projects[oauth][version] = 3.1
-;projects[oauth][subdir] = contrib
+projects[oauth][version] = 3.2
+projects[oauth][subdir] = contrib
 
 ;projects[oauth2][version] = 1.x-dev
 ;projects[oauth2][subdir] = contrib
@@ -325,7 +326,7 @@ projects[prepopulate_create_node_links][download][branch] = 7.x-1.x
 projects[prepopulate_create_node_links][type] = "module"
 
 projects[recaptcha][subdir] = "contrib"
-projects[recaptcha][version] = 1.10
+projects[recaptcha][version] = 1.50
 
 projects[redirect][subdir] = "contrib"
 projects[redirect][version] = "1.0-rc1"
@@ -352,20 +353,20 @@ projects[services_views][version] = "1.0-beta2"
 projects[service_links][subdir] = "contrib"
 projects[service_links][version] = 2.3-beta1
 
+projects[smtp][subdir] = "contrib"
+projects[smtp][version] = 1.0
+
 projects[stringoverrides][subdir] = "contrib"
 projects[stringoverrides][version] = "1.8"
 
 projects[subscriptions][subdir] = "contrib"
-projects[subscriptions][version] = "1.1"
+projects[subscriptions][version] = "1.5"
 
 projects[syntaxhighlighter][subdir] = "contrib"
 projects[syntaxhighlighter][version] = "2.0"
 
 projects[taxonomy_csv][subdir] = "contrib"
 projects[taxonomy_csv][version] = "5.10"
-
-projects[taxonomy_manager][subdir] = "contrib"
-projects[taxonomy_manager][version] = 1.0
 
 projects[title][subdir] = "contrib"
 projects[title][version] = "1.0-alpha7"
@@ -398,7 +399,7 @@ projects[views_data_export][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta6"
 
 projects[views_field_view][subdir] = "contrib"
-projects[views_field_view][version] = 1.1
+projects[views_field_view][version] = 1.5
 
 projects[views_random_seed][subdir] = "contrib"
 projects[views_random_seed][version] = "1.2"
@@ -487,7 +488,7 @@ projects[coder][subdir] = devel
 projects[coder][version] = 1.2
 
 projects[bundle_copy][subdir] = "devel"
-projects[bundle_copy][version] = "1.1"
+projects[bundle_copy][version] = "1.5"
 
 projects[uuid_features][version] = "1.x-dev"
 projects[uuid_features][subdir] = "devel"
