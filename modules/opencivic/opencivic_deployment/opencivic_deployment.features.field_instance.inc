@@ -24,6 +24,12 @@ function opencivic_deployment_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -84,6 +90,12 @@ function opencivic_deployment_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 6,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -157,6 +169,12 @@ function opencivic_deployment_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 5,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -238,6 +256,12 @@ function opencivic_deployment_field_default_field_instances() {
         'type' => 'addressfield_default',
         'weight' => 1,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -299,6 +323,12 @@ function opencivic_deployment_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 3,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -368,6 +398,12 @@ function opencivic_deployment_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 2,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -435,6 +471,12 @@ function opencivic_deployment_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 7,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
