@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_problem.features.field_instance.inc
+ * opencivic_problem.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function ochack_problem_field_default_field_instances() {
+function opencivic_problem_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-problem-body'

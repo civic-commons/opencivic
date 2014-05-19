@@ -4,4 +4,4 @@
  * Code for the Hackathon problem  feature.
  */
 
-include_once 'ochack_problem.features.inc';
+include_once 'opencivic_problem.features.inc';

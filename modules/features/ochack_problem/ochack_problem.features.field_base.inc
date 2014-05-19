@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_problem.features.field_base.inc
+ * opencivic_problem.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function ochack_problem_field_default_field_bases() {
+function opencivic_problem_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_address'

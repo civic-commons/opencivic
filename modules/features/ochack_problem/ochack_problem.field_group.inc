@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_problem.field_group.inc
+ * opencivic_problem.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function ochack_problem_field_group_info() {
+function opencivic_problem_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

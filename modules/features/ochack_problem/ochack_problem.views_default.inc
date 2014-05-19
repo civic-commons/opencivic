@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_problem.views_default.inc
+ * opencivic_problem.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function ochack_problem_views_default_views() {
+function opencivic_problem_views_default_views() {
   $export = array();
 
   $view = new view();

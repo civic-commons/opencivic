@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_problem.features.inc
+ * opencivic_problem.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function ochack_problem_ctools_plugin_api($module = NULL, $api = NULL) {
+function opencivic_problem_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -19,14 +19,14 @@ function ochack_problem_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function ochack_problem_views_api($module = NULL, $api = NULL) {
+function opencivic_problem_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function ochack_problem_node_info() {
+function opencivic_problem_node_info() {
   $items = array(
     'problem' => array(
       'name' => t('Problem statement'),
