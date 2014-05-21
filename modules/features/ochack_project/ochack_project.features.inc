@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_project.features.inc
+ * opencivic_project.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function ochack_project_ctools_plugin_api() {
+function opencivic_project_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -21,7 +21,7 @@ function ochack_project_ctools_plugin_api() {
 /**
  * Implements hook_node_info().
  */
-function ochack_project_node_info() {
+function opencivic_project_node_info() {
   $items = array(
     'project' => array(
       'name' => t('Project'),
@@ -38,7 +38,7 @@ function ochack_project_node_info() {
 /**
  * Implements hook_rdf_default_mappings().
  */
-function ochack_project_rdf_default_mappings() {
+function opencivic_project_rdf_default_mappings() {
   $schemaorg = array();
 
   // Exported RDF mapping: project

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ochack_project.strongarm.inc
+ * opencivic_project.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function ochack_project_strongarm() {
+function opencivic_project_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
