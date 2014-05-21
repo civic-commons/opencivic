@@ -2,7 +2,7 @@ api=2
 core=7.x
 
 projects[drupal][type] = core
-projects[drupal][version] = 7.27
+projects[drupal][version] = 7.28
 
 ; Use vocabulary machine name for permissions
 ; http://drupal.org/node/995156
