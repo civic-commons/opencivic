@@ -27,16 +27,16 @@ function opencivic_blog_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'addanother_tab_oc_blog';
+  $strongarm->name = 'addanother_tab_edit_oc_blog';
   $strongarm->value = 0;
-  $export['addanother_tab_oc_blog'] = $strongarm;
+  $export['addanother_tab_edit_oc_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'addanother_tab_edit_oc_blog';
+  $strongarm->name = 'addanother_tab_oc_blog';
   $strongarm->value = 0;
-  $export['addanother_tab_edit_oc_blog'] = $strongarm;
+  $export['addanother_tab_oc_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -51,13 +51,6 @@ function opencivic_blog_strongarm() {
   $strongarm->name = 'comment_anonymous_oc_blog';
   $strongarm->value = 0;
   $export['comment_anonymous_oc_blog'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_oc_blog';
-  $strongarm->value = '2';
-  $export['comment_oc_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -79,6 +72,13 @@ function opencivic_blog_strongarm() {
   $strongarm->name = 'comment_form_location_oc_blog';
   $strongarm->value = 1;
   $export['comment_form_location_oc_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_oc_blog';
+  $strongarm->value = '2';
+  $export['comment_oc_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -351,16 +351,16 @@ function opencivic_blog_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_oc_blog_pattern';
-  $strongarm->value = 'blogs/[user:name]';
-  $export['pathauto_oc_blog_pattern'] = $strongarm;
+  $strongarm->name = 'pathauto_node_oc_blog_pattern';
+  $strongarm->value = 'blog/[node:title]';
+  $export['pathauto_node_oc_blog_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_oc_blog_pattern';
-  $strongarm->value = 'blog/[node:title]';
-  $export['pathauto_node_oc_blog_pattern'] = $strongarm;
+  $strongarm->name = 'pathauto_oc_blog_pattern';
+  $strongarm->value = 'blogs/[user:name]';
+  $export['pathauto_oc_blog_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
