@@ -73,7 +73,4 @@ features[variable][] = node_preview_problem
 features[variable][] = node_submitted_problem
 features[views_view][] = problems_list
 features_exclude[dependencies][autocomplete_deluxe] = autocomplete_deluxe
-features_exclude[dependencies][rdf] = rdf
-features_exclude[dependencies][rdfx] = rdfx
-features_exclude[dependencies][schemaorg] = schemaorg
 features_exclude[field_base][field_oc_related_content] = field_oc_related_content

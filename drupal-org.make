@@ -416,22 +416,11 @@ projects[entityreference][download][revision] = 06089a92ee8b269f153064ad3090ce6b
 projects[entityreference][download][branch] = 7.x-1.x
 projects[entityreference][type] = "module"
 
-projects[rdfx][version] = "2.0-alpha4"
-projects[rdfx][subdir] = "contrib"
-
 projects[field_tools][version] = "1.0-alpha3"
 projects[field_tools][subdir] = "contrib"
 
 projects[inline_entity_form][version] = 1.3
 projects[inline_entity_form][subdir] = "contrib"
-
-projects[schemaorg][version] = "1.0-beta3"
-projects[schemaorg][subdir] = "contrib"
-; Support Schema.org cache integration
-projects[schemaorg][patch][1185978] = http://drupal.org/files/schemaorg_cache_integration-1185978-2.patch
-; Fix bug affected features exports
-projects[schemaorg][patch][1853590] = http://drupal.org/files/exportfix-1853590-1.patch
-
 
 ; Nuams modules =====================================================================
 
@@ -509,15 +498,6 @@ projects[efb][download][url] = "http://git.drupal.org/project/efb.git"
 projects[efb][download][revision] = 0e70d160245d9720ba4af34e66674acd03ada1a0
 projects[efb][download][branch] = 7.x-1.x
 projects[efb][type] = "module"
-
-; Schema.org cache module
-projects[schemaorg_cache][subdir] = devel
-projects[schemaorg_cache][version] = "1.x"
-projects[schemaorg_cache][download][type] = "git"
-projects[schemaorg_cache][download][url] = "http://git.drupal.org/project/schemaorg_cache.git"
-projects[schemaorg_cache][download][revision] = 167f480946b579d91ba9467ccdfa68c5fe0c935e
-projects[schemaorg_cache][download][branch] = 7.x-1.x
-projects[schemaorg_cache][type] = "module"
 
 ; Libraries =====================================================================
 

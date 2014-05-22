@@ -365,13 +365,6 @@ function opencivic_blog_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'schemaorg_ui_type_oc_blog';
-  $strongarm->value = 'BlogPosting';
-  $export['schemaorg_ui_type_oc_blog'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'subscriptions_default_workflow_oc_blog';
   $strongarm->value = array(
     'n_new' => 'n_new',

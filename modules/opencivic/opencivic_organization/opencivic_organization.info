@@ -128,7 +128,6 @@ features[variable][] = panelizer_defaults_node_oc_organization
 features[variable][] = panelizer_defaults_taxonomy_term_oc_organization_type
 features[variable][] = pathauto_node_oc_organization_pattern
 features[variable][] = pathauto_taxonomy_term_oc_organization_type_pattern
-features[variable][] = schemaorg_ui_type_oc_organization
 features[variable][] = subscriptions_default_workflow_oc_organization
 features[variable][] = subscriptions_workflow_oc_organization
 features[views_view][] = organization_list

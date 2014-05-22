@@ -93,7 +93,6 @@ dependencies[] = nodequeue
 dependencies[] = page_manager
 dependencies[] = prepopulate
 dependencies[] = prepopulate_create_node_links
-dependencies[] = rdfx
 dependencies[] = recaptcha
 dependencies[] = redirect
 dependencies[] = references_dialog
@@ -102,8 +101,6 @@ dependencies[] = references_dialog
 dependencies[] = rpx_widgets
 dependencies[] = rules
 dependencies[] = rules_admin
-dependencies[] = schemaorg
-dependencies[] = schemaorg_ui
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_db
@@ -145,16 +142,12 @@ dependencies[] = addressfield_extras
 dependencies[] = appcat_blocks
 
 ; Devel
-dependencies[] = schemaorg
 ; dependencies[] = coder
 ; dependencies[] = coder_review
 ; dependencies[] = devel
 ; dependencies[] = diff
 ; dependencies[] = bundle_copy
 ; dependencies[] = efb
-; dependencies[] = efb_schemaorg
-; dependencies[] = schemaorg_ui
-; dependencies[] = schemaorg_cache
 ; Used for importing terms
 ; dependencies[] = taxonomy_csv
 ; dependencies[] = field_tools
