@@ -16,7 +16,10 @@ function opencivic_home_default_page_manager_pages() {
   $page->admin_title = 'Frontpage';
   $page->admin_description = '';
   $page->path = 'frontpage';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'none',
     'title' => '',
@@ -69,10 +72,11 @@ function opencivic_home_default_page_manager_pages() {
   );
   $display->cache = array();
   $display->title = 'No Title';
+  $display->uuid = '8e31e762-f897-4215-88d2-b7e176a0d6fd';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-935ca9a8-e93b-4b53-8375-62e0538b50db';
     $pane->panel = 'column1';
     $pane->type = 'views_panes';
     $pane->subtype = 'application_list-panel_pane_2';
@@ -103,10 +107,11 @@ function opencivic_home_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['column1'][0] = 'new-1';
+    $pane->uuid = '935ca9a8-e93b-4b53-8375-62e0538b50db';
+    $display->content['new-935ca9a8-e93b-4b53-8375-62e0538b50db'] = $pane;
+    $display->panels['column1'][0] = 'new-935ca9a8-e93b-4b53-8375-62e0538b50db';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-37c0a209-ae19-4b50-a910-f47bedfa5b45';
     $pane->panel = 'column2';
     $pane->type = 'views_panes';
     $pane->subtype = 'deployments_list-panel_pane_1';
@@ -137,10 +142,11 @@ function opencivic_home_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['column2'][0] = 'new-2';
+    $pane->uuid = '37c0a209-ae19-4b50-a910-f47bedfa5b45';
+    $display->content['new-37c0a209-ae19-4b50-a910-f47bedfa5b45'] = $pane;
+    $display->panels['column2'][0] = 'new-37c0a209-ae19-4b50-a910-f47bedfa5b45';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-f11615b8-f4b8-403d-8a0e-d3995a1e54ed';
     $pane->panel = 'column3';
     $pane->type = 'block';
     $pane->subtype = 'block-1';
@@ -158,10 +164,11 @@ function opencivic_home_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['column3'][0] = 'new-3';
+    $pane->uuid = 'f11615b8-f4b8-403d-8a0e-d3995a1e54ed';
+    $display->content['new-f11615b8-f4b8-403d-8a0e-d3995a1e54ed'] = $pane;
+    $display->panels['column3'][0] = 'new-f11615b8-f4b8-403d-8a0e-d3995a1e54ed';
     $pane = new stdClass();
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-9fdac4b6-6513-4d0d-95f0-1499defe94b5';
     $pane->panel = 'footer';
     $pane->type = 'views_panes';
     $pane->subtype = 'home_page_map-panel_pane_1';
@@ -192,10 +199,11 @@ function opencivic_home_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['footer'][0] = 'new-4';
+    $pane->uuid = '9fdac4b6-6513-4d0d-95f0-1499defe94b5';
+    $display->content['new-9fdac4b6-6513-4d0d-95f0-1499defe94b5'] = $pane;
+    $display->panels['footer'][0] = 'new-9fdac4b6-6513-4d0d-95f0-1499defe94b5';
     $pane = new stdClass();
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-f59bc1b5-fc2b-4b03-b2de-8efe9d470dab';
     $pane->panel = 'footer';
     $pane->type = 'views_panes';
     $pane->subtype = 'blog-panel_pane_1';
@@ -226,8 +234,9 @@ function opencivic_home_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['footer'][1] = 'new-5';
+    $pane->uuid = 'f59bc1b5-fc2b-4b03-b2de-8efe9d470dab';
+    $display->content['new-f59bc1b5-fc2b-4b03-b2de-8efe9d470dab'] = $pane;
+    $display->panels['footer'][1] = 'new-f59bc1b5-fc2b-4b03-b2de-8efe9d470dab';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -24,6 +24,12 @@ function opencivic_event_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -67,6 +73,66 @@ function opencivic_event_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-oc_event-field_event_type'
+  $field_instances['node-oc_event-field_event_type'] = array(
+    'bundle' => 'oc_event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_type',
+    'label' => 'Event type',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+        'label_help_description' => '',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_select',
+      'weight' => -2,
+    ),
+  );
+
   // Exported field_instance: 'node-oc_event-field_oc_coordinates'
   $field_instances['node-oc_event-field_oc_coordinates'] = array(
     'bundle' => 'oc_event',
@@ -81,6 +147,12 @@ function opencivic_event_field_default_field_instances() {
         ),
         'type' => 'geofield_wkt',
         'weight' => 7,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -141,59 +213,6 @@ function opencivic_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-oc_event-field_event_type'
-  $field_instances['node-oc_event-field_event_type'] = array(
-    'bundle' => 'oc_event',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 8,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_event_type',
-    'label' => 'Event type',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'label_help_description' => '',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_select',
-      'weight' => -2,
-    ),
-  );
-
   // Exported field_instance: 'node-oc_event-field_start_date'
   $field_instances['node-oc_event-field_start_date'] = array(
     'bundle' => 'oc_event',
@@ -213,6 +232,12 @@ function opencivic_event_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 9,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -277,6 +302,12 @@ function opencivic_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'global_phone_number',
         'weight' => 1,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -574,6 +605,12 @@ function opencivic_event_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 5,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -641,6 +678,12 @@ function opencivic_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 10,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',

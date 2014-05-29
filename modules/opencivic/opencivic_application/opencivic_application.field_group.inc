@@ -143,8 +143,7 @@ function opencivic_application_field_group_info() {
     'label' => 'Related content',
     'weight' => '23',
     'children' => array(
-      0 => 'field_oc_app_related_apps',
-      1 => 'field_oc_related_content',
+      0 => 'field_oc_related_content',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

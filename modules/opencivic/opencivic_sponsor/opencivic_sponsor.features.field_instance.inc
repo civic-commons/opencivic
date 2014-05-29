@@ -24,6 +24,12 @@ function opencivic_sponsor_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -83,6 +89,12 @@ function opencivic_sponsor_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
@@ -123,6 +135,18 @@ function opencivic_sponsor_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'label_help_description' => '',
+        'manualcrop_crop_info' => TRUE,
+        'manualcrop_default_crop_area' => TRUE,
+        'manualcrop_enable' => FALSE,
+        'manualcrop_inline_crop' => FALSE,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => TRUE,
+        'manualcrop_keyboard' => TRUE,
+        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
@@ -145,6 +169,12 @@ function opencivic_sponsor_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 5,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -213,6 +243,12 @@ function opencivic_sponsor_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 6,
+      ),
+      'entityreference_view_widget' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
