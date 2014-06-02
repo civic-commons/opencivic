@@ -127,14 +127,6 @@ dependencies[] = views_ui
 dependencies[] = votingapi
 dependencies[] = webform
 
-; For single sign-on
-;dependencies[] = oauth_common
-;dependencies[] = oauth2
-;dependencies[] = connector
-;dependencies[] = oauthconnector
-;dependencies[] = http_client
-;dependencies[] = http_client_oauth
-
 ; Custom
 dependencies[] = fivestar_green
 dependencies[] = subscriptions_subscribers

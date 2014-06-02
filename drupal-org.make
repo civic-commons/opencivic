@@ -268,20 +268,6 @@ projects[nodequeue][version] = "2.0-beta1"
 ; projects[nodereference_url][subdir] = "contrib"
 ; projects[nodereference_url][version] = "1.52"
 
-projects[oauth][version] = 3.2
-projects[oauth][subdir] = contrib
-
-;projects[oauth2][version] = 1.x-dev
-;projects[oauth2][subdir] = contrib
-;projects[oauth2][download][type] = "git"
-;projects[oauth2][download][url] = "http://git.drupal.org/project/oauth2.git"
-;projects[oauth2][download][revision] = c9723e67ebe906b8eca2d7d6c2dd3bbe97093b1f
-;projects[oauth2][download][branch] = 7.x-1.x
-;projects[oauth2][type] = "module"
-
-;projects[oauthconnector][version] = 1.0-beta2
-;projects[oauthconnector][subdir] = contrib
-
 projects[omega_tools][subdir] = "contrib"
 projects[omega_tools][version] = "3.0-rc4"
 
@@ -509,9 +495,6 @@ libraries[colorbox][download][type]        = get
 libraries[colorbox][download][url]         = https://github.com/jackmoore/colorbox/archive/1.x.zip
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
-
-libraries[oauth2-php][download][type] = file
-libraries[oauth2-php][download][url] = https://oauth2-php.googlecode.com/files/oauth2-php-23.tar.gz
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
