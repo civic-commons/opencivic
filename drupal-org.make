@@ -61,7 +61,7 @@ projects[addressfield][subdir] = "contrib"
 projects[addressfield][version] = "1.0-beta5"
 
 projects[addressfield_tokens][subdir] = "contrib"
-projects[addressfield_tokens][version] = 1.3
+projects[addressfield_tokens][version] = 1.4
 
 projects[addtoany][subdir] = "contrib"
 projects[addtoany][version] = 4.5
@@ -138,7 +138,7 @@ projects[date_ical][subdir] = "contrib"
 projects[date_ical][version] = 3.1
 
 projects[date][subdir] = "contrib"
-projects[date][version] = "2.6"
+projects[date][version] = "2.8"
 
 projects[delta][subdir] = "contrib"
 projects[delta][version] = "3.0-beta11"
@@ -392,7 +392,7 @@ projects[votingapi][subdir] = "contrib"
 projects[votingapi][version] = 2.11
 
 projects[webform][subdir] = "contrib"
-projects[webform][version] = 3.19
+projects[webform][version] = 3.21
 
 
 ; Schema.org kickstart modules ======================================================
